@@ -1,6 +1,6 @@
 <?php
 /**
- * StatutTache
+ * MontantHtTotal1
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \FactPulse\SDK\ObjectSerializer;
 
 /**
- * StatutTache Class Doc Comment
+ * MontantHtTotal1 Class Doc Comment
  *
  * @category Class
- * @description Description complète du statut d&#39;une tâche asynchrone.
+ * @description Montant HT total
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class StatutTache implements ModelInterface, ArrayAccess, \JsonSerializable
+class MontantHtTotal1 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class StatutTache implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'StatutTache';
+    protected static $openAPIModelName = 'Montant_Ht_Total_1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,7 @@ class StatutTache implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id_tache' => 'string',
-        'statut' => 'string',
-        'resultat' => 'array<string,mixed>'
+        
     ];
 
     /**
@@ -71,9 +69,7 @@ class StatutTache implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id_tache' => null,
-        'statut' => null,
-        'resultat' => null
+        
     ];
 
     /**
@@ -82,9 +78,7 @@ class StatutTache implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id_tache' => false,
-        'statut' => false,
-        'resultat' => true
+        
     ];
 
     /**
@@ -173,9 +167,7 @@ class StatutTache implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id_tache' => 'id_tache',
-        'statut' => 'statut',
-        'resultat' => 'resultat'
+        
     ];
 
     /**
@@ -184,9 +176,7 @@ class StatutTache implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id_tache' => 'setIdTache',
-        'statut' => 'setStatut',
-        'resultat' => 'setResultat'
+        
     ];
 
     /**
@@ -195,9 +185,7 @@ class StatutTache implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id_tache' => 'getIdTache',
-        'statut' => 'getStatut',
-        'resultat' => 'getResultat'
+        
     ];
 
     /**
@@ -257,9 +245,6 @@ class StatutTache implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('id_tache', $data ?? [], null);
-        $this->setIfExists('statut', $data ?? [], null);
-        $this->setIfExists('resultat', $data ?? [], null);
     }
 
     /**
@@ -289,12 +274,6 @@ class StatutTache implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['id_tache'] === null) {
-            $invalidProperties[] = "'id_tache' can't be null";
-        }
-        if ($this->container['statut'] === null) {
-            $invalidProperties[] = "'statut' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -309,94 +288,6 @@ class StatutTache implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id_tache
-     *
-     * @return string
-     */
-    public function getIdTache()
-    {
-        return $this->container['id_tache'];
-    }
-
-    /**
-     * Sets id_tache
-     *
-     * @param string $id_tache id_tache
-     *
-     * @return self
-     */
-    public function setIdTache($id_tache)
-    {
-        if (is_null($id_tache)) {
-            throw new \InvalidArgumentException('non-nullable id_tache cannot be null');
-        }
-        $this->container['id_tache'] = $id_tache;
-
-        return $this;
-    }
-
-    /**
-     * Gets statut
-     *
-     * @return string
-     */
-    public function getStatut()
-    {
-        return $this->container['statut'];
-    }
-
-    /**
-     * Sets statut
-     *
-     * @param string $statut statut
-     *
-     * @return self
-     */
-    public function setStatut($statut)
-    {
-        if (is_null($statut)) {
-            throw new \InvalidArgumentException('non-nullable statut cannot be null');
-        }
-        $this->container['statut'] = $statut;
-
-        return $this;
-    }
-
-    /**
-     * Gets resultat
-     *
-     * @return array<string,mixed>|null
-     */
-    public function getResultat()
-    {
-        return $this->container['resultat'];
-    }
-
-    /**
-     * Sets resultat
-     *
-     * @param array<string,mixed>|null $resultat resultat
-     *
-     * @return self
-     */
-    public function setResultat($resultat)
-    {
-        if (is_null($resultat)) {
-            array_push($this->openAPINullablesSetToNull, 'resultat');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('resultat', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['resultat'] = $resultat;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

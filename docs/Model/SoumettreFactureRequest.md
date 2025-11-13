@@ -11,9 +11,9 @@ Name | Type | Description | Notes
 **id_structure_cpp** | **int** | ID Chorus Pro de la structure destinataire |
 **code_service** | **string** |  | [optional]
 **numero_engagement** | **string** |  | [optional]
-**montant_ht_total** | **string** | Montant HT total |
-**montant_tva** | **string** | Montant TVA |
-**montant_ttc_total** | **string** | Montant TTC total |
+**montant_ht_total** | [**\FactPulse\SDK\Model\MontantHtTotal1**](MontantHtTotal1.md) |  |
+**montant_tva** | [**\FactPulse\SDK\Model\MontantTva1**](MontantTva1.md) |  |
+**montant_ttc_total** | [**\FactPulse\SDK\Model\MontantTtcTotal1**](MontantTtcTotal1.md) |  |
 **piece_jointe_principale_id** | **int** |  | [optional]
 **piece_jointe_principale_designation** | **string** |  | [optional]
 **commentaire** | **string** |  | [optional]

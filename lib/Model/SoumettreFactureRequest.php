@@ -65,9 +65,9 @@ class SoumettreFactureRequest implements ModelInterface, ArrayAccess, \JsonSeria
         'id_structure_cpp' => 'int',
         'code_service' => 'string',
         'numero_engagement' => 'string',
-        'montant_ht_total' => 'string',
-        'montant_tva' => 'string',
-        'montant_ttc_total' => 'string',
+        'montant_ht_total' => '\FactPulse\SDK\Model\MontantHtTotal1',
+        'montant_tva' => '\FactPulse\SDK\Model\MontantTva1',
+        'montant_ttc_total' => '\FactPulse\SDK\Model\MontantTtcTotal1',
         'piece_jointe_principale_id' => 'int',
         'piece_jointe_principale_designation' => 'string',
         'commentaire' => 'string',
@@ -626,7 +626,7 @@ class SoumettreFactureRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets montant_ht_total
      *
-     * @return string
+     * @return \FactPulse\SDK\Model\MontantHtTotal1
      */
     public function getMontantHtTotal()
     {
@@ -636,7 +636,7 @@ class SoumettreFactureRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets montant_ht_total
      *
-     * @param string $montant_ht_total Montant HT total
+     * @param \FactPulse\SDK\Model\MontantHtTotal1 $montant_ht_total montant_ht_total
      *
      * @return self
      */
@@ -653,7 +653,7 @@ class SoumettreFactureRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets montant_tva
      *
-     * @return string
+     * @return \FactPulse\SDK\Model\MontantTva1
      */
     public function getMontantTva()
     {
@@ -663,7 +663,7 @@ class SoumettreFactureRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets montant_tva
      *
-     * @param string $montant_tva Montant TVA
+     * @param \FactPulse\SDK\Model\MontantTva1 $montant_tva montant_tva
      *
      * @return self
      */
@@ -680,7 +680,7 @@ class SoumettreFactureRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets montant_ttc_total
      *
-     * @return string
+     * @return \FactPulse\SDK\Model\MontantTtcTotal1
      */
     public function getMontantTtcTotal()
     {
@@ -690,7 +690,7 @@ class SoumettreFactureRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets montant_ttc_total
      *
-     * @param string $montant_ttc_total Montant TTC total
+     * @param \FactPulse\SDK\Model\MontantTtcTotal1 $montant_ttc_total montant_ttc_total
      *
      * @return self
      */

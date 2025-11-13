@@ -58,7 +58,7 @@ class OptionsProcessing implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'profil_facturx' => 'string',
+        'profil_facturx' => '\FactPulse\SDK\Model\ProfilAPI',
         'auto_enrichir' => 'bool',
         'valider' => 'bool',
         'verifier_parametres_destination' => 'bool'
@@ -247,25 +247,6 @@ class OptionsProcessing implements ModelInterface, ArrayAccess, \JsonSerializabl
         return self::$openAPIModelName;
     }
 
-    public const PROFIL_FACTURX_MINIMUM = 'MINIMUM';
-    public const PROFIL_FACTURX_BASIC = 'BASIC';
-    public const PROFIL_FACTURX_EN16931 = 'EN16931';
-    public const PROFIL_FACTURX_EXTENDED = 'EXTENDED';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getProfilFacturxAllowableValues()
-    {
-        return [
-            self::PROFIL_FACTURX_MINIMUM,
-            self::PROFIL_FACTURX_BASIC,
-            self::PROFIL_FACTURX_EN16931,
-            self::PROFIL_FACTURX_EXTENDED,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -282,7 +263,7 @@ class OptionsProcessing implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('profil_facturx', $data ?? [], 'EN16931');
+        $this->setIfExists('profil_facturx', $data ?? [], null);
         $this->setIfExists('auto_enrichir', $data ?? [], true);
         $this->setIfExists('valider', $data ?? [], true);
         $this->setIfExists('verifier_parametres_destination', $data ?? [], true);
@@ -315,15 +296,6 @@ class OptionsProcessing implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getProfilFacturxAllowableValues();
-        if (!is_null($this->container['profil_facturx']) && !in_array($this->container['profil_facturx'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'profil_facturx', must be one of '%s'",
-                $this->container['profil_facturx'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -342,7 +314,7 @@ class OptionsProcessing implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets profil_facturx
      *
-     * @return string|null
+     * @return \FactPulse\SDK\Model\ProfilAPI|null
      */
     public function getProfilFacturx()
     {
@@ -352,7 +324,7 @@ class OptionsProcessing implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets profil_facturx
      *
-     * @param string|null $profil_facturx Profil Factur-X à utiliser
+     * @param \FactPulse\SDK\Model\ProfilAPI|null $profil_facturx Profil Factur-X à utiliser
      *
      * @return self
      */
@@ -360,16 +332,6 @@ class OptionsProcessing implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         if (is_null($profil_facturx)) {
             throw new \InvalidArgumentException('non-nullable profil_facturx cannot be null');
-        }
-        $allowedValues = $this->getProfilFacturxAllowableValues();
-        if (!in_array($profil_facturx, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'profil_facturx', must be one of '%s'",
-                    $profil_facturx,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['profil_facturx'] = $profil_facturx;
 
