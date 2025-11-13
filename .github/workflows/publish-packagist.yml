@@ -33,5 +33,6 @@ jobs:
     steps:
     - name: Update Packagist
       run: |
-        curl -X POST https://packagist.org/api/update-package?username=${{ secrets.PACKAGIST_USERNAME }}&apiToken=${{ secrets.PACKAGIST_TOKEN }} \
+        curl -X POST "https://packagist.org/api/update-package?username=${{ secrets.PACKAGIST_USERNAME }}&apiToken=${{ secrets.PACKAGIST_TOKEN }}" \
+          -H "Content-Type: application/json" \
           -d '{"repository":{"url":"https://github.com/factpulse/sdk-php"}}'
