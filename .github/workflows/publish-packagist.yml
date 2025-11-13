@@ -32,7 +32,8 @@ jobs:
 
     steps:
     - name: Update Packagist
+      continue-on-error: true
       run: |
         curl -X POST "https://packagist.org/api/update-package?username=${{ secrets.PACKAGIST_USERNAME }}&apiToken=${{ secrets.PACKAGIST_TOKEN }}" \
           -H "Content-Type: application/json" \
-          -d '{"repository":{"url":"https://github.com/factpulse/sdk-php"}}'
+          -d '{"repository":{"url":"https://github.com/factpulse/sdk-php"}}' || echo "⚠️ Package not found on Packagist. Submit manually at https://packagist.org/packages/submit"
