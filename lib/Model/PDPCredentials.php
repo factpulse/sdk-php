@@ -59,6 +59,7 @@ class PDPCredentials implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'flow_service_url' => 'string',
+        'directory_service_url' => 'string',
         'token_url' => 'string',
         'client_id' => 'string',
         'client_secret' => 'string'
@@ -73,6 +74,7 @@ class PDPCredentials implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'flow_service_url' => null,
+        'directory_service_url' => null,
         'token_url' => null,
         'client_id' => null,
         'client_secret' => null
@@ -85,6 +87,7 @@ class PDPCredentials implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'flow_service_url' => false,
+        'directory_service_url' => true,
         'token_url' => false,
         'client_id' => false,
         'client_secret' => false
@@ -177,6 +180,7 @@ class PDPCredentials implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'flow_service_url' => 'flow_service_url',
+        'directory_service_url' => 'directory_service_url',
         'token_url' => 'token_url',
         'client_id' => 'client_id',
         'client_secret' => 'client_secret'
@@ -189,6 +193,7 @@ class PDPCredentials implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'flow_service_url' => 'setFlowServiceUrl',
+        'directory_service_url' => 'setDirectoryServiceUrl',
         'token_url' => 'setTokenUrl',
         'client_id' => 'setClientId',
         'client_secret' => 'setClientSecret'
@@ -201,6 +206,7 @@ class PDPCredentials implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'flow_service_url' => 'getFlowServiceUrl',
+        'directory_service_url' => 'getDirectoryServiceUrl',
         'token_url' => 'getTokenUrl',
         'client_id' => 'getClientId',
         'client_secret' => 'getClientSecret'
@@ -264,6 +270,7 @@ class PDPCredentials implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('flow_service_url', $data ?? [], null);
+        $this->setIfExists('directory_service_url', $data ?? [], null);
         $this->setIfExists('token_url', $data ?? [], null);
         $this->setIfExists('client_id', $data ?? [], null);
         $this->setIfExists('client_secret', $data ?? [], null);
@@ -346,6 +353,40 @@ class PDPCredentials implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable flow_service_url cannot be null');
         }
         $this->container['flow_service_url'] = $flow_service_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets directory_service_url
+     *
+     * @return string|null
+     */
+    public function getDirectoryServiceUrl()
+    {
+        return $this->container['directory_service_url'];
+    }
+
+    /**
+     * Sets directory_service_url
+     *
+     * @param string|null $directory_service_url directory_service_url
+     *
+     * @return self
+     */
+    public function setDirectoryServiceUrl($directory_service_url)
+    {
+        if (is_null($directory_service_url)) {
+            array_push($this->openAPINullablesSetToNull, 'directory_service_url');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('directory_service_url', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['directory_service_url'] = $directory_service_url;
 
         return $this;
     }

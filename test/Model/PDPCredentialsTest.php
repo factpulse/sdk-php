@@ -89,6 +89,15 @@ class PDPCredentialsTest extends TestCase
     }
 
     /**
+     * Test attribute "directory_service_url"
+     */
+    public function testPropertyDirectoryServiceUrl()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "token_url"
      */
     public function testPropertyTokenUrl()
