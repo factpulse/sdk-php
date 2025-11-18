@@ -44,11 +44,15 @@ Créer une ligne dans l'annuaire
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer authorization: HTTPBearer
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 
 try {
@@ -69,7 +73,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -97,11 +101,15 @@ Créer un code de routage dans l'annuaire
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer authorization: HTTPBearer
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 
 try {
@@ -122,7 +130,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -150,11 +158,15 @@ Supprimer une ligne d'annuaire
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer authorization: HTTPBearer
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id_instance = 'id_instance_example'; // string
 
@@ -178,7 +190,7 @@ try {
 
 ### Authorization
 
-No authorization required
+[HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -259,11 +271,15 @@ Obtenir une ligne d'annuaire identifiée par un identifiant d'adressage
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer authorization: HTTPBearer
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $addressing_identifier = 'addressing_identifier_example'; // string
 
@@ -287,7 +303,7 @@ try {
 
 ### Authorization
 
-No authorization required
+[HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -315,11 +331,15 @@ Obtenir une ligne d'annuaire identifiée par son idInstance
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer authorization: HTTPBearer
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id_instance = 'id_instance_example'; // string
 
@@ -343,7 +363,7 @@ try {
 
 ### Authorization
 
-No authorization required
+[HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -371,11 +391,15 @@ Obtenir un code de routage identifié par son idInstance
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer authorization: HTTPBearer
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id_instance = 'id_instance_example'; // string
 
@@ -399,7 +423,7 @@ try {
 
 ### Authorization
 
-No authorization required
+[HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -427,11 +451,15 @@ Consulter un code de routage identifié par SIRET et identifiant de routage
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer authorization: HTTPBearer
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $siret = 'siret_example'; // string
 $routing_identifier = 'routing_identifier_example'; // string
@@ -457,7 +485,7 @@ try {
 
 ### Authorization
 
-No authorization required
+[HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -485,11 +513,15 @@ Retourne les détails d'une entreprise (unité légale) identifiée par son num�
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer authorization: HTTPBearer
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $siren = 'siren_example'; // string
 
@@ -513,7 +545,7 @@ try {
 
 ### Authorization
 
-No authorization required
+[HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -541,11 +573,15 @@ Obtenir une entreprise (unité légale) identifiée par son idInstance
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer authorization: HTTPBearer
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id_instance = 'id_instance_example'; // string
 
@@ -569,7 +605,7 @@ try {
 
 ### Authorization
 
-No authorization required
+[HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -597,11 +633,15 @@ Obtenir un établissement identifié par son numéro SIRET
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer authorization: HTTPBearer
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $siret = 'siret_example'; // string
 
@@ -625,7 +665,7 @@ try {
 
 ### Authorization
 
-No authorization required
+[HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -653,11 +693,15 @@ Obtenir un établissement identifié par son idInstance
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer authorization: HTTPBearer
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id_instance = 'id_instance_example'; // string
 
@@ -681,7 +725,7 @@ try {
 
 ### Authorization
 
-No authorization required
+[HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -709,11 +753,15 @@ Mettre à jour partiellement une ligne d'annuaire
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer authorization: HTTPBearer
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id_instance = 'id_instance_example'; // string
 
@@ -737,7 +785,7 @@ try {
 
 ### Authorization
 
-No authorization required
+[HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -765,11 +813,15 @@ Mettre à jour partiellement un code de routage privé
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer authorization: HTTPBearer
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id_instance = 'id_instance_example'; // string
 
@@ -793,7 +845,7 @@ try {
 
 ### Authorization
 
-No authorization required
+[HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -821,11 +873,15 @@ Mettre à jour complètement un code de routage privé
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer authorization: HTTPBearer
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id_instance = 'id_instance_example'; // string
 
@@ -849,7 +905,7 @@ try {
 
 ### Authorization
 
-No authorization required
+[HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -877,11 +933,15 @@ Rechercher des lignes d'annuaire selon des critères
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer authorization: HTTPBearer
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 
 try {
@@ -902,7 +962,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -930,11 +990,15 @@ Rechercher des codes de routage selon des critères
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer authorization: HTTPBearer
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 
 try {
@@ -955,7 +1019,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -983,11 +1047,15 @@ Recherche multi-critères d'entreprises (unités légales)
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer authorization: HTTPBearer
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 
 try {
@@ -1008,7 +1076,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -1036,11 +1104,15 @@ Recherche multi-critères d'établissements
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer authorization: HTTPBearer
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 
 try {
@@ -1061,7 +1133,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
