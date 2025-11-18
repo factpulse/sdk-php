@@ -74,13 +74,61 @@ class AFNORPDPPADirectoryServiceApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
+        'createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost' => [
+            'application/json',
+        ],
+        'createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost' => [
+            'application/json',
+        ],
+        'deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete' => [
+            'application/json',
+        ],
         'directoryHealthcheckProxyApiV1AfnorDirectoryV1HealthcheckGet' => [
             'application/json',
         ],
-        'getCompanyProxyApiV1AfnorDirectoryV1CompaniesSirenGet' => [
+        'getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet' => [
             'application/json',
         ],
-        'searchCompaniesProxyApiV1AfnorDirectoryV1CompaniesSearchPost' => [
+        'getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet' => [
+            'application/json',
+        ],
+        'getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet' => [
+            'application/json',
+        ],
+        'getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet' => [
+            'application/json',
+        ],
+        'getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet' => [
+            'application/json',
+        ],
+        'getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet' => [
+            'application/json',
+        ],
+        'getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet' => [
+            'application/json',
+        ],
+        'getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet' => [
+            'application/json',
+        ],
+        'patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch' => [
+            'application/json',
+        ],
+        'patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch' => [
+            'application/json',
+        ],
+        'putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut' => [
+            'application/json',
+        ],
+        'searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost' => [
+            'application/json',
+        ],
+        'searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost' => [
+            'application/json',
+        ],
+        'searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost' => [
+            'application/json',
+        ],
+        'searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost' => [
             'application/json',
         ],
     ];
@@ -129,6 +177,784 @@ class AFNORPDPPADirectoryServiceApi
     public function getConfig()
     {
         return $this->config;
+    }
+
+    /**
+     * Operation createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost
+     *
+     * Creating a directory line
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return mixed
+     */
+    public function createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost(string $contentType = self::contentTypes['createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost'][0])
+    {
+        list($response) = $this->createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePostWithHttpInfo($contentType);
+        return $response;
+    }
+
+    /**
+     * Operation createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePostWithHttpInfo
+     *
+     * Creating a directory line
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of mixed, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePostWithHttpInfo(string $contentType = self::contentTypes['createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost'][0])
+    {
+        $request = $this->createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePostRequest($contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'mixed',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePostAsync
+     *
+     * Creating a directory line
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePostAsync(string $contentType = self::contentTypes['createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost'][0])
+    {
+        return $this->createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePostAsyncWithHttpInfo($contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePostAsyncWithHttpInfo
+     *
+     * Creating a directory line
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePostAsyncWithHttpInfo(string $contentType = self::contentTypes['createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost'][0])
+    {
+        $returnType = 'mixed';
+        $request = $this->createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePostRequest($contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost'
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePostRequest(string $contentType = self::contentTypes['createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost'][0])
+    {
+
+
+        $resourcePath = '/api/v1/afnor/directory/v1/directory-line';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost
+     *
+     * Create a routing code
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return mixed
+     */
+    public function createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost(string $contentType = self::contentTypes['createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost'][0])
+    {
+        list($response) = $this->createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePostWithHttpInfo($contentType);
+        return $response;
+    }
+
+    /**
+     * Operation createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePostWithHttpInfo
+     *
+     * Create a routing code
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of mixed, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePostWithHttpInfo(string $contentType = self::contentTypes['createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost'][0])
+    {
+        $request = $this->createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePostRequest($contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'mixed',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePostAsync
+     *
+     * Create a routing code
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePostAsync(string $contentType = self::contentTypes['createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost'][0])
+    {
+        return $this->createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePostAsyncWithHttpInfo($contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePostAsyncWithHttpInfo
+     *
+     * Create a routing code
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePostAsyncWithHttpInfo(string $contentType = self::contentTypes['createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost'][0])
+    {
+        $returnType = 'mixed';
+        $request = $this->createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePostRequest($contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost'
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePostRequest(string $contentType = self::contentTypes['createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost'][0])
+    {
+
+
+        $resourcePath = '/api/v1/afnor/directory/v1/routing-code';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete
+     *
+     * Delete a directory line
+     *
+     * @param  string $id_instance id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return mixed|\FactPulse\SDK\Model\HTTPValidationError
+     */
+    public function deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete($id_instance, string $contentType = self::contentTypes['deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete'][0])
+    {
+        list($response) = $this->deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDeleteWithHttpInfo($id_instance, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDeleteWithHttpInfo
+     *
+     * Delete a directory line
+     *
+     * @param  string $id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of mixed|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDeleteWithHttpInfo($id_instance, string $contentType = self::contentTypes['deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete'][0])
+    {
+        $request = $this->deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDeleteRequest($id_instance, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 422:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'mixed',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDeleteAsync
+     *
+     * Delete a directory line
+     *
+     * @param  string $id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDeleteAsync($id_instance, string $contentType = self::contentTypes['deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete'][0])
+    {
+        return $this->deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDeleteAsyncWithHttpInfo($id_instance, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDeleteAsyncWithHttpInfo
+     *
+     * Delete a directory line
+     *
+     * @param  string $id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDeleteAsyncWithHttpInfo($id_instance, string $contentType = self::contentTypes['deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete'][0])
+    {
+        $returnType = 'mixed';
+        $request = $this->deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDeleteRequest($id_instance, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete'
+     *
+     * @param  string $id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDeleteRequest($id_instance, string $contentType = self::contentTypes['deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete'][0])
+    {
+
+        // verify the required parameter 'id_instance' is set
+        if ($id_instance === null || (is_array($id_instance) && count($id_instance) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id_instance when calling deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/afnor/directory/v1/directory-line/id-instance:{id_instance}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id_instance !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id_instance' . '}',
+                ObjectSerializer::toPathValue($id_instance),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
     }
 
     /**
@@ -380,38 +1206,38 @@ class AFNORPDPPADirectoryServiceApi
     }
 
     /**
-     * Operation getCompanyProxyApiV1AfnorDirectoryV1CompaniesSirenGet
+     * Operation getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet
      *
-     * Récupérer une entreprise
+     * Get a directory line
      *
-     * @param  string $siren siren (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCompanyProxyApiV1AfnorDirectoryV1CompaniesSirenGet'] to see the possible values for this operation
+     * @param  string $addressing_identifier addressing_identifier (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return mixed|\FactPulse\SDK\Model\HTTPValidationError
      */
-    public function getCompanyProxyApiV1AfnorDirectoryV1CompaniesSirenGet($siren, string $contentType = self::contentTypes['getCompanyProxyApiV1AfnorDirectoryV1CompaniesSirenGet'][0])
+    public function getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet($addressing_identifier, string $contentType = self::contentTypes['getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet'][0])
     {
-        list($response) = $this->getCompanyProxyApiV1AfnorDirectoryV1CompaniesSirenGetWithHttpInfo($siren, $contentType);
+        list($response) = $this->getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGetWithHttpInfo($addressing_identifier, $contentType);
         return $response;
     }
 
     /**
-     * Operation getCompanyProxyApiV1AfnorDirectoryV1CompaniesSirenGetWithHttpInfo
+     * Operation getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGetWithHttpInfo
      *
-     * Récupérer une entreprise
+     * Get a directory line
      *
-     * @param  string $siren (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCompanyProxyApiV1AfnorDirectoryV1CompaniesSirenGet'] to see the possible values for this operation
+     * @param  string $addressing_identifier (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of mixed|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCompanyProxyApiV1AfnorDirectoryV1CompaniesSirenGetWithHttpInfo($siren, string $contentType = self::contentTypes['getCompanyProxyApiV1AfnorDirectoryV1CompaniesSirenGet'][0])
+    public function getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGetWithHttpInfo($addressing_identifier, string $contentType = self::contentTypes['getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet'][0])
     {
-        $request = $this->getCompanyProxyApiV1AfnorDirectoryV1CompaniesSirenGetRequest($siren, $contentType);
+        $request = $this->getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGetRequest($addressing_identifier, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -497,19 +1323,19 @@ class AFNORPDPPADirectoryServiceApi
     }
 
     /**
-     * Operation getCompanyProxyApiV1AfnorDirectoryV1CompaniesSirenGetAsync
+     * Operation getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGetAsync
      *
-     * Récupérer une entreprise
+     * Get a directory line
      *
-     * @param  string $siren (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCompanyProxyApiV1AfnorDirectoryV1CompaniesSirenGet'] to see the possible values for this operation
+     * @param  string $addressing_identifier (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCompanyProxyApiV1AfnorDirectoryV1CompaniesSirenGetAsync($siren, string $contentType = self::contentTypes['getCompanyProxyApiV1AfnorDirectoryV1CompaniesSirenGet'][0])
+    public function getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGetAsync($addressing_identifier, string $contentType = self::contentTypes['getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet'][0])
     {
-        return $this->getCompanyProxyApiV1AfnorDirectoryV1CompaniesSirenGetAsyncWithHttpInfo($siren, $contentType)
+        return $this->getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGetAsyncWithHttpInfo($addressing_identifier, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -518,20 +1344,20 @@ class AFNORPDPPADirectoryServiceApi
     }
 
     /**
-     * Operation getCompanyProxyApiV1AfnorDirectoryV1CompaniesSirenGetAsyncWithHttpInfo
+     * Operation getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGetAsyncWithHttpInfo
      *
-     * Récupérer une entreprise
+     * Get a directory line
      *
-     * @param  string $siren (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCompanyProxyApiV1AfnorDirectoryV1CompaniesSirenGet'] to see the possible values for this operation
+     * @param  string $addressing_identifier (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCompanyProxyApiV1AfnorDirectoryV1CompaniesSirenGetAsyncWithHttpInfo($siren, string $contentType = self::contentTypes['getCompanyProxyApiV1AfnorDirectoryV1CompaniesSirenGet'][0])
+    public function getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGetAsyncWithHttpInfo($addressing_identifier, string $contentType = self::contentTypes['getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet'][0])
     {
         $returnType = 'mixed';
-        $request = $this->getCompanyProxyApiV1AfnorDirectoryV1CompaniesSirenGetRequest($siren, $contentType);
+        $request = $this->getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGetRequest($addressing_identifier, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -570,26 +1396,1174 @@ class AFNORPDPPADirectoryServiceApi
     }
 
     /**
-     * Create request for operation 'getCompanyProxyApiV1AfnorDirectoryV1CompaniesSirenGet'
+     * Create request for operation 'getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet'
      *
-     * @param  string $siren (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCompanyProxyApiV1AfnorDirectoryV1CompaniesSirenGet'] to see the possible values for this operation
+     * @param  string $addressing_identifier (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCompanyProxyApiV1AfnorDirectoryV1CompaniesSirenGetRequest($siren, string $contentType = self::contentTypes['getCompanyProxyApiV1AfnorDirectoryV1CompaniesSirenGet'][0])
+    public function getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGetRequest($addressing_identifier, string $contentType = self::contentTypes['getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet'][0])
+    {
+
+        // verify the required parameter 'addressing_identifier' is set
+        if ($addressing_identifier === null || (is_array($addressing_identifier) && count($addressing_identifier) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $addressing_identifier when calling getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/afnor/directory/v1/directory-line/code:{addressing_identifier}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($addressing_identifier !== null) {
+            $resourcePath = str_replace(
+                '{' . 'addressing_identifier' . '}',
+                ObjectSerializer::toPathValue($addressing_identifier),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet
+     *
+     * Get a directory line
+     *
+     * @param  string $id_instance id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return mixed|\FactPulse\SDK\Model\HTTPValidationError
+     */
+    public function getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet($id_instance, string $contentType = self::contentTypes['getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet'][0])
+    {
+        list($response) = $this->getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGetWithHttpInfo($id_instance, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGetWithHttpInfo
+     *
+     * Get a directory line
+     *
+     * @param  string $id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of mixed|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGetWithHttpInfo($id_instance, string $contentType = self::contentTypes['getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet'][0])
+    {
+        $request = $this->getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGetRequest($id_instance, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 422:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'mixed',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGetAsync
+     *
+     * Get a directory line
+     *
+     * @param  string $id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGetAsync($id_instance, string $contentType = self::contentTypes['getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet'][0])
+    {
+        return $this->getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGetAsyncWithHttpInfo($id_instance, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGetAsyncWithHttpInfo
+     *
+     * Get a directory line
+     *
+     * @param  string $id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGetAsyncWithHttpInfo($id_instance, string $contentType = self::contentTypes['getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet'][0])
+    {
+        $returnType = 'mixed';
+        $request = $this->getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGetRequest($id_instance, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet'
+     *
+     * @param  string $id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGetRequest($id_instance, string $contentType = self::contentTypes['getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet'][0])
+    {
+
+        // verify the required parameter 'id_instance' is set
+        if ($id_instance === null || (is_array($id_instance) && count($id_instance) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id_instance when calling getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/afnor/directory/v1/directory-line/id-instance:{id_instance}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id_instance !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id_instance' . '}',
+                ObjectSerializer::toPathValue($id_instance),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet
+     *
+     * Get a routing code by instance-id
+     *
+     * @param  string $id_instance id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return mixed|\FactPulse\SDK\Model\HTTPValidationError
+     */
+    public function getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet($id_instance, string $contentType = self::contentTypes['getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet'][0])
+    {
+        list($response) = $this->getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGetWithHttpInfo($id_instance, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGetWithHttpInfo
+     *
+     * Get a routing code by instance-id
+     *
+     * @param  string $id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of mixed|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGetWithHttpInfo($id_instance, string $contentType = self::contentTypes['getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet'][0])
+    {
+        $request = $this->getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGetRequest($id_instance, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 422:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'mixed',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGetAsync
+     *
+     * Get a routing code by instance-id
+     *
+     * @param  string $id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGetAsync($id_instance, string $contentType = self::contentTypes['getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet'][0])
+    {
+        return $this->getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGetAsyncWithHttpInfo($id_instance, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGetAsyncWithHttpInfo
+     *
+     * Get a routing code by instance-id
+     *
+     * @param  string $id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGetAsyncWithHttpInfo($id_instance, string $contentType = self::contentTypes['getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet'][0])
+    {
+        $returnType = 'mixed';
+        $request = $this->getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGetRequest($id_instance, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet'
+     *
+     * @param  string $id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGetRequest($id_instance, string $contentType = self::contentTypes['getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet'][0])
+    {
+
+        // verify the required parameter 'id_instance' is set
+        if ($id_instance === null || (is_array($id_instance) && count($id_instance) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id_instance when calling getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/afnor/directory/v1/routing-code/id-instance:{id_instance}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id_instance !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id_instance' . '}',
+                ObjectSerializer::toPathValue($id_instance),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet
+     *
+     * Get a routing code by SIRET and routing identifier
+     *
+     * @param  string $siret siret (required)
+     * @param  string $routing_identifier routing_identifier (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return mixed|\FactPulse\SDK\Model\HTTPValidationError
+     */
+    public function getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet($siret, $routing_identifier, string $contentType = self::contentTypes['getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet'][0])
+    {
+        list($response) = $this->getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGetWithHttpInfo($siret, $routing_identifier, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGetWithHttpInfo
+     *
+     * Get a routing code by SIRET and routing identifier
+     *
+     * @param  string $siret (required)
+     * @param  string $routing_identifier (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of mixed|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGetWithHttpInfo($siret, $routing_identifier, string $contentType = self::contentTypes['getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet'][0])
+    {
+        $request = $this->getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGetRequest($siret, $routing_identifier, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 422:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'mixed',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGetAsync
+     *
+     * Get a routing code by SIRET and routing identifier
+     *
+     * @param  string $siret (required)
+     * @param  string $routing_identifier (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGetAsync($siret, $routing_identifier, string $contentType = self::contentTypes['getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet'][0])
+    {
+        return $this->getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGetAsyncWithHttpInfo($siret, $routing_identifier, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGetAsyncWithHttpInfo
+     *
+     * Get a routing code by SIRET and routing identifier
+     *
+     * @param  string $siret (required)
+     * @param  string $routing_identifier (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGetAsyncWithHttpInfo($siret, $routing_identifier, string $contentType = self::contentTypes['getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet'][0])
+    {
+        $returnType = 'mixed';
+        $request = $this->getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGetRequest($siret, $routing_identifier, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet'
+     *
+     * @param  string $siret (required)
+     * @param  string $routing_identifier (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGetRequest($siret, $routing_identifier, string $contentType = self::contentTypes['getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet'][0])
+    {
+
+        // verify the required parameter 'siret' is set
+        if ($siret === null || (is_array($siret) && count($siret) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $siret when calling getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet'
+            );
+        }
+
+        // verify the required parameter 'routing_identifier' is set
+        if ($routing_identifier === null || (is_array($routing_identifier) && count($routing_identifier) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $routing_identifier when calling getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/afnor/directory/v1/routing-code/siret:{siret}/code:{routing_identifier}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($siret !== null) {
+            $resourcePath = str_replace(
+                '{' . 'siret' . '}',
+                ObjectSerializer::toPathValue($siret),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($routing_identifier !== null) {
+            $resourcePath = str_replace(
+                '{' . 'routing_identifier' . '}',
+                ObjectSerializer::toPathValue($routing_identifier),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet
+     *
+     * Consult a siren (legal unit) by SIREN number
+     *
+     * @param  string $siren siren (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return mixed|\FactPulse\SDK\Model\HTTPValidationError
+     */
+    public function getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet($siren, string $contentType = self::contentTypes['getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet'][0])
+    {
+        list($response) = $this->getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGetWithHttpInfo($siren, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGetWithHttpInfo
+     *
+     * Consult a siren (legal unit) by SIREN number
+     *
+     * @param  string $siren (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of mixed|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGetWithHttpInfo($siren, string $contentType = self::contentTypes['getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet'][0])
+    {
+        $request = $this->getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGetRequest($siren, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 422:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'mixed',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGetAsync
+     *
+     * Consult a siren (legal unit) by SIREN number
+     *
+     * @param  string $siren (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGetAsync($siren, string $contentType = self::contentTypes['getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet'][0])
+    {
+        return $this->getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGetAsyncWithHttpInfo($siren, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGetAsyncWithHttpInfo
+     *
+     * Consult a siren (legal unit) by SIREN number
+     *
+     * @param  string $siren (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGetAsyncWithHttpInfo($siren, string $contentType = self::contentTypes['getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet'][0])
+    {
+        $returnType = 'mixed';
+        $request = $this->getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGetRequest($siren, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet'
+     *
+     * @param  string $siren (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGetRequest($siren, string $contentType = self::contentTypes['getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet'][0])
     {
 
         // verify the required parameter 'siren' is set
         if ($siren === null || (is_array($siren) && count($siren) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $siren when calling getCompanyProxyApiV1AfnorDirectoryV1CompaniesSirenGet'
+                'Missing the required parameter $siren when calling getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet'
             );
         }
 
 
-        $resourcePath = '/api/v1/afnor/directory/v1/companies/{siren}';
+        $resourcePath = '/api/v1/afnor/directory/v1/siren/code-insee:{siren}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -662,36 +2636,1728 @@ class AFNORPDPPADirectoryServiceApi
     }
 
     /**
-     * Operation searchCompaniesProxyApiV1AfnorDirectoryV1CompaniesSearchPost
+     * Operation getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet
      *
-     * Rechercher des entreprises
+     * Gets a siren (legal unit) by instance ID
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCompaniesProxyApiV1AfnorDirectoryV1CompaniesSearchPost'] to see the possible values for this operation
+     * @param  string $id_instance id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return mixed|\FactPulse\SDK\Model\HTTPValidationError
+     */
+    public function getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet($id_instance, string $contentType = self::contentTypes['getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet'][0])
+    {
+        list($response) = $this->getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGetWithHttpInfo($id_instance, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGetWithHttpInfo
+     *
+     * Gets a siren (legal unit) by instance ID
+     *
+     * @param  string $id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of mixed|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGetWithHttpInfo($id_instance, string $contentType = self::contentTypes['getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet'][0])
+    {
+        $request = $this->getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGetRequest($id_instance, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 422:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'mixed',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGetAsync
+     *
+     * Gets a siren (legal unit) by instance ID
+     *
+     * @param  string $id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGetAsync($id_instance, string $contentType = self::contentTypes['getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet'][0])
+    {
+        return $this->getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGetAsyncWithHttpInfo($id_instance, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGetAsyncWithHttpInfo
+     *
+     * Gets a siren (legal unit) by instance ID
+     *
+     * @param  string $id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGetAsyncWithHttpInfo($id_instance, string $contentType = self::contentTypes['getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet'][0])
+    {
+        $returnType = 'mixed';
+        $request = $this->getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGetRequest($id_instance, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet'
+     *
+     * @param  string $id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGetRequest($id_instance, string $contentType = self::contentTypes['getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet'][0])
+    {
+
+        // verify the required parameter 'id_instance' is set
+        if ($id_instance === null || (is_array($id_instance) && count($id_instance) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id_instance when calling getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/afnor/directory/v1/siren/id-instance:{id_instance}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id_instance !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id_instance' . '}',
+                ObjectSerializer::toPathValue($id_instance),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet
+     *
+     * Gets a siret (facility) by SIRET number
+     *
+     * @param  string $siret siret (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return mixed|\FactPulse\SDK\Model\HTTPValidationError
+     */
+    public function getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet($siret, string $contentType = self::contentTypes['getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet'][0])
+    {
+        list($response) = $this->getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGetWithHttpInfo($siret, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGetWithHttpInfo
+     *
+     * Gets a siret (facility) by SIRET number
+     *
+     * @param  string $siret (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of mixed|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGetWithHttpInfo($siret, string $contentType = self::contentTypes['getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet'][0])
+    {
+        $request = $this->getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGetRequest($siret, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 422:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'mixed',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGetAsync
+     *
+     * Gets a siret (facility) by SIRET number
+     *
+     * @param  string $siret (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGetAsync($siret, string $contentType = self::contentTypes['getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet'][0])
+    {
+        return $this->getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGetAsyncWithHttpInfo($siret, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGetAsyncWithHttpInfo
+     *
+     * Gets a siret (facility) by SIRET number
+     *
+     * @param  string $siret (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGetAsyncWithHttpInfo($siret, string $contentType = self::contentTypes['getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet'][0])
+    {
+        $returnType = 'mixed';
+        $request = $this->getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGetRequest($siret, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet'
+     *
+     * @param  string $siret (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGetRequest($siret, string $contentType = self::contentTypes['getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet'][0])
+    {
+
+        // verify the required parameter 'siret' is set
+        if ($siret === null || (is_array($siret) && count($siret) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $siret when calling getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/afnor/directory/v1/siret/code-insee:{siret}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($siret !== null) {
+            $resourcePath = str_replace(
+                '{' . 'siret' . '}',
+                ObjectSerializer::toPathValue($siret),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet
+     *
+     * Gets a siret (facility) by id-instance
+     *
+     * @param  string $id_instance id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return mixed|\FactPulse\SDK\Model\HTTPValidationError
+     */
+    public function getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet($id_instance, string $contentType = self::contentTypes['getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet'][0])
+    {
+        list($response) = $this->getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGetWithHttpInfo($id_instance, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGetWithHttpInfo
+     *
+     * Gets a siret (facility) by id-instance
+     *
+     * @param  string $id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of mixed|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGetWithHttpInfo($id_instance, string $contentType = self::contentTypes['getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet'][0])
+    {
+        $request = $this->getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGetRequest($id_instance, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 422:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'mixed',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGetAsync
+     *
+     * Gets a siret (facility) by id-instance
+     *
+     * @param  string $id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGetAsync($id_instance, string $contentType = self::contentTypes['getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet'][0])
+    {
+        return $this->getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGetAsyncWithHttpInfo($id_instance, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGetAsyncWithHttpInfo
+     *
+     * Gets a siret (facility) by id-instance
+     *
+     * @param  string $id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGetAsyncWithHttpInfo($id_instance, string $contentType = self::contentTypes['getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet'][0])
+    {
+        $returnType = 'mixed';
+        $request = $this->getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGetRequest($id_instance, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet'
+     *
+     * @param  string $id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGetRequest($id_instance, string $contentType = self::contentTypes['getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet'][0])
+    {
+
+        // verify the required parameter 'id_instance' is set
+        if ($id_instance === null || (is_array($id_instance) && count($id_instance) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id_instance when calling getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/afnor/directory/v1/siret/id-instance:{id_instance}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id_instance !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id_instance' . '}',
+                ObjectSerializer::toPathValue($id_instance),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch
+     *
+     * Partially updates a directory line
+     *
+     * @param  string $id_instance id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return mixed|\FactPulse\SDK\Model\HTTPValidationError
+     */
+    public function patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch($id_instance, string $contentType = self::contentTypes['patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch'][0])
+    {
+        list($response) = $this->patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatchWithHttpInfo($id_instance, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatchWithHttpInfo
+     *
+     * Partially updates a directory line
+     *
+     * @param  string $id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of mixed|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatchWithHttpInfo($id_instance, string $contentType = self::contentTypes['patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch'][0])
+    {
+        $request = $this->patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatchRequest($id_instance, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 422:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'mixed',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatchAsync
+     *
+     * Partially updates a directory line
+     *
+     * @param  string $id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatchAsync($id_instance, string $contentType = self::contentTypes['patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch'][0])
+    {
+        return $this->patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatchAsyncWithHttpInfo($id_instance, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatchAsyncWithHttpInfo
+     *
+     * Partially updates a directory line
+     *
+     * @param  string $id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatchAsyncWithHttpInfo($id_instance, string $contentType = self::contentTypes['patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch'][0])
+    {
+        $returnType = 'mixed';
+        $request = $this->patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatchRequest($id_instance, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch'
+     *
+     * @param  string $id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatchRequest($id_instance, string $contentType = self::contentTypes['patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch'][0])
+    {
+
+        // verify the required parameter 'id_instance' is set
+        if ($id_instance === null || (is_array($id_instance) && count($id_instance) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id_instance when calling patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/afnor/directory/v1/directory-line/id-instance:{id_instance}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id_instance !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id_instance' . '}',
+                ObjectSerializer::toPathValue($id_instance),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch
+     *
+     * Partially update a private routing code
+     *
+     * @param  string $id_instance id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return mixed|\FactPulse\SDK\Model\HTTPValidationError
+     */
+    public function patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch($id_instance, string $contentType = self::contentTypes['patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch'][0])
+    {
+        list($response) = $this->patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatchWithHttpInfo($id_instance, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatchWithHttpInfo
+     *
+     * Partially update a private routing code
+     *
+     * @param  string $id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of mixed|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatchWithHttpInfo($id_instance, string $contentType = self::contentTypes['patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch'][0])
+    {
+        $request = $this->patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatchRequest($id_instance, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 422:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'mixed',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatchAsync
+     *
+     * Partially update a private routing code
+     *
+     * @param  string $id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatchAsync($id_instance, string $contentType = self::contentTypes['patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch'][0])
+    {
+        return $this->patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatchAsyncWithHttpInfo($id_instance, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatchAsyncWithHttpInfo
+     *
+     * Partially update a private routing code
+     *
+     * @param  string $id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatchAsyncWithHttpInfo($id_instance, string $contentType = self::contentTypes['patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch'][0])
+    {
+        $returnType = 'mixed';
+        $request = $this->patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatchRequest($id_instance, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch'
+     *
+     * @param  string $id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatchRequest($id_instance, string $contentType = self::contentTypes['patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch'][0])
+    {
+
+        // verify the required parameter 'id_instance' is set
+        if ($id_instance === null || (is_array($id_instance) && count($id_instance) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id_instance when calling patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/afnor/directory/v1/routing-code/id-instance:{id_instance}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id_instance !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id_instance' . '}',
+                ObjectSerializer::toPathValue($id_instance),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut
+     *
+     * Completely update a private routing code
+     *
+     * @param  string $id_instance id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return mixed|\FactPulse\SDK\Model\HTTPValidationError
+     */
+    public function putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut($id_instance, string $contentType = self::contentTypes['putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut'][0])
+    {
+        list($response) = $this->putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePutWithHttpInfo($id_instance, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePutWithHttpInfo
+     *
+     * Completely update a private routing code
+     *
+     * @param  string $id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of mixed|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePutWithHttpInfo($id_instance, string $contentType = self::contentTypes['putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut'][0])
+    {
+        $request = $this->putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePutRequest($id_instance, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 422:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'mixed',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePutAsync
+     *
+     * Completely update a private routing code
+     *
+     * @param  string $id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePutAsync($id_instance, string $contentType = self::contentTypes['putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut'][0])
+    {
+        return $this->putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePutAsyncWithHttpInfo($id_instance, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePutAsyncWithHttpInfo
+     *
+     * Completely update a private routing code
+     *
+     * @param  string $id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePutAsyncWithHttpInfo($id_instance, string $contentType = self::contentTypes['putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut'][0])
+    {
+        $returnType = 'mixed';
+        $request = $this->putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePutRequest($id_instance, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut'
+     *
+     * @param  string $id_instance (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePutRequest($id_instance, string $contentType = self::contentTypes['putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut'][0])
+    {
+
+        // verify the required parameter 'id_instance' is set
+        if ($id_instance === null || (is_array($id_instance) && count($id_instance) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id_instance when calling putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/afnor/directory/v1/routing-code/id-instance:{id_instance}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id_instance !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id_instance' . '}',
+                ObjectSerializer::toPathValue($id_instance),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost
+     *
+     * Search for a directory line
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return mixed
      */
-    public function searchCompaniesProxyApiV1AfnorDirectoryV1CompaniesSearchPost(string $contentType = self::contentTypes['searchCompaniesProxyApiV1AfnorDirectoryV1CompaniesSearchPost'][0])
+    public function searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost(string $contentType = self::contentTypes['searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost'][0])
     {
-        list($response) = $this->searchCompaniesProxyApiV1AfnorDirectoryV1CompaniesSearchPostWithHttpInfo($contentType);
+        list($response) = $this->searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPostWithHttpInfo($contentType);
         return $response;
     }
 
     /**
-     * Operation searchCompaniesProxyApiV1AfnorDirectoryV1CompaniesSearchPostWithHttpInfo
+     * Operation searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPostWithHttpInfo
      *
-     * Rechercher des entreprises
+     * Search for a directory line
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCompaniesProxyApiV1AfnorDirectoryV1CompaniesSearchPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of mixed, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchCompaniesProxyApiV1AfnorDirectoryV1CompaniesSearchPostWithHttpInfo(string $contentType = self::contentTypes['searchCompaniesProxyApiV1AfnorDirectoryV1CompaniesSearchPost'][0])
+    public function searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPostWithHttpInfo(string $contentType = self::contentTypes['searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost'][0])
     {
-        $request = $this->searchCompaniesProxyApiV1AfnorDirectoryV1CompaniesSearchPostRequest($contentType);
+        $request = $this->searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPostRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -763,18 +4429,18 @@ class AFNORPDPPADirectoryServiceApi
     }
 
     /**
-     * Operation searchCompaniesProxyApiV1AfnorDirectoryV1CompaniesSearchPostAsync
+     * Operation searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPostAsync
      *
-     * Rechercher des entreprises
+     * Search for a directory line
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCompaniesProxyApiV1AfnorDirectoryV1CompaniesSearchPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchCompaniesProxyApiV1AfnorDirectoryV1CompaniesSearchPostAsync(string $contentType = self::contentTypes['searchCompaniesProxyApiV1AfnorDirectoryV1CompaniesSearchPost'][0])
+    public function searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPostAsync(string $contentType = self::contentTypes['searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost'][0])
     {
-        return $this->searchCompaniesProxyApiV1AfnorDirectoryV1CompaniesSearchPostAsyncWithHttpInfo($contentType)
+        return $this->searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPostAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -783,19 +4449,19 @@ class AFNORPDPPADirectoryServiceApi
     }
 
     /**
-     * Operation searchCompaniesProxyApiV1AfnorDirectoryV1CompaniesSearchPostAsyncWithHttpInfo
+     * Operation searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPostAsyncWithHttpInfo
      *
-     * Rechercher des entreprises
+     * Search for a directory line
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCompaniesProxyApiV1AfnorDirectoryV1CompaniesSearchPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchCompaniesProxyApiV1AfnorDirectoryV1CompaniesSearchPostAsyncWithHttpInfo(string $contentType = self::contentTypes['searchCompaniesProxyApiV1AfnorDirectoryV1CompaniesSearchPost'][0])
+    public function searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPostAsyncWithHttpInfo(string $contentType = self::contentTypes['searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost'][0])
     {
         $returnType = 'mixed';
-        $request = $this->searchCompaniesProxyApiV1AfnorDirectoryV1CompaniesSearchPostRequest($contentType);
+        $request = $this->searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPostRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -834,18 +4500,762 @@ class AFNORPDPPADirectoryServiceApi
     }
 
     /**
-     * Create request for operation 'searchCompaniesProxyApiV1AfnorDirectoryV1CompaniesSearchPost'
+     * Create request for operation 'searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost'
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCompaniesProxyApiV1AfnorDirectoryV1CompaniesSearchPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchCompaniesProxyApiV1AfnorDirectoryV1CompaniesSearchPostRequest(string $contentType = self::contentTypes['searchCompaniesProxyApiV1AfnorDirectoryV1CompaniesSearchPost'][0])
+    public function searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPostRequest(string $contentType = self::contentTypes['searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost'][0])
     {
 
 
-        $resourcePath = '/api/v1/afnor/directory/v1/companies/search';
+        $resourcePath = '/api/v1/afnor/directory/v1/directory-line/search';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost
+     *
+     * Search for a routing code
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return mixed
+     */
+    public function searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost(string $contentType = self::contentTypes['searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost'][0])
+    {
+        list($response) = $this->searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPostWithHttpInfo($contentType);
+        return $response;
+    }
+
+    /**
+     * Operation searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPostWithHttpInfo
+     *
+     * Search for a routing code
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of mixed, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPostWithHttpInfo(string $contentType = self::contentTypes['searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost'][0])
+    {
+        $request = $this->searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPostRequest($contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'mixed',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPostAsync
+     *
+     * Search for a routing code
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPostAsync(string $contentType = self::contentTypes['searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost'][0])
+    {
+        return $this->searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPostAsyncWithHttpInfo($contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPostAsyncWithHttpInfo
+     *
+     * Search for a routing code
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPostAsyncWithHttpInfo(string $contentType = self::contentTypes['searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost'][0])
+    {
+        $returnType = 'mixed';
+        $request = $this->searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPostRequest($contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost'
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPostRequest(string $contentType = self::contentTypes['searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost'][0])
+    {
+
+
+        $resourcePath = '/api/v1/afnor/directory/v1/routing-code/search';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost
+     *
+     * SIREN search (or legal unit)
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return mixed
+     */
+    public function searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost(string $contentType = self::contentTypes['searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost'][0])
+    {
+        list($response) = $this->searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPostWithHttpInfo($contentType);
+        return $response;
+    }
+
+    /**
+     * Operation searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPostWithHttpInfo
+     *
+     * SIREN search (or legal unit)
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of mixed, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPostWithHttpInfo(string $contentType = self::contentTypes['searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost'][0])
+    {
+        $request = $this->searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPostRequest($contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'mixed',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPostAsync
+     *
+     * SIREN search (or legal unit)
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPostAsync(string $contentType = self::contentTypes['searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost'][0])
+    {
+        return $this->searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPostAsyncWithHttpInfo($contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPostAsyncWithHttpInfo
+     *
+     * SIREN search (or legal unit)
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPostAsyncWithHttpInfo(string $contentType = self::contentTypes['searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost'][0])
+    {
+        $returnType = 'mixed';
+        $request = $this->searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPostRequest($contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost'
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPostRequest(string $contentType = self::contentTypes['searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost'][0])
+    {
+
+
+        $resourcePath = '/api/v1/afnor/directory/v1/siren/search';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost
+     *
+     * Search for a SIRET (facility)
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return mixed
+     */
+    public function searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost(string $contentType = self::contentTypes['searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost'][0])
+    {
+        list($response) = $this->searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPostWithHttpInfo($contentType);
+        return $response;
+    }
+
+    /**
+     * Operation searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPostWithHttpInfo
+     *
+     * Search for a SIRET (facility)
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of mixed, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPostWithHttpInfo(string $contentType = self::contentTypes['searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost'][0])
+    {
+        $request = $this->searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPostRequest($contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'mixed',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPostAsync
+     *
+     * Search for a SIRET (facility)
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPostAsync(string $contentType = self::contentTypes['searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost'][0])
+    {
+        return $this->searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPostAsyncWithHttpInfo($contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPostAsyncWithHttpInfo
+     *
+     * Search for a SIRET (facility)
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPostAsyncWithHttpInfo(string $contentType = self::contentTypes['searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost'][0])
+    {
+        $returnType = 'mixed';
+        $request = $this->searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPostRequest($contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost'
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPostRequest(string $contentType = self::contentTypes['searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost'][0])
+    {
+
+
+        $resourcePath = '/api/v1/afnor/directory/v1/siret/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

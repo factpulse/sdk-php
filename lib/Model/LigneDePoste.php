@@ -63,9 +63,9 @@ class LigneDePoste implements ModelInterface, ArrayAccess, \JsonSerializable
         'denomination' => 'string',
         'quantite' => '\FactPulse\SDK\Model\Quantite',
         'unite' => '\FactPulse\SDK\Model\Unite',
-        'montant_unitaire_ht' => '\FactPulse\SDK\Model\Montantunitaireht',
+        'montant_unitaire_ht' => '\FactPulse\SDK\Model\MontantUnitaireHt',
         'montant_remise_ht' => '\FactPulse\SDK\Model\LigneDePosteMontantRemiseHt',
-        'montant_total_ligne_ht' => '\FactPulse\SDK\Model\LigneDePosteMontantTotalLigneHt',
+        'montant_total_ligne_ht' => '\FactPulse\SDK\Model\MontantTotalLigneHt',
         'taux_tva' => 'string',
         'taux_tva_manuel' => '\FactPulse\SDK\Model\LigneDePosteTauxTvaManuel',
         'categorie_tva' => '\FactPulse\SDK\Model\CategorieTVA',
@@ -548,7 +548,7 @@ class LigneDePoste implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets montant_unitaire_ht
      *
-     * @return \FactPulse\SDK\Model\Montantunitaireht
+     * @return \FactPulse\SDK\Model\MontantUnitaireHt
      */
     public function getMontantUnitaireHt()
     {
@@ -558,7 +558,7 @@ class LigneDePoste implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets montant_unitaire_ht
      *
-     * @param \FactPulse\SDK\Model\Montantunitaireht $montant_unitaire_ht montant_unitaire_ht
+     * @param \FactPulse\SDK\Model\MontantUnitaireHt $montant_unitaire_ht montant_unitaire_ht
      *
      * @return self
      */
@@ -609,7 +609,7 @@ class LigneDePoste implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets montant_total_ligne_ht
      *
-     * @return \FactPulse\SDK\Model\LigneDePosteMontantTotalLigneHt|null
+     * @return \FactPulse\SDK\Model\MontantTotalLigneHt|null
      */
     public function getMontantTotalLigneHt()
     {
@@ -619,7 +619,7 @@ class LigneDePoste implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets montant_total_ligne_ht
      *
-     * @param \FactPulse\SDK\Model\LigneDePosteMontantTotalLigneHt|null $montant_total_ligne_ht montant_total_ligne_ht
+     * @param \FactPulse\SDK\Model\MontantTotalLigneHt|null $montant_total_ligne_ht montant_total_ligne_ht
      *
      * @return self
      */

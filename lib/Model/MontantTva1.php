@@ -35,7 +35,7 @@ use \FactPulse\SDK\ObjectSerializer;
  * MontantTva1 Class Doc Comment
  *
  * @category Class
- * @description Montant TVA
+ * @description Montant total de la TVA.
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -50,7 +50,7 @@ class MontantTva1 implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Montant_Tva_1';
+    protected static $openAPIModelName = 'MontantTva_1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

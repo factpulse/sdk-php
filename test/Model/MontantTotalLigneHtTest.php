@@ -1,6 +1,6 @@
 <?php
 /**
- * MontantbasehtTest
+ * MontantTotalLigneHtTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * MontantbasehtTest Class Doc Comment
+ * MontantTotalLigneHtTest Class Doc Comment
  *
  * @category    Class
- * @description Montant de la base HT pour cette ligne de TVA.
+ * @description Montant total HT de la ligne (quantité × prix unitaire - remise).
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class MontantbasehtTest extends TestCase
+class MontantTotalLigneHtTest extends TestCase
 {
 
     /**
@@ -71,9 +71,9 @@ class MontantbasehtTest extends TestCase
     }
 
     /**
-     * Test "Montantbaseht"
+     * Test "MontantTotalLigneHt"
      */
-    public function testMontantbaseht()
+    public function testMontantTotalLigneHt()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

@@ -9,9 +9,9 @@ Name | Type | Description | Notes
 **denomination** | **string** |  |
 **quantite** | [**\FactPulse\SDK\Model\Quantite**](Quantite.md) |  |
 **unite** | [**\FactPulse\SDK\Model\Unite**](Unite.md) |  |
-**montant_unitaire_ht** | [**\FactPulse\SDK\Model\Montantunitaireht**](Montantunitaireht.md) |  |
+**montant_unitaire_ht** | [**\FactPulse\SDK\Model\MontantUnitaireHt**](MontantUnitaireHt.md) |  |
 **montant_remise_ht** | [**\FactPulse\SDK\Model\LigneDePosteMontantRemiseHt**](LigneDePosteMontantRemiseHt.md) |  | [optional]
-**montant_total_ligne_ht** | [**\FactPulse\SDK\Model\LigneDePosteMontantTotalLigneHt**](LigneDePosteMontantTotalLigneHt.md) |  | [optional]
+**montant_total_ligne_ht** | [**\FactPulse\SDK\Model\MontantTotalLigneHt**](MontantTotalLigneHt.md) |  | [optional]
 **taux_tva** | **string** |  | [optional]
 **taux_tva_manuel** | [**\FactPulse\SDK\Model\LigneDePosteTauxTvaManuel**](LigneDePosteTauxTvaManuel.md) |  | [optional]
 **categorie_tva** | [**\FactPulse\SDK\Model\CategorieTVA**](CategorieTVA.md) |  | [optional]

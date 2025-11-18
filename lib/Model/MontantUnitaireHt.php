@@ -1,6 +1,6 @@
 <?php
 /**
- * Montantunitaireht
+ * MontantUnitaireHt
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \FactPulse\SDK\ObjectSerializer;
 
 /**
- * Montantunitaireht Class Doc Comment
+ * MontantUnitaireHt Class Doc Comment
  *
  * @category Class
  * @description Montant unitaire Hors Taxes de l&#39;article.
@@ -41,7 +41,7 @@ use \FactPulse\SDK\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Montantunitaireht implements ModelInterface, ArrayAccess, \JsonSerializable
+class MontantUnitaireHt implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Montantunitaireht implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Montantunitaireht';
+    protected static $openAPIModelName = 'MontantUnitaireHt';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

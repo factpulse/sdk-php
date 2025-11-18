@@ -1,6 +1,6 @@
 <?php
 /**
- * LigneDePosteMontantTotalLigneHt
+ * MontantTotalLigneHt
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \FactPulse\SDK\ObjectSerializer;
 
 /**
- * LigneDePosteMontantTotalLigneHt Class Doc Comment
+ * MontantTotalLigneHt Class Doc Comment
  *
  * @category Class
  * @description Montant total HT de la ligne (quantité × prix unitaire - remise).
@@ -41,7 +41,7 @@ use \FactPulse\SDK\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class LigneDePosteMontantTotalLigneHt implements ModelInterface, ArrayAccess, \JsonSerializable
+class MontantTotalLigneHt implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class LigneDePosteMontantTotalLigneHt implements ModelInterface, ArrayAccess, \J
       *
       * @var string
       */
-    protected static $openAPIModelName = 'LigneDePoste_montantTotalLigneHt';
+    protected static $openAPIModelName = 'MontantTotalLigneHt';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

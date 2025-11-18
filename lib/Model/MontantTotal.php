@@ -58,12 +58,12 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'montant_ht_total' => '\FactPulse\SDK\Model\Montanthttotal',
-        'montant_tva' => '\FactPulse\SDK\Model\Montanttva1',
-        'montant_ttc_total' => '\FactPulse\SDK\Model\Montantttctotal',
-        'montant_a_payer' => '\FactPulse\SDK\Model\Montantapayer',
+        'montant_ht_total' => '\FactPulse\SDK\Model\MontantHtTotal',
+        'montant_tva' => '\FactPulse\SDK\Model\MontantTva1',
+        'montant_ttc_total' => '\FactPulse\SDK\Model\MontantTtcTotal',
+        'montant_a_payer' => '\FactPulse\SDK\Model\MontantAPayer',
         'acompte' => '\FactPulse\SDK\Model\MontantTotalAcompte',
-        'montant_remise_globale_ttc' => '\FactPulse\SDK\Model\MontantTotalMontantRemiseGlobaleTtc',
+        'montant_remise_globale_ttc' => '\FactPulse\SDK\Model\MontantRemiseGlobaleTtc',
         'motif_remise_globale_ttc' => 'string'
     ];
 
@@ -347,7 +347,7 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets montant_ht_total
      *
-     * @return \FactPulse\SDK\Model\Montanthttotal
+     * @return \FactPulse\SDK\Model\MontantHtTotal
      */
     public function getMontantHtTotal()
     {
@@ -357,7 +357,7 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets montant_ht_total
      *
-     * @param \FactPulse\SDK\Model\Montanthttotal $montant_ht_total montant_ht_total
+     * @param \FactPulse\SDK\Model\MontantHtTotal $montant_ht_total montant_ht_total
      *
      * @return self
      */
@@ -374,7 +374,7 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets montant_tva
      *
-     * @return \FactPulse\SDK\Model\Montanttva1
+     * @return \FactPulse\SDK\Model\MontantTva1
      */
     public function getMontantTva()
     {
@@ -384,7 +384,7 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets montant_tva
      *
-     * @param \FactPulse\SDK\Model\Montanttva1 $montant_tva montant_tva
+     * @param \FactPulse\SDK\Model\MontantTva1 $montant_tva montant_tva
      *
      * @return self
      */
@@ -401,7 +401,7 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets montant_ttc_total
      *
-     * @return \FactPulse\SDK\Model\Montantttctotal
+     * @return \FactPulse\SDK\Model\MontantTtcTotal
      */
     public function getMontantTtcTotal()
     {
@@ -411,7 +411,7 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets montant_ttc_total
      *
-     * @param \FactPulse\SDK\Model\Montantttctotal $montant_ttc_total montant_ttc_total
+     * @param \FactPulse\SDK\Model\MontantTtcTotal $montant_ttc_total montant_ttc_total
      *
      * @return self
      */
@@ -428,7 +428,7 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets montant_a_payer
      *
-     * @return \FactPulse\SDK\Model\Montantapayer
+     * @return \FactPulse\SDK\Model\MontantAPayer
      */
     public function getMontantAPayer()
     {
@@ -438,7 +438,7 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets montant_a_payer
      *
-     * @param \FactPulse\SDK\Model\Montantapayer $montant_a_payer montant_a_payer
+     * @param \FactPulse\SDK\Model\MontantAPayer $montant_a_payer montant_a_payer
      *
      * @return self
      */
@@ -489,7 +489,7 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets montant_remise_globale_ttc
      *
-     * @return \FactPulse\SDK\Model\MontantTotalMontantRemiseGlobaleTtc|null
+     * @return \FactPulse\SDK\Model\MontantRemiseGlobaleTtc|null
      */
     public function getMontantRemiseGlobaleTtc()
     {
@@ -499,7 +499,7 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets montant_remise_globale_ttc
      *
-     * @param \FactPulse\SDK\Model\MontantTotalMontantRemiseGlobaleTtc|null $montant_remise_globale_ttc montant_remise_globale_ttc
+     * @param \FactPulse\SDK\Model\MontantRemiseGlobaleTtc|null $montant_remise_globale_ttc montant_remise_globale_ttc
      *
      * @return self
      */

@@ -1,6 +1,6 @@
 <?php
 /**
- * MontantunitairehtTest
+ * MontantUnitaireHtTest
  *
  * PHP version 8.1
  *
@@ -31,7 +31,7 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * MontantunitairehtTest Class Doc Comment
+ * MontantUnitaireHtTest Class Doc Comment
  *
  * @category    Class
  * @description Montant unitaire Hors Taxes de l&#39;article.
@@ -39,7 +39,7 @@ use PHPUnit\Framework\TestCase;
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class MontantunitairehtTest extends TestCase
+class MontantUnitaireHtTest extends TestCase
 {
 
     /**
@@ -71,9 +71,9 @@ class MontantunitairehtTest extends TestCase
     }
 
     /**
-     * Test "Montantunitaireht"
+     * Test "MontantUnitaireHt"
      */
-    public function testMontantunitaireht()
+    public function testMontantUnitaireHt()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

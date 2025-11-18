@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * MontantTtcTotalTest Class Doc Comment
  *
  * @category    Class
- * @description MontantTtcTotal
+ * @description Montant total TTC.
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

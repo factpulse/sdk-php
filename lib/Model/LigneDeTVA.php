@@ -58,8 +58,8 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'montant_base_ht' => '\FactPulse\SDK\Model\Montantbaseht',
-        'montant_tva' => '\FactPulse\SDK\Model\Montanttva',
+        'montant_base_ht' => '\FactPulse\SDK\Model\MontantBaseHt',
+        'montant_tva' => '\FactPulse\SDK\Model\MontantTva',
         'taux' => 'string',
         'taux_manuel' => '\FactPulse\SDK\Model\Tauxmanuel',
         'categorie' => '\FactPulse\SDK\Model\CategorieTVA'
@@ -327,7 +327,7 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets montant_base_ht
      *
-     * @return \FactPulse\SDK\Model\Montantbaseht
+     * @return \FactPulse\SDK\Model\MontantBaseHt
      */
     public function getMontantBaseHt()
     {
@@ -337,7 +337,7 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets montant_base_ht
      *
-     * @param \FactPulse\SDK\Model\Montantbaseht $montant_base_ht montant_base_ht
+     * @param \FactPulse\SDK\Model\MontantBaseHt $montant_base_ht montant_base_ht
      *
      * @return self
      */
@@ -354,7 +354,7 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets montant_tva
      *
-     * @return \FactPulse\SDK\Model\Montanttva
+     * @return \FactPulse\SDK\Model\MontantTva
      */
     public function getMontantTva()
     {
@@ -364,7 +364,7 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets montant_tva
      *
-     * @param \FactPulse\SDK\Model\Montanttva $montant_tva montant_tva
+     * @param \FactPulse\SDK\Model\MontantTva $montant_tva montant_tva
      *
      * @return self
      */
