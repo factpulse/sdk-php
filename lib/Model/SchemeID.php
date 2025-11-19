@@ -33,7 +33,7 @@ use \FactPulse\SDK\ObjectSerializer;
  * SchemeID Class Doc Comment
  *
  * @category Class
- * @description Codes de schémas d&#39;identification (Electronic Address Scheme - EAS), principalement pour l&#39;adressage des factures électroniques.
+ * @description Codes de schémas d&#39;identification (Electronic Address Scheme - EAS), principalement pour l&#39;adressage des factures électroniques.  **Valeurs possibles :** - &#x60;0225&#x60; : FR_SIREN - SIREN français (le plus commun pour la France, remplace l&#39;ancien 0002) - &#x60;0088&#x60; : GLN - Global Location Number - &#x60;0060&#x60; : DUNS - Data Universal Numbering System - &#x60;9957&#x60; : FR_TVA_INTRA - Numéro de TVA intracommunautaire français - &#x60;0199&#x60; : GLEIF - Global Legal Entity Identifier Foundation
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -43,14 +43,29 @@ class SchemeID
     /**
      * Possible values of this enum
      */
+    /**
+     * FR_SIREN - SIREN français (le plus commun pour la France, remplace l&#39;ancien 0002)
+     */
     public const FR_SIREN = '0225';
 
+    /**
+     * GLN - Global Location Number (GLN)
+     */
     public const GLN = '0088';
 
+    /**
+     * DUNS - Data Universal Numbering System (DUNS)
+     */
     public const DUNS = '0060';
 
+    /**
+     * FR_TVA_INTRA - Numéro de TVA intracommunautaire français
+     */
     public const FR_TVA_INTRA = '9957';
 
+    /**
+     * GLEIF - Global Legal Entity Identifier Foundation (GLEIF)
+     */
     public const GLEIF = '0199';
 
     /**

@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * CodeRaisonReductionTest Class Doc Comment
  *
  * @category    Class
- * @description Codes standardisés pour justifier une réduction ou une charge.
+ * @description Codes standardisés pour justifier une réduction ou une charge supplémentaire (norme EN 16931).  **Valeurs possibles :** - &#x60;AA&#x60; : REMISE_PUBLICITAIRE - Remise ou rabais publicitaire - &#x60;ABL&#x60; : SUPPLEMENT_EMBALLAGE - Supplément d&#39;emballage - &#x60;ADR&#x60; : AUTRES_SERVICES - Autres services - &#x60;ADT&#x60; : ENLEVEMENT - Coût d&#39;enlèvement - &#x60;FC&#x60; : COUTS_TRANSPORT - Coûts de transport - &#x60;FI&#x60; : FRAIS_FINANCIERS - Frais de financement - &#x60;LA&#x60; : ETIQUETAGE - Étiquetage
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

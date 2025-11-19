@@ -33,7 +33,7 @@ use \FactPulse\SDK\ObjectSerializer;
  * CategorieTVA Class Doc Comment
  *
  * @category Class
- * @description Catégories de TVA standardisées pour Factur-X.
+ * @description Catégories de TVA standardisées pour Factur-X (norme EN 16931).  **Valeurs possibles :** - &#x60;S&#x60; : STANDARD - TVA au taux standard - &#x60;Z&#x60; : ZERO - TVA à taux zéro - &#x60;E&#x60; : EXONEREE - Exonération de TVA - &#x60;AE&#x60; : AUTO_LIQUIDATION - Auto-liquidation (reverse charge) - &#x60;K&#x60; : INTRA_COMMUNAUTAIRE - Livraison intracommunautaire - &#x60;G&#x60; : EXPORT - Export hors UE - &#x60;O&#x60; : HORS_CHAMP - Hors champ de la TVA - &#x60;L&#x60; : CANARIES - TVA Canaries - &#x60;M&#x60; : CEUTA_MELILLA - TVA Ceuta/Melilla
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -43,23 +43,50 @@ class CategorieTVA
     /**
      * Possible values of this enum
      */
-    public const S = 'S';
+    /**
+     * STANDARD - TVA au taux standard
+     */
+    public const STANDARD = 'S';
 
-    public const Z = 'Z';
+    /**
+     * ZERO - TVA à taux zéro
+     */
+    public const ZERO = 'Z';
 
-    public const E = 'E';
+    /**
+     * EXONEREE - Exonération de TVA
+     */
+    public const EXONEREE = 'E';
 
-    public const AE = 'AE';
+    /**
+     * AUTO_LIQUIDATION - Auto-liquidation (reverse charge)
+     */
+    public const AUTO_LIQUIDATION = 'AE';
 
-    public const K = 'K';
+    /**
+     * INTRA_COMMUNAUTAIRE - Livraison intracommunautaire
+     */
+    public const INTRA_COMMUNAUTAIRE = 'K';
 
-    public const G = 'G';
+    /**
+     * EXPORT - Export hors UE
+     */
+    public const EXPORT = 'G';
 
-    public const O = 'O';
+    /**
+     * HORS_CHAMP - Hors champ de la TVA
+     */
+    public const HORS_CHAMP = 'O';
 
-    public const L = 'L';
+    /**
+     * CANARIES - TVA Canaries
+     */
+    public const CANARIES = 'L';
 
-    public const M = 'M';
+    /**
+     * CEUTA_MELILLA - TVA Ceuta/Melilla
+     */
+    public const CEUTA_MELILLA = 'M';
 
     /**
      * Gets allowable values of the enum
@@ -68,15 +95,15 @@ class CategorieTVA
     public static function getAllowableEnumValues()
     {
         return [
-            self::S,
-            self::Z,
-            self::E,
-            self::AE,
-            self::K,
-            self::G,
-            self::O,
-            self::L,
-            self::M
+            self::STANDARD,
+            self::ZERO,
+            self::EXONEREE,
+            self::AUTO_LIQUIDATION,
+            self::INTRA_COMMUNAUTAIRE,
+            self::EXPORT,
+            self::HORS_CHAMP,
+            self::CANARIES,
+            self::CEUTA_MELILLA
         ];
     }
 }

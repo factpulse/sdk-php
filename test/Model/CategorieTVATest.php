@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * CategorieTVATest Class Doc Comment
  *
  * @category    Class
- * @description Catégories de TVA standardisées pour Factur-X.
+ * @description Catégories de TVA standardisées pour Factur-X (norme EN 16931).  **Valeurs possibles :** - &#x60;S&#x60; : STANDARD - TVA au taux standard - &#x60;Z&#x60; : ZERO - TVA à taux zéro - &#x60;E&#x60; : EXONEREE - Exonération de TVA - &#x60;AE&#x60; : AUTO_LIQUIDATION - Auto-liquidation (reverse charge) - &#x60;K&#x60; : INTRA_COMMUNAUTAIRE - Livraison intracommunautaire - &#x60;G&#x60; : EXPORT - Export hors UE - &#x60;O&#x60; : HORS_CHAMP - Hors champ de la TVA - &#x60;L&#x60; : CANARIES - TVA Canaries - &#x60;M&#x60; : CEUTA_MELILLA - TVA Ceuta/Melilla
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
