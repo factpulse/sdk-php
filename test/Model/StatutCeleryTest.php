@@ -1,6 +1,6 @@
 <?php
 /**
- * MontantTvaTest
+ * StatutCeleryTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * MontantTvaTest Class Doc Comment
+ * StatutCeleryTest Class Doc Comment
  *
  * @category    Class
- * @description MontantTva
+ * @description Statuts possibles d&#39;une tâche Celery lors du polling.  **Valeurs possibles :** - &#x60;PENDING&#x60; : Tâche en attente de traitement - &#x60;STARTED&#x60; : Tâche en cours d&#39;exécution - &#x60;SUCCESS&#x60; : Tâche terminée avec succès (vérifier &#x60;resultat.statut&#x60; pour le résultat métier) - &#x60;FAILURE&#x60; : Erreur système lors de l&#39;exécution (crash, exception non gérée) - &#x60;RETRY&#x60; : Tentative de ré-exécution en cours (après un échec temporaire)
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class MontantTvaTest extends TestCase
+class StatutCeleryTest extends TestCase
 {
 
     /**
@@ -71,9 +71,9 @@ class MontantTvaTest extends TestCase
     }
 
     /**
-     * Test "MontantTva"
+     * Test "StatutCelery"
      */
-    public function testMontantTva()
+    public function testStatutCelery()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

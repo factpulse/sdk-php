@@ -68,6 +68,8 @@ docs/Model/MontantTtcTotal.md
 docs/Model/MontantTtcTotal1.md
 docs/Model/MontantTva.md
 docs/Model/MontantTva1.md
+docs/Model/MontantTvaLigne.md
+docs/Model/MontantTvaTotal.md
 docs/Model/MontantUnitaireHt.md
 docs/Model/ObtenirIdChorusProRequest.md
 docs/Model/ObtenirIdChorusProResponse.md
@@ -96,6 +98,7 @@ docs/Model/SoumettreFactureCompleteRequest.md
 docs/Model/SoumettreFactureCompleteResponse.md
 docs/Model/SoumettreFactureRequest.md
 docs/Model/SoumettreFactureResponse.md
+docs/Model/StatutCelery.md
 docs/Model/StatutFacture.md
 docs/Model/StatutTache.md
 docs/Model/StructureInfo.md
@@ -176,6 +179,8 @@ lib/Model/MontantTtcTotal.php
 lib/Model/MontantTtcTotal1.php
 lib/Model/MontantTva.php
 lib/Model/MontantTva1.php
+lib/Model/MontantTvaLigne.php
+lib/Model/MontantTvaTotal.php
 lib/Model/MontantUnitaireHt.php
 lib/Model/ObtenirIdChorusProRequest.php
 lib/Model/ObtenirIdChorusProResponse.php
@@ -204,6 +209,7 @@ lib/Model/SoumettreFactureCompleteRequest.php
 lib/Model/SoumettreFactureCompleteResponse.php
 lib/Model/SoumettreFactureRequest.php
 lib/Model/SoumettreFactureResponse.php
+lib/Model/StatutCelery.php
 lib/Model/StatutFacture.php
 lib/Model/StatutTache.php
 lib/Model/StructureInfo.php
@@ -279,7 +285,9 @@ test/Model/MontantTotalTest.php
 test/Model/MontantTtcTotal1Test.php
 test/Model/MontantTtcTotalTest.php
 test/Model/MontantTva1Test.php
+test/Model/MontantTvaLigneTest.php
 test/Model/MontantTvaTest.php
+test/Model/MontantTvaTotalTest.php
 test/Model/MontantUnitaireHtTest.php
 test/Model/ObtenirIdChorusProRequestTest.php
 test/Model/ObtenirIdChorusProResponseTest.php
@@ -308,6 +316,7 @@ test/Model/SoumettreFactureCompleteRequestTest.php
 test/Model/SoumettreFactureCompleteResponseTest.php
 test/Model/SoumettreFactureRequestTest.php
 test/Model/SoumettreFactureResponseTest.php
+test/Model/StatutCeleryTest.php
 test/Model/StatutFactureTest.php
 test/Model/StatutTacheTest.php
 test/Model/StructureInfoTest.php

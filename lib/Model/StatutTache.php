@@ -35,7 +35,7 @@ use \FactPulse\SDK\ObjectSerializer;
  * StatutTache Class Doc Comment
  *
  * @category Class
- * @description Description complète du statut d&#39;une tâche asynchrone.
+ * @description Description complète du statut d&#39;une tâche asynchrone.  Le champ &#x60;statut&#x60; indique l&#39;état Celery de la tâche. Quand &#x60;statut&#x3D;\&quot;SUCCESS\&quot;&#x60;, consultez &#x60;resultat.statut&#x60; pour le résultat métier (\&quot;SUCCES\&quot; ou \&quot;ERREUR\&quot;).
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,7 +59,7 @@ class StatutTache implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'id_tache' => 'string',
-        'statut' => 'string',
+        'statut' => '\FactPulse\SDK\Model\StatutCelery',
         'resultat' => 'array<string,mixed>'
     ];
 
@@ -340,7 +340,7 @@ class StatutTache implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets statut
      *
-     * @return string
+     * @return \FactPulse\SDK\Model\StatutCelery
      */
     public function getStatut()
     {
@@ -350,7 +350,7 @@ class StatutTache implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets statut
      *
-     * @param string $statut statut
+     * @param \FactPulse\SDK\Model\StatutCelery $statut Statut Celery de la tâche (PENDING, STARTED, SUCCESS, FAILURE, RETRY)
      *
      * @return self
      */

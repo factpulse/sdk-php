@@ -59,7 +59,7 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'montant_ht_total' => '\FactPulse\SDK\Model\MontantHtTotal',
-        'montant_tva' => '\FactPulse\SDK\Model\MontantTva1',
+        'montant_tva' => '\FactPulse\SDK\Model\MontantTvaTotal',
         'montant_ttc_total' => '\FactPulse\SDK\Model\MontantTtcTotal',
         'montant_a_payer' => '\FactPulse\SDK\Model\MontantAPayer',
         'acompte' => '\FactPulse\SDK\Model\MontantTotalAcompte',
@@ -374,7 +374,7 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets montant_tva
      *
-     * @return \FactPulse\SDK\Model\MontantTva1
+     * @return \FactPulse\SDK\Model\MontantTvaTotal
      */
     public function getMontantTva()
     {
@@ -384,7 +384,7 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets montant_tva
      *
-     * @param \FactPulse\SDK\Model\MontantTva1 $montant_tva montant_tva
+     * @param \FactPulse\SDK\Model\MontantTvaTotal $montant_tva montant_tva
      *
      * @return self
      */

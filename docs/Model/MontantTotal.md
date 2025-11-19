@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **montant_ht_total** | [**\FactPulse\SDK\Model\MontantHtTotal**](MontantHtTotal.md) |  |
-**montant_tva** | [**\FactPulse\SDK\Model\MontantTva1**](MontantTva1.md) |  |
+**montant_tva** | [**\FactPulse\SDK\Model\MontantTvaTotal**](MontantTvaTotal.md) |  |
 **montant_ttc_total** | [**\FactPulse\SDK\Model\MontantTtcTotal**](MontantTtcTotal.md) |  |
 **montant_a_payer** | [**\FactPulse\SDK\Model\MontantAPayer**](MontantAPayer.md) |  |
 **acompte** | [**\FactPulse\SDK\Model\MontantTotalAcompte**](MontantTotalAcompte.md) |  | [optional]

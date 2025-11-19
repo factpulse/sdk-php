@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * StatutTacheTest Class Doc Comment
  *
  * @category    Class
- * @description Description complète du statut d&#39;une tâche asynchrone.
+ * @description Description complète du statut d&#39;une tâche asynchrone.  Le champ &#x60;statut&#x60; indique l&#39;état Celery de la tâche. Quand &#x60;statut&#x3D;\&quot;SUCCESS\&quot;&#x60;, consultez &#x60;resultat.statut&#x60; pour le résultat métier (\&quot;SUCCES\&quot; ou \&quot;ERREUR\&quot;).
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
