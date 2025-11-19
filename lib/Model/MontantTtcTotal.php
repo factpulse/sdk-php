@@ -35,7 +35,6 @@ use \FactPulse\SDK\ObjectSerializer;
  * MontantTtcTotal Class Doc Comment
  *
  * @category Class
- * @description Montant total TTC.
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -50,7 +49,7 @@ class MontantTtcTotal implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'MontantTtcTotal';
+    protected static $openAPIModelName = 'Montant_Ttc_Total';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

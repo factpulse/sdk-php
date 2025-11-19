@@ -69,6 +69,7 @@ class FactureFacturX implements ModelInterface, ArrayAccess, \JsonSerializable
         'montant_total' => '\FactPulse\SDK\Model\MontantTotal',
         'lignes_de_poste' => '\FactPulse\SDK\Model\LigneDePoste[]',
         'lignes_de_tva' => '\FactPulse\SDK\Model\LigneDeTVA[]',
+        'notes' => '\FactPulse\SDK\Model\Note[]',
         'commentaire' => 'string',
         'id_utilisateur_courant' => 'int',
         'pieces_jointes_complementaires' => '\FactPulse\SDK\Model\PieceJointeComplementaire[]'
@@ -93,6 +94,7 @@ class FactureFacturX implements ModelInterface, ArrayAccess, \JsonSerializable
         'montant_total' => null,
         'lignes_de_poste' => null,
         'lignes_de_tva' => null,
+        'notes' => null,
         'commentaire' => null,
         'id_utilisateur_courant' => null,
         'pieces_jointes_complementaires' => null
@@ -115,6 +117,7 @@ class FactureFacturX implements ModelInterface, ArrayAccess, \JsonSerializable
         'montant_total' => false,
         'lignes_de_poste' => false,
         'lignes_de_tva' => false,
+        'notes' => false,
         'commentaire' => true,
         'id_utilisateur_courant' => true,
         'pieces_jointes_complementaires' => true
@@ -217,6 +220,7 @@ class FactureFacturX implements ModelInterface, ArrayAccess, \JsonSerializable
         'montant_total' => 'montantTotal',
         'lignes_de_poste' => 'lignesDePoste',
         'lignes_de_tva' => 'lignesDeTva',
+        'notes' => 'notes',
         'commentaire' => 'commentaire',
         'id_utilisateur_courant' => 'idUtilisateurCourant',
         'pieces_jointes_complementaires' => 'piecesJointesComplementaires'
@@ -239,6 +243,7 @@ class FactureFacturX implements ModelInterface, ArrayAccess, \JsonSerializable
         'montant_total' => 'setMontantTotal',
         'lignes_de_poste' => 'setLignesDePoste',
         'lignes_de_tva' => 'setLignesDeTva',
+        'notes' => 'setNotes',
         'commentaire' => 'setCommentaire',
         'id_utilisateur_courant' => 'setIdUtilisateurCourant',
         'pieces_jointes_complementaires' => 'setPiecesJointesComplementaires'
@@ -261,6 +266,7 @@ class FactureFacturX implements ModelInterface, ArrayAccess, \JsonSerializable
         'montant_total' => 'getMontantTotal',
         'lignes_de_poste' => 'getLignesDePoste',
         'lignes_de_tva' => 'getLignesDeTva',
+        'notes' => 'getNotes',
         'commentaire' => 'getCommentaire',
         'id_utilisateur_courant' => 'getIdUtilisateurCourant',
         'pieces_jointes_complementaires' => 'getPiecesJointesComplementaires'
@@ -334,6 +340,7 @@ class FactureFacturX implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('montant_total', $data ?? [], null);
         $this->setIfExists('lignes_de_poste', $data ?? [], null);
         $this->setIfExists('lignes_de_tva', $data ?? [], null);
+        $this->setIfExists('notes', $data ?? [], null);
         $this->setIfExists('commentaire', $data ?? [], null);
         $this->setIfExists('id_utilisateur_courant', $data ?? [], null);
         $this->setIfExists('pieces_jointes_complementaires', $data ?? [], null);
@@ -698,6 +705,33 @@ class FactureFacturX implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable lignes_de_tva cannot be null');
         }
         $this->container['lignes_de_tva'] = $lignes_de_tva;
+
+        return $this;
+    }
+
+    /**
+     * Gets notes
+     *
+     * @return \FactPulse\SDK\Model\Note[]|null
+     */
+    public function getNotes()
+    {
+        return $this->container['notes'];
+    }
+
+    /**
+     * Sets notes
+     *
+     * @param \FactPulse\SDK\Model\Note[]|null $notes notes
+     *
+     * @return self
+     */
+    public function setNotes($notes)
+    {
+        if (is_null($notes)) {
+            throw new \InvalidArgumentException('non-nullable notes cannot be null');
+        }
+        $this->container['notes'] = $notes;
 
         return $this;
     }

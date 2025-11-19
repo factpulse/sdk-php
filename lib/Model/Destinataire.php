@@ -61,6 +61,8 @@ class Destinataire implements ModelInterface, ArrayAccess, \JsonSerializable
         'adresse_electronique' => '\FactPulse\SDK\Model\AdresseElectronique',
         'code_service_executant' => 'string',
         'nom' => 'string',
+        'siren' => 'string',
+        'siret' => 'string',
         'adresse_postale' => '\FactPulse\SDK\Model\AdressePostale'
     ];
 
@@ -75,6 +77,8 @@ class Destinataire implements ModelInterface, ArrayAccess, \JsonSerializable
         'adresse_electronique' => null,
         'code_service_executant' => null,
         'nom' => null,
+        'siren' => null,
+        'siret' => null,
         'adresse_postale' => null
     ];
 
@@ -87,6 +91,8 @@ class Destinataire implements ModelInterface, ArrayAccess, \JsonSerializable
         'adresse_electronique' => false,
         'code_service_executant' => true,
         'nom' => true,
+        'siren' => true,
+        'siret' => true,
         'adresse_postale' => true
     ];
 
@@ -179,6 +185,8 @@ class Destinataire implements ModelInterface, ArrayAccess, \JsonSerializable
         'adresse_electronique' => 'adresseElectronique',
         'code_service_executant' => 'codeServiceExecutant',
         'nom' => 'nom',
+        'siren' => 'siren',
+        'siret' => 'siret',
         'adresse_postale' => 'adressePostale'
     ];
 
@@ -191,6 +199,8 @@ class Destinataire implements ModelInterface, ArrayAccess, \JsonSerializable
         'adresse_electronique' => 'setAdresseElectronique',
         'code_service_executant' => 'setCodeServiceExecutant',
         'nom' => 'setNom',
+        'siren' => 'setSiren',
+        'siret' => 'setSiret',
         'adresse_postale' => 'setAdressePostale'
     ];
 
@@ -203,6 +213,8 @@ class Destinataire implements ModelInterface, ArrayAccess, \JsonSerializable
         'adresse_electronique' => 'getAdresseElectronique',
         'code_service_executant' => 'getCodeServiceExecutant',
         'nom' => 'getNom',
+        'siren' => 'getSiren',
+        'siret' => 'getSiret',
         'adresse_postale' => 'getAdressePostale'
     ];
 
@@ -266,6 +278,8 @@ class Destinataire implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('adresse_electronique', $data ?? [], null);
         $this->setIfExists('code_service_executant', $data ?? [], null);
         $this->setIfExists('nom', $data ?? [], null);
+        $this->setIfExists('siren', $data ?? [], null);
+        $this->setIfExists('siret', $data ?? [], null);
         $this->setIfExists('adresse_postale', $data ?? [], null);
     }
 
@@ -405,6 +419,74 @@ class Destinataire implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['nom'] = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Gets siren
+     *
+     * @return string|null
+     */
+    public function getSiren()
+    {
+        return $this->container['siren'];
+    }
+
+    /**
+     * Sets siren
+     *
+     * @param string|null $siren siren
+     *
+     * @return self
+     */
+    public function setSiren($siren)
+    {
+        if (is_null($siren)) {
+            array_push($this->openAPINullablesSetToNull, 'siren');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('siren', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['siren'] = $siren;
+
+        return $this;
+    }
+
+    /**
+     * Gets siret
+     *
+     * @return string|null
+     */
+    public function getSiret()
+    {
+        return $this->container['siret'];
+    }
+
+    /**
+     * Sets siret
+     *
+     * @param string|null $siret siret
+     *
+     * @return self
+     */
+    public function setSiret($siret)
+    {
+        if (is_null($siret)) {
+            array_push($this->openAPINullablesSetToNull, 'siret');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('siret', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['siret'] = $siret;
 
         return $this;
     }

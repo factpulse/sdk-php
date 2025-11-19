@@ -107,6 +107,24 @@ class DestinataireTest extends TestCase
     }
 
     /**
+     * Test attribute "siren"
+     */
+    public function testPropertySiren()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "siret"
+     */
+    public function testPropertySiret()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "adresse_postale"
      */
     public function testPropertyAdressePostale()

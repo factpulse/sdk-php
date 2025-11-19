@@ -58,10 +58,10 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'montant_base_ht' => '\FactPulse\SDK\Model\MontantBaseHt',
-        'montant_tva' => '\FactPulse\SDK\Model\MontantTvaLigne',
+        'montant_base_ht' => 'float',
+        'montant_tva' => 'float',
         'taux' => 'string',
-        'taux_manuel' => '\FactPulse\SDK\Model\Tauxmanuel',
+        'taux_manuel' => 'float',
         'categorie' => '\FactPulse\SDK\Model\CategorieTVA'
     ];
 
@@ -73,10 +73,10 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'montant_base_ht' => null,
-        'montant_tva' => null,
+        'montant_base_ht' => 'decimal',
+        'montant_tva' => 'decimal',
         'taux' => null,
-        'taux_manuel' => null,
+        'taux_manuel' => 'decimal',
         'categorie' => null
     ];
 
@@ -306,9 +306,21 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['montant_base_ht'] === null) {
             $invalidProperties[] = "'montant_base_ht' can't be null";
         }
+        if (!preg_match("/^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/", $this->container['montant_base_ht'])) {
+            $invalidProperties[] = "invalid value for 'montant_base_ht', must be conform to the pattern /^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/.";
+        }
+
         if ($this->container['montant_tva'] === null) {
             $invalidProperties[] = "'montant_tva' can't be null";
         }
+        if (!preg_match("/^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/", $this->container['montant_tva'])) {
+            $invalidProperties[] = "invalid value for 'montant_tva', must be conform to the pattern /^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/.";
+        }
+
+        if (!is_null($this->container['taux_manuel']) && !preg_match("/^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/", $this->container['taux_manuel'])) {
+            $invalidProperties[] = "invalid value for 'taux_manuel', must be conform to the pattern /^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/.";
+        }
+
         return $invalidProperties;
     }
 
@@ -327,7 +339,7 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets montant_base_ht
      *
-     * @return \FactPulse\SDK\Model\MontantBaseHt
+     * @return float
      */
     public function getMontantBaseHt()
     {
@@ -337,7 +349,7 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets montant_base_ht
      *
-     * @param \FactPulse\SDK\Model\MontantBaseHt $montant_base_ht montant_base_ht
+     * @param float $montant_base_ht Montant de la base HT pour cette ligne de TVA.
      *
      * @return self
      */
@@ -346,6 +358,11 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($montant_base_ht)) {
             throw new \InvalidArgumentException('non-nullable montant_base_ht cannot be null');
         }
+
+        if ((!preg_match("/^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/", ObjectSerializer::toString($montant_base_ht)))) {
+            throw new \InvalidArgumentException("invalid value for \$montant_base_ht when calling LigneDeTVA., must conform to the pattern /^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/.");
+        }
+
         $this->container['montant_base_ht'] = $montant_base_ht;
 
         return $this;
@@ -354,7 +371,7 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets montant_tva
      *
-     * @return \FactPulse\SDK\Model\MontantTvaLigne
+     * @return float
      */
     public function getMontantTva()
     {
@@ -364,7 +381,7 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets montant_tva
      *
-     * @param \FactPulse\SDK\Model\MontantTvaLigne $montant_tva montant_tva
+     * @param float $montant_tva Montant de la TVA pour cette ligne.
      *
      * @return self
      */
@@ -373,6 +390,11 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($montant_tva)) {
             throw new \InvalidArgumentException('non-nullable montant_tva cannot be null');
         }
+
+        if ((!preg_match("/^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/", ObjectSerializer::toString($montant_tva)))) {
+            throw new \InvalidArgumentException("invalid value for \$montant_tva when calling LigneDeTVA., must conform to the pattern /^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/.");
+        }
+
         $this->container['montant_tva'] = $montant_tva;
 
         return $this;
@@ -415,7 +437,7 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets taux_manuel
      *
-     * @return \FactPulse\SDK\Model\Tauxmanuel|null
+     * @return float|null
      */
     public function getTauxManuel()
     {
@@ -425,7 +447,7 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets taux_manuel
      *
-     * @param \FactPulse\SDK\Model\Tauxmanuel|null $taux_manuel taux_manuel
+     * @param float|null $taux_manuel Taux de TVA avec valeur manuelle.
      *
      * @return self
      */
@@ -434,6 +456,11 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($taux_manuel)) {
             throw new \InvalidArgumentException('non-nullable taux_manuel cannot be null');
         }
+
+        if ((!preg_match("/^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/", ObjectSerializer::toString($taux_manuel)))) {
+            throw new \InvalidArgumentException("invalid value for \$taux_manuel when calling LigneDeTVA., must conform to the pattern /^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/.");
+        }
+
         $this->container['taux_manuel'] = $taux_manuel;
 
         return $this;

@@ -1,6 +1,6 @@
 <?php
 /**
- * MontantAPayerTest
+ * NoteTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * MontantAPayerTest Class Doc Comment
+ * NoteTest Class Doc Comment
  *
  * @category    Class
- * @description Montant à payer.
+ * @description Note de facture (IncludedNote en Factur-X).  Les notes obligatoires pour BR-FR-05 sont : - PMT : Indemnité forfaitaire pour frais de recouvrement - PMD : Pénalités de retard - AAB : Escompte pour paiement anticipé
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class MontantAPayerTest extends TestCase
+class NoteTest extends TestCase
 {
 
     /**
@@ -71,9 +71,27 @@ class MontantAPayerTest extends TestCase
     }
 
     /**
-     * Test "MontantAPayer"
+     * Test "Note"
      */
-    public function testMontantAPayer()
+    public function testNote()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "subject_code"
+     */
+    public function testPropertySubjectCode()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "content"
+     */
+    public function testPropertyContent()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

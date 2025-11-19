@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **montant_total** | [**\FactPulse\SDK\Model\MontantTotal**](MontantTotal.md) |  |
 **lignes_de_poste** | [**\FactPulse\SDK\Model\LigneDePoste[]**](LigneDePoste.md) |  | [optional]
 **lignes_de_tva** | [**\FactPulse\SDK\Model\LigneDeTVA[]**](LigneDeTVA.md) |  | [optional]
+**notes** | [**\FactPulse\SDK\Model\Note[]**](Note.md) |  | [optional]
 **commentaire** | **string** |  | [optional]
 **id_utilisateur_courant** | **int** |  | [optional]
 **pieces_jointes_complementaires** | [**\FactPulse\SDK\Model\PieceJointeComplementaire[]**](PieceJointeComplementaire.md) |  | [optional]

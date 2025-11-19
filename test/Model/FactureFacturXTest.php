@@ -179,6 +179,15 @@ class FactureFacturXTest extends TestCase
     }
 
     /**
+     * Test attribute "notes"
+     */
+    public function testPropertyNotes()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "commentaire"
      */
     public function testPropertyCommentaire()

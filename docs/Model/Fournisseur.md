@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **code_coordonnees_bancaires_fournisseur** | **int** |  | [optional]
 **id_service_fournisseur** | **int** |  | [optional]
 **nom** | **string** |  | [optional]
+**siren** | **string** |  | [optional]
 **siret** | **string** |  | [optional]
 **numero_tva_intra** | **string** |  | [optional]
 **iban** | **string** |  | [optional]

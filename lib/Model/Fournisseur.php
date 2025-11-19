@@ -63,6 +63,7 @@ class Fournisseur implements ModelInterface, ArrayAccess, \JsonSerializable
         'code_coordonnees_bancaires_fournisseur' => 'int',
         'id_service_fournisseur' => 'int',
         'nom' => 'string',
+        'siren' => 'string',
         'siret' => 'string',
         'numero_tva_intra' => 'string',
         'iban' => 'string',
@@ -82,6 +83,7 @@ class Fournisseur implements ModelInterface, ArrayAccess, \JsonSerializable
         'code_coordonnees_bancaires_fournisseur' => null,
         'id_service_fournisseur' => null,
         'nom' => null,
+        'siren' => null,
         'siret' => null,
         'numero_tva_intra' => null,
         'iban' => null,
@@ -99,6 +101,7 @@ class Fournisseur implements ModelInterface, ArrayAccess, \JsonSerializable
         'code_coordonnees_bancaires_fournisseur' => true,
         'id_service_fournisseur' => true,
         'nom' => true,
+        'siren' => true,
         'siret' => true,
         'numero_tva_intra' => true,
         'iban' => true,
@@ -196,6 +199,7 @@ class Fournisseur implements ModelInterface, ArrayAccess, \JsonSerializable
         'code_coordonnees_bancaires_fournisseur' => 'codeCoordonneesBancairesFournisseur',
         'id_service_fournisseur' => 'idServiceFournisseur',
         'nom' => 'nom',
+        'siren' => 'siren',
         'siret' => 'siret',
         'numero_tva_intra' => 'numeroTvaIntra',
         'iban' => 'iban',
@@ -213,6 +217,7 @@ class Fournisseur implements ModelInterface, ArrayAccess, \JsonSerializable
         'code_coordonnees_bancaires_fournisseur' => 'setCodeCoordonneesBancairesFournisseur',
         'id_service_fournisseur' => 'setIdServiceFournisseur',
         'nom' => 'setNom',
+        'siren' => 'setSiren',
         'siret' => 'setSiret',
         'numero_tva_intra' => 'setNumeroTvaIntra',
         'iban' => 'setIban',
@@ -230,6 +235,7 @@ class Fournisseur implements ModelInterface, ArrayAccess, \JsonSerializable
         'code_coordonnees_bancaires_fournisseur' => 'getCodeCoordonneesBancairesFournisseur',
         'id_service_fournisseur' => 'getIdServiceFournisseur',
         'nom' => 'getNom',
+        'siren' => 'getSiren',
         'siret' => 'getSiret',
         'numero_tva_intra' => 'getNumeroTvaIntra',
         'iban' => 'getIban',
@@ -298,6 +304,7 @@ class Fournisseur implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('code_coordonnees_bancaires_fournisseur', $data ?? [], null);
         $this->setIfExists('id_service_fournisseur', $data ?? [], null);
         $this->setIfExists('nom', $data ?? [], null);
+        $this->setIfExists('siren', $data ?? [], null);
         $this->setIfExists('siret', $data ?? [], null);
         $this->setIfExists('numero_tva_intra', $data ?? [], null);
         $this->setIfExists('iban', $data ?? [], null);
@@ -504,6 +511,40 @@ class Fournisseur implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['nom'] = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Gets siren
+     *
+     * @return string|null
+     */
+    public function getSiren()
+    {
+        return $this->container['siren'];
+    }
+
+    /**
+     * Sets siren
+     *
+     * @param string|null $siren siren
+     *
+     * @return self
+     */
+    public function setSiren($siren)
+    {
+        if (is_null($siren)) {
+            array_push($this->openAPINullablesSetToNull, 'siren');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('siren', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['siren'] = $siren;
 
         return $this;
     }

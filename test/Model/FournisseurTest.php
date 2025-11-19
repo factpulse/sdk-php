@@ -125,6 +125,15 @@ class FournisseurTest extends TestCase
     }
 
     /**
+     * Test attribute "siren"
+     */
+    public function testPropertySiren()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "siret"
      */
     public function testPropertySiret()

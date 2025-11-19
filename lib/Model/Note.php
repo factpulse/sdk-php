@@ -1,6 +1,6 @@
 <?php
 /**
- * MontantTvaTotal
+ * Note
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \FactPulse\SDK\ObjectSerializer;
 
 /**
- * MontantTvaTotal Class Doc Comment
+ * Note Class Doc Comment
  *
  * @category Class
- * @description Montant total de la TVA.
+ * @description Note de facture (IncludedNote en Factur-X).  Les notes obligatoires pour BR-FR-05 sont : - PMT : Indemnité forfaitaire pour frais de recouvrement - PMD : Pénalités de retard - AAB : Escompte pour paiement anticipé
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class MontantTvaTotal implements ModelInterface, ArrayAccess, \JsonSerializable
+class Note implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class MontantTvaTotal implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'MontantTvaTotal';
+    protected static $openAPIModelName = 'Note';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,8 @@ class MontantTvaTotal implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        
+        'subject_code' => 'string',
+        'content' => 'string'
     ];
 
     /**
@@ -69,7 +70,8 @@ class MontantTvaTotal implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        
+        'subject_code' => null,
+        'content' => null
     ];
 
     /**
@@ -78,7 +80,8 @@ class MontantTvaTotal implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        
+        'subject_code' => true,
+        'content' => false
     ];
 
     /**
@@ -167,7 +170,8 @@ class MontantTvaTotal implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'subject_code' => 'subjectCode',
+        'content' => 'content'
     ];
 
     /**
@@ -176,7 +180,8 @@ class MontantTvaTotal implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        
+        'subject_code' => 'setSubjectCode',
+        'content' => 'setContent'
     ];
 
     /**
@@ -185,7 +190,8 @@ class MontantTvaTotal implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        
+        'subject_code' => 'getSubjectCode',
+        'content' => 'getContent'
     ];
 
     /**
@@ -245,6 +251,8 @@ class MontantTvaTotal implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('subject_code', $data ?? [], null);
+        $this->setIfExists('content', $data ?? [], null);
     }
 
     /**
@@ -274,6 +282,9 @@ class MontantTvaTotal implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['content'] === null) {
+            $invalidProperties[] = "'content' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -288,6 +299,67 @@ class MontantTvaTotal implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets subject_code
+     *
+     * @return string|null
+     */
+    public function getSubjectCode()
+    {
+        return $this->container['subject_code'];
+    }
+
+    /**
+     * Sets subject_code
+     *
+     * @param string|null $subject_code subject_code
+     *
+     * @return self
+     */
+    public function setSubjectCode($subject_code)
+    {
+        if (is_null($subject_code)) {
+            array_push($this->openAPINullablesSetToNull, 'subject_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('subject_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['subject_code'] = $subject_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets content
+     *
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->container['content'];
+    }
+
+    /**
+     * Sets content
+     *
+     * @param string $content content
+     *
+     * @return self
+     */
+    public function setContent($content)
+    {
+        if (is_null($content)) {
+            throw new \InvalidArgumentException('non-nullable content cannot be null');
+        }
+        $this->container['content'] = $content;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

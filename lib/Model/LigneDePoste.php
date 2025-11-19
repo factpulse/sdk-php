@@ -64,10 +64,10 @@ class LigneDePoste implements ModelInterface, ArrayAccess, \JsonSerializable
         'quantite' => '\FactPulse\SDK\Model\Quantite',
         'unite' => '\FactPulse\SDK\Model\Unite',
         'montant_unitaire_ht' => '\FactPulse\SDK\Model\MontantUnitaireHt',
-        'montant_remise_ht' => '\FactPulse\SDK\Model\LigneDePosteMontantRemiseHt',
-        'montant_total_ligne_ht' => '\FactPulse\SDK\Model\MontantTotalLigneHt',
+        'montant_remise_ht' => 'float',
+        'montant_total_ligne_ht' => 'float',
         'taux_tva' => 'string',
-        'taux_tva_manuel' => '\FactPulse\SDK\Model\LigneDePosteTauxTvaManuel',
+        'taux_tva_manuel' => 'float',
         'categorie_tva' => '\FactPulse\SDK\Model\CategorieTVA',
         'date_debut_periode' => 'string',
         'date_fin_periode' => 'string',
@@ -89,10 +89,10 @@ class LigneDePoste implements ModelInterface, ArrayAccess, \JsonSerializable
         'quantite' => null,
         'unite' => null,
         'montant_unitaire_ht' => null,
-        'montant_remise_ht' => null,
-        'montant_total_ligne_ht' => null,
+        'montant_remise_ht' => 'decimal',
+        'montant_total_ligne_ht' => 'decimal',
         'taux_tva' => null,
-        'taux_tva_manuel' => null,
+        'taux_tva_manuel' => 'decimal',
         'categorie_tva' => null,
         'date_debut_periode' => null,
         'date_fin_periode' => null,
@@ -113,7 +113,7 @@ class LigneDePoste implements ModelInterface, ArrayAccess, \JsonSerializable
         'unite' => false,
         'montant_unitaire_ht' => false,
         'montant_remise_ht' => true,
-        'montant_total_ligne_ht' => true,
+        'montant_total_ligne_ht' => false,
         'taux_tva' => true,
         'taux_tva_manuel' => true,
         'categorie_tva' => true,
@@ -388,6 +388,18 @@ class LigneDePoste implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['montant_unitaire_ht'] === null) {
             $invalidProperties[] = "'montant_unitaire_ht' can't be null";
         }
+        if (!is_null($this->container['montant_remise_ht']) && !preg_match("/^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/", $this->container['montant_remise_ht'])) {
+            $invalidProperties[] = "invalid value for 'montant_remise_ht', must be conform to the pattern /^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/.";
+        }
+
+        if (!is_null($this->container['montant_total_ligne_ht']) && !preg_match("/^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)/", $this->container['montant_total_ligne_ht'])) {
+            $invalidProperties[] = "invalid value for 'montant_total_ligne_ht', must be conform to the pattern /^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)/.";
+        }
+
+        if (!is_null($this->container['taux_tva_manuel']) && !preg_match("/^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/", $this->container['taux_tva_manuel'])) {
+            $invalidProperties[] = "invalid value for 'taux_tva_manuel', must be conform to the pattern /^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/.";
+        }
+
         return $invalidProperties;
     }
 
@@ -575,7 +587,7 @@ class LigneDePoste implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets montant_remise_ht
      *
-     * @return \FactPulse\SDK\Model\LigneDePosteMontantRemiseHt|null
+     * @return float|null
      */
     public function getMontantRemiseHt()
     {
@@ -585,7 +597,7 @@ class LigneDePoste implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets montant_remise_ht
      *
-     * @param \FactPulse\SDK\Model\LigneDePosteMontantRemiseHt|null $montant_remise_ht montant_remise_ht
+     * @param float|null $montant_remise_ht Montant de la remise HT.
      *
      * @return self
      */
@@ -601,6 +613,11 @@ class LigneDePoste implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+
+        if (!is_null($montant_remise_ht) && (!preg_match("/^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/", ObjectSerializer::toString($montant_remise_ht)))) {
+            throw new \InvalidArgumentException("invalid value for \$montant_remise_ht when calling LigneDePoste., must conform to the pattern /^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/.");
+        }
+
         $this->container['montant_remise_ht'] = $montant_remise_ht;
 
         return $this;
@@ -609,7 +626,7 @@ class LigneDePoste implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets montant_total_ligne_ht
      *
-     * @return \FactPulse\SDK\Model\MontantTotalLigneHt|null
+     * @return float|null
      */
     public function getMontantTotalLigneHt()
     {
@@ -619,22 +636,20 @@ class LigneDePoste implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets montant_total_ligne_ht
      *
-     * @param \FactPulse\SDK\Model\MontantTotalLigneHt|null $montant_total_ligne_ht montant_total_ligne_ht
+     * @param float|null $montant_total_ligne_ht Montant total HT de la ligne (quantité × prix unitaire - remise).
      *
      * @return self
      */
     public function setMontantTotalLigneHt($montant_total_ligne_ht)
     {
         if (is_null($montant_total_ligne_ht)) {
-            array_push($this->openAPINullablesSetToNull, 'montant_total_ligne_ht');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('montant_total_ligne_ht', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable montant_total_ligne_ht cannot be null');
         }
+
+        if ((!preg_match("/^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)/", ObjectSerializer::toString($montant_total_ligne_ht)))) {
+            throw new \InvalidArgumentException("invalid value for \$montant_total_ligne_ht when calling LigneDePoste., must conform to the pattern /^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)/.");
+        }
+
         $this->container['montant_total_ligne_ht'] = $montant_total_ligne_ht;
 
         return $this;
@@ -677,7 +692,7 @@ class LigneDePoste implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets taux_tva_manuel
      *
-     * @return \FactPulse\SDK\Model\LigneDePosteTauxTvaManuel|null
+     * @return float|null
      */
     public function getTauxTvaManuel()
     {
@@ -687,7 +702,7 @@ class LigneDePoste implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets taux_tva_manuel
      *
-     * @param \FactPulse\SDK\Model\LigneDePosteTauxTvaManuel|null $taux_tva_manuel taux_tva_manuel
+     * @param float|null $taux_tva_manuel Taux de TVA avec valeur manuelle.
      *
      * @return self
      */
@@ -703,6 +718,11 @@ class LigneDePoste implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+
+        if (!is_null($taux_tva_manuel) && (!preg_match("/^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/", ObjectSerializer::toString($taux_tva_manuel)))) {
+            throw new \InvalidArgumentException("invalid value for \$taux_tva_manuel when calling LigneDePoste., must conform to the pattern /^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/.");
+        }
+
         $this->container['taux_tva_manuel'] = $taux_tva_manuel;
 
         return $this;
