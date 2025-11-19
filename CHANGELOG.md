@@ -7,7 +7,7 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
-## [2.0.4] - 2025-11-18
+## [2.0.4] - 2025-11-19
 
 ### Added
 - Version initiale du SDK php
