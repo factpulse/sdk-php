@@ -4,21 +4,109 @@ namespace FactPulse\SDK\Helpers;
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Exception\GuzzleException;
 
+// =============================================================================
+// Credentials classes - pour une configuration simplifiée
+// =============================================================================
+
+/** Credentials Chorus Pro pour le mode Zero-Trust. */
+class ChorusProCredentials {
+    public string $pisteClientId;
+    public string $pisteClientSecret;
+    public string $chorusProLogin;
+    public string $chorusProPassword;
+    public bool $sandbox;
+
+    public function __construct(string $pisteClientId, string $pisteClientSecret, string $chorusProLogin, string $chorusProPassword, bool $sandbox = true) {
+        $this->pisteClientId = $pisteClientId; $this->pisteClientSecret = $pisteClientSecret;
+        $this->chorusProLogin = $chorusProLogin; $this->chorusProPassword = $chorusProPassword; $this->sandbox = $sandbox;
+    }
+
+    public function toArray(): array {
+        return ['piste_client_id' => $this->pisteClientId, 'piste_client_secret' => $this->pisteClientSecret,
+            'chorus_pro_login' => $this->chorusProLogin, 'chorus_pro_password' => $this->chorusProPassword, 'sandbox' => $this->sandbox];
+    }
+}
+
+/** Credentials AFNOR PDP pour le mode Zero-Trust. */
+class AFNORCredentials {
+    public string $clientId, $clientSecret, $flowServiceUrl;
+
+    public function __construct(string $clientId, string $clientSecret, string $flowServiceUrl) {
+        $this->clientId = $clientId; $this->clientSecret = $clientSecret; $this->flowServiceUrl = $flowServiceUrl;
+    }
+
+    public function toArray(): array {
+        return ['client_id' => $this->clientId, 'client_secret' => $this->clientSecret, 'flow_service_url' => $this->flowServiceUrl];
+    }
+}
+
+// =============================================================================
+// Helpers pour les types anyOf - évite la verbosité des wrappers générés
+// =============================================================================
+
+function montant($value): string {
+    if ($value === null) return '0.00';
+    if (is_numeric($value)) return number_format((float)$value, 2, '.', '');
+    return is_string($value) ? $value : '0.00';
+}
+
+function montantTotal($ht, $tva, $ttc, $aPayer, $remiseTtc = null, ?string $motifRemise = null, $acompte = null): array {
+    $result = ['montantHtTotal' => montant($ht), 'montantTva' => montant($tva), 'montantTtcTotal' => montant($ttc), 'montantAPayer' => montant($aPayer)];
+    if ($remiseTtc !== null) $result['montantRemiseGlobaleTtc'] = montant($remiseTtc);
+    if ($motifRemise !== null) $result['motifRemiseGlobaleTtc'] = $motifRemise;
+    if ($acompte !== null) $result['acompte'] = montant($acompte);
+    return $result;
+}
+
+function ligneDePoste(int $numero, string $denomination, $quantite, $montantUnitaireHt, $montantLigneHt,
+    $tauxTva = '20.00', string $unite = 'C62', array $options = []): array {
+    $result = ['numero' => $numero, 'denomination' => $denomination, 'quantite' => montant($quantite),
+        'montantUnitaireHt' => montant($montantUnitaireHt), 'montantTotalLigneHt' => montant($montantLigneHt),
+        'tauxTva' => montant($tauxTva), 'unite' => $unite];
+    if (isset($options['montantTvaLigne'])) $result['montantTvaLigne'] = montant($options['montantTvaLigne']);
+    if (isset($options['montantRemiseHt'])) $result['montantRemiseHt'] = montant($options['montantRemiseHt']);
+    if (isset($options['codeRaisonRemise'])) $result['codeRaisonReduction'] = $options['codeRaisonRemise'];
+    if (isset($options['motifRemise'])) $result['motifRemise'] = $options['motifRemise'];
+    if (isset($options['description'])) $result['description'] = $options['description'];
+    return $result;
+}
+
+function ligneDeTva($taux, $baseHt, $montantTva, string $categorie = 'S', ?string $motifExoneration = null): array {
+    $result = ['tauxTva' => montant($taux), 'montantBaseHt' => montant($baseHt), 'montantTva' => montant($montantTva), 'categorieTva' => $categorie];
+    if ($motifExoneration !== null) $result['motifExoneration'] = $motifExoneration;
+    return $result;
+}
+
+// =============================================================================
+// Client principal
+// =============================================================================
+
 class FactPulseClient {
     private const DEFAULT_API_URL = 'https://factpulse.fr';
-    private string $email, $password, $apiUrl; private ?string $clientUid;
+    private string $email, $password, $apiUrl;
+    private ?string $clientUid;
+    private ?ChorusProCredentials $chorusCredentials;
+    private ?AFNORCredentials $afnorCredentials;
     private int $pollingInterval, $pollingTimeout, $maxRetries;
     private HttpClient $httpClient;
-    private ?string $accessToken = null, $refreshToken = null; private ?int $tokenExpiresAt = null;
+    private ?string $accessToken = null, $refreshToken = null;
+    private ?int $tokenExpiresAt = null;
 
     public function __construct(string $email, string $password, ?string $apiUrl = null, ?string $clientUid = null,
+        ?ChorusProCredentials $chorusCredentials = null, ?AFNORCredentials $afnorCredentials = null,
         ?int $pollingInterval = null, ?int $pollingTimeout = null, ?int $maxRetries = null) {
         $this->email = $email; $this->password = $password;
         $this->apiUrl = rtrim($apiUrl ?? self::DEFAULT_API_URL, '/');
-        $this->clientUid = $clientUid; $this->pollingInterval = $pollingInterval ?? 2000;
+        $this->clientUid = $clientUid;
+        $this->chorusCredentials = $chorusCredentials;
+        $this->afnorCredentials = $afnorCredentials;
+        $this->pollingInterval = $pollingInterval ?? 2000;
         $this->pollingTimeout = $pollingTimeout ?? 120000; $this->maxRetries = $maxRetries ?? 1;
         $this->httpClient = new HttpClient(['timeout' => 30]);
     }
+
+    public function getChorusCredentialsForApi(): ?array { return $this->chorusCredentials?->toArray(); }
+    public function getAfnorCredentialsForApi(): ?array { return $this->afnorCredentials?->toArray(); }
 
     public function ensureAuthenticated(bool $forceRefresh = false): void {
         $now = time() * 1000;
