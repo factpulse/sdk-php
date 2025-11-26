@@ -1,6 +1,6 @@
 <?php
 /**
- * FactureEnrichieInfoInputTest
+ * TauxmanuelTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * FactureEnrichieInfoInputTest Class Doc Comment
+ * TauxmanuelTest Class Doc Comment
  *
  * @category    Class
- * @description Informations sur la facture enrichie.
+ * @description Taux de TVA avec valeur manuelle. (Accepte number, string ou integer)
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class FactureEnrichieInfoInputTest extends TestCase
+class TauxmanuelTest extends TestCase
 {
 
     /**
@@ -71,81 +71,9 @@ class FactureEnrichieInfoInputTest extends TestCase
     }
 
     /**
-     * Test "FactureEnrichieInfoInput"
+     * Test "Tauxmanuel"
      */
-    public function testFactureEnrichieInfoInput()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "numero_facture"
-     */
-    public function testPropertyNumeroFacture()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "id_emetteur"
-     */
-    public function testPropertyIdEmetteur()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "id_destinataire"
-     */
-    public function testPropertyIdDestinataire()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "nom_emetteur"
-     */
-    public function testPropertyNomEmetteur()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "nom_destinataire"
-     */
-    public function testPropertyNomDestinataire()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "montant_ht_total"
-     */
-    public function testPropertyMontantHtTotal()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "montant_tva"
-     */
-    public function testPropertyMontantTva()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "montant_ttc_total"
-     */
-    public function testPropertyMontantTtcTotal()
+    public function testTauxmanuel()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

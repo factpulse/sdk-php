@@ -1,6 +1,6 @@
 <?php
 /**
- * FactureEnrichieInfoInput
+ * MontantTvaLigne
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \FactPulse\SDK\ObjectSerializer;
 
 /**
- * FactureEnrichieInfoInput Class Doc Comment
+ * MontantTvaLigne Class Doc Comment
  *
  * @category Class
- * @description Informations sur la facture enrichie.
+ * @description Montant de la TVA pour cette ligne. (Accepte number, string ou integer)
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class FactureEnrichieInfoInput implements ModelInterface, ArrayAccess, \JsonSerializable
+class MontantTvaLigne implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class FactureEnrichieInfoInput implements ModelInterface, ArrayAccess, \JsonSeri
       *
       * @var string
       */
-    protected static $openAPIModelName = 'FactureEnrichieInfo-Input';
+    protected static $openAPIModelName = 'MontantTvaLigne';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,14 +58,7 @@ class FactureEnrichieInfoInput implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'numero_facture' => 'string',
-        'id_emetteur' => 'int',
-        'id_destinataire' => 'int',
-        'nom_emetteur' => 'string',
-        'nom_destinataire' => 'string',
-        'montant_ht_total' => '\FactPulse\SDK\Model\MontantHtTotal',
-        'montant_tva' => '\FactPulse\SDK\Model\MontantTva',
-        'montant_ttc_total' => '\FactPulse\SDK\Model\MontantTtcTotal'
+        
     ];
 
     /**
@@ -76,14 +69,7 @@ class FactureEnrichieInfoInput implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'numero_facture' => null,
-        'id_emetteur' => null,
-        'id_destinataire' => null,
-        'nom_emetteur' => null,
-        'nom_destinataire' => null,
-        'montant_ht_total' => null,
-        'montant_tva' => null,
-        'montant_ttc_total' => null
+        
     ];
 
     /**
@@ -92,14 +78,7 @@ class FactureEnrichieInfoInput implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'numero_facture' => false,
-        'id_emetteur' => true,
-        'id_destinataire' => true,
-        'nom_emetteur' => false,
-        'nom_destinataire' => false,
-        'montant_ht_total' => false,
-        'montant_tva' => false,
-        'montant_ttc_total' => false
+        
     ];
 
     /**
@@ -188,14 +167,7 @@ class FactureEnrichieInfoInput implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'numero_facture' => 'numero_facture',
-        'id_emetteur' => 'id_emetteur',
-        'id_destinataire' => 'id_destinataire',
-        'nom_emetteur' => 'nom_emetteur',
-        'nom_destinataire' => 'nom_destinataire',
-        'montant_ht_total' => 'montant_ht_total',
-        'montant_tva' => 'montant_tva',
-        'montant_ttc_total' => 'montant_ttc_total'
+        
     ];
 
     /**
@@ -204,14 +176,7 @@ class FactureEnrichieInfoInput implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'numero_facture' => 'setNumeroFacture',
-        'id_emetteur' => 'setIdEmetteur',
-        'id_destinataire' => 'setIdDestinataire',
-        'nom_emetteur' => 'setNomEmetteur',
-        'nom_destinataire' => 'setNomDestinataire',
-        'montant_ht_total' => 'setMontantHtTotal',
-        'montant_tva' => 'setMontantTva',
-        'montant_ttc_total' => 'setMontantTtcTotal'
+        
     ];
 
     /**
@@ -220,14 +185,7 @@ class FactureEnrichieInfoInput implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'numero_facture' => 'getNumeroFacture',
-        'id_emetteur' => 'getIdEmetteur',
-        'id_destinataire' => 'getIdDestinataire',
-        'nom_emetteur' => 'getNomEmetteur',
-        'nom_destinataire' => 'getNomDestinataire',
-        'montant_ht_total' => 'getMontantHtTotal',
-        'montant_tva' => 'getMontantTva',
-        'montant_ttc_total' => 'getMontantTtcTotal'
+        
     ];
 
     /**
@@ -287,14 +245,6 @@ class FactureEnrichieInfoInput implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('numero_facture', $data ?? [], null);
-        $this->setIfExists('id_emetteur', $data ?? [], null);
-        $this->setIfExists('id_destinataire', $data ?? [], null);
-        $this->setIfExists('nom_emetteur', $data ?? [], null);
-        $this->setIfExists('nom_destinataire', $data ?? [], null);
-        $this->setIfExists('montant_ht_total', $data ?? [], null);
-        $this->setIfExists('montant_tva', $data ?? [], null);
-        $this->setIfExists('montant_ttc_total', $data ?? [], null);
     }
 
     /**
@@ -324,24 +274,6 @@ class FactureEnrichieInfoInput implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
-        if ($this->container['numero_facture'] === null) {
-            $invalidProperties[] = "'numero_facture' can't be null";
-        }
-        if ($this->container['nom_emetteur'] === null) {
-            $invalidProperties[] = "'nom_emetteur' can't be null";
-        }
-        if ($this->container['nom_destinataire'] === null) {
-            $invalidProperties[] = "'nom_destinataire' can't be null";
-        }
-        if ($this->container['montant_ht_total'] === null) {
-            $invalidProperties[] = "'montant_ht_total' can't be null";
-        }
-        if ($this->container['montant_tva'] === null) {
-            $invalidProperties[] = "'montant_tva' can't be null";
-        }
-        if ($this->container['montant_ttc_total'] === null) {
-            $invalidProperties[] = "'montant_ttc_total' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -356,236 +288,6 @@ class FactureEnrichieInfoInput implements ModelInterface, ArrayAccess, \JsonSeri
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets numero_facture
-     *
-     * @return string
-     */
-    public function getNumeroFacture()
-    {
-        return $this->container['numero_facture'];
-    }
-
-    /**
-     * Sets numero_facture
-     *
-     * @param string $numero_facture numero_facture
-     *
-     * @return self
-     */
-    public function setNumeroFacture($numero_facture)
-    {
-        if (is_null($numero_facture)) {
-            throw new \InvalidArgumentException('non-nullable numero_facture cannot be null');
-        }
-        $this->container['numero_facture'] = $numero_facture;
-
-        return $this;
-    }
-
-    /**
-     * Gets id_emetteur
-     *
-     * @return int|null
-     */
-    public function getIdEmetteur()
-    {
-        return $this->container['id_emetteur'];
-    }
-
-    /**
-     * Sets id_emetteur
-     *
-     * @param int|null $id_emetteur id_emetteur
-     *
-     * @return self
-     */
-    public function setIdEmetteur($id_emetteur)
-    {
-        if (is_null($id_emetteur)) {
-            array_push($this->openAPINullablesSetToNull, 'id_emetteur');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id_emetteur', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['id_emetteur'] = $id_emetteur;
-
-        return $this;
-    }
-
-    /**
-     * Gets id_destinataire
-     *
-     * @return int|null
-     */
-    public function getIdDestinataire()
-    {
-        return $this->container['id_destinataire'];
-    }
-
-    /**
-     * Sets id_destinataire
-     *
-     * @param int|null $id_destinataire id_destinataire
-     *
-     * @return self
-     */
-    public function setIdDestinataire($id_destinataire)
-    {
-        if (is_null($id_destinataire)) {
-            array_push($this->openAPINullablesSetToNull, 'id_destinataire');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id_destinataire', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['id_destinataire'] = $id_destinataire;
-
-        return $this;
-    }
-
-    /**
-     * Gets nom_emetteur
-     *
-     * @return string
-     */
-    public function getNomEmetteur()
-    {
-        return $this->container['nom_emetteur'];
-    }
-
-    /**
-     * Sets nom_emetteur
-     *
-     * @param string $nom_emetteur nom_emetteur
-     *
-     * @return self
-     */
-    public function setNomEmetteur($nom_emetteur)
-    {
-        if (is_null($nom_emetteur)) {
-            throw new \InvalidArgumentException('non-nullable nom_emetteur cannot be null');
-        }
-        $this->container['nom_emetteur'] = $nom_emetteur;
-
-        return $this;
-    }
-
-    /**
-     * Gets nom_destinataire
-     *
-     * @return string
-     */
-    public function getNomDestinataire()
-    {
-        return $this->container['nom_destinataire'];
-    }
-
-    /**
-     * Sets nom_destinataire
-     *
-     * @param string $nom_destinataire nom_destinataire
-     *
-     * @return self
-     */
-    public function setNomDestinataire($nom_destinataire)
-    {
-        if (is_null($nom_destinataire)) {
-            throw new \InvalidArgumentException('non-nullable nom_destinataire cannot be null');
-        }
-        $this->container['nom_destinataire'] = $nom_destinataire;
-
-        return $this;
-    }
-
-    /**
-     * Gets montant_ht_total
-     *
-     * @return \FactPulse\SDK\Model\MontantHtTotal
-     */
-    public function getMontantHtTotal()
-    {
-        return $this->container['montant_ht_total'];
-    }
-
-    /**
-     * Sets montant_ht_total
-     *
-     * @param \FactPulse\SDK\Model\MontantHtTotal $montant_ht_total montant_ht_total
-     *
-     * @return self
-     */
-    public function setMontantHtTotal($montant_ht_total)
-    {
-        if (is_null($montant_ht_total)) {
-            throw new \InvalidArgumentException('non-nullable montant_ht_total cannot be null');
-        }
-        $this->container['montant_ht_total'] = $montant_ht_total;
-
-        return $this;
-    }
-
-    /**
-     * Gets montant_tva
-     *
-     * @return \FactPulse\SDK\Model\MontantTva
-     */
-    public function getMontantTva()
-    {
-        return $this->container['montant_tva'];
-    }
-
-    /**
-     * Sets montant_tva
-     *
-     * @param \FactPulse\SDK\Model\MontantTva $montant_tva montant_tva
-     *
-     * @return self
-     */
-    public function setMontantTva($montant_tva)
-    {
-        if (is_null($montant_tva)) {
-            throw new \InvalidArgumentException('non-nullable montant_tva cannot be null');
-        }
-        $this->container['montant_tva'] = $montant_tva;
-
-        return $this;
-    }
-
-    /**
-     * Gets montant_ttc_total
-     *
-     * @return \FactPulse\SDK\Model\MontantTtcTotal
-     */
-    public function getMontantTtcTotal()
-    {
-        return $this->container['montant_ttc_total'];
-    }
-
-    /**
-     * Sets montant_ttc_total
-     *
-     * @param \FactPulse\SDK\Model\MontantTtcTotal $montant_ttc_total montant_ttc_total
-     *
-     * @return self
-     */
-    public function setMontantTtcTotal($montant_ttc_total)
-    {
-        if (is_null($montant_ttc_total)) {
-            throw new \InvalidArgumentException('non-nullable montant_ttc_total cannot be null');
-        }
-        $this->container['montant_ttc_total'] = $montant_ttc_total;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

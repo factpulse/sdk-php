@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **destination_type** | **string** | Type de destination |
 **resultat_chorus** | [**\FactPulse\SDK\Model\ResultatChorusPro**](ResultatChorusPro.md) |  | [optional]
 **resultat_afnor** | [**\FactPulse\SDK\Model\ResultatAFNOR**](ResultatAFNOR.md) |  | [optional]
-**facture_enrichie** | [**\FactPulse\SDK\Model\FactureEnrichieInfoOutput**](FactureEnrichieInfoOutput.md) | Données de la facture enrichie |
+**facture_enrichie** | [**\FactPulse\SDK\Model\FactureEnrichieInfo**](FactureEnrichieInfo.md) | Données de la facture enrichie |
 **pdf_facturx** | [**\FactPulse\SDK\Model\PDFFacturXInfo**](PDFFacturXInfo.md) | Informations sur le PDF généré |
 **signature** | [**\FactPulse\SDK\Model\SignatureInfo**](SignatureInfo.md) |  | [optional]
 **pdf_base64** | **string** | PDF Factur-X généré (et signé si demandé) encodé en base64 |

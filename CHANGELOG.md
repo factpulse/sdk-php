@@ -7,7 +7,7 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
-## [2.0.10] - 2025-11-20
+## [2.0.11] - 2025-11-26
 
 ### Added
 - Version initiale du SDK php
@@ -24,5 +24,5 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - Guide d'authentification JWT
 - Configuration avancée (timeout, proxy, debug)
 
-[Unreleased]: https://github.com/factpulse/sdk-php/compare/v2.0.10...HEAD
-[2.0.10]: https://github.com/factpulse/sdk-php/releases/tag/v2.0.10
+[Unreleased]: https://github.com/factpulse/sdk-php/compare/v2.0.11...HEAD
+[2.0.11]: https://github.com/factpulse/sdk-php/releases/tag/v2.0.11

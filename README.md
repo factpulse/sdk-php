@@ -8,8 +8,8 @@ Client PHP officiel pour l'API FactPulse - Facturation électronique française.
 - **Chorus Pro** : Intégration avec la plateforme de facturation publique française
 - **AFNOR PDP/PA** : Soumission de flux conformes à la norme XP Z12-013
 - **Signature électronique** : Signature PDF (PAdES-B-B, PAdES-B-T, PAdES-B-LT)
-- **Traitement asynchrone** : Support Celery pour opérations longues
-- **PHP 7.4+** : Compatible avec les versions modernes de PHP
+- **Client simplifié** : Authentification JWT et polling intégrés via `Helpers`
+- **PHP 8.1+** : Compatible avec les versions modernes de PHP
 
 ## 🚀 Installation
 
@@ -19,33 +19,26 @@ composer require factpulse/sdk
 
 ## 📖 Démarrage rapide
 
-### 1. Authentification
+### Méthode recommandée : Client simplifié avec Helpers
+
+Le module `Helpers` offre une API simplifiée avec authentification et polling automatiques :
 
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-use FactPulse\SDK\Configuration;
-use FactPulse\SDK\Api\TraitementFactureApi;
-use GuzzleHttp\Client;
+use FactPulse\SDK\Helpers\FactPulseClient;
 
-// Configuration du client
-$config = Configuration::getDefaultConfiguration()
-    ->setHost('https://factpulse.fr/api/facturation')
-    ->setAccessToken('votre_token_jwt');
+// Créer le client (authentification automatique)
+$client = new FactPulseClient([
+    'email' => 'votre_email@example.com',
+    'password' => 'votre_mot_de_passe'
+]);
 
-$apiInstance = new TraitementFactureApi(new Client(), $config);
-```
-
-### 2. Générer une facture Factur-X
-
-```php
 // Données de la facture
 $factureData = [
     'numero_facture' => 'FAC-2025-001',
     'date_facture' => '2025-01-15',
-    'montant_total_ht' => '1000.00',
-    'montant_total_ttc' => '1200.00',
     'fournisseur' => [
         'nom' => 'Mon Entreprise SAS',
         'siret' => '12345678901234',
@@ -66,48 +59,50 @@ $factureData = [
             'pays_code_iso' => 'FR'
         ]
     ],
+    'montant_total' => [
+        'montant_ht_total' => '1000.00',
+        'montant_tva' => '200.00',
+        'montant_ttc_total' => '1200.00',
+        'montant_a_payer' => '1200.00'
+    ],
     'lignes_de_poste' => [[
         'numero' => 1,
         'denomination' => 'Prestation de conseil',
         'quantite' => '10.00',
-        'montant_unitaire_ht' => '100.00',
-        'montant_ligne_ht' => '1000.00'
+        'unite' => 'PIECE',
+        'montant_unitaire_ht' => '100.00'
     ]]
 ];
 
-// Générer le PDF Factur-X
-$pdfBytes = $apiInstance->genererFactureApiV1TraitementGenererFacturePost(
-    json_encode($factureData),
-    'EN16931',
-    'pdf'
+// Lire le PDF source
+$pdfSource = file_get_contents('facture_source.pdf');
+
+// Générer le PDF Factur-X (polling automatique)
+$pdfBytes = $client->genererFacturx(
+    $factureData,
+    $pdfSource,
+    'EN16931',  // profil
+    'pdf',      // format
+    true        // sync (attend le résultat)
 );
 
 // Sauvegarder
-file_put_contents('facture.pdf', $pdfBytes);
+file_put_contents('facture_facturx.pdf', $pdfBytes);
 ```
 
-### 3. Soumettre une facture complète (Chorus Pro / AFNOR PDP)
+### Méthode alternative : SDK brut
+
+Pour un contrôle total, utilisez le SDK généré directement :
 
 ```php
-$response = $apiInstance->soumettreFactureCompleteApiV1TraitementFacturesSoumettreCompletePost([
-    'facture' => $factureData,
-    'destination' => [
-        'type' => 'chorus_pro',
-        'credentials' => [
-            'login' => 'votre_login_chorus',
-            'password' => 'votre_password_chorus'
-        ]
-    ]
-]);
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
 
-echo "Facture soumise : " . $response->getIdFactureChorus();
-```
+use FactPulse\SDK\Configuration;
+use FactPulse\SDK\Api\TraitementFactureApi;
+use GuzzleHttp\Client;
 
-## 🔑 Obtention du token JWT
-
-### Via l'API
-
-```php
+// 1. Obtenir le token JWT
 $ch = curl_init('https://factpulse.fr/api/token/');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_POST, true);
@@ -116,29 +111,82 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode([
     'password' => 'votre_mot_de_passe'
 ]));
 curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
-
 $response = json_decode(curl_exec($ch), true);
 $token = $response['access'];
 curl_close($ch);
+
+// 2. Configurer le client
+$config = Configuration::getDefaultConfiguration()
+    ->setHost('https://factpulse.fr/api/facturation')
+    ->setAccessToken($token);
+
+// 3. Appeler l'API
+$api = new TraitementFactureApi(new Client(), $config);
+$response = $api->genererFactureApiV1TraitementGenererFacturePost(
+    json_encode($factureData),
+    'EN16931',
+    'pdf',
+    new \SplFileObject($pdfPath, 'r')
+);
+
+// 4. Polling manuel pour récupérer le résultat
+$taskId = $response['id_tache'];
+// ... (implémenter le polling)
 ```
 
-**Accès aux credentials d'un client spécifique :**
+## 🔧 Avantages des Helpers
 
-Si vous gérez plusieurs clients et souhaitez accéder aux credentials (Chorus Pro, AFNOR PDP) d'un client particulier, ajoutez le champ `client_uid` :
+| Fonctionnalité | SDK brut | Helpers |
+|----------------|----------|---------|
+| Authentification | Manuelle | Automatique |
+| Refresh token | Manuel | Automatique |
+| Polling tâches async | Manuel | Automatique (backoff) |
+| Retry sur 401 | Manuel | Automatique |
+
+## 🔑 Options d'authentification
+
+### Client UID (multi-clients)
+
+Si vous gérez plusieurs clients :
 
 ```php
-curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode([
-    'username' => 'votre_email@example.com',
+$client = new FactPulseClient([
+    'email' => 'votre_email@example.com',
     'password' => 'votre_mot_de_passe',
-    'client_uid' => 'identifiant_client'  // UID du client cible
-]));
+    'clientUid' => 'identifiant_client'  // UID du client cible
+]);
 ```
 
-### Via le Dashboard
+### Configuration avancée
 
-1. Connectez-vous sur https://factpulse.fr/api/dashboard/
-2. Générez un token API
-3. Copiez et utilisez le token dans votre configuration
+```php
+$client = new FactPulseClient([
+    'email' => 'votre_email@example.com',
+    'password' => 'votre_mot_de_passe',
+    'apiUrl' => 'https://factpulse.fr',  // URL personnalisée
+    'pollingInterval' => 2000,  // Intervalle de polling initial (ms)
+    'pollingTimeout' => 120000,  // Timeout de polling (ms)
+    'maxRetries' => 2  // Tentatives en cas de 401
+]);
+```
+
+## 💡 Formats de montants acceptés
+
+L'API accepte plusieurs formats pour les montants :
+
+```php
+// String (recommandé pour la précision)
+$montant = "1234.56";
+
+// Float
+$montant = 1234.56;
+
+// Integer
+$montant = 1234;
+
+// Helper de formatage
+$montantFormate = FactPulseClient::formatMontant(1234.5);  // "1234.50"
+```
 
 ## 📚 Ressources
 

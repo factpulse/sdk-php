@@ -58,12 +58,12 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'montant_ht_total' => 'float',
-        'montant_tva' => 'float',
-        'montant_ttc_total' => 'float',
-        'montant_a_payer' => 'float',
-        'acompte' => 'float',
-        'montant_remise_globale_ttc' => 'float',
+        'montant_ht_total' => '\FactPulse\SDK\Model\MontantHtTotal',
+        'montant_tva' => '\FactPulse\SDK\Model\MontantTvaTotal',
+        'montant_ttc_total' => '\FactPulse\SDK\Model\MontantTtcTotal',
+        'montant_a_payer' => '\FactPulse\SDK\Model\MontantAPayer',
+        'acompte' => '\FactPulse\SDK\Model\MontantTotalAcompte',
+        'montant_remise_globale_ttc' => '\FactPulse\SDK\Model\MontantRemiseGlobaleTtc',
         'motif_remise_globale_ttc' => 'string'
     ];
 
@@ -75,12 +75,12 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'montant_ht_total' => 'decimal',
-        'montant_tva' => 'decimal',
-        'montant_ttc_total' => 'decimal',
-        'montant_a_payer' => 'decimal',
-        'acompte' => 'decimal',
-        'montant_remise_globale_ttc' => 'decimal',
+        'montant_ht_total' => null,
+        'montant_tva' => null,
+        'montant_ttc_total' => null,
+        'montant_a_payer' => null,
+        'acompte' => null,
+        'montant_remise_globale_ttc' => null,
         'motif_remise_globale_ttc' => null
     ];
 
@@ -320,39 +320,15 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['montant_ht_total'] === null) {
             $invalidProperties[] = "'montant_ht_total' can't be null";
         }
-        if (!preg_match("/^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/", $this->container['montant_ht_total'])) {
-            $invalidProperties[] = "invalid value for 'montant_ht_total', must be conform to the pattern /^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/.";
-        }
-
         if ($this->container['montant_tva'] === null) {
             $invalidProperties[] = "'montant_tva' can't be null";
         }
-        if (!preg_match("/^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/", $this->container['montant_tva'])) {
-            $invalidProperties[] = "invalid value for 'montant_tva', must be conform to the pattern /^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/.";
-        }
-
         if ($this->container['montant_ttc_total'] === null) {
             $invalidProperties[] = "'montant_ttc_total' can't be null";
         }
-        if (!preg_match("/^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/", $this->container['montant_ttc_total'])) {
-            $invalidProperties[] = "invalid value for 'montant_ttc_total', must be conform to the pattern /^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/.";
-        }
-
         if ($this->container['montant_a_payer'] === null) {
             $invalidProperties[] = "'montant_a_payer' can't be null";
         }
-        if (!preg_match("/^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/", $this->container['montant_a_payer'])) {
-            $invalidProperties[] = "invalid value for 'montant_a_payer', must be conform to the pattern /^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/.";
-        }
-
-        if (!is_null($this->container['acompte']) && !preg_match("/^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/", $this->container['acompte'])) {
-            $invalidProperties[] = "invalid value for 'acompte', must be conform to the pattern /^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/.";
-        }
-
-        if (!is_null($this->container['montant_remise_globale_ttc']) && !preg_match("/^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/", $this->container['montant_remise_globale_ttc'])) {
-            $invalidProperties[] = "invalid value for 'montant_remise_globale_ttc', must be conform to the pattern /^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/.";
-        }
-
         return $invalidProperties;
     }
 
@@ -371,7 +347,7 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets montant_ht_total
      *
-     * @return float
+     * @return \FactPulse\SDK\Model\MontantHtTotal
      */
     public function getMontantHtTotal()
     {
@@ -381,7 +357,7 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets montant_ht_total
      *
-     * @param float $montant_ht_total Montant total HT.
+     * @param \FactPulse\SDK\Model\MontantHtTotal $montant_ht_total montant_ht_total
      *
      * @return self
      */
@@ -390,11 +366,6 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($montant_ht_total)) {
             throw new \InvalidArgumentException('non-nullable montant_ht_total cannot be null');
         }
-
-        if ((!preg_match("/^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/", ObjectSerializer::toString($montant_ht_total)))) {
-            throw new \InvalidArgumentException("invalid value for \$montant_ht_total when calling MontantTotal., must conform to the pattern /^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/.");
-        }
-
         $this->container['montant_ht_total'] = $montant_ht_total;
 
         return $this;
@@ -403,7 +374,7 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets montant_tva
      *
-     * @return float
+     * @return \FactPulse\SDK\Model\MontantTvaTotal
      */
     public function getMontantTva()
     {
@@ -413,7 +384,7 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets montant_tva
      *
-     * @param float $montant_tva Montant total de la TVA.
+     * @param \FactPulse\SDK\Model\MontantTvaTotal $montant_tva montant_tva
      *
      * @return self
      */
@@ -422,11 +393,6 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($montant_tva)) {
             throw new \InvalidArgumentException('non-nullable montant_tva cannot be null');
         }
-
-        if ((!preg_match("/^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/", ObjectSerializer::toString($montant_tva)))) {
-            throw new \InvalidArgumentException("invalid value for \$montant_tva when calling MontantTotal., must conform to the pattern /^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/.");
-        }
-
         $this->container['montant_tva'] = $montant_tva;
 
         return $this;
@@ -435,7 +401,7 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets montant_ttc_total
      *
-     * @return float
+     * @return \FactPulse\SDK\Model\MontantTtcTotal
      */
     public function getMontantTtcTotal()
     {
@@ -445,7 +411,7 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets montant_ttc_total
      *
-     * @param float $montant_ttc_total Montant total TTC.
+     * @param \FactPulse\SDK\Model\MontantTtcTotal $montant_ttc_total montant_ttc_total
      *
      * @return self
      */
@@ -454,11 +420,6 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($montant_ttc_total)) {
             throw new \InvalidArgumentException('non-nullable montant_ttc_total cannot be null');
         }
-
-        if ((!preg_match("/^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/", ObjectSerializer::toString($montant_ttc_total)))) {
-            throw new \InvalidArgumentException("invalid value for \$montant_ttc_total when calling MontantTotal., must conform to the pattern /^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/.");
-        }
-
         $this->container['montant_ttc_total'] = $montant_ttc_total;
 
         return $this;
@@ -467,7 +428,7 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets montant_a_payer
      *
-     * @return float
+     * @return \FactPulse\SDK\Model\MontantAPayer
      */
     public function getMontantAPayer()
     {
@@ -477,7 +438,7 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets montant_a_payer
      *
-     * @param float $montant_a_payer Montant à payer.
+     * @param \FactPulse\SDK\Model\MontantAPayer $montant_a_payer montant_a_payer
      *
      * @return self
      */
@@ -486,11 +447,6 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($montant_a_payer)) {
             throw new \InvalidArgumentException('non-nullable montant_a_payer cannot be null');
         }
-
-        if ((!preg_match("/^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/", ObjectSerializer::toString($montant_a_payer)))) {
-            throw new \InvalidArgumentException("invalid value for \$montant_a_payer when calling MontantTotal., must conform to the pattern /^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/.");
-        }
-
         $this->container['montant_a_payer'] = $montant_a_payer;
 
         return $this;
@@ -499,7 +455,7 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets acompte
      *
-     * @return float|null
+     * @return \FactPulse\SDK\Model\MontantTotalAcompte|null
      */
     public function getAcompte()
     {
@@ -509,7 +465,7 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets acompte
      *
-     * @param float|null $acompte Acompte versé.
+     * @param \FactPulse\SDK\Model\MontantTotalAcompte|null $acompte acompte
      *
      * @return self
      */
@@ -525,11 +481,6 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-
-        if (!is_null($acompte) && (!preg_match("/^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/", ObjectSerializer::toString($acompte)))) {
-            throw new \InvalidArgumentException("invalid value for \$acompte when calling MontantTotal., must conform to the pattern /^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/.");
-        }
-
         $this->container['acompte'] = $acompte;
 
         return $this;
@@ -538,7 +489,7 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets montant_remise_globale_ttc
      *
-     * @return float|null
+     * @return \FactPulse\SDK\Model\MontantRemiseGlobaleTtc|null
      */
     public function getMontantRemiseGlobaleTtc()
     {
@@ -548,7 +499,7 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets montant_remise_globale_ttc
      *
-     * @param float|null $montant_remise_globale_ttc Montant de la remise globale TTC.
+     * @param \FactPulse\SDK\Model\MontantRemiseGlobaleTtc|null $montant_remise_globale_ttc montant_remise_globale_ttc
      *
      * @return self
      */
@@ -557,11 +508,6 @@ class MontantTotal implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($montant_remise_globale_ttc)) {
             throw new \InvalidArgumentException('non-nullable montant_remise_globale_ttc cannot be null');
         }
-
-        if ((!preg_match("/^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/", ObjectSerializer::toString($montant_remise_globale_ttc)))) {
-            throw new \InvalidArgumentException("invalid value for \$montant_remise_globale_ttc when calling MontantTotal., must conform to the pattern /^(?!^[-+.]*$)[+-]?0*(?:\\d{0,8}|(?=[\\d.]{1,13}0*$)\\d{0,8}\\.\\d{0,4}0*$)/.");
-        }
-
         $this->container['montant_remise_globale_ttc'] = $montant_remise_globale_ttc;
 
         return $this;

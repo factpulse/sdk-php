@@ -35,6 +35,7 @@ use \FactPulse\SDK\ObjectSerializer;
  * MontantTva Class Doc Comment
  *
  * @category Class
+ * @description Montant TVA
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

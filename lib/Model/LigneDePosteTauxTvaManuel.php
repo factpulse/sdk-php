@@ -1,6 +1,6 @@
 <?php
 /**
- * MontantTva1
+ * LigneDePosteTauxTvaManuel
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \FactPulse\SDK\ObjectSerializer;
 
 /**
- * MontantTva1 Class Doc Comment
+ * LigneDePosteTauxTvaManuel Class Doc Comment
  *
  * @category Class
- * @description Montant TVA
+ * @description Taux de TVA avec valeur manuelle. (Accepte number, string ou integer)
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class MontantTva1 implements ModelInterface, ArrayAccess, \JsonSerializable
+class LigneDePosteTauxTvaManuel implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class MontantTva1 implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Montant_Tva_1';
+    protected static $openAPIModelName = 'LigneDePoste_tauxTvaManuel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

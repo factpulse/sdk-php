@@ -62,7 +62,7 @@ class SoumettreFactureCompleteResponse implements ModelInterface, ArrayAccess, \
         'destination_type' => 'string',
         'resultat_chorus' => '\FactPulse\SDK\Model\ResultatChorusPro',
         'resultat_afnor' => '\FactPulse\SDK\Model\ResultatAFNOR',
-        'facture_enrichie' => '\FactPulse\SDK\Model\FactureEnrichieInfoOutput',
+        'facture_enrichie' => '\FactPulse\SDK\Model\FactureEnrichieInfo',
         'pdf_facturx' => '\FactPulse\SDK\Model\PDFFacturXInfo',
         'signature' => '\FactPulse\SDK\Model\SignatureInfo',
         'pdf_base64' => 'string',
@@ -523,7 +523,7 @@ class SoumettreFactureCompleteResponse implements ModelInterface, ArrayAccess, \
     /**
      * Gets facture_enrichie
      *
-     * @return \FactPulse\SDK\Model\FactureEnrichieInfoOutput
+     * @return \FactPulse\SDK\Model\FactureEnrichieInfo
      */
     public function getFactureEnrichie()
     {
@@ -533,7 +533,7 @@ class SoumettreFactureCompleteResponse implements ModelInterface, ArrayAccess, \
     /**
      * Sets facture_enrichie
      *
-     * @param \FactPulse\SDK\Model\FactureEnrichieInfoOutput $facture_enrichie Données de la facture enrichie
+     * @param \FactPulse\SDK\Model\FactureEnrichieInfo $facture_enrichie Données de la facture enrichie
      *
      * @return self
      */

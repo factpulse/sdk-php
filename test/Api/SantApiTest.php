@@ -72,6 +72,18 @@ class SantApiTest extends TestCase
     }
 
     /**
+     * Test case for healthcheckHealthcheckGet
+     *
+     * Endpoint de healthcheck pour Docker.
+     *
+     */
+    public function testHealthcheckHealthcheckGet()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for racineGet
      *
      * Vérifier l'état de l'API.

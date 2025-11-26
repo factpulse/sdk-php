@@ -1,6 +1,6 @@
 <?php
 /**
- * MontantTtcTotalTest
+ * MontantTotalAcompteTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * MontantTtcTotalTest Class Doc Comment
+ * MontantTotalAcompteTest Class Doc Comment
  *
  * @category    Class
- * @description Montant total TTC. (Accepte number, string ou integer)
+ * @description Acompte versé. (Accepte number, string ou integer)
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class MontantTtcTotalTest extends TestCase
+class MontantTotalAcompteTest extends TestCase
 {
 
     /**
@@ -71,9 +71,9 @@ class MontantTtcTotalTest extends TestCase
     }
 
     /**
-     * Test "MontantTtcTotal"
+     * Test "MontantTotalAcompte"
      */
-    public function testMontantTtcTotal()
+    public function testMontantTotalAcompte()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

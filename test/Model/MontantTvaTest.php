@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * MontantTvaTest Class Doc Comment
  *
  * @category    Class
- * @description MontantTva
+ * @description Montant TVA
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
