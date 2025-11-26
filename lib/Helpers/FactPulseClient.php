@@ -107,6 +107,9 @@ class FactPulseClient {
 
     public function getChorusCredentialsForApi(): ?array { return $this->chorusCredentials?->toArray(); }
     public function getAfnorCredentialsForApi(): ?array { return $this->afnorCredentials?->toArray(); }
+    // Alias plus courts
+    public function getChorusProCredentials(): ?array { return $this->getChorusCredentialsForApi(); }
+    public function getAfnorCredentials(): ?array { return $this->getAfnorCredentialsForApi(); }
 
     public function ensureAuthenticated(bool $forceRefresh = false): void {
         $now = time() * 1000;
