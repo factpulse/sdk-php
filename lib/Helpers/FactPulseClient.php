@@ -59,14 +59,18 @@ function montantTotal($ht, $tva, $ttc, $aPayer, $remiseTtc = null, ?string $moti
 }
 
 function ligneDePoste(int $numero, string $denomination, $quantite, $montantUnitaireHt, $montantLigneHt,
-    $tauxTva = '20.00', string $unite = 'C62', array $options = []): array {
+    $tauxTva = '20.00', string $categorieTva = 'S', string $unite = 'C62', array $options = []): array {
     $result = ['numero' => $numero, 'denomination' => $denomination, 'quantite' => montant($quantite),
         'montantUnitaireHt' => montant($montantUnitaireHt), 'montantTotalLigneHt' => montant($montantLigneHt),
-        'tauxTva' => montant($tauxTva), 'unite' => $unite];
+        'tauxTva' => montant($tauxTva), 'categorieTva' => $categorieTva, 'unite' => $unite];
+    if (isset($options['reference'])) $result['reference'] = $options['reference'];
     if (isset($options['montantTvaLigne'])) $result['montantTvaLigne'] = montant($options['montantTvaLigne']);
     if (isset($options['montantRemiseHt'])) $result['montantRemiseHt'] = montant($options['montantRemiseHt']);
-    if (isset($options['codeRaisonRemise'])) $result['codeRaisonReduction'] = $options['codeRaisonRemise'];
-    if (isset($options['motifRemise'])) $result['motifRemise'] = $options['motifRemise'];
+    if (isset($options['codeRaisonReduction'])) $result['codeRaisonReduction'] = $options['codeRaisonReduction'];
+    if (isset($options['raisonReduction'])) $result['raisonReduction'] = $options['raisonReduction'];
+    if (isset($options['motifExoneration'])) $result['motifExoneration'] = $options['motifExoneration'];
+    if (isset($options['dateDebutPeriode'])) $result['dateDebutPeriode'] = $options['dateDebutPeriode'];
+    if (isset($options['dateFinPeriode'])) $result['dateFinPeriode'] = $options['dateFinPeriode'];
     if (isset($options['description'])) $result['description'] = $options['description'];
     return $result;
 }
