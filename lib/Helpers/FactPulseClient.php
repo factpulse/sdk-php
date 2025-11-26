@@ -138,7 +138,7 @@ class FactPulseClient {
             if ((microtime(true) * 1000) - $startTime > $timeoutMs) throw new FactPulsePollingTimeoutException($taskId, $timeoutMs);
             $this->ensureAuthenticated();
             try {
-                $response = $this->httpClient->get($this->apiUrl . "/api/facturation/v1/traitement/taches/{$taskId}/statut",
+                $response = $this->httpClient->get($this->apiUrl . "/api/v1/traitement/taches/{$taskId}/statut",
                     ['headers' => ['Authorization' => 'Bearer ' . $this->accessToken]]);
                 $data = json_decode($response->getBody()->getContents(), true);
                 if ($data['statut'] === 'SUCCESS') return $data['resultat'] ?? [];
@@ -156,7 +156,7 @@ class FactPulseClient {
         for ($attempt = 0; $attempt <= $this->maxRetries; $attempt++) {
             $this->ensureAuthenticated();
             try {
-                $response = $this->httpClient->post($this->apiUrl . '/api/facturation/v1/traitement/generer-facture', [
+                $response = $this->httpClient->post($this->apiUrl . '/api/v1/traitement/generer-facture', [
                     'headers' => ['Authorization' => 'Bearer ' . $this->accessToken],
                     'multipart' => [
                         ['name' => 'donnees_facture', 'contents' => $jsonData],
