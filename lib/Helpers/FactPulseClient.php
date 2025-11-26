@@ -76,7 +76,7 @@ function ligneDePoste(int $numero, string $denomination, $quantite, $montantUnit
 }
 
 function ligneDeTva($taux, $baseHt, $montantTva, string $categorie = 'S', ?string $motifExoneration = null): array {
-    $result = ['tauxTva' => montant($taux), 'montantBaseHt' => montant($baseHt), 'montantTva' => montant($montantTva), 'categorieTva' => $categorie];
+    $result = ['tauxManuel' => montant($taux), 'montantBaseHt' => montant($baseHt), 'montantTva' => montant($montantTva), 'categorie' => $categorie];
     if ($motifExoneration !== null) $result['motifExoneration'] = $motifExoneration;
     return $result;
 }
