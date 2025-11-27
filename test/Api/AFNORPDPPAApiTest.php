@@ -72,6 +72,18 @@ class AFNORPDPPAApiTest extends TestCase
     }
 
     /**
+     * Test case for getAfnorCredentialsApiV1AfnorCredentialsGet
+     *
+     * Récupérer les credentials AFNOR stockés.
+     *
+     */
+    public function testGetAfnorCredentialsApiV1AfnorCredentialsGet()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for oauthTokenProxyApiV1AfnorOauthTokenPost
      *
      * Endpoint OAuth2 pour authentification AFNOR.
