@@ -27,16 +27,21 @@ class ChorusProCredentials {
     }
 }
 
-/** Credentials AFNOR PDP pour le mode Zero-Trust. */
+/** Credentials AFNOR PDP pour le mode Zero-Trust. L'API FactPulse utilise ces credentials pour s'authentifier auprès de la PDP AFNOR. */
 class AFNORCredentials {
-    public string $clientId, $clientSecret, $flowServiceUrl;
+    public string $flowServiceUrl, $tokenUrl, $clientId, $clientSecret;
+    public ?string $directoryServiceUrl;
 
-    public function __construct(string $clientId, string $clientSecret, string $flowServiceUrl) {
-        $this->clientId = $clientId; $this->clientSecret = $clientSecret; $this->flowServiceUrl = $flowServiceUrl;
+    public function __construct(string $flowServiceUrl, string $tokenUrl, string $clientId, string $clientSecret, ?string $directoryServiceUrl = null) {
+        $this->flowServiceUrl = $flowServiceUrl; $this->tokenUrl = $tokenUrl;
+        $this->clientId = $clientId; $this->clientSecret = $clientSecret; $this->directoryServiceUrl = $directoryServiceUrl;
     }
 
     public function toArray(): array {
-        return ['client_id' => $this->clientId, 'client_secret' => $this->clientSecret, 'flow_service_url' => $this->flowServiceUrl];
+        $result = ['flow_service_url' => $this->flowServiceUrl, 'token_url' => $this->tokenUrl,
+            'client_id' => $this->clientId, 'client_secret' => $this->clientSecret];
+        if ($this->directoryServiceUrl !== null) $result['directory_service_url'] = $this->directoryServiceUrl;
+        return $result;
     }
 }
 
@@ -58,26 +63,82 @@ function montantTotal($ht, $tva, $ttc, $aPayer, $remiseTtc = null, ?string $moti
     return $result;
 }
 
-function ligneDePoste(int $numero, string $denomination, $quantite, $montantUnitaireHt, $montantLigneHt,
-    $tauxTva = '20.00', string $categorieTva = 'S', string $unite = 'C62', array $options = []): array {
+/** Crée une ligne de poste (aligné sur LigneDePoste de models.py).
+ * Pour le taux TVA: soit tauxTva (code) soit tauxTvaManuel (valeur) dans $options */
+function ligneDePoste(int $numero, string $denomination, $quantite, $montantUnitaireHt, $montantTotalLigneHt,
+    string $categorieTva = 'S', string $unite = 'FORFAIT', array $options = []): array {
     $result = ['numero' => $numero, 'denomination' => $denomination, 'quantite' => montant($quantite),
-        'montantUnitaireHt' => montant($montantUnitaireHt), 'montantTotalLigneHt' => montant($montantLigneHt),
-        'tauxTva' => montant($tauxTva), 'categorieTva' => $categorieTva, 'unite' => $unite];
+        'montantUnitaireHt' => montant($montantUnitaireHt), 'montantTotalLigneHt' => montant($montantTotalLigneHt),
+        'categorieTva' => $categorieTva, 'unite' => $unite];
+    // Soit tauxTva (code) soit tauxTvaManuel (valeur)
+    if (isset($options['tauxTva'])) $result['tauxTva'] = $options['tauxTva'];
+    else $result['tauxTvaManuel'] = montant($options['tauxTvaManuel'] ?? '20.00');
     if (isset($options['reference'])) $result['reference'] = $options['reference'];
-    if (isset($options['montantTvaLigne'])) $result['montantTvaLigne'] = montant($options['montantTvaLigne']);
     if (isset($options['montantRemiseHt'])) $result['montantRemiseHt'] = montant($options['montantRemiseHt']);
     if (isset($options['codeRaisonReduction'])) $result['codeRaisonReduction'] = $options['codeRaisonReduction'];
     if (isset($options['raisonReduction'])) $result['raisonReduction'] = $options['raisonReduction'];
-    if (isset($options['motifExoneration'])) $result['motifExoneration'] = $options['motifExoneration'];
     if (isset($options['dateDebutPeriode'])) $result['dateDebutPeriode'] = $options['dateDebutPeriode'];
     if (isset($options['dateFinPeriode'])) $result['dateFinPeriode'] = $options['dateFinPeriode'];
-    if (isset($options['description'])) $result['description'] = $options['description'];
     return $result;
 }
 
-function ligneDeTva($taux, $baseHt, $montantTva, string $categorie = 'S', ?string $motifExoneration = null): array {
-    $result = ['tauxManuel' => montant($taux), 'montantBaseHt' => montant($baseHt), 'montantTva' => montant($montantTva), 'categorie' => $categorie];
-    if ($motifExoneration !== null) $result['motifExoneration'] = $motifExoneration;
+/** Crée une ligne de TVA (aligné sur LigneDeTVA de models.py).
+ * Pour le taux: soit taux (code) soit tauxManuel (valeur) dans $options */
+function ligneDeTva($montantBaseHt, $montantTva, string $categorie = 'S', array $options = []): array {
+    $result = ['montantBaseHt' => montant($montantBaseHt), 'montantTva' => montant($montantTva), 'categorie' => $categorie];
+    // Soit taux (code) soit tauxManuel (valeur)
+    if (isset($options['taux'])) $result['taux'] = $options['taux'];
+    else $result['tauxManuel'] = montant($options['tauxManuel'] ?? '20.00');
+    return $result;
+}
+
+/** Crée une adresse postale pour l'API FactPulse. */
+function adressePostale(string $ligne1, string $codePostal, string $ville, string $pays = 'FR', ?string $ligne2 = null, ?string $ligne3 = null): array {
+    $result = ['ligneUn' => $ligne1, 'codePostal' => $codePostal, 'nomVille' => $ville, 'paysCodeIso' => $pays];
+    if ($ligne2 !== null) $result['ligneDeux'] = $ligne2;
+    if ($ligne3 !== null) $result['ligneTrois'] = $ligne3;
+    return $result;
+}
+
+/** Crée une adresse électronique. schemeId: "0009"=SIREN, "0225"=SIRET */
+function adresseElectronique(string $identifiant, string $schemeId = '0009'): array {
+    return ['identifiant' => $identifiant, 'schemeId' => $schemeId];
+}
+
+/** Calcule le numéro TVA intracommunautaire français depuis un SIREN. */
+function calculerTvaIntra(string $siren): ?string {
+    if (strlen($siren) !== 9 || !ctype_digit($siren)) return null;
+    $cle = (12 + 3 * ((int)$siren % 97)) % 97;
+    return sprintf('FR%02d%s', $cle, $siren);
+}
+
+/** Crée un fournisseur (émetteur) avec auto-calcul SIREN, TVA intracommunautaire et adresses. */
+function fournisseur(string $nom, string $siret, string $adresseLigne1, string $codePostal, string $ville, array $options = []): array {
+    $siren = $options['siren'] ?? (strlen($siret) === 14 ? substr($siret, 0, 9) : null);
+    $numeroTvaIntra = $options['numeroTvaIntra'] ?? ($siren ? calculerTvaIntra($siren) : null);
+    $result = [
+        'nom' => $nom, 'idFournisseur' => $options['idFournisseur'] ?? 0, 'siret' => $siret,
+        'adresseElectronique' => adresseElectronique($siret, '0225'),
+        'adressePostale' => adressePostale($adresseLigne1, $codePostal, $ville, $options['pays'] ?? 'FR', $options['adresseLigne2'] ?? null),
+    ];
+    if ($siren) $result['siren'] = $siren;
+    if ($numeroTvaIntra) $result['numeroTvaIntra'] = $numeroTvaIntra;
+    if (isset($options['iban'])) $result['iban'] = $options['iban'];
+    if (isset($options['codeService'])) $result['idServiceFournisseur'] = $options['codeService'];
+    if (isset($options['codeCoordonnesBancaires'])) $result['codeCoordonnesBancairesFournisseur'] = $options['codeCoordonnesBancaires'];
+    return $result;
+}
+
+/** Crée un destinataire (client) avec auto-calcul SIREN et adresses. */
+function destinataire(string $nom, string $siret, string $adresseLigne1, string $codePostal, string $ville, array $options = []): array {
+    $siren = $options['siren'] ?? (strlen($siret) === 14 ? substr($siret, 0, 9) : null);
+    $result = [
+        'nom' => $nom, 'siret' => $siret,
+        'adresseElectronique' => adresseElectronique($siret, '0225'),
+        'adressePostale' => adressePostale($adresseLigne1, $codePostal, $ville, $options['pays'] ?? 'FR', $options['adresseLigne2'] ?? null),
+    ];
+    if ($siren) $result['siren'] = $siren;
+    if (isset($options['codeServiceExecutant'])) $result['codeServiceExecutant'] = $options['codeServiceExecutant'];
     return $result;
 }
 

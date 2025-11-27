@@ -27,7 +27,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `ajouterFichierApiV1ChorusProTransversesAjouterFichierPost()`
 
 ```php
-ajouterFichierApiV1ChorusProTransversesAjouterFichierPost($body_ajouter_fichier_api_v1_chorus_pro_transverses_ajouter_fichier_post): mixed
+ajouterFichierApiV1ChorusProTransversesAjouterFichierPost($request_body): mixed
 ```
 
 Ajouter une pièce jointe
@@ -51,10 +51,10 @@ $apiInstance = new FactPulse\SDK\Api\ChorusProApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body_ajouter_fichier_api_v1_chorus_pro_transverses_ajouter_fichier_post = new \FactPulse\SDK\Model\BodyAjouterFichierApiV1ChorusProTransversesAjouterFichierPost(); // \FactPulse\SDK\Model\BodyAjouterFichierApiV1ChorusProTransversesAjouterFichierPost
+$request_body = NULL; // array<string,mixed>
 
 try {
-    $result = $apiInstance->ajouterFichierApiV1ChorusProTransversesAjouterFichierPost($body_ajouter_fichier_api_v1_chorus_pro_transverses_ajouter_fichier_post);
+    $result = $apiInstance->ajouterFichierApiV1ChorusProTransversesAjouterFichierPost($request_body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ChorusProApi->ajouterFichierApiV1ChorusProTransversesAjouterFichierPost: ', $e->getMessage(), PHP_EOL;
@@ -65,7 +65,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **body_ajouter_fichier_api_v1_chorus_pro_transverses_ajouter_fichier_post** | [**\FactPulse\SDK\Model\BodyAjouterFichierApiV1ChorusProTransversesAjouterFichierPost**](../Model/BodyAjouterFichierApiV1ChorusProTransversesAjouterFichierPost.md)|  | |
+| **request_body** | [**array<string,mixed>**](../Model/mixed.md)|  | |
 
 ### Return type
 
@@ -87,7 +87,7 @@ try {
 ## `completerFactureApiV1ChorusProFacturesCompleterPost()`
 
 ```php
-completerFactureApiV1ChorusProFacturesCompleterPost($body_completer_facture_api_v1_chorus_pro_factures_completer_post): mixed
+completerFactureApiV1ChorusProFacturesCompleterPost($request_body): mixed
 ```
 
 Compléter une facture suspendue (Fournisseur)
@@ -111,10 +111,10 @@ $apiInstance = new FactPulse\SDK\Api\ChorusProApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body_completer_facture_api_v1_chorus_pro_factures_completer_post = new \FactPulse\SDK\Model\BodyCompleterFactureApiV1ChorusProFacturesCompleterPost(); // \FactPulse\SDK\Model\BodyCompleterFactureApiV1ChorusProFacturesCompleterPost
+$request_body = NULL; // array<string,mixed>
 
 try {
-    $result = $apiInstance->completerFactureApiV1ChorusProFacturesCompleterPost($body_completer_facture_api_v1_chorus_pro_factures_completer_post);
+    $result = $apiInstance->completerFactureApiV1ChorusProFacturesCompleterPost($request_body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ChorusProApi->completerFactureApiV1ChorusProFacturesCompleterPost: ', $e->getMessage(), PHP_EOL;
@@ -125,7 +125,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **body_completer_facture_api_v1_chorus_pro_factures_completer_post** | [**\FactPulse\SDK\Model\BodyCompleterFactureApiV1ChorusProFacturesCompleterPost**](../Model/BodyCompleterFactureApiV1ChorusProFacturesCompleterPost.md)|  | |
+| **request_body** | [**array<string,mixed>**](../Model/mixed.md)|  | |
 
 ### Return type
 
@@ -267,7 +267,7 @@ try {
 ## `listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet()`
 
 ```php
-listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet($id_structure_cpp, $body_lister_services_structure_api_v1_chorus_pro_structures_id_structure_cpp_services_get): \FactPulse\SDK\Model\RechercherServicesResponse
+listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet($id_structure_cpp): \FactPulse\SDK\Model\RechercherServicesResponse
 ```
 
 Lister les services d'une structure
@@ -292,10 +292,9 @@ $apiInstance = new FactPulse\SDK\Api\ChorusProApi(
     $config
 );
 $id_structure_cpp = 56; // int
-$body_lister_services_structure_api_v1_chorus_pro_structures_id_structure_cpp_services_get = new \FactPulse\SDK\Model\BodyListerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet(); // \FactPulse\SDK\Model\BodyListerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet
 
 try {
-    $result = $apiInstance->listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet($id_structure_cpp, $body_lister_services_structure_api_v1_chorus_pro_structures_id_structure_cpp_services_get);
+    $result = $apiInstance->listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet($id_structure_cpp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ChorusProApi->listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet: ', $e->getMessage(), PHP_EOL;
@@ -307,7 +306,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id_structure_cpp** | **int**|  | |
-| **body_lister_services_structure_api_v1_chorus_pro_structures_id_structure_cpp_services_get** | [**\FactPulse\SDK\Model\BodyListerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet**](../Model/BodyListerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet.md)|  | |
 
 ### Return type
 
@@ -319,7 +317,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -389,7 +387,7 @@ try {
 ## `rechercherFacturesDestinataireApiV1ChorusProFacturesRechercherDestinatairePost()`
 
 ```php
-rechercherFacturesDestinataireApiV1ChorusProFacturesRechercherDestinatairePost($body_rechercher_factures_destinataire_api_v1_chorus_pro_factures_rechercher_destinataire_post): mixed
+rechercherFacturesDestinataireApiV1ChorusProFacturesRechercherDestinatairePost($request_body): mixed
 ```
 
 Rechercher factures reçues (Destinataire)
@@ -413,10 +411,10 @@ $apiInstance = new FactPulse\SDK\Api\ChorusProApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body_rechercher_factures_destinataire_api_v1_chorus_pro_factures_rechercher_destinataire_post = new \FactPulse\SDK\Model\BodyRechercherFacturesDestinataireApiV1ChorusProFacturesRechercherDestinatairePost(); // \FactPulse\SDK\Model\BodyRechercherFacturesDestinataireApiV1ChorusProFacturesRechercherDestinatairePost
+$request_body = NULL; // array<string,mixed>
 
 try {
-    $result = $apiInstance->rechercherFacturesDestinataireApiV1ChorusProFacturesRechercherDestinatairePost($body_rechercher_factures_destinataire_api_v1_chorus_pro_factures_rechercher_destinataire_post);
+    $result = $apiInstance->rechercherFacturesDestinataireApiV1ChorusProFacturesRechercherDestinatairePost($request_body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ChorusProApi->rechercherFacturesDestinataireApiV1ChorusProFacturesRechercherDestinatairePost: ', $e->getMessage(), PHP_EOL;
@@ -427,7 +425,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **body_rechercher_factures_destinataire_api_v1_chorus_pro_factures_rechercher_destinataire_post** | [**\FactPulse\SDK\Model\BodyRechercherFacturesDestinataireApiV1ChorusProFacturesRechercherDestinatairePost**](../Model/BodyRechercherFacturesDestinataireApiV1ChorusProFacturesRechercherDestinatairePost.md)|  | |
+| **request_body** | [**array<string,mixed>**](../Model/mixed.md)|  | |
 
 ### Return type
 
@@ -449,7 +447,7 @@ try {
 ## `rechercherFacturesFournisseurApiV1ChorusProFacturesRechercherFournisseurPost()`
 
 ```php
-rechercherFacturesFournisseurApiV1ChorusProFacturesRechercherFournisseurPost($body_rechercher_factures_fournisseur_api_v1_chorus_pro_factures_rechercher_fournisseur_post): mixed
+rechercherFacturesFournisseurApiV1ChorusProFacturesRechercherFournisseurPost($request_body): mixed
 ```
 
 Rechercher factures émises (Fournisseur)
@@ -473,10 +471,10 @@ $apiInstance = new FactPulse\SDK\Api\ChorusProApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body_rechercher_factures_fournisseur_api_v1_chorus_pro_factures_rechercher_fournisseur_post = new \FactPulse\SDK\Model\BodyRechercherFacturesFournisseurApiV1ChorusProFacturesRechercherFournisseurPost(); // \FactPulse\SDK\Model\BodyRechercherFacturesFournisseurApiV1ChorusProFacturesRechercherFournisseurPost
+$request_body = NULL; // array<string,mixed>
 
 try {
-    $result = $apiInstance->rechercherFacturesFournisseurApiV1ChorusProFacturesRechercherFournisseurPost($body_rechercher_factures_fournisseur_api_v1_chorus_pro_factures_rechercher_fournisseur_post);
+    $result = $apiInstance->rechercherFacturesFournisseurApiV1ChorusProFacturesRechercherFournisseurPost($request_body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ChorusProApi->rechercherFacturesFournisseurApiV1ChorusProFacturesRechercherFournisseurPost: ', $e->getMessage(), PHP_EOL;
@@ -487,7 +485,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **body_rechercher_factures_fournisseur_api_v1_chorus_pro_factures_rechercher_fournisseur_post** | [**\FactPulse\SDK\Model\BodyRechercherFacturesFournisseurApiV1ChorusProFacturesRechercherFournisseurPost**](../Model/BodyRechercherFacturesFournisseurApiV1ChorusProFacturesRechercherFournisseurPost.md)|  | |
+| **request_body** | [**array<string,mixed>**](../Model/mixed.md)|  | |
 
 ### Return type
 
@@ -569,7 +567,7 @@ try {
 ## `recyclerFactureApiV1ChorusProFacturesRecyclerPost()`
 
 ```php
-recyclerFactureApiV1ChorusProFacturesRecyclerPost($body_recycler_facture_api_v1_chorus_pro_factures_recycler_post): mixed
+recyclerFactureApiV1ChorusProFacturesRecyclerPost($request_body): mixed
 ```
 
 Recycler une facture (Fournisseur)
@@ -593,10 +591,10 @@ $apiInstance = new FactPulse\SDK\Api\ChorusProApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body_recycler_facture_api_v1_chorus_pro_factures_recycler_post = new \FactPulse\SDK\Model\BodyRecyclerFactureApiV1ChorusProFacturesRecyclerPost(); // \FactPulse\SDK\Model\BodyRecyclerFactureApiV1ChorusProFacturesRecyclerPost
+$request_body = NULL; // array<string,mixed>
 
 try {
-    $result = $apiInstance->recyclerFactureApiV1ChorusProFacturesRecyclerPost($body_recycler_facture_api_v1_chorus_pro_factures_recycler_post);
+    $result = $apiInstance->recyclerFactureApiV1ChorusProFacturesRecyclerPost($request_body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ChorusProApi->recyclerFactureApiV1ChorusProFacturesRecyclerPost: ', $e->getMessage(), PHP_EOL;
@@ -607,7 +605,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **body_recycler_facture_api_v1_chorus_pro_factures_recycler_post** | [**\FactPulse\SDK\Model\BodyRecyclerFactureApiV1ChorusProFacturesRecyclerPost**](../Model/BodyRecyclerFactureApiV1ChorusProFacturesRecyclerPost.md)|  | |
+| **request_body** | [**array<string,mixed>**](../Model/mixed.md)|  | |
 
 ### Return type
 
@@ -689,7 +687,7 @@ try {
 ## `telechargerGroupeFacturesApiV1ChorusProFacturesTelechargerGroupePost()`
 
 ```php
-telechargerGroupeFacturesApiV1ChorusProFacturesTelechargerGroupePost($body_telecharger_groupe_factures_api_v1_chorus_pro_factures_telecharger_groupe_post): mixed
+telechargerGroupeFacturesApiV1ChorusProFacturesTelechargerGroupePost($request_body): mixed
 ```
 
 Télécharger un groupe de factures
@@ -713,10 +711,10 @@ $apiInstance = new FactPulse\SDK\Api\ChorusProApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body_telecharger_groupe_factures_api_v1_chorus_pro_factures_telecharger_groupe_post = new \FactPulse\SDK\Model\BodyTelechargerGroupeFacturesApiV1ChorusProFacturesTelechargerGroupePost(); // \FactPulse\SDK\Model\BodyTelechargerGroupeFacturesApiV1ChorusProFacturesTelechargerGroupePost
+$request_body = NULL; // array<string,mixed>
 
 try {
-    $result = $apiInstance->telechargerGroupeFacturesApiV1ChorusProFacturesTelechargerGroupePost($body_telecharger_groupe_factures_api_v1_chorus_pro_factures_telecharger_groupe_post);
+    $result = $apiInstance->telechargerGroupeFacturesApiV1ChorusProFacturesTelechargerGroupePost($request_body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ChorusProApi->telechargerGroupeFacturesApiV1ChorusProFacturesTelechargerGroupePost: ', $e->getMessage(), PHP_EOL;
@@ -727,7 +725,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **body_telecharger_groupe_factures_api_v1_chorus_pro_factures_telecharger_groupe_post** | [**\FactPulse\SDK\Model\BodyTelechargerGroupeFacturesApiV1ChorusProFacturesTelechargerGroupePost**](../Model/BodyTelechargerGroupeFacturesApiV1ChorusProFacturesTelechargerGroupePost.md)|  | |
+| **request_body** | [**array<string,mixed>**](../Model/mixed.md)|  | |
 
 ### Return type
 
@@ -749,7 +747,7 @@ try {
 ## `traiterFactureRecueApiV1ChorusProFacturesTraiterFactureRecuePost()`
 
 ```php
-traiterFactureRecueApiV1ChorusProFacturesTraiterFactureRecuePost($body_traiter_facture_recue_api_v1_chorus_pro_factures_traiter_facture_recue_post): mixed
+traiterFactureRecueApiV1ChorusProFacturesTraiterFactureRecuePost($request_body): mixed
 ```
 
 Traiter une facture reçue (Destinataire)
@@ -773,10 +771,10 @@ $apiInstance = new FactPulse\SDK\Api\ChorusProApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body_traiter_facture_recue_api_v1_chorus_pro_factures_traiter_facture_recue_post = new \FactPulse\SDK\Model\BodyTraiterFactureRecueApiV1ChorusProFacturesTraiterFactureRecuePost(); // \FactPulse\SDK\Model\BodyTraiterFactureRecueApiV1ChorusProFacturesTraiterFactureRecuePost
+$request_body = NULL; // array<string,mixed>
 
 try {
-    $result = $apiInstance->traiterFactureRecueApiV1ChorusProFacturesTraiterFactureRecuePost($body_traiter_facture_recue_api_v1_chorus_pro_factures_traiter_facture_recue_post);
+    $result = $apiInstance->traiterFactureRecueApiV1ChorusProFacturesTraiterFactureRecuePost($request_body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ChorusProApi->traiterFactureRecueApiV1ChorusProFacturesTraiterFactureRecuePost: ', $e->getMessage(), PHP_EOL;
@@ -787,7 +785,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **body_traiter_facture_recue_api_v1_chorus_pro_factures_traiter_facture_recue_post** | [**\FactPulse\SDK\Model\BodyTraiterFactureRecueApiV1ChorusProFacturesTraiterFactureRecuePost**](../Model/BodyTraiterFactureRecueApiV1ChorusProFacturesTraiterFactureRecuePost.md)|  | |
+| **request_body** | [**array<string,mixed>**](../Model/mixed.md)|  | |
 
 ### Return type
 
@@ -809,12 +807,10 @@ try {
 ## `valideurConsulterFactureApiV1ChorusProFacturesValideurConsulterPost()`
 
 ```php
-valideurConsulterFactureApiV1ChorusProFacturesValideurConsulterPost($body_valideur_consulter_facture_api_v1_chorus_pro_factures_valideur_consulter_post): mixed
+valideurConsulterFactureApiV1ChorusProFacturesValideurConsulterPost($request_body): mixed
 ```
 
 Consulter une facture (Valideur)
-
-Consulte facture (valideur).
 
 ### Example
 
@@ -833,10 +829,10 @@ $apiInstance = new FactPulse\SDK\Api\ChorusProApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body_valideur_consulter_facture_api_v1_chorus_pro_factures_valideur_consulter_post = new \FactPulse\SDK\Model\BodyValideurConsulterFactureApiV1ChorusProFacturesValideurConsulterPost(); // \FactPulse\SDK\Model\BodyValideurConsulterFactureApiV1ChorusProFacturesValideurConsulterPost
+$request_body = NULL; // array<string,mixed>
 
 try {
-    $result = $apiInstance->valideurConsulterFactureApiV1ChorusProFacturesValideurConsulterPost($body_valideur_consulter_facture_api_v1_chorus_pro_factures_valideur_consulter_post);
+    $result = $apiInstance->valideurConsulterFactureApiV1ChorusProFacturesValideurConsulterPost($request_body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ChorusProApi->valideurConsulterFactureApiV1ChorusProFacturesValideurConsulterPost: ', $e->getMessage(), PHP_EOL;
@@ -847,7 +843,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **body_valideur_consulter_facture_api_v1_chorus_pro_factures_valideur_consulter_post** | [**\FactPulse\SDK\Model\BodyValideurConsulterFactureApiV1ChorusProFacturesValideurConsulterPost**](../Model/BodyValideurConsulterFactureApiV1ChorusProFacturesValideurConsulterPost.md)|  | |
+| **request_body** | [**array<string,mixed>**](../Model/mixed.md)|  | |
 
 ### Return type
 
@@ -869,7 +865,7 @@ try {
 ## `valideurRechercherFacturesApiV1ChorusProFacturesValideurRechercherPost()`
 
 ```php
-valideurRechercherFacturesApiV1ChorusProFacturesValideurRechercherPost($body_valideur_rechercher_factures_api_v1_chorus_pro_factures_valideur_rechercher_post): mixed
+valideurRechercherFacturesApiV1ChorusProFacturesValideurRechercherPost($request_body): mixed
 ```
 
 Rechercher factures à valider (Valideur)
@@ -893,10 +889,10 @@ $apiInstance = new FactPulse\SDK\Api\ChorusProApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body_valideur_rechercher_factures_api_v1_chorus_pro_factures_valideur_rechercher_post = new \FactPulse\SDK\Model\BodyValideurRechercherFacturesApiV1ChorusProFacturesValideurRechercherPost(); // \FactPulse\SDK\Model\BodyValideurRechercherFacturesApiV1ChorusProFacturesValideurRechercherPost
+$request_body = NULL; // array<string,mixed>
 
 try {
-    $result = $apiInstance->valideurRechercherFacturesApiV1ChorusProFacturesValideurRechercherPost($body_valideur_rechercher_factures_api_v1_chorus_pro_factures_valideur_rechercher_post);
+    $result = $apiInstance->valideurRechercherFacturesApiV1ChorusProFacturesValideurRechercherPost($request_body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ChorusProApi->valideurRechercherFacturesApiV1ChorusProFacturesValideurRechercherPost: ', $e->getMessage(), PHP_EOL;
@@ -907,7 +903,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **body_valideur_rechercher_factures_api_v1_chorus_pro_factures_valideur_rechercher_post** | [**\FactPulse\SDK\Model\BodyValideurRechercherFacturesApiV1ChorusProFacturesValideurRechercherPost**](../Model/BodyValideurRechercherFacturesApiV1ChorusProFacturesValideurRechercherPost.md)|  | |
+| **request_body** | [**array<string,mixed>**](../Model/mixed.md)|  | |
 
 ### Return type
 
@@ -929,7 +925,7 @@ try {
 ## `valideurTraiterFactureApiV1ChorusProFacturesValideurTraiterPost()`
 
 ```php
-valideurTraiterFactureApiV1ChorusProFacturesValideurTraiterPost($body_valideur_traiter_facture_api_v1_chorus_pro_factures_valideur_traiter_post): mixed
+valideurTraiterFactureApiV1ChorusProFacturesValideurTraiterPost($request_body): mixed
 ```
 
 Valider ou refuser une facture (Valideur)
@@ -953,10 +949,10 @@ $apiInstance = new FactPulse\SDK\Api\ChorusProApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body_valideur_traiter_facture_api_v1_chorus_pro_factures_valideur_traiter_post = new \FactPulse\SDK\Model\BodyValideurTraiterFactureApiV1ChorusProFacturesValideurTraiterPost(); // \FactPulse\SDK\Model\BodyValideurTraiterFactureApiV1ChorusProFacturesValideurTraiterPost
+$request_body = NULL; // array<string,mixed>
 
 try {
-    $result = $apiInstance->valideurTraiterFactureApiV1ChorusProFacturesValideurTraiterPost($body_valideur_traiter_facture_api_v1_chorus_pro_factures_valideur_traiter_post);
+    $result = $apiInstance->valideurTraiterFactureApiV1ChorusProFacturesValideurTraiterPost($request_body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ChorusProApi->valideurTraiterFactureApiV1ChorusProFacturesValideurTraiterPost: ', $e->getMessage(), PHP_EOL;
@@ -967,7 +963,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **body_valideur_traiter_facture_api_v1_chorus_pro_factures_valideur_traiter_post** | [**\FactPulse\SDK\Model\BodyValideurTraiterFactureApiV1ChorusProFacturesValideurTraiterPost**](../Model/BodyValideurTraiterFactureApiV1ChorusProFacturesValideurTraiterPost.md)|  | |
+| **request_body** | [**array<string,mixed>**](../Model/mixed.md)|  | |
 
 ### Return type
 
