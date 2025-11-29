@@ -34,9 +34,12 @@ docs/Model/DonneesFactureSimplifiees.md
 docs/Model/ErrorLevel.md
 docs/Model/ErrorSource.md
 docs/Model/FactureEnrichieInfo.md
+docs/Model/FactureEntrante.md
 docs/Model/FactureFacturX.md
+docs/Model/FormatFacture.md
 docs/Model/FormatSortie.md
 docs/Model/Fournisseur.md
+docs/Model/FournisseurEntrant.md
 docs/Model/GenerateCertificateRequest.md
 docs/Model/GenerateCertificateResponse.md
 docs/Model/HTTPValidationError.md
@@ -91,6 +94,7 @@ docs/Model/StatutFacture.md
 docs/Model/StatutTache.md
 docs/Model/StructureInfo.md
 docs/Model/Tauxmanuel.md
+docs/Model/TypeDocument.md
 docs/Model/TypeFacture.md
 docs/Model/TypeTVA.md
 docs/Model/Unite.md
@@ -132,9 +136,12 @@ lib/Model/DonneesFactureSimplifiees.php
 lib/Model/ErrorLevel.php
 lib/Model/ErrorSource.php
 lib/Model/FactureEnrichieInfo.php
+lib/Model/FactureEntrante.php
 lib/Model/FactureFacturX.php
+lib/Model/FormatFacture.php
 lib/Model/FormatSortie.php
 lib/Model/Fournisseur.php
+lib/Model/FournisseurEntrant.php
 lib/Model/GenerateCertificateRequest.php
 lib/Model/GenerateCertificateResponse.php
 lib/Model/HTTPValidationError.php
@@ -190,6 +197,7 @@ lib/Model/StatutFacture.php
 lib/Model/StatutTache.php
 lib/Model/StructureInfo.php
 lib/Model/Tauxmanuel.php
+lib/Model/TypeDocument.php
 lib/Model/TypeFacture.php
 lib/Model/TypeTVA.php
 lib/Model/Unite.php
@@ -228,8 +236,11 @@ test/Model/DonneesFactureSimplifieesTest.php
 test/Model/ErrorLevelTest.php
 test/Model/ErrorSourceTest.php
 test/Model/FactureEnrichieInfoTest.php
+test/Model/FactureEntranteTest.php
 test/Model/FactureFacturXTest.php
+test/Model/FormatFactureTest.php
 test/Model/FormatSortieTest.php
+test/Model/FournisseurEntrantTest.php
 test/Model/FournisseurTest.php
 test/Model/GenerateCertificateRequestTest.php
 test/Model/GenerateCertificateResponseTest.php
@@ -285,6 +296,7 @@ test/Model/StatutFactureTest.php
 test/Model/StatutTacheTest.php
 test/Model/StructureInfoTest.php
 test/Model/TauxmanuelTest.php
+test/Model/TypeDocumentTest.php
 test/Model/TypeFactureTest.php
 test/Model/TypeTVATest.php
 test/Model/UniteTest.php

@@ -77,6 +77,9 @@ class AFNORPDPPAApi
         'getAfnorCredentialsApiV1AfnorCredentialsGet' => [
             'application/json',
         ],
+        'getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet' => [
+            'application/json',
+        ],
         'oauthTokenProxyApiV1AfnorOauthTokenPost' => [
             'application/json',
         ],
@@ -321,6 +324,292 @@ class AFNORPDPPAApi
 
 
 
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet
+     *
+     * Récupérer et extraire une facture entrante
+     *
+     * @param  string $flow_id flow_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \FactPulse\SDK\Model\FactureEntrante|\FactPulse\SDK\Model\HTTPValidationError
+     */
+    public function getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet($flow_id, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'][0])
+    {
+        list($response) = $this->getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetWithHttpInfo($flow_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetWithHttpInfo
+     *
+     * Récupérer et extraire une facture entrante
+     *
+     * @param  string $flow_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \FactPulse\SDK\Model\FactureEntrante|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetWithHttpInfo($flow_id, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'][0])
+    {
+        $request = $this->getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetRequest($flow_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\FactureEntrante',
+                        $request,
+                        $response,
+                    );
+                case 422:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\FactPulse\SDK\Model\FactureEntrante',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\FactureEntrante',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetAsync
+     *
+     * Récupérer et extraire une facture entrante
+     *
+     * @param  string $flow_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetAsync($flow_id, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'][0])
+    {
+        return $this->getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetAsyncWithHttpInfo($flow_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetAsyncWithHttpInfo
+     *
+     * Récupérer et extraire une facture entrante
+     *
+     * @param  string $flow_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetAsyncWithHttpInfo($flow_id, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'][0])
+    {
+        $returnType = '\FactPulse\SDK\Model\FactureEntrante';
+        $request = $this->getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetRequest($flow_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'
+     *
+     * @param  string $flow_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetRequest($flow_id, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'][0])
+    {
+
+        // verify the required parameter 'flow_id' is set
+        if ($flow_id === null || (is_array($flow_id) && count($flow_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $flow_id when calling getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/afnor/flux-entrants/{flow_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($flow_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'flow_id' . '}',
+                ObjectSerializer::toPathValue($flow_id),
+                $resourcePath
+            );
+        }
 
 
         $headers = $this->headerSelector->selectHeaders(
