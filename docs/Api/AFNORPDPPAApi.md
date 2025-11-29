@@ -71,7 +71,7 @@ This endpoint does not need any parameter.
 ## `getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet()`
 
 ```php
-getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet($flow_id): \FactPulse\SDK\Model\FactureEntrante
+getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet($flow_id, $include_document): \FactPulse\SDK\Model\FactureEntrante
 ```
 
 Récupérer et extraire une facture entrante
@@ -96,9 +96,10 @@ $apiInstance = new FactPulse\SDK\Api\AFNORPDPPAApi(
     $config
 );
 $flow_id = 'flow_id_example'; // string
+$include_document = false; // bool
 
 try {
-    $result = $apiInstance->getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet($flow_id);
+    $result = $apiInstance->getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet($flow_id, $include_document);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AFNORPDPPAApi->getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet: ', $e->getMessage(), PHP_EOL;
@@ -110,6 +111,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **flow_id** | **string**|  | |
+| **include_document** | **bool**|  | [optional] [default to false] |
 
 ### Return type
 

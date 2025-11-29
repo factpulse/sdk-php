@@ -389,15 +389,16 @@ class AFNORPDPPAApi
      * Récupérer et extraire une facture entrante
      *
      * @param  string $flow_id flow_id (required)
+     * @param  bool|null $include_document include_document (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \FactPulse\SDK\Model\FactureEntrante|\FactPulse\SDK\Model\HTTPValidationError
      */
-    public function getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet($flow_id, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'][0])
+    public function getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet($flow_id, $include_document = false, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'][0])
     {
-        list($response) = $this->getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetWithHttpInfo($flow_id, $contentType);
+        list($response) = $this->getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetWithHttpInfo($flow_id, $include_document, $contentType);
         return $response;
     }
 
@@ -407,15 +408,16 @@ class AFNORPDPPAApi
      * Récupérer et extraire une facture entrante
      *
      * @param  string $flow_id (required)
+     * @param  bool|null $include_document (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \FactPulse\SDK\Model\FactureEntrante|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetWithHttpInfo($flow_id, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'][0])
+    public function getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetWithHttpInfo($flow_id, $include_document = false, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'][0])
     {
-        $request = $this->getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetRequest($flow_id, $contentType);
+        $request = $this->getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetRequest($flow_id, $include_document, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -506,14 +508,15 @@ class AFNORPDPPAApi
      * Récupérer et extraire une facture entrante
      *
      * @param  string $flow_id (required)
+     * @param  bool|null $include_document (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetAsync($flow_id, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'][0])
+    public function getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetAsync($flow_id, $include_document = false, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'][0])
     {
-        return $this->getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetAsyncWithHttpInfo($flow_id, $contentType)
+        return $this->getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetAsyncWithHttpInfo($flow_id, $include_document, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -527,15 +530,16 @@ class AFNORPDPPAApi
      * Récupérer et extraire une facture entrante
      *
      * @param  string $flow_id (required)
+     * @param  bool|null $include_document (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetAsyncWithHttpInfo($flow_id, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'][0])
+    public function getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetAsyncWithHttpInfo($flow_id, $include_document = false, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'][0])
     {
         $returnType = '\FactPulse\SDK\Model\FactureEntrante';
-        $request = $this->getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetRequest($flow_id, $contentType);
+        $request = $this->getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetRequest($flow_id, $include_document, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -577,12 +581,13 @@ class AFNORPDPPAApi
      * Create request for operation 'getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'
      *
      * @param  string $flow_id (required)
+     * @param  bool|null $include_document (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetRequest($flow_id, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'][0])
+    public function getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetRequest($flow_id, $include_document = false, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'][0])
     {
 
         // verify the required parameter 'flow_id' is set
@@ -593,6 +598,7 @@ class AFNORPDPPAApi
         }
 
 
+
         $resourcePath = '/api/v1/afnor/flux-entrants/{flow_id}';
         $formParams = [];
         $queryParams = [];
@@ -600,6 +606,15 @@ class AFNORPDPPAApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $include_document,
+            'include_document', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
 
         // path params

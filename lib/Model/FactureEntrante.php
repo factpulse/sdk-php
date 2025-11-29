@@ -73,7 +73,10 @@ class FactureEntrante implements ModelInterface, ArrayAccess, \JsonSerializable
         'montant_ttc' => 'string',
         'numero_bon_commande' => 'string',
         'reference_contrat' => 'string',
-        'objet_facture' => 'string'
+        'objet_facture' => 'string',
+        'document_base64' => 'string',
+        'document_content_type' => 'string',
+        'document_filename' => 'string'
     ];
 
     /**
@@ -99,7 +102,10 @@ class FactureEntrante implements ModelInterface, ArrayAccess, \JsonSerializable
         'montant_ttc' => null,
         'numero_bon_commande' => null,
         'reference_contrat' => null,
-        'objet_facture' => null
+        'objet_facture' => null,
+        'document_base64' => null,
+        'document_content_type' => null,
+        'document_filename' => null
     ];
 
     /**
@@ -123,7 +129,10 @@ class FactureEntrante implements ModelInterface, ArrayAccess, \JsonSerializable
         'montant_ttc' => false,
         'numero_bon_commande' => true,
         'reference_contrat' => true,
-        'objet_facture' => true
+        'objet_facture' => true,
+        'document_base64' => true,
+        'document_content_type' => true,
+        'document_filename' => true
     ];
 
     /**
@@ -227,7 +236,10 @@ class FactureEntrante implements ModelInterface, ArrayAccess, \JsonSerializable
         'montant_ttc' => 'montant_ttc',
         'numero_bon_commande' => 'numero_bon_commande',
         'reference_contrat' => 'reference_contrat',
-        'objet_facture' => 'objet_facture'
+        'objet_facture' => 'objet_facture',
+        'document_base64' => 'document_base64',
+        'document_content_type' => 'document_content_type',
+        'document_filename' => 'document_filename'
     ];
 
     /**
@@ -251,7 +263,10 @@ class FactureEntrante implements ModelInterface, ArrayAccess, \JsonSerializable
         'montant_ttc' => 'setMontantTtc',
         'numero_bon_commande' => 'setNumeroBonCommande',
         'reference_contrat' => 'setReferenceContrat',
-        'objet_facture' => 'setObjetFacture'
+        'objet_facture' => 'setObjetFacture',
+        'document_base64' => 'setDocumentBase64',
+        'document_content_type' => 'setDocumentContentType',
+        'document_filename' => 'setDocumentFilename'
     ];
 
     /**
@@ -275,7 +290,10 @@ class FactureEntrante implements ModelInterface, ArrayAccess, \JsonSerializable
         'montant_ttc' => 'getMontantTtc',
         'numero_bon_commande' => 'getNumeroBonCommande',
         'reference_contrat' => 'getReferenceContrat',
-        'objet_facture' => 'getObjetFacture'
+        'objet_facture' => 'getObjetFacture',
+        'document_base64' => 'getDocumentBase64',
+        'document_content_type' => 'getDocumentContentType',
+        'document_filename' => 'getDocumentFilename'
     ];
 
     /**
@@ -351,6 +369,9 @@ class FactureEntrante implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('numero_bon_commande', $data ?? [], null);
         $this->setIfExists('reference_contrat', $data ?? [], null);
         $this->setIfExists('objet_facture', $data ?? [], null);
+        $this->setIfExists('document_base64', $data ?? [], null);
+        $this->setIfExists('document_content_type', $data ?? [], null);
+        $this->setIfExists('document_filename', $data ?? [], null);
     }
 
     /**
@@ -916,6 +937,108 @@ class FactureEntrante implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['objet_facture'] = $objet_facture;
+
+        return $this;
+    }
+
+    /**
+     * Gets document_base64
+     *
+     * @return string|null
+     */
+    public function getDocumentBase64()
+    {
+        return $this->container['document_base64'];
+    }
+
+    /**
+     * Sets document_base64
+     *
+     * @param string|null $document_base64 document_base64
+     *
+     * @return self
+     */
+    public function setDocumentBase64($document_base64)
+    {
+        if (is_null($document_base64)) {
+            array_push($this->openAPINullablesSetToNull, 'document_base64');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('document_base64', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['document_base64'] = $document_base64;
+
+        return $this;
+    }
+
+    /**
+     * Gets document_content_type
+     *
+     * @return string|null
+     */
+    public function getDocumentContentType()
+    {
+        return $this->container['document_content_type'];
+    }
+
+    /**
+     * Sets document_content_type
+     *
+     * @param string|null $document_content_type document_content_type
+     *
+     * @return self
+     */
+    public function setDocumentContentType($document_content_type)
+    {
+        if (is_null($document_content_type)) {
+            array_push($this->openAPINullablesSetToNull, 'document_content_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('document_content_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['document_content_type'] = $document_content_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets document_filename
+     *
+     * @return string|null
+     */
+    public function getDocumentFilename()
+    {
+        return $this->container['document_filename'];
+    }
+
+    /**
+     * Sets document_filename
+     *
+     * @param string|null $document_filename document_filename
+     *
+     * @return self
+     */
+    public function setDocumentFilename($document_filename)
+    {
+        if (is_null($document_filename)) {
+            array_push($this->openAPINullablesSetToNull, 'document_filename');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('document_filename', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['document_filename'] = $document_filename;
 
         return $this;
     }

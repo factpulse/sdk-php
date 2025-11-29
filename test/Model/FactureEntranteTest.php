@@ -222,4 +222,31 @@ class FactureEntranteTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "document_base64"
+     */
+    public function testPropertyDocumentBase64()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "document_content_type"
+     */
+    public function testPropertyDocumentContentType()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "document_filename"
+     */
+    public function testPropertyDocumentFilename()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

@@ -20,5 +20,8 @@ Name | Type | Description | Notes
 **numero_bon_commande** | **string** |  | [optional]
 **reference_contrat** | **string** |  | [optional]
 **objet_facture** | **string** |  | [optional]
+**document_base64** | **string** |  | [optional]
+**document_content_type** | **string** |  | [optional]
+**document_filename** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
