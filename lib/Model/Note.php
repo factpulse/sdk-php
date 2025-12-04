@@ -58,8 +58,8 @@ class Note implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'subject_code' => 'string',
-        'content' => 'string'
+        'code_sujet' => 'string',
+        'contenu' => 'string'
     ];
 
     /**
@@ -70,8 +70,8 @@ class Note implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'subject_code' => null,
-        'content' => null
+        'code_sujet' => null,
+        'contenu' => null
     ];
 
     /**
@@ -80,8 +80,8 @@ class Note implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'subject_code' => true,
-        'content' => false
+        'code_sujet' => true,
+        'contenu' => false
     ];
 
     /**
@@ -170,8 +170,8 @@ class Note implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'subject_code' => 'subjectCode',
-        'content' => 'content'
+        'code_sujet' => 'codeSujet',
+        'contenu' => 'contenu'
     ];
 
     /**
@@ -180,8 +180,8 @@ class Note implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'subject_code' => 'setSubjectCode',
-        'content' => 'setContent'
+        'code_sujet' => 'setCodeSujet',
+        'contenu' => 'setContenu'
     ];
 
     /**
@@ -190,8 +190,8 @@ class Note implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'subject_code' => 'getSubjectCode',
-        'content' => 'getContent'
+        'code_sujet' => 'getCodeSujet',
+        'contenu' => 'getContenu'
     ];
 
     /**
@@ -251,8 +251,8 @@ class Note implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('subject_code', $data ?? [], null);
-        $this->setIfExists('content', $data ?? [], null);
+        $this->setIfExists('code_sujet', $data ?? [], null);
+        $this->setIfExists('contenu', $data ?? [], null);
     }
 
     /**
@@ -282,8 +282,8 @@ class Note implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['content'] === null) {
-            $invalidProperties[] = "'content' can't be null";
+        if ($this->container['contenu'] === null) {
+            $invalidProperties[] = "'contenu' can't be null";
         }
         return $invalidProperties;
     }
@@ -301,62 +301,62 @@ class Note implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets subject_code
+     * Gets code_sujet
      *
      * @return string|null
      */
-    public function getSubjectCode()
+    public function getCodeSujet()
     {
-        return $this->container['subject_code'];
+        return $this->container['code_sujet'];
     }
 
     /**
-     * Sets subject_code
+     * Sets code_sujet
      *
-     * @param string|null $subject_code subject_code
+     * @param string|null $code_sujet code_sujet
      *
      * @return self
      */
-    public function setSubjectCode($subject_code)
+    public function setCodeSujet($code_sujet)
     {
-        if (is_null($subject_code)) {
-            array_push($this->openAPINullablesSetToNull, 'subject_code');
+        if (is_null($code_sujet)) {
+            array_push($this->openAPINullablesSetToNull, 'code_sujet');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('subject_code', $nullablesSetToNull);
+            $index = array_search('code_sujet', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['subject_code'] = $subject_code;
+        $this->container['code_sujet'] = $code_sujet;
 
         return $this;
     }
 
     /**
-     * Gets content
+     * Gets contenu
      *
      * @return string
      */
-    public function getContent()
+    public function getContenu()
     {
-        return $this->container['content'];
+        return $this->container['contenu'];
     }
 
     /**
-     * Sets content
+     * Sets contenu
      *
-     * @param string $content content
+     * @param string $contenu contenu
      *
      * @return self
      */
-    public function setContent($content)
+    public function setContenu($contenu)
     {
-        if (is_null($content)) {
-            throw new \InvalidArgumentException('non-nullable content cannot be null');
+        if (is_null($contenu)) {
+            throw new \InvalidArgumentException('non-nullable contenu cannot be null');
         }
-        $this->container['content'] = $content;
+        $this->container['contenu'] = $contenu;
 
         return $this;
     }

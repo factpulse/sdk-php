@@ -80,18 +80,18 @@ class NoteTest extends TestCase
     }
 
     /**
-     * Test attribute "subject_code"
+     * Test attribute "code_sujet"
      */
-    public function testPropertySubjectCode()
+    public function testPropertyCodeSujet()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "content"
+     * Test attribute "contenu"
      */
-    public function testPropertyContent()
+    public function testPropertyContenu()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

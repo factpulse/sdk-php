@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**subject_code** | **string** |  | [optional]
-**content** | **string** |  |
+**code_sujet** | **string** |  | [optional]
+**contenu** | **string** |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
