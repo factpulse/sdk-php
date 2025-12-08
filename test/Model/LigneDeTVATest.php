@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * LigneDeTVATest Class Doc Comment
  *
  * @category    Class
- * @description Représente une ligne de totalisation par taux de TVA.
+ * @description Représente une ligne de totalisation par taux de TVA.  Pour les exonérations (catégories E, AE, K, G, O), les champs &#x60;motif_exoneration&#x60; et &#x60;code_vatex&#x60; sont requis selon EN16931.
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -119,6 +119,24 @@ class LigneDeTVATest extends TestCase
      * Test attribute "categorie"
      */
     public function testPropertyCategorie()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "motif_exoneration"
+     */
+    public function testPropertyMotifExoneration()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "code_vatex"
+     */
+    public function testPropertyCodeVatex()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

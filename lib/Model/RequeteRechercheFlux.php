@@ -1,6 +1,6 @@
 <?php
 /**
- * LigneDeTVA
+ * RequeteRechercheFlux
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \FactPulse\SDK\ObjectSerializer;
 
 /**
- * LigneDeTVA Class Doc Comment
+ * RequeteRechercheFlux Class Doc Comment
  *
  * @category Class
- * @description Représente une ligne de totalisation par taux de TVA.  Pour les exonérations (catégories E, AE, K, G, O), les champs &#x60;motif_exoneration&#x60; et &#x60;code_vatex&#x60; sont requis selon EN16931.
+ * @description Requête pour rechercher des flux soumis
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
+class RequeteRechercheFlux implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'LigneDeTVA';
+    protected static $openAPIModelName = 'RequeteRechercheFlux';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,13 +58,15 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'montant_base_ht' => '\FactPulse\SDK\Model\MontantBaseHt',
-        'montant_tva' => '\FactPulse\SDK\Model\MontantTvaLigne',
-        'taux' => 'string',
-        'taux_manuel' => '\FactPulse\SDK\Model\Tauxmanuel',
-        'categorie' => '\FactPulse\SDK\Model\CategorieTVA',
-        'motif_exoneration' => 'string',
-        'code_vatex' => 'string'
+        'date_maj_apres' => '\DateTime',
+        'date_maj_avant' => '\DateTime',
+        'type_flux' => '\FactPulse\SDK\Model\TypeFlux[]',
+        'direction_flux' => '\FactPulse\SDK\Model\DirectionFlux[]',
+        'tracking_id' => 'string',
+        'flow_id' => 'string',
+        'statut_acquittement' => '\FactPulse\SDK\Model\StatutAcquittement',
+        'offset' => 'int',
+        'limit' => 'int'
     ];
 
     /**
@@ -75,13 +77,15 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'montant_base_ht' => null,
-        'montant_tva' => null,
-        'taux' => null,
-        'taux_manuel' => null,
-        'categorie' => null,
-        'motif_exoneration' => null,
-        'code_vatex' => null
+        'date_maj_apres' => 'date-time',
+        'date_maj_avant' => 'date-time',
+        'type_flux' => null,
+        'direction_flux' => null,
+        'tracking_id' => null,
+        'flow_id' => null,
+        'statut_acquittement' => null,
+        'offset' => null,
+        'limit' => null
     ];
 
     /**
@@ -90,13 +94,15 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'montant_base_ht' => false,
-        'montant_tva' => false,
-        'taux' => true,
-        'taux_manuel' => false,
-        'categorie' => true,
-        'motif_exoneration' => true,
-        'code_vatex' => true
+        'date_maj_apres' => true,
+        'date_maj_avant' => true,
+        'type_flux' => true,
+        'direction_flux' => true,
+        'tracking_id' => true,
+        'flow_id' => true,
+        'statut_acquittement' => true,
+        'offset' => false,
+        'limit' => false
     ];
 
     /**
@@ -185,13 +191,15 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'montant_base_ht' => 'montantBaseHt',
-        'montant_tva' => 'montantTva',
-        'taux' => 'taux',
-        'taux_manuel' => 'tauxManuel',
-        'categorie' => 'categorie',
-        'motif_exoneration' => 'motifExoneration',
-        'code_vatex' => 'codeVatex'
+        'date_maj_apres' => 'date_maj_apres',
+        'date_maj_avant' => 'date_maj_avant',
+        'type_flux' => 'type_flux',
+        'direction_flux' => 'direction_flux',
+        'tracking_id' => 'tracking_id',
+        'flow_id' => 'flow_id',
+        'statut_acquittement' => 'statut_acquittement',
+        'offset' => 'offset',
+        'limit' => 'limit'
     ];
 
     /**
@@ -200,13 +208,15 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'montant_base_ht' => 'setMontantBaseHt',
-        'montant_tva' => 'setMontantTva',
-        'taux' => 'setTaux',
-        'taux_manuel' => 'setTauxManuel',
-        'categorie' => 'setCategorie',
-        'motif_exoneration' => 'setMotifExoneration',
-        'code_vatex' => 'setCodeVatex'
+        'date_maj_apres' => 'setDateMajApres',
+        'date_maj_avant' => 'setDateMajAvant',
+        'type_flux' => 'setTypeFlux',
+        'direction_flux' => 'setDirectionFlux',
+        'tracking_id' => 'setTrackingId',
+        'flow_id' => 'setFlowId',
+        'statut_acquittement' => 'setStatutAcquittement',
+        'offset' => 'setOffset',
+        'limit' => 'setLimit'
     ];
 
     /**
@@ -215,13 +225,15 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'montant_base_ht' => 'getMontantBaseHt',
-        'montant_tva' => 'getMontantTva',
-        'taux' => 'getTaux',
-        'taux_manuel' => 'getTauxManuel',
-        'categorie' => 'getCategorie',
-        'motif_exoneration' => 'getMotifExoneration',
-        'code_vatex' => 'getCodeVatex'
+        'date_maj_apres' => 'getDateMajApres',
+        'date_maj_avant' => 'getDateMajAvant',
+        'type_flux' => 'getTypeFlux',
+        'direction_flux' => 'getDirectionFlux',
+        'tracking_id' => 'getTrackingId',
+        'flow_id' => 'getFlowId',
+        'statut_acquittement' => 'getStatutAcquittement',
+        'offset' => 'getOffset',
+        'limit' => 'getLimit'
     ];
 
     /**
@@ -281,13 +293,15 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('montant_base_ht', $data ?? [], null);
-        $this->setIfExists('montant_tva', $data ?? [], null);
-        $this->setIfExists('taux', $data ?? [], null);
-        $this->setIfExists('taux_manuel', $data ?? [], null);
-        $this->setIfExists('categorie', $data ?? [], null);
-        $this->setIfExists('motif_exoneration', $data ?? [], null);
-        $this->setIfExists('code_vatex', $data ?? [], null);
+        $this->setIfExists('date_maj_apres', $data ?? [], null);
+        $this->setIfExists('date_maj_avant', $data ?? [], null);
+        $this->setIfExists('type_flux', $data ?? [], null);
+        $this->setIfExists('direction_flux', $data ?? [], null);
+        $this->setIfExists('tracking_id', $data ?? [], null);
+        $this->setIfExists('flow_id', $data ?? [], null);
+        $this->setIfExists('statut_acquittement', $data ?? [], null);
+        $this->setIfExists('offset', $data ?? [], 0);
+        $this->setIfExists('limit', $data ?? [], 25);
     }
 
     /**
@@ -317,12 +331,18 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['montant_base_ht'] === null) {
-            $invalidProperties[] = "'montant_base_ht' can't be null";
+        if (!is_null($this->container['offset']) && ($this->container['offset'] < 0)) {
+            $invalidProperties[] = "invalid value for 'offset', must be bigger than or equal to 0.";
         }
-        if ($this->container['montant_tva'] === null) {
-            $invalidProperties[] = "'montant_tva' can't be null";
+
+        if (!is_null($this->container['limit']) && ($this->container['limit'] > 100)) {
+            $invalidProperties[] = "invalid value for 'limit', must be smaller than or equal to 100.";
         }
+
+        if (!is_null($this->container['limit']) && ($this->container['limit'] < 1)) {
+            $invalidProperties[] = "invalid value for 'limit', must be bigger than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -339,218 +359,306 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets montant_base_ht
+     * Gets date_maj_apres
      *
-     * @return \FactPulse\SDK\Model\MontantBaseHt
+     * @return \DateTime|null
      */
-    public function getMontantBaseHt()
+    public function getDateMajApres()
     {
-        return $this->container['montant_base_ht'];
+        return $this->container['date_maj_apres'];
     }
 
     /**
-     * Sets montant_base_ht
+     * Sets date_maj_apres
      *
-     * @param \FactPulse\SDK\Model\MontantBaseHt $montant_base_ht montant_base_ht
+     * @param \DateTime|null $date_maj_apres date_maj_apres
      *
      * @return self
      */
-    public function setMontantBaseHt($montant_base_ht)
+    public function setDateMajApres($date_maj_apres)
     {
-        if (is_null($montant_base_ht)) {
-            throw new \InvalidArgumentException('non-nullable montant_base_ht cannot be null');
+        if (is_null($date_maj_apres)) {
+            array_push($this->openAPINullablesSetToNull, 'date_maj_apres');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('date_maj_apres', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['montant_base_ht'] = $montant_base_ht;
+        $this->container['date_maj_apres'] = $date_maj_apres;
 
         return $this;
     }
 
     /**
-     * Gets montant_tva
+     * Gets date_maj_avant
      *
-     * @return \FactPulse\SDK\Model\MontantTvaLigne
+     * @return \DateTime|null
      */
-    public function getMontantTva()
+    public function getDateMajAvant()
     {
-        return $this->container['montant_tva'];
+        return $this->container['date_maj_avant'];
     }
 
     /**
-     * Sets montant_tva
+     * Sets date_maj_avant
      *
-     * @param \FactPulse\SDK\Model\MontantTvaLigne $montant_tva montant_tva
+     * @param \DateTime|null $date_maj_avant date_maj_avant
      *
      * @return self
      */
-    public function setMontantTva($montant_tva)
+    public function setDateMajAvant($date_maj_avant)
     {
-        if (is_null($montant_tva)) {
-            throw new \InvalidArgumentException('non-nullable montant_tva cannot be null');
+        if (is_null($date_maj_avant)) {
+            array_push($this->openAPINullablesSetToNull, 'date_maj_avant');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('date_maj_avant', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['montant_tva'] = $montant_tva;
+        $this->container['date_maj_avant'] = $date_maj_avant;
 
         return $this;
     }
 
     /**
-     * Gets taux
+     * Gets type_flux
+     *
+     * @return \FactPulse\SDK\Model\TypeFlux[]|null
+     */
+    public function getTypeFlux()
+    {
+        return $this->container['type_flux'];
+    }
+
+    /**
+     * Sets type_flux
+     *
+     * @param \FactPulse\SDK\Model\TypeFlux[]|null $type_flux type_flux
+     *
+     * @return self
+     */
+    public function setTypeFlux($type_flux)
+    {
+        if (is_null($type_flux)) {
+            array_push($this->openAPINullablesSetToNull, 'type_flux');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type_flux', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['type_flux'] = $type_flux;
+
+        return $this;
+    }
+
+    /**
+     * Gets direction_flux
+     *
+     * @return \FactPulse\SDK\Model\DirectionFlux[]|null
+     */
+    public function getDirectionFlux()
+    {
+        return $this->container['direction_flux'];
+    }
+
+    /**
+     * Sets direction_flux
+     *
+     * @param \FactPulse\SDK\Model\DirectionFlux[]|null $direction_flux direction_flux
+     *
+     * @return self
+     */
+    public function setDirectionFlux($direction_flux)
+    {
+        if (is_null($direction_flux)) {
+            array_push($this->openAPINullablesSetToNull, 'direction_flux');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('direction_flux', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['direction_flux'] = $direction_flux;
+
+        return $this;
+    }
+
+    /**
+     * Gets tracking_id
      *
      * @return string|null
      */
-    public function getTaux()
+    public function getTrackingId()
     {
-        return $this->container['taux'];
+        return $this->container['tracking_id'];
     }
 
     /**
-     * Sets taux
+     * Sets tracking_id
      *
-     * @param string|null $taux taux
+     * @param string|null $tracking_id tracking_id
      *
      * @return self
      */
-    public function setTaux($taux)
+    public function setTrackingId($tracking_id)
     {
-        if (is_null($taux)) {
-            array_push($this->openAPINullablesSetToNull, 'taux');
+        if (is_null($tracking_id)) {
+            array_push($this->openAPINullablesSetToNull, 'tracking_id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('taux', $nullablesSetToNull);
+            $index = array_search('tracking_id', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['taux'] = $taux;
+        $this->container['tracking_id'] = $tracking_id;
 
         return $this;
     }
 
     /**
-     * Gets taux_manuel
-     *
-     * @return \FactPulse\SDK\Model\Tauxmanuel|null
-     */
-    public function getTauxManuel()
-    {
-        return $this->container['taux_manuel'];
-    }
-
-    /**
-     * Sets taux_manuel
-     *
-     * @param \FactPulse\SDK\Model\Tauxmanuel|null $taux_manuel taux_manuel
-     *
-     * @return self
-     */
-    public function setTauxManuel($taux_manuel)
-    {
-        if (is_null($taux_manuel)) {
-            throw new \InvalidArgumentException('non-nullable taux_manuel cannot be null');
-        }
-        $this->container['taux_manuel'] = $taux_manuel;
-
-        return $this;
-    }
-
-    /**
-     * Gets categorie
-     *
-     * @return \FactPulse\SDK\Model\CategorieTVA|null
-     */
-    public function getCategorie()
-    {
-        return $this->container['categorie'];
-    }
-
-    /**
-     * Sets categorie
-     *
-     * @param \FactPulse\SDK\Model\CategorieTVA|null $categorie categorie
-     *
-     * @return self
-     */
-    public function setCategorie($categorie)
-    {
-        if (is_null($categorie)) {
-            array_push($this->openAPINullablesSetToNull, 'categorie');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('categorie', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['categorie'] = $categorie;
-
-        return $this;
-    }
-
-    /**
-     * Gets motif_exoneration
+     * Gets flow_id
      *
      * @return string|null
      */
-    public function getMotifExoneration()
+    public function getFlowId()
     {
-        return $this->container['motif_exoneration'];
+        return $this->container['flow_id'];
     }
 
     /**
-     * Sets motif_exoneration
+     * Sets flow_id
      *
-     * @param string|null $motif_exoneration motif_exoneration
+     * @param string|null $flow_id flow_id
      *
      * @return self
      */
-    public function setMotifExoneration($motif_exoneration)
+    public function setFlowId($flow_id)
     {
-        if (is_null($motif_exoneration)) {
-            array_push($this->openAPINullablesSetToNull, 'motif_exoneration');
+        if (is_null($flow_id)) {
+            array_push($this->openAPINullablesSetToNull, 'flow_id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('motif_exoneration', $nullablesSetToNull);
+            $index = array_search('flow_id', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['motif_exoneration'] = $motif_exoneration;
+        $this->container['flow_id'] = $flow_id;
 
         return $this;
     }
 
     /**
-     * Gets code_vatex
+     * Gets statut_acquittement
      *
-     * @return string|null
+     * @return \FactPulse\SDK\Model\StatutAcquittement|null
      */
-    public function getCodeVatex()
+    public function getStatutAcquittement()
     {
-        return $this->container['code_vatex'];
+        return $this->container['statut_acquittement'];
     }
 
     /**
-     * Sets code_vatex
+     * Sets statut_acquittement
      *
-     * @param string|null $code_vatex code_vatex
+     * @param \FactPulse\SDK\Model\StatutAcquittement|null $statut_acquittement statut_acquittement
      *
      * @return self
      */
-    public function setCodeVatex($code_vatex)
+    public function setStatutAcquittement($statut_acquittement)
     {
-        if (is_null($code_vatex)) {
-            array_push($this->openAPINullablesSetToNull, 'code_vatex');
+        if (is_null($statut_acquittement)) {
+            array_push($this->openAPINullablesSetToNull, 'statut_acquittement');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('code_vatex', $nullablesSetToNull);
+            $index = array_search('statut_acquittement', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['code_vatex'] = $code_vatex;
+        $this->container['statut_acquittement'] = $statut_acquittement;
+
+        return $this;
+    }
+
+    /**
+     * Gets offset
+     *
+     * @return int|null
+     */
+    public function getOffset()
+    {
+        return $this->container['offset'];
+    }
+
+    /**
+     * Sets offset
+     *
+     * @param int|null $offset Décalage pour la pagination
+     *
+     * @return self
+     */
+    public function setOffset($offset)
+    {
+        if (is_null($offset)) {
+            throw new \InvalidArgumentException('non-nullable offset cannot be null');
+        }
+
+        if (($offset < 0)) {
+            throw new \InvalidArgumentException('invalid value for $offset when calling RequeteRechercheFlux., must be bigger than or equal to 0.');
+        }
+
+        $this->container['offset'] = $offset;
+
+        return $this;
+    }
+
+    /**
+     * Gets limit
+     *
+     * @return int|null
+     */
+    public function getLimit()
+    {
+        return $this->container['limit'];
+    }
+
+    /**
+     * Sets limit
+     *
+     * @param int|null $limit Nombre maximum de résultats (max 100)
+     *
+     * @return self
+     */
+    public function setLimit($limit)
+    {
+        if (is_null($limit)) {
+            throw new \InvalidArgumentException('non-nullable limit cannot be null');
+        }
+
+        if (($limit > 100)) {
+            throw new \InvalidArgumentException('invalid value for $limit when calling RequeteRechercheFlux., must be smaller than or equal to 100.');
+        }
+        if (($limit < 1)) {
+            throw new \InvalidArgumentException('invalid value for $limit when calling RequeteRechercheFlux., must be bigger than or equal to 1.');
+        }
+
+        $this->container['limit'] = $limit;
 
         return $this;
     }

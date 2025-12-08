@@ -1,6 +1,6 @@
 <?php
 /**
- * ErrorLevelTest
+ * StatutChampAPITest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ErrorLevelTest Class Doc Comment
+ * StatutChampAPITest Class Doc Comment
  *
  * @category    Class
- * @description ErrorLevel
+ * @description Statut de conformité d&#39;un champ.
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ErrorLevelTest extends TestCase
+class StatutChampAPITest extends TestCase
 {
 
     /**
@@ -71,9 +71,9 @@ class ErrorLevelTest extends TestCase
     }
 
     /**
-     * Test "ErrorLevel"
+     * Test "StatutChampAPI"
      */
-    public function testErrorLevel()
+    public function testStatutChampAPI()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

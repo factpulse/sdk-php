@@ -1,6 +1,6 @@
 <?php
 /**
- * ErrorLevelTest
+ * PDPCredentialsTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ErrorLevelTest Class Doc Comment
+ * PDPCredentialsTest Class Doc Comment
  *
  * @category    Class
- * @description ErrorLevel
+ * @description Credentials PDP pour la stratégie zero-storage (Strategy B).  Permet de fournir directement les credentials PDP dans la requête au lieu de les stocker dans Django.  Utile pour : - Tests ponctuels sans persister les credentials - Intégrations temporaires - Environnements de développement
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ErrorLevelTest extends TestCase
+class PDPCredentialsTest extends TestCase
 {
 
     /**
@@ -71,9 +71,54 @@ class ErrorLevelTest extends TestCase
     }
 
     /**
-     * Test "ErrorLevel"
+     * Test "PDPCredentials"
      */
-    public function testErrorLevel()
+    public function testPDPCredentials()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "flow_service_url"
+     */
+    public function testPropertyFlowServiceUrl()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "directory_service_url"
+     */
+    public function testPropertyDirectoryServiceUrl()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "token_url"
+     */
+    public function testPropertyTokenUrl()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "client_id"
+     */
+    public function testPropertyClientId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "client_secret"
+     */
+    public function testPropertyClientSecret()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

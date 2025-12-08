@@ -1,6 +1,6 @@
 <?php
 /**
- * LigneDeTVA
+ * NoteObligatoireSchema
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \FactPulse\SDK\ObjectSerializer;
 
 /**
- * LigneDeTVA Class Doc Comment
+ * NoteObligatoireSchema Class Doc Comment
  *
  * @category Class
- * @description Représente une ligne de totalisation par taux de TVA.  Pour les exonérations (catégories E, AE, K, G, O), les champs &#x60;motif_exoneration&#x60; et &#x60;code_vatex&#x60; sont requis selon EN16931.
+ * @description Note obligatoire détectée avec localisation et comparaison XML/PDF.
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
+class NoteObligatoireSchema implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'LigneDeTVA';
+    protected static $openAPIModelName = 'NoteObligatoireSchema';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,13 +58,13 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'montant_base_ht' => '\FactPulse\SDK\Model\MontantBaseHt',
-        'montant_tva' => '\FactPulse\SDK\Model\MontantTvaLigne',
-        'taux' => 'string',
-        'taux_manuel' => '\FactPulse\SDK\Model\Tauxmanuel',
-        'categorie' => '\FactPulse\SDK\Model\CategorieTVA',
-        'motif_exoneration' => 'string',
-        'code_vatex' => 'string'
+        'code_sujet' => 'string',
+        'label' => 'string',
+        'valeur_pdf' => 'string',
+        'valeur_xml' => 'string',
+        'statut' => '\FactPulse\SDK\Model\StatutChampAPI',
+        'message' => 'string',
+        'bbox' => '\FactPulse\SDK\Model\BoundingBoxSchema'
     ];
 
     /**
@@ -75,13 +75,13 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'montant_base_ht' => null,
-        'montant_tva' => null,
-        'taux' => null,
-        'taux_manuel' => null,
-        'categorie' => null,
-        'motif_exoneration' => null,
-        'code_vatex' => null
+        'code_sujet' => null,
+        'label' => null,
+        'valeur_pdf' => null,
+        'valeur_xml' => null,
+        'statut' => null,
+        'message' => null,
+        'bbox' => null
     ];
 
     /**
@@ -90,13 +90,13 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'montant_base_ht' => false,
-        'montant_tva' => false,
-        'taux' => true,
-        'taux_manuel' => false,
-        'categorie' => true,
-        'motif_exoneration' => true,
-        'code_vatex' => true
+        'code_sujet' => false,
+        'label' => false,
+        'valeur_pdf' => true,
+        'valeur_xml' => true,
+        'statut' => false,
+        'message' => true,
+        'bbox' => true
     ];
 
     /**
@@ -185,13 +185,13 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'montant_base_ht' => 'montantBaseHt',
-        'montant_tva' => 'montantTva',
-        'taux' => 'taux',
-        'taux_manuel' => 'tauxManuel',
-        'categorie' => 'categorie',
-        'motif_exoneration' => 'motifExoneration',
-        'code_vatex' => 'codeVatex'
+        'code_sujet' => 'code_sujet',
+        'label' => 'label',
+        'valeur_pdf' => 'valeur_pdf',
+        'valeur_xml' => 'valeur_xml',
+        'statut' => 'statut',
+        'message' => 'message',
+        'bbox' => 'bbox'
     ];
 
     /**
@@ -200,13 +200,13 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'montant_base_ht' => 'setMontantBaseHt',
-        'montant_tva' => 'setMontantTva',
-        'taux' => 'setTaux',
-        'taux_manuel' => 'setTauxManuel',
-        'categorie' => 'setCategorie',
-        'motif_exoneration' => 'setMotifExoneration',
-        'code_vatex' => 'setCodeVatex'
+        'code_sujet' => 'setCodeSujet',
+        'label' => 'setLabel',
+        'valeur_pdf' => 'setValeurPdf',
+        'valeur_xml' => 'setValeurXml',
+        'statut' => 'setStatut',
+        'message' => 'setMessage',
+        'bbox' => 'setBbox'
     ];
 
     /**
@@ -215,13 +215,13 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'montant_base_ht' => 'getMontantBaseHt',
-        'montant_tva' => 'getMontantTva',
-        'taux' => 'getTaux',
-        'taux_manuel' => 'getTauxManuel',
-        'categorie' => 'getCategorie',
-        'motif_exoneration' => 'getMotifExoneration',
-        'code_vatex' => 'getCodeVatex'
+        'code_sujet' => 'getCodeSujet',
+        'label' => 'getLabel',
+        'valeur_pdf' => 'getValeurPdf',
+        'valeur_xml' => 'getValeurXml',
+        'statut' => 'getStatut',
+        'message' => 'getMessage',
+        'bbox' => 'getBbox'
     ];
 
     /**
@@ -281,13 +281,13 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('montant_base_ht', $data ?? [], null);
-        $this->setIfExists('montant_tva', $data ?? [], null);
-        $this->setIfExists('taux', $data ?? [], null);
-        $this->setIfExists('taux_manuel', $data ?? [], null);
-        $this->setIfExists('categorie', $data ?? [], null);
-        $this->setIfExists('motif_exoneration', $data ?? [], null);
-        $this->setIfExists('code_vatex', $data ?? [], null);
+        $this->setIfExists('code_sujet', $data ?? [], null);
+        $this->setIfExists('label', $data ?? [], null);
+        $this->setIfExists('valeur_pdf', $data ?? [], null);
+        $this->setIfExists('valeur_xml', $data ?? [], null);
+        $this->setIfExists('statut', $data ?? [], null);
+        $this->setIfExists('message', $data ?? [], null);
+        $this->setIfExists('bbox', $data ?? [], null);
     }
 
     /**
@@ -317,11 +317,11 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['montant_base_ht'] === null) {
-            $invalidProperties[] = "'montant_base_ht' can't be null";
+        if ($this->container['code_sujet'] === null) {
+            $invalidProperties[] = "'code_sujet' can't be null";
         }
-        if ($this->container['montant_tva'] === null) {
-            $invalidProperties[] = "'montant_tva' can't be null";
+        if ($this->container['label'] === null) {
+            $invalidProperties[] = "'label' can't be null";
         }
         return $invalidProperties;
     }
@@ -339,218 +339,218 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets montant_base_ht
+     * Gets code_sujet
      *
-     * @return \FactPulse\SDK\Model\MontantBaseHt
+     * @return string
      */
-    public function getMontantBaseHt()
+    public function getCodeSujet()
     {
-        return $this->container['montant_base_ht'];
+        return $this->container['code_sujet'];
     }
 
     /**
-     * Sets montant_base_ht
+     * Sets code_sujet
      *
-     * @param \FactPulse\SDK\Model\MontantBaseHt $montant_base_ht montant_base_ht
+     * @param string $code_sujet Code sujet (PMT, PMD, AAB)
      *
      * @return self
      */
-    public function setMontantBaseHt($montant_base_ht)
+    public function setCodeSujet($code_sujet)
     {
-        if (is_null($montant_base_ht)) {
-            throw new \InvalidArgumentException('non-nullable montant_base_ht cannot be null');
+        if (is_null($code_sujet)) {
+            throw new \InvalidArgumentException('non-nullable code_sujet cannot be null');
         }
-        $this->container['montant_base_ht'] = $montant_base_ht;
+        $this->container['code_sujet'] = $code_sujet;
 
         return $this;
     }
 
     /**
-     * Gets montant_tva
+     * Gets label
      *
-     * @return \FactPulse\SDK\Model\MontantTvaLigne
+     * @return string
      */
-    public function getMontantTva()
+    public function getLabel()
     {
-        return $this->container['montant_tva'];
+        return $this->container['label'];
     }
 
     /**
-     * Sets montant_tva
+     * Sets label
      *
-     * @param \FactPulse\SDK\Model\MontantTvaLigne $montant_tva montant_tva
+     * @param string $label Libellé (ex: Indemnité recouvrement)
      *
      * @return self
      */
-    public function setMontantTva($montant_tva)
+    public function setLabel($label)
     {
-        if (is_null($montant_tva)) {
-            throw new \InvalidArgumentException('non-nullable montant_tva cannot be null');
+        if (is_null($label)) {
+            throw new \InvalidArgumentException('non-nullable label cannot be null');
         }
-        $this->container['montant_tva'] = $montant_tva;
+        $this->container['label'] = $label;
 
         return $this;
     }
 
     /**
-     * Gets taux
+     * Gets valeur_pdf
      *
      * @return string|null
      */
-    public function getTaux()
+    public function getValeurPdf()
     {
-        return $this->container['taux'];
+        return $this->container['valeur_pdf'];
     }
 
     /**
-     * Sets taux
+     * Sets valeur_pdf
      *
-     * @param string|null $taux taux
+     * @param string|null $valeur_pdf valeur_pdf
      *
      * @return self
      */
-    public function setTaux($taux)
+    public function setValeurPdf($valeur_pdf)
     {
-        if (is_null($taux)) {
-            array_push($this->openAPINullablesSetToNull, 'taux');
+        if (is_null($valeur_pdf)) {
+            array_push($this->openAPINullablesSetToNull, 'valeur_pdf');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('taux', $nullablesSetToNull);
+            $index = array_search('valeur_pdf', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['taux'] = $taux;
+        $this->container['valeur_pdf'] = $valeur_pdf;
 
         return $this;
     }
 
     /**
-     * Gets taux_manuel
-     *
-     * @return \FactPulse\SDK\Model\Tauxmanuel|null
-     */
-    public function getTauxManuel()
-    {
-        return $this->container['taux_manuel'];
-    }
-
-    /**
-     * Sets taux_manuel
-     *
-     * @param \FactPulse\SDK\Model\Tauxmanuel|null $taux_manuel taux_manuel
-     *
-     * @return self
-     */
-    public function setTauxManuel($taux_manuel)
-    {
-        if (is_null($taux_manuel)) {
-            throw new \InvalidArgumentException('non-nullable taux_manuel cannot be null');
-        }
-        $this->container['taux_manuel'] = $taux_manuel;
-
-        return $this;
-    }
-
-    /**
-     * Gets categorie
-     *
-     * @return \FactPulse\SDK\Model\CategorieTVA|null
-     */
-    public function getCategorie()
-    {
-        return $this->container['categorie'];
-    }
-
-    /**
-     * Sets categorie
-     *
-     * @param \FactPulse\SDK\Model\CategorieTVA|null $categorie categorie
-     *
-     * @return self
-     */
-    public function setCategorie($categorie)
-    {
-        if (is_null($categorie)) {
-            array_push($this->openAPINullablesSetToNull, 'categorie');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('categorie', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['categorie'] = $categorie;
-
-        return $this;
-    }
-
-    /**
-     * Gets motif_exoneration
+     * Gets valeur_xml
      *
      * @return string|null
      */
-    public function getMotifExoneration()
+    public function getValeurXml()
     {
-        return $this->container['motif_exoneration'];
+        return $this->container['valeur_xml'];
     }
 
     /**
-     * Sets motif_exoneration
+     * Sets valeur_xml
      *
-     * @param string|null $motif_exoneration motif_exoneration
+     * @param string|null $valeur_xml valeur_xml
      *
      * @return self
      */
-    public function setMotifExoneration($motif_exoneration)
+    public function setValeurXml($valeur_xml)
     {
-        if (is_null($motif_exoneration)) {
-            array_push($this->openAPINullablesSetToNull, 'motif_exoneration');
+        if (is_null($valeur_xml)) {
+            array_push($this->openAPINullablesSetToNull, 'valeur_xml');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('motif_exoneration', $nullablesSetToNull);
+            $index = array_search('valeur_xml', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['motif_exoneration'] = $motif_exoneration;
+        $this->container['valeur_xml'] = $valeur_xml;
 
         return $this;
     }
 
     /**
-     * Gets code_vatex
+     * Gets statut
      *
-     * @return string|null
+     * @return \FactPulse\SDK\Model\StatutChampAPI|null
      */
-    public function getCodeVatex()
+    public function getStatut()
     {
-        return $this->container['code_vatex'];
+        return $this->container['statut'];
     }
 
     /**
-     * Sets code_vatex
+     * Sets statut
      *
-     * @param string|null $code_vatex code_vatex
+     * @param \FactPulse\SDK\Model\StatutChampAPI|null $statut Statut de conformité (CONFORME si XML trouvé dans PDF)
      *
      * @return self
      */
-    public function setCodeVatex($code_vatex)
+    public function setStatut($statut)
     {
-        if (is_null($code_vatex)) {
-            array_push($this->openAPINullablesSetToNull, 'code_vatex');
+        if (is_null($statut)) {
+            throw new \InvalidArgumentException('non-nullable statut cannot be null');
+        }
+        $this->container['statut'] = $statut;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string|null
+     */
+    public function getMessage()
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string|null $message message
+     *
+     * @return self
+     */
+    public function setMessage($message)
+    {
+        if (is_null($message)) {
+            array_push($this->openAPINullablesSetToNull, 'message');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('code_vatex', $nullablesSetToNull);
+            $index = array_search('message', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['code_vatex'] = $code_vatex;
+        $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets bbox
+     *
+     * @return \FactPulse\SDK\Model\BoundingBoxSchema|null
+     */
+    public function getBbox()
+    {
+        return $this->container['bbox'];
+    }
+
+    /**
+     * Sets bbox
+     *
+     * @param \FactPulse\SDK\Model\BoundingBoxSchema|null $bbox bbox
+     *
+     * @return self
+     */
+    public function setBbox($bbox)
+    {
+        if (is_null($bbox)) {
+            array_push($this->openAPINullablesSetToNull, 'bbox');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('bbox', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['bbox'] = $bbox;
 
         return $this;
     }

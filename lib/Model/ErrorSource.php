@@ -33,7 +33,6 @@ use \FactPulse\SDK\ObjectSerializer;
  * ErrorSource Class Doc Comment
  *
  * @category Class
- * @description Source de l&#39;erreur pour faciliter le diagnostic.
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

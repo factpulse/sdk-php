@@ -1,6 +1,6 @@
 <?php
 /**
- * ErrorLevelTest
+ * DimensionPageSchemaTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ErrorLevelTest Class Doc Comment
+ * DimensionPageSchemaTest Class Doc Comment
  *
  * @category    Class
- * @description ErrorLevel
+ * @description Dimensions d&#39;une page PDF.
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ErrorLevelTest extends TestCase
+class DimensionPageSchemaTest extends TestCase
 {
 
     /**
@@ -71,9 +71,27 @@ class ErrorLevelTest extends TestCase
     }
 
     /**
-     * Test "ErrorLevel"
+     * Test "DimensionPageSchema"
      */
-    public function testErrorLevel()
+    public function testDimensionPageSchema()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "width"
+     */
+    public function testPropertyWidth()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "height"
+     */
+    public function testPropertyHeight()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

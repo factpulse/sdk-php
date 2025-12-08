@@ -33,7 +33,6 @@ use \FactPulse\SDK\ObjectSerializer;
  * ErrorLevel Class Doc Comment
  *
  * @category Class
- * @description Niveau de gravité d&#39;une erreur (aligné sur AFNOR AcknowledgementDetail).
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

@@ -1,6 +1,6 @@
 <?php
 /**
- * ErrorLevelTest
+ * SyntaxeFluxTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ErrorLevelTest Class Doc Comment
+ * SyntaxeFluxTest Class Doc Comment
  *
  * @category    Class
- * @description ErrorLevel
+ * @description Syntaxes de flux supportées par AFNOR
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ErrorLevelTest extends TestCase
+class SyntaxeFluxTest extends TestCase
 {
 
     /**
@@ -71,9 +71,9 @@ class ErrorLevelTest extends TestCase
     }
 
     /**
-     * Test "ErrorLevel"
+     * Test "SyntaxeFlux"
      */
-    public function testErrorLevel()
+    public function testSyntaxeFlux()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

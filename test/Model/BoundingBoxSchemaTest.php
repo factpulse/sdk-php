@@ -1,6 +1,6 @@
 <?php
 /**
- * ErrorLevelTest
+ * BoundingBoxSchemaTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ErrorLevelTest Class Doc Comment
+ * BoundingBoxSchemaTest Class Doc Comment
  *
  * @category    Class
- * @description ErrorLevel
+ * @description Coordonnées d&#39;une zone rectangulaire dans le PDF.  Les coordonnées sont en points PDF (1 point &#x3D; 1/72 pouce). L&#39;origine (0,0) est en bas à gauche de la page.
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ErrorLevelTest extends TestCase
+class BoundingBoxSchemaTest extends TestCase
 {
 
     /**
@@ -71,9 +71,72 @@ class ErrorLevelTest extends TestCase
     }
 
     /**
-     * Test "ErrorLevel"
+     * Test "BoundingBoxSchema"
      */
-    public function testErrorLevel()
+    public function testBoundingBoxSchema()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "x0"
+     */
+    public function testPropertyX0()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "y0"
+     */
+    public function testPropertyY0()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "x1"
+     */
+    public function testPropertyX1()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "y1"
+     */
+    public function testPropertyY1()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "page"
+     */
+    public function testPropertyPage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "width"
+     */
+    public function testPropertyWidth()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "height"
+     */
+    public function testPropertyHeight()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

@@ -1,6 +1,6 @@
 <?php
 /**
- * LigneDeTVA
+ * ReponseSoumissionFlux
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \FactPulse\SDK\ObjectSerializer;
 
 /**
- * LigneDeTVA Class Doc Comment
+ * ReponseSoumissionFlux Class Doc Comment
  *
  * @category Class
- * @description Représente une ligne de totalisation par taux de TVA.  Pour les exonérations (catégories E, AE, K, G, O), les champs &#x60;motif_exoneration&#x60; et &#x60;code_vatex&#x60; sont requis selon EN16931.
+ * @description Réponse après soumission d&#39;un flux
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
+class ReponseSoumissionFlux implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'LigneDeTVA';
+    protected static $openAPIModelName = 'ReponseSoumissionFlux';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,13 +58,13 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'montant_base_ht' => '\FactPulse\SDK\Model\MontantBaseHt',
-        'montant_tva' => '\FactPulse\SDK\Model\MontantTvaLigne',
-        'taux' => 'string',
-        'taux_manuel' => '\FactPulse\SDK\Model\Tauxmanuel',
-        'categorie' => '\FactPulse\SDK\Model\CategorieTVA',
-        'motif_exoneration' => 'string',
-        'code_vatex' => 'string'
+        'flow_id' => 'string',
+        'tracking_id' => 'string',
+        'nom' => 'string',
+        'syntaxe_flux' => 'string',
+        'profil_flux' => 'string',
+        'sha256' => 'string',
+        'message' => 'string'
     ];
 
     /**
@@ -75,13 +75,13 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'montant_base_ht' => null,
-        'montant_tva' => null,
-        'taux' => null,
-        'taux_manuel' => null,
-        'categorie' => null,
-        'motif_exoneration' => null,
-        'code_vatex' => null
+        'flow_id' => null,
+        'tracking_id' => null,
+        'nom' => null,
+        'syntaxe_flux' => null,
+        'profil_flux' => null,
+        'sha256' => null,
+        'message' => null
     ];
 
     /**
@@ -90,13 +90,13 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'montant_base_ht' => false,
-        'montant_tva' => false,
-        'taux' => true,
-        'taux_manuel' => false,
-        'categorie' => true,
-        'motif_exoneration' => true,
-        'code_vatex' => true
+        'flow_id' => false,
+        'tracking_id' => true,
+        'nom' => false,
+        'syntaxe_flux' => false,
+        'profil_flux' => true,
+        'sha256' => false,
+        'message' => false
     ];
 
     /**
@@ -185,13 +185,13 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'montant_base_ht' => 'montantBaseHt',
-        'montant_tva' => 'montantTva',
-        'taux' => 'taux',
-        'taux_manuel' => 'tauxManuel',
-        'categorie' => 'categorie',
-        'motif_exoneration' => 'motifExoneration',
-        'code_vatex' => 'codeVatex'
+        'flow_id' => 'flow_id',
+        'tracking_id' => 'tracking_id',
+        'nom' => 'nom',
+        'syntaxe_flux' => 'syntaxe_flux',
+        'profil_flux' => 'profil_flux',
+        'sha256' => 'sha256',
+        'message' => 'message'
     ];
 
     /**
@@ -200,13 +200,13 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'montant_base_ht' => 'setMontantBaseHt',
-        'montant_tva' => 'setMontantTva',
-        'taux' => 'setTaux',
-        'taux_manuel' => 'setTauxManuel',
-        'categorie' => 'setCategorie',
-        'motif_exoneration' => 'setMotifExoneration',
-        'code_vatex' => 'setCodeVatex'
+        'flow_id' => 'setFlowId',
+        'tracking_id' => 'setTrackingId',
+        'nom' => 'setNom',
+        'syntaxe_flux' => 'setSyntaxeFlux',
+        'profil_flux' => 'setProfilFlux',
+        'sha256' => 'setSha256',
+        'message' => 'setMessage'
     ];
 
     /**
@@ -215,13 +215,13 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'montant_base_ht' => 'getMontantBaseHt',
-        'montant_tva' => 'getMontantTva',
-        'taux' => 'getTaux',
-        'taux_manuel' => 'getTauxManuel',
-        'categorie' => 'getCategorie',
-        'motif_exoneration' => 'getMotifExoneration',
-        'code_vatex' => 'getCodeVatex'
+        'flow_id' => 'getFlowId',
+        'tracking_id' => 'getTrackingId',
+        'nom' => 'getNom',
+        'syntaxe_flux' => 'getSyntaxeFlux',
+        'profil_flux' => 'getProfilFlux',
+        'sha256' => 'getSha256',
+        'message' => 'getMessage'
     ];
 
     /**
@@ -281,13 +281,13 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('montant_base_ht', $data ?? [], null);
-        $this->setIfExists('montant_tva', $data ?? [], null);
-        $this->setIfExists('taux', $data ?? [], null);
-        $this->setIfExists('taux_manuel', $data ?? [], null);
-        $this->setIfExists('categorie', $data ?? [], null);
-        $this->setIfExists('motif_exoneration', $data ?? [], null);
-        $this->setIfExists('code_vatex', $data ?? [], null);
+        $this->setIfExists('flow_id', $data ?? [], null);
+        $this->setIfExists('tracking_id', $data ?? [], null);
+        $this->setIfExists('nom', $data ?? [], null);
+        $this->setIfExists('syntaxe_flux', $data ?? [], null);
+        $this->setIfExists('profil_flux', $data ?? [], null);
+        $this->setIfExists('sha256', $data ?? [], null);
+        $this->setIfExists('message', $data ?? [], null);
     }
 
     /**
@@ -317,11 +317,20 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['montant_base_ht'] === null) {
-            $invalidProperties[] = "'montant_base_ht' can't be null";
+        if ($this->container['flow_id'] === null) {
+            $invalidProperties[] = "'flow_id' can't be null";
         }
-        if ($this->container['montant_tva'] === null) {
-            $invalidProperties[] = "'montant_tva' can't be null";
+        if ($this->container['nom'] === null) {
+            $invalidProperties[] = "'nom' can't be null";
+        }
+        if ($this->container['syntaxe_flux'] === null) {
+            $invalidProperties[] = "'syntaxe_flux' can't be null";
+        }
+        if ($this->container['sha256'] === null) {
+            $invalidProperties[] = "'sha256' can't be null";
+        }
+        if ($this->container['message'] === null) {
+            $invalidProperties[] = "'message' can't be null";
         }
         return $invalidProperties;
     }
@@ -339,218 +348,204 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets montant_base_ht
+     * Gets flow_id
      *
-     * @return \FactPulse\SDK\Model\MontantBaseHt
+     * @return string
      */
-    public function getMontantBaseHt()
+    public function getFlowId()
     {
-        return $this->container['montant_base_ht'];
+        return $this->container['flow_id'];
     }
 
     /**
-     * Sets montant_base_ht
+     * Sets flow_id
      *
-     * @param \FactPulse\SDK\Model\MontantBaseHt $montant_base_ht montant_base_ht
+     * @param string $flow_id Identifiant unique du flux généré par la PDP
      *
      * @return self
      */
-    public function setMontantBaseHt($montant_base_ht)
+    public function setFlowId($flow_id)
     {
-        if (is_null($montant_base_ht)) {
-            throw new \InvalidArgumentException('non-nullable montant_base_ht cannot be null');
+        if (is_null($flow_id)) {
+            throw new \InvalidArgumentException('non-nullable flow_id cannot be null');
         }
-        $this->container['montant_base_ht'] = $montant_base_ht;
+        $this->container['flow_id'] = $flow_id;
 
         return $this;
     }
 
     /**
-     * Gets montant_tva
-     *
-     * @return \FactPulse\SDK\Model\MontantTvaLigne
-     */
-    public function getMontantTva()
-    {
-        return $this->container['montant_tva'];
-    }
-
-    /**
-     * Sets montant_tva
-     *
-     * @param \FactPulse\SDK\Model\MontantTvaLigne $montant_tva montant_tva
-     *
-     * @return self
-     */
-    public function setMontantTva($montant_tva)
-    {
-        if (is_null($montant_tva)) {
-            throw new \InvalidArgumentException('non-nullable montant_tva cannot be null');
-        }
-        $this->container['montant_tva'] = $montant_tva;
-
-        return $this;
-    }
-
-    /**
-     * Gets taux
+     * Gets tracking_id
      *
      * @return string|null
      */
-    public function getTaux()
+    public function getTrackingId()
     {
-        return $this->container['taux'];
+        return $this->container['tracking_id'];
     }
 
     /**
-     * Sets taux
+     * Sets tracking_id
      *
-     * @param string|null $taux taux
+     * @param string|null $tracking_id tracking_id
      *
      * @return self
      */
-    public function setTaux($taux)
+    public function setTrackingId($tracking_id)
     {
-        if (is_null($taux)) {
-            array_push($this->openAPINullablesSetToNull, 'taux');
+        if (is_null($tracking_id)) {
+            array_push($this->openAPINullablesSetToNull, 'tracking_id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('taux', $nullablesSetToNull);
+            $index = array_search('tracking_id', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['taux'] = $taux;
+        $this->container['tracking_id'] = $tracking_id;
 
         return $this;
     }
 
     /**
-     * Gets taux_manuel
+     * Gets nom
      *
-     * @return \FactPulse\SDK\Model\Tauxmanuel|null
+     * @return string
      */
-    public function getTauxManuel()
+    public function getNom()
     {
-        return $this->container['taux_manuel'];
+        return $this->container['nom'];
     }
 
     /**
-     * Sets taux_manuel
+     * Sets nom
      *
-     * @param \FactPulse\SDK\Model\Tauxmanuel|null $taux_manuel taux_manuel
+     * @param string $nom Nom du flux
      *
      * @return self
      */
-    public function setTauxManuel($taux_manuel)
+    public function setNom($nom)
     {
-        if (is_null($taux_manuel)) {
-            throw new \InvalidArgumentException('non-nullable taux_manuel cannot be null');
+        if (is_null($nom)) {
+            throw new \InvalidArgumentException('non-nullable nom cannot be null');
         }
-        $this->container['taux_manuel'] = $taux_manuel;
+        $this->container['nom'] = $nom;
 
         return $this;
     }
 
     /**
-     * Gets categorie
+     * Gets syntaxe_flux
      *
-     * @return \FactPulse\SDK\Model\CategorieTVA|null
+     * @return string
      */
-    public function getCategorie()
+    public function getSyntaxeFlux()
     {
-        return $this->container['categorie'];
+        return $this->container['syntaxe_flux'];
     }
 
     /**
-     * Sets categorie
+     * Sets syntaxe_flux
      *
-     * @param \FactPulse\SDK\Model\CategorieTVA|null $categorie categorie
+     * @param string $syntaxe_flux Syntaxe du flux (CII, UBL, etc.)
      *
      * @return self
      */
-    public function setCategorie($categorie)
+    public function setSyntaxeFlux($syntaxe_flux)
     {
-        if (is_null($categorie)) {
-            array_push($this->openAPINullablesSetToNull, 'categorie');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('categorie', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($syntaxe_flux)) {
+            throw new \InvalidArgumentException('non-nullable syntaxe_flux cannot be null');
         }
-        $this->container['categorie'] = $categorie;
+        $this->container['syntaxe_flux'] = $syntaxe_flux;
 
         return $this;
     }
 
     /**
-     * Gets motif_exoneration
+     * Gets profil_flux
      *
      * @return string|null
      */
-    public function getMotifExoneration()
+    public function getProfilFlux()
     {
-        return $this->container['motif_exoneration'];
+        return $this->container['profil_flux'];
     }
 
     /**
-     * Sets motif_exoneration
+     * Sets profil_flux
      *
-     * @param string|null $motif_exoneration motif_exoneration
+     * @param string|null $profil_flux profil_flux
      *
      * @return self
      */
-    public function setMotifExoneration($motif_exoneration)
+    public function setProfilFlux($profil_flux)
     {
-        if (is_null($motif_exoneration)) {
-            array_push($this->openAPINullablesSetToNull, 'motif_exoneration');
+        if (is_null($profil_flux)) {
+            array_push($this->openAPINullablesSetToNull, 'profil_flux');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('motif_exoneration', $nullablesSetToNull);
+            $index = array_search('profil_flux', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['motif_exoneration'] = $motif_exoneration;
+        $this->container['profil_flux'] = $profil_flux;
 
         return $this;
     }
 
     /**
-     * Gets code_vatex
+     * Gets sha256
      *
-     * @return string|null
+     * @return string
      */
-    public function getCodeVatex()
+    public function getSha256()
     {
-        return $this->container['code_vatex'];
+        return $this->container['sha256'];
     }
 
     /**
-     * Sets code_vatex
+     * Sets sha256
      *
-     * @param string|null $code_vatex code_vatex
+     * @param string $sha256 Hash SHA256 du fichier soumis
      *
      * @return self
      */
-    public function setCodeVatex($code_vatex)
+    public function setSha256($sha256)
     {
-        if (is_null($code_vatex)) {
-            array_push($this->openAPINullablesSetToNull, 'code_vatex');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('code_vatex', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($sha256)) {
+            throw new \InvalidArgumentException('non-nullable sha256 cannot be null');
         }
-        $this->container['code_vatex'] = $code_vatex;
+        $this->container['sha256'] = $sha256;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string $message Message de confirmation
+     *
+     * @return self
+     */
+    public function setMessage($message)
+    {
+        if (is_null($message)) {
+            throw new \InvalidArgumentException('non-nullable message cannot be null');
+        }
+        $this->container['message'] = $message;
 
         return $this;
     }

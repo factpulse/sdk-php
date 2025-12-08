@@ -1,6 +1,6 @@
 <?php
 /**
- * ErrorLevelTest
+ * StatutAcquittementTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ErrorLevelTest Class Doc Comment
+ * StatutAcquittementTest Class Doc Comment
  *
  * @category    Class
- * @description ErrorLevel
+ * @description Statut d&#39;acquittement du flux
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ErrorLevelTest extends TestCase
+class StatutAcquittementTest extends TestCase
 {
 
     /**
@@ -71,9 +71,9 @@ class ErrorLevelTest extends TestCase
     }
 
     /**
-     * Test "ErrorLevel"
+     * Test "StatutAcquittement"
      */
-    public function testErrorLevel()
+    public function testStatutAcquittement()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

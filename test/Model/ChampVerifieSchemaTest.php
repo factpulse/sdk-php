@@ -1,6 +1,6 @@
 <?php
 /**
- * ErrorLevelTest
+ * ChampVerifieSchemaTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ErrorLevelTest Class Doc Comment
+ * ChampVerifieSchemaTest Class Doc Comment
  *
  * @category    Class
- * @description ErrorLevel
+ * @description Un champ vérifié avec toutes ses informations (extraction + conformité + localisation).
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ErrorLevelTest extends TestCase
+class ChampVerifieSchemaTest extends TestCase
 {
 
     /**
@@ -71,9 +71,90 @@ class ErrorLevelTest extends TestCase
     }
 
     /**
-     * Test "ErrorLevel"
+     * Test "ChampVerifieSchema"
      */
-    public function testErrorLevel()
+    public function testChampVerifieSchema()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "business_term"
+     */
+    public function testPropertyBusinessTerm()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "label"
+     */
+    public function testPropertyLabel()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "valeur_pdf"
+     */
+    public function testPropertyValeurPdf()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "valeur_xml"
+     */
+    public function testPropertyValeurXml()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "statut"
+     */
+    public function testPropertyStatut()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "message"
+     */
+    public function testPropertyMessage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "confiance"
+     */
+    public function testPropertyConfiance()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "source"
+     */
+    public function testPropertySource()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "bbox"
+     */
+    public function testPropertyBbox()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

@@ -35,7 +35,7 @@ use \FactPulse\SDK\ObjectSerializer;
  * CadreDeFacturation Class Doc Comment
  *
  * @category Class
- * @description Définit le cadre de facturation (ex: A1 pour une facture fournisseur).
+ * @description Définit le cadre de facturation.  - code_cadre_facturation: Code Chorus Pro (A1, A2, A9, A12) - utilisé pour B2G - nature_operation: Nature de l&#39;opération (B1, S1, M1, etc.) - prioritaire pour Factur-X  Si nature_operation est fourni, il sera utilisé directement dans le XML Factur-X (BT-23). Sinon, le code sera déduit de code_cadre_facturation via un mapping automatique.  Exemple:     &gt;&gt;&gt; cadre &#x3D; CadreDeFacturation(     ...     code_cadre_facturation&#x3D;CodeCadreFacturation.A1_FACTURE_FOURNISSEUR,     ...     nature_operation&#x3D;NatureOperation.BIENS  # Force B1 au lieu de S1     ... )
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,6 +59,7 @@ class CadreDeFacturation implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPITypes = [
         'code_cadre_facturation' => '\FactPulse\SDK\Model\CodeCadreFacturation',
+        'nature_operation' => '\FactPulse\SDK\Model\NatureOperation',
         'code_service_valideur' => 'string',
         'code_structure_valideur' => 'string'
     ];
@@ -72,6 +73,7 @@ class CadreDeFacturation implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPIFormats = [
         'code_cadre_facturation' => null,
+        'nature_operation' => null,
         'code_service_valideur' => null,
         'code_structure_valideur' => null
     ];
@@ -83,6 +85,7 @@ class CadreDeFacturation implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static array $openAPINullables = [
         'code_cadre_facturation' => false,
+        'nature_operation' => true,
         'code_service_valideur' => true,
         'code_structure_valideur' => true
     ];
@@ -174,6 +177,7 @@ class CadreDeFacturation implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $attributeMap = [
         'code_cadre_facturation' => 'codeCadreFacturation',
+        'nature_operation' => 'natureOperation',
         'code_service_valideur' => 'codeServiceValideur',
         'code_structure_valideur' => 'codeStructureValideur'
     ];
@@ -185,6 +189,7 @@ class CadreDeFacturation implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $setters = [
         'code_cadre_facturation' => 'setCodeCadreFacturation',
+        'nature_operation' => 'setNatureOperation',
         'code_service_valideur' => 'setCodeServiceValideur',
         'code_structure_valideur' => 'setCodeStructureValideur'
     ];
@@ -196,6 +201,7 @@ class CadreDeFacturation implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $getters = [
         'code_cadre_facturation' => 'getCodeCadreFacturation',
+        'nature_operation' => 'getNatureOperation',
         'code_service_valideur' => 'getCodeServiceValideur',
         'code_structure_valideur' => 'getCodeStructureValideur'
     ];
@@ -258,6 +264,7 @@ class CadreDeFacturation implements ModelInterface, ArrayAccess, \JsonSerializab
     public function __construct(?array $data = null)
     {
         $this->setIfExists('code_cadre_facturation', $data ?? [], null);
+        $this->setIfExists('nature_operation', $data ?? [], null);
         $this->setIfExists('code_service_valideur', $data ?? [], null);
         $this->setIfExists('code_structure_valideur', $data ?? [], null);
     }
@@ -330,6 +337,40 @@ class CadreDeFacturation implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable code_cadre_facturation cannot be null');
         }
         $this->container['code_cadre_facturation'] = $code_cadre_facturation;
+
+        return $this;
+    }
+
+    /**
+     * Gets nature_operation
+     *
+     * @return \FactPulse\SDK\Model\NatureOperation|null
+     */
+    public function getNatureOperation()
+    {
+        return $this->container['nature_operation'];
+    }
+
+    /**
+     * Sets nature_operation
+     *
+     * @param \FactPulse\SDK\Model\NatureOperation|null $nature_operation nature_operation
+     *
+     * @return self
+     */
+    public function setNatureOperation($nature_operation)
+    {
+        if (is_null($nature_operation)) {
+            array_push($this->openAPINullablesSetToNull, 'nature_operation');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('nature_operation', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['nature_operation'] = $nature_operation;
 
         return $this;
     }

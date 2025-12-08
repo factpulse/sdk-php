@@ -1,6 +1,6 @@
 <?php
 /**
- * ErrorLevelTest
+ * NoteObligatoireSchemaTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ErrorLevelTest Class Doc Comment
+ * NoteObligatoireSchemaTest Class Doc Comment
  *
  * @category    Class
- * @description ErrorLevel
+ * @description Note obligatoire détectée avec localisation et comparaison XML/PDF.
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ErrorLevelTest extends TestCase
+class NoteObligatoireSchemaTest extends TestCase
 {
 
     /**
@@ -71,9 +71,72 @@ class ErrorLevelTest extends TestCase
     }
 
     /**
-     * Test "ErrorLevel"
+     * Test "NoteObligatoireSchema"
      */
-    public function testErrorLevel()
+    public function testNoteObligatoireSchema()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "code_sujet"
+     */
+    public function testPropertyCodeSujet()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "label"
+     */
+    public function testPropertyLabel()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "valeur_pdf"
+     */
+    public function testPropertyValeurPdf()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "valeur_xml"
+     */
+    public function testPropertyValeurXml()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "statut"
+     */
+    public function testPropertyStatut()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "message"
+     */
+    public function testPropertyMessage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "bbox"
+     */
+    public function testPropertyBbox()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

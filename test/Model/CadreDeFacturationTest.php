@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * CadreDeFacturationTest Class Doc Comment
  *
  * @category    Class
- * @description Définit le cadre de facturation (ex: A1 pour une facture fournisseur).
+ * @description Définit le cadre de facturation.  - code_cadre_facturation: Code Chorus Pro (A1, A2, A9, A12) - utilisé pour B2G - nature_operation: Nature de l&#39;opération (B1, S1, M1, etc.) - prioritaire pour Factur-X  Si nature_operation est fourni, il sera utilisé directement dans le XML Factur-X (BT-23). Sinon, le code sera déduit de code_cadre_facturation via un mapping automatique.  Exemple:     &gt;&gt;&gt; cadre &#x3D; CadreDeFacturation(     ...     code_cadre_facturation&#x3D;CodeCadreFacturation.A1_FACTURE_FOURNISSEUR,     ...     nature_operation&#x3D;NatureOperation.BIENS  # Force B1 au lieu de S1     ... )
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -83,6 +83,15 @@ class CadreDeFacturationTest extends TestCase
      * Test attribute "code_cadre_facturation"
      */
     public function testPropertyCodeCadreFacturation()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "nature_operation"
+     */
+    public function testPropertyNatureOperation()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

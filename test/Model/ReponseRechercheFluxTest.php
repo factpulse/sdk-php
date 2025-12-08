@@ -1,6 +1,6 @@
 <?php
 /**
- * ErrorLevelTest
+ * ReponseRechercheFluxTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ErrorLevelTest Class Doc Comment
+ * ReponseRechercheFluxTest Class Doc Comment
  *
  * @category    Class
- * @description ErrorLevel
+ * @description Réponse d&#39;une recherche de flux
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ErrorLevelTest extends TestCase
+class ReponseRechercheFluxTest extends TestCase
 {
 
     /**
@@ -71,9 +71,45 @@ class ErrorLevelTest extends TestCase
     }
 
     /**
-     * Test "ErrorLevel"
+     * Test "ReponseRechercheFlux"
      */
-    public function testErrorLevel()
+    public function testReponseRechercheFlux()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "total"
+     */
+    public function testPropertyTotal()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "offset"
+     */
+    public function testPropertyOffset()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "limit"
+     */
+    public function testPropertyLimit()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "resultats"
+     */
+    public function testPropertyResultats()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

@@ -205,8 +205,9 @@ class FactPulseClient {
                 $data = json_decode($response->getBody()->getContents(), true);
                 if ($data['statut'] === 'SUCCESS') return $data['resultat'] ?? [];
                 if ($data['statut'] === 'FAILURE') {
-                    $errors = array_map(fn($e) => ValidationErrorDetail::fromArray($e), $data['resultat']['erreurs'] ?? []);
-                    throw new FactPulseValidationException("Tâche {$taskId} échouée: " . ($data['resultat']['message_erreur'] ?? '?'), $errors);
+                    // Format AFNOR: errorMessage, details
+                    $errors = array_map(fn($e) => ValidationErrorDetail::fromArray($e), $data['resultat']['details'] ?? []);
+                    throw new FactPulseValidationException("Tâche {$taskId} échouée: " . ($data['resultat']['errorMessage'] ?? '?'), $errors);
                 }
             } catch (GuzzleException $e) { if ($e->getCode() === 401) { $this->resetAuth(); continue; } throw $e; }
             usleep((int)($currentInterval * 1000)); $currentInterval = min($currentInterval * 1.5, 10000);

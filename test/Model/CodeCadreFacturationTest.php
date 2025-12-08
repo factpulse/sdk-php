@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * CodeCadreFacturationTest Class Doc Comment
  *
  * @category    Class
- * @description CodeCadreFacturation
+ * @description Codes Chorus Pro pour le cadre de facturation (usage B2G).
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

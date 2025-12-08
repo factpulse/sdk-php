@@ -1,6 +1,6 @@
 <?php
 /**
- * ErrorLevelTest
+ * ReponseSoumissionFluxTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ErrorLevelTest Class Doc Comment
+ * ReponseSoumissionFluxTest Class Doc Comment
  *
  * @category    Class
- * @description ErrorLevel
+ * @description Réponse après soumission d&#39;un flux
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ErrorLevelTest extends TestCase
+class ReponseSoumissionFluxTest extends TestCase
 {
 
     /**
@@ -71,9 +71,72 @@ class ErrorLevelTest extends TestCase
     }
 
     /**
-     * Test "ErrorLevel"
+     * Test "ReponseSoumissionFlux"
      */
-    public function testErrorLevel()
+    public function testReponseSoumissionFlux()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "flow_id"
+     */
+    public function testPropertyFlowId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "tracking_id"
+     */
+    public function testPropertyTrackingId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "nom"
+     */
+    public function testPropertyNom()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "syntaxe_flux"
+     */
+    public function testPropertySyntaxeFlux()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "profil_flux"
+     */
+    public function testPropertyProfilFlux()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "sha256"
+     */
+    public function testPropertySha256()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "message"
+     */
+    public function testPropertyMessage()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

@@ -1,6 +1,6 @@
 <?php
 /**
- * LigneDeTVA
+ * ReponseRechercheFlux
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \FactPulse\SDK\ObjectSerializer;
 
 /**
- * LigneDeTVA Class Doc Comment
+ * ReponseRechercheFlux Class Doc Comment
  *
  * @category Class
- * @description Représente une ligne de totalisation par taux de TVA.  Pour les exonérations (catégories E, AE, K, G, O), les champs &#x60;motif_exoneration&#x60; et &#x60;code_vatex&#x60; sont requis selon EN16931.
+ * @description Réponse d&#39;une recherche de flux
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
+class ReponseRechercheFlux implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'LigneDeTVA';
+    protected static $openAPIModelName = 'ReponseRechercheFlux';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,13 +58,10 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'montant_base_ht' => '\FactPulse\SDK\Model\MontantBaseHt',
-        'montant_tva' => '\FactPulse\SDK\Model\MontantTvaLigne',
-        'taux' => 'string',
-        'taux_manuel' => '\FactPulse\SDK\Model\Tauxmanuel',
-        'categorie' => '\FactPulse\SDK\Model\CategorieTVA',
-        'motif_exoneration' => 'string',
-        'code_vatex' => 'string'
+        'total' => 'int',
+        'offset' => 'int',
+        'limit' => 'int',
+        'resultats' => '\FactPulse\SDK\Model\FluxResume[]'
     ];
 
     /**
@@ -75,13 +72,10 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'montant_base_ht' => null,
-        'montant_tva' => null,
-        'taux' => null,
-        'taux_manuel' => null,
-        'categorie' => null,
-        'motif_exoneration' => null,
-        'code_vatex' => null
+        'total' => null,
+        'offset' => null,
+        'limit' => null,
+        'resultats' => null
     ];
 
     /**
@@ -90,13 +84,10 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'montant_base_ht' => false,
-        'montant_tva' => false,
-        'taux' => true,
-        'taux_manuel' => false,
-        'categorie' => true,
-        'motif_exoneration' => true,
-        'code_vatex' => true
+        'total' => false,
+        'offset' => false,
+        'limit' => false,
+        'resultats' => false
     ];
 
     /**
@@ -185,13 +176,10 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'montant_base_ht' => 'montantBaseHt',
-        'montant_tva' => 'montantTva',
-        'taux' => 'taux',
-        'taux_manuel' => 'tauxManuel',
-        'categorie' => 'categorie',
-        'motif_exoneration' => 'motifExoneration',
-        'code_vatex' => 'codeVatex'
+        'total' => 'total',
+        'offset' => 'offset',
+        'limit' => 'limit',
+        'resultats' => 'resultats'
     ];
 
     /**
@@ -200,13 +188,10 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'montant_base_ht' => 'setMontantBaseHt',
-        'montant_tva' => 'setMontantTva',
-        'taux' => 'setTaux',
-        'taux_manuel' => 'setTauxManuel',
-        'categorie' => 'setCategorie',
-        'motif_exoneration' => 'setMotifExoneration',
-        'code_vatex' => 'setCodeVatex'
+        'total' => 'setTotal',
+        'offset' => 'setOffset',
+        'limit' => 'setLimit',
+        'resultats' => 'setResultats'
     ];
 
     /**
@@ -215,13 +200,10 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'montant_base_ht' => 'getMontantBaseHt',
-        'montant_tva' => 'getMontantTva',
-        'taux' => 'getTaux',
-        'taux_manuel' => 'getTauxManuel',
-        'categorie' => 'getCategorie',
-        'motif_exoneration' => 'getMotifExoneration',
-        'code_vatex' => 'getCodeVatex'
+        'total' => 'getTotal',
+        'offset' => 'getOffset',
+        'limit' => 'getLimit',
+        'resultats' => 'getResultats'
     ];
 
     /**
@@ -281,13 +263,10 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('montant_base_ht', $data ?? [], null);
-        $this->setIfExists('montant_tva', $data ?? [], null);
-        $this->setIfExists('taux', $data ?? [], null);
-        $this->setIfExists('taux_manuel', $data ?? [], null);
-        $this->setIfExists('categorie', $data ?? [], null);
-        $this->setIfExists('motif_exoneration', $data ?? [], null);
-        $this->setIfExists('code_vatex', $data ?? [], null);
+        $this->setIfExists('total', $data ?? [], null);
+        $this->setIfExists('offset', $data ?? [], null);
+        $this->setIfExists('limit', $data ?? [], null);
+        $this->setIfExists('resultats', $data ?? [], null);
     }
 
     /**
@@ -317,11 +296,17 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['montant_base_ht'] === null) {
-            $invalidProperties[] = "'montant_base_ht' can't be null";
+        if ($this->container['total'] === null) {
+            $invalidProperties[] = "'total' can't be null";
         }
-        if ($this->container['montant_tva'] === null) {
-            $invalidProperties[] = "'montant_tva' can't be null";
+        if ($this->container['offset'] === null) {
+            $invalidProperties[] = "'offset' can't be null";
+        }
+        if ($this->container['limit'] === null) {
+            $invalidProperties[] = "'limit' can't be null";
+        }
+        if ($this->container['resultats'] === null) {
+            $invalidProperties[] = "'resultats' can't be null";
         }
         return $invalidProperties;
     }
@@ -339,218 +324,109 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets montant_base_ht
+     * Gets total
      *
-     * @return \FactPulse\SDK\Model\MontantBaseHt
+     * @return int
      */
-    public function getMontantBaseHt()
+    public function getTotal()
     {
-        return $this->container['montant_base_ht'];
+        return $this->container['total'];
     }
 
     /**
-     * Sets montant_base_ht
+     * Sets total
      *
-     * @param \FactPulse\SDK\Model\MontantBaseHt $montant_base_ht montant_base_ht
+     * @param int $total Nombre total de résultats
      *
      * @return self
      */
-    public function setMontantBaseHt($montant_base_ht)
+    public function setTotal($total)
     {
-        if (is_null($montant_base_ht)) {
-            throw new \InvalidArgumentException('non-nullable montant_base_ht cannot be null');
+        if (is_null($total)) {
+            throw new \InvalidArgumentException('non-nullable total cannot be null');
         }
-        $this->container['montant_base_ht'] = $montant_base_ht;
+        $this->container['total'] = $total;
 
         return $this;
     }
 
     /**
-     * Gets montant_tva
+     * Gets offset
      *
-     * @return \FactPulse\SDK\Model\MontantTvaLigne
+     * @return int
      */
-    public function getMontantTva()
+    public function getOffset()
     {
-        return $this->container['montant_tva'];
+        return $this->container['offset'];
     }
 
     /**
-     * Sets montant_tva
+     * Sets offset
      *
-     * @param \FactPulse\SDK\Model\MontantTvaLigne $montant_tva montant_tva
+     * @param int $offset Décalage appliqué
      *
      * @return self
      */
-    public function setMontantTva($montant_tva)
+    public function setOffset($offset)
     {
-        if (is_null($montant_tva)) {
-            throw new \InvalidArgumentException('non-nullable montant_tva cannot be null');
+        if (is_null($offset)) {
+            throw new \InvalidArgumentException('non-nullable offset cannot be null');
         }
-        $this->container['montant_tva'] = $montant_tva;
+        $this->container['offset'] = $offset;
 
         return $this;
     }
 
     /**
-     * Gets taux
+     * Gets limit
      *
-     * @return string|null
+     * @return int
      */
-    public function getTaux()
+    public function getLimit()
     {
-        return $this->container['taux'];
+        return $this->container['limit'];
     }
 
     /**
-     * Sets taux
+     * Sets limit
      *
-     * @param string|null $taux taux
+     * @param int $limit Limite de résultats
      *
      * @return self
      */
-    public function setTaux($taux)
+    public function setLimit($limit)
     {
-        if (is_null($taux)) {
-            array_push($this->openAPINullablesSetToNull, 'taux');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('taux', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($limit)) {
+            throw new \InvalidArgumentException('non-nullable limit cannot be null');
         }
-        $this->container['taux'] = $taux;
+        $this->container['limit'] = $limit;
 
         return $this;
     }
 
     /**
-     * Gets taux_manuel
+     * Gets resultats
      *
-     * @return \FactPulse\SDK\Model\Tauxmanuel|null
+     * @return \FactPulse\SDK\Model\FluxResume[]
      */
-    public function getTauxManuel()
+    public function getResultats()
     {
-        return $this->container['taux_manuel'];
+        return $this->container['resultats'];
     }
 
     /**
-     * Sets taux_manuel
+     * Sets resultats
      *
-     * @param \FactPulse\SDK\Model\Tauxmanuel|null $taux_manuel taux_manuel
+     * @param \FactPulse\SDK\Model\FluxResume[] $resultats Liste des flux trouvés
      *
      * @return self
      */
-    public function setTauxManuel($taux_manuel)
+    public function setResultats($resultats)
     {
-        if (is_null($taux_manuel)) {
-            throw new \InvalidArgumentException('non-nullable taux_manuel cannot be null');
+        if (is_null($resultats)) {
+            throw new \InvalidArgumentException('non-nullable resultats cannot be null');
         }
-        $this->container['taux_manuel'] = $taux_manuel;
-
-        return $this;
-    }
-
-    /**
-     * Gets categorie
-     *
-     * @return \FactPulse\SDK\Model\CategorieTVA|null
-     */
-    public function getCategorie()
-    {
-        return $this->container['categorie'];
-    }
-
-    /**
-     * Sets categorie
-     *
-     * @param \FactPulse\SDK\Model\CategorieTVA|null $categorie categorie
-     *
-     * @return self
-     */
-    public function setCategorie($categorie)
-    {
-        if (is_null($categorie)) {
-            array_push($this->openAPINullablesSetToNull, 'categorie');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('categorie', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['categorie'] = $categorie;
-
-        return $this;
-    }
-
-    /**
-     * Gets motif_exoneration
-     *
-     * @return string|null
-     */
-    public function getMotifExoneration()
-    {
-        return $this->container['motif_exoneration'];
-    }
-
-    /**
-     * Sets motif_exoneration
-     *
-     * @param string|null $motif_exoneration motif_exoneration
-     *
-     * @return self
-     */
-    public function setMotifExoneration($motif_exoneration)
-    {
-        if (is_null($motif_exoneration)) {
-            array_push($this->openAPINullablesSetToNull, 'motif_exoneration');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('motif_exoneration', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['motif_exoneration'] = $motif_exoneration;
-
-        return $this;
-    }
-
-    /**
-     * Gets code_vatex
-     *
-     * @return string|null
-     */
-    public function getCodeVatex()
-    {
-        return $this->container['code_vatex'];
-    }
-
-    /**
-     * Sets code_vatex
-     *
-     * @param string|null $code_vatex code_vatex
-     *
-     * @return self
-     */
-    public function setCodeVatex($code_vatex)
-    {
-        if (is_null($code_vatex)) {
-            array_push($this->openAPINullablesSetToNull, 'code_vatex');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('code_vatex', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['code_vatex'] = $code_vatex;
+        $this->container['resultats'] = $resultats;
 
         return $this;
     }

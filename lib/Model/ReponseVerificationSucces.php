@@ -1,6 +1,6 @@
 <?php
 /**
- * LigneDeTVA
+ * ReponseVerificationSucces
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \FactPulse\SDK\ObjectSerializer;
 
 /**
- * LigneDeTVA Class Doc Comment
+ * ReponseVerificationSucces Class Doc Comment
  *
  * @category Class
- * @description Représente une ligne de totalisation par taux de TVA.  Pour les exonérations (catégories E, AE, K, G, O), les champs &#x60;motif_exoneration&#x60; et &#x60;code_vatex&#x60; sont requis selon EN16931.
+ * @description Réponse de vérification réussie avec données unifiées.
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
+class ReponseVerificationSucces implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'LigneDeTVA';
+    protected static $openAPIModelName = 'ReponseVerificationSucces';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,13 +58,16 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'montant_base_ht' => '\FactPulse\SDK\Model\MontantBaseHt',
-        'montant_tva' => '\FactPulse\SDK\Model\MontantTvaLigne',
-        'taux' => 'string',
-        'taux_manuel' => '\FactPulse\SDK\Model\Tauxmanuel',
-        'categorie' => '\FactPulse\SDK\Model\CategorieTVA',
-        'motif_exoneration' => 'string',
-        'code_vatex' => 'string'
+        'est_conforme' => 'bool',
+        'score_conformite' => 'float',
+        'champs_verifies' => 'int',
+        'champs_conformes' => 'int',
+        'est_facturx' => 'bool',
+        'profil_facturx' => 'string',
+        'champs' => '\FactPulse\SDK\Model\ChampVerifieSchema[]',
+        'notes_obligatoires' => '\FactPulse\SDK\Model\NoteObligatoireSchema[]',
+        'dimensions_pages' => '\FactPulse\SDK\Model\DimensionPageSchema[]',
+        'avertissements' => 'string[]'
     ];
 
     /**
@@ -75,13 +78,16 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'montant_base_ht' => null,
-        'montant_tva' => null,
-        'taux' => null,
-        'taux_manuel' => null,
-        'categorie' => null,
-        'motif_exoneration' => null,
-        'code_vatex' => null
+        'est_conforme' => null,
+        'score_conformite' => null,
+        'champs_verifies' => null,
+        'champs_conformes' => null,
+        'est_facturx' => null,
+        'profil_facturx' => null,
+        'champs' => null,
+        'notes_obligatoires' => null,
+        'dimensions_pages' => null,
+        'avertissements' => null
     ];
 
     /**
@@ -90,13 +96,16 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'montant_base_ht' => false,
-        'montant_tva' => false,
-        'taux' => true,
-        'taux_manuel' => false,
-        'categorie' => true,
-        'motif_exoneration' => true,
-        'code_vatex' => true
+        'est_conforme' => false,
+        'score_conformite' => false,
+        'champs_verifies' => false,
+        'champs_conformes' => false,
+        'est_facturx' => false,
+        'profil_facturx' => true,
+        'champs' => false,
+        'notes_obligatoires' => false,
+        'dimensions_pages' => false,
+        'avertissements' => false
     ];
 
     /**
@@ -185,13 +194,16 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'montant_base_ht' => 'montantBaseHt',
-        'montant_tva' => 'montantTva',
-        'taux' => 'taux',
-        'taux_manuel' => 'tauxManuel',
-        'categorie' => 'categorie',
-        'motif_exoneration' => 'motifExoneration',
-        'code_vatex' => 'codeVatex'
+        'est_conforme' => 'est_conforme',
+        'score_conformite' => 'score_conformite',
+        'champs_verifies' => 'champs_verifies',
+        'champs_conformes' => 'champs_conformes',
+        'est_facturx' => 'est_facturx',
+        'profil_facturx' => 'profil_facturx',
+        'champs' => 'champs',
+        'notes_obligatoires' => 'notes_obligatoires',
+        'dimensions_pages' => 'dimensions_pages',
+        'avertissements' => 'avertissements'
     ];
 
     /**
@@ -200,13 +212,16 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'montant_base_ht' => 'setMontantBaseHt',
-        'montant_tva' => 'setMontantTva',
-        'taux' => 'setTaux',
-        'taux_manuel' => 'setTauxManuel',
-        'categorie' => 'setCategorie',
-        'motif_exoneration' => 'setMotifExoneration',
-        'code_vatex' => 'setCodeVatex'
+        'est_conforme' => 'setEstConforme',
+        'score_conformite' => 'setScoreConformite',
+        'champs_verifies' => 'setChampsVerifies',
+        'champs_conformes' => 'setChampsConformes',
+        'est_facturx' => 'setEstFacturx',
+        'profil_facturx' => 'setProfilFacturx',
+        'champs' => 'setChamps',
+        'notes_obligatoires' => 'setNotesObligatoires',
+        'dimensions_pages' => 'setDimensionsPages',
+        'avertissements' => 'setAvertissements'
     ];
 
     /**
@@ -215,13 +230,16 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'montant_base_ht' => 'getMontantBaseHt',
-        'montant_tva' => 'getMontantTva',
-        'taux' => 'getTaux',
-        'taux_manuel' => 'getTauxManuel',
-        'categorie' => 'getCategorie',
-        'motif_exoneration' => 'getMotifExoneration',
-        'code_vatex' => 'getCodeVatex'
+        'est_conforme' => 'getEstConforme',
+        'score_conformite' => 'getScoreConformite',
+        'champs_verifies' => 'getChampsVerifies',
+        'champs_conformes' => 'getChampsConformes',
+        'est_facturx' => 'getEstFacturx',
+        'profil_facturx' => 'getProfilFacturx',
+        'champs' => 'getChamps',
+        'notes_obligatoires' => 'getNotesObligatoires',
+        'dimensions_pages' => 'getDimensionsPages',
+        'avertissements' => 'getAvertissements'
     ];
 
     /**
@@ -281,13 +299,16 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('montant_base_ht', $data ?? [], null);
-        $this->setIfExists('montant_tva', $data ?? [], null);
-        $this->setIfExists('taux', $data ?? [], null);
-        $this->setIfExists('taux_manuel', $data ?? [], null);
-        $this->setIfExists('categorie', $data ?? [], null);
-        $this->setIfExists('motif_exoneration', $data ?? [], null);
-        $this->setIfExists('code_vatex', $data ?? [], null);
+        $this->setIfExists('est_conforme', $data ?? [], null);
+        $this->setIfExists('score_conformite', $data ?? [], null);
+        $this->setIfExists('champs_verifies', $data ?? [], 0);
+        $this->setIfExists('champs_conformes', $data ?? [], 0);
+        $this->setIfExists('est_facturx', $data ?? [], false);
+        $this->setIfExists('profil_facturx', $data ?? [], null);
+        $this->setIfExists('champs', $data ?? [], null);
+        $this->setIfExists('notes_obligatoires', $data ?? [], null);
+        $this->setIfExists('dimensions_pages', $data ?? [], null);
+        $this->setIfExists('avertissements', $data ?? [], null);
     }
 
     /**
@@ -317,12 +338,28 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['montant_base_ht'] === null) {
-            $invalidProperties[] = "'montant_base_ht' can't be null";
+        if ($this->container['est_conforme'] === null) {
+            $invalidProperties[] = "'est_conforme' can't be null";
         }
-        if ($this->container['montant_tva'] === null) {
-            $invalidProperties[] = "'montant_tva' can't be null";
+        if ($this->container['score_conformite'] === null) {
+            $invalidProperties[] = "'score_conformite' can't be null";
         }
+        if (($this->container['score_conformite'] > 100.0)) {
+            $invalidProperties[] = "invalid value for 'score_conformite', must be smaller than or equal to 100.0.";
+        }
+
+        if (($this->container['score_conformite'] < 0.0)) {
+            $invalidProperties[] = "invalid value for 'score_conformite', must be bigger than or equal to 0.0.";
+        }
+
+        if (!is_null($this->container['champs_verifies']) && ($this->container['champs_verifies'] < 0)) {
+            $invalidProperties[] = "invalid value for 'champs_verifies', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['champs_conformes']) && ($this->container['champs_conformes'] < 0)) {
+            $invalidProperties[] = "invalid value for 'champs_conformes', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -339,218 +376,296 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets montant_base_ht
+     * Gets est_conforme
      *
-     * @return \FactPulse\SDK\Model\MontantBaseHt
+     * @return bool
      */
-    public function getMontantBaseHt()
+    public function getEstConforme()
     {
-        return $this->container['montant_base_ht'];
+        return $this->container['est_conforme'];
     }
 
     /**
-     * Sets montant_base_ht
+     * Sets est_conforme
      *
-     * @param \FactPulse\SDK\Model\MontantBaseHt $montant_base_ht montant_base_ht
+     * @param bool $est_conforme True si aucun écart critique
      *
      * @return self
      */
-    public function setMontantBaseHt($montant_base_ht)
+    public function setEstConforme($est_conforme)
     {
-        if (is_null($montant_base_ht)) {
-            throw new \InvalidArgumentException('non-nullable montant_base_ht cannot be null');
+        if (is_null($est_conforme)) {
+            throw new \InvalidArgumentException('non-nullable est_conforme cannot be null');
         }
-        $this->container['montant_base_ht'] = $montant_base_ht;
+        $this->container['est_conforme'] = $est_conforme;
 
         return $this;
     }
 
     /**
-     * Gets montant_tva
+     * Gets score_conformite
      *
-     * @return \FactPulse\SDK\Model\MontantTvaLigne
+     * @return float
      */
-    public function getMontantTva()
+    public function getScoreConformite()
     {
-        return $this->container['montant_tva'];
+        return $this->container['score_conformite'];
     }
 
     /**
-     * Sets montant_tva
+     * Sets score_conformite
      *
-     * @param \FactPulse\SDK\Model\MontantTvaLigne $montant_tva montant_tva
+     * @param float $score_conformite Score de conformité (0-100%)
      *
      * @return self
      */
-    public function setMontantTva($montant_tva)
+    public function setScoreConformite($score_conformite)
     {
-        if (is_null($montant_tva)) {
-            throw new \InvalidArgumentException('non-nullable montant_tva cannot be null');
+        if (is_null($score_conformite)) {
+            throw new \InvalidArgumentException('non-nullable score_conformite cannot be null');
         }
-        $this->container['montant_tva'] = $montant_tva;
+
+        if (($score_conformite > 100.0)) {
+            throw new \InvalidArgumentException('invalid value for $score_conformite when calling ReponseVerificationSucces., must be smaller than or equal to 100.0.');
+        }
+        if (($score_conformite < 0.0)) {
+            throw new \InvalidArgumentException('invalid value for $score_conformite when calling ReponseVerificationSucces., must be bigger than or equal to 0.0.');
+        }
+
+        $this->container['score_conformite'] = $score_conformite;
 
         return $this;
     }
 
     /**
-     * Gets taux
+     * Gets champs_verifies
+     *
+     * @return int|null
+     */
+    public function getChampsVerifies()
+    {
+        return $this->container['champs_verifies'];
+    }
+
+    /**
+     * Sets champs_verifies
+     *
+     * @param int|null $champs_verifies Nombre de champs vérifiés
+     *
+     * @return self
+     */
+    public function setChampsVerifies($champs_verifies)
+    {
+        if (is_null($champs_verifies)) {
+            throw new \InvalidArgumentException('non-nullable champs_verifies cannot be null');
+        }
+
+        if (($champs_verifies < 0)) {
+            throw new \InvalidArgumentException('invalid value for $champs_verifies when calling ReponseVerificationSucces., must be bigger than or equal to 0.');
+        }
+
+        $this->container['champs_verifies'] = $champs_verifies;
+
+        return $this;
+    }
+
+    /**
+     * Gets champs_conformes
+     *
+     * @return int|null
+     */
+    public function getChampsConformes()
+    {
+        return $this->container['champs_conformes'];
+    }
+
+    /**
+     * Sets champs_conformes
+     *
+     * @param int|null $champs_conformes Nombre de champs conformes
+     *
+     * @return self
+     */
+    public function setChampsConformes($champs_conformes)
+    {
+        if (is_null($champs_conformes)) {
+            throw new \InvalidArgumentException('non-nullable champs_conformes cannot be null');
+        }
+
+        if (($champs_conformes < 0)) {
+            throw new \InvalidArgumentException('invalid value for $champs_conformes when calling ReponseVerificationSucces., must be bigger than or equal to 0.');
+        }
+
+        $this->container['champs_conformes'] = $champs_conformes;
+
+        return $this;
+    }
+
+    /**
+     * Gets est_facturx
+     *
+     * @return bool|null
+     */
+    public function getEstFacturx()
+    {
+        return $this->container['est_facturx'];
+    }
+
+    /**
+     * Sets est_facturx
+     *
+     * @param bool|null $est_facturx True si le PDF contient du XML Factur-X
+     *
+     * @return self
+     */
+    public function setEstFacturx($est_facturx)
+    {
+        if (is_null($est_facturx)) {
+            throw new \InvalidArgumentException('non-nullable est_facturx cannot be null');
+        }
+        $this->container['est_facturx'] = $est_facturx;
+
+        return $this;
+    }
+
+    /**
+     * Gets profil_facturx
      *
      * @return string|null
      */
-    public function getTaux()
+    public function getProfilFacturx()
     {
-        return $this->container['taux'];
+        return $this->container['profil_facturx'];
     }
 
     /**
-     * Sets taux
+     * Sets profil_facturx
      *
-     * @param string|null $taux taux
+     * @param string|null $profil_facturx profil_facturx
      *
      * @return self
      */
-    public function setTaux($taux)
+    public function setProfilFacturx($profil_facturx)
     {
-        if (is_null($taux)) {
-            array_push($this->openAPINullablesSetToNull, 'taux');
+        if (is_null($profil_facturx)) {
+            array_push($this->openAPINullablesSetToNull, 'profil_facturx');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('taux', $nullablesSetToNull);
+            $index = array_search('profil_facturx', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['taux'] = $taux;
+        $this->container['profil_facturx'] = $profil_facturx;
 
         return $this;
     }
 
     /**
-     * Gets taux_manuel
+     * Gets champs
      *
-     * @return \FactPulse\SDK\Model\Tauxmanuel|null
+     * @return \FactPulse\SDK\Model\ChampVerifieSchema[]|null
      */
-    public function getTauxManuel()
+    public function getChamps()
     {
-        return $this->container['taux_manuel'];
+        return $this->container['champs'];
     }
 
     /**
-     * Sets taux_manuel
+     * Sets champs
      *
-     * @param \FactPulse\SDK\Model\Tauxmanuel|null $taux_manuel taux_manuel
+     * @param \FactPulse\SDK\Model\ChampVerifieSchema[]|null $champs Liste des champs vérifiés avec valeurs, statuts et coordonnées PDF
      *
      * @return self
      */
-    public function setTauxManuel($taux_manuel)
+    public function setChamps($champs)
     {
-        if (is_null($taux_manuel)) {
-            throw new \InvalidArgumentException('non-nullable taux_manuel cannot be null');
+        if (is_null($champs)) {
+            throw new \InvalidArgumentException('non-nullable champs cannot be null');
         }
-        $this->container['taux_manuel'] = $taux_manuel;
+        $this->container['champs'] = $champs;
 
         return $this;
     }
 
     /**
-     * Gets categorie
+     * Gets notes_obligatoires
      *
-     * @return \FactPulse\SDK\Model\CategorieTVA|null
+     * @return \FactPulse\SDK\Model\NoteObligatoireSchema[]|null
      */
-    public function getCategorie()
+    public function getNotesObligatoires()
     {
-        return $this->container['categorie'];
+        return $this->container['notes_obligatoires'];
     }
 
     /**
-     * Sets categorie
+     * Sets notes_obligatoires
      *
-     * @param \FactPulse\SDK\Model\CategorieTVA|null $categorie categorie
+     * @param \FactPulse\SDK\Model\NoteObligatoireSchema[]|null $notes_obligatoires Notes obligatoires (PMT, PMD, AAB) avec localisation PDF
      *
      * @return self
      */
-    public function setCategorie($categorie)
+    public function setNotesObligatoires($notes_obligatoires)
     {
-        if (is_null($categorie)) {
-            array_push($this->openAPINullablesSetToNull, 'categorie');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('categorie', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($notes_obligatoires)) {
+            throw new \InvalidArgumentException('non-nullable notes_obligatoires cannot be null');
         }
-        $this->container['categorie'] = $categorie;
+        $this->container['notes_obligatoires'] = $notes_obligatoires;
 
         return $this;
     }
 
     /**
-     * Gets motif_exoneration
+     * Gets dimensions_pages
      *
-     * @return string|null
+     * @return \FactPulse\SDK\Model\DimensionPageSchema[]|null
      */
-    public function getMotifExoneration()
+    public function getDimensionsPages()
     {
-        return $this->container['motif_exoneration'];
+        return $this->container['dimensions_pages'];
     }
 
     /**
-     * Sets motif_exoneration
+     * Sets dimensions_pages
      *
-     * @param string|null $motif_exoneration motif_exoneration
+     * @param \FactPulse\SDK\Model\DimensionPageSchema[]|null $dimensions_pages Dimensions de chaque page du PDF (largeur, hauteur)
      *
      * @return self
      */
-    public function setMotifExoneration($motif_exoneration)
+    public function setDimensionsPages($dimensions_pages)
     {
-        if (is_null($motif_exoneration)) {
-            array_push($this->openAPINullablesSetToNull, 'motif_exoneration');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('motif_exoneration', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($dimensions_pages)) {
+            throw new \InvalidArgumentException('non-nullable dimensions_pages cannot be null');
         }
-        $this->container['motif_exoneration'] = $motif_exoneration;
+        $this->container['dimensions_pages'] = $dimensions_pages;
 
         return $this;
     }
 
     /**
-     * Gets code_vatex
+     * Gets avertissements
      *
-     * @return string|null
+     * @return string[]|null
      */
-    public function getCodeVatex()
+    public function getAvertissements()
     {
-        return $this->container['code_vatex'];
+        return $this->container['avertissements'];
     }
 
     /**
-     * Sets code_vatex
+     * Sets avertissements
      *
-     * @param string|null $code_vatex code_vatex
+     * @param string[]|null $avertissements Avertissements non bloquants
      *
      * @return self
      */
-    public function setCodeVatex($code_vatex)
+    public function setAvertissements($avertissements)
     {
-        if (is_null($code_vatex)) {
-            array_push($this->openAPINullablesSetToNull, 'code_vatex');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('code_vatex', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($avertissements)) {
+            throw new \InvalidArgumentException('non-nullable avertissements cannot be null');
         }
-        $this->container['code_vatex'] = $code_vatex;
+        $this->container['avertissements'] = $avertissements;
 
         return $this;
     }

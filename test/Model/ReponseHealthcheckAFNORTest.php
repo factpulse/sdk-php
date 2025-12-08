@@ -1,6 +1,6 @@
 <?php
 /**
- * ErrorLevelTest
+ * ReponseHealthcheckAFNORTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ErrorLevelTest Class Doc Comment
+ * ReponseHealthcheckAFNORTest Class Doc Comment
  *
  * @category    Class
- * @description ErrorLevel
+ * @description Réponse du healthcheck des services AFNOR
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ErrorLevelTest extends TestCase
+class ReponseHealthcheckAFNORTest extends TestCase
 {
 
     /**
@@ -71,9 +71,36 @@ class ErrorLevelTest extends TestCase
     }
 
     /**
-     * Test "ErrorLevel"
+     * Test "ReponseHealthcheckAFNOR"
      */
-    public function testErrorLevel()
+    public function testReponseHealthcheckAFNOR()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "flow_service_ok"
+     */
+    public function testPropertyFlowServiceOk()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "directory_service_ok"
+     */
+    public function testPropertyDirectoryServiceOk()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "message"
+     */
+    public function testPropertyMessage()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

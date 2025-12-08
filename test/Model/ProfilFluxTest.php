@@ -1,6 +1,6 @@
 <?php
 /**
- * ErrorLevelTest
+ * ProfilFluxTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ErrorLevelTest Class Doc Comment
+ * ProfilFluxTest Class Doc Comment
  *
  * @category    Class
- * @description ErrorLevel
+ * @description Profils de flux supportés
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ErrorLevelTest extends TestCase
+class ProfilFluxTest extends TestCase
 {
 
     /**
@@ -71,9 +71,9 @@ class ErrorLevelTest extends TestCase
     }
 
     /**
-     * Test "ErrorLevel"
+     * Test "ProfilFlux"
      */
-    public function testErrorLevel()
+    public function testProfilFlux()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

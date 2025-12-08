@@ -1,6 +1,6 @@
 <?php
 /**
- * ErrorLevelTest
+ * TypeFluxTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ErrorLevelTest Class Doc Comment
+ * TypeFluxTest Class Doc Comment
  *
  * @category    Class
- * @description ErrorLevel
+ * @description Types de flux de facturation
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ErrorLevelTest extends TestCase
+class TypeFluxTest extends TestCase
 {
 
     /**
@@ -71,9 +71,9 @@ class ErrorLevelTest extends TestCase
     }
 
     /**
-     * Test "ErrorLevel"
+     * Test "TypeFlux"
      */
-    public function testErrorLevel()
+    public function testTypeFlux()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

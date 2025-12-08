@@ -1,6 +1,6 @@
 <?php
 /**
- * LigneDeTVA
+ * PDPCredentials
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \FactPulse\SDK\ObjectSerializer;
 
 /**
- * LigneDeTVA Class Doc Comment
+ * PDPCredentials Class Doc Comment
  *
  * @category Class
- * @description Représente une ligne de totalisation par taux de TVA.  Pour les exonérations (catégories E, AE, K, G, O), les champs &#x60;motif_exoneration&#x60; et &#x60;code_vatex&#x60; sont requis selon EN16931.
+ * @description Credentials PDP pour la stratégie zero-storage (Strategy B).  Permet de fournir directement les credentials PDP dans la requête au lieu de les stocker dans Django.  Utile pour : - Tests ponctuels sans persister les credentials - Intégrations temporaires - Environnements de développement
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
+class PDPCredentials implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'LigneDeTVA';
+    protected static $openAPIModelName = 'PDPCredentials';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,13 +58,11 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'montant_base_ht' => '\FactPulse\SDK\Model\MontantBaseHt',
-        'montant_tva' => '\FactPulse\SDK\Model\MontantTvaLigne',
-        'taux' => 'string',
-        'taux_manuel' => '\FactPulse\SDK\Model\Tauxmanuel',
-        'categorie' => '\FactPulse\SDK\Model\CategorieTVA',
-        'motif_exoneration' => 'string',
-        'code_vatex' => 'string'
+        'flow_service_url' => 'string',
+        'directory_service_url' => 'string',
+        'token_url' => 'string',
+        'client_id' => 'string',
+        'client_secret' => 'string'
     ];
 
     /**
@@ -75,13 +73,11 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'montant_base_ht' => null,
-        'montant_tva' => null,
-        'taux' => null,
-        'taux_manuel' => null,
-        'categorie' => null,
-        'motif_exoneration' => null,
-        'code_vatex' => null
+        'flow_service_url' => null,
+        'directory_service_url' => null,
+        'token_url' => null,
+        'client_id' => null,
+        'client_secret' => null
     ];
 
     /**
@@ -90,13 +86,11 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'montant_base_ht' => false,
-        'montant_tva' => false,
-        'taux' => true,
-        'taux_manuel' => false,
-        'categorie' => true,
-        'motif_exoneration' => true,
-        'code_vatex' => true
+        'flow_service_url' => false,
+        'directory_service_url' => true,
+        'token_url' => false,
+        'client_id' => false,
+        'client_secret' => false
     ];
 
     /**
@@ -185,13 +179,11 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'montant_base_ht' => 'montantBaseHt',
-        'montant_tva' => 'montantTva',
-        'taux' => 'taux',
-        'taux_manuel' => 'tauxManuel',
-        'categorie' => 'categorie',
-        'motif_exoneration' => 'motifExoneration',
-        'code_vatex' => 'codeVatex'
+        'flow_service_url' => 'flow_service_url',
+        'directory_service_url' => 'directory_service_url',
+        'token_url' => 'token_url',
+        'client_id' => 'client_id',
+        'client_secret' => 'client_secret'
     ];
 
     /**
@@ -200,13 +192,11 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'montant_base_ht' => 'setMontantBaseHt',
-        'montant_tva' => 'setMontantTva',
-        'taux' => 'setTaux',
-        'taux_manuel' => 'setTauxManuel',
-        'categorie' => 'setCategorie',
-        'motif_exoneration' => 'setMotifExoneration',
-        'code_vatex' => 'setCodeVatex'
+        'flow_service_url' => 'setFlowServiceUrl',
+        'directory_service_url' => 'setDirectoryServiceUrl',
+        'token_url' => 'setTokenUrl',
+        'client_id' => 'setClientId',
+        'client_secret' => 'setClientSecret'
     ];
 
     /**
@@ -215,13 +205,11 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'montant_base_ht' => 'getMontantBaseHt',
-        'montant_tva' => 'getMontantTva',
-        'taux' => 'getTaux',
-        'taux_manuel' => 'getTauxManuel',
-        'categorie' => 'getCategorie',
-        'motif_exoneration' => 'getMotifExoneration',
-        'code_vatex' => 'getCodeVatex'
+        'flow_service_url' => 'getFlowServiceUrl',
+        'directory_service_url' => 'getDirectoryServiceUrl',
+        'token_url' => 'getTokenUrl',
+        'client_id' => 'getClientId',
+        'client_secret' => 'getClientSecret'
     ];
 
     /**
@@ -281,13 +269,11 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('montant_base_ht', $data ?? [], null);
-        $this->setIfExists('montant_tva', $data ?? [], null);
-        $this->setIfExists('taux', $data ?? [], null);
-        $this->setIfExists('taux_manuel', $data ?? [], null);
-        $this->setIfExists('categorie', $data ?? [], null);
-        $this->setIfExists('motif_exoneration', $data ?? [], null);
-        $this->setIfExists('code_vatex', $data ?? [], null);
+        $this->setIfExists('flow_service_url', $data ?? [], null);
+        $this->setIfExists('directory_service_url', $data ?? [], null);
+        $this->setIfExists('token_url', $data ?? [], null);
+        $this->setIfExists('client_id', $data ?? [], null);
+        $this->setIfExists('client_secret', $data ?? [], null);
     }
 
     /**
@@ -317,11 +303,17 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['montant_base_ht'] === null) {
-            $invalidProperties[] = "'montant_base_ht' can't be null";
+        if ($this->container['flow_service_url'] === null) {
+            $invalidProperties[] = "'flow_service_url' can't be null";
         }
-        if ($this->container['montant_tva'] === null) {
-            $invalidProperties[] = "'montant_tva' can't be null";
+        if ($this->container['token_url'] === null) {
+            $invalidProperties[] = "'token_url' can't be null";
+        }
+        if ($this->container['client_id'] === null) {
+            $invalidProperties[] = "'client_id' can't be null";
+        }
+        if ($this->container['client_secret'] === null) {
+            $invalidProperties[] = "'client_secret' can't be null";
         }
         return $invalidProperties;
     }
@@ -339,218 +331,143 @@ class LigneDeTVA implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets montant_base_ht
+     * Gets flow_service_url
      *
-     * @return \FactPulse\SDK\Model\MontantBaseHt
+     * @return string
      */
-    public function getMontantBaseHt()
+    public function getFlowServiceUrl()
     {
-        return $this->container['montant_base_ht'];
+        return $this->container['flow_service_url'];
     }
 
     /**
-     * Sets montant_base_ht
+     * Sets flow_service_url
      *
-     * @param \FactPulse\SDK\Model\MontantBaseHt $montant_base_ht montant_base_ht
+     * @param string $flow_service_url URL de base du Flow Service AFNOR
      *
      * @return self
      */
-    public function setMontantBaseHt($montant_base_ht)
+    public function setFlowServiceUrl($flow_service_url)
     {
-        if (is_null($montant_base_ht)) {
-            throw new \InvalidArgumentException('non-nullable montant_base_ht cannot be null');
+        if (is_null($flow_service_url)) {
+            throw new \InvalidArgumentException('non-nullable flow_service_url cannot be null');
         }
-        $this->container['montant_base_ht'] = $montant_base_ht;
+        $this->container['flow_service_url'] = $flow_service_url;
 
         return $this;
     }
 
     /**
-     * Gets montant_tva
-     *
-     * @return \FactPulse\SDK\Model\MontantTvaLigne
-     */
-    public function getMontantTva()
-    {
-        return $this->container['montant_tva'];
-    }
-
-    /**
-     * Sets montant_tva
-     *
-     * @param \FactPulse\SDK\Model\MontantTvaLigne $montant_tva montant_tva
-     *
-     * @return self
-     */
-    public function setMontantTva($montant_tva)
-    {
-        if (is_null($montant_tva)) {
-            throw new \InvalidArgumentException('non-nullable montant_tva cannot be null');
-        }
-        $this->container['montant_tva'] = $montant_tva;
-
-        return $this;
-    }
-
-    /**
-     * Gets taux
+     * Gets directory_service_url
      *
      * @return string|null
      */
-    public function getTaux()
+    public function getDirectoryServiceUrl()
     {
-        return $this->container['taux'];
+        return $this->container['directory_service_url'];
     }
 
     /**
-     * Sets taux
+     * Sets directory_service_url
      *
-     * @param string|null $taux taux
+     * @param string|null $directory_service_url directory_service_url
      *
      * @return self
      */
-    public function setTaux($taux)
+    public function setDirectoryServiceUrl($directory_service_url)
     {
-        if (is_null($taux)) {
-            array_push($this->openAPINullablesSetToNull, 'taux');
+        if (is_null($directory_service_url)) {
+            array_push($this->openAPINullablesSetToNull, 'directory_service_url');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('taux', $nullablesSetToNull);
+            $index = array_search('directory_service_url', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['taux'] = $taux;
+        $this->container['directory_service_url'] = $directory_service_url;
 
         return $this;
     }
 
     /**
-     * Gets taux_manuel
+     * Gets token_url
      *
-     * @return \FactPulse\SDK\Model\Tauxmanuel|null
+     * @return string
      */
-    public function getTauxManuel()
+    public function getTokenUrl()
     {
-        return $this->container['taux_manuel'];
+        return $this->container['token_url'];
     }
 
     /**
-     * Sets taux_manuel
+     * Sets token_url
      *
-     * @param \FactPulse\SDK\Model\Tauxmanuel|null $taux_manuel taux_manuel
+     * @param string $token_url URL du serveur OAuth2
      *
      * @return self
      */
-    public function setTauxManuel($taux_manuel)
+    public function setTokenUrl($token_url)
     {
-        if (is_null($taux_manuel)) {
-            throw new \InvalidArgumentException('non-nullable taux_manuel cannot be null');
+        if (is_null($token_url)) {
+            throw new \InvalidArgumentException('non-nullable token_url cannot be null');
         }
-        $this->container['taux_manuel'] = $taux_manuel;
+        $this->container['token_url'] = $token_url;
 
         return $this;
     }
 
     /**
-     * Gets categorie
+     * Gets client_id
      *
-     * @return \FactPulse\SDK\Model\CategorieTVA|null
+     * @return string
      */
-    public function getCategorie()
+    public function getClientId()
     {
-        return $this->container['categorie'];
+        return $this->container['client_id'];
     }
 
     /**
-     * Sets categorie
+     * Sets client_id
      *
-     * @param \FactPulse\SDK\Model\CategorieTVA|null $categorie categorie
+     * @param string $client_id Client ID OAuth2
      *
      * @return self
      */
-    public function setCategorie($categorie)
+    public function setClientId($client_id)
     {
-        if (is_null($categorie)) {
-            array_push($this->openAPINullablesSetToNull, 'categorie');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('categorie', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($client_id)) {
+            throw new \InvalidArgumentException('non-nullable client_id cannot be null');
         }
-        $this->container['categorie'] = $categorie;
+        $this->container['client_id'] = $client_id;
 
         return $this;
     }
 
     /**
-     * Gets motif_exoneration
+     * Gets client_secret
      *
-     * @return string|null
+     * @return string
      */
-    public function getMotifExoneration()
+    public function getClientSecret()
     {
-        return $this->container['motif_exoneration'];
+        return $this->container['client_secret'];
     }
 
     /**
-     * Sets motif_exoneration
+     * Sets client_secret
      *
-     * @param string|null $motif_exoneration motif_exoneration
+     * @param string $client_secret Client Secret OAuth2 (sensible)
      *
      * @return self
      */
-    public function setMotifExoneration($motif_exoneration)
+    public function setClientSecret($client_secret)
     {
-        if (is_null($motif_exoneration)) {
-            array_push($this->openAPINullablesSetToNull, 'motif_exoneration');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('motif_exoneration', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($client_secret)) {
+            throw new \InvalidArgumentException('non-nullable client_secret cannot be null');
         }
-        $this->container['motif_exoneration'] = $motif_exoneration;
-
-        return $this;
-    }
-
-    /**
-     * Gets code_vatex
-     *
-     * @return string|null
-     */
-    public function getCodeVatex()
-    {
-        return $this->container['code_vatex'];
-    }
-
-    /**
-     * Sets code_vatex
-     *
-     * @param string|null $code_vatex code_vatex
-     *
-     * @return self
-     */
-    public function setCodeVatex($code_vatex)
-    {
-        if (is_null($code_vatex)) {
-            array_push($this->openAPINullablesSetToNull, 'code_vatex');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('code_vatex', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['code_vatex'] = $code_vatex;
+        $this->container['client_secret'] = $client_secret;
 
         return $this;
     }

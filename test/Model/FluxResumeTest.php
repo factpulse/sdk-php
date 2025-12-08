@@ -1,6 +1,6 @@
 <?php
 /**
- * ErrorLevelTest
+ * FluxResumeTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ErrorLevelTest Class Doc Comment
+ * FluxResumeTest Class Doc Comment
  *
  * @category    Class
- * @description ErrorLevel
+ * @description Résumé d&#39;un flux dans les résultats de recherche
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ErrorLevelTest extends TestCase
+class FluxResumeTest extends TestCase
 {
 
     /**
@@ -71,9 +71,81 @@ class ErrorLevelTest extends TestCase
     }
 
     /**
-     * Test "ErrorLevel"
+     * Test "FluxResume"
      */
-    public function testErrorLevel()
+    public function testFluxResume()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "flow_id"
+     */
+    public function testPropertyFlowId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "tracking_id"
+     */
+    public function testPropertyTrackingId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "nom"
+     */
+    public function testPropertyNom()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "type_flux"
+     */
+    public function testPropertyTypeFlux()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "direction_flux"
+     */
+    public function testPropertyDirectionFlux()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "statut_acquittement"
+     */
+    public function testPropertyStatutAcquittement()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "date_creation"
+     */
+    public function testPropertyDateCreation()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "date_maj"
+     */
+    public function testPropertyDateMaj()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

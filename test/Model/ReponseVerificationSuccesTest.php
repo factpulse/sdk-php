@@ -1,6 +1,6 @@
 <?php
 /**
- * ErrorLevelTest
+ * ReponseVerificationSuccesTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ErrorLevelTest Class Doc Comment
+ * ReponseVerificationSuccesTest Class Doc Comment
  *
  * @category    Class
- * @description ErrorLevel
+ * @description Réponse de vérification réussie avec données unifiées.
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ErrorLevelTest extends TestCase
+class ReponseVerificationSuccesTest extends TestCase
 {
 
     /**
@@ -71,9 +71,99 @@ class ErrorLevelTest extends TestCase
     }
 
     /**
-     * Test "ErrorLevel"
+     * Test "ReponseVerificationSucces"
      */
-    public function testErrorLevel()
+    public function testReponseVerificationSucces()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "est_conforme"
+     */
+    public function testPropertyEstConforme()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "score_conformite"
+     */
+    public function testPropertyScoreConformite()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "champs_verifies"
+     */
+    public function testPropertyChampsVerifies()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "champs_conformes"
+     */
+    public function testPropertyChampsConformes()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "est_facturx"
+     */
+    public function testPropertyEstFacturx()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "profil_facturx"
+     */
+    public function testPropertyProfilFacturx()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "champs"
+     */
+    public function testPropertyChamps()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "notes_obligatoires"
+     */
+    public function testPropertyNotesObligatoires()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "dimensions_pages"
+     */
+    public function testPropertyDimensionsPages()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "avertissements"
+     */
+    public function testPropertyAvertissements()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

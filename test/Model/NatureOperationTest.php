@@ -1,6 +1,6 @@
 <?php
 /**
- * ErrorLevelTest
+ * NatureOperationTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ErrorLevelTest Class Doc Comment
+ * NatureOperationTest Class Doc Comment
  *
  * @category    Class
- * @description ErrorLevel
+ * @description Nature de l&#39;opération (BT-23) pour Factur-X - Réforme française.  BR-FR-08: Le cadre de facturation doit être l&#39;un des codes suivants. La première lettre indique : B &#x3D; Biens, S &#x3D; Services, M &#x3D; Mixte.  Ref: XP Z12-012, article_conformite_pdf_facturx.md  Exemple d&#39;utilisation:     &gt;&gt;&gt; cadre &#x3D; CadreDeFacturation(     ...     code_cadre_facturation&#x3D;CodeCadreFacturation.A1_FACTURE_FOURNISSEUR,     ...     nature_operation&#x3D;NatureOperation.BIENS     ... )
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ErrorLevelTest extends TestCase
+class NatureOperationTest extends TestCase
 {
 
     /**
@@ -71,9 +71,9 @@ class ErrorLevelTest extends TestCase
     }
 
     /**
-     * Test "ErrorLevel"
+     * Test "NatureOperation"
      */
-    public function testErrorLevel()
+    public function testNatureOperation()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

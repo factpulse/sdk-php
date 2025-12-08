@@ -1,6 +1,6 @@
 <?php
 /**
- * ErrorLevelTest
+ * RequeteSoumissionFluxTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ErrorLevelTest Class Doc Comment
+ * RequeteSoumissionFluxTest Class Doc Comment
  *
  * @category    Class
- * @description ErrorLevel
+ * @description Requête pour soumettre une facture à une PDP/PA via AFNOR
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ErrorLevelTest extends TestCase
+class RequeteSoumissionFluxTest extends TestCase
 {
 
     /**
@@ -71,9 +71,63 @@ class ErrorLevelTest extends TestCase
     }
 
     /**
-     * Test "ErrorLevel"
+     * Test "RequeteSoumissionFlux"
      */
-    public function testErrorLevel()
+    public function testRequeteSoumissionFlux()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "nom_flux"
+     */
+    public function testPropertyNomFlux()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "syntaxe_flux"
+     */
+    public function testPropertySyntaxeFlux()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "profil_flux"
+     */
+    public function testPropertyProfilFlux()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "tracking_id"
+     */
+    public function testPropertyTrackingId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "request_id"
+     */
+    public function testPropertyRequestId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "pdp_credentials"
+     */
+    public function testPropertyPdpCredentials()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
