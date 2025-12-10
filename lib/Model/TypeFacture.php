@@ -43,37 +43,85 @@ class TypeFacture
     /**
      * Possible values of this enum
      */
-    public const _380 = '380';
+    /**
+     * Facture commerciale
+     */
+    public const FACTURE = '380';
 
-    public const _389 = '389';
+    /**
+     * Facture auto-facturée
+     */
+    public const FACTURE_AUTOFACTUREE = '389';
 
-    public const _393 = '393';
+    /**
+     * Facture affacturée
+     */
+    public const FACTURE_AFFACTUREE = '393';
 
-    public const _501 = '501';
+    /**
+     * Facture auto-facturée affacturée
+     */
+    public const FACTURE_AUTOFACTUREE_AFFACTUREE = '501';
 
-    public const _386 = '386';
+    /**
+     * Facture d&#39;acompte
+     */
+    public const FACTURE_ACOMPTE = '386';
 
-    public const _500 = '500';
+    /**
+     * Facture d&#39;acompte auto-facturée
+     */
+    public const FACTURE_ACOMPTE_AUTOFACTUREE = '500';
 
-    public const _384 = '384';
+    /**
+     * Facture rectificative
+     */
+    public const FACTURE_RECTIFICATIVE = '384';
 
-    public const _471 = '471';
+    /**
+     * Facture rectificative auto-facturée
+     */
+    public const FACTURE_RECTIFICATIVE_AUTOFACTUREE = '471';
 
-    public const _472 = '472';
+    /**
+     * Facture rectificative affacturée
+     */
+    public const FACTURE_RECTIFICATIVE_AFFACTUREE = '472';
 
-    public const _473 = '473';
+    /**
+     * Facture rectificative auto-facturée affacturée
+     */
+    public const FACTURE_RECTIFICATIVE_AUTOFACTUREE_AFFACTUREE = '473';
 
-    public const _381 = '381';
+    /**
+     * Avoir
+     */
+    public const AVOIR = '381';
 
-    public const _261 = '261';
+    /**
+     * Avoir auto-facturé
+     */
+    public const AVOIR_AUTOFACTURE = '261';
 
-    public const _262 = '262';
+    /**
+     * Avoir pour remise globale
+     */
+    public const AVOIR_REMISE_GLOBALE = '262';
 
-    public const _396 = '396';
+    /**
+     * Avoir affacturé
+     */
+    public const AVOIR_AFFACTURE = '396';
 
-    public const _502 = '502';
+    /**
+     * Avoir auto-facturé affacturé
+     */
+    public const AVOIR_AUTOFACTURE_AFFACTURE = '502';
 
-    public const _503 = '503';
+    /**
+     * Avoir de facture d&#39;acompte
+     */
+    public const AVOIR_ACOMPTE = '503';
 
     /**
      * Gets allowable values of the enum
@@ -82,22 +130,22 @@ class TypeFacture
     public static function getAllowableEnumValues()
     {
         return [
-            self::_380,
-            self::_389,
-            self::_393,
-            self::_501,
-            self::_386,
-            self::_500,
-            self::_384,
-            self::_471,
-            self::_472,
-            self::_473,
-            self::_381,
-            self::_261,
-            self::_262,
-            self::_396,
-            self::_502,
-            self::_503
+            self::FACTURE,
+            self::FACTURE_AUTOFACTUREE,
+            self::FACTURE_AFFACTUREE,
+            self::FACTURE_AUTOFACTUREE_AFFACTUREE,
+            self::FACTURE_ACOMPTE,
+            self::FACTURE_ACOMPTE_AUTOFACTUREE,
+            self::FACTURE_RECTIFICATIVE,
+            self::FACTURE_RECTIFICATIVE_AUTOFACTUREE,
+            self::FACTURE_RECTIFICATIVE_AFFACTUREE,
+            self::FACTURE_RECTIFICATIVE_AUTOFACTUREE_AFFACTUREE,
+            self::AVOIR,
+            self::AVOIR_AUTOFACTURE,
+            self::AVOIR_REMISE_GLOBALE,
+            self::AVOIR_AFFACTURE,
+            self::AVOIR_AUTOFACTURE_AFFACTURE,
+            self::AVOIR_ACOMPTE
         ];
     }
 }
