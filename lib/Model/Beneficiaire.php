@@ -1,6 +1,6 @@
 <?php
 /**
- * Fournisseur
+ * Beneficiaire
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \FactPulse\SDK\ObjectSerializer;
 
 /**
- * Fournisseur Class Doc Comment
+ * Beneficiaire Class Doc Comment
  *
  * @category Class
- * @description Informations sur le fournisseur qui émet la facture.
+ * @description Informations sur le bénéficiaire du paiement (BG-10 / PayeeTradeParty).  Le bénéficiaire est la partie qui reçoit le paiement. Ce bloc est utilisé uniquement si le bénéficiaire est différent du vendeur (fournisseur).  **Cas d&#39;usage principal** : Affacturage (factoring) Quand une facture est affacturée, le factor (société d&#39;affacturage) devient le bénéficiaire du paiement à la place du fournisseur.  **Business Terms (EN16931)** : - BT-59 : Nom du bénéficiaire (obligatoire) - BT-60 : Identifiant du bénéficiaire (SIRET avec schemeID 0009) - BT-61 : Identifiant légal du bénéficiaire (SIREN avec schemeID 0002)  **Référence** : docs/guide_affacturage.md
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Fournisseur implements ModelInterface, ArrayAccess, \JsonSerializable
+class Beneficiaire implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Fournisseur implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Fournisseur';
+    protected static $openAPIModelName = 'Beneficiaire';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,16 +58,12 @@ class Fournisseur implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'adresse_electronique' => '\FactPulse\SDK\Model\AdresseElectronique',
-        'id_fournisseur' => 'int',
-        'code_coordonnees_bancaires_fournisseur' => 'int',
-        'id_service_fournisseur' => 'int',
         'nom' => 'string',
-        'siren' => 'string',
         'siret' => 'string',
-        'numero_tva_intra' => 'string',
+        'siren' => 'string',
+        'adresse_electronique' => '\FactPulse\SDK\Model\AdresseElectronique',
         'iban' => 'string',
-        'adresse_postale' => '\FactPulse\SDK\Model\AdressePostale'
+        'bic' => 'string'
     ];
 
     /**
@@ -78,16 +74,12 @@ class Fournisseur implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'adresse_electronique' => null,
-        'id_fournisseur' => null,
-        'code_coordonnees_bancaires_fournisseur' => null,
-        'id_service_fournisseur' => null,
         'nom' => null,
-        'siren' => null,
         'siret' => null,
-        'numero_tva_intra' => null,
+        'siren' => null,
+        'adresse_electronique' => null,
         'iban' => null,
-        'adresse_postale' => null
+        'bic' => null
     ];
 
     /**
@@ -96,16 +88,12 @@ class Fournisseur implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'adresse_electronique' => true,
-        'id_fournisseur' => false,
-        'code_coordonnees_bancaires_fournisseur' => true,
-        'id_service_fournisseur' => true,
-        'nom' => true,
-        'siren' => true,
+        'nom' => false,
         'siret' => true,
-        'numero_tva_intra' => true,
+        'siren' => true,
+        'adresse_electronique' => true,
         'iban' => true,
-        'adresse_postale' => true
+        'bic' => true
     ];
 
     /**
@@ -194,16 +182,12 @@ class Fournisseur implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'adresse_electronique' => 'adresseElectronique',
-        'id_fournisseur' => 'idFournisseur',
-        'code_coordonnees_bancaires_fournisseur' => 'codeCoordonneesBancairesFournisseur',
-        'id_service_fournisseur' => 'idServiceFournisseur',
         'nom' => 'nom',
-        'siren' => 'siren',
         'siret' => 'siret',
-        'numero_tva_intra' => 'numeroTvaIntra',
+        'siren' => 'siren',
+        'adresse_electronique' => 'adresseElectronique',
         'iban' => 'iban',
-        'adresse_postale' => 'adressePostale'
+        'bic' => 'bic'
     ];
 
     /**
@@ -212,16 +196,12 @@ class Fournisseur implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'adresse_electronique' => 'setAdresseElectronique',
-        'id_fournisseur' => 'setIdFournisseur',
-        'code_coordonnees_bancaires_fournisseur' => 'setCodeCoordonneesBancairesFournisseur',
-        'id_service_fournisseur' => 'setIdServiceFournisseur',
         'nom' => 'setNom',
-        'siren' => 'setSiren',
         'siret' => 'setSiret',
-        'numero_tva_intra' => 'setNumeroTvaIntra',
+        'siren' => 'setSiren',
+        'adresse_electronique' => 'setAdresseElectronique',
         'iban' => 'setIban',
-        'adresse_postale' => 'setAdressePostale'
+        'bic' => 'setBic'
     ];
 
     /**
@@ -230,16 +210,12 @@ class Fournisseur implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'adresse_electronique' => 'getAdresseElectronique',
-        'id_fournisseur' => 'getIdFournisseur',
-        'code_coordonnees_bancaires_fournisseur' => 'getCodeCoordonneesBancairesFournisseur',
-        'id_service_fournisseur' => 'getIdServiceFournisseur',
         'nom' => 'getNom',
-        'siren' => 'getSiren',
         'siret' => 'getSiret',
-        'numero_tva_intra' => 'getNumeroTvaIntra',
+        'siren' => 'getSiren',
+        'adresse_electronique' => 'getAdresseElectronique',
         'iban' => 'getIban',
-        'adresse_postale' => 'getAdressePostale'
+        'bic' => 'getBic'
     ];
 
     /**
@@ -299,16 +275,12 @@ class Fournisseur implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('adresse_electronique', $data ?? [], null);
-        $this->setIfExists('id_fournisseur', $data ?? [], null);
-        $this->setIfExists('code_coordonnees_bancaires_fournisseur', $data ?? [], null);
-        $this->setIfExists('id_service_fournisseur', $data ?? [], null);
         $this->setIfExists('nom', $data ?? [], null);
-        $this->setIfExists('siren', $data ?? [], null);
         $this->setIfExists('siret', $data ?? [], null);
-        $this->setIfExists('numero_tva_intra', $data ?? [], null);
+        $this->setIfExists('siren', $data ?? [], null);
+        $this->setIfExists('adresse_electronique', $data ?? [], null);
         $this->setIfExists('iban', $data ?? [], null);
-        $this->setIfExists('adresse_postale', $data ?? [], null);
+        $this->setIfExists('bic', $data ?? [], null);
     }
 
     /**
@@ -338,12 +310,21 @@ class Fournisseur implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['adresse_electronique'] === null && !$this->isNullableSetToNull('adresse_electronique')) {
-            $invalidProperties[] = "'adresse_electronique' can't be null";
+        if ($this->container['nom'] === null) {
+            $invalidProperties[] = "'nom' can't be null";
         }
-        if ($this->container['id_fournisseur'] === null) {
-            $invalidProperties[] = "'id_fournisseur' can't be null";
+        if ((mb_strlen($this->container['nom']) < 1)) {
+            $invalidProperties[] = "invalid value for 'nom', the character length must be bigger than or equal to 1.";
         }
+
+        if (!is_null($this->container['siret']) && !preg_match("/^\\d{14}$/", $this->container['siret'])) {
+            $invalidProperties[] = "invalid value for 'siret', must be conform to the pattern /^\\d{14}$/.";
+        }
+
+        if (!is_null($this->container['siren']) && !preg_match("/^\\d{9}$/", $this->container['siren'])) {
+            $invalidProperties[] = "invalid value for 'siren', must be conform to the pattern /^\\d{9}$/.";
+        }
+
         return $invalidProperties;
     }
 
@@ -360,138 +341,9 @@ class Fournisseur implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets adresse_electronique
-     *
-     * @return \FactPulse\SDK\Model\AdresseElectronique|null
-     */
-    public function getAdresseElectronique()
-    {
-        return $this->container['adresse_electronique'];
-    }
-
-    /**
-     * Sets adresse_electronique
-     *
-     * @param \FactPulse\SDK\Model\AdresseElectronique|null $adresse_electronique adresse_electronique
-     *
-     * @return self
-     */
-    public function setAdresseElectronique($adresse_electronique)
-    {
-        if (is_null($adresse_electronique)) {
-            array_push($this->openAPINullablesSetToNull, 'adresse_electronique');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('adresse_electronique', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['adresse_electronique'] = $adresse_electronique;
-
-        return $this;
-    }
-
-    /**
-     * Gets id_fournisseur
-     *
-     * @return int
-     */
-    public function getIdFournisseur()
-    {
-        return $this->container['id_fournisseur'];
-    }
-
-    /**
-     * Sets id_fournisseur
-     *
-     * @param int $id_fournisseur id_fournisseur
-     *
-     * @return self
-     */
-    public function setIdFournisseur($id_fournisseur)
-    {
-        if (is_null($id_fournisseur)) {
-            throw new \InvalidArgumentException('non-nullable id_fournisseur cannot be null');
-        }
-        $this->container['id_fournisseur'] = $id_fournisseur;
-
-        return $this;
-    }
-
-    /**
-     * Gets code_coordonnees_bancaires_fournisseur
-     *
-     * @return int|null
-     */
-    public function getCodeCoordonneesBancairesFournisseur()
-    {
-        return $this->container['code_coordonnees_bancaires_fournisseur'];
-    }
-
-    /**
-     * Sets code_coordonnees_bancaires_fournisseur
-     *
-     * @param int|null $code_coordonnees_bancaires_fournisseur code_coordonnees_bancaires_fournisseur
-     *
-     * @return self
-     */
-    public function setCodeCoordonneesBancairesFournisseur($code_coordonnees_bancaires_fournisseur)
-    {
-        if (is_null($code_coordonnees_bancaires_fournisseur)) {
-            array_push($this->openAPINullablesSetToNull, 'code_coordonnees_bancaires_fournisseur');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('code_coordonnees_bancaires_fournisseur', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['code_coordonnees_bancaires_fournisseur'] = $code_coordonnees_bancaires_fournisseur;
-
-        return $this;
-    }
-
-    /**
-     * Gets id_service_fournisseur
-     *
-     * @return int|null
-     */
-    public function getIdServiceFournisseur()
-    {
-        return $this->container['id_service_fournisseur'];
-    }
-
-    /**
-     * Sets id_service_fournisseur
-     *
-     * @param int|null $id_service_fournisseur id_service_fournisseur
-     *
-     * @return self
-     */
-    public function setIdServiceFournisseur($id_service_fournisseur)
-    {
-        if (is_null($id_service_fournisseur)) {
-            array_push($this->openAPINullablesSetToNull, 'id_service_fournisseur');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id_service_fournisseur', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['id_service_fournisseur'] = $id_service_fournisseur;
-
-        return $this;
-    }
-
-    /**
      * Gets nom
      *
-     * @return string|null
+     * @return string
      */
     public function getNom()
     {
@@ -501,57 +353,21 @@ class Fournisseur implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets nom
      *
-     * @param string|null $nom nom
+     * @param string $nom Nom du bénéficiaire (BT-59). Obligatoire.
      *
      * @return self
      */
     public function setNom($nom)
     {
         if (is_null($nom)) {
-            array_push($this->openAPINullablesSetToNull, 'nom');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('nom', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable nom cannot be null');
         }
+
+        if ((mb_strlen($nom) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $nom when calling Beneficiaire., must be bigger than or equal to 1.');
+        }
+
         $this->container['nom'] = $nom;
-
-        return $this;
-    }
-
-    /**
-     * Gets siren
-     *
-     * @return string|null
-     */
-    public function getSiren()
-    {
-        return $this->container['siren'];
-    }
-
-    /**
-     * Sets siren
-     *
-     * @param string|null $siren siren
-     *
-     * @return self
-     */
-    public function setSiren($siren)
-    {
-        if (is_null($siren)) {
-            array_push($this->openAPINullablesSetToNull, 'siren');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('siren', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['siren'] = $siren;
 
         return $this;
     }
@@ -585,41 +401,85 @@ class Fournisseur implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+
+        if (!is_null($siret) && (!preg_match("/^\\d{14}$/", ObjectSerializer::toString($siret)))) {
+            throw new \InvalidArgumentException("invalid value for \$siret when calling Beneficiaire., must conform to the pattern /^\\d{14}$/.");
+        }
+
         $this->container['siret'] = $siret;
 
         return $this;
     }
 
     /**
-     * Gets numero_tva_intra
+     * Gets siren
      *
      * @return string|null
      */
-    public function getNumeroTvaIntra()
+    public function getSiren()
     {
-        return $this->container['numero_tva_intra'];
+        return $this->container['siren'];
     }
 
     /**
-     * Sets numero_tva_intra
+     * Sets siren
      *
-     * @param string|null $numero_tva_intra numero_tva_intra
+     * @param string|null $siren siren
      *
      * @return self
      */
-    public function setNumeroTvaIntra($numero_tva_intra)
+    public function setSiren($siren)
     {
-        if (is_null($numero_tva_intra)) {
-            array_push($this->openAPINullablesSetToNull, 'numero_tva_intra');
+        if (is_null($siren)) {
+            array_push($this->openAPINullablesSetToNull, 'siren');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('numero_tva_intra', $nullablesSetToNull);
+            $index = array_search('siren', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['numero_tva_intra'] = $numero_tva_intra;
+
+        if (!is_null($siren) && (!preg_match("/^\\d{9}$/", ObjectSerializer::toString($siren)))) {
+            throw new \InvalidArgumentException("invalid value for \$siren when calling Beneficiaire., must conform to the pattern /^\\d{9}$/.");
+        }
+
+        $this->container['siren'] = $siren;
+
+        return $this;
+    }
+
+    /**
+     * Gets adresse_electronique
+     *
+     * @return \FactPulse\SDK\Model\AdresseElectronique|null
+     */
+    public function getAdresseElectronique()
+    {
+        return $this->container['adresse_electronique'];
+    }
+
+    /**
+     * Sets adresse_electronique
+     *
+     * @param \FactPulse\SDK\Model\AdresseElectronique|null $adresse_electronique adresse_electronique
+     *
+     * @return self
+     */
+    public function setAdresseElectronique($adresse_electronique)
+    {
+        if (is_null($adresse_electronique)) {
+            array_push($this->openAPINullablesSetToNull, 'adresse_electronique');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('adresse_electronique', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['adresse_electronique'] = $adresse_electronique;
 
         return $this;
     }
@@ -659,35 +519,35 @@ class Fournisseur implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets adresse_postale
+     * Gets bic
      *
-     * @return \FactPulse\SDK\Model\AdressePostale|null
+     * @return string|null
      */
-    public function getAdressePostale()
+    public function getBic()
     {
-        return $this->container['adresse_postale'];
+        return $this->container['bic'];
     }
 
     /**
-     * Sets adresse_postale
+     * Sets bic
      *
-     * @param \FactPulse\SDK\Model\AdressePostale|null $adresse_postale adresse_postale
+     * @param string|null $bic bic
      *
      * @return self
      */
-    public function setAdressePostale($adresse_postale)
+    public function setBic($bic)
     {
-        if (is_null($adresse_postale)) {
-            array_push($this->openAPINullablesSetToNull, 'adresse_postale');
+        if (is_null($bic)) {
+            array_push($this->openAPINullablesSetToNull, 'bic');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('adresse_postale', $nullablesSetToNull);
+            $index = array_search('bic', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['adresse_postale'] = $adresse_postale;
+        $this->container['bic'] = $bic;
 
         return $this;
     }

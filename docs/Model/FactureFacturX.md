@@ -19,5 +19,6 @@ Name | Type | Description | Notes
 **commentaire** | **string** |  | [optional]
 **id_utilisateur_courant** | **int** |  | [optional]
 **pieces_jointes_complementaires** | [**\FactPulse\SDK\Model\PieceJointeComplementaire[]**](PieceJointeComplementaire.md) |  | [optional]
+**beneficiaire** | [**\FactPulse\SDK\Model\Beneficiaire**](Beneficiaire.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

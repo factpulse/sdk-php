@@ -213,4 +213,13 @@ class FactureFacturXTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "beneficiaire"
+     */
+    public function testPropertyBeneficiaire()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

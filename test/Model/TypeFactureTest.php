@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * TypeFactureTest Class Doc Comment
  *
  * @category    Class
- * @description Type de document (facture ou avoir).
+ * @description Type de document selon BR-FR-04 (codes UNTDID 1001).  Cette énumération contient tous les types de factures autorisés par la réforme française de la facturation électronique (BR-FR-04).  Les valeurs correspondent aux codes UNTDID 1001 utilisés dans le XML Factur-X.  Catégories: - Factures simples: 380, 389, 393, 501 - Factures d&#39;acompte: 386, 500 - Factures rectificatives: 384, 471, 472, 473 - Avoirs: 261, 262, 381, 396, 502, 503
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

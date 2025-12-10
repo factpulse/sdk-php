@@ -15,6 +15,7 @@ docs/Api/VrificationPDFXMLApi.md
 docs/Model/APIError.md
 docs/Model/AdresseElectronique.md
 docs/Model/AdressePostale.md
+docs/Model/Beneficiaire.md
 docs/Model/BoundingBoxSchema.md
 docs/Model/CadreDeFacturation.md
 docs/Model/CategorieTVA.md
@@ -137,6 +138,7 @@ lib/HeaderSelector.php
 lib/Model/APIError.php
 lib/Model/AdresseElectronique.php
 lib/Model/AdressePostale.php
+lib/Model/Beneficiaire.php
 lib/Model/BoundingBoxSchema.php
 lib/Model/CadreDeFacturation.php
 lib/Model/CategorieTVA.php
@@ -257,6 +259,7 @@ test/Api/VrificationPDFXMLApiTest.php
 test/Model/APIErrorTest.php
 test/Model/AdresseElectroniqueTest.php
 test/Model/AdressePostaleTest.php
+test/Model/BeneficiaireTest.php
 test/Model/BoundingBoxSchemaTest.php
 test/Model/CadreDeFacturationTest.php
 test/Model/CategorieTVATest.php

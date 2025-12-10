@@ -72,7 +72,8 @@ class FactureFacturX implements ModelInterface, ArrayAccess, \JsonSerializable
         'notes' => '\FactPulse\SDK\Model\Note[]',
         'commentaire' => 'string',
         'id_utilisateur_courant' => 'int',
-        'pieces_jointes_complementaires' => '\FactPulse\SDK\Model\PieceJointeComplementaire[]'
+        'pieces_jointes_complementaires' => '\FactPulse\SDK\Model\PieceJointeComplementaire[]',
+        'beneficiaire' => '\FactPulse\SDK\Model\Beneficiaire'
     ];
 
     /**
@@ -97,7 +98,8 @@ class FactureFacturX implements ModelInterface, ArrayAccess, \JsonSerializable
         'notes' => null,
         'commentaire' => null,
         'id_utilisateur_courant' => null,
-        'pieces_jointes_complementaires' => null
+        'pieces_jointes_complementaires' => null,
+        'beneficiaire' => null
     ];
 
     /**
@@ -120,7 +122,8 @@ class FactureFacturX implements ModelInterface, ArrayAccess, \JsonSerializable
         'notes' => false,
         'commentaire' => true,
         'id_utilisateur_courant' => true,
-        'pieces_jointes_complementaires' => true
+        'pieces_jointes_complementaires' => true,
+        'beneficiaire' => true
     ];
 
     /**
@@ -223,7 +226,8 @@ class FactureFacturX implements ModelInterface, ArrayAccess, \JsonSerializable
         'notes' => 'notes',
         'commentaire' => 'commentaire',
         'id_utilisateur_courant' => 'idUtilisateurCourant',
-        'pieces_jointes_complementaires' => 'piecesJointesComplementaires'
+        'pieces_jointes_complementaires' => 'piecesJointesComplementaires',
+        'beneficiaire' => 'beneficiaire'
     ];
 
     /**
@@ -246,7 +250,8 @@ class FactureFacturX implements ModelInterface, ArrayAccess, \JsonSerializable
         'notes' => 'setNotes',
         'commentaire' => 'setCommentaire',
         'id_utilisateur_courant' => 'setIdUtilisateurCourant',
-        'pieces_jointes_complementaires' => 'setPiecesJointesComplementaires'
+        'pieces_jointes_complementaires' => 'setPiecesJointesComplementaires',
+        'beneficiaire' => 'setBeneficiaire'
     ];
 
     /**
@@ -269,7 +274,8 @@ class FactureFacturX implements ModelInterface, ArrayAccess, \JsonSerializable
         'notes' => 'getNotes',
         'commentaire' => 'getCommentaire',
         'id_utilisateur_courant' => 'getIdUtilisateurCourant',
-        'pieces_jointes_complementaires' => 'getPiecesJointesComplementaires'
+        'pieces_jointes_complementaires' => 'getPiecesJointesComplementaires',
+        'beneficiaire' => 'getBeneficiaire'
     ];
 
     /**
@@ -344,6 +350,7 @@ class FactureFacturX implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('commentaire', $data ?? [], null);
         $this->setIfExists('id_utilisateur_courant', $data ?? [], null);
         $this->setIfExists('pieces_jointes_complementaires', $data ?? [], null);
+        $this->setIfExists('beneficiaire', $data ?? [], null);
     }
 
     /**
@@ -834,6 +841,40 @@ class FactureFacturX implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['pieces_jointes_complementaires'] = $pieces_jointes_complementaires;
+
+        return $this;
+    }
+
+    /**
+     * Gets beneficiaire
+     *
+     * @return \FactPulse\SDK\Model\Beneficiaire|null
+     */
+    public function getBeneficiaire()
+    {
+        return $this->container['beneficiaire'];
+    }
+
+    /**
+     * Sets beneficiaire
+     *
+     * @param \FactPulse\SDK\Model\Beneficiaire|null $beneficiaire beneficiaire
+     *
+     * @return self
+     */
+    public function setBeneficiaire($beneficiaire)
+    {
+        if (is_null($beneficiaire)) {
+            array_push($this->openAPINullablesSetToNull, 'beneficiaire');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('beneficiaire', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['beneficiaire'] = $beneficiaire;
 
         return $this;
     }

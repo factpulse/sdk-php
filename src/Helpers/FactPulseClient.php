@@ -143,6 +143,41 @@ function destinataire(string $nom, string $siret, string $adresseLigne1, string 
     return $result;
 }
 
+/**
+ * Crée un bénéficiaire (factor) pour l'affacturage.
+ *
+ * Le bénéficiaire (BG-10 / PayeeTradeParty) est utilisé lorsque le paiement
+ * doit être effectué à un tiers différent du fournisseur, typiquement un
+ * factor (société d'affacturage).
+ *
+ * Pour les factures affacturées, il faut aussi:
+ * - Utiliser un type de document affacturé (393, 396, 501, 502, 472, 473)
+ * - Ajouter une note ACC avec la mention de subrogation
+ * - L'IBAN du bénéficiaire sera utilisé pour le paiement
+ *
+ * @param string $nom Raison sociale du factor (BT-59)
+ * @param array $options Options: siret (BT-60), siren (BT-61), iban, bic
+ * @return array Dict prêt à être utilisé dans une facture affacturée
+ *
+ * @example
+ * $factor = beneficiaire('FACTOR SAS', [
+ *     'siret' => '30000000700033',
+ *     'iban' => 'FR76 3000 4000 0500 0012 3456 789',
+ * ]);
+ */
+function beneficiaire(string $nom, array $options = []): array {
+    // Auto-calcul SIREN depuis SIRET
+    $siret = $options['siret'] ?? null;
+    $siren = $options['siren'] ?? ($siret && strlen($siret) === 14 ? substr($siret, 0, 9) : null);
+
+    $result = ['nom' => $nom];
+    if ($siret) $result['siret'] = $siret;
+    if ($siren) $result['siren'] = $siren;
+    if (isset($options['iban'])) $result['iban'] = $options['iban'];
+    if (isset($options['bic'])) $result['bic'] = $options['bic'];
+    return $result;
+}
+
 // =============================================================================
 // Client principal
 // =============================================================================

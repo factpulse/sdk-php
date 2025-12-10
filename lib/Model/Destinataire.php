@@ -88,7 +88,7 @@ class Destinataire implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'adresse_electronique' => false,
+        'adresse_electronique' => true,
         'code_service_executant' => true,
         'nom' => true,
         'siren' => true,
@@ -310,7 +310,7 @@ class Destinataire implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['adresse_electronique'] === null) {
+        if ($this->container['adresse_electronique'] === null && !$this->isNullableSetToNull('adresse_electronique')) {
             $invalidProperties[] = "'adresse_electronique' can't be null";
         }
         return $invalidProperties;
@@ -331,7 +331,7 @@ class Destinataire implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets adresse_electronique
      *
-     * @return \FactPulse\SDK\Model\AdresseElectronique
+     * @return \FactPulse\SDK\Model\AdresseElectronique|null
      */
     public function getAdresseElectronique()
     {
@@ -341,14 +341,21 @@ class Destinataire implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets adresse_electronique
      *
-     * @param \FactPulse\SDK\Model\AdresseElectronique $adresse_electronique adresse_electronique
+     * @param \FactPulse\SDK\Model\AdresseElectronique|null $adresse_electronique adresse_electronique
      *
      * @return self
      */
     public function setAdresseElectronique($adresse_electronique)
     {
         if (is_null($adresse_electronique)) {
-            throw new \InvalidArgumentException('non-nullable adresse_electronique cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'adresse_electronique');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('adresse_electronique', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['adresse_electronique'] = $adresse_electronique;
 
