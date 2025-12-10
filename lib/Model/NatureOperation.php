@@ -45,59 +45,31 @@ class NatureOperation
      */
     public const B1 = 'B1';
 
-    public const B12 = 'B1';
-
     public const S1 = 'S1';
-
-    public const S12 = 'S1';
 
     public const M1 = 'M1';
 
-    public const M12 = 'M1';
-
     public const B2 = 'B2';
-
-    public const B22 = 'B2';
 
     public const S2 = 'S2';
 
-    public const S22 = 'S2';
-
     public const M2 = 'M2';
-
-    public const M22 = 'M2';
 
     public const B4 = 'B4';
 
-    public const B42 = 'B4';
-
     public const S4 = 'S4';
-
-    public const S42 = 'S4';
 
     public const M4 = 'M4';
 
-    public const M42 = 'M4';
-
     public const S3 = 'S3';
-
-    public const S32 = 'S3';
 
     public const S5 = 'S5';
 
-    public const S52 = 'S5';
-
     public const S6 = 'S6';
-
-    public const S62 = 'S6';
 
     public const B7 = 'B7';
 
-    public const B72 = 'B7';
-
     public const S7 = 'S7';
-
-    public const S72 = 'S7';
 
     /**
      * Gets allowable values of the enum
@@ -107,33 +79,19 @@ class NatureOperation
     {
         return [
             self::B1,
-            self::B12,
             self::S1,
-            self::S12,
             self::M1,
-            self::M12,
             self::B2,
-            self::B22,
             self::S2,
-            self::S22,
             self::M2,
-            self::M22,
             self::B4,
-            self::B42,
             self::S4,
-            self::S42,
             self::M4,
-            self::M42,
             self::S3,
-            self::S32,
             self::S5,
-            self::S52,
             self::S6,
-            self::S62,
             self::B7,
-            self::B72,
-            self::S7,
-            self::S72
+            self::S7
         ];
     }
 }
