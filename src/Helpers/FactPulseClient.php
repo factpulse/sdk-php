@@ -234,7 +234,40 @@ class FactPulseClient {
                 return isset($result['contenu_b64']) ? base64_decode($result['contenu_b64']) : throw new FactPulseValidationException("Pas de contenu");
             } catch (GuzzleException $e) {
                 if ($e->getCode() === 401 && $attempt < $this->maxRetries) { $this->resetAuth(); continue; }
-                throw new FactPulseValidationException("Erreur API: " . $e->getMessage());
+
+                // Extraire les détails d'erreur du corps de la réponse
+                $errorMsg = "Erreur API ({$e->getCode()}): " . $e->getMessage();
+                $errors = [];
+                $responseBody = null;
+
+                if ($e->hasResponse()) {
+                    $responseBody = json_decode($e->getResponse()->getBody()->getContents(), true);
+                    if ($responseBody) {
+                        // Format FastAPI/Pydantic: {"detail": [{"loc": [...], "msg": "...", "type": "..."}]}
+                        if (isset($responseBody['detail']) && is_array($responseBody['detail'])) {
+                            $errorMsg = 'Erreur de validation';
+                            foreach ($responseBody['detail'] as $err) {
+                                if (is_array($err)) {
+                                    $loc = $err['loc'] ?? [];
+                                    $errors[] = new ValidationErrorDetail(
+                                        'ERROR',
+                                        implode(' -> ', array_map('strval', $loc)),
+                                        $err['msg'] ?? json_encode($err),
+                                        'validation',
+                                        $err['type'] ?? null
+                                    );
+                                }
+                            }
+                        } elseif (isset($responseBody['detail']) && is_string($responseBody['detail'])) {
+                            $errorMsg = $responseBody['detail'];
+                        } elseif (isset($responseBody['errorMessage'])) {
+                            $errorMsg = $responseBody['errorMessage'];
+                        }
+                    }
+                }
+
+                error_log("Erreur API {$e->getCode()}: " . json_encode($responseBody));
+                throw new FactPulseValidationException($errorMsg, $errors);
             }
         }
         throw new FactPulseValidationException("Échec après retries");
