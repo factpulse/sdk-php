@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * TypeFactureTest Class Doc Comment
  *
  * @category    Class
- * @description Type de document selon BR-FR-04 (codes UNTDID 1001).  Cette énumération contient tous les types de factures autorisés par la réforme française de la facturation électronique (BR-FR-04).  Les valeurs correspondent aux codes UNTDID 1001 utilisés dans le XML Factur-X.  Catégories: - Factures simples: 380, 389, 393, 501 - Factures d&#39;acompte: 386, 500 - Factures rectificatives: 384, 471, 472, 473 - Avoirs: 261, 262, 381, 396, 502, 503
+ * @description Type de document selon BR-FR-04 (codes UNTDID 1001).  | Code | Nom | Description | |------|-----|-------------| | 380 | FACTURE | Facture commerciale | | 389 | FACTURE_AUTOFACTUREE | Facture auto-facturée | | 393 | FACTURE_AFFACTUREE | Facture affacturée | | 501 | FACTURE_AUTOFACTUREE_AFFACTUREE | Facture auto-facturée affacturée | | 386 | FACTURE_ACOMPTE | Facture d&#39;acompte | | 500 | FACTURE_ACOMPTE_AUTOFACTUREE | Facture d&#39;acompte auto-facturée | | 384 | FACTURE_RECTIFICATIVE | Facture rectificative | | 471 | FACTURE_RECTIFICATIVE_AUTOFACTUREE | Facture rectificative auto-facturée | | 472 | FACTURE_RECTIFICATIVE_AFFACTUREE | Facture rectificative affacturée | | 473 | FACTURE_RECTIFICATIVE_AUTOFACTUREE_AFFACTUREE | Facture rectificative auto-facturée affacturée | | 381 | AVOIR | Avoir | | 261 | AVOIR_AUTOFACTURE | Avoir auto-facturé | | 262 | AVOIR_REMISE_GLOBALE | Avoir pour remise globale | | 396 | AVOIR_AFFACTURE | Avoir affacturé | | 502 | AVOIR_AUTOFACTURE_AFFACTURE | Avoir auto-facturé affacturé | | 503 | AVOIR_ACOMPTE | Avoir de facture d&#39;acompte |
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

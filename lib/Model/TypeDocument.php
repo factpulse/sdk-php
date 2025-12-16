@@ -33,7 +33,7 @@ use \FactPulse\SDK\ObjectSerializer;
  * TypeDocument Class Doc Comment
  *
  * @category Class
- * @description Types de documents commerciaux (UNTDID 1001).
+ * @description Types de documents commerciaux (UNTDID 1001).  | Code | Nom | Description | |------|-----|-------------| | 380 | FACTURE | Facture commerciale | | 381 | AVOIR | Avoir | | 384 | FACTURE_RECTIFICATIVE | Facture rectificative | | 386 | ACOMPTE | Facture d&#39;acompte | | 389 | AUTOFACTURATION | Facture auto-facturée |
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -43,15 +43,30 @@ class TypeDocument
     /**
      * Possible values of this enum
      */
-    public const _380 = '380';
+    /**
+     * Facture commerciale
+     */
+    public const FACTURE = '380';
 
-    public const _381 = '381';
+    /**
+     * Avoir
+     */
+    public const AVOIR = '381';
 
-    public const _384 = '384';
+    /**
+     * Facture rectificative
+     */
+    public const FACTURE_RECTIFICATIVE = '384';
 
-    public const _386 = '386';
+    /**
+     * Facture d&#39;acompte
+     */
+    public const ACOMPTE = '386';
 
-    public const _389 = '389';
+    /**
+     * Facture auto-facturée
+     */
+    public const AUTOFACTURATION = '389';
 
     /**
      * Gets allowable values of the enum
@@ -60,11 +75,11 @@ class TypeDocument
     public static function getAllowableEnumValues()
     {
         return [
-            self::_380,
-            self::_381,
-            self::_384,
-            self::_386,
-            self::_389
+            self::FACTURE,
+            self::AVOIR,
+            self::FACTURE_RECTIFICATIVE,
+            self::ACOMPTE,
+            self::AUTOFACTURATION
         ];
     }
 }

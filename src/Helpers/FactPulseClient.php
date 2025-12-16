@@ -554,16 +554,23 @@ class FactPulseClient {
 
     /**
      * Valide un PDF Factur-X.
+     * @param string $pdfPath Chemin vers le fichier PDF
+     * @param string|null $profil Profil Factur-X (MINIMUM, BASIC, EN16931, EXTENDED). Si null, auto-détecté.
+     * @param bool $useVerapdf Active la validation stricte PDF/A avec VeraPDF (défaut: false)
      */
-    public function validerPdfFacturx(string $pdfPath, string $profil = 'EN16931'): array {
+    public function validerPdfFacturx(string $pdfPath, ?string $profil = null, bool $useVerapdf = false): array {
         $this->ensureAuthenticated();
         try {
+            $multipart = [
+                ['name' => 'fichier_pdf', 'contents' => fopen($pdfPath, 'r'), 'filename' => basename($pdfPath)],
+                ['name' => 'use_verapdf', 'contents' => $useVerapdf ? 'true' : 'false'],
+            ];
+            if ($profil !== null) {
+                $multipart[] = ['name' => 'profil', 'contents' => $profil];
+            }
             $response = $this->httpClient->post($this->apiUrl . '/api/v1/traitement/valider-pdf-facturx', [
                 'headers' => ['Authorization' => 'Bearer ' . $this->accessToken],
-                'multipart' => [
-                    ['name' => 'fichier_pdf', 'contents' => fopen($pdfPath, 'r'), 'filename' => basename($pdfPath)],
-                    ['name' => 'profil', 'contents' => $profil],
-                ],
+                'multipart' => $multipart,
             ]);
             return json_decode($response->getBody()->getContents(), true) ?? [];
         } catch (GuzzleException $e) {
