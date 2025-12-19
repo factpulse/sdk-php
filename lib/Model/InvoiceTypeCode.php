@@ -123,38 +123,6 @@ class InvoiceTypeCode
      */
     public const PREPAYMENT_CREDIT_NOTE = '503';
 
-    public const _3802 = '380';
-
-    public const _3892 = '389';
-
-    public const _3932 = '393';
-
-    public const _5012 = '501';
-
-    public const _3862 = '386';
-
-    public const _5002 = '500';
-
-    public const _3842 = '384';
-
-    public const _4712 = '471';
-
-    public const _4722 = '472';
-
-    public const _4732 = '473';
-
-    public const _3812 = '381';
-
-    public const _2612 = '261';
-
-    public const _2622 = '262';
-
-    public const _3962 = '396';
-
-    public const _5022 = '502';
-
-    public const _5032 = '503';
-
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -177,23 +145,7 @@ class InvoiceTypeCode
             self::GLOBAL_ALLOWANCE_CREDIT_NOTE,
             self::FACTORED_CREDIT_NOTE,
             self::SELF_BILLED_FACTORED_CREDIT_NOTE,
-            self::PREPAYMENT_CREDIT_NOTE,
-            self::_3802,
-            self::_3892,
-            self::_3932,
-            self::_5012,
-            self::_3862,
-            self::_5002,
-            self::_3842,
-            self::_4712,
-            self::_4722,
-            self::_4732,
-            self::_3812,
-            self::_2612,
-            self::_2622,
-            self::_3962,
-            self::_5022,
-            self::_5032
+            self::PREPAYMENT_CREDIT_NOTE
         ];
     }
 }

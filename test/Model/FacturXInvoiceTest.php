@@ -1,6 +1,6 @@
 <?php
 /**
- * FactureFacturXTest
+ * FacturXInvoiceTest
  *
  * PHP version 8.1
  *
@@ -31,7 +31,7 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * FactureFacturXTest Class Doc Comment
+ * FacturXInvoiceTest Class Doc Comment
  *
  * @category    Class
  * @description Data model for an invoice to be converted to Factur-X.
@@ -39,7 +39,7 @@ use PHPUnit\Framework\TestCase;
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class FactureFacturXTest extends TestCase
+class FacturXInvoiceTest extends TestCase
 {
 
     /**
@@ -71,9 +71,9 @@ class FactureFacturXTest extends TestCase
     }
 
     /**
-     * Test "FactureFacturX"
+     * Test "FacturXInvoice"
      */
-    public function testFactureFacturX()
+    public function testFacturXInvoice()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

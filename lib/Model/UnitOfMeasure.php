@@ -55,18 +55,6 @@ class UnitOfMeasure
 
     public const FORFAIT = 'FORFAIT';
 
-    public const PIECE2 = 'PIECE';
-
-    public const HEURE2 = 'HEURE';
-
-    public const JOUR2 = 'JOUR';
-
-    public const KILOGRAMME2 = 'KILOGRAMME';
-
-    public const LITRE2 = 'LITRE';
-
-    public const FORFAIT2 = 'FORFAIT';
-
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -79,13 +67,7 @@ class UnitOfMeasure
             self::JOUR,
             self::KILOGRAMME,
             self::LITRE,
-            self::FORFAIT,
-            self::PIECE2,
-            self::HEURE2,
-            self::JOUR2,
-            self::KILOGRAMME2,
-            self::LITRE2,
-            self::FORFAIT2
+            self::FORFAIT
         ];
     }
 }

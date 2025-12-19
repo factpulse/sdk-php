@@ -1,6 +1,6 @@
 <?php
 /**
- * FactureFacturX
+ * FacturXInvoice
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \FactPulse\SDK\ObjectSerializer;
 
 /**
- * FactureFacturX Class Doc Comment
+ * FacturXInvoice Class Doc Comment
  *
  * @category Class
  * @description Data model for an invoice to be converted to Factur-X.
@@ -41,7 +41,7 @@ use \FactPulse\SDK\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class FactureFacturX implements ModelInterface, ArrayAccess, \JsonSerializable
+class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class FactureFacturX implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'FactureFacturX';
+    protected static $openAPIModelName = 'FacturXInvoice';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

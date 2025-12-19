@@ -33,10 +33,10 @@ docs/Model/ElectronicAddress.md
 docs/Model/EnrichedInvoiceInfo.md
 docs/Model/ErrorLevel.md
 docs/Model/ErrorSource.md
+docs/Model/FacturXInvoice.md
 docs/Model/FacturXPDFInfo.md
 docs/Model/FactureElectroniqueRestApiSchemasChorusProChorusProCredentials.md
 docs/Model/FactureElectroniqueRestApiSchemasProcessingChorusProCredentials.md
-docs/Model/FactureFacturX.md
 docs/Model/FieldStatus.md
 docs/Model/FlowDirection.md
 docs/Model/FlowProfile.md
@@ -158,10 +158,10 @@ lib/Model/ElectronicAddress.php
 lib/Model/EnrichedInvoiceInfo.php
 lib/Model/ErrorLevel.php
 lib/Model/ErrorSource.php
+lib/Model/FacturXInvoice.php
 lib/Model/FacturXPDFInfo.php
 lib/Model/FactureElectroniqueRestApiSchemasChorusProChorusProCredentials.php
 lib/Model/FactureElectroniqueRestApiSchemasProcessingChorusProCredentials.php
-lib/Model/FactureFacturX.php
 lib/Model/FieldStatus.php
 lib/Model/FlowDirection.php
 lib/Model/FlowProfile.php
@@ -281,10 +281,10 @@ test/Model/ElectronicAddressTest.php
 test/Model/EnrichedInvoiceInfoTest.php
 test/Model/ErrorLevelTest.php
 test/Model/ErrorSourceTest.php
+test/Model/FacturXInvoiceTest.php
 test/Model/FacturXPDFInfoTest.php
 test/Model/FactureElectroniqueRestApiSchemasChorusProChorusProCredentialsTest.php
 test/Model/FactureElectroniqueRestApiSchemasProcessingChorusProCredentialsTest.php
-test/Model/FactureFacturXTest.php
 test/Model/FieldStatusTest.php
 test/Model/FlowDirectionTest.php
 test/Model/FlowProfileTest.php

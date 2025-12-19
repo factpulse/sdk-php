@@ -51,14 +51,6 @@ class InvoicingFrameworkCode
 
     public const A12_FACTURE_COTRAITANT = 'A12_FACTURE_COTRAITANT';
 
-    public const A1_FACTURE_FOURNISSEUR2 = 'A1_FACTURE_FOURNISSEUR';
-
-    public const A2_FACTURE_FOURNISSEUR_DEJA_PAYEE2 = 'A2_FACTURE_FOURNISSEUR_DEJA_PAYEE';
-
-    public const A9_FACTURE_SOUSTRAITANT2 = 'A9_FACTURE_SOUSTRAITANT';
-
-    public const A12_FACTURE_COTRAITANT2 = 'A12_FACTURE_COTRAITANT';
-
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -69,11 +61,7 @@ class InvoicingFrameworkCode
             self::A1_FACTURE_FOURNISSEUR,
             self::A2_FACTURE_FOURNISSEUR_DEJA_PAYEE,
             self::A9_FACTURE_SOUSTRAITANT,
-            self::A12_FACTURE_COTRAITANT,
-            self::A1_FACTURE_FOURNISSEUR2,
-            self::A2_FACTURE_FOURNISSEUR_DEJA_PAYEE2,
-            self::A9_FACTURE_SOUSTRAITANT2,
-            self::A12_FACTURE_COTRAITANT2
+            self::A12_FACTURE_COTRAITANT
         ];
     }
 }

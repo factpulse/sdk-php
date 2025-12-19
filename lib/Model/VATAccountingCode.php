@@ -51,14 +51,6 @@ class VATAccountingCode
 
     public const SANS_TVA = 'SANS_TVA';
 
-    public const TVA_SUR_DEBIT2 = 'TVA_SUR_DEBIT';
-
-    public const TVA_SUR_ENCAISSEMENT2 = 'TVA_SUR_ENCAISSEMENT';
-
-    public const EXONERATION2 = 'EXONERATION';
-
-    public const SANS_TVA2 = 'SANS_TVA';
-
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -69,11 +61,7 @@ class VATAccountingCode
             self::TVA_SUR_DEBIT,
             self::TVA_SUR_ENCAISSEMENT,
             self::EXONERATION,
-            self::SANS_TVA,
-            self::TVA_SUR_DEBIT2,
-            self::TVA_SUR_ENCAISSEMENT2,
-            self::EXONERATION2,
-            self::SANS_TVA2
+            self::SANS_TVA
         ];
     }
 }

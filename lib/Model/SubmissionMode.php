@@ -49,12 +49,6 @@ class SubmissionMode
 
     public const DEPOT_PDF_SIGNE_API = 'DEPOT_PDF_SIGNE_API';
 
-    public const SAISIE_API2 = 'SAISIE_API';
-
-    public const DEPOT_PDF_API2 = 'DEPOT_PDF_API';
-
-    public const DEPOT_PDF_SIGNE_API2 = 'DEPOT_PDF_SIGNE_API';
-
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -64,10 +58,7 @@ class SubmissionMode
         return [
             self::SAISIE_API,
             self::DEPOT_PDF_API,
-            self::DEPOT_PDF_SIGNE_API,
-            self::SAISIE_API2,
-            self::DEPOT_PDF_API2,
-            self::DEPOT_PDF_SIGNE_API2
+            self::DEPOT_PDF_SIGNE_API
         ];
     }
 }

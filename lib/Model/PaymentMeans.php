@@ -55,18 +55,6 @@ class PaymentMeans
 
     public const REPORT = 'REPORT';
 
-    public const CHEQUE2 = 'CHEQUE';
-
-    public const PRELEVEMENT2 = 'PRELEVEMENT';
-
-    public const VIREMENT2 = 'VIREMENT';
-
-    public const ESPECE2 = 'ESPECE';
-
-    public const AUTRE2 = 'AUTRE';
-
-    public const REPORT2 = 'REPORT';
-
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -79,13 +67,7 @@ class PaymentMeans
             self::VIREMENT,
             self::ESPECE,
             self::AUTRE,
-            self::REPORT,
-            self::CHEQUE2,
-            self::PRELEVEMENT2,
-            self::VIREMENT2,
-            self::ESPECE2,
-            self::AUTRE2,
-            self::REPORT2
+            self::REPORT
         ];
     }
 }
