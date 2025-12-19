@@ -1,6 +1,6 @@
 <?php
 /**
- * TaskStatusTest
+ * AsyncTaskStatusTest
  *
  * PHP version 8.1
  *
@@ -31,7 +31,7 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * TaskStatusTest Class Doc Comment
+ * AsyncTaskStatusTest Class Doc Comment
  *
  * @category    Class
  * @description Complete description of an async task status.  The &#x60;status&#x60; field indicates the Celery state of the task. When &#x60;status&#x3D;\&quot;SUCCESS\&quot;&#x60;, check &#x60;result.status&#x60; for the business result (\&quot;SUCCESS\&quot; or \&quot;ERROR\&quot;).
@@ -39,7 +39,7 @@ use PHPUnit\Framework\TestCase;
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class TaskStatusTest extends TestCase
+class AsyncTaskStatusTest extends TestCase
 {
 
     /**
@@ -71,9 +71,9 @@ class TaskStatusTest extends TestCase
     }
 
     /**
-     * Test "TaskStatus"
+     * Test "AsyncTaskStatus"
      */
-    public function testTaskStatus()
+    public function testAsyncTaskStatus()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

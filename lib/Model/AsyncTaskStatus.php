@@ -1,6 +1,6 @@
 <?php
 /**
- * TaskStatus
+ * AsyncTaskStatus
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \FactPulse\SDK\ObjectSerializer;
 
 /**
- * TaskStatus Class Doc Comment
+ * AsyncTaskStatus Class Doc Comment
  *
  * @category Class
  * @description Complete description of an async task status.  The &#x60;status&#x60; field indicates the Celery state of the task. When &#x60;status&#x3D;\&quot;SUCCESS\&quot;&#x60;, check &#x60;result.status&#x60; for the business result (\&quot;SUCCESS\&quot; or \&quot;ERROR\&quot;).
@@ -41,7 +41,7 @@ use \FactPulse\SDK\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TaskStatus implements ModelInterface, ArrayAccess, \JsonSerializable
+class AsyncTaskStatus implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class TaskStatus implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'TaskStatus';
+    protected static $openAPIModelName = 'AsyncTaskStatus';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

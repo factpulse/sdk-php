@@ -752,7 +752,7 @@ class InvoiceProcessingApi
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \FactPulse\SDK\Model\TaskStatus|\FactPulse\SDK\Model\HTTPValidationError
+     * @return \FactPulse\SDK\Model\AsyncTaskStatus|\FactPulse\SDK\Model\HTTPValidationError
      */
     public function getTaskStatusApiV1ProcessingTasksTaskIdStatusGet($task_id, string $contentType = self::contentTypes['getTaskStatusApiV1ProcessingTasksTaskIdStatusGet'][0])
     {
@@ -770,7 +770,7 @@ class InvoiceProcessingApi
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \FactPulse\SDK\Model\TaskStatus|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\AsyncTaskStatus|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTaskStatusApiV1ProcessingTasksTaskIdStatusGetWithHttpInfo($task_id, string $contentType = self::contentTypes['getTaskStatusApiV1ProcessingTasksTaskIdStatusGet'][0])
     {
@@ -802,7 +802,7 @@ class InvoiceProcessingApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\FactPulse\SDK\Model\TaskStatus',
+                        '\FactPulse\SDK\Model\AsyncTaskStatus',
                         $request,
                         $response,
                     );
@@ -830,7 +830,7 @@ class InvoiceProcessingApi
             }
 
             return $this->handleResponseWithDataType(
-                '\FactPulse\SDK\Model\TaskStatus',
+                '\FactPulse\SDK\Model\AsyncTaskStatus',
                 $request,
                 $response,
             );
@@ -839,7 +839,7 @@ class InvoiceProcessingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\FactPulse\SDK\Model\TaskStatus',
+                        '\FactPulse\SDK\Model\AsyncTaskStatus',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -893,7 +893,7 @@ class InvoiceProcessingApi
      */
     public function getTaskStatusApiV1ProcessingTasksTaskIdStatusGetAsyncWithHttpInfo($task_id, string $contentType = self::contentTypes['getTaskStatusApiV1ProcessingTasksTaskIdStatusGet'][0])
     {
-        $returnType = '\FactPulse\SDK\Model\TaskStatus';
+        $returnType = '\FactPulse\SDK\Model\AsyncTaskStatus';
         $request = $this->getTaskStatusApiV1ProcessingTasksTaskIdStatusGetRequest($task_id, $contentType);
 
         return $this->client

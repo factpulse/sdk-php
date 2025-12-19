@@ -21,6 +21,7 @@ docs/Model/APIProfile.md
 docs/Model/AcknowledgmentStatus.md
 docs/Model/AllowanceReasonCode.md
 docs/Model/AmountDue.md
+docs/Model/AsyncTaskStatus.md
 docs/Model/BoundingBoxSchema.md
 docs/Model/CeleryStatus.md
 docs/Model/CertificateInfoResponse.md
@@ -106,7 +107,6 @@ docs/Model/SubmitVatAmount.md
 docs/Model/SupplementaryAttachment.md
 docs/Model/Supplier.md
 docs/Model/TaskResponse.md
-docs/Model/TaskStatus.md
 docs/Model/TaxableAmount.md
 docs/Model/TotalGrossAmount.md
 docs/Model/TotalNetAmount.md
@@ -146,6 +146,7 @@ lib/Model/APIProfile.php
 lib/Model/AcknowledgmentStatus.php
 lib/Model/AllowanceReasonCode.php
 lib/Model/AmountDue.php
+lib/Model/AsyncTaskStatus.php
 lib/Model/BoundingBoxSchema.php
 lib/Model/CeleryStatus.php
 lib/Model/CertificateInfoResponse.php
@@ -232,7 +233,6 @@ lib/Model/SubmitVatAmount.php
 lib/Model/SupplementaryAttachment.php
 lib/Model/Supplier.php
 lib/Model/TaskResponse.php
-lib/Model/TaskStatus.php
 lib/Model/TaxableAmount.php
 lib/Model/TotalGrossAmount.php
 lib/Model/TotalNetAmount.php
@@ -269,6 +269,7 @@ test/Model/APIProfileTest.php
 test/Model/AcknowledgmentStatusTest.php
 test/Model/AllowanceReasonCodeTest.php
 test/Model/AmountDueTest.php
+test/Model/AsyncTaskStatusTest.php
 test/Model/BoundingBoxSchemaTest.php
 test/Model/CeleryStatusTest.php
 test/Model/CertificateInfoResponseTest.php
@@ -354,7 +355,6 @@ test/Model/SubmitVatAmountTest.php
 test/Model/SupplementaryAttachmentTest.php
 test/Model/SupplierTest.php
 test/Model/TaskResponseTest.php
-test/Model/TaskStatusTest.php
 test/Model/TaxableAmountTest.php
 test/Model/TotalGrossAmountTest.php
 test/Model/TotalNetAmountTest.php

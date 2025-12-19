@@ -150,7 +150,7 @@ try {
 ## `getTaskStatusApiV1ProcessingTasksTaskIdStatusGet()`
 
 ```php
-getTaskStatusApiV1ProcessingTasksTaskIdStatusGet($task_id): \FactPulse\SDK\Model\TaskStatus
+getTaskStatusApiV1ProcessingTasksTaskIdStatusGet($task_id): \FactPulse\SDK\Model\AsyncTaskStatus
 ```
 
 Get task generation status
@@ -192,7 +192,7 @@ try {
 
 ### Return type
 
-[**\FactPulse\SDK\Model\TaskStatus**](../Model/TaskStatus.md)
+[**\FactPulse\SDK\Model\AsyncTaskStatus**](../Model/AsyncTaskStatus.md)
 
 ### Authorization
 

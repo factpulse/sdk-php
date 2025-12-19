@@ -17,7 +17,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet()`
 
 ```php
-getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet($task_id): \FactPulse\SDK\Model\TaskStatus
+getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet($task_id): \FactPulse\SDK\Model\AsyncTaskStatus
 ```
 
 Get status of an asynchronous verification
@@ -59,7 +59,7 @@ try {
 
 ### Return type
 
-[**\FactPulse\SDK\Model\TaskStatus**](../Model/TaskStatus.md)
+[**\FactPulse\SDK\Model\AsyncTaskStatus**](../Model/AsyncTaskStatus.md)
 
 ### Authorization
 
@@ -77,7 +77,7 @@ try {
 ## `getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet_0()`
 
 ```php
-getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet_0($task_id): \FactPulse\SDK\Model\TaskStatus
+getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet_0($task_id): \FactPulse\SDK\Model\AsyncTaskStatus
 ```
 
 Get status of an asynchronous verification
@@ -119,7 +119,7 @@ try {
 
 ### Return type
 
-[**\FactPulse\SDK\Model\TaskStatus**](../Model/TaskStatus.md)
+[**\FactPulse\SDK\Model\AsyncTaskStatus**](../Model/AsyncTaskStatus.md)
 
 ### Authorization
 

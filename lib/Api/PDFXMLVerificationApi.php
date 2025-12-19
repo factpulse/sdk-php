@@ -150,7 +150,7 @@ class PDFXMLVerificationApi
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \FactPulse\SDK\Model\TaskStatus|\FactPulse\SDK\Model\HTTPValidationError
+     * @return \FactPulse\SDK\Model\AsyncTaskStatus|\FactPulse\SDK\Model\HTTPValidationError
      */
     public function getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet($task_id, string $contentType = self::contentTypes['getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet'][0])
     {
@@ -168,7 +168,7 @@ class PDFXMLVerificationApi
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \FactPulse\SDK\Model\TaskStatus|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\AsyncTaskStatus|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGetWithHttpInfo($task_id, string $contentType = self::contentTypes['getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet'][0])
     {
@@ -200,7 +200,7 @@ class PDFXMLVerificationApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\FactPulse\SDK\Model\TaskStatus',
+                        '\FactPulse\SDK\Model\AsyncTaskStatus',
                         $request,
                         $response,
                     );
@@ -228,7 +228,7 @@ class PDFXMLVerificationApi
             }
 
             return $this->handleResponseWithDataType(
-                '\FactPulse\SDK\Model\TaskStatus',
+                '\FactPulse\SDK\Model\AsyncTaskStatus',
                 $request,
                 $response,
             );
@@ -237,7 +237,7 @@ class PDFXMLVerificationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\FactPulse\SDK\Model\TaskStatus',
+                        '\FactPulse\SDK\Model\AsyncTaskStatus',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -291,7 +291,7 @@ class PDFXMLVerificationApi
      */
     public function getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGetAsyncWithHttpInfo($task_id, string $contentType = self::contentTypes['getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet'][0])
     {
-        $returnType = '\FactPulse\SDK\Model\TaskStatus';
+        $returnType = '\FactPulse\SDK\Model\AsyncTaskStatus';
         $request = $this->getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGetRequest($task_id, $contentType);
 
         return $this->client
@@ -436,7 +436,7 @@ class PDFXMLVerificationApi
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \FactPulse\SDK\Model\TaskStatus|\FactPulse\SDK\Model\HTTPValidationError
+     * @return \FactPulse\SDK\Model\AsyncTaskStatus|\FactPulse\SDK\Model\HTTPValidationError
      */
     public function getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet_0($task_id, string $contentType = self::contentTypes['getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet_0'][0])
     {
@@ -454,7 +454,7 @@ class PDFXMLVerificationApi
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \FactPulse\SDK\Model\TaskStatus|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\AsyncTaskStatus|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet_0WithHttpInfo($task_id, string $contentType = self::contentTypes['getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet_0'][0])
     {
@@ -486,7 +486,7 @@ class PDFXMLVerificationApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\FactPulse\SDK\Model\TaskStatus',
+                        '\FactPulse\SDK\Model\AsyncTaskStatus',
                         $request,
                         $response,
                     );
@@ -514,7 +514,7 @@ class PDFXMLVerificationApi
             }
 
             return $this->handleResponseWithDataType(
-                '\FactPulse\SDK\Model\TaskStatus',
+                '\FactPulse\SDK\Model\AsyncTaskStatus',
                 $request,
                 $response,
             );
@@ -523,7 +523,7 @@ class PDFXMLVerificationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\FactPulse\SDK\Model\TaskStatus',
+                        '\FactPulse\SDK\Model\AsyncTaskStatus',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -577,7 +577,7 @@ class PDFXMLVerificationApi
      */
     public function getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet_0AsyncWithHttpInfo($task_id, string $contentType = self::contentTypes['getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet_0'][0])
     {
-        $returnType = '\FactPulse\SDK\Model\TaskStatus';
+        $returnType = '\FactPulse\SDK\Model\AsyncTaskStatus';
         $request = $this->getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet_0Request($task_id, $contentType);
 
         return $this->client
