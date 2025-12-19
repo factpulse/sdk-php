@@ -11,9 +11,9 @@ Name | Type | Description | Notes
 **structure_id** | **int** | Chorus Pro recipient structure ID |
 **service_code** | **string** |  | [optional]
 **engagement_number** | **string** |  | [optional]
-**total_net_amount** | [**\FactPulse\SDK\Model\TotalNetAmount**](TotalNetAmount.md) |  |
-**vat_amount** | [**\FactPulse\SDK\Model\VatAmount**](VatAmount.md) |  |
-**total_gross_amount** | [**\FactPulse\SDK\Model\TotalGrossAmount**](TotalGrossAmount.md) |  |
+**total_net_amount** | [**\FactPulse\SDK\Model\SubmitNetAmount**](SubmitNetAmount.md) |  |
+**vat_amount** | [**\FactPulse\SDK\Model\SubmitVatAmount**](SubmitVatAmount.md) |  |
+**total_gross_amount** | [**\FactPulse\SDK\Model\SubmitGrossAmount**](SubmitGrossAmount.md) |  |
 **main_attachment_id** | **int** |  | [optional]
 **main_attachment_label** | **string** |  | [optional]
 **comment** | **string** |  | [optional]

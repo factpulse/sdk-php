@@ -98,8 +98,11 @@ docs/Model/SubmitCompleteInvoiceRequest.md
 docs/Model/SubmitCompleteInvoiceResponse.md
 docs/Model/SubmitFlowRequest.md
 docs/Model/SubmitFlowResponse.md
+docs/Model/SubmitGrossAmount.md
 docs/Model/SubmitInvoiceRequest.md
 docs/Model/SubmitInvoiceResponse.md
+docs/Model/SubmitNetAmount.md
+docs/Model/SubmitVatAmount.md
 docs/Model/SupplementaryAttachment.md
 docs/Model/Supplier.md
 docs/Model/TaskResponse.md
@@ -119,7 +122,6 @@ docs/Model/ValidationErrorDetail.md
 docs/Model/ValidationErrorLocInner.md
 docs/Model/ValidationErrorResponse.md
 docs/Model/ValidationSuccessResponse.md
-docs/Model/VatAmount.md
 docs/Model/VerificationSuccessResponse.md
 docs/Model/VerifiedFieldSchema.md
 git_push.sh
@@ -222,8 +224,11 @@ lib/Model/SubmitCompleteInvoiceRequest.php
 lib/Model/SubmitCompleteInvoiceResponse.php
 lib/Model/SubmitFlowRequest.php
 lib/Model/SubmitFlowResponse.php
+lib/Model/SubmitGrossAmount.php
 lib/Model/SubmitInvoiceRequest.php
 lib/Model/SubmitInvoiceResponse.php
+lib/Model/SubmitNetAmount.php
+lib/Model/SubmitVatAmount.php
 lib/Model/SupplementaryAttachment.php
 lib/Model/Supplier.php
 lib/Model/TaskResponse.php
@@ -243,7 +248,6 @@ lib/Model/ValidationErrorDetail.php
 lib/Model/ValidationErrorLocInner.php
 lib/Model/ValidationErrorResponse.php
 lib/Model/ValidationSuccessResponse.php
-lib/Model/VatAmount.php
 lib/Model/VerificationSuccessResponse.php
 lib/Model/VerifiedFieldSchema.php
 lib/ObjectSerializer.php
@@ -342,8 +346,11 @@ test/Model/SubmitCompleteInvoiceRequestTest.php
 test/Model/SubmitCompleteInvoiceResponseTest.php
 test/Model/SubmitFlowRequestTest.php
 test/Model/SubmitFlowResponseTest.php
+test/Model/SubmitGrossAmountTest.php
 test/Model/SubmitInvoiceRequestTest.php
 test/Model/SubmitInvoiceResponseTest.php
+test/Model/SubmitNetAmountTest.php
+test/Model/SubmitVatAmountTest.php
 test/Model/SupplementaryAttachmentTest.php
 test/Model/SupplierTest.php
 test/Model/TaskResponseTest.php
@@ -363,6 +370,5 @@ test/Model/ValidationErrorLocInnerTest.php
 test/Model/ValidationErrorResponseTest.php
 test/Model/ValidationErrorTest.php
 test/Model/ValidationSuccessResponseTest.php
-test/Model/VatAmountTest.php
 test/Model/VerificationSuccessResponseTest.php
 test/Model/VerifiedFieldSchemaTest.php

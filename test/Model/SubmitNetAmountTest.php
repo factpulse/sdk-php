@@ -1,6 +1,6 @@
 <?php
 /**
- * VatAmountTest
+ * SubmitNetAmountTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * VatAmountTest Class Doc Comment
+ * SubmitNetAmountTest Class Doc Comment
  *
  * @category    Class
- * @description VAT amount
+ * @description Total net amount
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class VatAmountTest extends TestCase
+class SubmitNetAmountTest extends TestCase
 {
 
     /**
@@ -71,9 +71,9 @@ class VatAmountTest extends TestCase
     }
 
     /**
-     * Test "VatAmount"
+     * Test "SubmitNetAmount"
      */
-    public function testVatAmount()
+    public function testSubmitNetAmount()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

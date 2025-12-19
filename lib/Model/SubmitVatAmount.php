@@ -1,6 +1,6 @@
 <?php
 /**
- * VatAmount
+ * SubmitVatAmount
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \FactPulse\SDK\ObjectSerializer;
 
 /**
- * VatAmount Class Doc Comment
+ * SubmitVatAmount Class Doc Comment
  *
  * @category Class
  * @description VAT amount
@@ -41,7 +41,7 @@ use \FactPulse\SDK\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class VatAmount implements ModelInterface, ArrayAccess, \JsonSerializable
+class SubmitVatAmount implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class VatAmount implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Vat_Amount';
+    protected static $openAPIModelName = 'SubmitVatAmount';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

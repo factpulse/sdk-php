@@ -65,9 +65,9 @@ class SubmitInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'structure_id' => 'int',
         'service_code' => 'string',
         'engagement_number' => 'string',
-        'total_net_amount' => '\FactPulse\SDK\Model\TotalNetAmount',
-        'vat_amount' => '\FactPulse\SDK\Model\VatAmount',
-        'total_gross_amount' => '\FactPulse\SDK\Model\TotalGrossAmount',
+        'total_net_amount' => '\FactPulse\SDK\Model\SubmitNetAmount',
+        'vat_amount' => '\FactPulse\SDK\Model\SubmitVatAmount',
+        'total_gross_amount' => '\FactPulse\SDK\Model\SubmitGrossAmount',
         'main_attachment_id' => 'int',
         'main_attachment_label' => 'string',
         'comment' => 'string',
@@ -626,7 +626,7 @@ class SubmitInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets total_net_amount
      *
-     * @return \FactPulse\SDK\Model\TotalNetAmount
+     * @return \FactPulse\SDK\Model\SubmitNetAmount
      */
     public function getTotalNetAmount()
     {
@@ -636,7 +636,7 @@ class SubmitInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets total_net_amount
      *
-     * @param \FactPulse\SDK\Model\TotalNetAmount $total_net_amount total_net_amount
+     * @param \FactPulse\SDK\Model\SubmitNetAmount $total_net_amount total_net_amount
      *
      * @return self
      */
@@ -653,7 +653,7 @@ class SubmitInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets vat_amount
      *
-     * @return \FactPulse\SDK\Model\VatAmount
+     * @return \FactPulse\SDK\Model\SubmitVatAmount
      */
     public function getVatAmount()
     {
@@ -663,7 +663,7 @@ class SubmitInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets vat_amount
      *
-     * @param \FactPulse\SDK\Model\VatAmount $vat_amount vat_amount
+     * @param \FactPulse\SDK\Model\SubmitVatAmount $vat_amount vat_amount
      *
      * @return self
      */
@@ -680,7 +680,7 @@ class SubmitInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets total_gross_amount
      *
-     * @return \FactPulse\SDK\Model\TotalGrossAmount
+     * @return \FactPulse\SDK\Model\SubmitGrossAmount
      */
     public function getTotalGrossAmount()
     {
@@ -690,7 +690,7 @@ class SubmitInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets total_gross_amount
      *
-     * @param \FactPulse\SDK\Model\TotalGrossAmount $total_gross_amount total_gross_amount
+     * @param \FactPulse\SDK\Model\SubmitGrossAmount $total_gross_amount total_gross_amount
      *
      * @return self
      */

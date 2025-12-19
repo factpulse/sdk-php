@@ -1,4 +1,4 @@
-# # VatAmount
+# # SubmitNetAmount
 
 ## Properties
 
