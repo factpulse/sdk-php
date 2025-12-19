@@ -56,54 +56,54 @@ function amount($value): string {
     return is_string($value) ? $value : '0.00';
 }
 
-function invoiceTotals($ht, $tva, $ttc, $aPayer, $remiseTtc = null, ?string $motifRemise = null, $acompte = null): array {
-    $result = ['montantHtTotal' => amount($ht), 'montantTva' => amount($tva), 'montantTtcTotal' => amount($ttc), 'montantAPayer' => amount($aPayer)];
-    if ($remiseTtc !== null) $result['montantRemiseGlobaleTtc'] = amount($remiseTtc);
-    if ($motifRemise !== null) $result['motifRemiseGlobaleTtc'] = $motifRemise;
-    if ($acompte !== null) $result['acompte'] = amount($acompte);
+function invoiceTotals($totalNetAmount, $vatAmount, $totalGrossAmount, $amountDue, $globalAllowanceAmount = null, ?string $globalAllowanceReason = null, $prepayment = null): array {
+    $result = ['totalNetAmount' => amount($totalNetAmount), 'vatAmount' => amount($vatAmount), 'totalGrossAmount' => amount($totalGrossAmount), 'amountDue' => amount($amountDue)];
+    if ($globalAllowanceAmount !== null) $result['globalAllowanceAmount'] = amount($globalAllowanceAmount);
+    if ($globalAllowanceReason !== null) $result['globalAllowanceReason'] = $globalAllowanceReason;
+    if ($prepayment !== null) $result['prepayment'] = amount($prepayment);
     return $result;
 }
 
-/** Creates an invoice line (aligned with LigneDePoste from models.py).
- * For VAT rate: either tauxTva (code) or tauxTvaManuel (value) in $options */
-function invoiceLine(int $numero, string $denomination, $quantite, $montantUnitaireHt, $montantTotalLigneHt,
-    string $categorieTva = 'S', string $unite = 'FORFAIT', array $options = []): array {
-    $result = ['numero' => $numero, 'denomination' => $denomination, 'quantite' => amount($quantite),
-        'montantUnitaireHt' => amount($montantUnitaireHt), 'montantTotalLigneHt' => amount($montantTotalLigneHt),
-        'categorieTva' => $categorieTva, 'unite' => $unite];
-    // Either tauxTva (code) or tauxTvaManuel (value)
-    if (isset($options['tauxTva'])) $result['tauxTva'] = $options['tauxTva'];
-    else $result['tauxTvaManuel'] = amount($options['tauxTvaManuel'] ?? '20.00');
+/** Creates an invoice line (aligned with InvoiceLine from models.py).
+ * For VAT rate: either vatRate (code) or manualVatRate (value) in $options */
+function invoiceLine(int $lineNumber, string $itemName, $quantity, $unitNetPrice, $lineNetAmount,
+    string $vatCategory = 'S', string $unit = 'FORFAIT', array $options = []): array {
+    $result = ['lineNumber' => $lineNumber, 'itemName' => $itemName, 'quantity' => amount($quantity),
+        'unitNetPrice' => amount($unitNetPrice), 'lineNetAmount' => amount($lineNetAmount),
+        'vatCategory' => $vatCategory, 'unit' => $unit];
+    // Either vatRate (code) or manualVatRate (value)
+    if (isset($options['vatRate'])) $result['vatRate'] = $options['vatRate'];
+    else $result['manualVatRate'] = amount($options['manualVatRate'] ?? '20.00');
     if (isset($options['reference'])) $result['reference'] = $options['reference'];
-    if (isset($options['montantRemiseHt'])) $result['montantRemiseHt'] = amount($options['montantRemiseHt']);
-    if (isset($options['codeRaisonReduction'])) $result['codeRaisonReduction'] = $options['codeRaisonReduction'];
-    if (isset($options['raisonReduction'])) $result['raisonReduction'] = $options['raisonReduction'];
-    if (isset($options['dateDebutPeriode'])) $result['dateDebutPeriode'] = $options['dateDebutPeriode'];
-    if (isset($options['dateFinPeriode'])) $result['dateFinPeriode'] = $options['dateFinPeriode'];
+    if (isset($options['lineAllowanceAmount'])) $result['lineAllowanceAmount'] = amount($options['lineAllowanceAmount']);
+    if (isset($options['allowanceReasonCode'])) $result['allowanceReasonCode'] = $options['allowanceReasonCode'];
+    if (isset($options['allowanceReason'])) $result['allowanceReason'] = $options['allowanceReason'];
+    if (isset($options['periodStartDate'])) $result['periodStartDate'] = $options['periodStartDate'];
+    if (isset($options['periodEndDate'])) $result['periodEndDate'] = $options['periodEndDate'];
     return $result;
 }
 
-/** Creates a VAT line (aligned with LigneDeTVA from models.py).
- * For rate: either taux (code) or tauxManuel (value) in $options */
-function vatLine($montantBaseHt, $montantTva, string $categorie = 'S', array $options = []): array {
-    $result = ['montantBaseHt' => amount($montantBaseHt), 'montantTva' => amount($montantTva), 'categorie' => $categorie];
-    // Either taux (code) or tauxManuel (value)
-    if (isset($options['taux'])) $result['taux'] = $options['taux'];
-    else $result['tauxManuel'] = amount($options['tauxManuel'] ?? '20.00');
+/** Creates a VAT line (aligned with VATLine from models.py).
+ * For rate: either rate (code) or manualRate (value) in $options */
+function vatLine($taxableAmount, $vatAmount, string $category = 'S', array $options = []): array {
+    $result = ['taxableAmount' => amount($taxableAmount), 'vatAmount' => amount($vatAmount), 'category' => $category];
+    // Either rate (code) or manualRate (value)
+    if (isset($options['rate'])) $result['rate'] = $options['rate'];
+    else $result['manualRate'] = amount($options['manualRate'] ?? '20.00');
     return $result;
 }
 
 /** Creates a postal address for the FactPulse API. */
-function postalAddress(string $ligne1, string $codePostal, string $ville, string $pays = 'FR', ?string $ligne2 = null, ?string $ligne3 = null): array {
-    $result = ['ligneUn' => $ligne1, 'codePostal' => $codePostal, 'nomVille' => $ville, 'paysCodeIso' => $pays];
-    if ($ligne2 !== null) $result['ligneDeux'] = $ligne2;
-    if ($ligne3 !== null) $result['ligneTrois'] = $ligne3;
+function postalAddress(string $lineOne, string $postalCode, string $city, string $countryCode = 'FR', ?string $lineTwo = null, ?string $lineThree = null): array {
+    $result = ['lineOne' => $lineOne, 'postalCode' => $postalCode, 'city' => $city, 'countryCode' => $countryCode];
+    if ($lineTwo !== null) $result['lineTwo'] = $lineTwo;
+    if ($lineThree !== null) $result['lineThree'] = $lineThree;
     return $result;
 }
 
 /** Creates an electronic address. schemeId: "0009"=SIREN, "0225"=SIRET */
-function electronicAddress(string $identifiant, string $schemeId = '0009'): array {
-    return ['identifiant' => $identifiant, 'schemeId' => $schemeId];
+function electronicAddress(string $identifier, string $schemeId = '0009'): array {
+    return ['identifier' => $identifier, 'schemeId' => $schemeId];
 }
 
 /** Computes the French intra-EU VAT number from a SIREN. */
@@ -116,17 +116,17 @@ function computeVatNumber(string $siren): ?string {
 /** Creates a supplier (sender) with auto-computed SIREN, intra-EU VAT and addresses. */
 function supplier(string $nom, string $siret, string $adresseLigne1, string $codePostal, string $ville, array $options = []): array {
     $siren = $options['siren'] ?? (strlen($siret) === 14 ? substr($siret, 0, 9) : null);
-    $numeroTvaIntra = $options['numeroTvaIntra'] ?? ($siren ? computeVatNumber($siren) : null);
+    $vatNumber = $options['vatNumber'] ?? ($siren ? computeVatNumber($siren) : null);
     $result = [
-        'nom' => $nom, 'idFournisseur' => $options['idFournisseur'] ?? 0, 'siret' => $siret,
-        'adresseElectronique' => electronicAddress($siret, '0225'),
-        'adressePostale' => postalAddress($adresseLigne1, $codePostal, $ville, $options['pays'] ?? 'FR', $options['adresseLigne2'] ?? null),
+        'name' => $nom, 'supplierId' => $options['supplierId'] ?? 0, 'siret' => $siret,
+        'electronicAddress' => electronicAddress($siret, '0225'),
+        'postalAddress' => postalAddress($adresseLigne1, $codePostal, $ville, $options['pays'] ?? 'FR', $options['adresseLigne2'] ?? null),
     ];
     if ($siren) $result['siren'] = $siren;
-    if ($numeroTvaIntra) $result['numeroTvaIntra'] = $numeroTvaIntra;
+    if ($vatNumber) $result['vatNumber'] = $vatNumber;
     if (isset($options['iban'])) $result['iban'] = $options['iban'];
-    if (isset($options['codeService'])) $result['idServiceFournisseur'] = $options['codeService'];
-    if (isset($options['codeCoordonnesBancaires'])) $result['codeCoordonnesBancairesFournisseur'] = $options['codeCoordonnesBancaires'];
+    if (isset($options['supplierServiceId'])) $result['supplierServiceId'] = $options['supplierServiceId'];
+    if (isset($options['supplierBankDetailsCode'])) $result['supplierBankDetailsCode'] = $options['supplierBankDetailsCode'];
     return $result;
 }
 
@@ -134,12 +134,12 @@ function supplier(string $nom, string $siret, string $adresseLigne1, string $cod
 function recipient(string $nom, string $siret, string $adresseLigne1, string $codePostal, string $ville, array $options = []): array {
     $siren = $options['siren'] ?? (strlen($siret) === 14 ? substr($siret, 0, 9) : null);
     $result = [
-        'nom' => $nom, 'siret' => $siret,
-        'adresseElectronique' => electronicAddress($siret, '0225'),
-        'adressePostale' => postalAddress($adresseLigne1, $codePostal, $ville, $options['pays'] ?? 'FR', $options['adresseLigne2'] ?? null),
+        'name' => $nom, 'siret' => $siret,
+        'electronicAddress' => electronicAddress($siret, '0225'),
+        'postalAddress' => postalAddress($adresseLigne1, $codePostal, $ville, $options['pays'] ?? 'FR', $options['adresseLigne2'] ?? null),
     ];
     if ($siren) $result['siren'] = $siren;
-    if (isset($options['codeServiceExecutant'])) $result['codeServiceExecutant'] = $options['codeServiceExecutant'];
+    if (isset($options['executingServiceCode'])) $result['executingServiceCode'] = $options['executingServiceCode'];
     return $result;
 }
 
@@ -170,7 +170,7 @@ function payee(string $nom, array $options = []): array {
     $siret = $options['siret'] ?? null;
     $siren = $options['siren'] ?? ($siret && strlen($siret) === 14 ? substr($siret, 0, 9) : null);
 
-    $result = ['nom' => $nom];
+    $result = ['name' => $nom];
     if ($siret) $result['siret'] = $siret;
     if ($siren) $result['siren'] = $siren;
     if (isset($options['iban'])) $result['iban'] = $options['iban'];
@@ -249,8 +249,8 @@ class FactPulseClient {
         }
     }
 
-    public function generateFacturx($factureData, string $pdfPath, string $profil = 'EN16931', string $formatSortie = 'pdf', bool $sync = true, ?int $timeout = null): string {
-        $jsonData = is_string($factureData) ? $factureData : json_encode($factureData);
+    public function generateFacturx($invoiceData, string $pdfPath, string $profile = 'EN16931', string $outputFormat = 'pdf', bool $sync = true, ?int $timeout = null): string {
+        $jsonData = is_string($invoiceData) ? $invoiceData : json_encode($invoiceData);
         for ($attempt = 0; $attempt <= $this->maxRetries; $attempt++) {
             $this->ensureAuthenticated();
             try {
@@ -258,7 +258,7 @@ class FactPulseClient {
                     'headers' => ['Authorization' => 'Bearer ' . $this->accessToken],
                     'multipart' => [
                         ['name' => 'invoice_data', 'contents' => $jsonData],
-                        ['name' => 'profile', 'contents' => $profil], ['name' => 'output_format', 'contents' => $formatSortie],
+                        ['name' => 'profile', 'contents' => $profile], ['name' => 'output_format', 'contents' => $outputFormat],
                         ['name' => 'source_pdf', 'contents' => fopen($pdfPath, 'r'), 'filename' => basename($pdfPath)],
                     ],
                 ]);
@@ -266,7 +266,7 @@ class FactPulseClient {
                 if (!$taskId) throw new FactPulseValidationException("No task ID");
                 if (!$sync) return $taskId;
                 $result = $this->pollTask($taskId, $timeout);
-                return isset($result['contenu_b64']) ? base64_decode($result['contenu_b64']) : throw new FactPulseValidationException("No content");
+                return isset($result['content_b64']) ? base64_decode($result['content_b64']) : throw new FactPulseValidationException("No content");
             } catch (GuzzleException $e) {
                 if ($e->getCode() === 401 && $attempt < $this->maxRetries) { $this->resetAuth(); continue; }
 
@@ -512,40 +512,40 @@ class FactPulseClient {
     }
 
     /**
-     * Consulte les détails d'une structure Chorus Pro.
+     * Looks up a Chorus Pro structure's details.
      */
-    public function consulterStructureChorus(int $idStructureCpp): array {
-        return $this->makeChorusRequest('POST', '/structures/consulter', ['id_structure_cpp' => $idStructureCpp]);
+    public function lookupStructureChorus(int $structureIdCpp): array {
+        return $this->makeChorusRequest('POST', '/structures/consulter', ['id_structure_cpp' => $structureIdCpp]);
     }
 
     /**
-     * Obtient l'ID Chorus Pro d'une structure depuis son SIRET.
+     * Gets the Chorus Pro ID for a structure from its SIRET.
      */
-    public function obtenirIdChorusDepuisSiret(string $siret, string $typeIdentifiant = 'SIRET'): array {
+    public function getChorusIdFromSiret(string $siret, string $identifierType = 'SIRET'): array {
         return $this->makeChorusRequest('POST', '/structures/obtenir-id-depuis-siret', [
-            'siret' => $siret, 'type_identifiant' => $typeIdentifiant,
+            'siret' => $siret, 'type_identifiant' => $identifierType,
         ]);
     }
 
     /**
-     * Liste les services d'une structure Chorus Pro.
+     * Lists services of a Chorus Pro structure.
      */
-    public function listerServicesStructureChorus(int $idStructureCpp): array {
-        return $this->makeChorusRequest('GET', "/structures/{$idStructureCpp}/services");
+    public function listStructureServicesChorus(int $structureIdCpp): array {
+        return $this->makeChorusRequest('GET', "/structures/{$structureIdCpp}/services");
     }
 
     /**
-     * Soumet une facture à Chorus Pro.
+     * Submits an invoice to Chorus Pro.
      */
-    public function soumettreFactureChorus(array $factureData): array {
-        return $this->makeChorusRequest('POST', '/factures/soumettre', $factureData);
+    public function submitInvoiceChorus(array $invoiceData): array {
+        return $this->makeChorusRequest('POST', '/factures/soumettre', $invoiceData);
     }
 
     /**
-     * Consulte le statut d'une facture Chorus Pro.
+     * Looks up the status of a Chorus Pro invoice.
      */
-    public function consulterFactureChorus(int $identifiantFactureCpp): array {
-        return $this->makeChorusRequest('POST', '/factures/consulter', ['identifiant_facture_cpp' => $identifiantFactureCpp]);
+    public function lookupInvoiceChorus(int $invoiceIdCpp): array {
+        return $this->makeChorusRequest('POST', '/factures/consulter', ['identifiant_facture_cpp' => $invoiceIdCpp]);
     }
 
     // =========================================================================
@@ -555,18 +555,18 @@ class FactPulseClient {
     /**
      * Validates a Factur-X PDF.
      * @param string $pdfPath Path to the PDF file
-     * @param string|null $profil Factur-X profile (MINIMUM, BASIC, EN16931, EXTENDED). If null, auto-detected.
+     * @param string|null $profile Factur-X profile (MINIMUM, BASIC, EN16931, EXTENDED). If null, auto-detected.
      * @param bool $useVerapdf Enables strict PDF/A validation with VeraPDF (default: false)
      */
-    public function validateFacturxPdf(string $pdfPath, ?string $profil = null, bool $useVerapdf = false): array {
+    public function validateFacturxPdf(string $pdfPath, ?string $profile = null, bool $useVerapdf = false): array {
         $this->ensureAuthenticated();
         try {
             $multipart = [
                 ['name' => 'pdf_file', 'contents' => fopen($pdfPath, 'r'), 'filename' => basename($pdfPath)],
                 ['name' => 'use_verapdf', 'contents' => $useVerapdf ? 'true' : 'false'],
             ];
-            if ($profil !== null) {
-                $multipart[] = ['name' => 'profile', 'contents' => $profil];
+            if ($profile !== null) {
+                $multipart[] = ['name' => 'profile', 'contents' => $profile];
             }
             $response = $this->httpClient->post($this->apiUrl . '/api/v1/processing/validate-facturx-pdf', [
                 'headers' => ['Authorization' => 'Bearer ' . $this->accessToken],
@@ -581,14 +581,14 @@ class FactPulseClient {
     /**
      * Validates a Factur-X XML.
      */
-    public function validateFacturxXml(string $xmlContent, string $profil = 'EN16931'): array {
+    public function validateFacturxXml(string $xmlContent, string $profile = 'EN16931'): array {
         $this->ensureAuthenticated();
         try {
             $response = $this->httpClient->post($this->apiUrl . '/api/v1/processing/validate-xml', [
                 'headers' => ['Authorization' => 'Bearer ' . $this->accessToken],
                 'multipart' => [
-                    ['name' => 'xml_file', 'contents' => $xmlContent, 'filename' => 'facture.xml'],
-                    ['name' => 'profile', 'contents' => $profil],
+                    ['name' => 'xml_file', 'contents' => $xmlContent, 'filename' => 'invoice.xml'],
+                    ['name' => 'profile', 'contents' => $profile],
                 ],
             ]);
             return json_decode($response->getBody()->getContents(), true) ?? [];
@@ -677,8 +677,8 @@ class FactPulseClient {
     /**
      * Generates a complete Factur-X PDF with optional validation, signing and submission.
      */
-    public function generateCompleteFacturx(array $facture, string $pdfSourcePath, array $options = []): array {
-        $profil = $options['profil'] ?? 'EN16931';
+    public function generateCompleteFacturx(array $invoice, string $pdfSourcePath, array $options = []): array {
+        $profile = $options['profile'] ?? 'EN16931';
         $validate = $options['validate'] ?? true;
         $sign = $options['sign'] ?? false;
         $submitAfnor = $options['submitAfnor'] ?? false;
@@ -687,7 +687,7 @@ class FactPulseClient {
         $result = [];
 
         // 1. Generation
-        $pdfBytes = $this->generateFacturx($facture, $pdfSourcePath, $profil, 'pdf', true, $timeout);
+        $pdfBytes = $this->generateFacturx($invoice, $pdfSourcePath, $profile, 'pdf', true, $timeout);
         $result['pdfBytes'] = $pdfBytes;
 
         // Create a temporary file for subsequent operations
@@ -697,9 +697,9 @@ class FactPulseClient {
         try {
             // 2. Validation
             if ($validate) {
-                $validation = $this->validateFacturxPdf($tempPath, $profil);
+                $validation = $this->validateFacturxPdf($tempPath, $profile);
                 $result['validation'] = $validation;
-                if (!($validation['est_conforme'] ?? false)) {
+                if (!($validation['is_compliant'] ?? false)) {
                     if (isset($options['outputPath'])) {
                         file_put_contents($options['outputPath'], $pdfBytes);
                         $result['pdfPath'] = $options['outputPath'];
@@ -718,7 +718,7 @@ class FactPulseClient {
 
             // 4. AFNOR submission
             if ($submitAfnor) {
-                $invoiceNumber = $facture['numeroFacture'] ?? $facture['numero_facture'] ?? 'INVOICE';
+                $invoiceNumber = $invoice['invoiceNumber'] ?? $invoice['invoice_number'] ?? 'INVOICE';
                 $flowName = $options['afnorFlowName'] ?? "Invoice {$invoiceNumber}";
                 $trackingId = $options['afnorTrackingId'] ?? $invoiceNumber;
                 $afnorResult = $this->submitInvoiceAfnor($tempPath, $flowName, ['trackingId' => $trackingId]);
