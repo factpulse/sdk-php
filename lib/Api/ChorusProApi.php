@@ -10,9 +10,9 @@
  */
 
 /**
- * API REST FactPulse
+ * FactPulse REST API
  *
- * API REST pour la facturation électronique en France : Factur-X, AFNOR PDP/PA, signatures électroniques.  ## 🎯 Fonctionnalités principales  ### 📄 Génération de factures Factur-X - **Formats** : XML seul ou PDF/A-3 avec XML embarqué - **Profils** : MINIMUM, BASIC, EN16931, EXTENDED - **Normes** : EN 16931 (directive UE 2014/55), ISO 19005-3 (PDF/A-3), CII (UN/CEFACT) - **🆕 Format simplifié** : Génération à partir de SIRET + auto-enrichissement (API Chorus Pro + Recherche Entreprises)  ### ✅ Validation et conformité - **Validation XML** : Schematron (45 à 210+ règles selon profil) - **Validation PDF** : PDF/A-3, métadonnées XMP Factur-X, signatures électroniques - **VeraPDF** : Validation stricte PDF/A (146+ règles ISO 19005-3) - **Traitement asynchrone** : Support Celery pour validations lourdes (VeraPDF)  ### 📡 Intégration AFNOR PDP/PA (XP Z12-013) - **Soumission de flux** : Envoi de factures vers Plateformes de Dématérialisation Partenaires - **Recherche de flux** : Consultation des factures soumises - **Téléchargement** : Récupération des PDF/A-3 avec XML - **Directory Service** : Recherche d'entreprises (SIREN/SIRET) - **Multi-client** : Support de plusieurs configs PDP par utilisateur (stored credentials ou zero-storage)  ### ✍️ Signature électronique PDF - **Standards** : PAdES-B-B, PAdES-B-T (horodatage RFC 3161), PAdES-B-LT (archivage long terme) - **Niveaux eIDAS** : SES (auto-signé), AdES (CA commerciale), QES (PSCO) - **Validation** : Vérification intégrité cryptographique et certificats - **Génération de certificats** : Certificats X.509 auto-signés pour tests  ### 🔄 Traitement asynchrone - **Celery** : Génération, validation et signature asynchrones - **Polling** : Suivi d'état via `/taches/{id_tache}/statut` - **Pas de timeout** : Idéal pour gros fichiers ou validations lourdes  ## 🔒 Authentification  Toutes les requêtes nécessitent un **token JWT** dans le header Authorization : ``` Authorization: Bearer YOUR_JWT_TOKEN ```  ### Comment obtenir un token JWT ?  #### 🔑 Méthode 1 : API `/api/token/` (Recommandée)  **URL :** `https://www.factpulse.fr/api/token/`  Cette méthode est **recommandée** pour l'intégration dans vos applications et workflows CI/CD.  **Prérequis :** Avoir défini un mot de passe sur votre compte  **Pour les utilisateurs inscrits via email/password :** - Vous avez déjà un mot de passe, utilisez-le directement  **Pour les utilisateurs inscrits via OAuth (Google/GitHub) :** - Vous devez d'abord définir un mot de passe sur : https://www.factpulse.fr/accounts/password/set/ - Une fois le mot de passe créé, vous pourrez utiliser l'API  **Exemple de requête :** ```bash curl -X POST https://www.factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"votre_email@example.com\",     \"password\": \"votre_mot_de_passe\"   }' ```  **Paramètre optionnel `client_uid` :**  Pour sélectionner les credentials d'un client spécifique (PA/PDP, Chorus Pro, certificats de signature), ajoutez `client_uid` :  ```bash curl -X POST https://www.factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"votre_email@example.com\",     \"password\": \"votre_mot_de_passe\",     \"client_uid\": \"550e8400-e29b-41d4-a716-446655440000\"   }' ```  Le `client_uid` sera inclus dans le JWT et permettra à l'API d'utiliser automatiquement : - Les credentials AFNOR/PDP configurés pour ce client - Les credentials Chorus Pro configurés pour ce client - Les certificats de signature électronique configurés pour ce client  **Réponse :** ```json {   \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\",  // Token d'accès (validité: 30 min)   \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\"  // Token de rafraîchissement (validité: 7 jours) } ```  **Avantages :** - ✅ Automatisation complète (CI/CD, scripts) - ✅ Gestion programmatique des tokens - ✅ Support du refresh token pour renouveler automatiquement l'accès - ✅ Intégration facile dans n'importe quel langage/outil  #### 🖥️ Méthode 2 : Génération via Dashboard (Alternative)  **URL :** https://www.factpulse.fr/dashboard/  Cette méthode convient pour des tests rapides ou une utilisation occasionnelle via l'interface graphique.  **Fonctionnement :** - Connectez-vous au dashboard - Utilisez les boutons \"Generate Test Token\" ou \"Generate Production Token\" - Fonctionne pour **tous** les utilisateurs (OAuth et email/password), sans nécessiter de mot de passe  **Types de tokens :** - **Token Test** : Validité 24h, quota 1000 appels/jour (gratuit) - **Token Production** : Validité 7 jours, quota selon votre forfait  **Avantages :** - ✅ Rapide pour tester l'API - ✅ Aucun mot de passe requis - ✅ Interface visuelle simple  **Inconvénients :** - ❌ Nécessite une action manuelle - ❌ Pas de refresh token - ❌ Moins adapté pour l'automatisation  ### 📚 Documentation complète  Pour plus d'informations sur l'authentification et l'utilisation de l'API : https://www.factpulse.fr/documentation-api/
+ * REST API for electronic invoicing in France: Factur-X, AFNOR PDP/PA, electronic signatures.  ## 🎯 Main Features  ### 📄 Factur-X Invoice Generation - **Formats**: XML only or PDF/A-3 with embedded XML - **Profiles**: MINIMUM, BASIC, EN16931, EXTENDED - **Standards**: EN 16931 (EU directive 2014/55), ISO 19005-3 (PDF/A-3), CII (UN/CEFACT) - **🆕 Simplified Format**: Generation from SIRET + auto-enrichment (Chorus Pro API + Business Search)  ### ✅ Validation and Compliance - **XML Validation**: Schematron (45 to 210+ rules depending on profile) - **PDF Validation**: PDF/A-3, Factur-X XMP metadata, electronic signatures - **VeraPDF**: Strict PDF/A validation (146+ ISO 19005-3 rules) - **Asynchronous Processing**: Celery support for heavy validations (VeraPDF)  ### 📡 AFNOR PDP/PA Integration (XP Z12-013) - **Flow Submission**: Send invoices to Partner Dematerialization Platforms - **Flow Search**: View submitted invoices - **Download**: Retrieve PDF/A-3 with XML - **Directory Service**: Company search (SIREN/SIRET) - **Multi-client**: Support for multiple PDP configs per user (stored credentials or zero-storage)  ### ✍️ PDF Electronic Signature - **Standards**: PAdES-B-B, PAdES-B-T (RFC 3161 timestamping), PAdES-B-LT (long-term archival) - **eIDAS Levels**: SES (self-signed), AdES (commercial CA), QES (QTSP) - **Validation**: Cryptographic integrity and certificate verification - **Certificate Generation**: Self-signed X.509 certificates for testing  ### 🔄 Asynchronous Processing - **Celery**: Asynchronous generation, validation and signing - **Polling**: Status tracking via `/tasks/{task_id}/status` - **No timeout**: Ideal for large files or heavy validations  ## 🔒 Authentication  All requests require a **JWT token** in the Authorization header: ``` Authorization: Bearer YOUR_JWT_TOKEN ```  ### How to obtain a JWT token?  #### 🔑 Method 1: `/api/token/` API (Recommended)  **URL:** `https://www.factpulse.fr/api/token/`  This method is **recommended** for integration in your applications and CI/CD workflows.  **Prerequisites:** Having set a password on your account  **For users registered via email/password:** - You already have a password, use it directly  **For users registered via OAuth (Google/GitHub):** - You must first set a password at: https://www.factpulse.fr/accounts/password/set/ - Once the password is created, you can use the API  **Request example:** ```bash curl -X POST https://www.factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"your_email@example.com\",     \"password\": \"your_password\"   }' ```  **Optional `client_uid` parameter:**  To select credentials for a specific client (PA/PDP, Chorus Pro, signing certificates), add `client_uid`:  ```bash curl -X POST https://www.factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"your_email@example.com\",     \"password\": \"your_password\",     \"client_uid\": \"550e8400-e29b-41d4-a716-446655440000\"   }' ```  The `client_uid` will be included in the JWT and allow the API to automatically use: - AFNOR/PDP credentials configured for this client - Chorus Pro credentials configured for this client - Electronic signature certificates configured for this client  **Response:** ```json {   \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\",  // Access token (validity: 30 min)   \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\"  // Refresh token (validity: 7 days) } ```  **Advantages:** - ✅ Full automation (CI/CD, scripts) - ✅ Programmatic token management - ✅ Refresh token support for automatic access renewal - ✅ Easy integration in any language/tool  #### 🖥️ Method 2: Dashboard Generation (Alternative)  **URL:** https://www.factpulse.fr/dashboard/  This method is suitable for quick tests or occasional use via the graphical interface.  **How it works:** - Log in to the dashboard - Use the \"Generate Test Token\" or \"Generate Production Token\" buttons - Works for **all** users (OAuth and email/password), without requiring a password  **Token types:** - **Test Token**: 24h validity, 1000 calls/day quota (free) - **Production Token**: 7 days validity, quota based on your plan  **Advantages:** - ✅ Quick for API testing - ✅ No password required - ✅ Simple visual interface  **Disadvantages:** - ❌ Requires manual action - ❌ No refresh token - ❌ Less suited for automation  ### 📚 Full Documentation  For more information on authentication and API usage: https://www.factpulse.fr/documentation-api/
  *
  * The version of the OpenAPI document: 1.0.0
  * Generated by: https://openapi-generator.tech
@@ -173,7 +173,7 @@ class ChorusProApi
     /**
      * Operation ajouterFichierApiV1ChorusProTransversesAjouterFichierPost
      *
-     * Ajouter une pièce jointe
+     * Add an attachment
      *
      * @param  array<string,mixed> $request_body request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ajouterFichierApiV1ChorusProTransversesAjouterFichierPost'] to see the possible values for this operation
@@ -191,7 +191,7 @@ class ChorusProApi
     /**
      * Operation ajouterFichierApiV1ChorusProTransversesAjouterFichierPostWithHttpInfo
      *
-     * Ajouter une pièce jointe
+     * Add an attachment
      *
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ajouterFichierApiV1ChorusProTransversesAjouterFichierPost'] to see the possible values for this operation
@@ -290,7 +290,7 @@ class ChorusProApi
     /**
      * Operation ajouterFichierApiV1ChorusProTransversesAjouterFichierPostAsync
      *
-     * Ajouter une pièce jointe
+     * Add an attachment
      *
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ajouterFichierApiV1ChorusProTransversesAjouterFichierPost'] to see the possible values for this operation
@@ -311,7 +311,7 @@ class ChorusProApi
     /**
      * Operation ajouterFichierApiV1ChorusProTransversesAjouterFichierPostAsyncWithHttpInfo
      *
-     * Ajouter une pièce jointe
+     * Add an attachment
      *
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ajouterFichierApiV1ChorusProTransversesAjouterFichierPost'] to see the possible values for this operation
@@ -458,7 +458,7 @@ class ChorusProApi
     /**
      * Operation completerFactureApiV1ChorusProFacturesCompleterPost
      *
-     * Compléter une facture suspendue (Fournisseur)
+     * Complete a suspended invoice (Supplier)
      *
      * @param  array<string,mixed> $request_body request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['completerFactureApiV1ChorusProFacturesCompleterPost'] to see the possible values for this operation
@@ -476,7 +476,7 @@ class ChorusProApi
     /**
      * Operation completerFactureApiV1ChorusProFacturesCompleterPostWithHttpInfo
      *
-     * Compléter une facture suspendue (Fournisseur)
+     * Complete a suspended invoice (Supplier)
      *
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['completerFactureApiV1ChorusProFacturesCompleterPost'] to see the possible values for this operation
@@ -575,7 +575,7 @@ class ChorusProApi
     /**
      * Operation completerFactureApiV1ChorusProFacturesCompleterPostAsync
      *
-     * Compléter une facture suspendue (Fournisseur)
+     * Complete a suspended invoice (Supplier)
      *
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['completerFactureApiV1ChorusProFacturesCompleterPost'] to see the possible values for this operation
@@ -596,7 +596,7 @@ class ChorusProApi
     /**
      * Operation completerFactureApiV1ChorusProFacturesCompleterPostAsyncWithHttpInfo
      *
-     * Compléter une facture suspendue (Fournisseur)
+     * Complete a suspended invoice (Supplier)
      *
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['completerFactureApiV1ChorusProFacturesCompleterPost'] to see the possible values for this operation
@@ -743,36 +743,36 @@ class ChorusProApi
     /**
      * Operation consulterFactureApiV1ChorusProFacturesConsulterPost
      *
-     * Consulter le statut d&#39;une facture
+     * Consult invoice status
      *
-     * @param  \FactPulse\SDK\Model\ConsulterFactureRequest $consulter_facture_request consulter_facture_request (required)
+     * @param  \FactPulse\SDK\Model\GetInvoiceRequest $get_invoice_request get_invoice_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consulterFactureApiV1ChorusProFacturesConsulterPost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \FactPulse\SDK\Model\ConsulterFactureResponse|\FactPulse\SDK\Model\HTTPValidationError
+     * @return \FactPulse\SDK\Model\GetInvoiceResponse|\FactPulse\SDK\Model\HTTPValidationError
      */
-    public function consulterFactureApiV1ChorusProFacturesConsulterPost($consulter_facture_request, string $contentType = self::contentTypes['consulterFactureApiV1ChorusProFacturesConsulterPost'][0])
+    public function consulterFactureApiV1ChorusProFacturesConsulterPost($get_invoice_request, string $contentType = self::contentTypes['consulterFactureApiV1ChorusProFacturesConsulterPost'][0])
     {
-        list($response) = $this->consulterFactureApiV1ChorusProFacturesConsulterPostWithHttpInfo($consulter_facture_request, $contentType);
+        list($response) = $this->consulterFactureApiV1ChorusProFacturesConsulterPostWithHttpInfo($get_invoice_request, $contentType);
         return $response;
     }
 
     /**
      * Operation consulterFactureApiV1ChorusProFacturesConsulterPostWithHttpInfo
      *
-     * Consulter le statut d&#39;une facture
+     * Consult invoice status
      *
-     * @param  \FactPulse\SDK\Model\ConsulterFactureRequest $consulter_facture_request (required)
+     * @param  \FactPulse\SDK\Model\GetInvoiceRequest $get_invoice_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consulterFactureApiV1ChorusProFacturesConsulterPost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \FactPulse\SDK\Model\ConsulterFactureResponse|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\GetInvoiceResponse|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function consulterFactureApiV1ChorusProFacturesConsulterPostWithHttpInfo($consulter_facture_request, string $contentType = self::contentTypes['consulterFactureApiV1ChorusProFacturesConsulterPost'][0])
+    public function consulterFactureApiV1ChorusProFacturesConsulterPostWithHttpInfo($get_invoice_request, string $contentType = self::contentTypes['consulterFactureApiV1ChorusProFacturesConsulterPost'][0])
     {
-        $request = $this->consulterFactureApiV1ChorusProFacturesConsulterPostRequest($consulter_facture_request, $contentType);
+        $request = $this->consulterFactureApiV1ChorusProFacturesConsulterPostRequest($get_invoice_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -800,7 +800,7 @@ class ChorusProApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\FactPulse\SDK\Model\ConsulterFactureResponse',
+                        '\FactPulse\SDK\Model\GetInvoiceResponse',
                         $request,
                         $response,
                     );
@@ -828,7 +828,7 @@ class ChorusProApi
             }
 
             return $this->handleResponseWithDataType(
-                '\FactPulse\SDK\Model\ConsulterFactureResponse',
+                '\FactPulse\SDK\Model\GetInvoiceResponse',
                 $request,
                 $response,
             );
@@ -837,7 +837,7 @@ class ChorusProApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\FactPulse\SDK\Model\ConsulterFactureResponse',
+                        '\FactPulse\SDK\Model\GetInvoiceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -860,17 +860,17 @@ class ChorusProApi
     /**
      * Operation consulterFactureApiV1ChorusProFacturesConsulterPostAsync
      *
-     * Consulter le statut d&#39;une facture
+     * Consult invoice status
      *
-     * @param  \FactPulse\SDK\Model\ConsulterFactureRequest $consulter_facture_request (required)
+     * @param  \FactPulse\SDK\Model\GetInvoiceRequest $get_invoice_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consulterFactureApiV1ChorusProFacturesConsulterPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function consulterFactureApiV1ChorusProFacturesConsulterPostAsync($consulter_facture_request, string $contentType = self::contentTypes['consulterFactureApiV1ChorusProFacturesConsulterPost'][0])
+    public function consulterFactureApiV1ChorusProFacturesConsulterPostAsync($get_invoice_request, string $contentType = self::contentTypes['consulterFactureApiV1ChorusProFacturesConsulterPost'][0])
     {
-        return $this->consulterFactureApiV1ChorusProFacturesConsulterPostAsyncWithHttpInfo($consulter_facture_request, $contentType)
+        return $this->consulterFactureApiV1ChorusProFacturesConsulterPostAsyncWithHttpInfo($get_invoice_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -881,18 +881,18 @@ class ChorusProApi
     /**
      * Operation consulterFactureApiV1ChorusProFacturesConsulterPostAsyncWithHttpInfo
      *
-     * Consulter le statut d&#39;une facture
+     * Consult invoice status
      *
-     * @param  \FactPulse\SDK\Model\ConsulterFactureRequest $consulter_facture_request (required)
+     * @param  \FactPulse\SDK\Model\GetInvoiceRequest $get_invoice_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consulterFactureApiV1ChorusProFacturesConsulterPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function consulterFactureApiV1ChorusProFacturesConsulterPostAsyncWithHttpInfo($consulter_facture_request, string $contentType = self::contentTypes['consulterFactureApiV1ChorusProFacturesConsulterPost'][0])
+    public function consulterFactureApiV1ChorusProFacturesConsulterPostAsyncWithHttpInfo($get_invoice_request, string $contentType = self::contentTypes['consulterFactureApiV1ChorusProFacturesConsulterPost'][0])
     {
-        $returnType = '\FactPulse\SDK\Model\ConsulterFactureResponse';
-        $request = $this->consulterFactureApiV1ChorusProFacturesConsulterPostRequest($consulter_facture_request, $contentType);
+        $returnType = '\FactPulse\SDK\Model\GetInvoiceResponse';
+        $request = $this->consulterFactureApiV1ChorusProFacturesConsulterPostRequest($get_invoice_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -933,19 +933,19 @@ class ChorusProApi
     /**
      * Create request for operation 'consulterFactureApiV1ChorusProFacturesConsulterPost'
      *
-     * @param  \FactPulse\SDK\Model\ConsulterFactureRequest $consulter_facture_request (required)
+     * @param  \FactPulse\SDK\Model\GetInvoiceRequest $get_invoice_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consulterFactureApiV1ChorusProFacturesConsulterPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function consulterFactureApiV1ChorusProFacturesConsulterPostRequest($consulter_facture_request, string $contentType = self::contentTypes['consulterFactureApiV1ChorusProFacturesConsulterPost'][0])
+    public function consulterFactureApiV1ChorusProFacturesConsulterPostRequest($get_invoice_request, string $contentType = self::contentTypes['consulterFactureApiV1ChorusProFacturesConsulterPost'][0])
     {
 
-        // verify the required parameter 'consulter_facture_request' is set
-        if ($consulter_facture_request === null || (is_array($consulter_facture_request) && count($consulter_facture_request) === 0)) {
+        // verify the required parameter 'get_invoice_request' is set
+        if ($get_invoice_request === null || (is_array($get_invoice_request) && count($get_invoice_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $consulter_facture_request when calling consulterFactureApiV1ChorusProFacturesConsulterPost'
+                'Missing the required parameter $get_invoice_request when calling consulterFactureApiV1ChorusProFacturesConsulterPost'
             );
         }
 
@@ -968,12 +968,12 @@ class ChorusProApi
         );
 
         // for model (json/xml)
-        if (isset($consulter_facture_request)) {
+        if (isset($get_invoice_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($consulter_facture_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($get_invoice_request));
             } else {
-                $httpBody = $consulter_facture_request;
+                $httpBody = $get_invoice_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1028,36 +1028,36 @@ class ChorusProApi
     /**
      * Operation consulterStructureApiV1ChorusProStructuresConsulterPost
      *
-     * Consulter les détails d&#39;une structure
+     * Consult structure details
      *
-     * @param  \FactPulse\SDK\Model\ConsulterStructureRequest $consulter_structure_request consulter_structure_request (required)
+     * @param  \FactPulse\SDK\Model\GetStructureRequest $get_structure_request get_structure_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consulterStructureApiV1ChorusProStructuresConsulterPost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \FactPulse\SDK\Model\ConsulterStructureResponse|\FactPulse\SDK\Model\HTTPValidationError
+     * @return \FactPulse\SDK\Model\GetStructureResponse|\FactPulse\SDK\Model\HTTPValidationError
      */
-    public function consulterStructureApiV1ChorusProStructuresConsulterPost($consulter_structure_request, string $contentType = self::contentTypes['consulterStructureApiV1ChorusProStructuresConsulterPost'][0])
+    public function consulterStructureApiV1ChorusProStructuresConsulterPost($get_structure_request, string $contentType = self::contentTypes['consulterStructureApiV1ChorusProStructuresConsulterPost'][0])
     {
-        list($response) = $this->consulterStructureApiV1ChorusProStructuresConsulterPostWithHttpInfo($consulter_structure_request, $contentType);
+        list($response) = $this->consulterStructureApiV1ChorusProStructuresConsulterPostWithHttpInfo($get_structure_request, $contentType);
         return $response;
     }
 
     /**
      * Operation consulterStructureApiV1ChorusProStructuresConsulterPostWithHttpInfo
      *
-     * Consulter les détails d&#39;une structure
+     * Consult structure details
      *
-     * @param  \FactPulse\SDK\Model\ConsulterStructureRequest $consulter_structure_request (required)
+     * @param  \FactPulse\SDK\Model\GetStructureRequest $get_structure_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consulterStructureApiV1ChorusProStructuresConsulterPost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \FactPulse\SDK\Model\ConsulterStructureResponse|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\GetStructureResponse|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function consulterStructureApiV1ChorusProStructuresConsulterPostWithHttpInfo($consulter_structure_request, string $contentType = self::contentTypes['consulterStructureApiV1ChorusProStructuresConsulterPost'][0])
+    public function consulterStructureApiV1ChorusProStructuresConsulterPostWithHttpInfo($get_structure_request, string $contentType = self::contentTypes['consulterStructureApiV1ChorusProStructuresConsulterPost'][0])
     {
-        $request = $this->consulterStructureApiV1ChorusProStructuresConsulterPostRequest($consulter_structure_request, $contentType);
+        $request = $this->consulterStructureApiV1ChorusProStructuresConsulterPostRequest($get_structure_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1085,7 +1085,7 @@ class ChorusProApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\FactPulse\SDK\Model\ConsulterStructureResponse',
+                        '\FactPulse\SDK\Model\GetStructureResponse',
                         $request,
                         $response,
                     );
@@ -1113,7 +1113,7 @@ class ChorusProApi
             }
 
             return $this->handleResponseWithDataType(
-                '\FactPulse\SDK\Model\ConsulterStructureResponse',
+                '\FactPulse\SDK\Model\GetStructureResponse',
                 $request,
                 $response,
             );
@@ -1122,7 +1122,7 @@ class ChorusProApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\FactPulse\SDK\Model\ConsulterStructureResponse',
+                        '\FactPulse\SDK\Model\GetStructureResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1145,17 +1145,17 @@ class ChorusProApi
     /**
      * Operation consulterStructureApiV1ChorusProStructuresConsulterPostAsync
      *
-     * Consulter les détails d&#39;une structure
+     * Consult structure details
      *
-     * @param  \FactPulse\SDK\Model\ConsulterStructureRequest $consulter_structure_request (required)
+     * @param  \FactPulse\SDK\Model\GetStructureRequest $get_structure_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consulterStructureApiV1ChorusProStructuresConsulterPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function consulterStructureApiV1ChorusProStructuresConsulterPostAsync($consulter_structure_request, string $contentType = self::contentTypes['consulterStructureApiV1ChorusProStructuresConsulterPost'][0])
+    public function consulterStructureApiV1ChorusProStructuresConsulterPostAsync($get_structure_request, string $contentType = self::contentTypes['consulterStructureApiV1ChorusProStructuresConsulterPost'][0])
     {
-        return $this->consulterStructureApiV1ChorusProStructuresConsulterPostAsyncWithHttpInfo($consulter_structure_request, $contentType)
+        return $this->consulterStructureApiV1ChorusProStructuresConsulterPostAsyncWithHttpInfo($get_structure_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1166,18 +1166,18 @@ class ChorusProApi
     /**
      * Operation consulterStructureApiV1ChorusProStructuresConsulterPostAsyncWithHttpInfo
      *
-     * Consulter les détails d&#39;une structure
+     * Consult structure details
      *
-     * @param  \FactPulse\SDK\Model\ConsulterStructureRequest $consulter_structure_request (required)
+     * @param  \FactPulse\SDK\Model\GetStructureRequest $get_structure_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consulterStructureApiV1ChorusProStructuresConsulterPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function consulterStructureApiV1ChorusProStructuresConsulterPostAsyncWithHttpInfo($consulter_structure_request, string $contentType = self::contentTypes['consulterStructureApiV1ChorusProStructuresConsulterPost'][0])
+    public function consulterStructureApiV1ChorusProStructuresConsulterPostAsyncWithHttpInfo($get_structure_request, string $contentType = self::contentTypes['consulterStructureApiV1ChorusProStructuresConsulterPost'][0])
     {
-        $returnType = '\FactPulse\SDK\Model\ConsulterStructureResponse';
-        $request = $this->consulterStructureApiV1ChorusProStructuresConsulterPostRequest($consulter_structure_request, $contentType);
+        $returnType = '\FactPulse\SDK\Model\GetStructureResponse';
+        $request = $this->consulterStructureApiV1ChorusProStructuresConsulterPostRequest($get_structure_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1218,19 +1218,19 @@ class ChorusProApi
     /**
      * Create request for operation 'consulterStructureApiV1ChorusProStructuresConsulterPost'
      *
-     * @param  \FactPulse\SDK\Model\ConsulterStructureRequest $consulter_structure_request (required)
+     * @param  \FactPulse\SDK\Model\GetStructureRequest $get_structure_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consulterStructureApiV1ChorusProStructuresConsulterPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function consulterStructureApiV1ChorusProStructuresConsulterPostRequest($consulter_structure_request, string $contentType = self::contentTypes['consulterStructureApiV1ChorusProStructuresConsulterPost'][0])
+    public function consulterStructureApiV1ChorusProStructuresConsulterPostRequest($get_structure_request, string $contentType = self::contentTypes['consulterStructureApiV1ChorusProStructuresConsulterPost'][0])
     {
 
-        // verify the required parameter 'consulter_structure_request' is set
-        if ($consulter_structure_request === null || (is_array($consulter_structure_request) && count($consulter_structure_request) === 0)) {
+        // verify the required parameter 'get_structure_request' is set
+        if ($get_structure_request === null || (is_array($get_structure_request) && count($get_structure_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $consulter_structure_request when calling consulterStructureApiV1ChorusProStructuresConsulterPost'
+                'Missing the required parameter $get_structure_request when calling consulterStructureApiV1ChorusProStructuresConsulterPost'
             );
         }
 
@@ -1253,12 +1253,12 @@ class ChorusProApi
         );
 
         // for model (json/xml)
-        if (isset($consulter_structure_request)) {
+        if (isset($get_structure_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($consulter_structure_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($get_structure_request));
             } else {
-                $httpBody = $consulter_structure_request;
+                $httpBody = $get_structure_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1313,14 +1313,14 @@ class ChorusProApi
     /**
      * Operation listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet
      *
-     * Lister les services d&#39;une structure
+     * List structure services
      *
      * @param  int $id_structure_cpp id_structure_cpp (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \FactPulse\SDK\Model\RechercherServicesResponse|\FactPulse\SDK\Model\HTTPValidationError
+     * @return \FactPulse\SDK\Model\SearchServicesResponse|\FactPulse\SDK\Model\HTTPValidationError
      */
     public function listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet($id_structure_cpp, string $contentType = self::contentTypes['listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet'][0])
     {
@@ -1331,14 +1331,14 @@ class ChorusProApi
     /**
      * Operation listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGetWithHttpInfo
      *
-     * Lister les services d&#39;une structure
+     * List structure services
      *
      * @param  int $id_structure_cpp (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \FactPulse\SDK\Model\RechercherServicesResponse|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\SearchServicesResponse|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGetWithHttpInfo($id_structure_cpp, string $contentType = self::contentTypes['listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet'][0])
     {
@@ -1370,7 +1370,7 @@ class ChorusProApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\FactPulse\SDK\Model\RechercherServicesResponse',
+                        '\FactPulse\SDK\Model\SearchServicesResponse',
                         $request,
                         $response,
                     );
@@ -1398,7 +1398,7 @@ class ChorusProApi
             }
 
             return $this->handleResponseWithDataType(
-                '\FactPulse\SDK\Model\RechercherServicesResponse',
+                '\FactPulse\SDK\Model\SearchServicesResponse',
                 $request,
                 $response,
             );
@@ -1407,7 +1407,7 @@ class ChorusProApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\FactPulse\SDK\Model\RechercherServicesResponse',
+                        '\FactPulse\SDK\Model\SearchServicesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1430,7 +1430,7 @@ class ChorusProApi
     /**
      * Operation listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGetAsync
      *
-     * Lister les services d&#39;une structure
+     * List structure services
      *
      * @param  int $id_structure_cpp (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet'] to see the possible values for this operation
@@ -1451,7 +1451,7 @@ class ChorusProApi
     /**
      * Operation listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGetAsyncWithHttpInfo
      *
-     * Lister les services d&#39;une structure
+     * List structure services
      *
      * @param  int $id_structure_cpp (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet'] to see the possible values for this operation
@@ -1461,7 +1461,7 @@ class ChorusProApi
      */
     public function listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGetAsyncWithHttpInfo($id_structure_cpp, string $contentType = self::contentTypes['listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet'][0])
     {
-        $returnType = '\FactPulse\SDK\Model\RechercherServicesResponse';
+        $returnType = '\FactPulse\SDK\Model\SearchServicesResponse';
         $request = $this->listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGetRequest($id_structure_cpp, $contentType);
 
         return $this->client
@@ -1599,36 +1599,36 @@ class ChorusProApi
     /**
      * Operation obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost
      *
-     * Utilitaire : Obtenir l&#39;ID Chorus Pro depuis un SIRET
+     * Utility: Get Chorus Pro ID from SIRET
      *
-     * @param  \FactPulse\SDK\Model\ObtenirIdChorusProRequest $obtenir_id_chorus_pro_request obtenir_id_chorus_pro_request (required)
+     * @param  \FactPulse\SDK\Model\GetChorusProIdRequest $get_chorus_pro_id_request get_chorus_pro_id_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \FactPulse\SDK\Model\ObtenirIdChorusProResponse|\FactPulse\SDK\Model\HTTPValidationError
+     * @return \FactPulse\SDK\Model\GetChorusProIdResponse|\FactPulse\SDK\Model\HTTPValidationError
      */
-    public function obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost($obtenir_id_chorus_pro_request, string $contentType = self::contentTypes['obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost'][0])
+    public function obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost($get_chorus_pro_id_request, string $contentType = self::contentTypes['obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost'][0])
     {
-        list($response) = $this->obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPostWithHttpInfo($obtenir_id_chorus_pro_request, $contentType);
+        list($response) = $this->obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPostWithHttpInfo($get_chorus_pro_id_request, $contentType);
         return $response;
     }
 
     /**
      * Operation obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPostWithHttpInfo
      *
-     * Utilitaire : Obtenir l&#39;ID Chorus Pro depuis un SIRET
+     * Utility: Get Chorus Pro ID from SIRET
      *
-     * @param  \FactPulse\SDK\Model\ObtenirIdChorusProRequest $obtenir_id_chorus_pro_request (required)
+     * @param  \FactPulse\SDK\Model\GetChorusProIdRequest $get_chorus_pro_id_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \FactPulse\SDK\Model\ObtenirIdChorusProResponse|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\GetChorusProIdResponse|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPostWithHttpInfo($obtenir_id_chorus_pro_request, string $contentType = self::contentTypes['obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost'][0])
+    public function obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPostWithHttpInfo($get_chorus_pro_id_request, string $contentType = self::contentTypes['obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost'][0])
     {
-        $request = $this->obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPostRequest($obtenir_id_chorus_pro_request, $contentType);
+        $request = $this->obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPostRequest($get_chorus_pro_id_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1656,7 +1656,7 @@ class ChorusProApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\FactPulse\SDK\Model\ObtenirIdChorusProResponse',
+                        '\FactPulse\SDK\Model\GetChorusProIdResponse',
                         $request,
                         $response,
                     );
@@ -1684,7 +1684,7 @@ class ChorusProApi
             }
 
             return $this->handleResponseWithDataType(
-                '\FactPulse\SDK\Model\ObtenirIdChorusProResponse',
+                '\FactPulse\SDK\Model\GetChorusProIdResponse',
                 $request,
                 $response,
             );
@@ -1693,7 +1693,7 @@ class ChorusProApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\FactPulse\SDK\Model\ObtenirIdChorusProResponse',
+                        '\FactPulse\SDK\Model\GetChorusProIdResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1716,17 +1716,17 @@ class ChorusProApi
     /**
      * Operation obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPostAsync
      *
-     * Utilitaire : Obtenir l&#39;ID Chorus Pro depuis un SIRET
+     * Utility: Get Chorus Pro ID from SIRET
      *
-     * @param  \FactPulse\SDK\Model\ObtenirIdChorusProRequest $obtenir_id_chorus_pro_request (required)
+     * @param  \FactPulse\SDK\Model\GetChorusProIdRequest $get_chorus_pro_id_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPostAsync($obtenir_id_chorus_pro_request, string $contentType = self::contentTypes['obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost'][0])
+    public function obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPostAsync($get_chorus_pro_id_request, string $contentType = self::contentTypes['obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost'][0])
     {
-        return $this->obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPostAsyncWithHttpInfo($obtenir_id_chorus_pro_request, $contentType)
+        return $this->obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPostAsyncWithHttpInfo($get_chorus_pro_id_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1737,18 +1737,18 @@ class ChorusProApi
     /**
      * Operation obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPostAsyncWithHttpInfo
      *
-     * Utilitaire : Obtenir l&#39;ID Chorus Pro depuis un SIRET
+     * Utility: Get Chorus Pro ID from SIRET
      *
-     * @param  \FactPulse\SDK\Model\ObtenirIdChorusProRequest $obtenir_id_chorus_pro_request (required)
+     * @param  \FactPulse\SDK\Model\GetChorusProIdRequest $get_chorus_pro_id_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPostAsyncWithHttpInfo($obtenir_id_chorus_pro_request, string $contentType = self::contentTypes['obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost'][0])
+    public function obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPostAsyncWithHttpInfo($get_chorus_pro_id_request, string $contentType = self::contentTypes['obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost'][0])
     {
-        $returnType = '\FactPulse\SDK\Model\ObtenirIdChorusProResponse';
-        $request = $this->obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPostRequest($obtenir_id_chorus_pro_request, $contentType);
+        $returnType = '\FactPulse\SDK\Model\GetChorusProIdResponse';
+        $request = $this->obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPostRequest($get_chorus_pro_id_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1789,19 +1789,19 @@ class ChorusProApi
     /**
      * Create request for operation 'obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost'
      *
-     * @param  \FactPulse\SDK\Model\ObtenirIdChorusProRequest $obtenir_id_chorus_pro_request (required)
+     * @param  \FactPulse\SDK\Model\GetChorusProIdRequest $get_chorus_pro_id_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPostRequest($obtenir_id_chorus_pro_request, string $contentType = self::contentTypes['obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost'][0])
+    public function obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPostRequest($get_chorus_pro_id_request, string $contentType = self::contentTypes['obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost'][0])
     {
 
-        // verify the required parameter 'obtenir_id_chorus_pro_request' is set
-        if ($obtenir_id_chorus_pro_request === null || (is_array($obtenir_id_chorus_pro_request) && count($obtenir_id_chorus_pro_request) === 0)) {
+        // verify the required parameter 'get_chorus_pro_id_request' is set
+        if ($get_chorus_pro_id_request === null || (is_array($get_chorus_pro_id_request) && count($get_chorus_pro_id_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $obtenir_id_chorus_pro_request when calling obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost'
+                'Missing the required parameter $get_chorus_pro_id_request when calling obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost'
             );
         }
 
@@ -1824,12 +1824,12 @@ class ChorusProApi
         );
 
         // for model (json/xml)
-        if (isset($obtenir_id_chorus_pro_request)) {
+        if (isset($get_chorus_pro_id_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($obtenir_id_chorus_pro_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($get_chorus_pro_id_request));
             } else {
-                $httpBody = $obtenir_id_chorus_pro_request;
+                $httpBody = $get_chorus_pro_id_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1884,7 +1884,7 @@ class ChorusProApi
     /**
      * Operation rechercherFacturesDestinataireApiV1ChorusProFacturesRechercherDestinatairePost
      *
-     * Rechercher factures reçues (Destinataire)
+     * Search received invoices (Recipient)
      *
      * @param  array<string,mixed> $request_body request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rechercherFacturesDestinataireApiV1ChorusProFacturesRechercherDestinatairePost'] to see the possible values for this operation
@@ -1902,7 +1902,7 @@ class ChorusProApi
     /**
      * Operation rechercherFacturesDestinataireApiV1ChorusProFacturesRechercherDestinatairePostWithHttpInfo
      *
-     * Rechercher factures reçues (Destinataire)
+     * Search received invoices (Recipient)
      *
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rechercherFacturesDestinataireApiV1ChorusProFacturesRechercherDestinatairePost'] to see the possible values for this operation
@@ -2001,7 +2001,7 @@ class ChorusProApi
     /**
      * Operation rechercherFacturesDestinataireApiV1ChorusProFacturesRechercherDestinatairePostAsync
      *
-     * Rechercher factures reçues (Destinataire)
+     * Search received invoices (Recipient)
      *
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rechercherFacturesDestinataireApiV1ChorusProFacturesRechercherDestinatairePost'] to see the possible values for this operation
@@ -2022,7 +2022,7 @@ class ChorusProApi
     /**
      * Operation rechercherFacturesDestinataireApiV1ChorusProFacturesRechercherDestinatairePostAsyncWithHttpInfo
      *
-     * Rechercher factures reçues (Destinataire)
+     * Search received invoices (Recipient)
      *
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rechercherFacturesDestinataireApiV1ChorusProFacturesRechercherDestinatairePost'] to see the possible values for this operation
@@ -2169,7 +2169,7 @@ class ChorusProApi
     /**
      * Operation rechercherFacturesFournisseurApiV1ChorusProFacturesRechercherFournisseurPost
      *
-     * Rechercher factures émises (Fournisseur)
+     * Search issued invoices (Supplier)
      *
      * @param  array<string,mixed> $request_body request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rechercherFacturesFournisseurApiV1ChorusProFacturesRechercherFournisseurPost'] to see the possible values for this operation
@@ -2187,7 +2187,7 @@ class ChorusProApi
     /**
      * Operation rechercherFacturesFournisseurApiV1ChorusProFacturesRechercherFournisseurPostWithHttpInfo
      *
-     * Rechercher factures émises (Fournisseur)
+     * Search issued invoices (Supplier)
      *
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rechercherFacturesFournisseurApiV1ChorusProFacturesRechercherFournisseurPost'] to see the possible values for this operation
@@ -2286,7 +2286,7 @@ class ChorusProApi
     /**
      * Operation rechercherFacturesFournisseurApiV1ChorusProFacturesRechercherFournisseurPostAsync
      *
-     * Rechercher factures émises (Fournisseur)
+     * Search issued invoices (Supplier)
      *
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rechercherFacturesFournisseurApiV1ChorusProFacturesRechercherFournisseurPost'] to see the possible values for this operation
@@ -2307,7 +2307,7 @@ class ChorusProApi
     /**
      * Operation rechercherFacturesFournisseurApiV1ChorusProFacturesRechercherFournisseurPostAsyncWithHttpInfo
      *
-     * Rechercher factures émises (Fournisseur)
+     * Search issued invoices (Supplier)
      *
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rechercherFacturesFournisseurApiV1ChorusProFacturesRechercherFournisseurPost'] to see the possible values for this operation
@@ -2454,36 +2454,36 @@ class ChorusProApi
     /**
      * Operation rechercherStructuresApiV1ChorusProStructuresRechercherPost
      *
-     * Rechercher des structures Chorus Pro
+     * Search Chorus Pro structures
      *
-     * @param  \FactPulse\SDK\Model\RechercherStructureRequest $rechercher_structure_request rechercher_structure_request (required)
+     * @param  \FactPulse\SDK\Model\SearchStructureRequest $search_structure_request search_structure_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rechercherStructuresApiV1ChorusProStructuresRechercherPost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \FactPulse\SDK\Model\RechercherStructureResponse|\FactPulse\SDK\Model\HTTPValidationError
+     * @return \FactPulse\SDK\Model\SearchStructureResponse|\FactPulse\SDK\Model\HTTPValidationError
      */
-    public function rechercherStructuresApiV1ChorusProStructuresRechercherPost($rechercher_structure_request, string $contentType = self::contentTypes['rechercherStructuresApiV1ChorusProStructuresRechercherPost'][0])
+    public function rechercherStructuresApiV1ChorusProStructuresRechercherPost($search_structure_request, string $contentType = self::contentTypes['rechercherStructuresApiV1ChorusProStructuresRechercherPost'][0])
     {
-        list($response) = $this->rechercherStructuresApiV1ChorusProStructuresRechercherPostWithHttpInfo($rechercher_structure_request, $contentType);
+        list($response) = $this->rechercherStructuresApiV1ChorusProStructuresRechercherPostWithHttpInfo($search_structure_request, $contentType);
         return $response;
     }
 
     /**
      * Operation rechercherStructuresApiV1ChorusProStructuresRechercherPostWithHttpInfo
      *
-     * Rechercher des structures Chorus Pro
+     * Search Chorus Pro structures
      *
-     * @param  \FactPulse\SDK\Model\RechercherStructureRequest $rechercher_structure_request (required)
+     * @param  \FactPulse\SDK\Model\SearchStructureRequest $search_structure_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rechercherStructuresApiV1ChorusProStructuresRechercherPost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \FactPulse\SDK\Model\RechercherStructureResponse|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\SearchStructureResponse|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function rechercherStructuresApiV1ChorusProStructuresRechercherPostWithHttpInfo($rechercher_structure_request, string $contentType = self::contentTypes['rechercherStructuresApiV1ChorusProStructuresRechercherPost'][0])
+    public function rechercherStructuresApiV1ChorusProStructuresRechercherPostWithHttpInfo($search_structure_request, string $contentType = self::contentTypes['rechercherStructuresApiV1ChorusProStructuresRechercherPost'][0])
     {
-        $request = $this->rechercherStructuresApiV1ChorusProStructuresRechercherPostRequest($rechercher_structure_request, $contentType);
+        $request = $this->rechercherStructuresApiV1ChorusProStructuresRechercherPostRequest($search_structure_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2511,7 +2511,7 @@ class ChorusProApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\FactPulse\SDK\Model\RechercherStructureResponse',
+                        '\FactPulse\SDK\Model\SearchStructureResponse',
                         $request,
                         $response,
                     );
@@ -2539,7 +2539,7 @@ class ChorusProApi
             }
 
             return $this->handleResponseWithDataType(
-                '\FactPulse\SDK\Model\RechercherStructureResponse',
+                '\FactPulse\SDK\Model\SearchStructureResponse',
                 $request,
                 $response,
             );
@@ -2548,7 +2548,7 @@ class ChorusProApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\FactPulse\SDK\Model\RechercherStructureResponse',
+                        '\FactPulse\SDK\Model\SearchStructureResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2571,17 +2571,17 @@ class ChorusProApi
     /**
      * Operation rechercherStructuresApiV1ChorusProStructuresRechercherPostAsync
      *
-     * Rechercher des structures Chorus Pro
+     * Search Chorus Pro structures
      *
-     * @param  \FactPulse\SDK\Model\RechercherStructureRequest $rechercher_structure_request (required)
+     * @param  \FactPulse\SDK\Model\SearchStructureRequest $search_structure_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rechercherStructuresApiV1ChorusProStructuresRechercherPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function rechercherStructuresApiV1ChorusProStructuresRechercherPostAsync($rechercher_structure_request, string $contentType = self::contentTypes['rechercherStructuresApiV1ChorusProStructuresRechercherPost'][0])
+    public function rechercherStructuresApiV1ChorusProStructuresRechercherPostAsync($search_structure_request, string $contentType = self::contentTypes['rechercherStructuresApiV1ChorusProStructuresRechercherPost'][0])
     {
-        return $this->rechercherStructuresApiV1ChorusProStructuresRechercherPostAsyncWithHttpInfo($rechercher_structure_request, $contentType)
+        return $this->rechercherStructuresApiV1ChorusProStructuresRechercherPostAsyncWithHttpInfo($search_structure_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2592,18 +2592,18 @@ class ChorusProApi
     /**
      * Operation rechercherStructuresApiV1ChorusProStructuresRechercherPostAsyncWithHttpInfo
      *
-     * Rechercher des structures Chorus Pro
+     * Search Chorus Pro structures
      *
-     * @param  \FactPulse\SDK\Model\RechercherStructureRequest $rechercher_structure_request (required)
+     * @param  \FactPulse\SDK\Model\SearchStructureRequest $search_structure_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rechercherStructuresApiV1ChorusProStructuresRechercherPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function rechercherStructuresApiV1ChorusProStructuresRechercherPostAsyncWithHttpInfo($rechercher_structure_request, string $contentType = self::contentTypes['rechercherStructuresApiV1ChorusProStructuresRechercherPost'][0])
+    public function rechercherStructuresApiV1ChorusProStructuresRechercherPostAsyncWithHttpInfo($search_structure_request, string $contentType = self::contentTypes['rechercherStructuresApiV1ChorusProStructuresRechercherPost'][0])
     {
-        $returnType = '\FactPulse\SDK\Model\RechercherStructureResponse';
-        $request = $this->rechercherStructuresApiV1ChorusProStructuresRechercherPostRequest($rechercher_structure_request, $contentType);
+        $returnType = '\FactPulse\SDK\Model\SearchStructureResponse';
+        $request = $this->rechercherStructuresApiV1ChorusProStructuresRechercherPostRequest($search_structure_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2644,19 +2644,19 @@ class ChorusProApi
     /**
      * Create request for operation 'rechercherStructuresApiV1ChorusProStructuresRechercherPost'
      *
-     * @param  \FactPulse\SDK\Model\RechercherStructureRequest $rechercher_structure_request (required)
+     * @param  \FactPulse\SDK\Model\SearchStructureRequest $search_structure_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rechercherStructuresApiV1ChorusProStructuresRechercherPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function rechercherStructuresApiV1ChorusProStructuresRechercherPostRequest($rechercher_structure_request, string $contentType = self::contentTypes['rechercherStructuresApiV1ChorusProStructuresRechercherPost'][0])
+    public function rechercherStructuresApiV1ChorusProStructuresRechercherPostRequest($search_structure_request, string $contentType = self::contentTypes['rechercherStructuresApiV1ChorusProStructuresRechercherPost'][0])
     {
 
-        // verify the required parameter 'rechercher_structure_request' is set
-        if ($rechercher_structure_request === null || (is_array($rechercher_structure_request) && count($rechercher_structure_request) === 0)) {
+        // verify the required parameter 'search_structure_request' is set
+        if ($search_structure_request === null || (is_array($search_structure_request) && count($search_structure_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $rechercher_structure_request when calling rechercherStructuresApiV1ChorusProStructuresRechercherPost'
+                'Missing the required parameter $search_structure_request when calling rechercherStructuresApiV1ChorusProStructuresRechercherPost'
             );
         }
 
@@ -2679,12 +2679,12 @@ class ChorusProApi
         );
 
         // for model (json/xml)
-        if (isset($rechercher_structure_request)) {
+        if (isset($search_structure_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($rechercher_structure_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($search_structure_request));
             } else {
-                $httpBody = $rechercher_structure_request;
+                $httpBody = $search_structure_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2739,7 +2739,7 @@ class ChorusProApi
     /**
      * Operation recyclerFactureApiV1ChorusProFacturesRecyclerPost
      *
-     * Recycler une facture (Fournisseur)
+     * Recycle an invoice (Supplier)
      *
      * @param  array<string,mixed> $request_body request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['recyclerFactureApiV1ChorusProFacturesRecyclerPost'] to see the possible values for this operation
@@ -2757,7 +2757,7 @@ class ChorusProApi
     /**
      * Operation recyclerFactureApiV1ChorusProFacturesRecyclerPostWithHttpInfo
      *
-     * Recycler une facture (Fournisseur)
+     * Recycle an invoice (Supplier)
      *
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['recyclerFactureApiV1ChorusProFacturesRecyclerPost'] to see the possible values for this operation
@@ -2856,7 +2856,7 @@ class ChorusProApi
     /**
      * Operation recyclerFactureApiV1ChorusProFacturesRecyclerPostAsync
      *
-     * Recycler une facture (Fournisseur)
+     * Recycle an invoice (Supplier)
      *
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['recyclerFactureApiV1ChorusProFacturesRecyclerPost'] to see the possible values for this operation
@@ -2877,7 +2877,7 @@ class ChorusProApi
     /**
      * Operation recyclerFactureApiV1ChorusProFacturesRecyclerPostAsyncWithHttpInfo
      *
-     * Recycler une facture (Fournisseur)
+     * Recycle an invoice (Supplier)
      *
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['recyclerFactureApiV1ChorusProFacturesRecyclerPost'] to see the possible values for this operation
@@ -3024,36 +3024,36 @@ class ChorusProApi
     /**
      * Operation soumettreFactureApiV1ChorusProFacturesSoumettrePost
      *
-     * Soumettre une facture à Chorus Pro
+     * Submit an invoice to Chorus Pro
      *
-     * @param  \FactPulse\SDK\Model\SoumettreFactureRequest $soumettre_facture_request soumettre_facture_request (required)
+     * @param  \FactPulse\SDK\Model\SubmitInvoiceRequest $submit_invoice_request submit_invoice_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['soumettreFactureApiV1ChorusProFacturesSoumettrePost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \FactPulse\SDK\Model\SoumettreFactureResponse|\FactPulse\SDK\Model\HTTPValidationError
+     * @return \FactPulse\SDK\Model\SubmitInvoiceResponse|\FactPulse\SDK\Model\HTTPValidationError
      */
-    public function soumettreFactureApiV1ChorusProFacturesSoumettrePost($soumettre_facture_request, string $contentType = self::contentTypes['soumettreFactureApiV1ChorusProFacturesSoumettrePost'][0])
+    public function soumettreFactureApiV1ChorusProFacturesSoumettrePost($submit_invoice_request, string $contentType = self::contentTypes['soumettreFactureApiV1ChorusProFacturesSoumettrePost'][0])
     {
-        list($response) = $this->soumettreFactureApiV1ChorusProFacturesSoumettrePostWithHttpInfo($soumettre_facture_request, $contentType);
+        list($response) = $this->soumettreFactureApiV1ChorusProFacturesSoumettrePostWithHttpInfo($submit_invoice_request, $contentType);
         return $response;
     }
 
     /**
      * Operation soumettreFactureApiV1ChorusProFacturesSoumettrePostWithHttpInfo
      *
-     * Soumettre une facture à Chorus Pro
+     * Submit an invoice to Chorus Pro
      *
-     * @param  \FactPulse\SDK\Model\SoumettreFactureRequest $soumettre_facture_request (required)
+     * @param  \FactPulse\SDK\Model\SubmitInvoiceRequest $submit_invoice_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['soumettreFactureApiV1ChorusProFacturesSoumettrePost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \FactPulse\SDK\Model\SoumettreFactureResponse|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\SubmitInvoiceResponse|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function soumettreFactureApiV1ChorusProFacturesSoumettrePostWithHttpInfo($soumettre_facture_request, string $contentType = self::contentTypes['soumettreFactureApiV1ChorusProFacturesSoumettrePost'][0])
+    public function soumettreFactureApiV1ChorusProFacturesSoumettrePostWithHttpInfo($submit_invoice_request, string $contentType = self::contentTypes['soumettreFactureApiV1ChorusProFacturesSoumettrePost'][0])
     {
-        $request = $this->soumettreFactureApiV1ChorusProFacturesSoumettrePostRequest($soumettre_facture_request, $contentType);
+        $request = $this->soumettreFactureApiV1ChorusProFacturesSoumettrePostRequest($submit_invoice_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3081,7 +3081,7 @@ class ChorusProApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\FactPulse\SDK\Model\SoumettreFactureResponse',
+                        '\FactPulse\SDK\Model\SubmitInvoiceResponse',
                         $request,
                         $response,
                     );
@@ -3109,7 +3109,7 @@ class ChorusProApi
             }
 
             return $this->handleResponseWithDataType(
-                '\FactPulse\SDK\Model\SoumettreFactureResponse',
+                '\FactPulse\SDK\Model\SubmitInvoiceResponse',
                 $request,
                 $response,
             );
@@ -3118,7 +3118,7 @@ class ChorusProApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\FactPulse\SDK\Model\SoumettreFactureResponse',
+                        '\FactPulse\SDK\Model\SubmitInvoiceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3141,17 +3141,17 @@ class ChorusProApi
     /**
      * Operation soumettreFactureApiV1ChorusProFacturesSoumettrePostAsync
      *
-     * Soumettre une facture à Chorus Pro
+     * Submit an invoice to Chorus Pro
      *
-     * @param  \FactPulse\SDK\Model\SoumettreFactureRequest $soumettre_facture_request (required)
+     * @param  \FactPulse\SDK\Model\SubmitInvoiceRequest $submit_invoice_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['soumettreFactureApiV1ChorusProFacturesSoumettrePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function soumettreFactureApiV1ChorusProFacturesSoumettrePostAsync($soumettre_facture_request, string $contentType = self::contentTypes['soumettreFactureApiV1ChorusProFacturesSoumettrePost'][0])
+    public function soumettreFactureApiV1ChorusProFacturesSoumettrePostAsync($submit_invoice_request, string $contentType = self::contentTypes['soumettreFactureApiV1ChorusProFacturesSoumettrePost'][0])
     {
-        return $this->soumettreFactureApiV1ChorusProFacturesSoumettrePostAsyncWithHttpInfo($soumettre_facture_request, $contentType)
+        return $this->soumettreFactureApiV1ChorusProFacturesSoumettrePostAsyncWithHttpInfo($submit_invoice_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3162,18 +3162,18 @@ class ChorusProApi
     /**
      * Operation soumettreFactureApiV1ChorusProFacturesSoumettrePostAsyncWithHttpInfo
      *
-     * Soumettre une facture à Chorus Pro
+     * Submit an invoice to Chorus Pro
      *
-     * @param  \FactPulse\SDK\Model\SoumettreFactureRequest $soumettre_facture_request (required)
+     * @param  \FactPulse\SDK\Model\SubmitInvoiceRequest $submit_invoice_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['soumettreFactureApiV1ChorusProFacturesSoumettrePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function soumettreFactureApiV1ChorusProFacturesSoumettrePostAsyncWithHttpInfo($soumettre_facture_request, string $contentType = self::contentTypes['soumettreFactureApiV1ChorusProFacturesSoumettrePost'][0])
+    public function soumettreFactureApiV1ChorusProFacturesSoumettrePostAsyncWithHttpInfo($submit_invoice_request, string $contentType = self::contentTypes['soumettreFactureApiV1ChorusProFacturesSoumettrePost'][0])
     {
-        $returnType = '\FactPulse\SDK\Model\SoumettreFactureResponse';
-        $request = $this->soumettreFactureApiV1ChorusProFacturesSoumettrePostRequest($soumettre_facture_request, $contentType);
+        $returnType = '\FactPulse\SDK\Model\SubmitInvoiceResponse';
+        $request = $this->soumettreFactureApiV1ChorusProFacturesSoumettrePostRequest($submit_invoice_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3214,19 +3214,19 @@ class ChorusProApi
     /**
      * Create request for operation 'soumettreFactureApiV1ChorusProFacturesSoumettrePost'
      *
-     * @param  \FactPulse\SDK\Model\SoumettreFactureRequest $soumettre_facture_request (required)
+     * @param  \FactPulse\SDK\Model\SubmitInvoiceRequest $submit_invoice_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['soumettreFactureApiV1ChorusProFacturesSoumettrePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function soumettreFactureApiV1ChorusProFacturesSoumettrePostRequest($soumettre_facture_request, string $contentType = self::contentTypes['soumettreFactureApiV1ChorusProFacturesSoumettrePost'][0])
+    public function soumettreFactureApiV1ChorusProFacturesSoumettrePostRequest($submit_invoice_request, string $contentType = self::contentTypes['soumettreFactureApiV1ChorusProFacturesSoumettrePost'][0])
     {
 
-        // verify the required parameter 'soumettre_facture_request' is set
-        if ($soumettre_facture_request === null || (is_array($soumettre_facture_request) && count($soumettre_facture_request) === 0)) {
+        // verify the required parameter 'submit_invoice_request' is set
+        if ($submit_invoice_request === null || (is_array($submit_invoice_request) && count($submit_invoice_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $soumettre_facture_request when calling soumettreFactureApiV1ChorusProFacturesSoumettrePost'
+                'Missing the required parameter $submit_invoice_request when calling soumettreFactureApiV1ChorusProFacturesSoumettrePost'
             );
         }
 
@@ -3249,12 +3249,12 @@ class ChorusProApi
         );
 
         // for model (json/xml)
-        if (isset($soumettre_facture_request)) {
+        if (isset($submit_invoice_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($soumettre_facture_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($submit_invoice_request));
             } else {
-                $httpBody = $soumettre_facture_request;
+                $httpBody = $submit_invoice_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -3309,7 +3309,7 @@ class ChorusProApi
     /**
      * Operation telechargerGroupeFacturesApiV1ChorusProFacturesTelechargerGroupePost
      *
-     * Télécharger un groupe de factures
+     * Download a group of invoices
      *
      * @param  array<string,mixed> $request_body request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['telechargerGroupeFacturesApiV1ChorusProFacturesTelechargerGroupePost'] to see the possible values for this operation
@@ -3327,7 +3327,7 @@ class ChorusProApi
     /**
      * Operation telechargerGroupeFacturesApiV1ChorusProFacturesTelechargerGroupePostWithHttpInfo
      *
-     * Télécharger un groupe de factures
+     * Download a group of invoices
      *
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['telechargerGroupeFacturesApiV1ChorusProFacturesTelechargerGroupePost'] to see the possible values for this operation
@@ -3426,7 +3426,7 @@ class ChorusProApi
     /**
      * Operation telechargerGroupeFacturesApiV1ChorusProFacturesTelechargerGroupePostAsync
      *
-     * Télécharger un groupe de factures
+     * Download a group of invoices
      *
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['telechargerGroupeFacturesApiV1ChorusProFacturesTelechargerGroupePost'] to see the possible values for this operation
@@ -3447,7 +3447,7 @@ class ChorusProApi
     /**
      * Operation telechargerGroupeFacturesApiV1ChorusProFacturesTelechargerGroupePostAsyncWithHttpInfo
      *
-     * Télécharger un groupe de factures
+     * Download a group of invoices
      *
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['telechargerGroupeFacturesApiV1ChorusProFacturesTelechargerGroupePost'] to see the possible values for this operation
@@ -3594,7 +3594,7 @@ class ChorusProApi
     /**
      * Operation traiterFactureRecueApiV1ChorusProFacturesTraiterFactureRecuePost
      *
-     * Traiter une facture reçue (Destinataire)
+     * Process a received invoice (Recipient)
      *
      * @param  array<string,mixed> $request_body request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['traiterFactureRecueApiV1ChorusProFacturesTraiterFactureRecuePost'] to see the possible values for this operation
@@ -3612,7 +3612,7 @@ class ChorusProApi
     /**
      * Operation traiterFactureRecueApiV1ChorusProFacturesTraiterFactureRecuePostWithHttpInfo
      *
-     * Traiter une facture reçue (Destinataire)
+     * Process a received invoice (Recipient)
      *
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['traiterFactureRecueApiV1ChorusProFacturesTraiterFactureRecuePost'] to see the possible values for this operation
@@ -3711,7 +3711,7 @@ class ChorusProApi
     /**
      * Operation traiterFactureRecueApiV1ChorusProFacturesTraiterFactureRecuePostAsync
      *
-     * Traiter une facture reçue (Destinataire)
+     * Process a received invoice (Recipient)
      *
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['traiterFactureRecueApiV1ChorusProFacturesTraiterFactureRecuePost'] to see the possible values for this operation
@@ -3732,7 +3732,7 @@ class ChorusProApi
     /**
      * Operation traiterFactureRecueApiV1ChorusProFacturesTraiterFactureRecuePostAsyncWithHttpInfo
      *
-     * Traiter une facture reçue (Destinataire)
+     * Process a received invoice (Recipient)
      *
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['traiterFactureRecueApiV1ChorusProFacturesTraiterFactureRecuePost'] to see the possible values for this operation
@@ -3879,7 +3879,7 @@ class ChorusProApi
     /**
      * Operation valideurConsulterFactureApiV1ChorusProFacturesValideurConsulterPost
      *
-     * Consulter une facture (Valideur)
+     * Consult an invoice (Validator)
      *
      * @param  array<string,mixed> $request_body request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['valideurConsulterFactureApiV1ChorusProFacturesValideurConsulterPost'] to see the possible values for this operation
@@ -3897,7 +3897,7 @@ class ChorusProApi
     /**
      * Operation valideurConsulterFactureApiV1ChorusProFacturesValideurConsulterPostWithHttpInfo
      *
-     * Consulter une facture (Valideur)
+     * Consult an invoice (Validator)
      *
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['valideurConsulterFactureApiV1ChorusProFacturesValideurConsulterPost'] to see the possible values for this operation
@@ -3996,7 +3996,7 @@ class ChorusProApi
     /**
      * Operation valideurConsulterFactureApiV1ChorusProFacturesValideurConsulterPostAsync
      *
-     * Consulter une facture (Valideur)
+     * Consult an invoice (Validator)
      *
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['valideurConsulterFactureApiV1ChorusProFacturesValideurConsulterPost'] to see the possible values for this operation
@@ -4017,7 +4017,7 @@ class ChorusProApi
     /**
      * Operation valideurConsulterFactureApiV1ChorusProFacturesValideurConsulterPostAsyncWithHttpInfo
      *
-     * Consulter une facture (Valideur)
+     * Consult an invoice (Validator)
      *
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['valideurConsulterFactureApiV1ChorusProFacturesValideurConsulterPost'] to see the possible values for this operation
@@ -4164,7 +4164,7 @@ class ChorusProApi
     /**
      * Operation valideurRechercherFacturesApiV1ChorusProFacturesValideurRechercherPost
      *
-     * Rechercher factures à valider (Valideur)
+     * Search invoices to validate (Validator)
      *
      * @param  array<string,mixed> $request_body request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['valideurRechercherFacturesApiV1ChorusProFacturesValideurRechercherPost'] to see the possible values for this operation
@@ -4182,7 +4182,7 @@ class ChorusProApi
     /**
      * Operation valideurRechercherFacturesApiV1ChorusProFacturesValideurRechercherPostWithHttpInfo
      *
-     * Rechercher factures à valider (Valideur)
+     * Search invoices to validate (Validator)
      *
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['valideurRechercherFacturesApiV1ChorusProFacturesValideurRechercherPost'] to see the possible values for this operation
@@ -4281,7 +4281,7 @@ class ChorusProApi
     /**
      * Operation valideurRechercherFacturesApiV1ChorusProFacturesValideurRechercherPostAsync
      *
-     * Rechercher factures à valider (Valideur)
+     * Search invoices to validate (Validator)
      *
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['valideurRechercherFacturesApiV1ChorusProFacturesValideurRechercherPost'] to see the possible values for this operation
@@ -4302,7 +4302,7 @@ class ChorusProApi
     /**
      * Operation valideurRechercherFacturesApiV1ChorusProFacturesValideurRechercherPostAsyncWithHttpInfo
      *
-     * Rechercher factures à valider (Valideur)
+     * Search invoices to validate (Validator)
      *
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['valideurRechercherFacturesApiV1ChorusProFacturesValideurRechercherPost'] to see the possible values for this operation
@@ -4449,7 +4449,7 @@ class ChorusProApi
     /**
      * Operation valideurTraiterFactureApiV1ChorusProFacturesValideurTraiterPost
      *
-     * Valider ou refuser une facture (Valideur)
+     * Validate or reject an invoice (Validator)
      *
      * @param  array<string,mixed> $request_body request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['valideurTraiterFactureApiV1ChorusProFacturesValideurTraiterPost'] to see the possible values for this operation
@@ -4467,7 +4467,7 @@ class ChorusProApi
     /**
      * Operation valideurTraiterFactureApiV1ChorusProFacturesValideurTraiterPostWithHttpInfo
      *
-     * Valider ou refuser une facture (Valideur)
+     * Validate or reject an invoice (Validator)
      *
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['valideurTraiterFactureApiV1ChorusProFacturesValideurTraiterPost'] to see the possible values for this operation
@@ -4566,7 +4566,7 @@ class ChorusProApi
     /**
      * Operation valideurTraiterFactureApiV1ChorusProFacturesValideurTraiterPostAsync
      *
-     * Valider ou refuser une facture (Valideur)
+     * Validate or reject an invoice (Validator)
      *
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['valideurTraiterFactureApiV1ChorusProFacturesValideurTraiterPost'] to see the possible values for this operation
@@ -4587,7 +4587,7 @@ class ChorusProApi
     /**
      * Operation valideurTraiterFactureApiV1ChorusProFacturesValideurTraiterPostAsyncWithHttpInfo
      *
-     * Valider ou refuser une facture (Valideur)
+     * Validate or reject an invoice (Validator)
      *
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['valideurTraiterFactureApiV1ChorusProFacturesValideurTraiterPost'] to see the possible values for this operation

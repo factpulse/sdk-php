@@ -11,9 +11,9 @@
  */
 
 /**
- * API REST FactPulse
+ * FactPulse REST API
  *
- * API REST pour la facturation électronique en France : Factur-X, AFNOR PDP/PA, signatures électroniques.  ## 🎯 Fonctionnalités principales  ### 📄 Génération de factures Factur-X - **Formats** : XML seul ou PDF/A-3 avec XML embarqué - **Profils** : MINIMUM, BASIC, EN16931, EXTENDED - **Normes** : EN 16931 (directive UE 2014/55), ISO 19005-3 (PDF/A-3), CII (UN/CEFACT) - **🆕 Format simplifié** : Génération à partir de SIRET + auto-enrichissement (API Chorus Pro + Recherche Entreprises)  ### ✅ Validation et conformité - **Validation XML** : Schematron (45 à 210+ règles selon profil) - **Validation PDF** : PDF/A-3, métadonnées XMP Factur-X, signatures électroniques - **VeraPDF** : Validation stricte PDF/A (146+ règles ISO 19005-3) - **Traitement asynchrone** : Support Celery pour validations lourdes (VeraPDF)  ### 📡 Intégration AFNOR PDP/PA (XP Z12-013) - **Soumission de flux** : Envoi de factures vers Plateformes de Dématérialisation Partenaires - **Recherche de flux** : Consultation des factures soumises - **Téléchargement** : Récupération des PDF/A-3 avec XML - **Directory Service** : Recherche d'entreprises (SIREN/SIRET) - **Multi-client** : Support de plusieurs configs PDP par utilisateur (stored credentials ou zero-storage)  ### ✍️ Signature électronique PDF - **Standards** : PAdES-B-B, PAdES-B-T (horodatage RFC 3161), PAdES-B-LT (archivage long terme) - **Niveaux eIDAS** : SES (auto-signé), AdES (CA commerciale), QES (PSCO) - **Validation** : Vérification intégrité cryptographique et certificats - **Génération de certificats** : Certificats X.509 auto-signés pour tests  ### 🔄 Traitement asynchrone - **Celery** : Génération, validation et signature asynchrones - **Polling** : Suivi d'état via `/taches/{id_tache}/statut` - **Pas de timeout** : Idéal pour gros fichiers ou validations lourdes  ## 🔒 Authentification  Toutes les requêtes nécessitent un **token JWT** dans le header Authorization : ``` Authorization: Bearer YOUR_JWT_TOKEN ```  ### Comment obtenir un token JWT ?  #### 🔑 Méthode 1 : API `/api/token/` (Recommandée)  **URL :** `https://www.factpulse.fr/api/token/`  Cette méthode est **recommandée** pour l'intégration dans vos applications et workflows CI/CD.  **Prérequis :** Avoir défini un mot de passe sur votre compte  **Pour les utilisateurs inscrits via email/password :** - Vous avez déjà un mot de passe, utilisez-le directement  **Pour les utilisateurs inscrits via OAuth (Google/GitHub) :** - Vous devez d'abord définir un mot de passe sur : https://www.factpulse.fr/accounts/password/set/ - Une fois le mot de passe créé, vous pourrez utiliser l'API  **Exemple de requête :** ```bash curl -X POST https://www.factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"votre_email@example.com\",     \"password\": \"votre_mot_de_passe\"   }' ```  **Paramètre optionnel `client_uid` :**  Pour sélectionner les credentials d'un client spécifique (PA/PDP, Chorus Pro, certificats de signature), ajoutez `client_uid` :  ```bash curl -X POST https://www.factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"votre_email@example.com\",     \"password\": \"votre_mot_de_passe\",     \"client_uid\": \"550e8400-e29b-41d4-a716-446655440000\"   }' ```  Le `client_uid` sera inclus dans le JWT et permettra à l'API d'utiliser automatiquement : - Les credentials AFNOR/PDP configurés pour ce client - Les credentials Chorus Pro configurés pour ce client - Les certificats de signature électronique configurés pour ce client  **Réponse :** ```json {   \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\",  // Token d'accès (validité: 30 min)   \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\"  // Token de rafraîchissement (validité: 7 jours) } ```  **Avantages :** - ✅ Automatisation complète (CI/CD, scripts) - ✅ Gestion programmatique des tokens - ✅ Support du refresh token pour renouveler automatiquement l'accès - ✅ Intégration facile dans n'importe quel langage/outil  #### 🖥️ Méthode 2 : Génération via Dashboard (Alternative)  **URL :** https://www.factpulse.fr/dashboard/  Cette méthode convient pour des tests rapides ou une utilisation occasionnelle via l'interface graphique.  **Fonctionnement :** - Connectez-vous au dashboard - Utilisez les boutons \"Generate Test Token\" ou \"Generate Production Token\" - Fonctionne pour **tous** les utilisateurs (OAuth et email/password), sans nécessiter de mot de passe  **Types de tokens :** - **Token Test** : Validité 24h, quota 1000 appels/jour (gratuit) - **Token Production** : Validité 7 jours, quota selon votre forfait  **Avantages :** - ✅ Rapide pour tester l'API - ✅ Aucun mot de passe requis - ✅ Interface visuelle simple  **Inconvénients :** - ❌ Nécessite une action manuelle - ❌ Pas de refresh token - ❌ Moins adapté pour l'automatisation  ### 📚 Documentation complète  Pour plus d'informations sur l'authentification et l'utilisation de l'API : https://www.factpulse.fr/documentation-api/
+ * REST API for electronic invoicing in France: Factur-X, AFNOR PDP/PA, electronic signatures.  ## 🎯 Main Features  ### 📄 Factur-X Invoice Generation - **Formats**: XML only or PDF/A-3 with embedded XML - **Profiles**: MINIMUM, BASIC, EN16931, EXTENDED - **Standards**: EN 16931 (EU directive 2014/55), ISO 19005-3 (PDF/A-3), CII (UN/CEFACT) - **🆕 Simplified Format**: Generation from SIRET + auto-enrichment (Chorus Pro API + Business Search)  ### ✅ Validation and Compliance - **XML Validation**: Schematron (45 to 210+ rules depending on profile) - **PDF Validation**: PDF/A-3, Factur-X XMP metadata, electronic signatures - **VeraPDF**: Strict PDF/A validation (146+ ISO 19005-3 rules) - **Asynchronous Processing**: Celery support for heavy validations (VeraPDF)  ### 📡 AFNOR PDP/PA Integration (XP Z12-013) - **Flow Submission**: Send invoices to Partner Dematerialization Platforms - **Flow Search**: View submitted invoices - **Download**: Retrieve PDF/A-3 with XML - **Directory Service**: Company search (SIREN/SIRET) - **Multi-client**: Support for multiple PDP configs per user (stored credentials or zero-storage)  ### ✍️ PDF Electronic Signature - **Standards**: PAdES-B-B, PAdES-B-T (RFC 3161 timestamping), PAdES-B-LT (long-term archival) - **eIDAS Levels**: SES (self-signed), AdES (commercial CA), QES (QTSP) - **Validation**: Cryptographic integrity and certificate verification - **Certificate Generation**: Self-signed X.509 certificates for testing  ### 🔄 Asynchronous Processing - **Celery**: Asynchronous generation, validation and signing - **Polling**: Status tracking via `/tasks/{task_id}/status` - **No timeout**: Ideal for large files or heavy validations  ## 🔒 Authentication  All requests require a **JWT token** in the Authorization header: ``` Authorization: Bearer YOUR_JWT_TOKEN ```  ### How to obtain a JWT token?  #### 🔑 Method 1: `/api/token/` API (Recommended)  **URL:** `https://www.factpulse.fr/api/token/`  This method is **recommended** for integration in your applications and CI/CD workflows.  **Prerequisites:** Having set a password on your account  **For users registered via email/password:** - You already have a password, use it directly  **For users registered via OAuth (Google/GitHub):** - You must first set a password at: https://www.factpulse.fr/accounts/password/set/ - Once the password is created, you can use the API  **Request example:** ```bash curl -X POST https://www.factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"your_email@example.com\",     \"password\": \"your_password\"   }' ```  **Optional `client_uid` parameter:**  To select credentials for a specific client (PA/PDP, Chorus Pro, signing certificates), add `client_uid`:  ```bash curl -X POST https://www.factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"your_email@example.com\",     \"password\": \"your_password\",     \"client_uid\": \"550e8400-e29b-41d4-a716-446655440000\"   }' ```  The `client_uid` will be included in the JWT and allow the API to automatically use: - AFNOR/PDP credentials configured for this client - Chorus Pro credentials configured for this client - Electronic signature certificates configured for this client  **Response:** ```json {   \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\",  // Access token (validity: 30 min)   \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\"  // Refresh token (validity: 7 days) } ```  **Advantages:** - ✅ Full automation (CI/CD, scripts) - ✅ Programmatic token management - ✅ Refresh token support for automatic access renewal - ✅ Easy integration in any language/tool  #### 🖥️ Method 2: Dashboard Generation (Alternative)  **URL:** https://www.factpulse.fr/dashboard/  This method is suitable for quick tests or occasional use via the graphical interface.  **How it works:** - Log in to the dashboard - Use the \"Generate Test Token\" or \"Generate Production Token\" buttons - Works for **all** users (OAuth and email/password), without requiring a password  **Token types:** - **Test Token**: 24h validity, 1000 calls/day quota (free) - **Production Token**: 7 days validity, quota based on your plan  **Advantages:** - ✅ Quick for API testing - ✅ No password required - ✅ Simple visual interface  **Disadvantages:** - ❌ Requires manual action - ❌ No refresh token - ❌ Less suited for automation  ### 📚 Full Documentation  For more information on authentication and API usage: https://www.factpulse.fr/documentation-api/
  *
  * The version of the OpenAPI document: 1.0.0
  * Generated by: https://openapi-generator.tech
@@ -35,7 +35,7 @@ use \FactPulse\SDK\ObjectSerializer;
  * GenerateCertificateRequest Class Doc Comment
  *
  * @category Class
- * @description Requête pour générer un certificat X.509 auto-signé de test.  ⚠️ ATTENTION : Ce certificat est destiné uniquement aux TESTS. NE PAS utiliser en production ! Niveau eIDAS : SES (Simple Electronic Signature)
+ * @description Request to generate a self-signed X.509 test certificate.  WARNING: This certificate is intended for TESTING only. DO NOT use in production! eIDAS level: SES (Simple Electronic Signature)
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,16 +59,16 @@ class GenerateCertificateRequest implements ModelInterface, ArrayAccess, \JsonSe
       */
     protected static $openAPITypes = [
         'cn' => 'string',
-        'organisation' => 'string',
-        'pays' => 'string',
-        'ville' => 'string',
-        'province' => 'string',
+        'organization' => 'string',
+        'country' => 'string',
+        'city' => 'string',
+        'state' => 'string',
         'email' => 'string',
-        'duree_jours' => 'int',
-        'taille_cle' => 'int',
-        'passphrase_cle' => 'string',
-        'generer_p12' => 'bool',
-        'passphrase_p12' => 'string'
+        'validity_days' => 'int',
+        'key_size' => 'int',
+        'key_passphrase' => 'string',
+        'generate_p12' => 'bool',
+        'p12_passphrase' => 'string'
     ];
 
     /**
@@ -80,16 +80,16 @@ class GenerateCertificateRequest implements ModelInterface, ArrayAccess, \JsonSe
       */
     protected static $openAPIFormats = [
         'cn' => null,
-        'organisation' => null,
-        'pays' => null,
-        'ville' => null,
-        'province' => null,
+        'organization' => null,
+        'country' => null,
+        'city' => null,
+        'state' => null,
         'email' => null,
-        'duree_jours' => null,
-        'taille_cle' => null,
-        'passphrase_cle' => null,
-        'generer_p12' => null,
-        'passphrase_p12' => null
+        'validity_days' => null,
+        'key_size' => null,
+        'key_passphrase' => null,
+        'generate_p12' => null,
+        'p12_passphrase' => null
     ];
 
     /**
@@ -99,16 +99,16 @@ class GenerateCertificateRequest implements ModelInterface, ArrayAccess, \JsonSe
       */
     protected static array $openAPINullables = [
         'cn' => false,
-        'organisation' => false,
-        'pays' => false,
-        'ville' => false,
-        'province' => false,
+        'organization' => false,
+        'country' => false,
+        'city' => false,
+        'state' => false,
         'email' => true,
-        'duree_jours' => false,
-        'taille_cle' => false,
-        'passphrase_cle' => true,
-        'generer_p12' => false,
-        'passphrase_p12' => false
+        'validity_days' => false,
+        'key_size' => false,
+        'key_passphrase' => true,
+        'generate_p12' => false,
+        'p12_passphrase' => false
     ];
 
     /**
@@ -198,16 +198,16 @@ class GenerateCertificateRequest implements ModelInterface, ArrayAccess, \JsonSe
      */
     protected static $attributeMap = [
         'cn' => 'cn',
-        'organisation' => 'organisation',
-        'pays' => 'pays',
-        'ville' => 'ville',
-        'province' => 'province',
+        'organization' => 'organization',
+        'country' => 'country',
+        'city' => 'city',
+        'state' => 'state',
         'email' => 'email',
-        'duree_jours' => 'duree_jours',
-        'taille_cle' => 'taille_cle',
-        'passphrase_cle' => 'passphrase_cle',
-        'generer_p12' => 'generer_p12',
-        'passphrase_p12' => 'passphrase_p12'
+        'validity_days' => 'validity_days',
+        'key_size' => 'key_size',
+        'key_passphrase' => 'key_passphrase',
+        'generate_p12' => 'generate_p12',
+        'p12_passphrase' => 'p12_passphrase'
     ];
 
     /**
@@ -217,16 +217,16 @@ class GenerateCertificateRequest implements ModelInterface, ArrayAccess, \JsonSe
      */
     protected static $setters = [
         'cn' => 'setCn',
-        'organisation' => 'setOrganisation',
-        'pays' => 'setPays',
-        'ville' => 'setVille',
-        'province' => 'setProvince',
+        'organization' => 'setOrganization',
+        'country' => 'setCountry',
+        'city' => 'setCity',
+        'state' => 'setState',
         'email' => 'setEmail',
-        'duree_jours' => 'setDureeJours',
-        'taille_cle' => 'setTailleCle',
-        'passphrase_cle' => 'setPassphraseCle',
-        'generer_p12' => 'setGenererP12',
-        'passphrase_p12' => 'setPassphraseP12'
+        'validity_days' => 'setValidityDays',
+        'key_size' => 'setKeySize',
+        'key_passphrase' => 'setKeyPassphrase',
+        'generate_p12' => 'setGenerateP12',
+        'p12_passphrase' => 'setP12Passphrase'
     ];
 
     /**
@@ -236,16 +236,16 @@ class GenerateCertificateRequest implements ModelInterface, ArrayAccess, \JsonSe
      */
     protected static $getters = [
         'cn' => 'getCn',
-        'organisation' => 'getOrganisation',
-        'pays' => 'getPays',
-        'ville' => 'getVille',
-        'province' => 'getProvince',
+        'organization' => 'getOrganization',
+        'country' => 'getCountry',
+        'city' => 'getCity',
+        'state' => 'getState',
         'email' => 'getEmail',
-        'duree_jours' => 'getDureeJours',
-        'taille_cle' => 'getTailleCle',
-        'passphrase_cle' => 'getPassphraseCle',
-        'generer_p12' => 'getGenererP12',
-        'passphrase_p12' => 'getPassphraseP12'
+        'validity_days' => 'getValidityDays',
+        'key_size' => 'getKeySize',
+        'key_passphrase' => 'getKeyPassphrase',
+        'generate_p12' => 'getGenerateP12',
+        'p12_passphrase' => 'getP12Passphrase'
     ];
 
     /**
@@ -306,16 +306,16 @@ class GenerateCertificateRequest implements ModelInterface, ArrayAccess, \JsonSe
     public function __construct(?array $data = null)
     {
         $this->setIfExists('cn', $data ?? [], 'Test Signature FactPulse');
-        $this->setIfExists('organisation', $data ?? [], 'FactPulse Test');
-        $this->setIfExists('pays', $data ?? [], 'FR');
-        $this->setIfExists('ville', $data ?? [], 'Paris');
-        $this->setIfExists('province', $data ?? [], 'Ile-de-France');
+        $this->setIfExists('organization', $data ?? [], 'FactPulse Test');
+        $this->setIfExists('country', $data ?? [], 'FR');
+        $this->setIfExists('city', $data ?? [], 'Paris');
+        $this->setIfExists('state', $data ?? [], 'Ile-de-France');
         $this->setIfExists('email', $data ?? [], null);
-        $this->setIfExists('duree_jours', $data ?? [], 365);
-        $this->setIfExists('taille_cle', $data ?? [], 2048);
-        $this->setIfExists('passphrase_cle', $data ?? [], null);
-        $this->setIfExists('generer_p12', $data ?? [], false);
-        $this->setIfExists('passphrase_p12', $data ?? [], 'changeme');
+        $this->setIfExists('validity_days', $data ?? [], 365);
+        $this->setIfExists('key_size', $data ?? [], 2048);
+        $this->setIfExists('key_passphrase', $data ?? [], null);
+        $this->setIfExists('generate_p12', $data ?? [], false);
+        $this->setIfExists('p12_passphrase', $data ?? [], 'changeme');
     }
 
     /**
@@ -345,20 +345,20 @@ class GenerateCertificateRequest implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['pays']) && (mb_strlen($this->container['pays']) > 2)) {
-            $invalidProperties[] = "invalid value for 'pays', the character length must be smaller than or equal to 2.";
+        if (!is_null($this->container['country']) && (mb_strlen($this->container['country']) > 2)) {
+            $invalidProperties[] = "invalid value for 'country', the character length must be smaller than or equal to 2.";
         }
 
-        if (!is_null($this->container['pays']) && (mb_strlen($this->container['pays']) < 2)) {
-            $invalidProperties[] = "invalid value for 'pays', the character length must be bigger than or equal to 2.";
+        if (!is_null($this->container['country']) && (mb_strlen($this->container['country']) < 2)) {
+            $invalidProperties[] = "invalid value for 'country', the character length must be bigger than or equal to 2.";
         }
 
-        if (!is_null($this->container['duree_jours']) && ($this->container['duree_jours'] > 3650)) {
-            $invalidProperties[] = "invalid value for 'duree_jours', must be smaller than or equal to 3650.";
+        if (!is_null($this->container['validity_days']) && ($this->container['validity_days'] > 3650)) {
+            $invalidProperties[] = "invalid value for 'validity_days', must be smaller than or equal to 3650.";
         }
 
-        if (!is_null($this->container['duree_jours']) && ($this->container['duree_jours'] < 1)) {
-            $invalidProperties[] = "invalid value for 'duree_jours', must be bigger than or equal to 1.";
+        if (!is_null($this->container['validity_days']) && ($this->container['validity_days'] < 1)) {
+            $invalidProperties[] = "invalid value for 'validity_days', must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -389,7 +389,7 @@ class GenerateCertificateRequest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets cn
      *
-     * @param string|null $cn Common Name (CN) - Nom du certificat
+     * @param string|null $cn Common Name (CN) - Certificate name
      *
      * @return self
      */
@@ -404,116 +404,116 @@ class GenerateCertificateRequest implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-     * Gets organisation
+     * Gets organization
      *
      * @return string|null
      */
-    public function getOrganisation()
+    public function getOrganization()
     {
-        return $this->container['organisation'];
+        return $this->container['organization'];
     }
 
     /**
-     * Sets organisation
+     * Sets organization
      *
-     * @param string|null $organisation Organisation (O)
+     * @param string|null $organization Organization (O)
      *
      * @return self
      */
-    public function setOrganisation($organisation)
+    public function setOrganization($organization)
     {
-        if (is_null($organisation)) {
-            throw new \InvalidArgumentException('non-nullable organisation cannot be null');
+        if (is_null($organization)) {
+            throw new \InvalidArgumentException('non-nullable organization cannot be null');
         }
-        $this->container['organisation'] = $organisation;
+        $this->container['organization'] = $organization;
 
         return $this;
     }
 
     /**
-     * Gets pays
+     * Gets country
      *
      * @return string|null
      */
-    public function getPays()
+    public function getCountry()
     {
-        return $this->container['pays'];
+        return $this->container['country'];
     }
 
     /**
-     * Sets pays
+     * Sets country
      *
-     * @param string|null $pays Code pays ISO 2 lettres (C)
+     * @param string|null $country ISO 2-letter country code (C)
      *
      * @return self
      */
-    public function setPays($pays)
+    public function setCountry($country)
     {
-        if (is_null($pays)) {
-            throw new \InvalidArgumentException('non-nullable pays cannot be null');
+        if (is_null($country)) {
+            throw new \InvalidArgumentException('non-nullable country cannot be null');
         }
-        if ((mb_strlen($pays) > 2)) {
-            throw new \InvalidArgumentException('invalid length for $pays when calling GenerateCertificateRequest., must be smaller than or equal to 2.');
+        if ((mb_strlen($country) > 2)) {
+            throw new \InvalidArgumentException('invalid length for $country when calling GenerateCertificateRequest., must be smaller than or equal to 2.');
         }
-        if ((mb_strlen($pays) < 2)) {
-            throw new \InvalidArgumentException('invalid length for $pays when calling GenerateCertificateRequest., must be bigger than or equal to 2.');
+        if ((mb_strlen($country) < 2)) {
+            throw new \InvalidArgumentException('invalid length for $country when calling GenerateCertificateRequest., must be bigger than or equal to 2.');
         }
 
-        $this->container['pays'] = $pays;
+        $this->container['country'] = $country;
 
         return $this;
     }
 
     /**
-     * Gets ville
+     * Gets city
      *
      * @return string|null
      */
-    public function getVille()
+    public function getCity()
     {
-        return $this->container['ville'];
+        return $this->container['city'];
     }
 
     /**
-     * Sets ville
+     * Sets city
      *
-     * @param string|null $ville Ville (L)
+     * @param string|null $city City (L)
      *
      * @return self
      */
-    public function setVille($ville)
+    public function setCity($city)
     {
-        if (is_null($ville)) {
-            throw new \InvalidArgumentException('non-nullable ville cannot be null');
+        if (is_null($city)) {
+            throw new \InvalidArgumentException('non-nullable city cannot be null');
         }
-        $this->container['ville'] = $ville;
+        $this->container['city'] = $city;
 
         return $this;
     }
 
     /**
-     * Gets province
+     * Gets state
      *
      * @return string|null
      */
-    public function getProvince()
+    public function getState()
     {
-        return $this->container['province'];
+        return $this->container['state'];
     }
 
     /**
-     * Sets province
+     * Sets state
      *
-     * @param string|null $province Province/État (ST)
+     * @param string|null $state State/Province (ST)
      *
      * @return self
      */
-    public function setProvince($province)
+    public function setState($state)
     {
-        if (is_null($province)) {
-            throw new \InvalidArgumentException('non-nullable province cannot be null');
+        if (is_null($state)) {
+            throw new \InvalidArgumentException('non-nullable state cannot be null');
         }
-        $this->container['province'] = $province;
+        $this->container['state'] = $state;
 
         return $this;
     }
@@ -553,151 +553,151 @@ class GenerateCertificateRequest implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-     * Gets duree_jours
+     * Gets validity_days
      *
      * @return int|null
      */
-    public function getDureeJours()
+    public function getValidityDays()
     {
-        return $this->container['duree_jours'];
+        return $this->container['validity_days'];
     }
 
     /**
-     * Sets duree_jours
+     * Sets validity_days
      *
-     * @param int|null $duree_jours Durée de validité en jours
+     * @param int|null $validity_days Validity duration in days
      *
      * @return self
      */
-    public function setDureeJours($duree_jours)
+    public function setValidityDays($validity_days)
     {
-        if (is_null($duree_jours)) {
-            throw new \InvalidArgumentException('non-nullable duree_jours cannot be null');
+        if (is_null($validity_days)) {
+            throw new \InvalidArgumentException('non-nullable validity_days cannot be null');
         }
 
-        if (($duree_jours > 3650)) {
-            throw new \InvalidArgumentException('invalid value for $duree_jours when calling GenerateCertificateRequest., must be smaller than or equal to 3650.');
+        if (($validity_days > 3650)) {
+            throw new \InvalidArgumentException('invalid value for $validity_days when calling GenerateCertificateRequest., must be smaller than or equal to 3650.');
         }
-        if (($duree_jours < 1)) {
-            throw new \InvalidArgumentException('invalid value for $duree_jours when calling GenerateCertificateRequest., must be bigger than or equal to 1.');
+        if (($validity_days < 1)) {
+            throw new \InvalidArgumentException('invalid value for $validity_days when calling GenerateCertificateRequest., must be bigger than or equal to 1.');
         }
 
-        $this->container['duree_jours'] = $duree_jours;
+        $this->container['validity_days'] = $validity_days;
 
         return $this;
     }
 
     /**
-     * Gets taille_cle
+     * Gets key_size
      *
      * @return int|null
      */
-    public function getTailleCle()
+    public function getKeySize()
     {
-        return $this->container['taille_cle'];
+        return $this->container['key_size'];
     }
 
     /**
-     * Sets taille_cle
+     * Sets key_size
      *
-     * @param int|null $taille_cle Taille de la clé RSA en bits
+     * @param int|null $key_size RSA key size in bits
      *
      * @return self
      */
-    public function setTailleCle($taille_cle)
+    public function setKeySize($key_size)
     {
-        if (is_null($taille_cle)) {
-            throw new \InvalidArgumentException('non-nullable taille_cle cannot be null');
+        if (is_null($key_size)) {
+            throw new \InvalidArgumentException('non-nullable key_size cannot be null');
         }
-        $this->container['taille_cle'] = $taille_cle;
+        $this->container['key_size'] = $key_size;
 
         return $this;
     }
 
     /**
-     * Gets passphrase_cle
+     * Gets key_passphrase
      *
      * @return string|null
      */
-    public function getPassphraseCle()
+    public function getKeyPassphrase()
     {
-        return $this->container['passphrase_cle'];
+        return $this->container['key_passphrase'];
     }
 
     /**
-     * Sets passphrase_cle
+     * Sets key_passphrase
      *
-     * @param string|null $passphrase_cle passphrase_cle
+     * @param string|null $key_passphrase key_passphrase
      *
      * @return self
      */
-    public function setPassphraseCle($passphrase_cle)
+    public function setKeyPassphrase($key_passphrase)
     {
-        if (is_null($passphrase_cle)) {
-            array_push($this->openAPINullablesSetToNull, 'passphrase_cle');
+        if (is_null($key_passphrase)) {
+            array_push($this->openAPINullablesSetToNull, 'key_passphrase');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('passphrase_cle', $nullablesSetToNull);
+            $index = array_search('key_passphrase', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['passphrase_cle'] = $passphrase_cle;
+        $this->container['key_passphrase'] = $key_passphrase;
 
         return $this;
     }
 
     /**
-     * Gets generer_p12
+     * Gets generate_p12
      *
      * @return bool|null
      */
-    public function getGenererP12()
+    public function getGenerateP12()
     {
-        return $this->container['generer_p12'];
+        return $this->container['generate_p12'];
     }
 
     /**
-     * Sets generer_p12
+     * Sets generate_p12
      *
-     * @param bool|null $generer_p12 Générer aussi un fichier PKCS#12 (.p12)
+     * @param bool|null $generate_p12 Also generate a PKCS#12 (.p12) file
      *
      * @return self
      */
-    public function setGenererP12($generer_p12)
+    public function setGenerateP12($generate_p12)
     {
-        if (is_null($generer_p12)) {
-            throw new \InvalidArgumentException('non-nullable generer_p12 cannot be null');
+        if (is_null($generate_p12)) {
+            throw new \InvalidArgumentException('non-nullable generate_p12 cannot be null');
         }
-        $this->container['generer_p12'] = $generer_p12;
+        $this->container['generate_p12'] = $generate_p12;
 
         return $this;
     }
 
     /**
-     * Gets passphrase_p12
+     * Gets p12_passphrase
      *
      * @return string|null
      */
-    public function getPassphraseP12()
+    public function getP12Passphrase()
     {
-        return $this->container['passphrase_p12'];
+        return $this->container['p12_passphrase'];
     }
 
     /**
-     * Sets passphrase_p12
+     * Sets p12_passphrase
      *
-     * @param string|null $passphrase_p12 Passphrase pour le fichier PKCS#12
+     * @param string|null $p12_passphrase Passphrase for PKCS#12 file
      *
      * @return self
      */
-    public function setPassphraseP12($passphrase_p12)
+    public function setP12Passphrase($p12_passphrase)
     {
-        if (is_null($passphrase_p12)) {
-            throw new \InvalidArgumentException('non-nullable passphrase_p12 cannot be null');
+        if (is_null($p12_passphrase)) {
+            throw new \InvalidArgumentException('non-nullable p12_passphrase cannot be null');
         }
-        $this->container['passphrase_p12'] = $passphrase_p12;
+        $this->container['p12_passphrase'] = $p12_passphrase;
 
         return $this;
     }

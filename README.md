@@ -1,14 +1,14 @@
 # FactPulse SDK PHP
 
-Client PHP officiel pour l'API FactPulse - Facturation électronique française.
+Official PHP client for the FactPulse API - French electronic invoicing.
 
-## Fonctionnalités
+## Features
 
-- **Factur-X** : Génération et validation de factures électroniques (profils MINIMUM, BASIC, EN16931, EXTENDED)
-- **Chorus Pro** : Intégration avec la plateforme de facturation publique française
-- **AFNOR PDP/PA** : Soumission de flux conformes à la norme XP Z12-013
-- **Signature électronique** : Signature PDF (PAdES-B-B, PAdES-B-T, PAdES-B-LT)
-- **Client simplifié** : Authentification JWT et polling intégrés via `Helpers`
+- **Factur-X**: Generation and validation of electronic invoices (MINIMUM, BASIC, EN16931, EXTENDED profiles)
+- **Chorus Pro**: Integration with the French public sector invoicing platform
+- **AFNOR PDP/PA**: Submission of flows compliant with the XP Z12-013 standard
+- **Electronic signature**: PDF signature (PAdES-B-B, PAdES-B-T, PAdES-B-LT)
+- **Simplified client**: JWT authentication and integrated polling via `Helpers`
 
 ## Installation
 
@@ -16,9 +16,9 @@ Client PHP officiel pour l'API FactPulse - Facturation électronique française.
 composer require factpulse/sdk
 ```
 
-## Démarrage rapide
+## Quick Start
 
-Le module `Helpers` offre une API simplifiée avec authentification et polling automatiques :
+The `Helpers` module provides a simplified API with automatic authentication and polling:
 
 ```php
 <?php
@@ -26,203 +26,203 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 use FactPulse\SDK\Helpers\FactPulseClient;
 use function FactPulse\SDK\Helpers\{
-    montant, montantTotal, ligneDePoste, ligneDeTva, fournisseur, destinataire
+    amount, totalAmount, invoiceLine, vatLine, supplier, recipient
 };
 
-// Créer le client
+// Create the client
 $client = new FactPulseClient(
-    'votre_email@example.com',
-    'votre_mot_de_passe'
+    'your_email@example.com',
+    'your_password'
 );
 
-// Construire la facture avec les helpers
-$factureData = [
-    'numeroFacture' => 'FAC-2025-001',
-    'dateFacture' => '2025-01-15',
-    'fournisseur' => fournisseur(
-        'Mon Entreprise SAS',
+// Build the invoice with helpers
+$invoiceData = [
+    'number' => 'INV-2025-001',
+    'date' => '2025-01-15',
+    'supplier' => supplier(
+        'My Company SAS',
         '12345678901234',
-        '123 Rue Example',
+        '123 Example Street',
         '75001',
         'Paris'
     ),
-    'destinataire' => destinataire(
+    'recipient' => recipient(
         'Client SARL',
         '98765432109876',
-        '456 Avenue Test',
+        '456 Test Avenue',
         '69001',
         'Lyon'
     ),
-    'montantTotal' => montantTotal(1000.00, 200.00, 1200.00, 1200.00),
-    'lignesDePoste' => [
-        ligneDePoste(1, 'Prestation de conseil', 10, 100.00, 1000.00)
+    'totalAmount' => totalAmount(1000.00, 200.00, 1200.00, 1200.00),
+    'lines' => [
+        invoiceLine(1, 'Consulting services', 10, 100.00, 1000.00)
     ],
-    'lignesDeTva' => [
-        ligneDeTva(1000.00, 200.00)
+    'vatLines' => [
+        vatLine(1000.00, 200.00)
     ],
 ];
 
-// Générer le PDF Factur-X
-$pdfBytes = $client->genererFacturx($factureData, 'facture_source.pdf', 'EN16931');
+// Generate the Factur-X PDF
+$pdfBytes = $client->generateFacturx($invoiceData, 'source_invoice.pdf', 'EN16931');
 
-file_put_contents('facture_facturx.pdf', $pdfBytes);
+file_put_contents('invoice_facturx.pdf', $pdfBytes);
 ```
 
-## Helpers disponibles
+## Available Helpers
 
-### montant($value)
+### amount($value)
 
-Convertit une valeur en string formaté pour les montants monétaires.
+Converts a value to a formatted string for monetary amounts.
 
 ```php
-use function FactPulse\SDK\Helpers\montant;
+use function FactPulse\SDK\Helpers\amount;
 
-montant(1234.5);      // "1234.50"
-montant("1234.56");   // "1234.56"
-montant(null);        // "0.00"
+amount(1234.5);      // "1234.50"
+amount("1234.56");   // "1234.56"
+amount(null);        // "0.00"
 ```
 
-### montantTotal($ht, $tva, $ttc, $aPayer, ...)
+### totalAmount($excludingTax, $vat, $includingTax, $due, ...)
 
-Crée un objet MontantTotal complet.
+Creates a complete TotalAmount object.
 
 ```php
-use function FactPulse\SDK\Helpers\montantTotal;
+use function FactPulse\SDK\Helpers\totalAmount;
 
-$total = montantTotal(
+$total = totalAmount(
     1000.00,
     200.00,
     1200.00,
     1200.00,
-    50.00,           // remiseTtc (optionnel)
-    'Fidélité',      // motifRemise (optionnel)
-    100.00           // acompte (optionnel)
+    50.00,                  // discountIncludingTax (optional)
+    'Loyalty discount',     // discountReason (optional)
+    100.00                  // prepayment (optional)
 );
 ```
 
-### ligneDePoste($numero, $denomination, $quantite, $montantUnitaireHt, $montantTotalLigneHt, ...)
+### invoiceLine($number, $description, $quantity, $unitPrice, $lineTotal, ...)
 
-Crée une ligne de facturation.
+Creates an invoice line.
 
 ```php
-use function FactPulse\SDK\Helpers\ligneDePoste;
+use function FactPulse\SDK\Helpers\invoiceLine;
 
-$ligne = ligneDePoste(
+$line = invoiceLine(
     1,
-    'Prestation de conseil',
+    'Consulting services',
     5,
     200.00,
-    1000.00,  // montantTotalLigneHt requis
-    'S',      // categorieTva: S, Z, E, AE, K
-    'HEURE',  // unite: FORFAIT, PIECE, HEURE, JOUR...
+    1000.00,  // lineTotal required
+    'S',      // vatCategory: S, Z, E, AE, K
+    'HOUR',   // unit: FIXED, PIECE, HOUR, DAY...
     [
-        'tauxTva' => 'TVA20',        // Ou 'tauxTvaManuel' => '20.00'
+        'vatRate' => 'VAT20',        // Or 'manualVatRate' => '20.00'
         'reference' => 'REF-001',
     ]
 );
 ```
 
-### ligneDeTva($montantBaseHt, $montantTva, ...)
+### vatLine($baseExcludingTax, $vatAmount, ...)
 
-Crée une ligne de ventilation TVA.
+Creates a VAT breakdown line.
 
 ```php
-use function FactPulse\SDK\Helpers\ligneDeTva;
+use function FactPulse\SDK\Helpers\vatLine;
 
-$tva = ligneDeTva(1000.00, 200.00, 'S', [
-    'taux' => 'TVA20',       // Ou 'tauxManuel' => '20.00'
+$vat = vatLine(1000.00, 200.00, 'S', [
+    'rate' => 'VAT20',       // Or 'manualRate' => '20.00'
 ]);
 ```
 
-### adressePostale($ligne1, $codePostal, $ville, ...)
+### postalAddress($line1, $postalCode, $city, ...)
 
-Crée une adresse postale structurée.
+Creates a structured postal address.
 
 ```php
-use function FactPulse\SDK\Helpers\adressePostale;
+use function FactPulse\SDK\Helpers\postalAddress;
 
-$adresse = adressePostale(
-    '123 Rue de la République',
+$address = postalAddress(
+    '123 Republic Street',
     '75001',
     'Paris',
-    'FR',           // pays (défaut: 'FR')
-    'Bâtiment A'    // ligne2 (optionnel)
+    'FR',           // country (default: 'FR')
+    'Building A'    // line2 (optional)
 );
 ```
 
-### adresseElectronique($identifiant, $schemeId)
+### electronicAddress($identifier, $schemeId)
 
-Crée une adresse électronique (identifiant numérique).
+Creates an electronic address (digital identifier).
 
 ```php
-use function FactPulse\SDK\Helpers\adresseElectronique;
+use function FactPulse\SDK\Helpers\electronicAddress;
 
 // SIRET (schemeId="0225")
-$adresse = adresseElectronique('12345678901234', '0225');
+$address = electronicAddress('12345678901234', '0225');
 
-// SIREN (schemeId="0009", défaut)
-$adresse = adresseElectronique('123456789');
+// SIREN (schemeId="0009", default)
+$address = electronicAddress('123456789');
 ```
 
-### fournisseur($nom, $siret, $adresseLigne1, $codePostal, $ville, $options)
+### supplier($name, $siret, $addressLine1, $postalCode, $city, $options)
 
-Crée un fournisseur complet avec calcul automatique du SIREN et TVA intra.
+Creates a complete supplier with automatic calculation of SIREN and intra-community VAT.
 
 ```php
-use function FactPulse\SDK\Helpers\fournisseur;
+use function FactPulse\SDK\Helpers\supplier;
 
-$f = fournisseur(
-    'Ma Société SAS',
+$s = supplier(
+    'My Company SAS',
     '12345678901234',
-    '123 Rue Example',
+    '123 Example Street',
     '75001',
     'Paris',
     ['iban' => 'FR7630006000011234567890189']
 );
-// SIREN et TVA intracommunautaire calculés automatiquement
+// SIREN and intra-community VAT automatically calculated
 ```
 
-### destinataire($nom, $siret, $adresseLigne1, $codePostal, $ville, $options)
+### recipient($name, $siret, $addressLine1, $postalCode, $city, $options)
 
-Crée un destinataire (client) avec calcul automatique du SIREN.
+Creates a recipient (customer) with automatic calculation of SIREN.
 
 ```php
-use function FactPulse\SDK\Helpers\destinataire;
+use function FactPulse\SDK\Helpers\recipient;
 
-$d = destinataire(
+$r = recipient(
     'Client SARL',
     '98765432109876',
-    '456 Avenue Test',
+    '456 Test Avenue',
     '69001',
     'Lyon'
 );
 ```
 
-## Mode Zero-Trust (Chorus Pro / AFNOR)
+## Zero-Trust Mode (Chorus Pro / AFNOR)
 
-Pour passer vos propres credentials sans stockage côté serveur :
+To pass your own credentials without server-side storage:
 
 ```php
 use FactPulse\SDK\Helpers\{FactPulseClient, ChorusProCredentials, AFNORCredentials};
 
 $chorusCreds = new ChorusProCredentials(
-    'votre_client_id',
-    'votre_client_secret',
-    'votre_login',
-    'votre_password',
+    'your_client_id',
+    'your_client_secret',
+    'your_login',
+    'your_password',
     true  // sandbox
 );
 
 $afnorCreds = new AFNORCredentials(
     'https://api.pdp.fr/flow/v1',
     'https://auth.pdp.fr/oauth/token',
-    'votre_client_id',
-    'votre_client_secret'
+    'your_client_id',
+    'your_client_secret'
 );
 
 $client = new FactPulseClient(
-    'votre_email@example.com',
-    'votre_mot_de_passe',
+    'your_email@example.com',
+    'your_password',
     null,  // apiUrl
     null,  // clientUid
     $chorusCreds,
@@ -230,11 +230,11 @@ $client = new FactPulseClient(
 );
 ```
 
-## Ressources
+## Resources
 
-- **Documentation API** : https://factpulse.fr/api/facturation/documentation
-- **Support** : contact@factpulse.fr
+- **API Documentation**: https://factpulse.fr/api/facturation/documentation
+- **Support**: contact@factpulse.fr
 
-## Licence
+## License
 
 MIT License - Copyright (c) 2025 FactPulse

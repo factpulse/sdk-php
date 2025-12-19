@@ -35,7 +35,7 @@ createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost(): mixed
 
 Creating a directory line
 
-Créer une ligne dans l'annuaire
+Create a line in the directory
 
 ### Example
 
@@ -92,7 +92,7 @@ createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost(): mixed
 
 Create a routing code
 
-Créer un code de routage dans l'annuaire
+Create a routing code in the directory
 
 ### Example
 
@@ -149,7 +149,7 @@ deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDe
 
 Delete a directory line
 
-Supprimer une ligne d'annuaire
+Delete a directory line
 
 ### Example
 
@@ -209,7 +209,7 @@ directoryHealthcheckProxyApiV1AfnorDirectoryV1HealthcheckGet(): mixed
 
 Healthcheck Directory Service
 
-Vérifier la disponibilité du Directory Service
+Check Directory Service availability
 
 ### Example
 
@@ -262,7 +262,7 @@ getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdent
 
 Get a directory line
 
-Obtenir une ligne d'annuaire identifiée par un identifiant d'adressage
+Get a directory line identified by an addressing identifier
 
 ### Example
 
@@ -322,7 +322,7 @@ getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdI
 
 Get a directory line
 
-Obtenir une ligne d'annuaire identifiée par son idInstance
+Get a directory line identified by its idInstance
 
 ### Example
 
@@ -382,7 +382,7 @@ getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInsta
 
 Get a routing code by instance-id
 
-Obtenir un code de routage identifié par son idInstance
+Get a routing code identified by its idInstance
 
 ### Example
 
@@ -442,7 +442,7 @@ getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeR
 
 Get a routing code by SIRET and routing identifier
 
-Consulter un code de routage identifié par SIRET et identifiant de routage
+Consult a routing code identified by SIRET and routing identifier
 
 ### Example
 
@@ -504,7 +504,7 @@ getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet($siren): mix
 
 Consult a siren (legal unit) by SIREN number
 
-Retourne les détails d'une entreprise (unité légale) identifiée par son numéro SIREN
+Returns details of a company (legal unit) identified by its SIREN number
 
 ### Example
 
@@ -564,7 +564,7 @@ getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet($id_i
 
 Gets a siren (legal unit) by instance ID
 
-Obtenir une entreprise (unité légale) identifiée par son idInstance
+Get a company (legal unit) identified by its idInstance
 
 ### Example
 
@@ -624,7 +624,7 @@ getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet($siret): mix
 
 Gets a siret (facility) by SIRET number
 
-Obtenir un établissement identifié par son numéro SIRET
+Get an establishment identified by its SIRET number
 
 ### Example
 
@@ -684,7 +684,7 @@ getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet($id_i
 
 Gets a siret (facility) by id-instance
 
-Obtenir un établissement identifié par son idInstance
+Get an establishment identified by its idInstance
 
 ### Example
 
@@ -744,7 +744,7 @@ patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePat
 
 Partially updates a directory line
 
-Mettre à jour partiellement une ligne d'annuaire
+Partially update a directory line
 
 ### Example
 
@@ -804,7 +804,7 @@ patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch($
 
 Partially update a private routing code
 
-Mettre à jour partiellement un code de routage privé
+Partially update a private routing code
 
 ### Example
 
@@ -864,7 +864,7 @@ putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut($id_i
 
 Completely update a private routing code
 
-Mettre à jour complètement un code de routage privé
+Completely update a private routing code
 
 ### Example
 
@@ -924,7 +924,7 @@ searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost(): mixed
 
 Search for a directory line
 
-Rechercher des lignes d'annuaire selon des critères
+Search for directory lines by criteria
 
 ### Example
 
@@ -981,7 +981,7 @@ searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost(): mixed
 
 Search for a routing code
 
-Rechercher des codes de routage selon des critères
+Search for routing codes by criteria
 
 ### Example
 
@@ -1038,7 +1038,7 @@ searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost(): mixed
 
 SIREN search (or legal unit)
 
-Recherche multi-critères d'entreprises (unités légales)
+Multi-criteria search for companies (legal units)
 
 ### Example
 
@@ -1095,7 +1095,7 @@ searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost(): mixed
 
 Search for a SIRET (facility)
 
-Recherche multi-critères d'établissements
+Multi-criteria search for establishments
 
 ### Example
 

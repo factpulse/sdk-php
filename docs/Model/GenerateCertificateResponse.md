@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | **string** | Statut de l&#39;opération | [optional] [default to 'success']
-**certificat_pem** | **string** | Certificat X.509 au format PEM |
-**cle_privee_pem** | **string** | Clé privée RSA au format PEM |
+**status** | **string** | Operation status | [optional] [default to 'success']
+**certificate_pem** | **string** | X.509 certificate in PEM format |
+**private_key_pem** | **string** | RSA private key in PEM format |
 **pkcs12_base64** | **string** |  | [optional]
-**info** | [**\FactPulse\SDK\Model\CertificateInfoResponse**](CertificateInfoResponse.md) | Informations sur le certificat généré |
-**avertissement** | **string** | Avertissement sur l&#39;utilisation du certificat | [optional] [default to '⚠️ Ce certificat est AUTO-SIGNÉ et destiné uniquement aux TESTS. Ne PAS utiliser en production. Niveau eIDAS : SES (Simple Electronic Signature)']
+**info** | [**\FactPulse\SDK\Model\CertificateInfoResponse**](CertificateInfoResponse.md) | Generated certificate information |
+**warning** | **string** | Warning about certificate usage | [optional] [default to 'WARNING: This certificate is SELF-SIGNED and intended for TESTING only. DO NOT use in production. eIDAS level: SES (Simple Electronic Signature)']
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

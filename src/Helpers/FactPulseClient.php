@@ -6,10 +6,10 @@ use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\MultipartStream;
 
 // =============================================================================
-// Credentials classes - pour une configuration simplifiée
+// Credentials classes - for simplified configuration
 // =============================================================================
 
-/** Credentials Chorus Pro pour le mode Zero-Trust. */
+/** Chorus Pro credentials for Zero-Trust mode. */
 class ChorusProCredentials {
     public string $pisteClientId;
     public string $pisteClientSecret;
@@ -28,7 +28,7 @@ class ChorusProCredentials {
     }
 }
 
-/** Credentials AFNOR PDP pour le mode Zero-Trust. L'API FactPulse utilise ces credentials pour s'authentifier auprès de la PDP AFNOR. */
+/** AFNOR PDP credentials for Zero-Trust mode. The FactPulse API uses these credentials to authenticate with the AFNOR PDP. */
 class AFNORCredentials {
     public string $flowServiceUrl, $tokenUrl, $clientId, $clientSecret;
     public ?string $directoryServiceUrl;
@@ -47,35 +47,35 @@ class AFNORCredentials {
 }
 
 // =============================================================================
-// Helpers pour les types anyOf - évite la verbosité des wrappers générés
+// Helpers for anyOf types - avoids verbosity of generated wrappers
 // =============================================================================
 
-function montant($value): string {
+function amount($value): string {
     if ($value === null) return '0.00';
     if (is_numeric($value)) return number_format((float)$value, 2, '.', '');
     return is_string($value) ? $value : '0.00';
 }
 
-function montantTotal($ht, $tva, $ttc, $aPayer, $remiseTtc = null, ?string $motifRemise = null, $acompte = null): array {
-    $result = ['montantHtTotal' => montant($ht), 'montantTva' => montant($tva), 'montantTtcTotal' => montant($ttc), 'montantAPayer' => montant($aPayer)];
-    if ($remiseTtc !== null) $result['montantRemiseGlobaleTtc'] = montant($remiseTtc);
+function invoiceTotals($ht, $tva, $ttc, $aPayer, $remiseTtc = null, ?string $motifRemise = null, $acompte = null): array {
+    $result = ['montantHtTotal' => amount($ht), 'montantTva' => amount($tva), 'montantTtcTotal' => amount($ttc), 'montantAPayer' => amount($aPayer)];
+    if ($remiseTtc !== null) $result['montantRemiseGlobaleTtc'] = amount($remiseTtc);
     if ($motifRemise !== null) $result['motifRemiseGlobaleTtc'] = $motifRemise;
-    if ($acompte !== null) $result['acompte'] = montant($acompte);
+    if ($acompte !== null) $result['acompte'] = amount($acompte);
     return $result;
 }
 
-/** Crée une ligne de poste (aligné sur LigneDePoste de models.py).
- * Pour le taux TVA: soit tauxTva (code) soit tauxTvaManuel (valeur) dans $options */
-function ligneDePoste(int $numero, string $denomination, $quantite, $montantUnitaireHt, $montantTotalLigneHt,
+/** Creates an invoice line (aligned with LigneDePoste from models.py).
+ * For VAT rate: either tauxTva (code) or tauxTvaManuel (value) in $options */
+function invoiceLine(int $numero, string $denomination, $quantite, $montantUnitaireHt, $montantTotalLigneHt,
     string $categorieTva = 'S', string $unite = 'FORFAIT', array $options = []): array {
-    $result = ['numero' => $numero, 'denomination' => $denomination, 'quantite' => montant($quantite),
-        'montantUnitaireHt' => montant($montantUnitaireHt), 'montantTotalLigneHt' => montant($montantTotalLigneHt),
+    $result = ['numero' => $numero, 'denomination' => $denomination, 'quantite' => amount($quantite),
+        'montantUnitaireHt' => amount($montantUnitaireHt), 'montantTotalLigneHt' => amount($montantTotalLigneHt),
         'categorieTva' => $categorieTva, 'unite' => $unite];
-    // Soit tauxTva (code) soit tauxTvaManuel (valeur)
+    // Either tauxTva (code) or tauxTvaManuel (value)
     if (isset($options['tauxTva'])) $result['tauxTva'] = $options['tauxTva'];
-    else $result['tauxTvaManuel'] = montant($options['tauxTvaManuel'] ?? '20.00');
+    else $result['tauxTvaManuel'] = amount($options['tauxTvaManuel'] ?? '20.00');
     if (isset($options['reference'])) $result['reference'] = $options['reference'];
-    if (isset($options['montantRemiseHt'])) $result['montantRemiseHt'] = montant($options['montantRemiseHt']);
+    if (isset($options['montantRemiseHt'])) $result['montantRemiseHt'] = amount($options['montantRemiseHt']);
     if (isset($options['codeRaisonReduction'])) $result['codeRaisonReduction'] = $options['codeRaisonReduction'];
     if (isset($options['raisonReduction'])) $result['raisonReduction'] = $options['raisonReduction'];
     if (isset($options['dateDebutPeriode'])) $result['dateDebutPeriode'] = $options['dateDebutPeriode'];
@@ -83,44 +83,44 @@ function ligneDePoste(int $numero, string $denomination, $quantite, $montantUnit
     return $result;
 }
 
-/** Crée une ligne de TVA (aligné sur LigneDeTVA de models.py).
- * Pour le taux: soit taux (code) soit tauxManuel (valeur) dans $options */
-function ligneDeTva($montantBaseHt, $montantTva, string $categorie = 'S', array $options = []): array {
-    $result = ['montantBaseHt' => montant($montantBaseHt), 'montantTva' => montant($montantTva), 'categorie' => $categorie];
-    // Soit taux (code) soit tauxManuel (valeur)
+/** Creates a VAT line (aligned with LigneDeTVA from models.py).
+ * For rate: either taux (code) or tauxManuel (value) in $options */
+function vatLine($montantBaseHt, $montantTva, string $categorie = 'S', array $options = []): array {
+    $result = ['montantBaseHt' => amount($montantBaseHt), 'montantTva' => amount($montantTva), 'categorie' => $categorie];
+    // Either taux (code) or tauxManuel (value)
     if (isset($options['taux'])) $result['taux'] = $options['taux'];
-    else $result['tauxManuel'] = montant($options['tauxManuel'] ?? '20.00');
+    else $result['tauxManuel'] = amount($options['tauxManuel'] ?? '20.00');
     return $result;
 }
 
-/** Crée une adresse postale pour l'API FactPulse. */
-function adressePostale(string $ligne1, string $codePostal, string $ville, string $pays = 'FR', ?string $ligne2 = null, ?string $ligne3 = null): array {
+/** Creates a postal address for the FactPulse API. */
+function postalAddress(string $ligne1, string $codePostal, string $ville, string $pays = 'FR', ?string $ligne2 = null, ?string $ligne3 = null): array {
     $result = ['ligneUn' => $ligne1, 'codePostal' => $codePostal, 'nomVille' => $ville, 'paysCodeIso' => $pays];
     if ($ligne2 !== null) $result['ligneDeux'] = $ligne2;
     if ($ligne3 !== null) $result['ligneTrois'] = $ligne3;
     return $result;
 }
 
-/** Crée une adresse électronique. schemeId: "0009"=SIREN, "0225"=SIRET */
-function adresseElectronique(string $identifiant, string $schemeId = '0009'): array {
+/** Creates an electronic address. schemeId: "0009"=SIREN, "0225"=SIRET */
+function electronicAddress(string $identifiant, string $schemeId = '0009'): array {
     return ['identifiant' => $identifiant, 'schemeId' => $schemeId];
 }
 
-/** Calcule le numéro TVA intracommunautaire français depuis un SIREN. */
-function calculerTvaIntra(string $siren): ?string {
+/** Computes the French intra-EU VAT number from a SIREN. */
+function computeVatNumber(string $siren): ?string {
     if (strlen($siren) !== 9 || !ctype_digit($siren)) return null;
     $cle = (12 + 3 * ((int)$siren % 97)) % 97;
     return sprintf('FR%02d%s', $cle, $siren);
 }
 
-/** Crée un fournisseur (émetteur) avec auto-calcul SIREN, TVA intracommunautaire et adresses. */
-function fournisseur(string $nom, string $siret, string $adresseLigne1, string $codePostal, string $ville, array $options = []): array {
+/** Creates a supplier (sender) with auto-computed SIREN, intra-EU VAT and addresses. */
+function supplier(string $nom, string $siret, string $adresseLigne1, string $codePostal, string $ville, array $options = []): array {
     $siren = $options['siren'] ?? (strlen($siret) === 14 ? substr($siret, 0, 9) : null);
-    $numeroTvaIntra = $options['numeroTvaIntra'] ?? ($siren ? calculerTvaIntra($siren) : null);
+    $numeroTvaIntra = $options['numeroTvaIntra'] ?? ($siren ? computeVatNumber($siren) : null);
     $result = [
         'nom' => $nom, 'idFournisseur' => $options['idFournisseur'] ?? 0, 'siret' => $siret,
-        'adresseElectronique' => adresseElectronique($siret, '0225'),
-        'adressePostale' => adressePostale($adresseLigne1, $codePostal, $ville, $options['pays'] ?? 'FR', $options['adresseLigne2'] ?? null),
+        'adresseElectronique' => electronicAddress($siret, '0225'),
+        'adressePostale' => postalAddress($adresseLigne1, $codePostal, $ville, $options['pays'] ?? 'FR', $options['adresseLigne2'] ?? null),
     ];
     if ($siren) $result['siren'] = $siren;
     if ($numeroTvaIntra) $result['numeroTvaIntra'] = $numeroTvaIntra;
@@ -130,13 +130,13 @@ function fournisseur(string $nom, string $siret, string $adresseLigne1, string $
     return $result;
 }
 
-/** Crée un destinataire (client) avec auto-calcul SIREN et adresses. */
-function destinataire(string $nom, string $siret, string $adresseLigne1, string $codePostal, string $ville, array $options = []): array {
+/** Creates a recipient (customer) with auto-computed SIREN and addresses. */
+function recipient(string $nom, string $siret, string $adresseLigne1, string $codePostal, string $ville, array $options = []): array {
     $siren = $options['siren'] ?? (strlen($siret) === 14 ? substr($siret, 0, 9) : null);
     $result = [
         'nom' => $nom, 'siret' => $siret,
-        'adresseElectronique' => adresseElectronique($siret, '0225'),
-        'adressePostale' => adressePostale($adresseLigne1, $codePostal, $ville, $options['pays'] ?? 'FR', $options['adresseLigne2'] ?? null),
+        'adresseElectronique' => electronicAddress($siret, '0225'),
+        'adressePostale' => postalAddress($adresseLigne1, $codePostal, $ville, $options['pays'] ?? 'FR', $options['adresseLigne2'] ?? null),
     ];
     if ($siren) $result['siren'] = $siren;
     if (isset($options['codeServiceExecutant'])) $result['codeServiceExecutant'] = $options['codeServiceExecutant'];
@@ -144,29 +144,29 @@ function destinataire(string $nom, string $siret, string $adresseLigne1, string 
 }
 
 /**
- * Crée un bénéficiaire (factor) pour l'affacturage.
+ * Creates a payee (factor) for factoring.
  *
- * Le bénéficiaire (BG-10 / PayeeTradeParty) est utilisé lorsque le paiement
- * doit être effectué à un tiers différent du fournisseur, typiquement un
- * factor (société d'affacturage).
+ * The payee (BG-10 / PayeeTradeParty) is used when payment must be made
+ * to a third party different from the supplier, typically a factor
+ * (factoring company).
  *
- * Pour les factures affacturées, il faut aussi:
- * - Utiliser un type de document affacturé (393, 396, 501, 502, 472, 473)
- * - Ajouter une note ACC avec la mention de subrogation
- * - L'IBAN du bénéficiaire sera utilisé pour le paiement
+ * For factored invoices, you must also:
+ * - Use a factored document type (393, 396, 501, 502, 472, 473)
+ * - Add an ACC note with the subrogation mention
+ * - The payee's IBAN will be used for payment
  *
- * @param string $nom Raison sociale du factor (BT-59)
+ * @param string $nom Factor's company name (BT-59)
  * @param array $options Options: siret (BT-60), siren (BT-61), iban, bic
- * @return array Dict prêt à être utilisé dans une facture affacturée
+ * @return array Dict ready to use in a factored invoice
  *
  * @example
- * $factor = beneficiaire('FACTOR SAS', [
+ * $factor = payee('FACTOR SAS', [
  *     'siret' => '30000000700033',
  *     'iban' => 'FR76 3000 4000 0500 0012 3456 789',
  * ]);
  */
-function beneficiaire(string $nom, array $options = []): array {
-    // Auto-calcul SIREN depuis SIRET
+function payee(string $nom, array $options = []): array {
+    // Auto-compute SIREN from SIRET
     $siret = $options['siret'] ?? null;
     $siren = $options['siren'] ?? ($siret && strlen($siret) === 14 ? substr($siret, 0, 9) : null);
 
@@ -179,7 +179,7 @@ function beneficiaire(string $nom, array $options = []): array {
 }
 
 // =============================================================================
-// Client principal
+// Main client
 // =============================================================================
 
 class FactPulseClient {
@@ -235,52 +235,52 @@ class FactPulseClient {
             if ((microtime(true) * 1000) - $startTime > $timeoutMs) throw new FactPulsePollingTimeoutException($taskId, $timeoutMs);
             $this->ensureAuthenticated();
             try {
-                $response = $this->httpClient->get($this->apiUrl . "/api/v1/traitement/taches/{$taskId}/statut",
+                $response = $this->httpClient->get($this->apiUrl . "/api/v1/processing/tasks/{$taskId}/status",
                     ['headers' => ['Authorization' => 'Bearer ' . $this->accessToken]]);
                 $data = json_decode($response->getBody()->getContents(), true);
                 if ($data['statut'] === 'SUCCESS') return $data['resultat'] ?? [];
                 if ($data['statut'] === 'FAILURE') {
                     // Format AFNOR: errorMessage, details
                     $errors = array_map(fn($e) => ValidationErrorDetail::fromArray($e), $data['resultat']['details'] ?? []);
-                    throw new FactPulseValidationException("Tâche {$taskId} échouée: " . ($data['resultat']['errorMessage'] ?? '?'), $errors);
+                    throw new FactPulseValidationException("Task {$taskId} failed: " . ($data['resultat']['errorMessage'] ?? '?'), $errors);
                 }
             } catch (GuzzleException $e) { if ($e->getCode() === 401) { $this->resetAuth(); continue; } throw $e; }
             usleep((int)($currentInterval * 1000)); $currentInterval = min($currentInterval * 1.5, 10000);
         }
     }
 
-    public function genererFacturx($factureData, string $pdfPath, string $profil = 'EN16931', string $formatSortie = 'pdf', bool $sync = true, ?int $timeout = null): string {
+    public function generateFacturx($factureData, string $pdfPath, string $profil = 'EN16931', string $formatSortie = 'pdf', bool $sync = true, ?int $timeout = null): string {
         $jsonData = is_string($factureData) ? $factureData : json_encode($factureData);
         for ($attempt = 0; $attempt <= $this->maxRetries; $attempt++) {
             $this->ensureAuthenticated();
             try {
-                $response = $this->httpClient->post($this->apiUrl . '/api/v1/traitement/generer-facture', [
+                $response = $this->httpClient->post($this->apiUrl . '/api/v1/processing/generate-invoice', [
                     'headers' => ['Authorization' => 'Bearer ' . $this->accessToken],
                     'multipart' => [
-                        ['name' => 'donnees_facture', 'contents' => $jsonData],
-                        ['name' => 'profil', 'contents' => $profil], ['name' => 'format_sortie', 'contents' => $formatSortie],
+                        ['name' => 'invoice_data', 'contents' => $jsonData],
+                        ['name' => 'profile', 'contents' => $profil], ['name' => 'output_format', 'contents' => $formatSortie],
                         ['name' => 'source_pdf', 'contents' => fopen($pdfPath, 'r'), 'filename' => basename($pdfPath)],
                     ],
                 ]);
-                $taskId = json_decode($response->getBody()->getContents(), true)['id_tache'] ?? null;
-                if (!$taskId) throw new FactPulseValidationException("Pas d'ID de tâche");
+                $taskId = json_decode($response->getBody()->getContents(), true)['task_id'] ?? null;
+                if (!$taskId) throw new FactPulseValidationException("No task ID");
                 if (!$sync) return $taskId;
                 $result = $this->pollTask($taskId, $timeout);
-                return isset($result['contenu_b64']) ? base64_decode($result['contenu_b64']) : throw new FactPulseValidationException("Pas de contenu");
+                return isset($result['contenu_b64']) ? base64_decode($result['contenu_b64']) : throw new FactPulseValidationException("No content");
             } catch (GuzzleException $e) {
                 if ($e->getCode() === 401 && $attempt < $this->maxRetries) { $this->resetAuth(); continue; }
 
-                // Extraire les détails d'erreur du corps de la réponse
-                $errorMsg = "Erreur API ({$e->getCode()}): " . $e->getMessage();
+                // Extract error details from response body
+                $errorMsg = "API error ({$e->getCode()}): " . $e->getMessage();
                 $errors = [];
                 $responseBody = null;
 
                 if ($e->hasResponse()) {
                     $responseBody = json_decode($e->getResponse()->getBody()->getContents(), true);
                     if ($responseBody) {
-                        // Format FastAPI/Pydantic: {"detail": [{"loc": [...], "msg": "...", "type": "..."}]}
+                        // FastAPI/Pydantic format: {"detail": [{"loc": [...], "msg": "...", "type": "..."}]}
                         if (isset($responseBody['detail']) && is_array($responseBody['detail'])) {
-                            $errorMsg = 'Erreur de validation';
+                            $errorMsg = 'Validation error';
                             foreach ($responseBody['detail'] as $err) {
                                 if (is_array($err)) {
                                     $loc = $err['loc'] ?? [];
@@ -301,25 +301,25 @@ class FactPulseClient {
                     }
                 }
 
-                error_log("Erreur API {$e->getCode()}: " . json_encode($responseBody));
+                error_log("API error {$e->getCode()}: " . json_encode($responseBody));
                 throw new FactPulseValidationException($errorMsg, $errors);
             }
         }
-        throw new FactPulseValidationException("Échec après retries");
+        throw new FactPulseValidationException("Failed after retries");
     }
 
-    public static function formatMontant($m): string {
+    public static function formatAmount($m): string {
         return $m === null ? '0.00' : (is_numeric($m) ? number_format((float)$m, 2, '.', '') : (is_string($m) ? $m : '0.00'));
     }
 
     // =========================================================================
-    // AFNOR PDP - Authentication et helpers internes
+    // AFNOR PDP - Authentication and internal helpers
     // =========================================================================
 
     /**
-     * Récupère les credentials AFNOR (mode stored ou zero-trust).
-     * Mode zero-trust: Retourne les afnorCredentials fournis au constructeur.
-     * Mode stored: Récupère les credentials via GET /api/v1/afnor/credentials.
+     * Retrieves AFNOR credentials (stored or zero-trust mode).
+     * Zero-trust mode: Returns the afnorCredentials provided to the constructor.
+     * Stored mode: Retrieves credentials via GET /api/v1/afnor/credentials.
      */
     private function getAfnorCredentialsInternal(): AFNORCredentials {
         if ($this->afnorCredentials) {
@@ -340,12 +340,12 @@ class FactPulseClient {
                 $creds['directory_service_url'] ?? null
             );
         } catch (GuzzleException $e) {
-            throw new FactPulseAuthException("Échec récupération credentials AFNOR: " . $e->getMessage());
+            throw new FactPulseAuthException("Failed to retrieve AFNOR credentials: " . $e->getMessage());
         }
     }
 
     /**
-     * Obtient le token OAuth2 AFNOR et l'URL de la PDP.
+     * Obtains the AFNOR OAuth2 token and the PDP URL.
      */
     private function getAfnorTokenAndUrl(): array {
         $credentials = $this->getAfnorCredentialsInternal();
@@ -361,16 +361,16 @@ class FactPulseClient {
             ]);
             $tokenData = json_decode($response->getBody()->getContents(), true);
             if (!isset($tokenData['access_token'])) {
-                throw new FactPulseAuthException("Réponse OAuth2 AFNOR invalide");
+                throw new FactPulseAuthException("Invalid AFNOR OAuth2 response");
             }
             return ['token' => $tokenData['access_token'], 'pdpBaseUrl' => $credentials->flowServiceUrl];
         } catch (GuzzleException $e) {
-            throw new FactPulseAuthException("Échec OAuth2 AFNOR: " . $e->getMessage());
+            throw new FactPulseAuthException("AFNOR OAuth2 failed: " . $e->getMessage());
         }
     }
 
     /**
-     * Effectue une requête vers l'API AFNOR avec gestion d'auth et d'erreurs.
+     * Performs a request to the AFNOR API with auth and error handling.
      */
     private function makeAfnorRequest(string $method, string $endpoint, ?array $jsonData = null, ?array $multipart = null, ?array $params = null): array {
         ['token' => $afnorToken, 'pdpBaseUrl' => $pdpBaseUrl] = $this->getAfnorTokenAndUrl();
@@ -392,16 +392,16 @@ class FactPulseClient {
             }
             return ['_raw' => $body];
         } catch (GuzzleException $e) {
-            throw new FactPulseValidationException("Erreur AFNOR: " . $e->getMessage());
+            throw new FactPulseValidationException("AFNOR error: " . $e->getMessage());
         }
     }
 
     // ==================== AFNOR Flow Service ====================
 
     /**
-     * Soumet une facture à une PDP via l'API AFNOR.
+     * Submits an invoice to a PDP via the AFNOR API.
      */
-    public function soumettreFactureAfnor(string $pdfPath, string $flowName, array $options = []): array {
+    public function submitInvoiceAfnor(string $pdfPath, string $flowName, array $options = []): array {
         $pdfContent = file_get_contents($pdfPath);
         $sha256 = hash('sha256', $pdfContent);
 
@@ -420,9 +420,9 @@ class FactPulseClient {
     }
 
     /**
-     * Recherche des flux de facturation AFNOR.
+     * Searches AFNOR invoice flows.
      */
-    public function rechercherFluxAfnor(array $criteria = []): array {
+    public function searchFlowsAfnor(array $criteria = []): array {
         $searchBody = [
             'offset' => $criteria['offset'] ?? 0,
             'limit' => $criteria['limit'] ?? 25,
@@ -435,15 +435,15 @@ class FactPulseClient {
     }
 
     /**
-     * Télécharge le fichier PDF d'un flux AFNOR.
+     * Downloads the PDF file of an AFNOR flow.
      */
-    public function telechargerFluxAfnor(string $flowId): string {
+    public function downloadFlowAfnor(string $flowId): string {
         $result = $this->makeAfnorRequest('GET', "/flow/v1/flows/{$flowId}");
         return $result['_raw'] ?? '';
     }
 
     /**
-     * Vérifie la disponibilité du Flow Service AFNOR.
+     * Checks AFNOR Flow Service availability.
      */
     public function healthcheckAfnor(): array {
         return $this->makeAfnorRequest('GET', '/flow/v1/healthcheck');
@@ -452,23 +452,23 @@ class FactPulseClient {
     // ==================== AFNOR Directory ====================
 
     /**
-     * Recherche une entreprise par SIRET dans l'annuaire AFNOR.
+     * Searches a company by SIRET in the AFNOR directory.
      */
-    public function rechercherSiretAfnor(string $siret): array {
+    public function searchSiretAfnor(string $siret): array {
         return $this->makeAfnorRequest('GET', "/directory/siret/{$siret}");
     }
 
     /**
-     * Recherche une entreprise par SIREN dans l'annuaire AFNOR.
+     * Searches a company by SIREN in the AFNOR directory.
      */
-    public function rechercherSirenAfnor(string $siren): array {
+    public function searchSirenAfnor(string $siren): array {
         return $this->makeAfnorRequest('GET', "/directory/siren/{$siren}");
     }
 
     /**
-     * Liste les codes de routage disponibles pour un SIREN.
+     * Lists available routing codes for a SIREN.
      */
-    public function listerCodesRoutageAfnor(string $siren): array {
+    public function listRoutingCodesAfnor(string $siren): array {
         return $this->makeAfnorRequest('GET', "/directory/siren/{$siren}/routing-codes");
     }
 
@@ -477,7 +477,7 @@ class FactPulseClient {
     // =========================================================================
 
     /**
-     * Effectue une requête vers l'API Chorus Pro.
+     * Performs a request to the Chorus Pro API.
      */
     private function makeChorusRequest(string $method, string $endpoint, ?array $jsonData = null): array {
         $this->ensureAuthenticated();
@@ -553,65 +553,65 @@ class FactPulseClient {
     // =========================================================================
 
     /**
-     * Valide un PDF Factur-X.
-     * @param string $pdfPath Chemin vers le fichier PDF
-     * @param string|null $profil Profil Factur-X (MINIMUM, BASIC, EN16931, EXTENDED). Si null, auto-détecté.
-     * @param bool $useVerapdf Active la validation stricte PDF/A avec VeraPDF (défaut: false)
+     * Validates a Factur-X PDF.
+     * @param string $pdfPath Path to the PDF file
+     * @param string|null $profil Factur-X profile (MINIMUM, BASIC, EN16931, EXTENDED). If null, auto-detected.
+     * @param bool $useVerapdf Enables strict PDF/A validation with VeraPDF (default: false)
      */
-    public function validerPdfFacturx(string $pdfPath, ?string $profil = null, bool $useVerapdf = false): array {
+    public function validateFacturxPdf(string $pdfPath, ?string $profil = null, bool $useVerapdf = false): array {
         $this->ensureAuthenticated();
         try {
             $multipart = [
-                ['name' => 'fichier_pdf', 'contents' => fopen($pdfPath, 'r'), 'filename' => basename($pdfPath)],
+                ['name' => 'pdf_file', 'contents' => fopen($pdfPath, 'r'), 'filename' => basename($pdfPath)],
                 ['name' => 'use_verapdf', 'contents' => $useVerapdf ? 'true' : 'false'],
             ];
             if ($profil !== null) {
-                $multipart[] = ['name' => 'profil', 'contents' => $profil];
+                $multipart[] = ['name' => 'profile', 'contents' => $profil];
             }
-            $response = $this->httpClient->post($this->apiUrl . '/api/v1/traitement/valider-pdf-facturx', [
+            $response = $this->httpClient->post($this->apiUrl . '/api/v1/processing/validate-facturx-pdf', [
                 'headers' => ['Authorization' => 'Bearer ' . $this->accessToken],
                 'multipart' => $multipart,
             ]);
             return json_decode($response->getBody()->getContents(), true) ?? [];
         } catch (GuzzleException $e) {
-            throw new FactPulseValidationException("Erreur validation: " . $e->getMessage());
+            throw new FactPulseValidationException("Validation error: " . $e->getMessage());
         }
     }
 
     /**
-     * Valide un XML Factur-X.
+     * Validates a Factur-X XML.
      */
-    public function validerXmlFacturx(string $xmlContent, string $profil = 'EN16931'): array {
+    public function validateFacturxXml(string $xmlContent, string $profil = 'EN16931'): array {
         $this->ensureAuthenticated();
         try {
-            $response = $this->httpClient->post($this->apiUrl . '/api/v1/traitement/valider-xml', [
+            $response = $this->httpClient->post($this->apiUrl . '/api/v1/processing/validate-xml', [
                 'headers' => ['Authorization' => 'Bearer ' . $this->accessToken],
                 'multipart' => [
-                    ['name' => 'fichier_xml', 'contents' => $xmlContent, 'filename' => 'facture.xml'],
-                    ['name' => 'profil', 'contents' => $profil],
+                    ['name' => 'xml_file', 'contents' => $xmlContent, 'filename' => 'facture.xml'],
+                    ['name' => 'profile', 'contents' => $profil],
                 ],
             ]);
             return json_decode($response->getBody()->getContents(), true) ?? [];
         } catch (GuzzleException $e) {
-            throw new FactPulseValidationException("Erreur validation XML: " . $e->getMessage());
+            throw new FactPulseValidationException("XML validation error: " . $e->getMessage());
         }
     }
 
     /**
-     * Valide la signature d'un PDF signé.
+     * Validates the signature of a signed PDF.
      */
-    public function validerSignaturePdf(string $pdfPath): array {
+    public function validatePdfSignature(string $pdfPath): array {
         $this->ensureAuthenticated();
         try {
-            $response = $this->httpClient->post($this->apiUrl . '/api/v1/traitement/valider-signature-pdf', [
+            $response = $this->httpClient->post($this->apiUrl . '/api/v1/processing/validate-pdf-signature', [
                 'headers' => ['Authorization' => 'Bearer ' . $this->accessToken],
                 'multipart' => [
-                    ['name' => 'fichier_pdf', 'contents' => fopen($pdfPath, 'r'), 'filename' => basename($pdfPath)],
+                    ['name' => 'pdf_file', 'contents' => fopen($pdfPath, 'r'), 'filename' => basename($pdfPath)],
                 ],
             ]);
             return json_decode($response->getBody()->getContents(), true) ?? [];
         } catch (GuzzleException $e) {
-            throw new FactPulseValidationException("Erreur validation signature: " . $e->getMessage());
+            throw new FactPulseValidationException("Signature validation error: " . $e->getMessage());
         }
     }
 
@@ -620,41 +620,41 @@ class FactPulseClient {
     // =========================================================================
 
     /**
-     * Signe un PDF avec le certificat configuré côté serveur.
+     * Signs a PDF with the server-side configured certificate.
      */
-    public function signerPdf(string $pdfPath, array $options = []): string {
+    public function signPdf(string $pdfPath, array $options = []): string {
         $this->ensureAuthenticated();
         $multipart = [
-            ['name' => 'fichier_pdf', 'contents' => fopen($pdfPath, 'r'), 'filename' => basename($pdfPath)],
+            ['name' => 'pdf_file', 'contents' => fopen($pdfPath, 'r'), 'filename' => basename($pdfPath)],
         ];
-        if (isset($options['raison'])) $multipart[] = ['name' => 'raison', 'contents' => $options['raison']];
-        if (isset($options['localisation'])) $multipart[] = ['name' => 'localisation', 'contents' => $options['localisation']];
+        if (isset($options['reason'])) $multipart[] = ['name' => 'reason', 'contents' => $options['reason']];
+        if (isset($options['location'])) $multipart[] = ['name' => 'location', 'contents' => $options['location']];
         if (isset($options['contact'])) $multipart[] = ['name' => 'contact', 'contents' => $options['contact']];
         $multipart[] = ['name' => 'use_pades_lt', 'contents' => ($options['usePadesLt'] ?? false) ? 'true' : 'false'];
         $multipart[] = ['name' => 'use_timestamp', 'contents' => ($options['useTimestamp'] ?? true) ? 'true' : 'false'];
 
         try {
-            $response = $this->httpClient->post($this->apiUrl . '/api/v1/traitement/signer-pdf', [
+            $response = $this->httpClient->post($this->apiUrl . '/api/v1/processing/sign-pdf', [
                 'headers' => ['Authorization' => 'Bearer ' . $this->accessToken],
                 'multipart' => $multipart,
             ]);
             $result = json_decode($response->getBody()->getContents(), true);
             if (!isset($result['pdf_signe_base64'])) {
-                throw new FactPulseValidationException("Réponse de signature invalide");
+                throw new FactPulseValidationException("Invalid signature response");
             }
             return base64_decode($result['pdf_signe_base64']);
         } catch (GuzzleException $e) {
-            throw new FactPulseValidationException("Erreur signature: " . $e->getMessage());
+            throw new FactPulseValidationException("Signature error: " . $e->getMessage());
         }
     }
 
     /**
-     * Génère un certificat de test (NON PRODUCTION).
+     * Generates a test certificate (NOT FOR PRODUCTION).
      */
-    public function genererCertificatTest(array $options = []): array {
+    public function generateTestCertificate(array $options = []): array {
         $this->ensureAuthenticated();
         try {
-            $response = $this->httpClient->post($this->apiUrl . '/api/v1/traitement/generer-certificat-test', [
+            $response = $this->httpClient->post($this->apiUrl . '/api/v1/processing/generate-test-certificate', [
                 'headers' => ['Authorization' => 'Bearer ' . $this->accessToken],
                 'json' => [
                     'cn' => $options['cn'] ?? 'Test Organisation',
@@ -666,38 +666,38 @@ class FactPulseClient {
             ]);
             return json_decode($response->getBody()->getContents(), true) ?? [];
         } catch (GuzzleException $e) {
-            throw new FactPulseValidationException("Erreur génération certificat: " . $e->getMessage());
+            throw new FactPulseValidationException("Certificate generation error: " . $e->getMessage());
         }
     }
 
     // =========================================================================
-    // Workflow complet
+    // Complete workflow
     // =========================================================================
 
     /**
-     * Génère un PDF Factur-X complet avec validation, signature et soumission optionnelles.
+     * Generates a complete Factur-X PDF with optional validation, signing and submission.
      */
-    public function genererFacturxComplet(array $facture, string $pdfSourcePath, array $options = []): array {
+    public function generateCompleteFacturx(array $facture, string $pdfSourcePath, array $options = []): array {
         $profil = $options['profil'] ?? 'EN16931';
-        $valider = $options['valider'] ?? true;
-        $signer = $options['signer'] ?? false;
-        $soumettreAfnor = $options['soumettreAfnor'] ?? false;
+        $validate = $options['validate'] ?? true;
+        $sign = $options['sign'] ?? false;
+        $submitAfnor = $options['submitAfnor'] ?? false;
         $timeout = $options['timeout'] ?? 120000;
 
         $result = [];
 
-        // 1. Génération
-        $pdfBytes = $this->genererFacturx($facture, $pdfSourcePath, $profil, 'pdf', true, $timeout);
+        // 1. Generation
+        $pdfBytes = $this->generateFacturx($facture, $pdfSourcePath, $profil, 'pdf', true, $timeout);
         $result['pdfBytes'] = $pdfBytes;
 
-        // Créer un fichier temporaire pour les opérations suivantes
+        // Create a temporary file for subsequent operations
         $tempPath = tempnam(sys_get_temp_dir(), 'facturx_') . '.pdf';
         file_put_contents($tempPath, $pdfBytes);
 
         try {
             // 2. Validation
-            if ($valider) {
-                $validation = $this->validerPdfFacturx($tempPath, $profil);
+            if ($validate) {
+                $validation = $this->validateFacturxPdf($tempPath, $profil);
                 $result['validation'] = $validation;
                 if (!($validation['est_conforme'] ?? false)) {
                     if (isset($options['outputPath'])) {
@@ -709,23 +709,23 @@ class FactPulseClient {
             }
 
             // 3. Signature
-            if ($signer) {
-                $pdfBytes = $this->signerPdf($tempPath, $options);
+            if ($sign) {
+                $pdfBytes = $this->signPdf($tempPath, $options);
                 $result['pdfBytes'] = $pdfBytes;
-                $result['signature'] = ['signe' => true];
+                $result['signature'] = ['signed' => true];
                 file_put_contents($tempPath, $pdfBytes);
             }
 
-            // 4. Soumission AFNOR
-            if ($soumettreAfnor) {
-                $numeroFacture = $facture['numeroFacture'] ?? $facture['numero_facture'] ?? 'FACTURE';
-                $flowName = $options['afnorFlowName'] ?? "Facture {$numeroFacture}";
-                $trackingId = $options['afnorTrackingId'] ?? $numeroFacture;
-                $afnorResult = $this->soumettreFactureAfnor($tempPath, $flowName, ['trackingId' => $trackingId]);
+            // 4. AFNOR submission
+            if ($submitAfnor) {
+                $invoiceNumber = $facture['numeroFacture'] ?? $facture['numero_facture'] ?? 'INVOICE';
+                $flowName = $options['afnorFlowName'] ?? "Invoice {$invoiceNumber}";
+                $trackingId = $options['afnorTrackingId'] ?? $invoiceNumber;
+                $afnorResult = $this->submitInvoiceAfnor($tempPath, $flowName, ['trackingId' => $trackingId]);
                 $result['afnor'] = $afnorResult;
             }
 
-            // Sauvegarde finale
+            // Final save
             if (isset($options['outputPath'])) {
                 file_put_contents($options['outputPath'], $pdfBytes);
                 $result['pdfPath'] = $options['outputPath'];

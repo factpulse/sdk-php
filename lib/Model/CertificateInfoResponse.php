@@ -11,9 +11,9 @@
  */
 
 /**
- * API REST FactPulse
+ * FactPulse REST API
  *
- * API REST pour la facturation électronique en France : Factur-X, AFNOR PDP/PA, signatures électroniques.  ## 🎯 Fonctionnalités principales  ### 📄 Génération de factures Factur-X - **Formats** : XML seul ou PDF/A-3 avec XML embarqué - **Profils** : MINIMUM, BASIC, EN16931, EXTENDED - **Normes** : EN 16931 (directive UE 2014/55), ISO 19005-3 (PDF/A-3), CII (UN/CEFACT) - **🆕 Format simplifié** : Génération à partir de SIRET + auto-enrichissement (API Chorus Pro + Recherche Entreprises)  ### ✅ Validation et conformité - **Validation XML** : Schematron (45 à 210+ règles selon profil) - **Validation PDF** : PDF/A-3, métadonnées XMP Factur-X, signatures électroniques - **VeraPDF** : Validation stricte PDF/A (146+ règles ISO 19005-3) - **Traitement asynchrone** : Support Celery pour validations lourdes (VeraPDF)  ### 📡 Intégration AFNOR PDP/PA (XP Z12-013) - **Soumission de flux** : Envoi de factures vers Plateformes de Dématérialisation Partenaires - **Recherche de flux** : Consultation des factures soumises - **Téléchargement** : Récupération des PDF/A-3 avec XML - **Directory Service** : Recherche d'entreprises (SIREN/SIRET) - **Multi-client** : Support de plusieurs configs PDP par utilisateur (stored credentials ou zero-storage)  ### ✍️ Signature électronique PDF - **Standards** : PAdES-B-B, PAdES-B-T (horodatage RFC 3161), PAdES-B-LT (archivage long terme) - **Niveaux eIDAS** : SES (auto-signé), AdES (CA commerciale), QES (PSCO) - **Validation** : Vérification intégrité cryptographique et certificats - **Génération de certificats** : Certificats X.509 auto-signés pour tests  ### 🔄 Traitement asynchrone - **Celery** : Génération, validation et signature asynchrones - **Polling** : Suivi d'état via `/taches/{id_tache}/statut` - **Pas de timeout** : Idéal pour gros fichiers ou validations lourdes  ## 🔒 Authentification  Toutes les requêtes nécessitent un **token JWT** dans le header Authorization : ``` Authorization: Bearer YOUR_JWT_TOKEN ```  ### Comment obtenir un token JWT ?  #### 🔑 Méthode 1 : API `/api/token/` (Recommandée)  **URL :** `https://www.factpulse.fr/api/token/`  Cette méthode est **recommandée** pour l'intégration dans vos applications et workflows CI/CD.  **Prérequis :** Avoir défini un mot de passe sur votre compte  **Pour les utilisateurs inscrits via email/password :** - Vous avez déjà un mot de passe, utilisez-le directement  **Pour les utilisateurs inscrits via OAuth (Google/GitHub) :** - Vous devez d'abord définir un mot de passe sur : https://www.factpulse.fr/accounts/password/set/ - Une fois le mot de passe créé, vous pourrez utiliser l'API  **Exemple de requête :** ```bash curl -X POST https://www.factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"votre_email@example.com\",     \"password\": \"votre_mot_de_passe\"   }' ```  **Paramètre optionnel `client_uid` :**  Pour sélectionner les credentials d'un client spécifique (PA/PDP, Chorus Pro, certificats de signature), ajoutez `client_uid` :  ```bash curl -X POST https://www.factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"votre_email@example.com\",     \"password\": \"votre_mot_de_passe\",     \"client_uid\": \"550e8400-e29b-41d4-a716-446655440000\"   }' ```  Le `client_uid` sera inclus dans le JWT et permettra à l'API d'utiliser automatiquement : - Les credentials AFNOR/PDP configurés pour ce client - Les credentials Chorus Pro configurés pour ce client - Les certificats de signature électronique configurés pour ce client  **Réponse :** ```json {   \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\",  // Token d'accès (validité: 30 min)   \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\"  // Token de rafraîchissement (validité: 7 jours) } ```  **Avantages :** - ✅ Automatisation complète (CI/CD, scripts) - ✅ Gestion programmatique des tokens - ✅ Support du refresh token pour renouveler automatiquement l'accès - ✅ Intégration facile dans n'importe quel langage/outil  #### 🖥️ Méthode 2 : Génération via Dashboard (Alternative)  **URL :** https://www.factpulse.fr/dashboard/  Cette méthode convient pour des tests rapides ou une utilisation occasionnelle via l'interface graphique.  **Fonctionnement :** - Connectez-vous au dashboard - Utilisez les boutons \"Generate Test Token\" ou \"Generate Production Token\" - Fonctionne pour **tous** les utilisateurs (OAuth et email/password), sans nécessiter de mot de passe  **Types de tokens :** - **Token Test** : Validité 24h, quota 1000 appels/jour (gratuit) - **Token Production** : Validité 7 jours, quota selon votre forfait  **Avantages :** - ✅ Rapide pour tester l'API - ✅ Aucun mot de passe requis - ✅ Interface visuelle simple  **Inconvénients :** - ❌ Nécessite une action manuelle - ❌ Pas de refresh token - ❌ Moins adapté pour l'automatisation  ### 📚 Documentation complète  Pour plus d'informations sur l'authentification et l'utilisation de l'API : https://www.factpulse.fr/documentation-api/
+ * REST API for electronic invoicing in France: Factur-X, AFNOR PDP/PA, electronic signatures.  ## 🎯 Main Features  ### 📄 Factur-X Invoice Generation - **Formats**: XML only or PDF/A-3 with embedded XML - **Profiles**: MINIMUM, BASIC, EN16931, EXTENDED - **Standards**: EN 16931 (EU directive 2014/55), ISO 19005-3 (PDF/A-3), CII (UN/CEFACT) - **🆕 Simplified Format**: Generation from SIRET + auto-enrichment (Chorus Pro API + Business Search)  ### ✅ Validation and Compliance - **XML Validation**: Schematron (45 to 210+ rules depending on profile) - **PDF Validation**: PDF/A-3, Factur-X XMP metadata, electronic signatures - **VeraPDF**: Strict PDF/A validation (146+ ISO 19005-3 rules) - **Asynchronous Processing**: Celery support for heavy validations (VeraPDF)  ### 📡 AFNOR PDP/PA Integration (XP Z12-013) - **Flow Submission**: Send invoices to Partner Dematerialization Platforms - **Flow Search**: View submitted invoices - **Download**: Retrieve PDF/A-3 with XML - **Directory Service**: Company search (SIREN/SIRET) - **Multi-client**: Support for multiple PDP configs per user (stored credentials or zero-storage)  ### ✍️ PDF Electronic Signature - **Standards**: PAdES-B-B, PAdES-B-T (RFC 3161 timestamping), PAdES-B-LT (long-term archival) - **eIDAS Levels**: SES (self-signed), AdES (commercial CA), QES (QTSP) - **Validation**: Cryptographic integrity and certificate verification - **Certificate Generation**: Self-signed X.509 certificates for testing  ### 🔄 Asynchronous Processing - **Celery**: Asynchronous generation, validation and signing - **Polling**: Status tracking via `/tasks/{task_id}/status` - **No timeout**: Ideal for large files or heavy validations  ## 🔒 Authentication  All requests require a **JWT token** in the Authorization header: ``` Authorization: Bearer YOUR_JWT_TOKEN ```  ### How to obtain a JWT token?  #### 🔑 Method 1: `/api/token/` API (Recommended)  **URL:** `https://www.factpulse.fr/api/token/`  This method is **recommended** for integration in your applications and CI/CD workflows.  **Prerequisites:** Having set a password on your account  **For users registered via email/password:** - You already have a password, use it directly  **For users registered via OAuth (Google/GitHub):** - You must first set a password at: https://www.factpulse.fr/accounts/password/set/ - Once the password is created, you can use the API  **Request example:** ```bash curl -X POST https://www.factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"your_email@example.com\",     \"password\": \"your_password\"   }' ```  **Optional `client_uid` parameter:**  To select credentials for a specific client (PA/PDP, Chorus Pro, signing certificates), add `client_uid`:  ```bash curl -X POST https://www.factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"your_email@example.com\",     \"password\": \"your_password\",     \"client_uid\": \"550e8400-e29b-41d4-a716-446655440000\"   }' ```  The `client_uid` will be included in the JWT and allow the API to automatically use: - AFNOR/PDP credentials configured for this client - Chorus Pro credentials configured for this client - Electronic signature certificates configured for this client  **Response:** ```json {   \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\",  // Access token (validity: 30 min)   \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\"  // Refresh token (validity: 7 days) } ```  **Advantages:** - ✅ Full automation (CI/CD, scripts) - ✅ Programmatic token management - ✅ Refresh token support for automatic access renewal - ✅ Easy integration in any language/tool  #### 🖥️ Method 2: Dashboard Generation (Alternative)  **URL:** https://www.factpulse.fr/dashboard/  This method is suitable for quick tests or occasional use via the graphical interface.  **How it works:** - Log in to the dashboard - Use the \"Generate Test Token\" or \"Generate Production Token\" buttons - Works for **all** users (OAuth and email/password), without requiring a password  **Token types:** - **Test Token**: 24h validity, 1000 calls/day quota (free) - **Production Token**: 7 days validity, quota based on your plan  **Advantages:** - ✅ Quick for API testing - ✅ No password required - ✅ Simple visual interface  **Disadvantages:** - ❌ Requires manual action - ❌ No refresh token - ❌ Less suited for automation  ### 📚 Full Documentation  For more information on authentication and API usage: https://www.factpulse.fr/documentation-api/
  *
  * The version of the OpenAPI document: 1.0.0
  * Generated by: https://openapi-generator.tech
@@ -35,7 +35,7 @@ use \FactPulse\SDK\ObjectSerializer;
  * CertificateInfoResponse Class Doc Comment
  *
  * @category Class
- * @description Informations sur un certificat généré.
+ * @description Information about a generated certificate.
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,17 +59,17 @@ class CertificateInfoResponse implements ModelInterface, ArrayAccess, \JsonSeria
       */
     protected static $openAPITypes = [
         'cn' => 'string',
-        'organisation' => 'string',
-        'pays' => 'string',
-        'ville' => 'string',
-        'province' => 'string',
+        'organization' => 'string',
+        'country' => 'string',
+        'city' => 'string',
+        'state' => 'string',
         'email' => 'string',
-        'sujet' => 'string',
-        'emetteur' => 'string',
-        'numero_serie' => 'int',
-        'valide_du' => 'string',
-        'valide_au' => 'string',
-        'algorithme' => 'string'
+        'subject' => 'string',
+        'issuer' => 'string',
+        'serial_number' => 'int',
+        'valid_from' => 'string',
+        'valid_to' => 'string',
+        'algorithm' => 'string'
     ];
 
     /**
@@ -81,17 +81,17 @@ class CertificateInfoResponse implements ModelInterface, ArrayAccess, \JsonSeria
       */
     protected static $openAPIFormats = [
         'cn' => null,
-        'organisation' => null,
-        'pays' => null,
-        'ville' => null,
-        'province' => null,
+        'organization' => null,
+        'country' => null,
+        'city' => null,
+        'state' => null,
         'email' => null,
-        'sujet' => null,
-        'emetteur' => null,
-        'numero_serie' => null,
-        'valide_du' => null,
-        'valide_au' => null,
-        'algorithme' => null
+        'subject' => null,
+        'issuer' => null,
+        'serial_number' => null,
+        'valid_from' => null,
+        'valid_to' => null,
+        'algorithm' => null
     ];
 
     /**
@@ -101,17 +101,17 @@ class CertificateInfoResponse implements ModelInterface, ArrayAccess, \JsonSeria
       */
     protected static array $openAPINullables = [
         'cn' => false,
-        'organisation' => false,
-        'pays' => false,
-        'ville' => false,
-        'province' => false,
+        'organization' => false,
+        'country' => false,
+        'city' => false,
+        'state' => false,
         'email' => true,
-        'sujet' => false,
-        'emetteur' => false,
-        'numero_serie' => false,
-        'valide_du' => false,
-        'valide_au' => false,
-        'algorithme' => false
+        'subject' => false,
+        'issuer' => false,
+        'serial_number' => false,
+        'valid_from' => false,
+        'valid_to' => false,
+        'algorithm' => false
     ];
 
     /**
@@ -201,17 +201,17 @@ class CertificateInfoResponse implements ModelInterface, ArrayAccess, \JsonSeria
      */
     protected static $attributeMap = [
         'cn' => 'cn',
-        'organisation' => 'organisation',
-        'pays' => 'pays',
-        'ville' => 'ville',
-        'province' => 'province',
+        'organization' => 'organization',
+        'country' => 'country',
+        'city' => 'city',
+        'state' => 'state',
         'email' => 'email',
-        'sujet' => 'sujet',
-        'emetteur' => 'emetteur',
-        'numero_serie' => 'numero_serie',
-        'valide_du' => 'valide_du',
-        'valide_au' => 'valide_au',
-        'algorithme' => 'algorithme'
+        'subject' => 'subject',
+        'issuer' => 'issuer',
+        'serial_number' => 'serialNumber',
+        'valid_from' => 'validFrom',
+        'valid_to' => 'validTo',
+        'algorithm' => 'algorithm'
     ];
 
     /**
@@ -221,17 +221,17 @@ class CertificateInfoResponse implements ModelInterface, ArrayAccess, \JsonSeria
      */
     protected static $setters = [
         'cn' => 'setCn',
-        'organisation' => 'setOrganisation',
-        'pays' => 'setPays',
-        'ville' => 'setVille',
-        'province' => 'setProvince',
+        'organization' => 'setOrganization',
+        'country' => 'setCountry',
+        'city' => 'setCity',
+        'state' => 'setState',
         'email' => 'setEmail',
-        'sujet' => 'setSujet',
-        'emetteur' => 'setEmetteur',
-        'numero_serie' => 'setNumeroSerie',
-        'valide_du' => 'setValideDu',
-        'valide_au' => 'setValideAu',
-        'algorithme' => 'setAlgorithme'
+        'subject' => 'setSubject',
+        'issuer' => 'setIssuer',
+        'serial_number' => 'setSerialNumber',
+        'valid_from' => 'setValidFrom',
+        'valid_to' => 'setValidTo',
+        'algorithm' => 'setAlgorithm'
     ];
 
     /**
@@ -241,17 +241,17 @@ class CertificateInfoResponse implements ModelInterface, ArrayAccess, \JsonSeria
      */
     protected static $getters = [
         'cn' => 'getCn',
-        'organisation' => 'getOrganisation',
-        'pays' => 'getPays',
-        'ville' => 'getVille',
-        'province' => 'getProvince',
+        'organization' => 'getOrganization',
+        'country' => 'getCountry',
+        'city' => 'getCity',
+        'state' => 'getState',
         'email' => 'getEmail',
-        'sujet' => 'getSujet',
-        'emetteur' => 'getEmetteur',
-        'numero_serie' => 'getNumeroSerie',
-        'valide_du' => 'getValideDu',
-        'valide_au' => 'getValideAu',
-        'algorithme' => 'getAlgorithme'
+        'subject' => 'getSubject',
+        'issuer' => 'getIssuer',
+        'serial_number' => 'getSerialNumber',
+        'valid_from' => 'getValidFrom',
+        'valid_to' => 'getValidTo',
+        'algorithm' => 'getAlgorithm'
     ];
 
     /**
@@ -312,17 +312,17 @@ class CertificateInfoResponse implements ModelInterface, ArrayAccess, \JsonSeria
     public function __construct(?array $data = null)
     {
         $this->setIfExists('cn', $data ?? [], null);
-        $this->setIfExists('organisation', $data ?? [], null);
-        $this->setIfExists('pays', $data ?? [], null);
-        $this->setIfExists('ville', $data ?? [], null);
-        $this->setIfExists('province', $data ?? [], null);
+        $this->setIfExists('organization', $data ?? [], null);
+        $this->setIfExists('country', $data ?? [], null);
+        $this->setIfExists('city', $data ?? [], null);
+        $this->setIfExists('state', $data ?? [], null);
         $this->setIfExists('email', $data ?? [], null);
-        $this->setIfExists('sujet', $data ?? [], null);
-        $this->setIfExists('emetteur', $data ?? [], null);
-        $this->setIfExists('numero_serie', $data ?? [], null);
-        $this->setIfExists('valide_du', $data ?? [], null);
-        $this->setIfExists('valide_au', $data ?? [], null);
-        $this->setIfExists('algorithme', $data ?? [], null);
+        $this->setIfExists('subject', $data ?? [], null);
+        $this->setIfExists('issuer', $data ?? [], null);
+        $this->setIfExists('serial_number', $data ?? [], null);
+        $this->setIfExists('valid_from', $data ?? [], null);
+        $this->setIfExists('valid_to', $data ?? [], null);
+        $this->setIfExists('algorithm', $data ?? [], null);
     }
 
     /**
@@ -355,35 +355,35 @@ class CertificateInfoResponse implements ModelInterface, ArrayAccess, \JsonSeria
         if ($this->container['cn'] === null) {
             $invalidProperties[] = "'cn' can't be null";
         }
-        if ($this->container['organisation'] === null) {
-            $invalidProperties[] = "'organisation' can't be null";
+        if ($this->container['organization'] === null) {
+            $invalidProperties[] = "'organization' can't be null";
         }
-        if ($this->container['pays'] === null) {
-            $invalidProperties[] = "'pays' can't be null";
+        if ($this->container['country'] === null) {
+            $invalidProperties[] = "'country' can't be null";
         }
-        if ($this->container['ville'] === null) {
-            $invalidProperties[] = "'ville' can't be null";
+        if ($this->container['city'] === null) {
+            $invalidProperties[] = "'city' can't be null";
         }
-        if ($this->container['province'] === null) {
-            $invalidProperties[] = "'province' can't be null";
+        if ($this->container['state'] === null) {
+            $invalidProperties[] = "'state' can't be null";
         }
-        if ($this->container['sujet'] === null) {
-            $invalidProperties[] = "'sujet' can't be null";
+        if ($this->container['subject'] === null) {
+            $invalidProperties[] = "'subject' can't be null";
         }
-        if ($this->container['emetteur'] === null) {
-            $invalidProperties[] = "'emetteur' can't be null";
+        if ($this->container['issuer'] === null) {
+            $invalidProperties[] = "'issuer' can't be null";
         }
-        if ($this->container['numero_serie'] === null) {
-            $invalidProperties[] = "'numero_serie' can't be null";
+        if ($this->container['serial_number'] === null) {
+            $invalidProperties[] = "'serial_number' can't be null";
         }
-        if ($this->container['valide_du'] === null) {
-            $invalidProperties[] = "'valide_du' can't be null";
+        if ($this->container['valid_from'] === null) {
+            $invalidProperties[] = "'valid_from' can't be null";
         }
-        if ($this->container['valide_au'] === null) {
-            $invalidProperties[] = "'valide_au' can't be null";
+        if ($this->container['valid_to'] === null) {
+            $invalidProperties[] = "'valid_to' can't be null";
         }
-        if ($this->container['algorithme'] === null) {
-            $invalidProperties[] = "'algorithme' can't be null";
+        if ($this->container['algorithm'] === null) {
+            $invalidProperties[] = "'algorithm' can't be null";
         }
         return $invalidProperties;
     }
@@ -428,109 +428,109 @@ class CertificateInfoResponse implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Gets organisation
+     * Gets organization
      *
      * @return string
      */
-    public function getOrganisation()
+    public function getOrganization()
     {
-        return $this->container['organisation'];
+        return $this->container['organization'];
     }
 
     /**
-     * Sets organisation
+     * Sets organization
      *
-     * @param string $organisation Organisation
+     * @param string $organization Organization
      *
      * @return self
      */
-    public function setOrganisation($organisation)
+    public function setOrganization($organization)
     {
-        if (is_null($organisation)) {
-            throw new \InvalidArgumentException('non-nullable organisation cannot be null');
+        if (is_null($organization)) {
+            throw new \InvalidArgumentException('non-nullable organization cannot be null');
         }
-        $this->container['organisation'] = $organisation;
+        $this->container['organization'] = $organization;
 
         return $this;
     }
 
     /**
-     * Gets pays
+     * Gets country
      *
      * @return string
      */
-    public function getPays()
+    public function getCountry()
     {
-        return $this->container['pays'];
+        return $this->container['country'];
     }
 
     /**
-     * Sets pays
+     * Sets country
      *
-     * @param string $pays Code pays
+     * @param string $country Country code
      *
      * @return self
      */
-    public function setPays($pays)
+    public function setCountry($country)
     {
-        if (is_null($pays)) {
-            throw new \InvalidArgumentException('non-nullable pays cannot be null');
+        if (is_null($country)) {
+            throw new \InvalidArgumentException('non-nullable country cannot be null');
         }
-        $this->container['pays'] = $pays;
+        $this->container['country'] = $country;
 
         return $this;
     }
 
     /**
-     * Gets ville
+     * Gets city
      *
      * @return string
      */
-    public function getVille()
+    public function getCity()
     {
-        return $this->container['ville'];
+        return $this->container['city'];
     }
 
     /**
-     * Sets ville
+     * Sets city
      *
-     * @param string $ville Ville
+     * @param string $city City
      *
      * @return self
      */
-    public function setVille($ville)
+    public function setCity($city)
     {
-        if (is_null($ville)) {
-            throw new \InvalidArgumentException('non-nullable ville cannot be null');
+        if (is_null($city)) {
+            throw new \InvalidArgumentException('non-nullable city cannot be null');
         }
-        $this->container['ville'] = $ville;
+        $this->container['city'] = $city;
 
         return $this;
     }
 
     /**
-     * Gets province
+     * Gets state
      *
      * @return string
      */
-    public function getProvince()
+    public function getState()
     {
-        return $this->container['province'];
+        return $this->container['state'];
     }
 
     /**
-     * Sets province
+     * Sets state
      *
-     * @param string $province Province
+     * @param string $state State/Province
      *
      * @return self
      */
-    public function setProvince($province)
+    public function setState($state)
     {
-        if (is_null($province)) {
-            throw new \InvalidArgumentException('non-nullable province cannot be null');
+        if (is_null($state)) {
+            throw new \InvalidArgumentException('non-nullable state cannot be null');
         }
-        $this->container['province'] = $province;
+        $this->container['state'] = $state;
 
         return $this;
     }
@@ -570,163 +570,163 @@ class CertificateInfoResponse implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Gets sujet
+     * Gets subject
      *
      * @return string
      */
-    public function getSujet()
+    public function getSubject()
     {
-        return $this->container['sujet'];
+        return $this->container['subject'];
     }
 
     /**
-     * Sets sujet
+     * Sets subject
      *
-     * @param string $sujet Sujet complet (RFC4514)
+     * @param string $subject Full subject (RFC4514)
      *
      * @return self
      */
-    public function setSujet($sujet)
+    public function setSubject($subject)
     {
-        if (is_null($sujet)) {
-            throw new \InvalidArgumentException('non-nullable sujet cannot be null');
+        if (is_null($subject)) {
+            throw new \InvalidArgumentException('non-nullable subject cannot be null');
         }
-        $this->container['sujet'] = $sujet;
+        $this->container['subject'] = $subject;
 
         return $this;
     }
 
     /**
-     * Gets emetteur
+     * Gets issuer
      *
      * @return string
      */
-    public function getEmetteur()
+    public function getIssuer()
     {
-        return $this->container['emetteur'];
+        return $this->container['issuer'];
     }
 
     /**
-     * Sets emetteur
+     * Sets issuer
      *
-     * @param string $emetteur Émetteur (auto-signé = même que sujet)
+     * @param string $issuer Issuer (self-signed = same as subject)
      *
      * @return self
      */
-    public function setEmetteur($emetteur)
+    public function setIssuer($issuer)
     {
-        if (is_null($emetteur)) {
-            throw new \InvalidArgumentException('non-nullable emetteur cannot be null');
+        if (is_null($issuer)) {
+            throw new \InvalidArgumentException('non-nullable issuer cannot be null');
         }
-        $this->container['emetteur'] = $emetteur;
+        $this->container['issuer'] = $issuer;
 
         return $this;
     }
 
     /**
-     * Gets numero_serie
+     * Gets serial_number
      *
      * @return int
      */
-    public function getNumeroSerie()
+    public function getSerialNumber()
     {
-        return $this->container['numero_serie'];
+        return $this->container['serial_number'];
     }
 
     /**
-     * Sets numero_serie
+     * Sets serial_number
      *
-     * @param int $numero_serie Numéro de série du certificat
+     * @param int $serial_number Certificate serial number
      *
      * @return self
      */
-    public function setNumeroSerie($numero_serie)
+    public function setSerialNumber($serial_number)
     {
-        if (is_null($numero_serie)) {
-            throw new \InvalidArgumentException('non-nullable numero_serie cannot be null');
+        if (is_null($serial_number)) {
+            throw new \InvalidArgumentException('non-nullable serial_number cannot be null');
         }
-        $this->container['numero_serie'] = $numero_serie;
+        $this->container['serial_number'] = $serial_number;
 
         return $this;
     }
 
     /**
-     * Gets valide_du
+     * Gets valid_from
      *
      * @return string
      */
-    public function getValideDu()
+    public function getValidFrom()
     {
-        return $this->container['valide_du'];
+        return $this->container['valid_from'];
     }
 
     /**
-     * Sets valide_du
+     * Sets valid_from
      *
-     * @param string $valide_du Date de début de validité (ISO 8601)
+     * @param string $valid_from Validity start date (ISO 8601)
      *
      * @return self
      */
-    public function setValideDu($valide_du)
+    public function setValidFrom($valid_from)
     {
-        if (is_null($valide_du)) {
-            throw new \InvalidArgumentException('non-nullable valide_du cannot be null');
+        if (is_null($valid_from)) {
+            throw new \InvalidArgumentException('non-nullable valid_from cannot be null');
         }
-        $this->container['valide_du'] = $valide_du;
+        $this->container['valid_from'] = $valid_from;
 
         return $this;
     }
 
     /**
-     * Gets valide_au
+     * Gets valid_to
      *
      * @return string
      */
-    public function getValideAu()
+    public function getValidTo()
     {
-        return $this->container['valide_au'];
+        return $this->container['valid_to'];
     }
 
     /**
-     * Sets valide_au
+     * Sets valid_to
      *
-     * @param string $valide_au Date de fin de validité (ISO 8601)
+     * @param string $valid_to Validity end date (ISO 8601)
      *
      * @return self
      */
-    public function setValideAu($valide_au)
+    public function setValidTo($valid_to)
     {
-        if (is_null($valide_au)) {
-            throw new \InvalidArgumentException('non-nullable valide_au cannot be null');
+        if (is_null($valid_to)) {
+            throw new \InvalidArgumentException('non-nullable valid_to cannot be null');
         }
-        $this->container['valide_au'] = $valide_au;
+        $this->container['valid_to'] = $valid_to;
 
         return $this;
     }
 
     /**
-     * Gets algorithme
+     * Gets algorithm
      *
      * @return string
      */
-    public function getAlgorithme()
+    public function getAlgorithm()
     {
-        return $this->container['algorithme'];
+        return $this->container['algorithm'];
     }
 
     /**
-     * Sets algorithme
+     * Sets algorithm
      *
-     * @param string $algorithme Algorithme de signature
+     * @param string $algorithm Signature algorithm
      *
      * @return self
      */
-    public function setAlgorithme($algorithme)
+    public function setAlgorithm($algorithm)
     {
-        if (is_null($algorithme)) {
-            throw new \InvalidArgumentException('non-nullable algorithme cannot be null');
+        if (is_null($algorithm)) {
+            throw new \InvalidArgumentException('non-nullable algorithm cannot be null');
         }
-        $this->container['algorithme'] = $algorithme;
+        $this->container['algorithm'] = $algorithm;
 
         return $this;
     }

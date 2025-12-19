@@ -11,9 +11,9 @@
  */
 
 /**
- * API REST FactPulse
+ * FactPulse REST API
  *
- * API REST pour la facturation électronique en France : Factur-X, AFNOR PDP/PA, signatures électroniques.  ## 🎯 Fonctionnalités principales  ### 📄 Génération de factures Factur-X - **Formats** : XML seul ou PDF/A-3 avec XML embarqué - **Profils** : MINIMUM, BASIC, EN16931, EXTENDED - **Normes** : EN 16931 (directive UE 2014/55), ISO 19005-3 (PDF/A-3), CII (UN/CEFACT) - **🆕 Format simplifié** : Génération à partir de SIRET + auto-enrichissement (API Chorus Pro + Recherche Entreprises)  ### ✅ Validation et conformité - **Validation XML** : Schematron (45 à 210+ règles selon profil) - **Validation PDF** : PDF/A-3, métadonnées XMP Factur-X, signatures électroniques - **VeraPDF** : Validation stricte PDF/A (146+ règles ISO 19005-3) - **Traitement asynchrone** : Support Celery pour validations lourdes (VeraPDF)  ### 📡 Intégration AFNOR PDP/PA (XP Z12-013) - **Soumission de flux** : Envoi de factures vers Plateformes de Dématérialisation Partenaires - **Recherche de flux** : Consultation des factures soumises - **Téléchargement** : Récupération des PDF/A-3 avec XML - **Directory Service** : Recherche d'entreprises (SIREN/SIRET) - **Multi-client** : Support de plusieurs configs PDP par utilisateur (stored credentials ou zero-storage)  ### ✍️ Signature électronique PDF - **Standards** : PAdES-B-B, PAdES-B-T (horodatage RFC 3161), PAdES-B-LT (archivage long terme) - **Niveaux eIDAS** : SES (auto-signé), AdES (CA commerciale), QES (PSCO) - **Validation** : Vérification intégrité cryptographique et certificats - **Génération de certificats** : Certificats X.509 auto-signés pour tests  ### 🔄 Traitement asynchrone - **Celery** : Génération, validation et signature asynchrones - **Polling** : Suivi d'état via `/taches/{id_tache}/statut` - **Pas de timeout** : Idéal pour gros fichiers ou validations lourdes  ## 🔒 Authentification  Toutes les requêtes nécessitent un **token JWT** dans le header Authorization : ``` Authorization: Bearer YOUR_JWT_TOKEN ```  ### Comment obtenir un token JWT ?  #### 🔑 Méthode 1 : API `/api/token/` (Recommandée)  **URL :** `https://www.factpulse.fr/api/token/`  Cette méthode est **recommandée** pour l'intégration dans vos applications et workflows CI/CD.  **Prérequis :** Avoir défini un mot de passe sur votre compte  **Pour les utilisateurs inscrits via email/password :** - Vous avez déjà un mot de passe, utilisez-le directement  **Pour les utilisateurs inscrits via OAuth (Google/GitHub) :** - Vous devez d'abord définir un mot de passe sur : https://www.factpulse.fr/accounts/password/set/ - Une fois le mot de passe créé, vous pourrez utiliser l'API  **Exemple de requête :** ```bash curl -X POST https://www.factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"votre_email@example.com\",     \"password\": \"votre_mot_de_passe\"   }' ```  **Paramètre optionnel `client_uid` :**  Pour sélectionner les credentials d'un client spécifique (PA/PDP, Chorus Pro, certificats de signature), ajoutez `client_uid` :  ```bash curl -X POST https://www.factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"votre_email@example.com\",     \"password\": \"votre_mot_de_passe\",     \"client_uid\": \"550e8400-e29b-41d4-a716-446655440000\"   }' ```  Le `client_uid` sera inclus dans le JWT et permettra à l'API d'utiliser automatiquement : - Les credentials AFNOR/PDP configurés pour ce client - Les credentials Chorus Pro configurés pour ce client - Les certificats de signature électronique configurés pour ce client  **Réponse :** ```json {   \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\",  // Token d'accès (validité: 30 min)   \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\"  // Token de rafraîchissement (validité: 7 jours) } ```  **Avantages :** - ✅ Automatisation complète (CI/CD, scripts) - ✅ Gestion programmatique des tokens - ✅ Support du refresh token pour renouveler automatiquement l'accès - ✅ Intégration facile dans n'importe quel langage/outil  #### 🖥️ Méthode 2 : Génération via Dashboard (Alternative)  **URL :** https://www.factpulse.fr/dashboard/  Cette méthode convient pour des tests rapides ou une utilisation occasionnelle via l'interface graphique.  **Fonctionnement :** - Connectez-vous au dashboard - Utilisez les boutons \"Generate Test Token\" ou \"Generate Production Token\" - Fonctionne pour **tous** les utilisateurs (OAuth et email/password), sans nécessiter de mot de passe  **Types de tokens :** - **Token Test** : Validité 24h, quota 1000 appels/jour (gratuit) - **Token Production** : Validité 7 jours, quota selon votre forfait  **Avantages :** - ✅ Rapide pour tester l'API - ✅ Aucun mot de passe requis - ✅ Interface visuelle simple  **Inconvénients :** - ❌ Nécessite une action manuelle - ❌ Pas de refresh token - ❌ Moins adapté pour l'automatisation  ### 📚 Documentation complète  Pour plus d'informations sur l'authentification et l'utilisation de l'API : https://www.factpulse.fr/documentation-api/
+ * REST API for electronic invoicing in France: Factur-X, AFNOR PDP/PA, electronic signatures.  ## 🎯 Main Features  ### 📄 Factur-X Invoice Generation - **Formats**: XML only or PDF/A-3 with embedded XML - **Profiles**: MINIMUM, BASIC, EN16931, EXTENDED - **Standards**: EN 16931 (EU directive 2014/55), ISO 19005-3 (PDF/A-3), CII (UN/CEFACT) - **🆕 Simplified Format**: Generation from SIRET + auto-enrichment (Chorus Pro API + Business Search)  ### ✅ Validation and Compliance - **XML Validation**: Schematron (45 to 210+ rules depending on profile) - **PDF Validation**: PDF/A-3, Factur-X XMP metadata, electronic signatures - **VeraPDF**: Strict PDF/A validation (146+ ISO 19005-3 rules) - **Asynchronous Processing**: Celery support for heavy validations (VeraPDF)  ### 📡 AFNOR PDP/PA Integration (XP Z12-013) - **Flow Submission**: Send invoices to Partner Dematerialization Platforms - **Flow Search**: View submitted invoices - **Download**: Retrieve PDF/A-3 with XML - **Directory Service**: Company search (SIREN/SIRET) - **Multi-client**: Support for multiple PDP configs per user (stored credentials or zero-storage)  ### ✍️ PDF Electronic Signature - **Standards**: PAdES-B-B, PAdES-B-T (RFC 3161 timestamping), PAdES-B-LT (long-term archival) - **eIDAS Levels**: SES (self-signed), AdES (commercial CA), QES (QTSP) - **Validation**: Cryptographic integrity and certificate verification - **Certificate Generation**: Self-signed X.509 certificates for testing  ### 🔄 Asynchronous Processing - **Celery**: Asynchronous generation, validation and signing - **Polling**: Status tracking via `/tasks/{task_id}/status` - **No timeout**: Ideal for large files or heavy validations  ## 🔒 Authentication  All requests require a **JWT token** in the Authorization header: ``` Authorization: Bearer YOUR_JWT_TOKEN ```  ### How to obtain a JWT token?  #### 🔑 Method 1: `/api/token/` API (Recommended)  **URL:** `https://www.factpulse.fr/api/token/`  This method is **recommended** for integration in your applications and CI/CD workflows.  **Prerequisites:** Having set a password on your account  **For users registered via email/password:** - You already have a password, use it directly  **For users registered via OAuth (Google/GitHub):** - You must first set a password at: https://www.factpulse.fr/accounts/password/set/ - Once the password is created, you can use the API  **Request example:** ```bash curl -X POST https://www.factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"your_email@example.com\",     \"password\": \"your_password\"   }' ```  **Optional `client_uid` parameter:**  To select credentials for a specific client (PA/PDP, Chorus Pro, signing certificates), add `client_uid`:  ```bash curl -X POST https://www.factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"your_email@example.com\",     \"password\": \"your_password\",     \"client_uid\": \"550e8400-e29b-41d4-a716-446655440000\"   }' ```  The `client_uid` will be included in the JWT and allow the API to automatically use: - AFNOR/PDP credentials configured for this client - Chorus Pro credentials configured for this client - Electronic signature certificates configured for this client  **Response:** ```json {   \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\",  // Access token (validity: 30 min)   \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\"  // Refresh token (validity: 7 days) } ```  **Advantages:** - ✅ Full automation (CI/CD, scripts) - ✅ Programmatic token management - ✅ Refresh token support for automatic access renewal - ✅ Easy integration in any language/tool  #### 🖥️ Method 2: Dashboard Generation (Alternative)  **URL:** https://www.factpulse.fr/dashboard/  This method is suitable for quick tests or occasional use via the graphical interface.  **How it works:** - Log in to the dashboard - Use the \"Generate Test Token\" or \"Generate Production Token\" buttons - Works for **all** users (OAuth and email/password), without requiring a password  **Token types:** - **Test Token**: 24h validity, 1000 calls/day quota (free) - **Production Token**: 7 days validity, quota based on your plan  **Advantages:** - ✅ Quick for API testing - ✅ No password required - ✅ Simple visual interface  **Disadvantages:** - ❌ Requires manual action - ❌ No refresh token - ❌ Less suited for automation  ### 📚 Full Documentation  For more information on authentication and API usage: https://www.factpulse.fr/documentation-api/
  *
  * The version of the OpenAPI document: 1.0.0
  * Generated by: https://openapi-generator.tech
@@ -35,7 +35,7 @@ use \FactPulse\SDK\ObjectSerializer;
  * FactureFacturX Class Doc Comment
  *
  * @category Class
- * @description Modèle de données pour une facture destinée à être convertie en Factur-X.
+ * @description Data model for an invoice to be converted to Factur-X.
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -58,22 +58,22 @@ class FactureFacturX implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'numero_facture' => 'string',
-        'date_echeance_paiement' => 'string',
-        'date_facture' => 'string',
-        'mode_depot' => '\FactPulse\SDK\Model\ModeDepot',
-        'destinataire' => '\FactPulse\SDK\Model\Destinataire',
-        'fournisseur' => '\FactPulse\SDK\Model\Fournisseur',
-        'cadre_de_facturation' => '\FactPulse\SDK\Model\CadreDeFacturation',
-        'references' => '\FactPulse\SDK\Model\References',
-        'montant_total' => '\FactPulse\SDK\Model\MontantTotal',
-        'lignes_de_poste' => '\FactPulse\SDK\Model\LigneDePoste[]',
-        'lignes_de_tva' => '\FactPulse\SDK\Model\LigneDeTVA[]',
-        'notes' => '\FactPulse\SDK\Model\Note[]',
-        'commentaire' => 'string',
-        'id_utilisateur_courant' => 'int',
-        'pieces_jointes_complementaires' => '\FactPulse\SDK\Model\PieceJointeComplementaire[]',
-        'beneficiaire' => '\FactPulse\SDK\Model\Beneficiaire'
+        'invoice_number' => 'string',
+        'payment_due_date' => 'string',
+        'invoice_date' => 'string',
+        'submission_mode' => '\FactPulse\SDK\Model\SubmissionMode',
+        'recipient' => '\FactPulse\SDK\Model\Recipient',
+        'supplier' => '\FactPulse\SDK\Model\Supplier',
+        'invoicing_framework' => '\FactPulse\SDK\Model\InvoicingFramework',
+        'references' => '\FactPulse\SDK\Model\InvoiceReferences',
+        'totals' => '\FactPulse\SDK\Model\InvoiceTotals',
+        'invoice_lines' => '\FactPulse\SDK\Model\InvoiceLine[]',
+        'vat_lines' => '\FactPulse\SDK\Model\VATLine[]',
+        'notes' => '\FactPulse\SDK\Model\InvoiceNote[]',
+        'comment' => 'string',
+        'current_user_id' => 'int',
+        'supplementary_attachments' => '\FactPulse\SDK\Model\SupplementaryAttachment[]',
+        'payee' => '\FactPulse\SDK\Model\Payee'
     ];
 
     /**
@@ -84,22 +84,22 @@ class FactureFacturX implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'numero_facture' => null,
-        'date_echeance_paiement' => null,
-        'date_facture' => null,
-        'mode_depot' => null,
-        'destinataire' => null,
-        'fournisseur' => null,
-        'cadre_de_facturation' => null,
+        'invoice_number' => null,
+        'payment_due_date' => null,
+        'invoice_date' => null,
+        'submission_mode' => null,
+        'recipient' => null,
+        'supplier' => null,
+        'invoicing_framework' => null,
         'references' => null,
-        'montant_total' => null,
-        'lignes_de_poste' => null,
-        'lignes_de_tva' => null,
+        'totals' => null,
+        'invoice_lines' => null,
+        'vat_lines' => null,
         'notes' => null,
-        'commentaire' => null,
-        'id_utilisateur_courant' => null,
-        'pieces_jointes_complementaires' => null,
-        'beneficiaire' => null
+        'comment' => null,
+        'current_user_id' => null,
+        'supplementary_attachments' => null,
+        'payee' => null
     ];
 
     /**
@@ -108,22 +108,22 @@ class FactureFacturX implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'numero_facture' => false,
-        'date_echeance_paiement' => false,
-        'date_facture' => false,
-        'mode_depot' => false,
-        'destinataire' => false,
-        'fournisseur' => false,
-        'cadre_de_facturation' => false,
+        'invoice_number' => false,
+        'payment_due_date' => false,
+        'invoice_date' => false,
+        'submission_mode' => false,
+        'recipient' => false,
+        'supplier' => false,
+        'invoicing_framework' => false,
         'references' => false,
-        'montant_total' => false,
-        'lignes_de_poste' => false,
-        'lignes_de_tva' => false,
+        'totals' => false,
+        'invoice_lines' => false,
+        'vat_lines' => false,
         'notes' => false,
-        'commentaire' => true,
-        'id_utilisateur_courant' => true,
-        'pieces_jointes_complementaires' => true,
-        'beneficiaire' => true
+        'comment' => true,
+        'current_user_id' => true,
+        'supplementary_attachments' => true,
+        'payee' => true
     ];
 
     /**
@@ -212,22 +212,22 @@ class FactureFacturX implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'numero_facture' => 'numeroFacture',
-        'date_echeance_paiement' => 'dateEcheancePaiement',
-        'date_facture' => 'dateFacture',
-        'mode_depot' => 'modeDepot',
-        'destinataire' => 'destinataire',
-        'fournisseur' => 'fournisseur',
-        'cadre_de_facturation' => 'cadreDeFacturation',
+        'invoice_number' => 'invoice_number',
+        'payment_due_date' => 'payment_due_date',
+        'invoice_date' => 'invoice_date',
+        'submission_mode' => 'submission_mode',
+        'recipient' => 'recipient',
+        'supplier' => 'supplier',
+        'invoicing_framework' => 'invoicing_framework',
         'references' => 'references',
-        'montant_total' => 'montantTotal',
-        'lignes_de_poste' => 'lignesDePoste',
-        'lignes_de_tva' => 'lignesDeTva',
+        'totals' => 'totals',
+        'invoice_lines' => 'invoice_lines',
+        'vat_lines' => 'vat_lines',
         'notes' => 'notes',
-        'commentaire' => 'commentaire',
-        'id_utilisateur_courant' => 'idUtilisateurCourant',
-        'pieces_jointes_complementaires' => 'piecesJointesComplementaires',
-        'beneficiaire' => 'beneficiaire'
+        'comment' => 'comment',
+        'current_user_id' => 'current_user_id',
+        'supplementary_attachments' => 'supplementary_attachments',
+        'payee' => 'payee'
     ];
 
     /**
@@ -236,22 +236,22 @@ class FactureFacturX implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'numero_facture' => 'setNumeroFacture',
-        'date_echeance_paiement' => 'setDateEcheancePaiement',
-        'date_facture' => 'setDateFacture',
-        'mode_depot' => 'setModeDepot',
-        'destinataire' => 'setDestinataire',
-        'fournisseur' => 'setFournisseur',
-        'cadre_de_facturation' => 'setCadreDeFacturation',
+        'invoice_number' => 'setInvoiceNumber',
+        'payment_due_date' => 'setPaymentDueDate',
+        'invoice_date' => 'setInvoiceDate',
+        'submission_mode' => 'setSubmissionMode',
+        'recipient' => 'setRecipient',
+        'supplier' => 'setSupplier',
+        'invoicing_framework' => 'setInvoicingFramework',
         'references' => 'setReferences',
-        'montant_total' => 'setMontantTotal',
-        'lignes_de_poste' => 'setLignesDePoste',
-        'lignes_de_tva' => 'setLignesDeTva',
+        'totals' => 'setTotals',
+        'invoice_lines' => 'setInvoiceLines',
+        'vat_lines' => 'setVatLines',
         'notes' => 'setNotes',
-        'commentaire' => 'setCommentaire',
-        'id_utilisateur_courant' => 'setIdUtilisateurCourant',
-        'pieces_jointes_complementaires' => 'setPiecesJointesComplementaires',
-        'beneficiaire' => 'setBeneficiaire'
+        'comment' => 'setComment',
+        'current_user_id' => 'setCurrentUserId',
+        'supplementary_attachments' => 'setSupplementaryAttachments',
+        'payee' => 'setPayee'
     ];
 
     /**
@@ -260,22 +260,22 @@ class FactureFacturX implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'numero_facture' => 'getNumeroFacture',
-        'date_echeance_paiement' => 'getDateEcheancePaiement',
-        'date_facture' => 'getDateFacture',
-        'mode_depot' => 'getModeDepot',
-        'destinataire' => 'getDestinataire',
-        'fournisseur' => 'getFournisseur',
-        'cadre_de_facturation' => 'getCadreDeFacturation',
+        'invoice_number' => 'getInvoiceNumber',
+        'payment_due_date' => 'getPaymentDueDate',
+        'invoice_date' => 'getInvoiceDate',
+        'submission_mode' => 'getSubmissionMode',
+        'recipient' => 'getRecipient',
+        'supplier' => 'getSupplier',
+        'invoicing_framework' => 'getInvoicingFramework',
         'references' => 'getReferences',
-        'montant_total' => 'getMontantTotal',
-        'lignes_de_poste' => 'getLignesDePoste',
-        'lignes_de_tva' => 'getLignesDeTva',
+        'totals' => 'getTotals',
+        'invoice_lines' => 'getInvoiceLines',
+        'vat_lines' => 'getVatLines',
         'notes' => 'getNotes',
-        'commentaire' => 'getCommentaire',
-        'id_utilisateur_courant' => 'getIdUtilisateurCourant',
-        'pieces_jointes_complementaires' => 'getPiecesJointesComplementaires',
-        'beneficiaire' => 'getBeneficiaire'
+        'comment' => 'getComment',
+        'current_user_id' => 'getCurrentUserId',
+        'supplementary_attachments' => 'getSupplementaryAttachments',
+        'payee' => 'getPayee'
     ];
 
     /**
@@ -335,22 +335,22 @@ class FactureFacturX implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('numero_facture', $data ?? [], null);
-        $this->setIfExists('date_echeance_paiement', $data ?? [], null);
-        $this->setIfExists('date_facture', $data ?? [], null);
-        $this->setIfExists('mode_depot', $data ?? [], null);
-        $this->setIfExists('destinataire', $data ?? [], null);
-        $this->setIfExists('fournisseur', $data ?? [], null);
-        $this->setIfExists('cadre_de_facturation', $data ?? [], null);
+        $this->setIfExists('invoice_number', $data ?? [], null);
+        $this->setIfExists('payment_due_date', $data ?? [], null);
+        $this->setIfExists('invoice_date', $data ?? [], null);
+        $this->setIfExists('submission_mode', $data ?? [], null);
+        $this->setIfExists('recipient', $data ?? [], null);
+        $this->setIfExists('supplier', $data ?? [], null);
+        $this->setIfExists('invoicing_framework', $data ?? [], null);
         $this->setIfExists('references', $data ?? [], null);
-        $this->setIfExists('montant_total', $data ?? [], null);
-        $this->setIfExists('lignes_de_poste', $data ?? [], null);
-        $this->setIfExists('lignes_de_tva', $data ?? [], null);
+        $this->setIfExists('totals', $data ?? [], null);
+        $this->setIfExists('invoice_lines', $data ?? [], null);
+        $this->setIfExists('vat_lines', $data ?? [], null);
         $this->setIfExists('notes', $data ?? [], null);
-        $this->setIfExists('commentaire', $data ?? [], null);
-        $this->setIfExists('id_utilisateur_courant', $data ?? [], null);
-        $this->setIfExists('pieces_jointes_complementaires', $data ?? [], null);
-        $this->setIfExists('beneficiaire', $data ?? [], null);
+        $this->setIfExists('comment', $data ?? [], null);
+        $this->setIfExists('current_user_id', $data ?? [], null);
+        $this->setIfExists('supplementary_attachments', $data ?? [], null);
+        $this->setIfExists('payee', $data ?? [], null);
     }
 
     /**
@@ -380,29 +380,29 @@ class FactureFacturX implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['numero_facture'] === null) {
-            $invalidProperties[] = "'numero_facture' can't be null";
+        if ($this->container['invoice_number'] === null) {
+            $invalidProperties[] = "'invoice_number' can't be null";
         }
-        if ($this->container['date_echeance_paiement'] === null) {
-            $invalidProperties[] = "'date_echeance_paiement' can't be null";
+        if ($this->container['payment_due_date'] === null) {
+            $invalidProperties[] = "'payment_due_date' can't be null";
         }
-        if ($this->container['mode_depot'] === null) {
-            $invalidProperties[] = "'mode_depot' can't be null";
+        if ($this->container['submission_mode'] === null) {
+            $invalidProperties[] = "'submission_mode' can't be null";
         }
-        if ($this->container['destinataire'] === null) {
-            $invalidProperties[] = "'destinataire' can't be null";
+        if ($this->container['recipient'] === null) {
+            $invalidProperties[] = "'recipient' can't be null";
         }
-        if ($this->container['fournisseur'] === null) {
-            $invalidProperties[] = "'fournisseur' can't be null";
+        if ($this->container['supplier'] === null) {
+            $invalidProperties[] = "'supplier' can't be null";
         }
-        if ($this->container['cadre_de_facturation'] === null) {
-            $invalidProperties[] = "'cadre_de_facturation' can't be null";
+        if ($this->container['invoicing_framework'] === null) {
+            $invalidProperties[] = "'invoicing_framework' can't be null";
         }
         if ($this->container['references'] === null) {
             $invalidProperties[] = "'references' can't be null";
         }
-        if ($this->container['montant_total'] === null) {
-            $invalidProperties[] = "'montant_total' can't be null";
+        if ($this->container['totals'] === null) {
+            $invalidProperties[] = "'totals' can't be null";
         }
         return $invalidProperties;
     }
@@ -420,190 +420,190 @@ class FactureFacturX implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets numero_facture
+     * Gets invoice_number
      *
      * @return string
      */
-    public function getNumeroFacture()
+    public function getInvoiceNumber()
     {
-        return $this->container['numero_facture'];
+        return $this->container['invoice_number'];
     }
 
     /**
-     * Sets numero_facture
+     * Sets invoice_number
      *
-     * @param string $numero_facture numero_facture
+     * @param string $invoice_number invoice_number
      *
      * @return self
      */
-    public function setNumeroFacture($numero_facture)
+    public function setInvoiceNumber($invoice_number)
     {
-        if (is_null($numero_facture)) {
-            throw new \InvalidArgumentException('non-nullable numero_facture cannot be null');
+        if (is_null($invoice_number)) {
+            throw new \InvalidArgumentException('non-nullable invoice_number cannot be null');
         }
-        $this->container['numero_facture'] = $numero_facture;
+        $this->container['invoice_number'] = $invoice_number;
 
         return $this;
     }
 
     /**
-     * Gets date_echeance_paiement
+     * Gets payment_due_date
      *
      * @return string
      */
-    public function getDateEcheancePaiement()
+    public function getPaymentDueDate()
     {
-        return $this->container['date_echeance_paiement'];
+        return $this->container['payment_due_date'];
     }
 
     /**
-     * Sets date_echeance_paiement
+     * Sets payment_due_date
      *
-     * @param string $date_echeance_paiement date_echeance_paiement
+     * @param string $payment_due_date payment_due_date
      *
      * @return self
      */
-    public function setDateEcheancePaiement($date_echeance_paiement)
+    public function setPaymentDueDate($payment_due_date)
     {
-        if (is_null($date_echeance_paiement)) {
-            throw new \InvalidArgumentException('non-nullable date_echeance_paiement cannot be null');
+        if (is_null($payment_due_date)) {
+            throw new \InvalidArgumentException('non-nullable payment_due_date cannot be null');
         }
-        $this->container['date_echeance_paiement'] = $date_echeance_paiement;
+        $this->container['payment_due_date'] = $payment_due_date;
 
         return $this;
     }
 
     /**
-     * Gets date_facture
+     * Gets invoice_date
      *
      * @return string|null
      */
-    public function getDateFacture()
+    public function getInvoiceDate()
     {
-        return $this->container['date_facture'];
+        return $this->container['invoice_date'];
     }
 
     /**
-     * Sets date_facture
+     * Sets invoice_date
      *
-     * @param string|null $date_facture date_facture
+     * @param string|null $invoice_date invoice_date
      *
      * @return self
      */
-    public function setDateFacture($date_facture)
+    public function setInvoiceDate($invoice_date)
     {
-        if (is_null($date_facture)) {
-            throw new \InvalidArgumentException('non-nullable date_facture cannot be null');
+        if (is_null($invoice_date)) {
+            throw new \InvalidArgumentException('non-nullable invoice_date cannot be null');
         }
-        $this->container['date_facture'] = $date_facture;
+        $this->container['invoice_date'] = $invoice_date;
 
         return $this;
     }
 
     /**
-     * Gets mode_depot
+     * Gets submission_mode
      *
-     * @return \FactPulse\SDK\Model\ModeDepot
+     * @return \FactPulse\SDK\Model\SubmissionMode
      */
-    public function getModeDepot()
+    public function getSubmissionMode()
     {
-        return $this->container['mode_depot'];
+        return $this->container['submission_mode'];
     }
 
     /**
-     * Sets mode_depot
+     * Sets submission_mode
      *
-     * @param \FactPulse\SDK\Model\ModeDepot $mode_depot mode_depot
+     * @param \FactPulse\SDK\Model\SubmissionMode $submission_mode submission_mode
      *
      * @return self
      */
-    public function setModeDepot($mode_depot)
+    public function setSubmissionMode($submission_mode)
     {
-        if (is_null($mode_depot)) {
-            throw new \InvalidArgumentException('non-nullable mode_depot cannot be null');
+        if (is_null($submission_mode)) {
+            throw new \InvalidArgumentException('non-nullable submission_mode cannot be null');
         }
-        $this->container['mode_depot'] = $mode_depot;
+        $this->container['submission_mode'] = $submission_mode;
 
         return $this;
     }
 
     /**
-     * Gets destinataire
+     * Gets recipient
      *
-     * @return \FactPulse\SDK\Model\Destinataire
+     * @return \FactPulse\SDK\Model\Recipient
      */
-    public function getDestinataire()
+    public function getRecipient()
     {
-        return $this->container['destinataire'];
+        return $this->container['recipient'];
     }
 
     /**
-     * Sets destinataire
+     * Sets recipient
      *
-     * @param \FactPulse\SDK\Model\Destinataire $destinataire destinataire
+     * @param \FactPulse\SDK\Model\Recipient $recipient recipient
      *
      * @return self
      */
-    public function setDestinataire($destinataire)
+    public function setRecipient($recipient)
     {
-        if (is_null($destinataire)) {
-            throw new \InvalidArgumentException('non-nullable destinataire cannot be null');
+        if (is_null($recipient)) {
+            throw new \InvalidArgumentException('non-nullable recipient cannot be null');
         }
-        $this->container['destinataire'] = $destinataire;
+        $this->container['recipient'] = $recipient;
 
         return $this;
     }
 
     /**
-     * Gets fournisseur
+     * Gets supplier
      *
-     * @return \FactPulse\SDK\Model\Fournisseur
+     * @return \FactPulse\SDK\Model\Supplier
      */
-    public function getFournisseur()
+    public function getSupplier()
     {
-        return $this->container['fournisseur'];
+        return $this->container['supplier'];
     }
 
     /**
-     * Sets fournisseur
+     * Sets supplier
      *
-     * @param \FactPulse\SDK\Model\Fournisseur $fournisseur fournisseur
+     * @param \FactPulse\SDK\Model\Supplier $supplier supplier
      *
      * @return self
      */
-    public function setFournisseur($fournisseur)
+    public function setSupplier($supplier)
     {
-        if (is_null($fournisseur)) {
-            throw new \InvalidArgumentException('non-nullable fournisseur cannot be null');
+        if (is_null($supplier)) {
+            throw new \InvalidArgumentException('non-nullable supplier cannot be null');
         }
-        $this->container['fournisseur'] = $fournisseur;
+        $this->container['supplier'] = $supplier;
 
         return $this;
     }
 
     /**
-     * Gets cadre_de_facturation
+     * Gets invoicing_framework
      *
-     * @return \FactPulse\SDK\Model\CadreDeFacturation
+     * @return \FactPulse\SDK\Model\InvoicingFramework
      */
-    public function getCadreDeFacturation()
+    public function getInvoicingFramework()
     {
-        return $this->container['cadre_de_facturation'];
+        return $this->container['invoicing_framework'];
     }
 
     /**
-     * Sets cadre_de_facturation
+     * Sets invoicing_framework
      *
-     * @param \FactPulse\SDK\Model\CadreDeFacturation $cadre_de_facturation cadre_de_facturation
+     * @param \FactPulse\SDK\Model\InvoicingFramework $invoicing_framework invoicing_framework
      *
      * @return self
      */
-    public function setCadreDeFacturation($cadre_de_facturation)
+    public function setInvoicingFramework($invoicing_framework)
     {
-        if (is_null($cadre_de_facturation)) {
-            throw new \InvalidArgumentException('non-nullable cadre_de_facturation cannot be null');
+        if (is_null($invoicing_framework)) {
+            throw new \InvalidArgumentException('non-nullable invoicing_framework cannot be null');
         }
-        $this->container['cadre_de_facturation'] = $cadre_de_facturation;
+        $this->container['invoicing_framework'] = $invoicing_framework;
 
         return $this;
     }
@@ -611,7 +611,7 @@ class FactureFacturX implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets references
      *
-     * @return \FactPulse\SDK\Model\References
+     * @return \FactPulse\SDK\Model\InvoiceReferences
      */
     public function getReferences()
     {
@@ -621,7 +621,7 @@ class FactureFacturX implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets references
      *
-     * @param \FactPulse\SDK\Model\References $references references
+     * @param \FactPulse\SDK\Model\InvoiceReferences $references references
      *
      * @return self
      */
@@ -636,82 +636,82 @@ class FactureFacturX implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets montant_total
+     * Gets totals
      *
-     * @return \FactPulse\SDK\Model\MontantTotal
+     * @return \FactPulse\SDK\Model\InvoiceTotals
      */
-    public function getMontantTotal()
+    public function getTotals()
     {
-        return $this->container['montant_total'];
+        return $this->container['totals'];
     }
 
     /**
-     * Sets montant_total
+     * Sets totals
      *
-     * @param \FactPulse\SDK\Model\MontantTotal $montant_total montant_total
+     * @param \FactPulse\SDK\Model\InvoiceTotals $totals totals
      *
      * @return self
      */
-    public function setMontantTotal($montant_total)
+    public function setTotals($totals)
     {
-        if (is_null($montant_total)) {
-            throw new \InvalidArgumentException('non-nullable montant_total cannot be null');
+        if (is_null($totals)) {
+            throw new \InvalidArgumentException('non-nullable totals cannot be null');
         }
-        $this->container['montant_total'] = $montant_total;
+        $this->container['totals'] = $totals;
 
         return $this;
     }
 
     /**
-     * Gets lignes_de_poste
+     * Gets invoice_lines
      *
-     * @return \FactPulse\SDK\Model\LigneDePoste[]|null
+     * @return \FactPulse\SDK\Model\InvoiceLine[]|null
      */
-    public function getLignesDePoste()
+    public function getInvoiceLines()
     {
-        return $this->container['lignes_de_poste'];
+        return $this->container['invoice_lines'];
     }
 
     /**
-     * Sets lignes_de_poste
+     * Sets invoice_lines
      *
-     * @param \FactPulse\SDK\Model\LigneDePoste[]|null $lignes_de_poste lignes_de_poste
+     * @param \FactPulse\SDK\Model\InvoiceLine[]|null $invoice_lines invoice_lines
      *
      * @return self
      */
-    public function setLignesDePoste($lignes_de_poste)
+    public function setInvoiceLines($invoice_lines)
     {
-        if (is_null($lignes_de_poste)) {
-            throw new \InvalidArgumentException('non-nullable lignes_de_poste cannot be null');
+        if (is_null($invoice_lines)) {
+            throw new \InvalidArgumentException('non-nullable invoice_lines cannot be null');
         }
-        $this->container['lignes_de_poste'] = $lignes_de_poste;
+        $this->container['invoice_lines'] = $invoice_lines;
 
         return $this;
     }
 
     /**
-     * Gets lignes_de_tva
+     * Gets vat_lines
      *
-     * @return \FactPulse\SDK\Model\LigneDeTVA[]|null
+     * @return \FactPulse\SDK\Model\VATLine[]|null
      */
-    public function getLignesDeTva()
+    public function getVatLines()
     {
-        return $this->container['lignes_de_tva'];
+        return $this->container['vat_lines'];
     }
 
     /**
-     * Sets lignes_de_tva
+     * Sets vat_lines
      *
-     * @param \FactPulse\SDK\Model\LigneDeTVA[]|null $lignes_de_tva lignes_de_tva
+     * @param \FactPulse\SDK\Model\VATLine[]|null $vat_lines vat_lines
      *
      * @return self
      */
-    public function setLignesDeTva($lignes_de_tva)
+    public function setVatLines($vat_lines)
     {
-        if (is_null($lignes_de_tva)) {
-            throw new \InvalidArgumentException('non-nullable lignes_de_tva cannot be null');
+        if (is_null($vat_lines)) {
+            throw new \InvalidArgumentException('non-nullable vat_lines cannot be null');
         }
-        $this->container['lignes_de_tva'] = $lignes_de_tva;
+        $this->container['vat_lines'] = $vat_lines;
 
         return $this;
     }
@@ -719,7 +719,7 @@ class FactureFacturX implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets notes
      *
-     * @return \FactPulse\SDK\Model\Note[]|null
+     * @return \FactPulse\SDK\Model\InvoiceNote[]|null
      */
     public function getNotes()
     {
@@ -729,7 +729,7 @@ class FactureFacturX implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets notes
      *
-     * @param \FactPulse\SDK\Model\Note[]|null $notes notes
+     * @param \FactPulse\SDK\Model\InvoiceNote[]|null $notes notes
      *
      * @return self
      */
@@ -744,137 +744,137 @@ class FactureFacturX implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets commentaire
+     * Gets comment
      *
      * @return string|null
      */
-    public function getCommentaire()
+    public function getComment()
     {
-        return $this->container['commentaire'];
+        return $this->container['comment'];
     }
 
     /**
-     * Sets commentaire
+     * Sets comment
      *
-     * @param string|null $commentaire commentaire
+     * @param string|null $comment comment
      *
      * @return self
      */
-    public function setCommentaire($commentaire)
+    public function setComment($comment)
     {
-        if (is_null($commentaire)) {
-            array_push($this->openAPINullablesSetToNull, 'commentaire');
+        if (is_null($comment)) {
+            array_push($this->openAPINullablesSetToNull, 'comment');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('commentaire', $nullablesSetToNull);
+            $index = array_search('comment', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['commentaire'] = $commentaire;
+        $this->container['comment'] = $comment;
 
         return $this;
     }
 
     /**
-     * Gets id_utilisateur_courant
+     * Gets current_user_id
      *
      * @return int|null
      */
-    public function getIdUtilisateurCourant()
+    public function getCurrentUserId()
     {
-        return $this->container['id_utilisateur_courant'];
+        return $this->container['current_user_id'];
     }
 
     /**
-     * Sets id_utilisateur_courant
+     * Sets current_user_id
      *
-     * @param int|null $id_utilisateur_courant id_utilisateur_courant
+     * @param int|null $current_user_id current_user_id
      *
      * @return self
      */
-    public function setIdUtilisateurCourant($id_utilisateur_courant)
+    public function setCurrentUserId($current_user_id)
     {
-        if (is_null($id_utilisateur_courant)) {
-            array_push($this->openAPINullablesSetToNull, 'id_utilisateur_courant');
+        if (is_null($current_user_id)) {
+            array_push($this->openAPINullablesSetToNull, 'current_user_id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id_utilisateur_courant', $nullablesSetToNull);
+            $index = array_search('current_user_id', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['id_utilisateur_courant'] = $id_utilisateur_courant;
+        $this->container['current_user_id'] = $current_user_id;
 
         return $this;
     }
 
     /**
-     * Gets pieces_jointes_complementaires
+     * Gets supplementary_attachments
      *
-     * @return \FactPulse\SDK\Model\PieceJointeComplementaire[]|null
+     * @return \FactPulse\SDK\Model\SupplementaryAttachment[]|null
      */
-    public function getPiecesJointesComplementaires()
+    public function getSupplementaryAttachments()
     {
-        return $this->container['pieces_jointes_complementaires'];
+        return $this->container['supplementary_attachments'];
     }
 
     /**
-     * Sets pieces_jointes_complementaires
+     * Sets supplementary_attachments
      *
-     * @param \FactPulse\SDK\Model\PieceJointeComplementaire[]|null $pieces_jointes_complementaires pieces_jointes_complementaires
+     * @param \FactPulse\SDK\Model\SupplementaryAttachment[]|null $supplementary_attachments supplementary_attachments
      *
      * @return self
      */
-    public function setPiecesJointesComplementaires($pieces_jointes_complementaires)
+    public function setSupplementaryAttachments($supplementary_attachments)
     {
-        if (is_null($pieces_jointes_complementaires)) {
-            array_push($this->openAPINullablesSetToNull, 'pieces_jointes_complementaires');
+        if (is_null($supplementary_attachments)) {
+            array_push($this->openAPINullablesSetToNull, 'supplementary_attachments');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('pieces_jointes_complementaires', $nullablesSetToNull);
+            $index = array_search('supplementary_attachments', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['pieces_jointes_complementaires'] = $pieces_jointes_complementaires;
+        $this->container['supplementary_attachments'] = $supplementary_attachments;
 
         return $this;
     }
 
     /**
-     * Gets beneficiaire
+     * Gets payee
      *
-     * @return \FactPulse\SDK\Model\Beneficiaire|null
+     * @return \FactPulse\SDK\Model\Payee|null
      */
-    public function getBeneficiaire()
+    public function getPayee()
     {
-        return $this->container['beneficiaire'];
+        return $this->container['payee'];
     }
 
     /**
-     * Sets beneficiaire
+     * Sets payee
      *
-     * @param \FactPulse\SDK\Model\Beneficiaire|null $beneficiaire beneficiaire
+     * @param \FactPulse\SDK\Model\Payee|null $payee payee
      *
      * @return self
      */
-    public function setBeneficiaire($beneficiaire)
+    public function setPayee($payee)
     {
-        if (is_null($beneficiaire)) {
-            array_push($this->openAPINullablesSetToNull, 'beneficiaire');
+        if (is_null($payee)) {
+            array_push($this->openAPINullablesSetToNull, 'payee');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('beneficiaire', $nullablesSetToNull);
+            $index = array_search('payee', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['beneficiaire'] = $beneficiaire;
+        $this->container['payee'] = $payee;
 
         return $this;
     }

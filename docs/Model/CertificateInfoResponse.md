@@ -5,16 +5,16 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cn** | **string** | Common Name |
-**organisation** | **string** | Organisation |
-**pays** | **string** | Code pays |
-**ville** | **string** | Ville |
-**province** | **string** | Province |
+**organization** | **string** | Organization |
+**country** | **string** | Country code |
+**city** | **string** | City |
+**state** | **string** | State/Province |
 **email** | **string** |  | [optional]
-**sujet** | **string** | Sujet complet (RFC4514) |
-**emetteur** | **string** | Émetteur (auto-signé &#x3D; même que sujet) |
-**numero_serie** | **int** | Numéro de série du certificat |
-**valide_du** | **string** | Date de début de validité (ISO 8601) |
-**valide_au** | **string** | Date de fin de validité (ISO 8601) |
-**algorithme** | **string** | Algorithme de signature |
+**subject** | **string** | Full subject (RFC4514) |
+**issuer** | **string** | Issuer (self-signed &#x3D; same as subject) |
+**serial_number** | **int** | Certificate serial number |
+**valid_from** | **string** | Validity start date (ISO 8601) |
+**valid_to** | **string** | Validity end date (ISO 8601) |
+**algorithm** | **string** | Signature algorithm |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

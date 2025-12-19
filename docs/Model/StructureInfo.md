@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id_structure_cpp** | **int** | ID Chorus Pro de la structure |
-**identifiant_structure** | **string** | Identifiant (SIRET, SIREN) |
-**designation_structure** | **string** | Nom de la structure |
-**type_identifiant_structure** | **string** | Type d&#39;identifiant |
-**statut** | **string** | Statut (ACTIVE, INACTIVE) |
+**structure_id** | **int** | Chorus Pro structure ID |
+**structure_identifier** | **string** | Identifier (SIRET, SIREN) |
+**structure_name** | **string** | Structure name |
+**structure_identifier_type** | **string** | Identifier type |
+**status** | **string** | Status (ACTIVE, INACTIVE) |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

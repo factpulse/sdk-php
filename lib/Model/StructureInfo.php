@@ -11,9 +11,9 @@
  */
 
 /**
- * API REST FactPulse
+ * FactPulse REST API
  *
- * API REST pour la facturation électronique en France : Factur-X, AFNOR PDP/PA, signatures électroniques.  ## 🎯 Fonctionnalités principales  ### 📄 Génération de factures Factur-X - **Formats** : XML seul ou PDF/A-3 avec XML embarqué - **Profils** : MINIMUM, BASIC, EN16931, EXTENDED - **Normes** : EN 16931 (directive UE 2014/55), ISO 19005-3 (PDF/A-3), CII (UN/CEFACT) - **🆕 Format simplifié** : Génération à partir de SIRET + auto-enrichissement (API Chorus Pro + Recherche Entreprises)  ### ✅ Validation et conformité - **Validation XML** : Schematron (45 à 210+ règles selon profil) - **Validation PDF** : PDF/A-3, métadonnées XMP Factur-X, signatures électroniques - **VeraPDF** : Validation stricte PDF/A (146+ règles ISO 19005-3) - **Traitement asynchrone** : Support Celery pour validations lourdes (VeraPDF)  ### 📡 Intégration AFNOR PDP/PA (XP Z12-013) - **Soumission de flux** : Envoi de factures vers Plateformes de Dématérialisation Partenaires - **Recherche de flux** : Consultation des factures soumises - **Téléchargement** : Récupération des PDF/A-3 avec XML - **Directory Service** : Recherche d'entreprises (SIREN/SIRET) - **Multi-client** : Support de plusieurs configs PDP par utilisateur (stored credentials ou zero-storage)  ### ✍️ Signature électronique PDF - **Standards** : PAdES-B-B, PAdES-B-T (horodatage RFC 3161), PAdES-B-LT (archivage long terme) - **Niveaux eIDAS** : SES (auto-signé), AdES (CA commerciale), QES (PSCO) - **Validation** : Vérification intégrité cryptographique et certificats - **Génération de certificats** : Certificats X.509 auto-signés pour tests  ### 🔄 Traitement asynchrone - **Celery** : Génération, validation et signature asynchrones - **Polling** : Suivi d'état via `/taches/{id_tache}/statut` - **Pas de timeout** : Idéal pour gros fichiers ou validations lourdes  ## 🔒 Authentification  Toutes les requêtes nécessitent un **token JWT** dans le header Authorization : ``` Authorization: Bearer YOUR_JWT_TOKEN ```  ### Comment obtenir un token JWT ?  #### 🔑 Méthode 1 : API `/api/token/` (Recommandée)  **URL :** `https://www.factpulse.fr/api/token/`  Cette méthode est **recommandée** pour l'intégration dans vos applications et workflows CI/CD.  **Prérequis :** Avoir défini un mot de passe sur votre compte  **Pour les utilisateurs inscrits via email/password :** - Vous avez déjà un mot de passe, utilisez-le directement  **Pour les utilisateurs inscrits via OAuth (Google/GitHub) :** - Vous devez d'abord définir un mot de passe sur : https://www.factpulse.fr/accounts/password/set/ - Une fois le mot de passe créé, vous pourrez utiliser l'API  **Exemple de requête :** ```bash curl -X POST https://www.factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"votre_email@example.com\",     \"password\": \"votre_mot_de_passe\"   }' ```  **Paramètre optionnel `client_uid` :**  Pour sélectionner les credentials d'un client spécifique (PA/PDP, Chorus Pro, certificats de signature), ajoutez `client_uid` :  ```bash curl -X POST https://www.factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"votre_email@example.com\",     \"password\": \"votre_mot_de_passe\",     \"client_uid\": \"550e8400-e29b-41d4-a716-446655440000\"   }' ```  Le `client_uid` sera inclus dans le JWT et permettra à l'API d'utiliser automatiquement : - Les credentials AFNOR/PDP configurés pour ce client - Les credentials Chorus Pro configurés pour ce client - Les certificats de signature électronique configurés pour ce client  **Réponse :** ```json {   \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\",  // Token d'accès (validité: 30 min)   \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\"  // Token de rafraîchissement (validité: 7 jours) } ```  **Avantages :** - ✅ Automatisation complète (CI/CD, scripts) - ✅ Gestion programmatique des tokens - ✅ Support du refresh token pour renouveler automatiquement l'accès - ✅ Intégration facile dans n'importe quel langage/outil  #### 🖥️ Méthode 2 : Génération via Dashboard (Alternative)  **URL :** https://www.factpulse.fr/dashboard/  Cette méthode convient pour des tests rapides ou une utilisation occasionnelle via l'interface graphique.  **Fonctionnement :** - Connectez-vous au dashboard - Utilisez les boutons \"Generate Test Token\" ou \"Generate Production Token\" - Fonctionne pour **tous** les utilisateurs (OAuth et email/password), sans nécessiter de mot de passe  **Types de tokens :** - **Token Test** : Validité 24h, quota 1000 appels/jour (gratuit) - **Token Production** : Validité 7 jours, quota selon votre forfait  **Avantages :** - ✅ Rapide pour tester l'API - ✅ Aucun mot de passe requis - ✅ Interface visuelle simple  **Inconvénients :** - ❌ Nécessite une action manuelle - ❌ Pas de refresh token - ❌ Moins adapté pour l'automatisation  ### 📚 Documentation complète  Pour plus d'informations sur l'authentification et l'utilisation de l'API : https://www.factpulse.fr/documentation-api/
+ * REST API for electronic invoicing in France: Factur-X, AFNOR PDP/PA, electronic signatures.  ## 🎯 Main Features  ### 📄 Factur-X Invoice Generation - **Formats**: XML only or PDF/A-3 with embedded XML - **Profiles**: MINIMUM, BASIC, EN16931, EXTENDED - **Standards**: EN 16931 (EU directive 2014/55), ISO 19005-3 (PDF/A-3), CII (UN/CEFACT) - **🆕 Simplified Format**: Generation from SIRET + auto-enrichment (Chorus Pro API + Business Search)  ### ✅ Validation and Compliance - **XML Validation**: Schematron (45 to 210+ rules depending on profile) - **PDF Validation**: PDF/A-3, Factur-X XMP metadata, electronic signatures - **VeraPDF**: Strict PDF/A validation (146+ ISO 19005-3 rules) - **Asynchronous Processing**: Celery support for heavy validations (VeraPDF)  ### 📡 AFNOR PDP/PA Integration (XP Z12-013) - **Flow Submission**: Send invoices to Partner Dematerialization Platforms - **Flow Search**: View submitted invoices - **Download**: Retrieve PDF/A-3 with XML - **Directory Service**: Company search (SIREN/SIRET) - **Multi-client**: Support for multiple PDP configs per user (stored credentials or zero-storage)  ### ✍️ PDF Electronic Signature - **Standards**: PAdES-B-B, PAdES-B-T (RFC 3161 timestamping), PAdES-B-LT (long-term archival) - **eIDAS Levels**: SES (self-signed), AdES (commercial CA), QES (QTSP) - **Validation**: Cryptographic integrity and certificate verification - **Certificate Generation**: Self-signed X.509 certificates for testing  ### 🔄 Asynchronous Processing - **Celery**: Asynchronous generation, validation and signing - **Polling**: Status tracking via `/tasks/{task_id}/status` - **No timeout**: Ideal for large files or heavy validations  ## 🔒 Authentication  All requests require a **JWT token** in the Authorization header: ``` Authorization: Bearer YOUR_JWT_TOKEN ```  ### How to obtain a JWT token?  #### 🔑 Method 1: `/api/token/` API (Recommended)  **URL:** `https://www.factpulse.fr/api/token/`  This method is **recommended** for integration in your applications and CI/CD workflows.  **Prerequisites:** Having set a password on your account  **For users registered via email/password:** - You already have a password, use it directly  **For users registered via OAuth (Google/GitHub):** - You must first set a password at: https://www.factpulse.fr/accounts/password/set/ - Once the password is created, you can use the API  **Request example:** ```bash curl -X POST https://www.factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"your_email@example.com\",     \"password\": \"your_password\"   }' ```  **Optional `client_uid` parameter:**  To select credentials for a specific client (PA/PDP, Chorus Pro, signing certificates), add `client_uid`:  ```bash curl -X POST https://www.factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"your_email@example.com\",     \"password\": \"your_password\",     \"client_uid\": \"550e8400-e29b-41d4-a716-446655440000\"   }' ```  The `client_uid` will be included in the JWT and allow the API to automatically use: - AFNOR/PDP credentials configured for this client - Chorus Pro credentials configured for this client - Electronic signature certificates configured for this client  **Response:** ```json {   \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\",  // Access token (validity: 30 min)   \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\"  // Refresh token (validity: 7 days) } ```  **Advantages:** - ✅ Full automation (CI/CD, scripts) - ✅ Programmatic token management - ✅ Refresh token support for automatic access renewal - ✅ Easy integration in any language/tool  #### 🖥️ Method 2: Dashboard Generation (Alternative)  **URL:** https://www.factpulse.fr/dashboard/  This method is suitable for quick tests or occasional use via the graphical interface.  **How it works:** - Log in to the dashboard - Use the \"Generate Test Token\" or \"Generate Production Token\" buttons - Works for **all** users (OAuth and email/password), without requiring a password  **Token types:** - **Test Token**: 24h validity, 1000 calls/day quota (free) - **Production Token**: 7 days validity, quota based on your plan  **Advantages:** - ✅ Quick for API testing - ✅ No password required - ✅ Simple visual interface  **Disadvantages:** - ❌ Requires manual action - ❌ No refresh token - ❌ Less suited for automation  ### 📚 Full Documentation  For more information on authentication and API usage: https://www.factpulse.fr/documentation-api/
  *
  * The version of the OpenAPI document: 1.0.0
  * Generated by: https://openapi-generator.tech
@@ -35,7 +35,7 @@ use \FactPulse\SDK\ObjectSerializer;
  * StructureInfo Class Doc Comment
  *
  * @category Class
- * @description Informations d&#39;une structure.
+ * @description Structure information.
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -58,11 +58,11 @@ class StructureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id_structure_cpp' => 'int',
-        'identifiant_structure' => 'string',
-        'designation_structure' => 'string',
-        'type_identifiant_structure' => 'string',
-        'statut' => 'string'
+        'structure_id' => 'int',
+        'structure_identifier' => 'string',
+        'structure_name' => 'string',
+        'structure_identifier_type' => 'string',
+        'status' => 'string'
     ];
 
     /**
@@ -73,11 +73,11 @@ class StructureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id_structure_cpp' => null,
-        'identifiant_structure' => null,
-        'designation_structure' => null,
-        'type_identifiant_structure' => null,
-        'statut' => null
+        'structure_id' => null,
+        'structure_identifier' => null,
+        'structure_name' => null,
+        'structure_identifier_type' => null,
+        'status' => null
     ];
 
     /**
@@ -86,11 +86,11 @@ class StructureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id_structure_cpp' => false,
-        'identifiant_structure' => false,
-        'designation_structure' => false,
-        'type_identifiant_structure' => false,
-        'statut' => false
+        'structure_id' => false,
+        'structure_identifier' => false,
+        'structure_name' => false,
+        'structure_identifier_type' => false,
+        'status' => false
     ];
 
     /**
@@ -179,11 +179,11 @@ class StructureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id_structure_cpp' => 'id_structure_cpp',
-        'identifiant_structure' => 'identifiant_structure',
-        'designation_structure' => 'designation_structure',
-        'type_identifiant_structure' => 'type_identifiant_structure',
-        'statut' => 'statut'
+        'structure_id' => 'structureId',
+        'structure_identifier' => 'structureIdentifier',
+        'structure_name' => 'structureName',
+        'structure_identifier_type' => 'structureIdentifierType',
+        'status' => 'status'
     ];
 
     /**
@@ -192,11 +192,11 @@ class StructureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id_structure_cpp' => 'setIdStructureCpp',
-        'identifiant_structure' => 'setIdentifiantStructure',
-        'designation_structure' => 'setDesignationStructure',
-        'type_identifiant_structure' => 'setTypeIdentifiantStructure',
-        'statut' => 'setStatut'
+        'structure_id' => 'setStructureId',
+        'structure_identifier' => 'setStructureIdentifier',
+        'structure_name' => 'setStructureName',
+        'structure_identifier_type' => 'setStructureIdentifierType',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -205,11 +205,11 @@ class StructureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id_structure_cpp' => 'getIdStructureCpp',
-        'identifiant_structure' => 'getIdentifiantStructure',
-        'designation_structure' => 'getDesignationStructure',
-        'type_identifiant_structure' => 'getTypeIdentifiantStructure',
-        'statut' => 'getStatut'
+        'structure_id' => 'getStructureId',
+        'structure_identifier' => 'getStructureIdentifier',
+        'structure_name' => 'getStructureName',
+        'structure_identifier_type' => 'getStructureIdentifierType',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -269,11 +269,11 @@ class StructureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('id_structure_cpp', $data ?? [], null);
-        $this->setIfExists('identifiant_structure', $data ?? [], null);
-        $this->setIfExists('designation_structure', $data ?? [], null);
-        $this->setIfExists('type_identifiant_structure', $data ?? [], null);
-        $this->setIfExists('statut', $data ?? [], null);
+        $this->setIfExists('structure_id', $data ?? [], null);
+        $this->setIfExists('structure_identifier', $data ?? [], null);
+        $this->setIfExists('structure_name', $data ?? [], null);
+        $this->setIfExists('structure_identifier_type', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
     }
 
     /**
@@ -303,20 +303,20 @@ class StructureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['id_structure_cpp'] === null) {
-            $invalidProperties[] = "'id_structure_cpp' can't be null";
+        if ($this->container['structure_id'] === null) {
+            $invalidProperties[] = "'structure_id' can't be null";
         }
-        if ($this->container['identifiant_structure'] === null) {
-            $invalidProperties[] = "'identifiant_structure' can't be null";
+        if ($this->container['structure_identifier'] === null) {
+            $invalidProperties[] = "'structure_identifier' can't be null";
         }
-        if ($this->container['designation_structure'] === null) {
-            $invalidProperties[] = "'designation_structure' can't be null";
+        if ($this->container['structure_name'] === null) {
+            $invalidProperties[] = "'structure_name' can't be null";
         }
-        if ($this->container['type_identifiant_structure'] === null) {
-            $invalidProperties[] = "'type_identifiant_structure' can't be null";
+        if ($this->container['structure_identifier_type'] === null) {
+            $invalidProperties[] = "'structure_identifier_type' can't be null";
         }
-        if ($this->container['statut'] === null) {
-            $invalidProperties[] = "'statut' can't be null";
+        if ($this->container['status'] === null) {
+            $invalidProperties[] = "'status' can't be null";
         }
         return $invalidProperties;
     }
@@ -334,136 +334,136 @@ class StructureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets id_structure_cpp
+     * Gets structure_id
      *
      * @return int
      */
-    public function getIdStructureCpp()
+    public function getStructureId()
     {
-        return $this->container['id_structure_cpp'];
+        return $this->container['structure_id'];
     }
 
     /**
-     * Sets id_structure_cpp
+     * Sets structure_id
      *
-     * @param int $id_structure_cpp ID Chorus Pro de la structure
+     * @param int $structure_id Chorus Pro structure ID
      *
      * @return self
      */
-    public function setIdStructureCpp($id_structure_cpp)
+    public function setStructureId($structure_id)
     {
-        if (is_null($id_structure_cpp)) {
-            throw new \InvalidArgumentException('non-nullable id_structure_cpp cannot be null');
+        if (is_null($structure_id)) {
+            throw new \InvalidArgumentException('non-nullable structure_id cannot be null');
         }
-        $this->container['id_structure_cpp'] = $id_structure_cpp;
+        $this->container['structure_id'] = $structure_id;
 
         return $this;
     }
 
     /**
-     * Gets identifiant_structure
+     * Gets structure_identifier
      *
      * @return string
      */
-    public function getIdentifiantStructure()
+    public function getStructureIdentifier()
     {
-        return $this->container['identifiant_structure'];
+        return $this->container['structure_identifier'];
     }
 
     /**
-     * Sets identifiant_structure
+     * Sets structure_identifier
      *
-     * @param string $identifiant_structure Identifiant (SIRET, SIREN)
+     * @param string $structure_identifier Identifier (SIRET, SIREN)
      *
      * @return self
      */
-    public function setIdentifiantStructure($identifiant_structure)
+    public function setStructureIdentifier($structure_identifier)
     {
-        if (is_null($identifiant_structure)) {
-            throw new \InvalidArgumentException('non-nullable identifiant_structure cannot be null');
+        if (is_null($structure_identifier)) {
+            throw new \InvalidArgumentException('non-nullable structure_identifier cannot be null');
         }
-        $this->container['identifiant_structure'] = $identifiant_structure;
+        $this->container['structure_identifier'] = $structure_identifier;
 
         return $this;
     }
 
     /**
-     * Gets designation_structure
+     * Gets structure_name
      *
      * @return string
      */
-    public function getDesignationStructure()
+    public function getStructureName()
     {
-        return $this->container['designation_structure'];
+        return $this->container['structure_name'];
     }
 
     /**
-     * Sets designation_structure
+     * Sets structure_name
      *
-     * @param string $designation_structure Nom de la structure
+     * @param string $structure_name Structure name
      *
      * @return self
      */
-    public function setDesignationStructure($designation_structure)
+    public function setStructureName($structure_name)
     {
-        if (is_null($designation_structure)) {
-            throw new \InvalidArgumentException('non-nullable designation_structure cannot be null');
+        if (is_null($structure_name)) {
+            throw new \InvalidArgumentException('non-nullable structure_name cannot be null');
         }
-        $this->container['designation_structure'] = $designation_structure;
+        $this->container['structure_name'] = $structure_name;
 
         return $this;
     }
 
     /**
-     * Gets type_identifiant_structure
+     * Gets structure_identifier_type
      *
      * @return string
      */
-    public function getTypeIdentifiantStructure()
+    public function getStructureIdentifierType()
     {
-        return $this->container['type_identifiant_structure'];
+        return $this->container['structure_identifier_type'];
     }
 
     /**
-     * Sets type_identifiant_structure
+     * Sets structure_identifier_type
      *
-     * @param string $type_identifiant_structure Type d'identifiant
+     * @param string $structure_identifier_type Identifier type
      *
      * @return self
      */
-    public function setTypeIdentifiantStructure($type_identifiant_structure)
+    public function setStructureIdentifierType($structure_identifier_type)
     {
-        if (is_null($type_identifiant_structure)) {
-            throw new \InvalidArgumentException('non-nullable type_identifiant_structure cannot be null');
+        if (is_null($structure_identifier_type)) {
+            throw new \InvalidArgumentException('non-nullable structure_identifier_type cannot be null');
         }
-        $this->container['type_identifiant_structure'] = $type_identifiant_structure;
+        $this->container['structure_identifier_type'] = $structure_identifier_type;
 
         return $this;
     }
 
     /**
-     * Gets statut
+     * Gets status
      *
      * @return string
      */
-    public function getStatut()
+    public function getStatus()
     {
-        return $this->container['statut'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets statut
+     * Sets status
      *
-     * @param string $statut Statut (ACTIVE, INACTIVE)
+     * @param string $status Status (ACTIVE, INACTIVE)
      *
      * @return self
      */
-    public function setStatut($statut)
+    public function setStatus($status)
     {
-        if (is_null($statut)) {
-            throw new \InvalidArgumentException('non-nullable statut cannot be null');
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
         }
-        $this->container['statut'] = $statut;
+        $this->container['status'] = $status;
 
         return $this;
     }

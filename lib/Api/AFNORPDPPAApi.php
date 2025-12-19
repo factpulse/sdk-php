@@ -10,9 +10,9 @@
  */
 
 /**
- * API REST FactPulse
+ * FactPulse REST API
  *
- * API REST pour la facturation électronique en France : Factur-X, AFNOR PDP/PA, signatures électroniques.  ## 🎯 Fonctionnalités principales  ### 📄 Génération de factures Factur-X - **Formats** : XML seul ou PDF/A-3 avec XML embarqué - **Profils** : MINIMUM, BASIC, EN16931, EXTENDED - **Normes** : EN 16931 (directive UE 2014/55), ISO 19005-3 (PDF/A-3), CII (UN/CEFACT) - **🆕 Format simplifié** : Génération à partir de SIRET + auto-enrichissement (API Chorus Pro + Recherche Entreprises)  ### ✅ Validation et conformité - **Validation XML** : Schematron (45 à 210+ règles selon profil) - **Validation PDF** : PDF/A-3, métadonnées XMP Factur-X, signatures électroniques - **VeraPDF** : Validation stricte PDF/A (146+ règles ISO 19005-3) - **Traitement asynchrone** : Support Celery pour validations lourdes (VeraPDF)  ### 📡 Intégration AFNOR PDP/PA (XP Z12-013) - **Soumission de flux** : Envoi de factures vers Plateformes de Dématérialisation Partenaires - **Recherche de flux** : Consultation des factures soumises - **Téléchargement** : Récupération des PDF/A-3 avec XML - **Directory Service** : Recherche d'entreprises (SIREN/SIRET) - **Multi-client** : Support de plusieurs configs PDP par utilisateur (stored credentials ou zero-storage)  ### ✍️ Signature électronique PDF - **Standards** : PAdES-B-B, PAdES-B-T (horodatage RFC 3161), PAdES-B-LT (archivage long terme) - **Niveaux eIDAS** : SES (auto-signé), AdES (CA commerciale), QES (PSCO) - **Validation** : Vérification intégrité cryptographique et certificats - **Génération de certificats** : Certificats X.509 auto-signés pour tests  ### 🔄 Traitement asynchrone - **Celery** : Génération, validation et signature asynchrones - **Polling** : Suivi d'état via `/taches/{id_tache}/statut` - **Pas de timeout** : Idéal pour gros fichiers ou validations lourdes  ## 🔒 Authentification  Toutes les requêtes nécessitent un **token JWT** dans le header Authorization : ``` Authorization: Bearer YOUR_JWT_TOKEN ```  ### Comment obtenir un token JWT ?  #### 🔑 Méthode 1 : API `/api/token/` (Recommandée)  **URL :** `https://www.factpulse.fr/api/token/`  Cette méthode est **recommandée** pour l'intégration dans vos applications et workflows CI/CD.  **Prérequis :** Avoir défini un mot de passe sur votre compte  **Pour les utilisateurs inscrits via email/password :** - Vous avez déjà un mot de passe, utilisez-le directement  **Pour les utilisateurs inscrits via OAuth (Google/GitHub) :** - Vous devez d'abord définir un mot de passe sur : https://www.factpulse.fr/accounts/password/set/ - Une fois le mot de passe créé, vous pourrez utiliser l'API  **Exemple de requête :** ```bash curl -X POST https://www.factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"votre_email@example.com\",     \"password\": \"votre_mot_de_passe\"   }' ```  **Paramètre optionnel `client_uid` :**  Pour sélectionner les credentials d'un client spécifique (PA/PDP, Chorus Pro, certificats de signature), ajoutez `client_uid` :  ```bash curl -X POST https://www.factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"votre_email@example.com\",     \"password\": \"votre_mot_de_passe\",     \"client_uid\": \"550e8400-e29b-41d4-a716-446655440000\"   }' ```  Le `client_uid` sera inclus dans le JWT et permettra à l'API d'utiliser automatiquement : - Les credentials AFNOR/PDP configurés pour ce client - Les credentials Chorus Pro configurés pour ce client - Les certificats de signature électronique configurés pour ce client  **Réponse :** ```json {   \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\",  // Token d'accès (validité: 30 min)   \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\"  // Token de rafraîchissement (validité: 7 jours) } ```  **Avantages :** - ✅ Automatisation complète (CI/CD, scripts) - ✅ Gestion programmatique des tokens - ✅ Support du refresh token pour renouveler automatiquement l'accès - ✅ Intégration facile dans n'importe quel langage/outil  #### 🖥️ Méthode 2 : Génération via Dashboard (Alternative)  **URL :** https://www.factpulse.fr/dashboard/  Cette méthode convient pour des tests rapides ou une utilisation occasionnelle via l'interface graphique.  **Fonctionnement :** - Connectez-vous au dashboard - Utilisez les boutons \"Generate Test Token\" ou \"Generate Production Token\" - Fonctionne pour **tous** les utilisateurs (OAuth et email/password), sans nécessiter de mot de passe  **Types de tokens :** - **Token Test** : Validité 24h, quota 1000 appels/jour (gratuit) - **Token Production** : Validité 7 jours, quota selon votre forfait  **Avantages :** - ✅ Rapide pour tester l'API - ✅ Aucun mot de passe requis - ✅ Interface visuelle simple  **Inconvénients :** - ❌ Nécessite une action manuelle - ❌ Pas de refresh token - ❌ Moins adapté pour l'automatisation  ### 📚 Documentation complète  Pour plus d'informations sur l'authentification et l'utilisation de l'API : https://www.factpulse.fr/documentation-api/
+ * REST API for electronic invoicing in France: Factur-X, AFNOR PDP/PA, electronic signatures.  ## 🎯 Main Features  ### 📄 Factur-X Invoice Generation - **Formats**: XML only or PDF/A-3 with embedded XML - **Profiles**: MINIMUM, BASIC, EN16931, EXTENDED - **Standards**: EN 16931 (EU directive 2014/55), ISO 19005-3 (PDF/A-3), CII (UN/CEFACT) - **🆕 Simplified Format**: Generation from SIRET + auto-enrichment (Chorus Pro API + Business Search)  ### ✅ Validation and Compliance - **XML Validation**: Schematron (45 to 210+ rules depending on profile) - **PDF Validation**: PDF/A-3, Factur-X XMP metadata, electronic signatures - **VeraPDF**: Strict PDF/A validation (146+ ISO 19005-3 rules) - **Asynchronous Processing**: Celery support for heavy validations (VeraPDF)  ### 📡 AFNOR PDP/PA Integration (XP Z12-013) - **Flow Submission**: Send invoices to Partner Dematerialization Platforms - **Flow Search**: View submitted invoices - **Download**: Retrieve PDF/A-3 with XML - **Directory Service**: Company search (SIREN/SIRET) - **Multi-client**: Support for multiple PDP configs per user (stored credentials or zero-storage)  ### ✍️ PDF Electronic Signature - **Standards**: PAdES-B-B, PAdES-B-T (RFC 3161 timestamping), PAdES-B-LT (long-term archival) - **eIDAS Levels**: SES (self-signed), AdES (commercial CA), QES (QTSP) - **Validation**: Cryptographic integrity and certificate verification - **Certificate Generation**: Self-signed X.509 certificates for testing  ### 🔄 Asynchronous Processing - **Celery**: Asynchronous generation, validation and signing - **Polling**: Status tracking via `/tasks/{task_id}/status` - **No timeout**: Ideal for large files or heavy validations  ## 🔒 Authentication  All requests require a **JWT token** in the Authorization header: ``` Authorization: Bearer YOUR_JWT_TOKEN ```  ### How to obtain a JWT token?  #### 🔑 Method 1: `/api/token/` API (Recommended)  **URL:** `https://www.factpulse.fr/api/token/`  This method is **recommended** for integration in your applications and CI/CD workflows.  **Prerequisites:** Having set a password on your account  **For users registered via email/password:** - You already have a password, use it directly  **For users registered via OAuth (Google/GitHub):** - You must first set a password at: https://www.factpulse.fr/accounts/password/set/ - Once the password is created, you can use the API  **Request example:** ```bash curl -X POST https://www.factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"your_email@example.com\",     \"password\": \"your_password\"   }' ```  **Optional `client_uid` parameter:**  To select credentials for a specific client (PA/PDP, Chorus Pro, signing certificates), add `client_uid`:  ```bash curl -X POST https://www.factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"your_email@example.com\",     \"password\": \"your_password\",     \"client_uid\": \"550e8400-e29b-41d4-a716-446655440000\"   }' ```  The `client_uid` will be included in the JWT and allow the API to automatically use: - AFNOR/PDP credentials configured for this client - Chorus Pro credentials configured for this client - Electronic signature certificates configured for this client  **Response:** ```json {   \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\",  // Access token (validity: 30 min)   \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\"  // Refresh token (validity: 7 days) } ```  **Advantages:** - ✅ Full automation (CI/CD, scripts) - ✅ Programmatic token management - ✅ Refresh token support for automatic access renewal - ✅ Easy integration in any language/tool  #### 🖥️ Method 2: Dashboard Generation (Alternative)  **URL:** https://www.factpulse.fr/dashboard/  This method is suitable for quick tests or occasional use via the graphical interface.  **How it works:** - Log in to the dashboard - Use the \"Generate Test Token\" or \"Generate Production Token\" buttons - Works for **all** users (OAuth and email/password), without requiring a password  **Token types:** - **Test Token**: 24h validity, 1000 calls/day quota (free) - **Production Token**: 7 days validity, quota based on your plan  **Advantages:** - ✅ Quick for API testing - ✅ No password required - ✅ Simple visual interface  **Disadvantages:** - ❌ Requires manual action - ❌ No refresh token - ❌ Less suited for automation  ### 📚 Full Documentation  For more information on authentication and API usage: https://www.factpulse.fr/documentation-api/
  *
  * The version of the OpenAPI document: 1.0.0
  * Generated by: https://openapi-generator.tech
@@ -77,7 +77,7 @@ class AFNORPDPPAApi
         'getAfnorCredentialsApiV1AfnorCredentialsGet' => [
             'application/json',
         ],
-        'getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet' => [
+        'getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet' => [
             'application/json',
         ],
         'oauthTokenProxyApiV1AfnorOauthTokenPost' => [
@@ -134,7 +134,7 @@ class AFNORPDPPAApi
     /**
      * Operation getAfnorCredentialsApiV1AfnorCredentialsGet
      *
-     * Récupérer les credentials AFNOR stockés
+     * Retrieve stored AFNOR credentials
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAfnorCredentialsApiV1AfnorCredentialsGet'] to see the possible values for this operation
      *
@@ -151,7 +151,7 @@ class AFNORPDPPAApi
     /**
      * Operation getAfnorCredentialsApiV1AfnorCredentialsGetWithHttpInfo
      *
-     * Récupérer les credentials AFNOR stockés
+     * Retrieve stored AFNOR credentials
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAfnorCredentialsApiV1AfnorCredentialsGet'] to see the possible values for this operation
      *
@@ -235,7 +235,7 @@ class AFNORPDPPAApi
     /**
      * Operation getAfnorCredentialsApiV1AfnorCredentialsGetAsync
      *
-     * Récupérer les credentials AFNOR stockés
+     * Retrieve stored AFNOR credentials
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAfnorCredentialsApiV1AfnorCredentialsGet'] to see the possible values for this operation
      *
@@ -255,7 +255,7 @@ class AFNORPDPPAApi
     /**
      * Operation getAfnorCredentialsApiV1AfnorCredentialsGetAsyncWithHttpInfo
      *
-     * Récupérer les credentials AFNOR stockés
+     * Retrieve stored AFNOR credentials
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAfnorCredentialsApiV1AfnorCredentialsGet'] to see the possible values for this operation
      *
@@ -384,40 +384,40 @@ class AFNORPDPPAApi
     }
 
     /**
-     * Operation getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet
+     * Operation getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet
      *
-     * Récupérer et extraire une facture entrante
+     * Retrieve and extract an incoming invoice
      *
      * @param  string $flow_id flow_id (required)
      * @param  bool|null $include_document include_document (optional, default to false)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \FactPulse\SDK\Model\FactureEntrante|\FactPulse\SDK\Model\HTTPValidationError
+     * @return \FactPulse\SDK\Model\IncomingInvoice|\FactPulse\SDK\Model\HTTPValidationError
      */
-    public function getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet($flow_id, $include_document = false, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'][0])
+    public function getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet($flow_id, $include_document = false, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet'][0])
     {
-        list($response) = $this->getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetWithHttpInfo($flow_id, $include_document, $contentType);
+        list($response) = $this->getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGetWithHttpInfo($flow_id, $include_document, $contentType);
         return $response;
     }
 
     /**
-     * Operation getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetWithHttpInfo
+     * Operation getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGetWithHttpInfo
      *
-     * Récupérer et extraire une facture entrante
+     * Retrieve and extract an incoming invoice
      *
      * @param  string $flow_id (required)
      * @param  bool|null $include_document (optional, default to false)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \FactPulse\SDK\Model\FactureEntrante|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\IncomingInvoice|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetWithHttpInfo($flow_id, $include_document = false, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'][0])
+    public function getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGetWithHttpInfo($flow_id, $include_document = false, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet'][0])
     {
-        $request = $this->getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetRequest($flow_id, $include_document, $contentType);
+        $request = $this->getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGetRequest($flow_id, $include_document, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -445,7 +445,7 @@ class AFNORPDPPAApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\FactPulse\SDK\Model\FactureEntrante',
+                        '\FactPulse\SDK\Model\IncomingInvoice',
                         $request,
                         $response,
                     );
@@ -473,7 +473,7 @@ class AFNORPDPPAApi
             }
 
             return $this->handleResponseWithDataType(
-                '\FactPulse\SDK\Model\FactureEntrante',
+                '\FactPulse\SDK\Model\IncomingInvoice',
                 $request,
                 $response,
             );
@@ -482,7 +482,7 @@ class AFNORPDPPAApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\FactPulse\SDK\Model\FactureEntrante',
+                        '\FactPulse\SDK\Model\IncomingInvoice',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -503,20 +503,20 @@ class AFNORPDPPAApi
     }
 
     /**
-     * Operation getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetAsync
+     * Operation getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGetAsync
      *
-     * Récupérer et extraire une facture entrante
+     * Retrieve and extract an incoming invoice
      *
      * @param  string $flow_id (required)
      * @param  bool|null $include_document (optional, default to false)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetAsync($flow_id, $include_document = false, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'][0])
+    public function getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGetAsync($flow_id, $include_document = false, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet'][0])
     {
-        return $this->getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetAsyncWithHttpInfo($flow_id, $include_document, $contentType)
+        return $this->getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGetAsyncWithHttpInfo($flow_id, $include_document, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -525,21 +525,21 @@ class AFNORPDPPAApi
     }
 
     /**
-     * Operation getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetAsyncWithHttpInfo
+     * Operation getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGetAsyncWithHttpInfo
      *
-     * Récupérer et extraire une facture entrante
+     * Retrieve and extract an incoming invoice
      *
      * @param  string $flow_id (required)
      * @param  bool|null $include_document (optional, default to false)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetAsyncWithHttpInfo($flow_id, $include_document = false, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'][0])
+    public function getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGetAsyncWithHttpInfo($flow_id, $include_document = false, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet'][0])
     {
-        $returnType = '\FactPulse\SDK\Model\FactureEntrante';
-        $request = $this->getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetRequest($flow_id, $include_document, $contentType);
+        $returnType = '\FactPulse\SDK\Model\IncomingInvoice';
+        $request = $this->getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGetRequest($flow_id, $include_document, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -578,28 +578,28 @@ class AFNORPDPPAApi
     }
 
     /**
-     * Create request for operation 'getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'
+     * Create request for operation 'getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet'
      *
      * @param  string $flow_id (required)
      * @param  bool|null $include_document (optional, default to false)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGetRequest($flow_id, $include_document = false, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'][0])
+    public function getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGetRequest($flow_id, $include_document = false, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet'][0])
     {
 
         // verify the required parameter 'flow_id' is set
         if ($flow_id === null || (is_array($flow_id) && count($flow_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $flow_id when calling getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet'
+                'Missing the required parameter $flow_id when calling getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet'
             );
         }
 
 
 
-        $resourcePath = '/api/v1/afnor/flux-entrants/{flow_id}';
+        $resourcePath = '/api/v1/afnor/incoming-flows/{flow_id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -687,7 +687,7 @@ class AFNORPDPPAApi
     /**
      * Operation oauthTokenProxyApiV1AfnorOauthTokenPost
      *
-     * Endpoint OAuth2 pour authentification AFNOR
+     * OAuth2 endpoint for AFNOR authentication
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['oauthTokenProxyApiV1AfnorOauthTokenPost'] to see the possible values for this operation
      *
@@ -704,7 +704,7 @@ class AFNORPDPPAApi
     /**
      * Operation oauthTokenProxyApiV1AfnorOauthTokenPostWithHttpInfo
      *
-     * Endpoint OAuth2 pour authentification AFNOR
+     * OAuth2 endpoint for AFNOR authentication
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['oauthTokenProxyApiV1AfnorOauthTokenPost'] to see the possible values for this operation
      *
@@ -788,7 +788,7 @@ class AFNORPDPPAApi
     /**
      * Operation oauthTokenProxyApiV1AfnorOauthTokenPostAsync
      *
-     * Endpoint OAuth2 pour authentification AFNOR
+     * OAuth2 endpoint for AFNOR authentication
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['oauthTokenProxyApiV1AfnorOauthTokenPost'] to see the possible values for this operation
      *
@@ -808,7 +808,7 @@ class AFNORPDPPAApi
     /**
      * Operation oauthTokenProxyApiV1AfnorOauthTokenPostAsyncWithHttpInfo
      *
-     * Endpoint OAuth2 pour authentification AFNOR
+     * OAuth2 endpoint for AFNOR authentication
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['oauthTokenProxyApiV1AfnorOauthTokenPost'] to see the possible values for this operation
      *

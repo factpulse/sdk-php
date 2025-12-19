@@ -6,9 +6,9 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getAfnorCredentialsApiV1AfnorCredentialsGet()**](AFNORPDPPAApi.md#getAfnorCredentialsApiV1AfnorCredentialsGet) | **GET** /api/v1/afnor/credentials | Récupérer les credentials AFNOR stockés |
-| [**getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet()**](AFNORPDPPAApi.md#getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet) | **GET** /api/v1/afnor/flux-entrants/{flow_id} | Récupérer et extraire une facture entrante |
-| [**oauthTokenProxyApiV1AfnorOauthTokenPost()**](AFNORPDPPAApi.md#oauthTokenProxyApiV1AfnorOauthTokenPost) | **POST** /api/v1/afnor/oauth/token | Endpoint OAuth2 pour authentification AFNOR |
+| [**getAfnorCredentialsApiV1AfnorCredentialsGet()**](AFNORPDPPAApi.md#getAfnorCredentialsApiV1AfnorCredentialsGet) | **GET** /api/v1/afnor/credentials | Retrieve stored AFNOR credentials |
+| [**getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet()**](AFNORPDPPAApi.md#getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet) | **GET** /api/v1/afnor/incoming-flows/{flow_id} | Retrieve and extract an incoming invoice |
+| [**oauthTokenProxyApiV1AfnorOauthTokenPost()**](AFNORPDPPAApi.md#oauthTokenProxyApiV1AfnorOauthTokenPost) | **POST** /api/v1/afnor/oauth/token | OAuth2 endpoint for AFNOR authentication |
 
 
 ## `getAfnorCredentialsApiV1AfnorCredentialsGet()`
@@ -17,9 +17,9 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 getAfnorCredentialsApiV1AfnorCredentialsGet(): mixed
 ```
 
-Récupérer les credentials AFNOR stockés
+Retrieve stored AFNOR credentials
 
-Récupère les credentials AFNOR/PDP stockés pour le client_uid du JWT. Cet endpoint est utilisé par le SDK en mode 'stored' pour récupérer les credentials avant de faire l'OAuth AFNOR lui-même.
+Retrieves stored AFNOR/PDP credentials for the JWT's client_uid. This endpoint is used by the SDK in 'stored' mode to retrieve credentials before performing AFNOR OAuth itself.
 
 ### Example
 
@@ -68,15 +68,15 @@ This endpoint does not need any parameter.
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet()`
+## `getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet()`
 
 ```php
-getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet($flow_id, $include_document): \FactPulse\SDK\Model\FactureEntrante
+getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet($flow_id, $include_document): \FactPulse\SDK\Model\IncomingInvoice
 ```
 
-Récupérer et extraire une facture entrante
+Retrieve and extract an incoming invoice
 
-Télécharge un flux entrant depuis la PDP AFNOR et extrait les métadonnées de la facture vers un format JSON unifié. Supporte les formats Factur-X, CII et UBL.
+Downloads an incoming flow from the AFNOR PDP and extracts invoice metadata into a unified JSON format. Supports Factur-X, CII, and UBL formats.
 
 ### Example
 
@@ -99,10 +99,10 @@ $flow_id = 'flow_id_example'; // string
 $include_document = false; // bool
 
 try {
-    $result = $apiInstance->getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet($flow_id, $include_document);
+    $result = $apiInstance->getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet($flow_id, $include_document);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AFNORPDPPAApi->getFluxEntrantApiV1AfnorFluxEntrantsFlowIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AFNORPDPPAApi->getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -115,7 +115,7 @@ try {
 
 ### Return type
 
-[**\FactPulse\SDK\Model\FactureEntrante**](../Model/FactureEntrante.md)
+[**\FactPulse\SDK\Model\IncomingInvoice**](../Model/IncomingInvoice.md)
 
 ### Authorization
 
@@ -136,9 +136,9 @@ try {
 oauthTokenProxyApiV1AfnorOauthTokenPost(): mixed
 ```
 
-Endpoint OAuth2 pour authentification AFNOR
+OAuth2 endpoint for AFNOR authentication
 
-Endpoint proxy OAuth2 pour obtenir un token d'accès AFNOR. Fait proxy vers le mock AFNOR (sandbox) ou la vraie PDP selon MOCK_AFNOR_BASE_URL. Cet endpoint est public (pas d'auth Django requise) car il est appelé par le SDK AFNOR.
+OAuth2 proxy endpoint to obtain an AFNOR access token. Proxies to AFNOR mock (sandbox) or real PDP depending on MOCK_AFNOR_BASE_URL. This endpoint is public (no Django auth required) as it is called by the AFNOR SDK.
 
 ### Example
 

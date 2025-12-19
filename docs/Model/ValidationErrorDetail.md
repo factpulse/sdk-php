@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**level** | [**\FactPulse\SDK\Model\ErrorLevel**](ErrorLevel.md) | Niveau de gravité : &#39;Error&#39; ou &#39;Warning&#39; | [optional]
-**item** | **string** | Identifiant de l&#39;élément concerné (XPath, champ, règle BR-FR, etc.) |
-**reason** | **string** | Description de l&#39;erreur |
+**level** | [**\FactPulse\SDK\Model\ErrorLevel**](ErrorLevel.md) | Severity level: &#39;Error&#39; or &#39;Warning&#39; | [optional]
+**item** | **string** | Identifier of the concerned element (XPath, field, BR-FR rule, etc.) |
+**reason** | **string** | Error description |
 **source** | [**\FactPulse\SDK\Model\ErrorSource**](ErrorSource.md) |  | [optional]
 **code** | **string** |  | [optional]
 

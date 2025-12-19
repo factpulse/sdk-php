@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**signe** | **bool** | Le PDF a été signé |
+**signed** | **bool** | PDF was signed |
 **cn** | **string** |  | [optional]
 **expiration** | **string** |  | [optional]
 

@@ -6,22 +6,22 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**ajouterFichierApiV1ChorusProTransversesAjouterFichierPost()**](ChorusProApi.md#ajouterFichierApiV1ChorusProTransversesAjouterFichierPost) | **POST** /api/v1/chorus-pro/transverses/ajouter-fichier | Ajouter une pièce jointe |
-| [**completerFactureApiV1ChorusProFacturesCompleterPost()**](ChorusProApi.md#completerFactureApiV1ChorusProFacturesCompleterPost) | **POST** /api/v1/chorus-pro/factures/completer | Compléter une facture suspendue (Fournisseur) |
-| [**consulterFactureApiV1ChorusProFacturesConsulterPost()**](ChorusProApi.md#consulterFactureApiV1ChorusProFacturesConsulterPost) | **POST** /api/v1/chorus-pro/factures/consulter | Consulter le statut d&#39;une facture |
-| [**consulterStructureApiV1ChorusProStructuresConsulterPost()**](ChorusProApi.md#consulterStructureApiV1ChorusProStructuresConsulterPost) | **POST** /api/v1/chorus-pro/structures/consulter | Consulter les détails d&#39;une structure |
-| [**listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet()**](ChorusProApi.md#listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet) | **GET** /api/v1/chorus-pro/structures/{id_structure_cpp}/services | Lister les services d&#39;une structure |
-| [**obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost()**](ChorusProApi.md#obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost) | **POST** /api/v1/chorus-pro/structures/obtenir-id-depuis-siret | Utilitaire : Obtenir l&#39;ID Chorus Pro depuis un SIRET |
-| [**rechercherFacturesDestinataireApiV1ChorusProFacturesRechercherDestinatairePost()**](ChorusProApi.md#rechercherFacturesDestinataireApiV1ChorusProFacturesRechercherDestinatairePost) | **POST** /api/v1/chorus-pro/factures/rechercher-destinataire | Rechercher factures reçues (Destinataire) |
-| [**rechercherFacturesFournisseurApiV1ChorusProFacturesRechercherFournisseurPost()**](ChorusProApi.md#rechercherFacturesFournisseurApiV1ChorusProFacturesRechercherFournisseurPost) | **POST** /api/v1/chorus-pro/factures/rechercher-fournisseur | Rechercher factures émises (Fournisseur) |
-| [**rechercherStructuresApiV1ChorusProStructuresRechercherPost()**](ChorusProApi.md#rechercherStructuresApiV1ChorusProStructuresRechercherPost) | **POST** /api/v1/chorus-pro/structures/rechercher | Rechercher des structures Chorus Pro |
-| [**recyclerFactureApiV1ChorusProFacturesRecyclerPost()**](ChorusProApi.md#recyclerFactureApiV1ChorusProFacturesRecyclerPost) | **POST** /api/v1/chorus-pro/factures/recycler | Recycler une facture (Fournisseur) |
-| [**soumettreFactureApiV1ChorusProFacturesSoumettrePost()**](ChorusProApi.md#soumettreFactureApiV1ChorusProFacturesSoumettrePost) | **POST** /api/v1/chorus-pro/factures/soumettre | Soumettre une facture à Chorus Pro |
-| [**telechargerGroupeFacturesApiV1ChorusProFacturesTelechargerGroupePost()**](ChorusProApi.md#telechargerGroupeFacturesApiV1ChorusProFacturesTelechargerGroupePost) | **POST** /api/v1/chorus-pro/factures/telecharger-groupe | Télécharger un groupe de factures |
-| [**traiterFactureRecueApiV1ChorusProFacturesTraiterFactureRecuePost()**](ChorusProApi.md#traiterFactureRecueApiV1ChorusProFacturesTraiterFactureRecuePost) | **POST** /api/v1/chorus-pro/factures/traiter-facture-recue | Traiter une facture reçue (Destinataire) |
-| [**valideurConsulterFactureApiV1ChorusProFacturesValideurConsulterPost()**](ChorusProApi.md#valideurConsulterFactureApiV1ChorusProFacturesValideurConsulterPost) | **POST** /api/v1/chorus-pro/factures/valideur/consulter | Consulter une facture (Valideur) |
-| [**valideurRechercherFacturesApiV1ChorusProFacturesValideurRechercherPost()**](ChorusProApi.md#valideurRechercherFacturesApiV1ChorusProFacturesValideurRechercherPost) | **POST** /api/v1/chorus-pro/factures/valideur/rechercher | Rechercher factures à valider (Valideur) |
-| [**valideurTraiterFactureApiV1ChorusProFacturesValideurTraiterPost()**](ChorusProApi.md#valideurTraiterFactureApiV1ChorusProFacturesValideurTraiterPost) | **POST** /api/v1/chorus-pro/factures/valideur/traiter | Valider ou refuser une facture (Valideur) |
+| [**ajouterFichierApiV1ChorusProTransversesAjouterFichierPost()**](ChorusProApi.md#ajouterFichierApiV1ChorusProTransversesAjouterFichierPost) | **POST** /api/v1/chorus-pro/transverses/ajouter-fichier | Add an attachment |
+| [**completerFactureApiV1ChorusProFacturesCompleterPost()**](ChorusProApi.md#completerFactureApiV1ChorusProFacturesCompleterPost) | **POST** /api/v1/chorus-pro/factures/completer | Complete a suspended invoice (Supplier) |
+| [**consulterFactureApiV1ChorusProFacturesConsulterPost()**](ChorusProApi.md#consulterFactureApiV1ChorusProFacturesConsulterPost) | **POST** /api/v1/chorus-pro/factures/consulter | Consult invoice status |
+| [**consulterStructureApiV1ChorusProStructuresConsulterPost()**](ChorusProApi.md#consulterStructureApiV1ChorusProStructuresConsulterPost) | **POST** /api/v1/chorus-pro/structures/consulter | Consult structure details |
+| [**listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet()**](ChorusProApi.md#listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet) | **GET** /api/v1/chorus-pro/structures/{id_structure_cpp}/services | List structure services |
+| [**obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost()**](ChorusProApi.md#obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost) | **POST** /api/v1/chorus-pro/structures/obtenir-id-depuis-siret | Utility: Get Chorus Pro ID from SIRET |
+| [**rechercherFacturesDestinataireApiV1ChorusProFacturesRechercherDestinatairePost()**](ChorusProApi.md#rechercherFacturesDestinataireApiV1ChorusProFacturesRechercherDestinatairePost) | **POST** /api/v1/chorus-pro/factures/rechercher-destinataire | Search received invoices (Recipient) |
+| [**rechercherFacturesFournisseurApiV1ChorusProFacturesRechercherFournisseurPost()**](ChorusProApi.md#rechercherFacturesFournisseurApiV1ChorusProFacturesRechercherFournisseurPost) | **POST** /api/v1/chorus-pro/factures/rechercher-fournisseur | Search issued invoices (Supplier) |
+| [**rechercherStructuresApiV1ChorusProStructuresRechercherPost()**](ChorusProApi.md#rechercherStructuresApiV1ChorusProStructuresRechercherPost) | **POST** /api/v1/chorus-pro/structures/rechercher | Search Chorus Pro structures |
+| [**recyclerFactureApiV1ChorusProFacturesRecyclerPost()**](ChorusProApi.md#recyclerFactureApiV1ChorusProFacturesRecyclerPost) | **POST** /api/v1/chorus-pro/factures/recycler | Recycle an invoice (Supplier) |
+| [**soumettreFactureApiV1ChorusProFacturesSoumettrePost()**](ChorusProApi.md#soumettreFactureApiV1ChorusProFacturesSoumettrePost) | **POST** /api/v1/chorus-pro/factures/soumettre | Submit an invoice to Chorus Pro |
+| [**telechargerGroupeFacturesApiV1ChorusProFacturesTelechargerGroupePost()**](ChorusProApi.md#telechargerGroupeFacturesApiV1ChorusProFacturesTelechargerGroupePost) | **POST** /api/v1/chorus-pro/factures/telecharger-groupe | Download a group of invoices |
+| [**traiterFactureRecueApiV1ChorusProFacturesTraiterFactureRecuePost()**](ChorusProApi.md#traiterFactureRecueApiV1ChorusProFacturesTraiterFactureRecuePost) | **POST** /api/v1/chorus-pro/factures/traiter-facture-recue | Process a received invoice (Recipient) |
+| [**valideurConsulterFactureApiV1ChorusProFacturesValideurConsulterPost()**](ChorusProApi.md#valideurConsulterFactureApiV1ChorusProFacturesValideurConsulterPost) | **POST** /api/v1/chorus-pro/factures/valideur/consulter | Consult an invoice (Validator) |
+| [**valideurRechercherFacturesApiV1ChorusProFacturesValideurRechercherPost()**](ChorusProApi.md#valideurRechercherFacturesApiV1ChorusProFacturesValideurRechercherPost) | **POST** /api/v1/chorus-pro/factures/valideur/rechercher | Search invoices to validate (Validator) |
+| [**valideurTraiterFactureApiV1ChorusProFacturesValideurTraiterPost()**](ChorusProApi.md#valideurTraiterFactureApiV1ChorusProFacturesValideurTraiterPost) | **POST** /api/v1/chorus-pro/factures/valideur/traiter | Validate or reject an invoice (Validator) |
 
 
 ## `ajouterFichierApiV1ChorusProTransversesAjouterFichierPost()`
@@ -30,9 +30,9 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ajouterFichierApiV1ChorusProTransversesAjouterFichierPost($request_body): mixed
 ```
 
-Ajouter une pièce jointe
+Add an attachment
 
-Ajoute une pièce jointe au compte utilisateur courant.      **Taille max** : 10 Mo par fichier      **Payload exemple** :     ```json     {       \"pieceJointeFichier\": \"JVBERi0xLjQKJeLjz9MKNSAwIG9iago8P...\",       \"pieceJointeNom\": \"bon_commande.pdf\",       \"pieceJointeTypeMime\": \"application/pdf\",       \"pieceJointeExtension\": \"PDF\"     }     ```      **Retour** : L'ID de la pièce jointe (`pieceJointeIdFichier`) à utiliser ensuite dans `/factures/completer`.      **Extensions acceptées** : PDF, JPG, PNG, ZIP, XML, etc.
+Add an attachment to the current user account.      **Max size**: 10 MB per file      **Example payload**:     ```json     {       \"pieceJointeFichier\": \"JVBERi0xLjQKJeLjz9MKNSAwIG9iago8P...\",       \"pieceJointeNom\": \"purchase_order.pdf\",       \"pieceJointeTypeMime\": \"application/pdf\",       \"pieceJointeExtension\": \"PDF\"     }     ```      **Returns**: The attachment ID (`pieceJointeIdFichier`) to use in `/factures/completer`.      **Accepted extensions**: PDF, JPG, PNG, ZIP, XML, etc.
 
 ### Example
 
@@ -90,9 +90,9 @@ try {
 completerFactureApiV1ChorusProFacturesCompleterPost($request_body): mixed
 ```
 
-Compléter une facture suspendue (Fournisseur)
+Complete a suspended invoice (Supplier)
 
-Complète une facture au statut SUSPENDUE en ajoutant des pièces jointes ou un commentaire.      **Statut requis** : SUSPENDUE      **Actions possibles** :     - Ajouter des pièces jointes (justificatifs, bons de commande, etc.)     - Modifier le commentaire      **Payload exemple** :     ```json     {       \"identifiantFactureCPP\": 12345,       \"commentaire\": \"Voici les justificatifs demandés\",       \"listePiecesJointes\": [         {           \"pieceJointeIdFichier\": 98765,           \"pieceJointeNom\": \"bon_commande.pdf\"         }       ]     }     ```      **Note** : Les pièces jointes doivent d'abord être uploadées via `/transverses/ajouter-fichier`.      **Après complétion** : La facture repasse au statut MISE_A_DISPOSITION.
+Complete a SUSPENDUE status invoice by adding attachments or a comment.      **Required status**: SUSPENDUE      **Possible actions**:     - Add attachments (supporting documents, purchase orders, etc.)     - Modify comment      **Example payload**:     ```json     {       \"identifiantFactureCPP\": 12345,       \"commentaire\": \"Here are the requested documents\",       \"listePiecesJointes\": [         {           \"pieceJointeIdFichier\": 98765,           \"pieceJointeNom\": \"purchase_order.pdf\"         }       ]     }     ```      **Note**: Attachments must first be uploaded via `/transverses/ajouter-fichier`.      **After completion**: The invoice returns to MISE_A_DISPOSITION status.
 
 ### Example
 
@@ -147,12 +147,12 @@ try {
 ## `consulterFactureApiV1ChorusProFacturesConsulterPost()`
 
 ```php
-consulterFactureApiV1ChorusProFacturesConsulterPost($consulter_facture_request): \FactPulse\SDK\Model\ConsulterFactureResponse
+consulterFactureApiV1ChorusProFacturesConsulterPost($get_invoice_request): \FactPulse\SDK\Model\GetInvoiceResponse
 ```
 
-Consulter le statut d'une facture
+Consult invoice status
 
-Récupère les informations et le statut actuel d'une facture soumise à Chorus Pro.      **Retour** :     - Numéro et date de facture     - Montant TTC     - **Statut courant** : SOUMISE, VALIDEE, REJETEE, SUSPENDUE, MANDATEE, MISE_EN_PAIEMENT, etc.     - Structure destinataire      **Cas d'usage** :     - Suivre l'évolution du traitement d'une facture     - Vérifier si une facture a été validée ou rejetée     - Obtenir la date de mise en paiement      **Polling** : Appelez cet endpoint régulièrement pour suivre l'évolution du statut.
+Retrieves the information and current status of an invoice submitted to Chorus Pro.      **Returns**:     - Invoice number and date     - Total gross amount     - **Current status**: SOUMISE, VALIDEE, REJETEE, SUSPENDUE, MANDATEE, MISE_EN_PAIEMENT, etc.     - Recipient structure      **Use cases**:     - Track the processing progress of an invoice     - Check if an invoice has been validated or rejected     - Get the payment date      **Polling**: Call this endpoint regularly to track status changes.
 
 ### Example
 
@@ -171,10 +171,10 @@ $apiInstance = new FactPulse\SDK\Api\ChorusProApi(
     new GuzzleHttp\Client(),
     $config
 );
-$consulter_facture_request = new \FactPulse\SDK\Model\ConsulterFactureRequest(); // \FactPulse\SDK\Model\ConsulterFactureRequest
+$get_invoice_request = new \FactPulse\SDK\Model\GetInvoiceRequest(); // \FactPulse\SDK\Model\GetInvoiceRequest
 
 try {
-    $result = $apiInstance->consulterFactureApiV1ChorusProFacturesConsulterPost($consulter_facture_request);
+    $result = $apiInstance->consulterFactureApiV1ChorusProFacturesConsulterPost($get_invoice_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ChorusProApi->consulterFactureApiV1ChorusProFacturesConsulterPost: ', $e->getMessage(), PHP_EOL;
@@ -185,11 +185,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **consulter_facture_request** | [**\FactPulse\SDK\Model\ConsulterFactureRequest**](../Model/ConsulterFactureRequest.md)|  | |
+| **get_invoice_request** | [**\FactPulse\SDK\Model\GetInvoiceRequest**](../Model/GetInvoiceRequest.md)|  | |
 
 ### Return type
 
-[**\FactPulse\SDK\Model\ConsulterFactureResponse**](../Model/ConsulterFactureResponse.md)
+[**\FactPulse\SDK\Model\GetInvoiceResponse**](../Model/GetInvoiceResponse.md)
 
 ### Authorization
 
@@ -207,12 +207,12 @@ try {
 ## `consulterStructureApiV1ChorusProStructuresConsulterPost()`
 
 ```php
-consulterStructureApiV1ChorusProStructuresConsulterPost($consulter_structure_request): \FactPulse\SDK\Model\ConsulterStructureResponse
+consulterStructureApiV1ChorusProStructuresConsulterPost($get_structure_request): \FactPulse\SDK\Model\GetStructureResponse
 ```
 
-Consulter les détails d'une structure
+Consult structure details
 
-Récupère les informations détaillées d'une structure Chorus Pro.       **Retour** :     - Raison sociale     - Numéro de TVA intracommunautaire     - Email de contact     - **Paramètres obligatoires** : Indique si le code service et/ou numéro d'engagement sont requis pour soumettre une facture      **Étape typique** : Appelée après `rechercher-structures` pour savoir quels champs sont obligatoires avant de soumettre une facture.
+Retrieves detailed information about a Chorus Pro structure.       **Returns**:     - Company name     - Intra-EU VAT number     - Contact email     - **Required parameters**: Indicates if service code and/or engagement number are required to submit an invoice      **Typical step**: Called after `search-structures` to know which fields are mandatory before submitting an invoice.
 
 ### Example
 
@@ -231,10 +231,10 @@ $apiInstance = new FactPulse\SDK\Api\ChorusProApi(
     new GuzzleHttp\Client(),
     $config
 );
-$consulter_structure_request = new \FactPulse\SDK\Model\ConsulterStructureRequest(); // \FactPulse\SDK\Model\ConsulterStructureRequest
+$get_structure_request = new \FactPulse\SDK\Model\GetStructureRequest(); // \FactPulse\SDK\Model\GetStructureRequest
 
 try {
-    $result = $apiInstance->consulterStructureApiV1ChorusProStructuresConsulterPost($consulter_structure_request);
+    $result = $apiInstance->consulterStructureApiV1ChorusProStructuresConsulterPost($get_structure_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ChorusProApi->consulterStructureApiV1ChorusProStructuresConsulterPost: ', $e->getMessage(), PHP_EOL;
@@ -245,11 +245,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **consulter_structure_request** | [**\FactPulse\SDK\Model\ConsulterStructureRequest**](../Model/ConsulterStructureRequest.md)|  | |
+| **get_structure_request** | [**\FactPulse\SDK\Model\GetStructureRequest**](../Model/GetStructureRequest.md)|  | |
 
 ### Return type
 
-[**\FactPulse\SDK\Model\ConsulterStructureResponse**](../Model/ConsulterStructureResponse.md)
+[**\FactPulse\SDK\Model\GetStructureResponse**](../Model/GetStructureResponse.md)
 
 ### Authorization
 
@@ -267,12 +267,12 @@ try {
 ## `listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet()`
 
 ```php
-listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet($id_structure_cpp): \FactPulse\SDK\Model\RechercherServicesResponse
+listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet($id_structure_cpp): \FactPulse\SDK\Model\SearchServicesResponse
 ```
 
-Lister les services d'une structure
+List structure services
 
-Récupère la liste des services actifs d'une structure publique.      **Cas d'usage** :     - Lister les services disponibles pour une administration     - Vérifier qu'un code service existe avant de soumettre une facture      **Retour** :     - Liste des services avec leur code, libellé et statut (actif/inactif)
+Retrieves the list of active services for a public structure.      **Use cases**:     - List available services for an administration     - Verify that a service code exists before submitting an invoice      **Returns**:     - List of services with their code, label, and status (active/inactive)
 
 ### Example
 
@@ -309,7 +309,7 @@ try {
 
 ### Return type
 
-[**\FactPulse\SDK\Model\RechercherServicesResponse**](../Model/RechercherServicesResponse.md)
+[**\FactPulse\SDK\Model\SearchServicesResponse**](../Model/SearchServicesResponse.md)
 
 ### Authorization
 
@@ -327,12 +327,12 @@ try {
 ## `obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost()`
 
 ```php
-obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost($obtenir_id_chorus_pro_request): \FactPulse\SDK\Model\ObtenirIdChorusProResponse
+obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost($get_chorus_pro_id_request): \FactPulse\SDK\Model\GetChorusProIdResponse
 ```
 
-Utilitaire : Obtenir l'ID Chorus Pro depuis un SIRET
+Utility: Get Chorus Pro ID from SIRET
 
-**Utilitaire pratique** pour obtenir l'ID Chorus Pro d'une structure à partir de son SIRET.       Cette fonction wrapper combine :     1. Recherche de la structure par SIRET     2. Extraction de l'`id_structure_cpp` si une seule structure est trouvée      **Retour** :     - `id_structure_cpp` : ID Chorus Pro (0 si non trouvé ou si plusieurs résultats)     - `designation_structure` : Nom de la structure (si trouvée)     - `message` : Message explicatif      **Cas d'usage** :     - Raccourci pour obtenir directement l'ID Chorus Pro avant de soumettre une facture     - Alternative simplifiée à `rechercher-structures` + extraction manuelle de l'ID      **Note** : Si plusieurs structures correspondent au SIRET (rare), retourne 0 et un message d'erreur.
+**Convenient utility** to get a structure's Chorus Pro ID from its SIRET.       This wrapper function combines:     1. Searching for the structure by SIRET     2. Extracting the `id_structure_cpp` if a single structure is found      **Returns**:     - `id_structure_cpp`: Chorus Pro ID (0 if not found or multiple results)     - `designation_structure`: Structure name (if found)     - `message`: Explanatory message      **Use cases**:     - Shortcut to directly get the Chorus Pro ID before submitting an invoice     - Simplified alternative to `search-structures` + manual ID extraction      **Note**: If multiple structures match the SIRET (rare), returns 0 and an error message.
 
 ### Example
 
@@ -351,10 +351,10 @@ $apiInstance = new FactPulse\SDK\Api\ChorusProApi(
     new GuzzleHttp\Client(),
     $config
 );
-$obtenir_id_chorus_pro_request = new \FactPulse\SDK\Model\ObtenirIdChorusProRequest(); // \FactPulse\SDK\Model\ObtenirIdChorusProRequest
+$get_chorus_pro_id_request = new \FactPulse\SDK\Model\GetChorusProIdRequest(); // \FactPulse\SDK\Model\GetChorusProIdRequest
 
 try {
-    $result = $apiInstance->obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost($obtenir_id_chorus_pro_request);
+    $result = $apiInstance->obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost($get_chorus_pro_id_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ChorusProApi->obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost: ', $e->getMessage(), PHP_EOL;
@@ -365,11 +365,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **obtenir_id_chorus_pro_request** | [**\FactPulse\SDK\Model\ObtenirIdChorusProRequest**](../Model/ObtenirIdChorusProRequest.md)|  | |
+| **get_chorus_pro_id_request** | [**\FactPulse\SDK\Model\GetChorusProIdRequest**](../Model/GetChorusProIdRequest.md)|  | |
 
 ### Return type
 
-[**\FactPulse\SDK\Model\ObtenirIdChorusProResponse**](../Model/ObtenirIdChorusProResponse.md)
+[**\FactPulse\SDK\Model\GetChorusProIdResponse**](../Model/GetChorusProIdResponse.md)
 
 ### Authorization
 
@@ -390,9 +390,9 @@ try {
 rechercherFacturesDestinataireApiV1ChorusProFacturesRechercherDestinatairePost($request_body): mixed
 ```
 
-Rechercher factures reçues (Destinataire)
+Search received invoices (Recipient)
 
-Recherche les factures reçues par le destinataire connecté.      **Filtres** :     - Téléchargée / non téléchargée     - Dates de réception     - Statut (MISE_A_DISPOSITION, SUSPENDUE, etc.)     - Fournisseur      **Indicateur utile** : `factureTelechargeeParDestinataire` permet de savoir si la facture a déjà été téléchargée.
+Search invoices received by the connected recipient.      **Filters**:     - Downloaded / not downloaded     - Reception dates     - Status (MISE_A_DISPOSITION, SUSPENDUE, etc.)     - Supplier      **Useful indicator**: `factureTelechargeeParDestinataire` indicates whether the invoice has already been downloaded.
 
 ### Example
 
@@ -450,9 +450,9 @@ try {
 rechercherFacturesFournisseurApiV1ChorusProFacturesRechercherFournisseurPost($request_body): mixed
 ```
 
-Rechercher factures émises (Fournisseur)
+Search issued invoices (Supplier)
 
-Recherche les factures émises par le fournisseur connecté.      **Filtres disponibles** :     - Numéro de facture     - Dates (début/fin)     - Statut     - Structure destinataire     - Montant      **Cas d'usage** :     - Suivi des factures émises     - Vérification des statuts     - Export pour comptabilité
+Search invoices issued by the connected supplier.      **Available filters**:     - Invoice number     - Dates (start/end)     - Status     - Recipient structure     - Amount      **Use cases**:     - Track issued invoices     - Verify statuses     - Export for accounting
 
 ### Example
 
@@ -507,12 +507,12 @@ try {
 ## `rechercherStructuresApiV1ChorusProStructuresRechercherPost()`
 
 ```php
-rechercherStructuresApiV1ChorusProStructuresRechercherPost($rechercher_structure_request): \FactPulse\SDK\Model\RechercherStructureResponse
+rechercherStructuresApiV1ChorusProStructuresRechercherPost($search_structure_request): \FactPulse\SDK\Model\SearchStructureResponse
 ```
 
-Rechercher des structures Chorus Pro
+Search Chorus Pro structures
 
-Recherche des structures (entreprises, administrations) enregistrées sur Chorus Pro.      **Cas d'usage** :     - Trouver l'ID Chorus Pro d'une structure à partir de son SIRET     - Vérifier si une structure est enregistrée sur Chorus Pro     - Lister les structures correspondant à des critères      **Filtres disponibles** :     - Identifiant (SIRET, SIREN, etc.)     - Raison sociale     - Type d'identifiant     - Structures privées uniquement      **Étape typique** : Appelée avant `soumettre-facture` pour obtenir l'`id_structure_cpp` du destinataire.
+Search for structures (companies, administrations) registered on Chorus Pro.      **Use cases**:     - Find the Chorus Pro ID of a structure from its SIRET     - Check if a structure is registered on Chorus Pro     - List structures matching criteria      **Available filters**:     - Identifier (SIRET, SIREN, etc.)     - Company name     - Identifier type     - Private structures only      **Typical step**: Called before `submit-invoice` to get the recipient's `id_structure_cpp`.
 
 ### Example
 
@@ -531,10 +531,10 @@ $apiInstance = new FactPulse\SDK\Api\ChorusProApi(
     new GuzzleHttp\Client(),
     $config
 );
-$rechercher_structure_request = new \FactPulse\SDK\Model\RechercherStructureRequest(); // \FactPulse\SDK\Model\RechercherStructureRequest
+$search_structure_request = new \FactPulse\SDK\Model\SearchStructureRequest(); // \FactPulse\SDK\Model\SearchStructureRequest
 
 try {
-    $result = $apiInstance->rechercherStructuresApiV1ChorusProStructuresRechercherPost($rechercher_structure_request);
+    $result = $apiInstance->rechercherStructuresApiV1ChorusProStructuresRechercherPost($search_structure_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ChorusProApi->rechercherStructuresApiV1ChorusProStructuresRechercherPost: ', $e->getMessage(), PHP_EOL;
@@ -545,11 +545,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **rechercher_structure_request** | [**\FactPulse\SDK\Model\RechercherStructureRequest**](../Model/RechercherStructureRequest.md)|  | |
+| **search_structure_request** | [**\FactPulse\SDK\Model\SearchStructureRequest**](../Model/SearchStructureRequest.md)|  | |
 
 ### Return type
 
-[**\FactPulse\SDK\Model\RechercherStructureResponse**](../Model/RechercherStructureResponse.md)
+[**\FactPulse\SDK\Model\SearchStructureResponse**](../Model/SearchStructureResponse.md)
 
 ### Authorization
 
@@ -570,9 +570,9 @@ try {
 recyclerFactureApiV1ChorusProFacturesRecyclerPost($request_body): mixed
 ```
 
-Recycler une facture (Fournisseur)
+Recycle an invoice (Supplier)
 
-Recycle une facture au statut A_RECYCLER en modifiant les données d'acheminement.      **Statut requis** : A_RECYCLER      **Champs modifiables** :     - Destinataire (`idStructureCPP`)     - Code service     - Numéro d'engagement      **Cas d'usage** :     - Erreur de destinataire     - Changement de service facturation     - Mise à jour du numéro d'engagement      **Payload exemple** :     ```json     {       \"identifiantFactureCPP\": 12345,       \"idStructureCPP\": 67890,       \"codeService\": \"SERVICE_01\",       \"numeroEngagement\": \"ENG2024001\"     }     ```      **Note** : La facture conserve son numéro et ses montants, seuls les champs d'acheminement changent.
+Recycle an invoice with A_RECYCLER status by modifying routing data.      **Required status**: A_RECYCLER      **Modifiable fields**:     - Recipient (`idStructureCPP`)     - Service code     - Engagement number      **Use cases**:     - Wrong recipient     - Change of billing service     - Update engagement number      **Example payload**:     ```json     {       \"identifiantFactureCPP\": 12345,       \"idStructureCPP\": 67890,       \"codeService\": \"SERVICE_01\",       \"numeroEngagement\": \"ENG2024001\"     }     ```      **Note**: The invoice keeps its number and amounts, only routing fields change.
 
 ### Example
 
@@ -627,12 +627,12 @@ try {
 ## `soumettreFactureApiV1ChorusProFacturesSoumettrePost()`
 
 ```php
-soumettreFactureApiV1ChorusProFacturesSoumettrePost($soumettre_facture_request): \FactPulse\SDK\Model\SoumettreFactureResponse
+soumettreFactureApiV1ChorusProFacturesSoumettrePost($submit_invoice_request): \FactPulse\SDK\Model\SubmitInvoiceResponse
 ```
 
-Soumettre une facture à Chorus Pro
+Submit an invoice to Chorus Pro
 
-Soumet une facture électronique à une structure publique via Chorus Pro.       **📋 Workflow complet** :     1. **Uploader le PDF Factur-X** via `/transverses/ajouter-fichier` → récupérer `pieceJointeId`     2. **Obtenir l'ID structure** via `/structures/rechercher` ou `/structures/obtenir-id-depuis-siret`     3. **Vérifier les paramètres obligatoires** via `/structures/consulter`     4. **Soumettre la facture** avec le `piece_jointe_principale_id` obtenu à l'étape 1      **Pré-requis** :     1. Avoir l'`id_structure_cpp` du destinataire (via `/structures/rechercher`)     2. Connaître les paramètres obligatoires (via `/structures/consulter`) :        - Code service si `code_service_doit_etre_renseigne=true`        - Numéro d'engagement si `numero_ej_doit_etre_renseigne=true`     3. Avoir uploadé le PDF Factur-X (via `/transverses/ajouter-fichier`)      **Format attendu** :     - `piece_jointe_principale_id` : ID retourné par `/transverses/ajouter-fichier`     - Montants : Chaînes de caractères avec 2 décimales (ex: \"1250.50\")     - Dates : Format ISO 8601 (YYYY-MM-DD)      **Retour** :     - `identifiant_facture_cpp` : ID Chorus Pro de la facture créée     - `numero_flux_depot` : Numéro de suivi du dépôt      **Statuts possibles après soumission** :     - SOUMISE : En attente de validation     - VALIDEE : Validée par le destinataire     - REJETEE : Rejetée (erreur de données ou refus métier)     - SUSPENDUE : En attente d'informations complémentaires      **Note** : Utilisez `/factures/consulter` pour suivre l'évolution du statut.
+Submits an electronic invoice to a public structure via Chorus Pro.       **Complete workflow**:     1. **Upload the Factur-X PDF** via `/transverses/ajouter-fichier` → retrieve `pieceJointeId`     2. **Get the structure ID** via `/structures/rechercher` or `/structures/obtenir-id-depuis-siret`     3. **Check mandatory parameters** via `/structures/consulter`     4. **Submit the invoice** with the `piece_jointe_principale_id` obtained in step 1      **Prerequisites**:     1. Have the recipient's `id_structure_cpp` (via `/structures/rechercher`)     2. Know the mandatory parameters (via `/structures/consulter`):        - Service code if `code_service_doit_etre_renseigne=true`        - Engagement number if `numero_ej_doit_etre_renseigne=true`     3. Have uploaded the Factur-X PDF (via `/transverses/ajouter-fichier`)      **Expected format**:     - `piece_jointe_principale_id`: ID returned by `/transverses/ajouter-fichier`     - Amounts: Strings with 2 decimals (e.g., \"1250.50\")     - Dates: ISO 8601 format (YYYY-MM-DD)      **Returns**:     - `identifiant_facture_cpp`: Chorus Pro ID of the created invoice     - `numero_flux_depot`: Deposit tracking number      **Possible statuses after submission**:     - SOUMISE: Pending validation     - VALIDEE: Validated by recipient     - REJETEE: Rejected (data error or business refusal)     - SUSPENDUE: Pending additional information      **Note**: Use `/factures/consulter` to track status changes.
 
 ### Example
 
@@ -651,10 +651,10 @@ $apiInstance = new FactPulse\SDK\Api\ChorusProApi(
     new GuzzleHttp\Client(),
     $config
 );
-$soumettre_facture_request = new \FactPulse\SDK\Model\SoumettreFactureRequest(); // \FactPulse\SDK\Model\SoumettreFactureRequest
+$submit_invoice_request = new \FactPulse\SDK\Model\SubmitInvoiceRequest(); // \FactPulse\SDK\Model\SubmitInvoiceRequest
 
 try {
-    $result = $apiInstance->soumettreFactureApiV1ChorusProFacturesSoumettrePost($soumettre_facture_request);
+    $result = $apiInstance->soumettreFactureApiV1ChorusProFacturesSoumettrePost($submit_invoice_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ChorusProApi->soumettreFactureApiV1ChorusProFacturesSoumettrePost: ', $e->getMessage(), PHP_EOL;
@@ -665,11 +665,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **soumettre_facture_request** | [**\FactPulse\SDK\Model\SoumettreFactureRequest**](../Model/SoumettreFactureRequest.md)|  | |
+| **submit_invoice_request** | [**\FactPulse\SDK\Model\SubmitInvoiceRequest**](../Model/SubmitInvoiceRequest.md)|  | |
 
 ### Return type
 
-[**\FactPulse\SDK\Model\SoumettreFactureResponse**](../Model/SoumettreFactureResponse.md)
+[**\FactPulse\SDK\Model\SubmitInvoiceResponse**](../Model/SubmitInvoiceResponse.md)
 
 ### Authorization
 
@@ -690,9 +690,9 @@ try {
 telechargerGroupeFacturesApiV1ChorusProFacturesTelechargerGroupePost($request_body): mixed
 ```
 
-Télécharger un groupe de factures
+Download a group of invoices
 
-Télécharge une ou plusieurs factures (max 10 recommandé) avec leurs pièces jointes.      **Formats disponibles** :     - PDF : Fichier PDF uniquement     - XML : Fichier XML uniquement     - ZIP : Archive contenant PDF + XML + pièces jointes      **Taille maximale** : 120 Mo par téléchargement      **Payload exemple** :     ```json     {       \"listeIdentifiantsFactureCPP\": [12345, 12346],       \"inclurePiecesJointes\": true,       \"formatFichier\": \"ZIP\"     }     ```      **Retour** : Le fichier est encodé en base64 dans le champ `fichierBase64`.      **Note** : Le flag `factureTelechargeeParDestinataire` est mis à jour automatiquement.
+Download one or more invoices (max 10 recommended) with their attachments.      **Available formats**:     - PDF: PDF file only     - XML: XML file only     - ZIP: Archive containing PDF + XML + attachments      **Maximum size**: 120 MB per download      **Example payload**:     ```json     {       \"listeIdentifiantsFactureCPP\": [12345, 12346],       \"inclurePiecesJointes\": true,       \"formatFichier\": \"ZIP\"     }     ```      **Returns**: The file is base64-encoded in the `fichierBase64` field.      **Note**: The `factureTelechargeeParDestinataire` flag is automatically updated.
 
 ### Example
 
@@ -750,9 +750,9 @@ try {
 traiterFactureRecueApiV1ChorusProFacturesTraiterFactureRecuePost($request_body): mixed
 ```
 
-Traiter une facture reçue (Destinataire)
+Process a received invoice (Recipient)
 
-Change le statut d'une facture reçue.      **Statuts possibles** :     - MISE_A_DISPOSITION : Facture acceptée     - SUSPENDUE : En attente d'informations complémentaires (motif obligatoire)     - REJETEE : Facture refusée (motif obligatoire)     - MANDATEE : Facture mandatée     - MISE_EN_PAIEMENT : Facture en cours de paiement     - COMPTABILISEE : Facture comptabilisée     - MISE_A_DISPOSITION_COMPTABLE : Mise à disposition comptable     - A_RECYCLER : À recycler     - COMPLETEE : Complétée     - SERVICE-FAIT : Service fait     - PRISE_EN_COMPTE_DESTINATAIRE : Prise en compte     - TRANSMISE_MOA : Transmise à la MOA      **Payload exemple** :     ```json     {       \"identifiantFactureCPP\": 12345,       \"nouveauStatut\": \"REJETEE\",       \"motifRejet\": \"Facture en double\",       \"commentaire\": \"Facture déjà reçue sous la référence ABC123\"     }     ```      **Règles** :     - Un motif est **obligatoire** pour SUSPENDUE et REJETEE     - Seuls certains statuts sont autorisés selon le statut actuel de la facture
+Change the status of a received invoice.      **Possible statuses**:     - MISE_A_DISPOSITION: Invoice accepted     - SUSPENDUE: Pending additional information (reason required)     - REJETEE: Invoice refused (reason required)     - MANDATEE: Invoice mandated     - MISE_EN_PAIEMENT: Invoice being paid     - COMPTABILISEE: Invoice accounted     - MISE_A_DISPOSITION_COMPTABLE: Made available to accounting     - A_RECYCLER: To be recycled     - COMPLETEE: Completed     - SERVICE-FAIT: Service rendered     - PRISE_EN_COMPTE_DESTINATAIRE: Acknowledged     - TRANSMISE_MOA: Transmitted to MOA      **Example payload**:     ```json     {       \"identifiantFactureCPP\": 12345,       \"nouveauStatut\": \"REJETEE\",       \"motifRejet\": \"Duplicate invoice\",       \"commentaire\": \"Invoice already received under reference ABC123\"     }     ```      **Rules**:     - A reason is **required** for SUSPENDUE and REJETEE     - Only certain statuses are allowed depending on the invoice's current status
 
 ### Example
 
@@ -810,7 +810,7 @@ try {
 valideurConsulterFactureApiV1ChorusProFacturesValideurConsulterPost($request_body): mixed
 ```
 
-Consulter une facture (Valideur)
+Consult an invoice (Validator)
 
 ### Example
 
@@ -868,9 +868,9 @@ try {
 valideurRechercherFacturesApiV1ChorusProFacturesValideurRechercherPost($request_body): mixed
 ```
 
-Rechercher factures à valider (Valideur)
+Search invoices to validate (Validator)
 
-Recherche les factures en attente de validation par le valideur connecté.      **Rôle** : Valideur dans le circuit de validation interne.      **Filtres** : Dates, structure, service, etc.
+Search invoices pending validation by the connected validator.      **Role**: Validator in the internal validation workflow.      **Filters**: Dates, structure, service, etc.
 
 ### Example
 
@@ -928,9 +928,9 @@ try {
 valideurTraiterFactureApiV1ChorusProFacturesValideurTraiterPost($request_body): mixed
 ```
 
-Valider ou refuser une facture (Valideur)
+Validate or reject an invoice (Validator)
 
-Valide ou refuse une facture en attente de validation.      **Actions** :     - Valider : La facture passe au statut suivant du circuit     - Refuser : La facture est rejetée (motif obligatoire)
+Validate or reject an invoice pending validation.      **Actions**:     - Validate: The invoice moves to the next status in the workflow     - Reject: The invoice is rejected (reason required)
 
 ### Example
 

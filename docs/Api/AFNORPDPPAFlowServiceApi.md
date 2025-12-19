@@ -6,10 +6,10 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**downloadFlowProxyApiV1AfnorFlowV1FlowsFlowIdGet()**](AFNORPDPPAFlowServiceApi.md#downloadFlowProxyApiV1AfnorFlowV1FlowsFlowIdGet) | **GET** /api/v1/afnor/flow/v1/flows/{flowId} | Télécharger un flux |
+| [**downloadFlowProxyApiV1AfnorFlowV1FlowsFlowIdGet()**](AFNORPDPPAFlowServiceApi.md#downloadFlowProxyApiV1AfnorFlowV1FlowsFlowIdGet) | **GET** /api/v1/afnor/flow/v1/flows/{flowId} | Download a flow |
 | [**flowHealthcheckProxyApiV1AfnorFlowV1HealthcheckGet()**](AFNORPDPPAFlowServiceApi.md#flowHealthcheckProxyApiV1AfnorFlowV1HealthcheckGet) | **GET** /api/v1/afnor/flow/v1/healthcheck | Healthcheck Flow Service |
-| [**searchFlowsProxyApiV1AfnorFlowV1FlowsSearchPost()**](AFNORPDPPAFlowServiceApi.md#searchFlowsProxyApiV1AfnorFlowV1FlowsSearchPost) | **POST** /api/v1/afnor/flow/v1/flows/search | Rechercher des flux |
-| [**submitFlowProxyApiV1AfnorFlowV1FlowsPost()**](AFNORPDPPAFlowServiceApi.md#submitFlowProxyApiV1AfnorFlowV1FlowsPost) | **POST** /api/v1/afnor/flow/v1/flows | Soumettre un flux de facturation |
+| [**searchFlowsProxyApiV1AfnorFlowV1FlowsSearchPost()**](AFNORPDPPAFlowServiceApi.md#searchFlowsProxyApiV1AfnorFlowV1FlowsSearchPost) | **POST** /api/v1/afnor/flow/v1/flows/search | Search flows |
+| [**submitFlowProxyApiV1AfnorFlowV1FlowsPost()**](AFNORPDPPAFlowServiceApi.md#submitFlowProxyApiV1AfnorFlowV1FlowsPost) | **POST** /api/v1/afnor/flow/v1/flows | Submit an invoicing flow |
 
 
 ## `downloadFlowProxyApiV1AfnorFlowV1FlowsFlowIdGet()`
@@ -18,9 +18,9 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 downloadFlowProxyApiV1AfnorFlowV1FlowsFlowIdGet($flow_id): mixed
 ```
 
-Télécharger un flux
+Download a flow
 
-Télécharger le fichier PDF/A-3 d'un flux de facturation (utilise le client_uid du JWT)
+Download the PDF/A-3 file of an invoicing flow (uses JWT client_uid)
 
 ### Example
 
@@ -76,7 +76,7 @@ flowHealthcheckProxyApiV1AfnorFlowV1HealthcheckGet(): mixed
 
 Healthcheck Flow Service
 
-Vérifier la disponibilité du Flow Service
+Check Flow Service availability
 
 ### Example
 
@@ -127,9 +127,9 @@ No authorization required
 searchFlowsProxyApiV1AfnorFlowV1FlowsSearchPost(): mixed
 ```
 
-Rechercher des flux
+Search flows
 
-Rechercher des flux de facturation selon des critères (utilise le client_uid du JWT)
+Search invoicing flows by criteria (uses JWT client_uid)
 
 ### Example
 
@@ -180,9 +180,9 @@ No authorization required
 submitFlowProxyApiV1AfnorFlowV1FlowsPost(): mixed
 ```
 
-Soumettre un flux de facturation
+Submit an invoicing flow
 
-Soumet une facture électronique à une Plateforme de Dématérialisation Partenaire (PDP) conformément à la norme AFNOR XP Z12-013
+Submits an electronic invoice to a Partner Dematerialization Platform (PDP) in compliance with the AFNOR XP Z12-013 standard
 
 ### Example
 
