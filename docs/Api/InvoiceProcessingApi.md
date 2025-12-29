@@ -47,7 +47,7 @@ $apiInstance = new FactPulse\SDK\Api\InvoiceProcessingApi(
     $config
 );
 $invoice_data = 'invoice_data_example'; // string | Invoice data in JSON format.              Two formats accepted:             1. **Classic format**: Complete FactureFacturX structure (all fields)             2. **Simplified format** (🆕 P0.1): Minimal structure with auto-enrichment              Format is detected automatically!
-$profile = new \FactPulse\SDK\Model\APIProfile(); // \FactPulse\SDK\Model\APIProfile | Factur-X profile: MINIMUM, BASIC, EN16931 or EXTENDED.
+$profile = new \FactPulse\SDK\Model\FacturXProfile(); // \FactPulse\SDK\Model\FacturXProfile | Factur-X profile: MINIMUM, BASIC, EN16931 or EXTENDED.
 $output_format = new \FactPulse\SDK\Model\OutputFormat(); // \FactPulse\SDK\Model\OutputFormat | Output format: 'xml' (XML only) or 'pdf' (Factur-X PDF with embedded XML).
 $auto_enrich = true; // bool | 🆕 Enable auto-enrichment from SIRET/SIREN (simplified format only)
 $source_pdf = '/path/to/file.txt'; // \SplFileObject
@@ -65,7 +65,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **invoice_data** | **string**| Invoice data in JSON format.              Two formats accepted:             1. **Classic format**: Complete FactureFacturX structure (all fields)             2. **Simplified format** (🆕 P0.1): Minimal structure with auto-enrichment              Format is detected automatically! | |
-| **profile** | [**\FactPulse\SDK\Model\APIProfile**](../Model/APIProfile.md)| Factur-X profile: MINIMUM, BASIC, EN16931 or EXTENDED. | [optional] |
+| **profile** | [**\FactPulse\SDK\Model\FacturXProfile**](../Model/FacturXProfile.md)| Factur-X profile: MINIMUM, BASIC, EN16931 or EXTENDED. | [optional] |
 | **output_format** | [**\FactPulse\SDK\Model\OutputFormat**](../Model/OutputFormat.md)| Output format: &#39;xml&#39; (XML only) or &#39;pdf&#39; (Factur-X PDF with embedded XML). | [optional] |
 | **auto_enrich** | **bool**| 🆕 Enable auto-enrichment from SIRET/SIREN (simplified format only) | [optional] [default to true] |
 | **source_pdf** | **\SplFileObject****\SplFileObject**|  | [optional] |
@@ -499,7 +499,7 @@ $apiInstance = new FactPulse\SDK\Api\InvoiceProcessingApi(
     $config
 );
 $pdf_file = '/path/to/file.txt'; // \SplFileObject | Factur-X PDF file to validate (.pdf format).
-$profile = new \FactPulse\SDK\Model\APIProfile(); // \FactPulse\SDK\Model\APIProfile
+$profile = new \FactPulse\SDK\Model\FacturXProfile(); // \FactPulse\SDK\Model\FacturXProfile
 $use_verapdf = false; // bool | Enable strict PDF/A validation with VeraPDF (recommended for production). If False, uses basic metadata validation.
 
 try {
@@ -515,7 +515,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **pdf_file** | **\SplFileObject****\SplFileObject**| Factur-X PDF file to validate (.pdf format). | |
-| **profile** | [**\FactPulse\SDK\Model\APIProfile**](../Model/APIProfile.md)|  | [optional] |
+| **profile** | [**\FactPulse\SDK\Model\FacturXProfile**](../Model/FacturXProfile.md)|  | [optional] |
 | **use_verapdf** | **bool**| Enable strict PDF/A validation with VeraPDF (recommended for production). If False, uses basic metadata validation. | [optional] [default to false] |
 
 ### Return type
@@ -563,7 +563,7 @@ $apiInstance = new FactPulse\SDK\Api\InvoiceProcessingApi(
     $config
 );
 $pdf_file = '/path/to/file.txt'; // \SplFileObject | Factur-X PDF file to validate (.pdf format).
-$profile = new \FactPulse\SDK\Model\APIProfile(); // \FactPulse\SDK\Model\APIProfile
+$profile = new \FactPulse\SDK\Model\FacturXProfile(); // \FactPulse\SDK\Model\FacturXProfile
 $use_verapdf = false; // bool | Enable strict PDF/A validation with VeraPDF (recommended for production). May take several seconds.
 
 try {
@@ -579,7 +579,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **pdf_file** | **\SplFileObject****\SplFileObject**| Factur-X PDF file to validate (.pdf format). | |
-| **profile** | [**\FactPulse\SDK\Model\APIProfile**](../Model/APIProfile.md)|  | [optional] |
+| **profile** | [**\FactPulse\SDK\Model\FacturXProfile**](../Model/FacturXProfile.md)|  | [optional] |
 | **use_verapdf** | **bool**| Enable strict PDF/A validation with VeraPDF (recommended for production). May take several seconds. | [optional] [default to false] |
 
 ### Return type
@@ -687,7 +687,7 @@ $apiInstance = new FactPulse\SDK\Api\InvoiceProcessingApi(
     $config
 );
 $xml_file = '/path/to/file.txt'; // \SplFileObject | Factur-X XML file to validate (.xml format).
-$profile = new \FactPulse\SDK\Model\APIProfile(); // \FactPulse\SDK\Model\APIProfile | Validation profile (MINIMUM, BASIC, EN16931, EXTENDED).
+$profile = new \FactPulse\SDK\Model\FacturXProfile(); // \FactPulse\SDK\Model\FacturXProfile | Validation profile (MINIMUM, BASIC, EN16931, EXTENDED).
 
 try {
     $result = $apiInstance->validateXmlApiV1ProcessingValidateXmlPost($xml_file, $profile);
@@ -702,7 +702,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **xml_file** | **\SplFileObject****\SplFileObject**| Factur-X XML file to validate (.xml format). | |
-| **profile** | [**\FactPulse\SDK\Model\APIProfile**](../Model/APIProfile.md)| Validation profile (MINIMUM, BASIC, EN16931, EXTENDED). | [optional] |
+| **profile** | [**\FactPulse\SDK\Model\FacturXProfile**](../Model/FacturXProfile.md)| Validation profile (MINIMUM, BASIC, EN16931, EXTENDED). | [optional] |
 
 ### Return type
 

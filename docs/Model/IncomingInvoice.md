@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **flow_id** | **string** |  | [optional]
 **source_format** | [**\FactPulse\SDK\Model\InvoiceFormat**](InvoiceFormat.md) | Invoice source format |
 **supplier_reference** | **string** | Invoice number issued by the supplier (BT-1) |
-**document_type** | [**\FactPulse\SDK\Model\DocumentType**](DocumentType.md) | Document type (BT-3) | [optional]
+**document_type** | [**\FactPulse\SDK\Model\InvoiceTypeCode**](InvoiceTypeCode.md) | Document type (BT-3) | [optional]
 **supplier** | [**\FactPulse\SDK\Model\IncomingSupplier**](IncomingSupplier.md) | Invoice issuer (SellerTradeParty) |
 **billing_site_name** | **string** | Recipient name / your company (BT-44) |
 **billing_site_siret** | **string** |  | [optional]
