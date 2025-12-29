@@ -1,6 +1,6 @@
 <?php
 /**
- * FacturXProfileTest
+ * APIProfileTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * FacturXProfileTest Class Doc Comment
+ * APIProfileTest Class Doc Comment
  *
  * @category    Class
- * @description Profil Factur-X pour la reponse API.  Note: Simplifie par rapport a utils/facturx.FacturXProfile qui contient aussi les configurations XSLT. Celui-ci est pour l&#39;API.
+ * @description Factur-X profile for API responses.  Note: Simplified compared to utils/facturx.ProfilFacturX which also contains XSLT configurations. This one is for the API.
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class FacturXProfileTest extends TestCase
+class APIProfileTest extends TestCase
 {
 
     /**
@@ -71,9 +71,9 @@ class FacturXProfileTest extends TestCase
     }
 
     /**
-     * Test "FacturXProfile"
+     * Test "APIProfile"
      */
-    public function testFacturXProfile()
+    public function testAPIProfile()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

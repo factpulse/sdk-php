@@ -18,6 +18,7 @@ docs/Model/AFNORDestination.md
 docs/Model/AFNORHealthCheckResponse.md
 docs/Model/AFNORResult.md
 docs/Model/APIError.md
+docs/Model/APIProfile.md
 docs/Model/AcknowledgmentStatus.md
 docs/Model/AdditionalDocument.md
 docs/Model/AllowanceCharge.md
@@ -49,7 +50,6 @@ docs/Model/ErrorSource.md
 docs/Model/ExtractionInfo.md
 docs/Model/FacturXInvoice.md
 docs/Model/FacturXPDFInfo.md
-docs/Model/FacturXProfile.md
 docs/Model/FactureElectroniqueRestApiSchemasChorusProChorusProCredentials.md
 docs/Model/FactureElectroniqueRestApiSchemasProcessingChorusProCredentials.md
 docs/Model/FieldStatus.md
@@ -174,6 +174,7 @@ lib/Model/AFNORDestination.php
 lib/Model/AFNORHealthCheckResponse.php
 lib/Model/AFNORResult.php
 lib/Model/APIError.php
+lib/Model/APIProfile.php
 lib/Model/AcknowledgmentStatus.php
 lib/Model/AdditionalDocument.php
 lib/Model/AllowanceCharge.php
@@ -205,7 +206,6 @@ lib/Model/ErrorSource.php
 lib/Model/ExtractionInfo.php
 lib/Model/FacturXInvoice.php
 lib/Model/FacturXPDFInfo.php
-lib/Model/FacturXProfile.php
 lib/Model/FactureElectroniqueRestApiSchemasChorusProChorusProCredentials.php
 lib/Model/FactureElectroniqueRestApiSchemasProcessingChorusProCredentials.php
 lib/Model/FieldStatus.php
@@ -328,6 +328,7 @@ test/Model/AFNORDestinationTest.php
 test/Model/AFNORHealthCheckResponseTest.php
 test/Model/AFNORResultTest.php
 test/Model/APIErrorTest.php
+test/Model/APIProfileTest.php
 test/Model/AcknowledgmentStatusTest.php
 test/Model/AdditionalDocumentTest.php
 test/Model/AllowanceChargeTest.php
@@ -359,7 +360,6 @@ test/Model/ErrorSourceTest.php
 test/Model/ExtractionInfoTest.php
 test/Model/FacturXInvoiceTest.php
 test/Model/FacturXPDFInfoTest.php
-test/Model/FacturXProfileTest.php
 test/Model/FactureElectroniqueRestApiSchemasChorusProChorusProCredentialsTest.php
 test/Model/FactureElectroniqueRestApiSchemasProcessingChorusProCredentialsTest.php
 test/Model/FieldStatusTest.php

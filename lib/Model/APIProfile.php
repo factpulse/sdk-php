@@ -1,6 +1,6 @@
 <?php
 /**
- * FacturXProfile
+ * APIProfile
  *
  * PHP version 8.1
  *
@@ -30,15 +30,15 @@ namespace FactPulse\SDK\Model;
 use \FactPulse\SDK\ObjectSerializer;
 
 /**
- * FacturXProfile Class Doc Comment
+ * APIProfile Class Doc Comment
  *
  * @category Class
- * @description Profil Factur-X pour la reponse API.  Note: Simplifie par rapport a utils/facturx.FacturXProfile qui contient aussi les configurations XSLT. Celui-ci est pour l&#39;API.
+ * @description Factur-X profile for API responses.  Note: Simplified compared to utils/facturx.ProfilFacturX which also contains XSLT configurations. This one is for the API.
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class FacturXProfile
+class APIProfile
 {
     /**
      * Possible values of this enum

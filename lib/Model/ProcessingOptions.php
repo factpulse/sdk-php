@@ -58,7 +58,7 @@ class ProcessingOptions implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'facturx_profile' => '\FactPulse\SDK\Model\FacturXProfile',
+        'facturx_profile' => '\FactPulse\SDK\Model\APIProfile',
         'auto_enrich' => 'bool',
         'validate_xml' => 'bool',
         'verify_destination_parameters' => 'bool'
@@ -314,7 +314,7 @@ class ProcessingOptions implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets facturx_profile
      *
-     * @return \FactPulse\SDK\Model\FacturXProfile|null
+     * @return \FactPulse\SDK\Model\APIProfile|null
      */
     public function getFacturxProfile()
     {
@@ -324,7 +324,7 @@ class ProcessingOptions implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets facturx_profile
      *
-     * @param \FactPulse\SDK\Model\FacturXProfile|null $facturx_profile Factur-X profile to use
+     * @param \FactPulse\SDK\Model\APIProfile|null $facturx_profile Factur-X profile to use
      *
      * @return self
      */
