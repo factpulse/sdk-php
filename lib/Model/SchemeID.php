@@ -44,41 +44,59 @@ class SchemeID
      * Possible values of this enum
      */
     /**
-     * FR_SIREN - French SIREN (most common for France, replaces old 0002)
+     * FR_SIREN - French SIREN (most common for France)
      */
     public const FR_SIREN = '0225';
 
     /**
+     * FR_SIRET - French SIRET
+     */
+    public const FR_SIRET = '0009';
+
+    /**
+     * FR_SIREN_OLD - French SIREN (old code, for legal organization ID)
+     */
+    public const FR_SIREN_OLD = '0002';
+
+    /**
      * GLN - Global Location Number (GLN)
      */
-    public const GLN = '0009';
+    public const GLN = '0088';
 
     /**
      * DUNS - Data Universal Numbering System (DUNS)
      */
-    public const DUNS = '0002';
+    public const DUNS = '0060';
 
     /**
-     * FR_TVA_INTRA - French intra-community VAT number
+     * FR_VAT_INTRA - French intra-community VAT number
      */
-    public const FR_TVA_INTRA = '0088';
+    public const FR_VAT_INTRA = '9957';
 
     /**
      * GLEIF - Global Legal Entity Identifier Foundation (GLEIF)
      */
-    public const GLEIF = '0060';
+    public const GLEIF = '0199';
 
-    public const _9957 = '9957';
+    /**
+     * DT_DIRECTORY_ID - Directory ID for tax administration
+     */
+    public const DT_DIRECTORY_ID = '0231';
 
-    public const _0199 = '0199';
+    /**
+     * EMAIL - Email-based electronic address (BT-34/BT-49)
+     */
+    public const EMAIL = 'EM';
 
-    public const _0231 = '0231';
+    /**
+     * ODETTE - ODETTE network identifier
+     */
+    public const ODETTE = '0177';
 
-    public const EM = 'EM';
-
-    public const _0177 = '0177';
-
-    public const _0224 = '0224';
+    /**
+     * FR_CHORUS_PRO_ROUTING - Chorus Pro routing code
+     */
+    public const FR_CHORUS_PRO_ROUTING = '0224';
 
     /**
      * Gets allowable values of the enum
@@ -88,16 +106,16 @@ class SchemeID
     {
         return [
             self::FR_SIREN,
+            self::FR_SIRET,
+            self::FR_SIREN_OLD,
             self::GLN,
             self::DUNS,
-            self::FR_TVA_INTRA,
+            self::FR_VAT_INTRA,
             self::GLEIF,
-            self::_9957,
-            self::_0199,
-            self::_0231,
-            self::EM,
-            self::_0177,
-            self::_0224
+            self::DT_DIRECTORY_ID,
+            self::EMAIL,
+            self::ODETTE,
+            self::FR_CHORUS_PRO_ROUTING
         ];
     }
 }
