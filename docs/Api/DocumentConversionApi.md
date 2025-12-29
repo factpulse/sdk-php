@@ -62,7 +62,7 @@ try {
 
 ### Return type
 
-[**\FactPulse\SDK\Model\ConvertSuccessResponse**](../Model/\FactPulse\SDK\Model\ConvertSuccessResponse.md)
+[**\FactPulse\SDK\Model\ConvertSuccessResponse**](../Model/ConvertSuccessResponse.md)
 
 ### Authorization
 
@@ -310,7 +310,7 @@ try {
 
 ### Return type
 
-[**\FactPulse\SDK\Model\ConvertSuccessResponse**](../Model/\FactPulse\SDK\Model\ConvertSuccessResponse.md)
+[**\FactPulse\SDK\Model\ConvertSuccessResponse**](../Model/ConvertSuccessResponse.md)
 
 ### Authorization
 
