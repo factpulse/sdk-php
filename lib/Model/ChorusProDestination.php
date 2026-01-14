@@ -60,7 +60,7 @@ class ChorusProDestination implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPITypes = [
         'type' => 'string',
-        'credentials' => '\FactPulse\SDK\Model\ChorusProCredentials'
+        'credentials' => '\FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasProcessingChorusProCredentials'
     ];
 
     /**
@@ -360,7 +360,7 @@ class ChorusProDestination implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets credentials
      *
-     * @return \FactPulse\SDK\Model\ChorusProCredentials|null
+     * @return \FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasProcessingChorusProCredentials|null
      */
     public function getCredentials()
     {
@@ -370,7 +370,7 @@ class ChorusProDestination implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets credentials
      *
-     * @param \FactPulse\SDK\Model\ChorusProCredentials|null $credentials credentials
+     * @param \FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasProcessingChorusProCredentials|null $credentials credentials
      *
      * @return self
      */
