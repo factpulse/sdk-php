@@ -62,8 +62,8 @@ class ValidateEReportingResponse implements ModelInterface, ArrayAccess, \JsonSe
         'valid' => 'bool',
         'report_id' => 'string',
         'flow_type' => 'string',
-        'errors' => '\FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasEreportingValidationError[]',
-        'warnings' => '\FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasEreportingValidationError[]',
+        'errors' => '\FactPulse\SDK\Model\ValidationError[]',
+        'warnings' => '\FactPulse\SDK\Model\ValidationError[]',
         'message' => 'string'
     ];
 
@@ -422,7 +422,7 @@ class ValidateEReportingResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets errors
      *
-     * @return \FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasEreportingValidationError[]|null
+     * @return \FactPulse\SDK\Model\ValidationError[]|null
      */
     public function getErrors()
     {
@@ -432,7 +432,7 @@ class ValidateEReportingResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets errors
      *
-     * @param \FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasEreportingValidationError[]|null $errors List of validation errors (if any)
+     * @param \FactPulse\SDK\Model\ValidationError[]|null $errors List of validation errors (if any)
      *
      * @return self
      */
@@ -449,7 +449,7 @@ class ValidateEReportingResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets warnings
      *
-     * @return \FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasEreportingValidationError[]|null
+     * @return \FactPulse\SDK\Model\ValidationError[]|null
      */
     public function getWarnings()
     {
@@ -459,7 +459,7 @@ class ValidateEReportingResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets warnings
      *
-     * @param \FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasEreportingValidationError[]|null $warnings List of validation warnings (if any)
+     * @param \FactPulse\SDK\Model\ValidationError[]|null $warnings List of validation warnings (if any)
      *
      * @return self
      */
