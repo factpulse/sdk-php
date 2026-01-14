@@ -26,7 +26,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 use FactPulse\SDK\Helpers\FactPulseClient;
 use function FactPulse\SDK\Helpers\{
-    amount, totalAmount, invoiceLine, vatLine, supplier, recipient
+    amount, invoiceTotals, invoiceLine, vatLine, supplier, recipient
 };
 
 // Create the client
@@ -37,8 +37,10 @@ $client = new FactPulseClient(
 
 // Build the invoice with helpers
 $invoiceData = [
-    'number' => 'INV-2025-001',
-    'date' => '2025-01-15',
+    'invoiceNumber' => 'INV-2025-001',
+    'issueDate' => '2025-01-15',
+    'dueDate' => '2025-02-15',
+    'currencyCode' => 'EUR',
     'supplier' => supplier(
         'My Company SAS',
         '12345678901234',
@@ -53,7 +55,7 @@ $invoiceData = [
         '69001',
         'Lyon'
     ),
-    'totalAmount' => totalAmount(1000.00, 200.00, 1200.00, 1200.00),
+    'totals' => invoiceTotals(1000.00, 200.00, 1200.00, 1200.00),
     'lines' => [
         invoiceLine(1, 'Consulting services', 10, 100.00, 1000.00)
     ],
@@ -82,25 +84,25 @@ amount("1234.56");   // "1234.56"
 amount(null);        // "0.00"
 ```
 
-### totalAmount($excludingTax, $vat, $includingTax, $due, ...)
+### invoiceTotals($totalNetAmount, $vatAmount, $totalGrossAmount, $amountDue, ...)
 
-Creates a complete TotalAmount object.
+Creates a complete invoice totals object.
 
 ```php
-use function FactPulse\SDK\Helpers\totalAmount;
+use function FactPulse\SDK\Helpers\invoiceTotals;
 
-$total = totalAmount(
+$totals = invoiceTotals(
     1000.00,
     200.00,
     1200.00,
     1200.00,
-    50.00,                  // discountIncludingTax (optional)
-    'Loyalty discount',     // discountReason (optional)
+    50.00,                  // globalAllowanceAmount (optional)
+    'Loyalty discount',     // globalAllowanceReason (optional)
     100.00                  // prepayment (optional)
 );
 ```
 
-### invoiceLine($number, $description, $quantity, $unitPrice, $lineTotal, ...)
+### invoiceLine($lineNumber, $itemName, $quantity, $unitNetPrice, $lineNetAmount, ...)
 
 Creates an invoice line.
 
@@ -112,11 +114,11 @@ $line = invoiceLine(
     'Consulting services',
     5,
     200.00,
-    1000.00,  // lineTotal required
+    1000.00,
     'S',      // vatCategory: S, Z, E, AE, K
-    'HOUR',   // unit: FIXED, PIECE, HOUR, DAY...
+    'HOUR',   // unit: LUMP_SUM, PIECE, HOUR, DAY...
     [
-        'vatRate' => 'VAT20',        // Or 'manualVatRate' => '20.00'
+        'vatRate' => 'TVA20',        // Or 'manualVatRate' => '20.00'
         'reference' => 'REF-001',
     ]
 );
