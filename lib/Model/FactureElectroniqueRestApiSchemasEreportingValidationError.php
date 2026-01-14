@@ -1,6 +1,6 @@
 <?php
 /**
- * FactureElectroniqueRestApiSchemasConvertValidationError
+ * FactureElectroniqueRestApiSchemasEreportingValidationError
  *
  * PHP version 8.1
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \FactPulse\SDK\ObjectSerializer;
 
 /**
- * FactureElectroniqueRestApiSchemasConvertValidationError Class Doc Comment
+ * FactureElectroniqueRestApiSchemasEreportingValidationError Class Doc Comment
  *
  * @category Class
- * @description Erreur de validation Schematron avec suggestion de correction.
+ * @description Validation error detail.
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class FactureElectroniqueRestApiSchemasConvertValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
+class FactureElectroniqueRestApiSchemasEreportingValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class FactureElectroniqueRestApiSchemasConvertValidationError implements ModelIn
       *
       * @var string
       */
-    protected static $openAPIModelName = 'facture_electronique__rest_api__schemas__convert__ValidationError';
+    protected static $openAPIModelName = 'facture_electronique__rest_api__schemas__ereporting__ValidationError';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,14 +59,9 @@ class FactureElectroniqueRestApiSchemasConvertValidationError implements ModelIn
       * @var string[]
       */
     protected static $openAPITypes = [
-        'rule' => 'string',
-        'bt_code' => 'string',
-        'severity' => 'string',
+        'field' => 'string',
         'message' => 'string',
-        'suggested_value' => 'string',
-        'suggested_field' => 'string',
-        'explanation' => 'string',
-        'confidence' => 'float'
+        'code' => 'string'
     ];
 
     /**
@@ -77,14 +72,9 @@ class FactureElectroniqueRestApiSchemasConvertValidationError implements ModelIn
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'rule' => null,
-        'bt_code' => null,
-        'severity' => null,
+        'field' => null,
         'message' => null,
-        'suggested_value' => null,
-        'suggested_field' => null,
-        'explanation' => null,
-        'confidence' => null
+        'code' => null
     ];
 
     /**
@@ -93,14 +83,9 @@ class FactureElectroniqueRestApiSchemasConvertValidationError implements ModelIn
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'rule' => false,
-        'bt_code' => true,
-        'severity' => false,
+        'field' => false,
         'message' => false,
-        'suggested_value' => true,
-        'suggested_field' => true,
-        'explanation' => true,
-        'confidence' => true
+        'code' => true
     ];
 
     /**
@@ -189,14 +174,9 @@ class FactureElectroniqueRestApiSchemasConvertValidationError implements ModelIn
      * @var string[]
      */
     protected static $attributeMap = [
-        'rule' => 'rule',
-        'bt_code' => 'bt_code',
-        'severity' => 'severity',
+        'field' => 'field',
         'message' => 'message',
-        'suggested_value' => 'suggested_value',
-        'suggested_field' => 'suggested_field',
-        'explanation' => 'explanation',
-        'confidence' => 'confidence'
+        'code' => 'code'
     ];
 
     /**
@@ -205,14 +185,9 @@ class FactureElectroniqueRestApiSchemasConvertValidationError implements ModelIn
      * @var string[]
      */
     protected static $setters = [
-        'rule' => 'setRule',
-        'bt_code' => 'setBtCode',
-        'severity' => 'setSeverity',
+        'field' => 'setField',
         'message' => 'setMessage',
-        'suggested_value' => 'setSuggestedValue',
-        'suggested_field' => 'setSuggestedField',
-        'explanation' => 'setExplanation',
-        'confidence' => 'setConfidence'
+        'code' => 'setCode'
     ];
 
     /**
@@ -221,14 +196,9 @@ class FactureElectroniqueRestApiSchemasConvertValidationError implements ModelIn
      * @var string[]
      */
     protected static $getters = [
-        'rule' => 'getRule',
-        'bt_code' => 'getBtCode',
-        'severity' => 'getSeverity',
+        'field' => 'getField',
         'message' => 'getMessage',
-        'suggested_value' => 'getSuggestedValue',
-        'suggested_field' => 'getSuggestedField',
-        'explanation' => 'getExplanation',
-        'confidence' => 'getConfidence'
+        'code' => 'getCode'
     ];
 
     /**
@@ -288,14 +258,9 @@ class FactureElectroniqueRestApiSchemasConvertValidationError implements ModelIn
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('rule', $data ?? [], null);
-        $this->setIfExists('bt_code', $data ?? [], null);
-        $this->setIfExists('severity', $data ?? [], null);
+        $this->setIfExists('field', $data ?? [], null);
         $this->setIfExists('message', $data ?? [], null);
-        $this->setIfExists('suggested_value', $data ?? [], null);
-        $this->setIfExists('suggested_field', $data ?? [], null);
-        $this->setIfExists('explanation', $data ?? [], null);
-        $this->setIfExists('confidence', $data ?? [], null);
+        $this->setIfExists('code', $data ?? [], null);
     }
 
     /**
@@ -325,23 +290,12 @@ class FactureElectroniqueRestApiSchemasConvertValidationError implements ModelIn
     {
         $invalidProperties = [];
 
-        if ($this->container['rule'] === null) {
-            $invalidProperties[] = "'rule' can't be null";
-        }
-        if ($this->container['severity'] === null) {
-            $invalidProperties[] = "'severity' can't be null";
+        if ($this->container['field'] === null) {
+            $invalidProperties[] = "'field' can't be null";
         }
         if ($this->container['message'] === null) {
             $invalidProperties[] = "'message' can't be null";
         }
-        if (!is_null($this->container['confidence']) && ($this->container['confidence'] > 1.0)) {
-            $invalidProperties[] = "invalid value for 'confidence', must be smaller than or equal to 1.0.";
-        }
-
-        if (!is_null($this->container['confidence']) && ($this->container['confidence'] < 0.0)) {
-            $invalidProperties[] = "invalid value for 'confidence', must be bigger than or equal to 0.0.";
-        }
-
         return $invalidProperties;
     }
 
@@ -358,89 +312,28 @@ class FactureElectroniqueRestApiSchemasConvertValidationError implements ModelIn
 
 
     /**
-     * Gets rule
+     * Gets field
      *
      * @return string
      */
-    public function getRule()
+    public function getField()
     {
-        return $this->container['rule'];
+        return $this->container['field'];
     }
 
     /**
-     * Sets rule
+     * Sets field
      *
-     * @param string $rule Code de la regle (BR-XX, BR-FR-XX)
+     * @param string $field Field path with error
      *
      * @return self
      */
-    public function setRule($rule)
+    public function setField($field)
     {
-        if (is_null($rule)) {
-            throw new \InvalidArgumentException('non-nullable rule cannot be null');
+        if (is_null($field)) {
+            throw new \InvalidArgumentException('non-nullable field cannot be null');
         }
-        $this->container['rule'] = $rule;
-
-        return $this;
-    }
-
-    /**
-     * Gets bt_code
-     *
-     * @return string|null
-     */
-    public function getBtCode()
-    {
-        return $this->container['bt_code'];
-    }
-
-    /**
-     * Sets bt_code
-     *
-     * @param string|null $bt_code bt_code
-     *
-     * @return self
-     */
-    public function setBtCode($bt_code)
-    {
-        if (is_null($bt_code)) {
-            array_push($this->openAPINullablesSetToNull, 'bt_code');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('bt_code', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['bt_code'] = $bt_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets severity
-     *
-     * @return string
-     */
-    public function getSeverity()
-    {
-        return $this->container['severity'];
-    }
-
-    /**
-     * Sets severity
-     *
-     * @param string $severity Gravite: error, warning
-     *
-     * @return self
-     */
-    public function setSeverity($severity)
-    {
-        if (is_null($severity)) {
-            throw new \InvalidArgumentException('non-nullable severity cannot be null');
-        }
-        $this->container['severity'] = $severity;
+        $this->container['field'] = $field;
 
         return $this;
     }
@@ -458,7 +351,7 @@ class FactureElectroniqueRestApiSchemasConvertValidationError implements ModelIn
     /**
      * Sets message
      *
-     * @param string $message Message d'erreur
+     * @param string $message Error message
      *
      * @return self
      */
@@ -473,145 +366,35 @@ class FactureElectroniqueRestApiSchemasConvertValidationError implements ModelIn
     }
 
     /**
-     * Gets suggested_value
+     * Gets code
      *
      * @return string|null
      */
-    public function getSuggestedValue()
+    public function getCode()
     {
-        return $this->container['suggested_value'];
+        return $this->container['code'];
     }
 
     /**
-     * Sets suggested_value
+     * Sets code
      *
-     * @param string|null $suggested_value suggested_value
+     * @param string|null $code code
      *
      * @return self
      */
-    public function setSuggestedValue($suggested_value)
+    public function setCode($code)
     {
-        if (is_null($suggested_value)) {
-            array_push($this->openAPINullablesSetToNull, 'suggested_value');
+        if (is_null($code)) {
+            array_push($this->openAPINullablesSetToNull, 'code');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('suggested_value', $nullablesSetToNull);
+            $index = array_search('code', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['suggested_value'] = $suggested_value;
-
-        return $this;
-    }
-
-    /**
-     * Gets suggested_field
-     *
-     * @return string|null
-     */
-    public function getSuggestedField()
-    {
-        return $this->container['suggested_field'];
-    }
-
-    /**
-     * Sets suggested_field
-     *
-     * @param string|null $suggested_field suggested_field
-     *
-     * @return self
-     */
-    public function setSuggestedField($suggested_field)
-    {
-        if (is_null($suggested_field)) {
-            array_push($this->openAPINullablesSetToNull, 'suggested_field');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('suggested_field', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['suggested_field'] = $suggested_field;
-
-        return $this;
-    }
-
-    /**
-     * Gets explanation
-     *
-     * @return string|null
-     */
-    public function getExplanation()
-    {
-        return $this->container['explanation'];
-    }
-
-    /**
-     * Sets explanation
-     *
-     * @param string|null $explanation explanation
-     *
-     * @return self
-     */
-    public function setExplanation($explanation)
-    {
-        if (is_null($explanation)) {
-            array_push($this->openAPINullablesSetToNull, 'explanation');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('explanation', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['explanation'] = $explanation;
-
-        return $this;
-    }
-
-    /**
-     * Gets confidence
-     *
-     * @return float|null
-     */
-    public function getConfidence()
-    {
-        return $this->container['confidence'];
-    }
-
-    /**
-     * Sets confidence
-     *
-     * @param float|null $confidence confidence
-     *
-     * @return self
-     */
-    public function setConfidence($confidence)
-    {
-        if (is_null($confidence)) {
-            array_push($this->openAPINullablesSetToNull, 'confidence');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('confidence', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-
-        if (!is_null($confidence) && ($confidence > 1.0)) {
-            throw new \InvalidArgumentException('invalid value for $confidence when calling FactureElectroniqueRestApiSchemasConvertValidationError., must be smaller than or equal to 1.0.');
-        }
-        if (!is_null($confidence) && ($confidence < 0.0)) {
-            throw new \InvalidArgumentException('invalid value for $confidence when calling FactureElectroniqueRestApiSchemasConvertValidationError., must be bigger than or equal to 0.0.');
-        }
-
-        $this->container['confidence'] = $confidence;
+        $this->container['code'] = $code;
 
         return $this;
     }
