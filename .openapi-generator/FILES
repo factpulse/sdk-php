@@ -158,7 +158,7 @@ docs/Model/FacturXInvoice.md
 docs/Model/FacturXPDFInfo.md
 docs/Model/FactureElectroniqueModelsInvoiceTypeCode.md
 docs/Model/FactureElectroniqueRestApiSchemasChorusProChorusProCredentials.md
-docs/Model/FactureElectroniqueRestApiSchemasConvertValidationError.md
+docs/Model/FactureElectroniqueRestApiSchemasEreportingValidationError.md
 docs/Model/FieldStatus.md
 docs/Model/FileInfo.md
 docs/Model/FilesInfo.md
@@ -451,7 +451,7 @@ lib/Model/FacturXInvoice.php
 lib/Model/FacturXPDFInfo.php
 lib/Model/FactureElectroniqueModelsInvoiceTypeCode.php
 lib/Model/FactureElectroniqueRestApiSchemasChorusProChorusProCredentials.php
-lib/Model/FactureElectroniqueRestApiSchemasConvertValidationError.php
+lib/Model/FactureElectroniqueRestApiSchemasEreportingValidationError.php
 lib/Model/FieldStatus.php
 lib/Model/FileInfo.php
 lib/Model/FilesInfo.php
@@ -742,7 +742,7 @@ test/Model/FacturXInvoiceTest.php
 test/Model/FacturXPDFInfoTest.php
 test/Model/FactureElectroniqueModelsInvoiceTypeCodeTest.php
 test/Model/FactureElectroniqueRestApiSchemasChorusProChorusProCredentialsTest.php
-test/Model/FactureElectroniqueRestApiSchemasConvertValidationErrorTest.php
+test/Model/FactureElectroniqueRestApiSchemasEreportingValidationErrorTest.php
 test/Model/FieldStatusTest.php
 test/Model/FileInfoTest.php
 test/Model/FilesInfoTest.php

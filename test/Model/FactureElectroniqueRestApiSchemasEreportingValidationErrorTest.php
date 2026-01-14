@@ -1,6 +1,6 @@
 <?php
 /**
- * FactureElectroniqueRestApiSchemasConvertValidationErrorTest
+ * FactureElectroniqueRestApiSchemasEreportingValidationErrorTest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * FactureElectroniqueRestApiSchemasConvertValidationErrorTest Class Doc Comment
+ * FactureElectroniqueRestApiSchemasEreportingValidationErrorTest Class Doc Comment
  *
  * @category    Class
- * @description Erreur de validation Schematron avec suggestion de correction.
+ * @description Validation error detail.
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class FactureElectroniqueRestApiSchemasConvertValidationErrorTest extends TestCase
+class FactureElectroniqueRestApiSchemasEreportingValidationErrorTest extends TestCase
 {
 
     /**
@@ -72,36 +72,18 @@ class FactureElectroniqueRestApiSchemasConvertValidationErrorTest extends TestCa
     }
 
     /**
-     * Test "FactureElectroniqueRestApiSchemasConvertValidationError"
+     * Test "FactureElectroniqueRestApiSchemasEreportingValidationError"
      */
-    public function testFactureElectroniqueRestApiSchemasConvertValidationError()
+    public function testFactureElectroniqueRestApiSchemasEreportingValidationError()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "rule"
+     * Test attribute "field"
      */
-    public function testPropertyRule()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "bt_code"
-     */
-    public function testPropertyBtCode()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "severity"
-     */
-    public function testPropertySeverity()
+    public function testPropertyField()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -117,36 +99,9 @@ class FactureElectroniqueRestApiSchemasConvertValidationErrorTest extends TestCa
     }
 
     /**
-     * Test attribute "suggested_value"
+     * Test attribute "code"
      */
-    public function testPropertySuggestedValue()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "suggested_field"
-     */
-    public function testPropertySuggestedField()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "explanation"
-     */
-    public function testPropertyExplanation()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "confidence"
-     */
-    public function testPropertyConfidence()
+    public function testPropertyCode()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
