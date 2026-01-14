@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * PDFValidationResultAPI Class Doc Comment
  *
  * @category Class
  * @description Complete result of a Factur-X PDF validation.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -79,7 +79,7 @@ class PDFValidationResultAPI implements ModelInterface, ArrayAccess, \JsonSerial
         'xmp_metadata' => 'array<string,mixed>',
         'is_signed' => 'bool',
         'signature_count' => 'int',
-        'signatures' => '\OpenAPI\Client\Model\SignatureInfoAPI[]',
+        'signatures' => '\FactPulse\SDK\Model\SignatureInfoAPI[]',
         'signature_errors' => 'string[]',
         'summary_message' => 'string'
     ];
@@ -1054,7 +1054,7 @@ class PDFValidationResultAPI implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets signatures
      *
-     * @return \OpenAPI\Client\Model\SignatureInfoAPI[]|null
+     * @return \FactPulse\SDK\Model\SignatureInfoAPI[]|null
      */
     public function getSignatures()
     {
@@ -1064,7 +1064,7 @@ class PDFValidationResultAPI implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets signatures
      *
-     * @param \OpenAPI\Client\Model\SignatureInfoAPI[]|null $signatures List of found signatures with their information
+     * @param \FactPulse\SDK\Model\SignatureInfoAPI[]|null $signatures List of found signatures with their information
      *
      * @return self
      */

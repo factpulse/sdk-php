@@ -1,4 +1,4 @@
-# OpenAPI\Client\ChorusProApi
+# FactPulse\SDK\ChorusProApi
 
 
 
@@ -42,10 +42,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ChorusProApi(
+$apiInstance = new FactPulse\SDK\Api\ChorusProApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -102,10 +102,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ChorusProApi(
+$apiInstance = new FactPulse\SDK\Api\ChorusProApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -147,7 +147,7 @@ try {
 ## `consulterFactureApiV1ChorusProFacturesConsulterPost()`
 
 ```php
-consulterFactureApiV1ChorusProFacturesConsulterPost($get_invoice_request): \OpenAPI\Client\Model\GetInvoiceResponse
+consulterFactureApiV1ChorusProFacturesConsulterPost($get_invoice_request): \FactPulse\SDK\Model\GetInvoiceResponse
 ```
 
 Consult invoice status
@@ -162,16 +162,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ChorusProApi(
+$apiInstance = new FactPulse\SDK\Api\ChorusProApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$get_invoice_request = new \OpenAPI\Client\Model\GetInvoiceRequest(); // \OpenAPI\Client\Model\GetInvoiceRequest
+$get_invoice_request = new \FactPulse\SDK\Model\GetInvoiceRequest(); // \FactPulse\SDK\Model\GetInvoiceRequest
 
 try {
     $result = $apiInstance->consulterFactureApiV1ChorusProFacturesConsulterPost($get_invoice_request);
@@ -185,11 +185,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **get_invoice_request** | [**\OpenAPI\Client\Model\GetInvoiceRequest**](../Model/GetInvoiceRequest.md)|  | |
+| **get_invoice_request** | [**\FactPulse\SDK\Model\GetInvoiceRequest**](../Model/GetInvoiceRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetInvoiceResponse**](../Model/GetInvoiceResponse.md)
+[**\FactPulse\SDK\Model\GetInvoiceResponse**](../Model/GetInvoiceResponse.md)
 
 ### Authorization
 
@@ -207,7 +207,7 @@ try {
 ## `consulterStructureApiV1ChorusProStructuresConsulterPost()`
 
 ```php
-consulterStructureApiV1ChorusProStructuresConsulterPost($get_structure_request): \OpenAPI\Client\Model\GetStructureResponse
+consulterStructureApiV1ChorusProStructuresConsulterPost($get_structure_request): \FactPulse\SDK\Model\GetStructureResponse
 ```
 
 Consult structure details
@@ -222,16 +222,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ChorusProApi(
+$apiInstance = new FactPulse\SDK\Api\ChorusProApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$get_structure_request = new \OpenAPI\Client\Model\GetStructureRequest(); // \OpenAPI\Client\Model\GetStructureRequest
+$get_structure_request = new \FactPulse\SDK\Model\GetStructureRequest(); // \FactPulse\SDK\Model\GetStructureRequest
 
 try {
     $result = $apiInstance->consulterStructureApiV1ChorusProStructuresConsulterPost($get_structure_request);
@@ -245,11 +245,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **get_structure_request** | [**\OpenAPI\Client\Model\GetStructureRequest**](../Model/GetStructureRequest.md)|  | |
+| **get_structure_request** | [**\FactPulse\SDK\Model\GetStructureRequest**](../Model/GetStructureRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetStructureResponse**](../Model/GetStructureResponse.md)
+[**\FactPulse\SDK\Model\GetStructureResponse**](../Model/GetStructureResponse.md)
 
 ### Authorization
 
@@ -267,7 +267,7 @@ try {
 ## `listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet()`
 
 ```php
-listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet($id_structure_cpp): \OpenAPI\Client\Model\SearchServicesResponse
+listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet($id_structure_cpp): \FactPulse\SDK\Model\SearchServicesResponse
 ```
 
 List structure services
@@ -282,10 +282,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ChorusProApi(
+$apiInstance = new FactPulse\SDK\Api\ChorusProApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -309,7 +309,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SearchServicesResponse**](../Model/SearchServicesResponse.md)
+[**\FactPulse\SDK\Model\SearchServicesResponse**](../Model/SearchServicesResponse.md)
 
 ### Authorization
 
@@ -327,7 +327,7 @@ try {
 ## `obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost()`
 
 ```php
-obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost($get_chorus_pro_id_request): \OpenAPI\Client\Model\GetChorusProIdResponse
+obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost($get_chorus_pro_id_request): \FactPulse\SDK\Model\GetChorusProIdResponse
 ```
 
 Utility: Get Chorus Pro ID from SIRET
@@ -342,16 +342,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ChorusProApi(
+$apiInstance = new FactPulse\SDK\Api\ChorusProApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$get_chorus_pro_id_request = new \OpenAPI\Client\Model\GetChorusProIdRequest(); // \OpenAPI\Client\Model\GetChorusProIdRequest
+$get_chorus_pro_id_request = new \FactPulse\SDK\Model\GetChorusProIdRequest(); // \FactPulse\SDK\Model\GetChorusProIdRequest
 
 try {
     $result = $apiInstance->obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost($get_chorus_pro_id_request);
@@ -365,11 +365,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **get_chorus_pro_id_request** | [**\OpenAPI\Client\Model\GetChorusProIdRequest**](../Model/GetChorusProIdRequest.md)|  | |
+| **get_chorus_pro_id_request** | [**\FactPulse\SDK\Model\GetChorusProIdRequest**](../Model/GetChorusProIdRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetChorusProIdResponse**](../Model/GetChorusProIdResponse.md)
+[**\FactPulse\SDK\Model\GetChorusProIdResponse**](../Model/GetChorusProIdResponse.md)
 
 ### Authorization
 
@@ -402,10 +402,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ChorusProApi(
+$apiInstance = new FactPulse\SDK\Api\ChorusProApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -462,10 +462,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ChorusProApi(
+$apiInstance = new FactPulse\SDK\Api\ChorusProApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -507,7 +507,7 @@ try {
 ## `rechercherStructuresApiV1ChorusProStructuresRechercherPost()`
 
 ```php
-rechercherStructuresApiV1ChorusProStructuresRechercherPost($search_structure_request): \OpenAPI\Client\Model\SearchStructureResponse
+rechercherStructuresApiV1ChorusProStructuresRechercherPost($search_structure_request): \FactPulse\SDK\Model\SearchStructureResponse
 ```
 
 Search Chorus Pro structures
@@ -522,16 +522,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ChorusProApi(
+$apiInstance = new FactPulse\SDK\Api\ChorusProApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$search_structure_request = new \OpenAPI\Client\Model\SearchStructureRequest(); // \OpenAPI\Client\Model\SearchStructureRequest
+$search_structure_request = new \FactPulse\SDK\Model\SearchStructureRequest(); // \FactPulse\SDK\Model\SearchStructureRequest
 
 try {
     $result = $apiInstance->rechercherStructuresApiV1ChorusProStructuresRechercherPost($search_structure_request);
@@ -545,11 +545,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **search_structure_request** | [**\OpenAPI\Client\Model\SearchStructureRequest**](../Model/SearchStructureRequest.md)|  | |
+| **search_structure_request** | [**\FactPulse\SDK\Model\SearchStructureRequest**](../Model/SearchStructureRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SearchStructureResponse**](../Model/SearchStructureResponse.md)
+[**\FactPulse\SDK\Model\SearchStructureResponse**](../Model/SearchStructureResponse.md)
 
 ### Authorization
 
@@ -582,10 +582,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ChorusProApi(
+$apiInstance = new FactPulse\SDK\Api\ChorusProApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -627,7 +627,7 @@ try {
 ## `soumettreFactureApiV1ChorusProFacturesSoumettrePost()`
 
 ```php
-soumettreFactureApiV1ChorusProFacturesSoumettrePost($submit_invoice_request): \OpenAPI\Client\Model\SubmitInvoiceResponse
+soumettreFactureApiV1ChorusProFacturesSoumettrePost($submit_invoice_request): \FactPulse\SDK\Model\SubmitInvoiceResponse
 ```
 
 Submit an invoice to Chorus Pro
@@ -642,16 +642,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ChorusProApi(
+$apiInstance = new FactPulse\SDK\Api\ChorusProApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$submit_invoice_request = new \OpenAPI\Client\Model\SubmitInvoiceRequest(); // \OpenAPI\Client\Model\SubmitInvoiceRequest
+$submit_invoice_request = new \FactPulse\SDK\Model\SubmitInvoiceRequest(); // \FactPulse\SDK\Model\SubmitInvoiceRequest
 
 try {
     $result = $apiInstance->soumettreFactureApiV1ChorusProFacturesSoumettrePost($submit_invoice_request);
@@ -665,11 +665,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **submit_invoice_request** | [**\OpenAPI\Client\Model\SubmitInvoiceRequest**](../Model/SubmitInvoiceRequest.md)|  | |
+| **submit_invoice_request** | [**\FactPulse\SDK\Model\SubmitInvoiceRequest**](../Model/SubmitInvoiceRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SubmitInvoiceResponse**](../Model/SubmitInvoiceResponse.md)
+[**\FactPulse\SDK\Model\SubmitInvoiceResponse**](../Model/SubmitInvoiceResponse.md)
 
 ### Authorization
 
@@ -702,10 +702,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ChorusProApi(
+$apiInstance = new FactPulse\SDK\Api\ChorusProApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -762,10 +762,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ChorusProApi(
+$apiInstance = new FactPulse\SDK\Api\ChorusProApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -822,10 +822,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ChorusProApi(
+$apiInstance = new FactPulse\SDK\Api\ChorusProApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -882,10 +882,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ChorusProApi(
+$apiInstance = new FactPulse\SDK\Api\ChorusProApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -942,10 +942,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ChorusProApi(
+$apiInstance = new FactPulse\SDK\Api\ChorusProApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),

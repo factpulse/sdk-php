@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORSirenSearchPost200Response Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,9 +58,9 @@ class AFNORSirenSearchPost200Response implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-        'search' => '\OpenAPI\Client\Model\AFNORSearchSiren',
+        'search' => '\FactPulse\SDK\Model\AFNORSearchSiren',
         'total_number_of_results' => 'int',
-        'results' => '\OpenAPI\Client\Model\AFNORLegalUnitPayloadHistory[]'
+        'results' => '\FactPulse\SDK\Model\AFNORLegalUnitPayloadHistory[]'
     ];
 
     /**
@@ -307,7 +307,7 @@ class AFNORSirenSearchPost200Response implements ModelInterface, ArrayAccess, \J
     /**
      * Gets search
      *
-     * @return \OpenAPI\Client\Model\AFNORSearchSiren|null
+     * @return \FactPulse\SDK\Model\AFNORSearchSiren|null
      */
     public function getSearch()
     {
@@ -317,7 +317,7 @@ class AFNORSirenSearchPost200Response implements ModelInterface, ArrayAccess, \J
     /**
      * Sets search
      *
-     * @param \OpenAPI\Client\Model\AFNORSearchSiren|null $search search
+     * @param \FactPulse\SDK\Model\AFNORSearchSiren|null $search search
      *
      * @return self
      */
@@ -361,7 +361,7 @@ class AFNORSirenSearchPost200Response implements ModelInterface, ArrayAccess, \J
     /**
      * Gets results
      *
-     * @return \OpenAPI\Client\Model\AFNORLegalUnitPayloadHistory[]|null
+     * @return \FactPulse\SDK\Model\AFNORLegalUnitPayloadHistory[]|null
      */
     public function getResults()
     {
@@ -371,7 +371,7 @@ class AFNORSirenSearchPost200Response implements ModelInterface, ArrayAccess, \J
     /**
      * Sets results
      *
-     * @param \OpenAPI\Client\Model\AFNORLegalUnitPayloadHistory[]|null $results results
+     * @param \FactPulse\SDK\Model\AFNORLegalUnitPayloadHistory[]|null $results results
      *
      * @return self
      */

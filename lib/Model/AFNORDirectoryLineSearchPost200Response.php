@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORDirectoryLineSearchPost200Response Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,9 +58,9 @@ class AFNORDirectoryLineSearchPost200Response implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $openAPITypes = [
-        'search' => '\OpenAPI\Client\Model\AFNORSearchDirectoryLine',
+        'search' => '\FactPulse\SDK\Model\AFNORSearchDirectoryLine',
         'total_number_of_results' => 'int',
-        'results' => '\OpenAPI\Client\Model\AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCode[]'
+        'results' => '\FactPulse\SDK\Model\AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCode[]'
     ];
 
     /**
@@ -307,7 +307,7 @@ class AFNORDirectoryLineSearchPost200Response implements ModelInterface, ArrayAc
     /**
      * Gets search
      *
-     * @return \OpenAPI\Client\Model\AFNORSearchDirectoryLine|null
+     * @return \FactPulse\SDK\Model\AFNORSearchDirectoryLine|null
      */
     public function getSearch()
     {
@@ -317,7 +317,7 @@ class AFNORDirectoryLineSearchPost200Response implements ModelInterface, ArrayAc
     /**
      * Sets search
      *
-     * @param \OpenAPI\Client\Model\AFNORSearchDirectoryLine|null $search search
+     * @param \FactPulse\SDK\Model\AFNORSearchDirectoryLine|null $search search
      *
      * @return self
      */
@@ -361,7 +361,7 @@ class AFNORDirectoryLineSearchPost200Response implements ModelInterface, ArrayAc
     /**
      * Gets results
      *
-     * @return \OpenAPI\Client\Model\AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCode[]|null
+     * @return \FactPulse\SDK\Model\AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCode[]|null
      */
     public function getResults()
     {
@@ -371,7 +371,7 @@ class AFNORDirectoryLineSearchPost200Response implements ModelInterface, ArrayAc
     /**
      * Sets results
      *
-     * @param \OpenAPI\Client\Model\AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCode[]|null $results results
+     * @param \FactPulse\SDK\Model\AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCode[]|null $results results
      *
      * @return self
      */

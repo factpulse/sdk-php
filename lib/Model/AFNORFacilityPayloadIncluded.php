@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORFacilityPayloadIncluded Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -61,11 +61,11 @@ class AFNORFacilityPayloadIncluded implements ModelInterface, ArrayAccess, \Json
         'siret' => 'string',
         'siren' => 'string',
         'name' => 'string',
-        'facility_type' => '\OpenAPI\Client\Model\AFNORFacilityType',
-        'diffusible' => '\OpenAPI\Client\Model\AFNORDiffusionStatus',
-        'administrative_status' => '\OpenAPI\Client\Model\AFNORFacilityAdministrativeStatus',
-        'address' => '\OpenAPI\Client\Model\AFNORAddressRead',
-        'b2g_additional_data' => '\OpenAPI\Client\Model\AFNORFacilityPayloadHistoryUleB2gAdditionalData'
+        'facility_type' => '\FactPulse\SDK\Model\AFNORFacilityType',
+        'diffusible' => '\FactPulse\SDK\Model\AFNORDiffusionStatus',
+        'administrative_status' => '\FactPulse\SDK\Model\AFNORFacilityAdministrativeStatus',
+        'address' => '\FactPulse\SDK\Model\AFNORAddressRead',
+        'b2g_additional_data' => '\FactPulse\SDK\Model\AFNORFacilityPayloadHistoryUleB2gAdditionalData'
     ];
 
     /**
@@ -461,7 +461,7 @@ class AFNORFacilityPayloadIncluded implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets facility_type
      *
-     * @return \OpenAPI\Client\Model\AFNORFacilityType|null
+     * @return \FactPulse\SDK\Model\AFNORFacilityType|null
      */
     public function getFacilityType()
     {
@@ -471,7 +471,7 @@ class AFNORFacilityPayloadIncluded implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets facility_type
      *
-     * @param \OpenAPI\Client\Model\AFNORFacilityType|null $facility_type facility_type
+     * @param \FactPulse\SDK\Model\AFNORFacilityType|null $facility_type facility_type
      *
      * @return self
      */
@@ -488,7 +488,7 @@ class AFNORFacilityPayloadIncluded implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets diffusible
      *
-     * @return \OpenAPI\Client\Model\AFNORDiffusionStatus|null
+     * @return \FactPulse\SDK\Model\AFNORDiffusionStatus|null
      */
     public function getDiffusible()
     {
@@ -498,7 +498,7 @@ class AFNORFacilityPayloadIncluded implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets diffusible
      *
-     * @param \OpenAPI\Client\Model\AFNORDiffusionStatus|null $diffusible diffusible
+     * @param \FactPulse\SDK\Model\AFNORDiffusionStatus|null $diffusible diffusible
      *
      * @return self
      */
@@ -515,7 +515,7 @@ class AFNORFacilityPayloadIncluded implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets administrative_status
      *
-     * @return \OpenAPI\Client\Model\AFNORFacilityAdministrativeStatus|null
+     * @return \FactPulse\SDK\Model\AFNORFacilityAdministrativeStatus|null
      */
     public function getAdministrativeStatus()
     {
@@ -525,7 +525,7 @@ class AFNORFacilityPayloadIncluded implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets administrative_status
      *
-     * @param \OpenAPI\Client\Model\AFNORFacilityAdministrativeStatus|null $administrative_status administrative_status
+     * @param \FactPulse\SDK\Model\AFNORFacilityAdministrativeStatus|null $administrative_status administrative_status
      *
      * @return self
      */
@@ -542,7 +542,7 @@ class AFNORFacilityPayloadIncluded implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets address
      *
-     * @return \OpenAPI\Client\Model\AFNORAddressRead|null
+     * @return \FactPulse\SDK\Model\AFNORAddressRead|null
      */
     public function getAddress()
     {
@@ -552,7 +552,7 @@ class AFNORFacilityPayloadIncluded implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets address
      *
-     * @param \OpenAPI\Client\Model\AFNORAddressRead|null $address address
+     * @param \FactPulse\SDK\Model\AFNORAddressRead|null $address address
      *
      * @return self
      */
@@ -569,7 +569,7 @@ class AFNORFacilityPayloadIncluded implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets b2g_additional_data
      *
-     * @return \OpenAPI\Client\Model\AFNORFacilityPayloadHistoryUleB2gAdditionalData|null
+     * @return \FactPulse\SDK\Model\AFNORFacilityPayloadHistoryUleB2gAdditionalData|null
      */
     public function getB2gAdditionalData()
     {
@@ -579,7 +579,7 @@ class AFNORFacilityPayloadIncluded implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets b2g_additional_data
      *
-     * @param \OpenAPI\Client\Model\AFNORFacilityPayloadHistoryUleB2gAdditionalData|null $b2g_additional_data b2g_additional_data
+     * @param \FactPulse\SDK\Model\AFNORFacilityPayloadHistoryUleB2gAdditionalData|null $b2g_additional_data b2g_additional_data
      *
      * @return self
      */

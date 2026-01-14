@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * IncomingSupplier Class Doc Comment
  *
  * @category Class
  * @description Supplier extracted from an incoming invoice.  Unlike the Supplier model in models.py, this model does not have a supplier_id field as this information is not available in Factur-X/CII/UBL XML files.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -63,8 +63,8 @@ class IncomingSupplier implements ModelInterface, ArrayAccess, \JsonSerializable
         'siren' => 'string',
         'siret' => 'string',
         'vat_number' => 'string',
-        'postal_address' => '\OpenAPI\Client\Model\PostalAddress',
-        'electronic_address' => '\OpenAPI\Client\Model\ElectronicAddress',
+        'postal_address' => '\FactPulse\SDK\Model\PostalAddress',
+        'electronic_address' => '\FactPulse\SDK\Model\ElectronicAddress',
         'email' => 'string',
         'phone' => 'string'
     ];
@@ -475,7 +475,7 @@ class IncomingSupplier implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets postal_address
      *
-     * @return \OpenAPI\Client\Model\PostalAddress|null
+     * @return \FactPulse\SDK\Model\PostalAddress|null
      */
     public function getPostalAddress()
     {
@@ -485,7 +485,7 @@ class IncomingSupplier implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets postal_address
      *
-     * @param \OpenAPI\Client\Model\PostalAddress|null $postal_address postal_address
+     * @param \FactPulse\SDK\Model\PostalAddress|null $postal_address postal_address
      *
      * @return self
      */
@@ -509,7 +509,7 @@ class IncomingSupplier implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets electronic_address
      *
-     * @return \OpenAPI\Client\Model\ElectronicAddress|null
+     * @return \FactPulse\SDK\Model\ElectronicAddress|null
      */
     public function getElectronicAddress()
     {
@@ -519,7 +519,7 @@ class IncomingSupplier implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets electronic_address
      *
-     * @param \OpenAPI\Client\Model\ElectronicAddress|null $electronic_address electronic_address
+     * @param \FactPulse\SDK\Model\ElectronicAddress|null $electronic_address electronic_address
      *
      * @return self
      */

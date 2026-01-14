@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORSearchSiretSortingInner Class Doc Comment
  *
  * @category Class
  * @description A sorting criteria composed of a field and an order (ascending or descending).
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,8 +59,8 @@ class AFNORSearchSiretSortingInner implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'field' => '\OpenAPI\Client\Model\AFNORSiretField',
-        'sorting_order' => '\OpenAPI\Client\Model\AFNORSortingOrder'
+        'field' => '\FactPulse\SDK\Model\AFNORSiretField',
+        'sorting_order' => '\FactPulse\SDK\Model\AFNORSortingOrder'
     ];
 
     /**
@@ -301,7 +301,7 @@ class AFNORSearchSiretSortingInner implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets field
      *
-     * @return \OpenAPI\Client\Model\AFNORSiretField|null
+     * @return \FactPulse\SDK\Model\AFNORSiretField|null
      */
     public function getField()
     {
@@ -311,7 +311,7 @@ class AFNORSearchSiretSortingInner implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets field
      *
-     * @param \OpenAPI\Client\Model\AFNORSiretField|null $field field
+     * @param \FactPulse\SDK\Model\AFNORSiretField|null $field field
      *
      * @return self
      */
@@ -328,7 +328,7 @@ class AFNORSearchSiretSortingInner implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets sorting_order
      *
-     * @return \OpenAPI\Client\Model\AFNORSortingOrder|null
+     * @return \FactPulse\SDK\Model\AFNORSortingOrder|null
      */
     public function getSortingOrder()
     {
@@ -338,7 +338,7 @@ class AFNORSearchSiretSortingInner implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets sorting_order
      *
-     * @param \OpenAPI\Client\Model\AFNORSortingOrder|null $sorting_order sorting_order
+     * @param \FactPulse\SDK\Model\AFNORSortingOrder|null $sorting_order sorting_order
      *
      * @return self
      */

@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,15 +27,15 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
-use \OpenAPI\Client\ObjectSerializer;
+namespace FactPulse\SDK\Model;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORFlowAckStatus Class Doc Comment
  *
  * @category Class
  * @description - &#x60;Ok&#x60;: the following checks have passed:   - Anti virus   - Integrity checks   - Technical rules checks   - Unicity checks - &#x60;Error&#x60;: one of the previous test has failed - &#x60;Pending&#x60; : the flow is not yet integrated
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * PaymentAmountByRate Class Doc Comment
  *
  * @category Class
  * @description Payment amount for a specific VAT rate.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,8 +59,8 @@ class PaymentAmountByRate implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'rate' => '\OpenAPI\Client\Model\Rate',
-        'amount' => '\OpenAPI\Client\Model\Amount'
+        'rate' => '\FactPulse\SDK\Model\Rate',
+        'amount' => '\FactPulse\SDK\Model\Amount'
     ];
 
     /**
@@ -307,7 +307,7 @@ class PaymentAmountByRate implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets rate
      *
-     * @return \OpenAPI\Client\Model\Rate
+     * @return \FactPulse\SDK\Model\Rate
      */
     public function getRate()
     {
@@ -317,7 +317,7 @@ class PaymentAmountByRate implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets rate
      *
-     * @param \OpenAPI\Client\Model\Rate $rate rate
+     * @param \FactPulse\SDK\Model\Rate $rate rate
      *
      * @return self
      */
@@ -334,7 +334,7 @@ class PaymentAmountByRate implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets amount
      *
-     * @return \OpenAPI\Client\Model\Amount
+     * @return \FactPulse\SDK\Model\Amount
      */
     public function getAmount()
     {
@@ -344,7 +344,7 @@ class PaymentAmountByRate implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets amount
      *
-     * @param \OpenAPI\Client\Model\Amount $amount amount
+     * @param \FactPulse\SDK\Model\Amount $amount amount
      *
      * @return self
      */

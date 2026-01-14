@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,15 +27,15 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
-use \OpenAPI\Client\ObjectSerializer;
+namespace FactPulse\SDK\Model;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * FlowType Class Doc Comment
  *
  * @category Class
  * @description AFNOR XP Z12-013 FlowType enum.  Values from swagger specification v1.1.0: - Invoice flows (factures) - Lifecycle flows (cycle de vie) - E-reporting flows (transactions/paiements)
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

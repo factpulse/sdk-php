@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * InvoicingFramework Class Doc Comment
  *
  * @category Class
  * @description Defines the invoicing framework.  - invoicing_framework_code: Chorus Pro code (A1, A2, A9, A12) - used for B2G - operation_nature: Operation nature (B1, S1, M1, etc.) - priority for Factur-X  If operation_nature is provided, it will be used directly in Factur-X XML (BT-23). Otherwise, the code will be derived from invoicing_framework_code via automatic mapping.  Example:     &gt;&gt;&gt; framework &#x3D; InvoicingFramework(     ...     invoicing_framework_code&#x3D;InvoicingFrameworkCode.A1_SUPPLIER_INVOICE,     ...     operation_nature&#x3D;OperationNature.GOODS  # Forces B1 instead of S1     ... )
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,8 +59,8 @@ class InvoicingFramework implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'invoicing_framework_code' => '\OpenAPI\Client\Model\InvoicingFrameworkCode',
-        'operation_nature' => '\OpenAPI\Client\Model\OperationNature',
+        'invoicing_framework_code' => '\FactPulse\SDK\Model\InvoicingFrameworkCode',
+        'operation_nature' => '\FactPulse\SDK\Model\OperationNature',
         'approver_service_code' => 'string',
         'approver_structure_code' => 'string'
     ];
@@ -318,7 +318,7 @@ class InvoicingFramework implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets invoicing_framework_code
      *
-     * @return \OpenAPI\Client\Model\InvoicingFrameworkCode
+     * @return \FactPulse\SDK\Model\InvoicingFrameworkCode
      */
     public function getInvoicingFrameworkCode()
     {
@@ -328,7 +328,7 @@ class InvoicingFramework implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets invoicing_framework_code
      *
-     * @param \OpenAPI\Client\Model\InvoicingFrameworkCode $invoicing_framework_code Chorus Pro framework code (A1, A2, A9, A12)
+     * @param \FactPulse\SDK\Model\InvoicingFrameworkCode $invoicing_framework_code Chorus Pro framework code (A1, A2, A9, A12)
      *
      * @return self
      */
@@ -345,7 +345,7 @@ class InvoicingFramework implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets operation_nature
      *
-     * @return \OpenAPI\Client\Model\OperationNature|null
+     * @return \FactPulse\SDK\Model\OperationNature|null
      */
     public function getOperationNature()
     {
@@ -355,7 +355,7 @@ class InvoicingFramework implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets operation_nature
      *
-     * @param \OpenAPI\Client\Model\OperationNature|null $operation_nature operation_nature
+     * @param \FactPulse\SDK\Model\OperationNature|null $operation_nature operation_nature
      *
      * @return self
      */

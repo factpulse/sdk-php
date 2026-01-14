@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORCreateRoutingCodeBody Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,14 +58,14 @@ class AFNORCreateRoutingCodeBody implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'facility_nature' => '\OpenAPI\Client\Model\AFNORFacilityNature',
+        'facility_nature' => '\FactPulse\SDK\Model\AFNORFacilityNature',
         'routing_identifier' => 'string',
         'siret' => 'string',
         'routing_identifier_type' => 'string',
         'routing_code_name' => 'string',
         'manages_legal_commitment_code' => 'bool',
-        'administrative_status' => '\OpenAPI\Client\Model\AFNORRoutingCodeAdministrativeStatus',
-        'address' => '\OpenAPI\Client\Model\AFNORAddressEdit'
+        'administrative_status' => '\FactPulse\SDK\Model\AFNORRoutingCodeAdministrativeStatus',
+        'address' => '\FactPulse\SDK\Model\AFNORAddressEdit'
     ];
 
     /**
@@ -389,7 +389,7 @@ class AFNORCreateRoutingCodeBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets facility_nature
      *
-     * @return \OpenAPI\Client\Model\AFNORFacilityNature
+     * @return \FactPulse\SDK\Model\AFNORFacilityNature
      */
     public function getFacilityNature()
     {
@@ -399,7 +399,7 @@ class AFNORCreateRoutingCodeBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets facility_nature
      *
-     * @param \OpenAPI\Client\Model\AFNORFacilityNature $facility_nature facility_nature
+     * @param \FactPulse\SDK\Model\AFNORFacilityNature $facility_nature facility_nature
      *
      * @return self
      */
@@ -579,7 +579,7 @@ class AFNORCreateRoutingCodeBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets administrative_status
      *
-     * @return \OpenAPI\Client\Model\AFNORRoutingCodeAdministrativeStatus
+     * @return \FactPulse\SDK\Model\AFNORRoutingCodeAdministrativeStatus
      */
     public function getAdministrativeStatus()
     {
@@ -589,7 +589,7 @@ class AFNORCreateRoutingCodeBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets administrative_status
      *
-     * @param \OpenAPI\Client\Model\AFNORRoutingCodeAdministrativeStatus $administrative_status administrative_status
+     * @param \FactPulse\SDK\Model\AFNORRoutingCodeAdministrativeStatus $administrative_status administrative_status
      *
      * @return self
      */
@@ -606,7 +606,7 @@ class AFNORCreateRoutingCodeBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets address
      *
-     * @return \OpenAPI\Client\Model\AFNORAddressEdit|null
+     * @return \FactPulse\SDK\Model\AFNORAddressEdit|null
      */
     public function getAddress()
     {
@@ -616,7 +616,7 @@ class AFNORCreateRoutingCodeBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets address
      *
-     * @param \OpenAPI\Client\Model\AFNORAddressEdit|null $address address
+     * @param \FactPulse\SDK\Model\AFNORAddressEdit|null $address address
      *
      * @return self
      */

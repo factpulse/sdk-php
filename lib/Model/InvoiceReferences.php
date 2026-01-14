@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * InvoiceReferences Class Doc Comment
  *
  * @category Class
  * @description Contains various invoice references (currency, type, etc.).
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -61,10 +61,10 @@ class InvoiceReferences implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $openAPITypes = [
         'business_process_id' => 'string',
         'invoice_currency' => 'string',
-        'payment_means' => '\OpenAPI\Client\Model\PaymentMeans',
+        'payment_means' => '\FactPulse\SDK\Model\PaymentMeans',
         'payment_means_text' => 'string',
-        'invoice_type' => '\OpenAPI\Client\Model\InvoiceTypeCode',
-        'vat_accounting_code' => '\OpenAPI\Client\Model\VATAccountingCode',
+        'invoice_type' => '\FactPulse\SDK\Model\InvoiceTypeCode',
+        'vat_accounting_code' => '\FactPulse\SDK\Model\VATAccountingCode',
         'buyer_reference' => 'string',
         'contract_reference' => 'string',
         'purchase_order_reference' => 'string',
@@ -483,7 +483,7 @@ class InvoiceReferences implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets payment_means
      *
-     * @return \OpenAPI\Client\Model\PaymentMeans
+     * @return \FactPulse\SDK\Model\PaymentMeans
      */
     public function getPaymentMeans()
     {
@@ -493,7 +493,7 @@ class InvoiceReferences implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets payment_means
      *
-     * @param \OpenAPI\Client\Model\PaymentMeans $payment_means Payment means type code (BT-81).
+     * @param \FactPulse\SDK\Model\PaymentMeans $payment_means Payment means type code (BT-81).
      *
      * @return self
      */
@@ -544,7 +544,7 @@ class InvoiceReferences implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets invoice_type
      *
-     * @return \OpenAPI\Client\Model\InvoiceTypeCode
+     * @return \FactPulse\SDK\Model\InvoiceTypeCode
      */
     public function getInvoiceType()
     {
@@ -554,7 +554,7 @@ class InvoiceReferences implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets invoice_type
      *
-     * @param \OpenAPI\Client\Model\InvoiceTypeCode $invoice_type invoice_type
+     * @param \FactPulse\SDK\Model\InvoiceTypeCode $invoice_type invoice_type
      *
      * @return self
      */
@@ -571,7 +571,7 @@ class InvoiceReferences implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets vat_accounting_code
      *
-     * @return \OpenAPI\Client\Model\VATAccountingCode
+     * @return \FactPulse\SDK\Model\VATAccountingCode
      */
     public function getVatAccountingCode()
     {
@@ -581,7 +581,7 @@ class InvoiceReferences implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets vat_accounting_code
      *
-     * @param \OpenAPI\Client\Model\VATAccountingCode $vat_accounting_code VAT accounting code.
+     * @param \FactPulse\SDK\Model\VATAccountingCode $vat_accounting_code VAT accounting code.
      *
      * @return self
      */

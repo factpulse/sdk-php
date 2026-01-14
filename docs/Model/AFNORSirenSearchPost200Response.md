@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**search** | [**\OpenAPI\Client\Model\AFNORSearchSiren**](AFNORSearchSiren.md) |  | [optional]
+**search** | [**\FactPulse\SDK\Model\AFNORSearchSiren**](AFNORSearchSiren.md) |  | [optional]
 **total_number_of_results** | **int** | The total number of results | [optional]
-**results** | [**\OpenAPI\Client\Model\AFNORLegalUnitPayloadHistory[]**](AFNORLegalUnitPayloadHistory.md) |  | [optional]
+**results** | [**\FactPulse\SDK\Model\AFNORLegalUnitPayloadHistory[]**](AFNORLegalUnitPayloadHistory.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

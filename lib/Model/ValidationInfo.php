@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * ValidationInfo Class Doc Comment
  *
  * @category Class
  * @description Informations sur la validation.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -64,7 +64,7 @@ class ValidationInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'schematron_rules_total' => 'int',
         'pdfa_compliant' => 'bool',
         'xml_embedded' => 'bool',
-        'errors' => '\OpenAPI\Client\Model\ValidationError[]'
+        'errors' => '\FactPulse\SDK\Model\ValidationError[]'
     ];
 
     /**
@@ -473,7 +473,7 @@ class ValidationInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets errors
      *
-     * @return \OpenAPI\Client\Model\ValidationError[]|null
+     * @return \FactPulse\SDK\Model\ValidationError[]|null
      */
     public function getErrors()
     {
@@ -483,7 +483,7 @@ class ValidationInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets errors
      *
-     * @param \OpenAPI\Client\Model\ValidationError[]|null $errors errors
+     * @param \FactPulse\SDK\Model\ValidationError[]|null $errors errors
      *
      * @return self
      */

@@ -13,9 +13,9 @@ Name | Type | Description | Notes
 **comment** | **string** |  | [optional]
 **purchase_order_reference** | **string** |  | [optional]
 **contract_reference** | **string** |  | [optional]
-**invoice_type** | [**\OpenAPI\Client\Model\InvoiceTypeCode**](InvoiceTypeCode.md) | Document type (UNTDID 1001). Default: 380 (Invoice). | [optional]
+**invoice_type** | [**\FactPulse\SDK\Model\InvoiceTypeCode**](InvoiceTypeCode.md) | Document type (UNTDID 1001). Default: 380 (Invoice). | [optional]
 **preceding_invoice_reference** | **string** |  | [optional]
-**operation_nature** | [**\OpenAPI\Client\Model\OperationNature**](OperationNature.md) |  | [optional]
-**invoicing_framework** | [**\OpenAPI\Client\Model\InvoicingFrameworkCode**](InvoicingFrameworkCode.md) |  | [optional]
+**operation_nature** | [**\FactPulse\SDK\Model\OperationNature**](OperationNature.md) |  | [optional]
+**invoicing_framework** | [**\FactPulse\SDK\Model\InvoicingFrameworkCode**](InvoicingFrameworkCode.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

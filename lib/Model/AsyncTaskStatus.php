@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AsyncTaskStatus Class Doc Comment
  *
  * @category Class
  * @description Complete description of an async task status.  The &#x60;status&#x60; field indicates the Celery state of the task. When &#x60;status&#x3D;\&quot;SUCCESS\&quot;&#x60;, check &#x60;result.status&#x60; for the business result (\&quot;SUCCESS\&quot; or \&quot;ERROR\&quot;).
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -60,7 +60,7 @@ class AsyncTaskStatus implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'task_id' => 'string',
-        'status' => '\OpenAPI\Client\Model\CeleryStatus',
+        'status' => '\FactPulse\SDK\Model\CeleryStatus',
         'result' => 'array<string,mixed>'
     ];
 
@@ -341,7 +341,7 @@ class AsyncTaskStatus implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets status
      *
-     * @return \OpenAPI\Client\Model\CeleryStatus
+     * @return \FactPulse\SDK\Model\CeleryStatus
      */
     public function getStatus()
     {
@@ -351,7 +351,7 @@ class AsyncTaskStatus implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param \OpenAPI\Client\Model\CeleryStatus $status Celery task status (PENDING, STARTED, SUCCESS, FAILURE, RETRY)
+     * @param \FactPulse\SDK\Model\CeleryStatus $status Celery task status (PENDING, STARTED, SUCCESS, FAILURE, RETRY)
      *
      * @return self
      */

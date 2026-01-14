@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORAcknowledgement Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,8 +58,8 @@ class AFNORAcknowledgement implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'status' => '\OpenAPI\Client\Model\AFNORFlowAckStatus',
-        'details' => '\OpenAPI\Client\Model\AFNORAcknowledgementDetail[]'
+        'status' => '\FactPulse\SDK\Model\AFNORFlowAckStatus',
+        'details' => '\FactPulse\SDK\Model\AFNORAcknowledgementDetail[]'
     ];
 
     /**
@@ -307,7 +307,7 @@ class AFNORAcknowledgement implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets status
      *
-     * @return \OpenAPI\Client\Model\AFNORFlowAckStatus
+     * @return \FactPulse\SDK\Model\AFNORFlowAckStatus
      */
     public function getStatus()
     {
@@ -317,7 +317,7 @@ class AFNORAcknowledgement implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets status
      *
-     * @param \OpenAPI\Client\Model\AFNORFlowAckStatus $status status
+     * @param \FactPulse\SDK\Model\AFNORFlowAckStatus $status status
      *
      * @return self
      */
@@ -334,7 +334,7 @@ class AFNORAcknowledgement implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets details
      *
-     * @return \OpenAPI\Client\Model\AFNORAcknowledgementDetail[]|null
+     * @return \FactPulse\SDK\Model\AFNORAcknowledgementDetail[]|null
      */
     public function getDetails()
     {
@@ -344,7 +344,7 @@ class AFNORAcknowledgement implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets details
      *
-     * @param \OpenAPI\Client\Model\AFNORAcknowledgementDetail[]|null $details details
+     * @param \FactPulse\SDK\Model\AFNORAcknowledgementDetail[]|null $details details
      *
      * @return self
      */

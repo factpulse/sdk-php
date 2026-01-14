@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * ConvertSuccessResponse Class Doc Comment
  *
  * @category Class
  * @description Reponse succes de conversion.  Le champ &#x60;invoice&#x60; contient les donnees de la facture au format FacturXInvoice (cf. facture_electronique.models.FacturXInvoice). Ce modele est le meme que celui utilise pour la generation Factur-X, garantissant une coherence totale.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -61,11 +61,11 @@ class ConvertSuccessResponse implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $openAPITypes = [
         'status' => 'string',
         'conversion_id' => 'string',
-        'document_type' => '\OpenAPI\Client\Model\DocumentTypeInfo',
+        'document_type' => '\FactPulse\SDK\Model\DocumentTypeInfo',
         'invoice' => 'array<string,mixed>',
-        'extraction' => '\OpenAPI\Client\Model\ExtractionInfo',
-        'validation' => '\OpenAPI\Client\Model\ValidationInfo',
-        'files' => '\OpenAPI\Client\Model\FilesInfo',
+        'extraction' => '\FactPulse\SDK\Model\ExtractionInfo',
+        'validation' => '\FactPulse\SDK\Model\ValidationInfo',
+        'files' => '\FactPulse\SDK\Model\FilesInfo',
         'processing_time_ms' => 'int',
         'pdf_regenerated' => 'bool',
         'pdf_regenerated_reason' => 'string'
@@ -432,7 +432,7 @@ class ConvertSuccessResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets document_type
      *
-     * @return \OpenAPI\Client\Model\DocumentTypeInfo
+     * @return \FactPulse\SDK\Model\DocumentTypeInfo
      */
     public function getDocumentType()
     {
@@ -442,7 +442,7 @@ class ConvertSuccessResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets document_type
      *
-     * @param \OpenAPI\Client\Model\DocumentTypeInfo $document_type document_type
+     * @param \FactPulse\SDK\Model\DocumentTypeInfo $document_type document_type
      *
      * @return self
      */
@@ -486,7 +486,7 @@ class ConvertSuccessResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets extraction
      *
-     * @return \OpenAPI\Client\Model\ExtractionInfo
+     * @return \FactPulse\SDK\Model\ExtractionInfo
      */
     public function getExtraction()
     {
@@ -496,7 +496,7 @@ class ConvertSuccessResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets extraction
      *
-     * @param \OpenAPI\Client\Model\ExtractionInfo $extraction extraction
+     * @param \FactPulse\SDK\Model\ExtractionInfo $extraction extraction
      *
      * @return self
      */
@@ -513,7 +513,7 @@ class ConvertSuccessResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets validation
      *
-     * @return \OpenAPI\Client\Model\ValidationInfo
+     * @return \FactPulse\SDK\Model\ValidationInfo
      */
     public function getValidation()
     {
@@ -523,7 +523,7 @@ class ConvertSuccessResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets validation
      *
-     * @param \OpenAPI\Client\Model\ValidationInfo $validation validation
+     * @param \FactPulse\SDK\Model\ValidationInfo $validation validation
      *
      * @return self
      */
@@ -540,7 +540,7 @@ class ConvertSuccessResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets files
      *
-     * @return \OpenAPI\Client\Model\FilesInfo
+     * @return \FactPulse\SDK\Model\FilesInfo
      */
     public function getFiles()
     {
@@ -550,7 +550,7 @@ class ConvertSuccessResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets files
      *
-     * @param \OpenAPI\Client\Model\FilesInfo $files files
+     * @param \FactPulse\SDK\Model\FilesInfo $files files
      *
      * @return self
      */

@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORUpdatePatchRoutingCodeBody Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -60,8 +60,8 @@ class AFNORUpdatePatchRoutingCodeBody implements ModelInterface, ArrayAccess, \J
     protected static $openAPITypes = [
         'routing_identifier_type' => 'string',
         'routing_code_name' => 'string',
-        'administrative_status' => '\OpenAPI\Client\Model\AFNORRoutingCodeAdministrativeStatus',
-        'address' => '\OpenAPI\Client\Model\AFNORAddressPatch'
+        'administrative_status' => '\FactPulse\SDK\Model\AFNORRoutingCodeAdministrativeStatus',
+        'address' => '\FactPulse\SDK\Model\AFNORAddressPatch'
     ];
 
     /**
@@ -398,7 +398,7 @@ class AFNORUpdatePatchRoutingCodeBody implements ModelInterface, ArrayAccess, \J
     /**
      * Gets administrative_status
      *
-     * @return \OpenAPI\Client\Model\AFNORRoutingCodeAdministrativeStatus|null
+     * @return \FactPulse\SDK\Model\AFNORRoutingCodeAdministrativeStatus|null
      */
     public function getAdministrativeStatus()
     {
@@ -408,7 +408,7 @@ class AFNORUpdatePatchRoutingCodeBody implements ModelInterface, ArrayAccess, \J
     /**
      * Sets administrative_status
      *
-     * @param \OpenAPI\Client\Model\AFNORRoutingCodeAdministrativeStatus|null $administrative_status administrative_status
+     * @param \FactPulse\SDK\Model\AFNORRoutingCodeAdministrativeStatus|null $administrative_status administrative_status
      *
      * @return self
      */
@@ -425,7 +425,7 @@ class AFNORUpdatePatchRoutingCodeBody implements ModelInterface, ArrayAccess, \J
     /**
      * Gets address
      *
-     * @return \OpenAPI\Client\Model\AFNORAddressPatch|null
+     * @return \FactPulse\SDK\Model\AFNORAddressPatch|null
      */
     public function getAddress()
     {
@@ -435,7 +435,7 @@ class AFNORUpdatePatchRoutingCodeBody implements ModelInterface, ArrayAccess, \J
     /**
      * Sets address
      *
-     * @param \OpenAPI\Client\Model\AFNORAddressPatch|null $address address
+     * @param \FactPulse\SDK\Model\AFNORAddressPatch|null $address address
      *
      * @return self
      */

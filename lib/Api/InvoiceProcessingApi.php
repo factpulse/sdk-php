@@ -4,7 +4,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace FactPulse\SDK\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -37,17 +37,17 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\FormDataProcessor;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use FactPulse\SDK\ApiException;
+use FactPulse\SDK\Configuration;
+use FactPulse\SDK\FormDataProcessor;
+use FactPulse\SDK\HeaderSelector;
+use FactPulse\SDK\ObjectSerializer;
 
 /**
  * InvoiceProcessingApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -162,8 +162,8 @@ class InvoiceProcessingApi
      * Generate a Factur-X invoice
      *
      * @param  string $invoice_data Invoice data in JSON format.              Two formats accepted:             1. **Classic format**: Complete FacturXInvoice structure (all fields)             2. **Simplified format** (🆕 P0.1): Minimal structure with auto-enrichment              Format is detected automatically! (required)
-     * @param  \OpenAPI\Client\Model\APIProfile|null $profile Factur-X profile: MINIMUM, BASIC, EN16931 or EXTENDED. (optional)
-     * @param  \OpenAPI\Client\Model\OutputFormat|null $output_format Output format: &#39;xml&#39; (XML only) or &#39;pdf&#39; (Factur-X PDF with embedded XML). (optional)
+     * @param  \FactPulse\SDK\Model\APIProfile|null $profile Factur-X profile: MINIMUM, BASIC, EN16931 or EXTENDED. (optional)
+     * @param  \FactPulse\SDK\Model\OutputFormat|null $output_format Output format: &#39;xml&#39; (XML only) or &#39;pdf&#39; (Factur-X PDF with embedded XML). (optional)
      * @param  bool|null $auto_enrich 🆕 Enable auto-enrichment from SIRET/SIREN (simplified format only) (optional, default to true)
      * @param  \SplFileObject|null $source_pdf source_pdf (optional)
      * @param  string|null $callback_url callback_url (optional)
@@ -171,9 +171,9 @@ class InvoiceProcessingApi
      * @param  bool|null $skip_br_fr skip_br_fr (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateInvoiceApiV1ProcessingGenerateInvoicePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\TaskResponse|\OpenAPI\Client\Model\APIError
+     * @return \FactPulse\SDK\Model\TaskResponse|\FactPulse\SDK\Model\APIError
      */
     public function generateInvoiceApiV1ProcessingGenerateInvoicePost($invoice_data, $profile = null, $output_format = null, $auto_enrich = true, $source_pdf = null, $callback_url = null, $webhook_mode = 'inline', $skip_br_fr = null, string $contentType = self::contentTypes['generateInvoiceApiV1ProcessingGenerateInvoicePost'][0])
     {
@@ -187,8 +187,8 @@ class InvoiceProcessingApi
      * Generate a Factur-X invoice
      *
      * @param  string $invoice_data Invoice data in JSON format.              Two formats accepted:             1. **Classic format**: Complete FacturXInvoice structure (all fields)             2. **Simplified format** (🆕 P0.1): Minimal structure with auto-enrichment              Format is detected automatically! (required)
-     * @param  \OpenAPI\Client\Model\APIProfile|null $profile Factur-X profile: MINIMUM, BASIC, EN16931 or EXTENDED. (optional)
-     * @param  \OpenAPI\Client\Model\OutputFormat|null $output_format Output format: &#39;xml&#39; (XML only) or &#39;pdf&#39; (Factur-X PDF with embedded XML). (optional)
+     * @param  \FactPulse\SDK\Model\APIProfile|null $profile Factur-X profile: MINIMUM, BASIC, EN16931 or EXTENDED. (optional)
+     * @param  \FactPulse\SDK\Model\OutputFormat|null $output_format Output format: &#39;xml&#39; (XML only) or &#39;pdf&#39; (Factur-X PDF with embedded XML). (optional)
      * @param  bool|null $auto_enrich 🆕 Enable auto-enrichment from SIRET/SIREN (simplified format only) (optional, default to true)
      * @param  \SplFileObject|null $source_pdf (optional)
      * @param  string|null $callback_url (optional)
@@ -196,9 +196,9 @@ class InvoiceProcessingApi
      * @param  bool|null $skip_br_fr (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateInvoiceApiV1ProcessingGenerateInvoicePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\TaskResponse|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\TaskResponse|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function generateInvoiceApiV1ProcessingGenerateInvoicePostWithHttpInfo($invoice_data, $profile = null, $output_format = null, $auto_enrich = true, $source_pdf = null, $callback_url = null, $webhook_mode = 'inline', $skip_br_fr = null, string $contentType = self::contentTypes['generateInvoiceApiV1ProcessingGenerateInvoicePost'][0])
     {
@@ -230,13 +230,13 @@ class InvoiceProcessingApi
             switch($statusCode) {
                 case 202:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\TaskResponse',
+                        '\FactPulse\SDK\Model\TaskResponse',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -258,7 +258,7 @@ class InvoiceProcessingApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\TaskResponse',
+                '\FactPulse\SDK\Model\TaskResponse',
                 $request,
                 $response,
             );
@@ -267,7 +267,7 @@ class InvoiceProcessingApi
                 case 202:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\TaskResponse',
+                        '\FactPulse\SDK\Model\TaskResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -275,7 +275,7 @@ class InvoiceProcessingApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -293,8 +293,8 @@ class InvoiceProcessingApi
      * Generate a Factur-X invoice
      *
      * @param  string $invoice_data Invoice data in JSON format.              Two formats accepted:             1. **Classic format**: Complete FacturXInvoice structure (all fields)             2. **Simplified format** (🆕 P0.1): Minimal structure with auto-enrichment              Format is detected automatically! (required)
-     * @param  \OpenAPI\Client\Model\APIProfile|null $profile Factur-X profile: MINIMUM, BASIC, EN16931 or EXTENDED. (optional)
-     * @param  \OpenAPI\Client\Model\OutputFormat|null $output_format Output format: &#39;xml&#39; (XML only) or &#39;pdf&#39; (Factur-X PDF with embedded XML). (optional)
+     * @param  \FactPulse\SDK\Model\APIProfile|null $profile Factur-X profile: MINIMUM, BASIC, EN16931 or EXTENDED. (optional)
+     * @param  \FactPulse\SDK\Model\OutputFormat|null $output_format Output format: &#39;xml&#39; (XML only) or &#39;pdf&#39; (Factur-X PDF with embedded XML). (optional)
      * @param  bool|null $auto_enrich 🆕 Enable auto-enrichment from SIRET/SIREN (simplified format only) (optional, default to true)
      * @param  \SplFileObject|null $source_pdf (optional)
      * @param  string|null $callback_url (optional)
@@ -321,8 +321,8 @@ class InvoiceProcessingApi
      * Generate a Factur-X invoice
      *
      * @param  string $invoice_data Invoice data in JSON format.              Two formats accepted:             1. **Classic format**: Complete FacturXInvoice structure (all fields)             2. **Simplified format** (🆕 P0.1): Minimal structure with auto-enrichment              Format is detected automatically! (required)
-     * @param  \OpenAPI\Client\Model\APIProfile|null $profile Factur-X profile: MINIMUM, BASIC, EN16931 or EXTENDED. (optional)
-     * @param  \OpenAPI\Client\Model\OutputFormat|null $output_format Output format: &#39;xml&#39; (XML only) or &#39;pdf&#39; (Factur-X PDF with embedded XML). (optional)
+     * @param  \FactPulse\SDK\Model\APIProfile|null $profile Factur-X profile: MINIMUM, BASIC, EN16931 or EXTENDED. (optional)
+     * @param  \FactPulse\SDK\Model\OutputFormat|null $output_format Output format: &#39;xml&#39; (XML only) or &#39;pdf&#39; (Factur-X PDF with embedded XML). (optional)
      * @param  bool|null $auto_enrich 🆕 Enable auto-enrichment from SIRET/SIREN (simplified format only) (optional, default to true)
      * @param  \SplFileObject|null $source_pdf (optional)
      * @param  string|null $callback_url (optional)
@@ -335,7 +335,7 @@ class InvoiceProcessingApi
      */
     public function generateInvoiceApiV1ProcessingGenerateInvoicePostAsyncWithHttpInfo($invoice_data, $profile = null, $output_format = null, $auto_enrich = true, $source_pdf = null, $callback_url = null, $webhook_mode = 'inline', $skip_br_fr = null, string $contentType = self::contentTypes['generateInvoiceApiV1ProcessingGenerateInvoicePost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\TaskResponse';
+        $returnType = '\FactPulse\SDK\Model\TaskResponse';
         $request = $this->generateInvoiceApiV1ProcessingGenerateInvoicePostRequest($invoice_data, $profile, $output_format, $auto_enrich, $source_pdf, $callback_url, $webhook_mode, $skip_br_fr, $contentType);
 
         return $this->client
@@ -378,8 +378,8 @@ class InvoiceProcessingApi
      * Create request for operation 'generateInvoiceApiV1ProcessingGenerateInvoicePost'
      *
      * @param  string $invoice_data Invoice data in JSON format.              Two formats accepted:             1. **Classic format**: Complete FacturXInvoice structure (all fields)             2. **Simplified format** (🆕 P0.1): Minimal structure with auto-enrichment              Format is detected automatically! (required)
-     * @param  \OpenAPI\Client\Model\APIProfile|null $profile Factur-X profile: MINIMUM, BASIC, EN16931 or EXTENDED. (optional)
-     * @param  \OpenAPI\Client\Model\OutputFormat|null $output_format Output format: &#39;xml&#39; (XML only) or &#39;pdf&#39; (Factur-X PDF with embedded XML). (optional)
+     * @param  \FactPulse\SDK\Model\APIProfile|null $profile Factur-X profile: MINIMUM, BASIC, EN16931 or EXTENDED. (optional)
+     * @param  \FactPulse\SDK\Model\OutputFormat|null $output_format Output format: &#39;xml&#39; (XML only) or &#39;pdf&#39; (Factur-X PDF with embedded XML). (optional)
      * @param  bool|null $auto_enrich 🆕 Enable auto-enrichment from SIRET/SIREN (simplified format only) (optional, default to true)
      * @param  \SplFileObject|null $source_pdf (optional)
      * @param  string|null $callback_url (optional)
@@ -498,12 +498,12 @@ class InvoiceProcessingApi
      *
      * Generate a self-signed X.509 test certificate
      *
-     * @param  \OpenAPI\Client\Model\GenerateCertificateRequest $generate_certificate_request generate_certificate_request (required)
+     * @param  \FactPulse\SDK\Model\GenerateCertificateRequest $generate_certificate_request generate_certificate_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateTestCertificateApiV1ProcessingGenerateTestCertificatePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GenerateCertificateResponse|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError
+     * @return \FactPulse\SDK\Model\GenerateCertificateResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function generateTestCertificateApiV1ProcessingGenerateTestCertificatePost($generate_certificate_request, string $contentType = self::contentTypes['generateTestCertificateApiV1ProcessingGenerateTestCertificatePost'][0])
     {
@@ -516,12 +516,12 @@ class InvoiceProcessingApi
      *
      * Generate a self-signed X.509 test certificate
      *
-     * @param  \OpenAPI\Client\Model\GenerateCertificateRequest $generate_certificate_request (required)
+     * @param  \FactPulse\SDK\Model\GenerateCertificateRequest $generate_certificate_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateTestCertificateApiV1ProcessingGenerateTestCertificatePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GenerateCertificateResponse|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\GenerateCertificateResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function generateTestCertificateApiV1ProcessingGenerateTestCertificatePostWithHttpInfo($generate_certificate_request, string $contentType = self::contentTypes['generateTestCertificateApiV1ProcessingGenerateTestCertificatePost'][0])
     {
@@ -553,19 +553,19 @@ class InvoiceProcessingApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\GenerateCertificateResponse',
+                        '\FactPulse\SDK\Model\GenerateCertificateResponse',
                         $request,
                         $response,
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -587,7 +587,7 @@ class InvoiceProcessingApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\GenerateCertificateResponse',
+                '\FactPulse\SDK\Model\GenerateCertificateResponse',
                 $request,
                 $response,
             );
@@ -596,7 +596,7 @@ class InvoiceProcessingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GenerateCertificateResponse',
+                        '\FactPulse\SDK\Model\GenerateCertificateResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -604,7 +604,7 @@ class InvoiceProcessingApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -612,7 +612,7 @@ class InvoiceProcessingApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -629,7 +629,7 @@ class InvoiceProcessingApi
      *
      * Generate a self-signed X.509 test certificate
      *
-     * @param  \OpenAPI\Client\Model\GenerateCertificateRequest $generate_certificate_request (required)
+     * @param  \FactPulse\SDK\Model\GenerateCertificateRequest $generate_certificate_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateTestCertificateApiV1ProcessingGenerateTestCertificatePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -650,7 +650,7 @@ class InvoiceProcessingApi
      *
      * Generate a self-signed X.509 test certificate
      *
-     * @param  \OpenAPI\Client\Model\GenerateCertificateRequest $generate_certificate_request (required)
+     * @param  \FactPulse\SDK\Model\GenerateCertificateRequest $generate_certificate_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateTestCertificateApiV1ProcessingGenerateTestCertificatePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -658,7 +658,7 @@ class InvoiceProcessingApi
      */
     public function generateTestCertificateApiV1ProcessingGenerateTestCertificatePostAsyncWithHttpInfo($generate_certificate_request, string $contentType = self::contentTypes['generateTestCertificateApiV1ProcessingGenerateTestCertificatePost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GenerateCertificateResponse';
+        $returnType = '\FactPulse\SDK\Model\GenerateCertificateResponse';
         $request = $this->generateTestCertificateApiV1ProcessingGenerateTestCertificatePostRequest($generate_certificate_request, $contentType);
 
         return $this->client
@@ -700,7 +700,7 @@ class InvoiceProcessingApi
     /**
      * Create request for operation 'generateTestCertificateApiV1ProcessingGenerateTestCertificatePost'
      *
-     * @param  \OpenAPI\Client\Model\GenerateCertificateRequest $generate_certificate_request (required)
+     * @param  \FactPulse\SDK\Model\GenerateCertificateRequest $generate_certificate_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateTestCertificateApiV1ProcessingGenerateTestCertificatePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -800,9 +800,9 @@ class InvoiceProcessingApi
      * @param  string $task_id Celery task ID returned by async endpoints (UUID format) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTaskStatusApiV1ProcessingTasksTaskIdStatusGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\AsyncTaskStatus|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError
+     * @return \FactPulse\SDK\Model\AsyncTaskStatus|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function getTaskStatusApiV1ProcessingTasksTaskIdStatusGet($task_id, string $contentType = self::contentTypes['getTaskStatusApiV1ProcessingTasksTaskIdStatusGet'][0])
     {
@@ -818,9 +818,9 @@ class InvoiceProcessingApi
      * @param  string $task_id Celery task ID returned by async endpoints (UUID format) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTaskStatusApiV1ProcessingTasksTaskIdStatusGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\AsyncTaskStatus|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\AsyncTaskStatus|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTaskStatusApiV1ProcessingTasksTaskIdStatusGetWithHttpInfo($task_id, string $contentType = self::contentTypes['getTaskStatusApiV1ProcessingTasksTaskIdStatusGet'][0])
     {
@@ -852,19 +852,19 @@ class InvoiceProcessingApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\AsyncTaskStatus',
+                        '\FactPulse\SDK\Model\AsyncTaskStatus',
                         $request,
                         $response,
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -886,7 +886,7 @@ class InvoiceProcessingApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\AsyncTaskStatus',
+                '\FactPulse\SDK\Model\AsyncTaskStatus',
                 $request,
                 $response,
             );
@@ -895,7 +895,7 @@ class InvoiceProcessingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AsyncTaskStatus',
+                        '\FactPulse\SDK\Model\AsyncTaskStatus',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -903,7 +903,7 @@ class InvoiceProcessingApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -911,7 +911,7 @@ class InvoiceProcessingApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -957,7 +957,7 @@ class InvoiceProcessingApi
      */
     public function getTaskStatusApiV1ProcessingTasksTaskIdStatusGetAsyncWithHttpInfo($task_id, string $contentType = self::contentTypes['getTaskStatusApiV1ProcessingTasksTaskIdStatusGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\AsyncTaskStatus';
+        $returnType = '\FactPulse\SDK\Model\AsyncTaskStatus';
         $request = $this->getTaskStatusApiV1ProcessingTasksTaskIdStatusGetRequest($task_id, $contentType);
 
         return $this->client
@@ -1106,9 +1106,9 @@ class InvoiceProcessingApi
      * @param  bool|null $use_timestamp Enable RFC 3161 timestamping with FreeTSA (PAdES-B-T) (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signPdfApiV1ProcessingSignPdfPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return mixed|\OpenAPI\Client\Model\HTTPValidationError
+     * @return mixed|\FactPulse\SDK\Model\HTTPValidationError
      */
     public function signPdfApiV1ProcessingSignPdfPost($pdf_file, $reason = null, $location = null, $contact = null, $field_name = 'FactPulseSignature', $use_pades_lt = false, $use_timestamp = true, string $contentType = self::contentTypes['signPdfApiV1ProcessingSignPdfPost'][0])
     {
@@ -1130,9 +1130,9 @@ class InvoiceProcessingApi
      * @param  bool|null $use_timestamp Enable RFC 3161 timestamping with FreeTSA (PAdES-B-T) (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signPdfApiV1ProcessingSignPdfPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of mixed|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of mixed|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function signPdfApiV1ProcessingSignPdfPostWithHttpInfo($pdf_file, $reason = null, $location = null, $contact = null, $field_name = 'FactPulseSignature', $use_pades_lt = false, $use_timestamp = true, string $contentType = self::contentTypes['signPdfApiV1ProcessingSignPdfPost'][0])
     {
@@ -1170,7 +1170,7 @@ class InvoiceProcessingApi
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
@@ -1209,7 +1209,7 @@ class InvoiceProcessingApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1438,9 +1438,9 @@ class InvoiceProcessingApi
      * @param  bool|null $use_timestamp Enable RFC 3161 timestamping with FreeTSA (PAdES-B-T) (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signPdfAsyncApiV1ProcessingSignPdfAsyncPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return mixed|\OpenAPI\Client\Model\HTTPValidationError
+     * @return mixed|\FactPulse\SDK\Model\HTTPValidationError
      */
     public function signPdfAsyncApiV1ProcessingSignPdfAsyncPost($pdf_file, $callback_url = null, $webhook_mode = 'inline', $reason = null, $location = null, $contact = null, $field_name = 'FactPulseSignature', $use_pades_lt = false, $use_timestamp = true, string $contentType = self::contentTypes['signPdfAsyncApiV1ProcessingSignPdfAsyncPost'][0])
     {
@@ -1464,9 +1464,9 @@ class InvoiceProcessingApi
      * @param  bool|null $use_timestamp Enable RFC 3161 timestamping with FreeTSA (PAdES-B-T) (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signPdfAsyncApiV1ProcessingSignPdfAsyncPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of mixed|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of mixed|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function signPdfAsyncApiV1ProcessingSignPdfAsyncPostWithHttpInfo($pdf_file, $callback_url = null, $webhook_mode = 'inline', $reason = null, $location = null, $contact = null, $field_name = 'FactPulseSignature', $use_pades_lt = false, $use_timestamp = true, string $contentType = self::contentTypes['signPdfAsyncApiV1ProcessingSignPdfAsyncPost'][0])
     {
@@ -1504,7 +1504,7 @@ class InvoiceProcessingApi
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
@@ -1543,7 +1543,7 @@ class InvoiceProcessingApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1771,12 +1771,12 @@ class InvoiceProcessingApi
      *
      * Submit a complete invoice (generation + signature + submission)
      *
-     * @param  \OpenAPI\Client\Model\SubmitCompleteInvoiceRequest $submit_complete_invoice_request submit_complete_invoice_request (required)
+     * @param  \FactPulse\SDK\Model\SubmitCompleteInvoiceRequest $submit_complete_invoice_request submit_complete_invoice_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitCompleteInvoiceApiV1ProcessingInvoicesSubmitCompletePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SubmitCompleteInvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError
+     * @return \FactPulse\SDK\Model\SubmitCompleteInvoiceResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function submitCompleteInvoiceApiV1ProcessingInvoicesSubmitCompletePost($submit_complete_invoice_request, string $contentType = self::contentTypes['submitCompleteInvoiceApiV1ProcessingInvoicesSubmitCompletePost'][0])
     {
@@ -1789,12 +1789,12 @@ class InvoiceProcessingApi
      *
      * Submit a complete invoice (generation + signature + submission)
      *
-     * @param  \OpenAPI\Client\Model\SubmitCompleteInvoiceRequest $submit_complete_invoice_request (required)
+     * @param  \FactPulse\SDK\Model\SubmitCompleteInvoiceRequest $submit_complete_invoice_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitCompleteInvoiceApiV1ProcessingInvoicesSubmitCompletePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SubmitCompleteInvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\SubmitCompleteInvoiceResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function submitCompleteInvoiceApiV1ProcessingInvoicesSubmitCompletePostWithHttpInfo($submit_complete_invoice_request, string $contentType = self::contentTypes['submitCompleteInvoiceApiV1ProcessingInvoicesSubmitCompletePost'][0])
     {
@@ -1826,19 +1826,19 @@ class InvoiceProcessingApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\SubmitCompleteInvoiceResponse',
+                        '\FactPulse\SDK\Model\SubmitCompleteInvoiceResponse',
                         $request,
                         $response,
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -1860,7 +1860,7 @@ class InvoiceProcessingApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\SubmitCompleteInvoiceResponse',
+                '\FactPulse\SDK\Model\SubmitCompleteInvoiceResponse',
                 $request,
                 $response,
             );
@@ -1869,7 +1869,7 @@ class InvoiceProcessingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SubmitCompleteInvoiceResponse',
+                        '\FactPulse\SDK\Model\SubmitCompleteInvoiceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1877,7 +1877,7 @@ class InvoiceProcessingApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1885,7 +1885,7 @@ class InvoiceProcessingApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1902,7 +1902,7 @@ class InvoiceProcessingApi
      *
      * Submit a complete invoice (generation + signature + submission)
      *
-     * @param  \OpenAPI\Client\Model\SubmitCompleteInvoiceRequest $submit_complete_invoice_request (required)
+     * @param  \FactPulse\SDK\Model\SubmitCompleteInvoiceRequest $submit_complete_invoice_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitCompleteInvoiceApiV1ProcessingInvoicesSubmitCompletePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1923,7 +1923,7 @@ class InvoiceProcessingApi
      *
      * Submit a complete invoice (generation + signature + submission)
      *
-     * @param  \OpenAPI\Client\Model\SubmitCompleteInvoiceRequest $submit_complete_invoice_request (required)
+     * @param  \FactPulse\SDK\Model\SubmitCompleteInvoiceRequest $submit_complete_invoice_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitCompleteInvoiceApiV1ProcessingInvoicesSubmitCompletePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1931,7 +1931,7 @@ class InvoiceProcessingApi
      */
     public function submitCompleteInvoiceApiV1ProcessingInvoicesSubmitCompletePostAsyncWithHttpInfo($submit_complete_invoice_request, string $contentType = self::contentTypes['submitCompleteInvoiceApiV1ProcessingInvoicesSubmitCompletePost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\SubmitCompleteInvoiceResponse';
+        $returnType = '\FactPulse\SDK\Model\SubmitCompleteInvoiceResponse';
         $request = $this->submitCompleteInvoiceApiV1ProcessingInvoicesSubmitCompletePostRequest($submit_complete_invoice_request, $contentType);
 
         return $this->client
@@ -1973,7 +1973,7 @@ class InvoiceProcessingApi
     /**
      * Create request for operation 'submitCompleteInvoiceApiV1ProcessingInvoicesSubmitCompletePost'
      *
-     * @param  \OpenAPI\Client\Model\SubmitCompleteInvoiceRequest $submit_complete_invoice_request (required)
+     * @param  \FactPulse\SDK\Model\SubmitCompleteInvoiceRequest $submit_complete_invoice_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitCompleteInvoiceApiV1ProcessingInvoicesSubmitCompletePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2070,14 +2070,14 @@ class InvoiceProcessingApi
      *
      * Submit a complete invoice (asynchronous with Celery)
      *
-     * @param  \OpenAPI\Client\Model\SubmitCompleteInvoiceRequest $submit_complete_invoice_request submit_complete_invoice_request (required)
+     * @param  \FactPulse\SDK\Model\SubmitCompleteInvoiceRequest $submit_complete_invoice_request submit_complete_invoice_request (required)
      * @param  string|null $callback_url Webhook URL for async notification when submission completes. (optional)
      * @param  string|null $webhook_mode Webhook content delivery: &#39;inline&#39; (base64 in payload) or &#39;download_url&#39; (temporary URL, 1h TTL) (optional, default to 'inline')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitCompleteInvoiceAsyncApiV1ProcessingInvoicesSubmitCompleteAsyncPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\TaskResponse|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError
+     * @return \FactPulse\SDK\Model\TaskResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function submitCompleteInvoiceAsyncApiV1ProcessingInvoicesSubmitCompleteAsyncPost($submit_complete_invoice_request, $callback_url = null, $webhook_mode = 'inline', string $contentType = self::contentTypes['submitCompleteInvoiceAsyncApiV1ProcessingInvoicesSubmitCompleteAsyncPost'][0])
     {
@@ -2090,14 +2090,14 @@ class InvoiceProcessingApi
      *
      * Submit a complete invoice (asynchronous with Celery)
      *
-     * @param  \OpenAPI\Client\Model\SubmitCompleteInvoiceRequest $submit_complete_invoice_request (required)
+     * @param  \FactPulse\SDK\Model\SubmitCompleteInvoiceRequest $submit_complete_invoice_request (required)
      * @param  string|null $callback_url Webhook URL for async notification when submission completes. (optional)
      * @param  string|null $webhook_mode Webhook content delivery: &#39;inline&#39; (base64 in payload) or &#39;download_url&#39; (temporary URL, 1h TTL) (optional, default to 'inline')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitCompleteInvoiceAsyncApiV1ProcessingInvoicesSubmitCompleteAsyncPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\TaskResponse|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\TaskResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function submitCompleteInvoiceAsyncApiV1ProcessingInvoicesSubmitCompleteAsyncPostWithHttpInfo($submit_complete_invoice_request, $callback_url = null, $webhook_mode = 'inline', string $contentType = self::contentTypes['submitCompleteInvoiceAsyncApiV1ProcessingInvoicesSubmitCompleteAsyncPost'][0])
     {
@@ -2129,19 +2129,19 @@ class InvoiceProcessingApi
             switch($statusCode) {
                 case 202:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\TaskResponse',
+                        '\FactPulse\SDK\Model\TaskResponse',
                         $request,
                         $response,
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -2163,7 +2163,7 @@ class InvoiceProcessingApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\TaskResponse',
+                '\FactPulse\SDK\Model\TaskResponse',
                 $request,
                 $response,
             );
@@ -2172,7 +2172,7 @@ class InvoiceProcessingApi
                 case 202:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\TaskResponse',
+                        '\FactPulse\SDK\Model\TaskResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2180,7 +2180,7 @@ class InvoiceProcessingApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2188,7 +2188,7 @@ class InvoiceProcessingApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2205,7 +2205,7 @@ class InvoiceProcessingApi
      *
      * Submit a complete invoice (asynchronous with Celery)
      *
-     * @param  \OpenAPI\Client\Model\SubmitCompleteInvoiceRequest $submit_complete_invoice_request (required)
+     * @param  \FactPulse\SDK\Model\SubmitCompleteInvoiceRequest $submit_complete_invoice_request (required)
      * @param  string|null $callback_url Webhook URL for async notification when submission completes. (optional)
      * @param  string|null $webhook_mode Webhook content delivery: &#39;inline&#39; (base64 in payload) or &#39;download_url&#39; (temporary URL, 1h TTL) (optional, default to 'inline')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitCompleteInvoiceAsyncApiV1ProcessingInvoicesSubmitCompleteAsyncPost'] to see the possible values for this operation
@@ -2228,7 +2228,7 @@ class InvoiceProcessingApi
      *
      * Submit a complete invoice (asynchronous with Celery)
      *
-     * @param  \OpenAPI\Client\Model\SubmitCompleteInvoiceRequest $submit_complete_invoice_request (required)
+     * @param  \FactPulse\SDK\Model\SubmitCompleteInvoiceRequest $submit_complete_invoice_request (required)
      * @param  string|null $callback_url Webhook URL for async notification when submission completes. (optional)
      * @param  string|null $webhook_mode Webhook content delivery: &#39;inline&#39; (base64 in payload) or &#39;download_url&#39; (temporary URL, 1h TTL) (optional, default to 'inline')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitCompleteInvoiceAsyncApiV1ProcessingInvoicesSubmitCompleteAsyncPost'] to see the possible values for this operation
@@ -2238,7 +2238,7 @@ class InvoiceProcessingApi
      */
     public function submitCompleteInvoiceAsyncApiV1ProcessingInvoicesSubmitCompleteAsyncPostAsyncWithHttpInfo($submit_complete_invoice_request, $callback_url = null, $webhook_mode = 'inline', string $contentType = self::contentTypes['submitCompleteInvoiceAsyncApiV1ProcessingInvoicesSubmitCompleteAsyncPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\TaskResponse';
+        $returnType = '\FactPulse\SDK\Model\TaskResponse';
         $request = $this->submitCompleteInvoiceAsyncApiV1ProcessingInvoicesSubmitCompleteAsyncPostRequest($submit_complete_invoice_request, $callback_url, $webhook_mode, $contentType);
 
         return $this->client
@@ -2280,7 +2280,7 @@ class InvoiceProcessingApi
     /**
      * Create request for operation 'submitCompleteInvoiceAsyncApiV1ProcessingInvoicesSubmitCompleteAsyncPost'
      *
-     * @param  \OpenAPI\Client\Model\SubmitCompleteInvoiceRequest $submit_complete_invoice_request (required)
+     * @param  \FactPulse\SDK\Model\SubmitCompleteInvoiceRequest $submit_complete_invoice_request (required)
      * @param  string|null $callback_url Webhook URL for async notification when submission completes. (optional)
      * @param  string|null $webhook_mode Webhook content delivery: &#39;inline&#39; (base64 in payload) or &#39;download_url&#39; (temporary URL, 1h TTL) (optional, default to 'inline')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitCompleteInvoiceAsyncApiV1ProcessingInvoicesSubmitCompleteAsyncPost'] to see the possible values for this operation
@@ -2400,14 +2400,14 @@ class InvoiceProcessingApi
      * Validate a complete Factur-X PDF
      *
      * @param  \SplFileObject $pdf_file Factur-X PDF file to validate (.pdf format). (required)
-     * @param  \OpenAPI\Client\Model\APIProfile|null $profile profile (optional)
+     * @param  \FactPulse\SDK\Model\APIProfile|null $profile profile (optional)
      * @param  bool|null $use_verapdf Enable strict PDF/A validation with VeraPDF (recommended for production). If False, uses basic metadata validation. (optional, default to false)
      * @param  bool|null $skip_br_fr skip_br_fr (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateFacturxPdfApiV1ProcessingValidateFacturxPdfPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\PDFValidationResultAPI|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError
+     * @return \FactPulse\SDK\Model\PDFValidationResultAPI|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function validateFacturxPdfApiV1ProcessingValidateFacturxPdfPost($pdf_file, $profile = null, $use_verapdf = false, $skip_br_fr = null, string $contentType = self::contentTypes['validateFacturxPdfApiV1ProcessingValidateFacturxPdfPost'][0])
     {
@@ -2421,14 +2421,14 @@ class InvoiceProcessingApi
      * Validate a complete Factur-X PDF
      *
      * @param  \SplFileObject $pdf_file Factur-X PDF file to validate (.pdf format). (required)
-     * @param  \OpenAPI\Client\Model\APIProfile|null $profile (optional)
+     * @param  \FactPulse\SDK\Model\APIProfile|null $profile (optional)
      * @param  bool|null $use_verapdf Enable strict PDF/A validation with VeraPDF (recommended for production). If False, uses basic metadata validation. (optional, default to false)
      * @param  bool|null $skip_br_fr (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateFacturxPdfApiV1ProcessingValidateFacturxPdfPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\PDFValidationResultAPI|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\PDFValidationResultAPI|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function validateFacturxPdfApiV1ProcessingValidateFacturxPdfPostWithHttpInfo($pdf_file, $profile = null, $use_verapdf = false, $skip_br_fr = null, string $contentType = self::contentTypes['validateFacturxPdfApiV1ProcessingValidateFacturxPdfPost'][0])
     {
@@ -2460,19 +2460,19 @@ class InvoiceProcessingApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\PDFValidationResultAPI',
+                        '\FactPulse\SDK\Model\PDFValidationResultAPI',
                         $request,
                         $response,
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -2494,7 +2494,7 @@ class InvoiceProcessingApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\PDFValidationResultAPI',
+                '\FactPulse\SDK\Model\PDFValidationResultAPI',
                 $request,
                 $response,
             );
@@ -2503,7 +2503,7 @@ class InvoiceProcessingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\PDFValidationResultAPI',
+                        '\FactPulse\SDK\Model\PDFValidationResultAPI',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2511,7 +2511,7 @@ class InvoiceProcessingApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2519,7 +2519,7 @@ class InvoiceProcessingApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2537,7 +2537,7 @@ class InvoiceProcessingApi
      * Validate a complete Factur-X PDF
      *
      * @param  \SplFileObject $pdf_file Factur-X PDF file to validate (.pdf format). (required)
-     * @param  \OpenAPI\Client\Model\APIProfile|null $profile (optional)
+     * @param  \FactPulse\SDK\Model\APIProfile|null $profile (optional)
      * @param  bool|null $use_verapdf Enable strict PDF/A validation with VeraPDF (recommended for production). If False, uses basic metadata validation. (optional, default to false)
      * @param  bool|null $skip_br_fr (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateFacturxPdfApiV1ProcessingValidateFacturxPdfPost'] to see the possible values for this operation
@@ -2561,7 +2561,7 @@ class InvoiceProcessingApi
      * Validate a complete Factur-X PDF
      *
      * @param  \SplFileObject $pdf_file Factur-X PDF file to validate (.pdf format). (required)
-     * @param  \OpenAPI\Client\Model\APIProfile|null $profile (optional)
+     * @param  \FactPulse\SDK\Model\APIProfile|null $profile (optional)
      * @param  bool|null $use_verapdf Enable strict PDF/A validation with VeraPDF (recommended for production). If False, uses basic metadata validation. (optional, default to false)
      * @param  bool|null $skip_br_fr (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateFacturxPdfApiV1ProcessingValidateFacturxPdfPost'] to see the possible values for this operation
@@ -2571,7 +2571,7 @@ class InvoiceProcessingApi
      */
     public function validateFacturxPdfApiV1ProcessingValidateFacturxPdfPostAsyncWithHttpInfo($pdf_file, $profile = null, $use_verapdf = false, $skip_br_fr = null, string $contentType = self::contentTypes['validateFacturxPdfApiV1ProcessingValidateFacturxPdfPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\PDFValidationResultAPI';
+        $returnType = '\FactPulse\SDK\Model\PDFValidationResultAPI';
         $request = $this->validateFacturxPdfApiV1ProcessingValidateFacturxPdfPostRequest($pdf_file, $profile, $use_verapdf, $skip_br_fr, $contentType);
 
         return $this->client
@@ -2614,7 +2614,7 @@ class InvoiceProcessingApi
      * Create request for operation 'validateFacturxPdfApiV1ProcessingValidateFacturxPdfPost'
      *
      * @param  \SplFileObject $pdf_file Factur-X PDF file to validate (.pdf format). (required)
-     * @param  \OpenAPI\Client\Model\APIProfile|null $profile (optional)
+     * @param  \FactPulse\SDK\Model\APIProfile|null $profile (optional)
      * @param  bool|null $use_verapdf Enable strict PDF/A validation with VeraPDF (recommended for production). If False, uses basic metadata validation. (optional, default to false)
      * @param  bool|null $skip_br_fr (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateFacturxPdfApiV1ProcessingValidateFacturxPdfPost'] to see the possible values for this operation
@@ -2723,15 +2723,15 @@ class InvoiceProcessingApi
      * Validate a Factur-X PDF (asynchronous with polling)
      *
      * @param  \SplFileObject $pdf_file Factur-X PDF file to validate (.pdf format). (required)
-     * @param  \OpenAPI\Client\Model\APIProfile|null $profile profile (optional)
+     * @param  \FactPulse\SDK\Model\APIProfile|null $profile profile (optional)
      * @param  bool|null $use_verapdf Enable strict PDF/A validation with VeraPDF (recommended for production). May take several seconds. (optional, default to false)
      * @param  string|null $callback_url callback_url (optional)
      * @param  string|null $webhook_mode Webhook content delivery: &#39;inline&#39; (base64 in payload) or &#39;download_url&#39; (temporary URL, 1h TTL) (optional, default to 'inline')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateFacturxPdfAsyncApiV1ProcessingValidateFacturxAsyncPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\TaskResponse|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError
+     * @return \FactPulse\SDK\Model\TaskResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function validateFacturxPdfAsyncApiV1ProcessingValidateFacturxAsyncPost($pdf_file, $profile = null, $use_verapdf = false, $callback_url = null, $webhook_mode = 'inline', string $contentType = self::contentTypes['validateFacturxPdfAsyncApiV1ProcessingValidateFacturxAsyncPost'][0])
     {
@@ -2745,15 +2745,15 @@ class InvoiceProcessingApi
      * Validate a Factur-X PDF (asynchronous with polling)
      *
      * @param  \SplFileObject $pdf_file Factur-X PDF file to validate (.pdf format). (required)
-     * @param  \OpenAPI\Client\Model\APIProfile|null $profile (optional)
+     * @param  \FactPulse\SDK\Model\APIProfile|null $profile (optional)
      * @param  bool|null $use_verapdf Enable strict PDF/A validation with VeraPDF (recommended for production). May take several seconds. (optional, default to false)
      * @param  string|null $callback_url (optional)
      * @param  string|null $webhook_mode Webhook content delivery: &#39;inline&#39; (base64 in payload) or &#39;download_url&#39; (temporary URL, 1h TTL) (optional, default to 'inline')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateFacturxPdfAsyncApiV1ProcessingValidateFacturxAsyncPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\TaskResponse|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\TaskResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function validateFacturxPdfAsyncApiV1ProcessingValidateFacturxAsyncPostWithHttpInfo($pdf_file, $profile = null, $use_verapdf = false, $callback_url = null, $webhook_mode = 'inline', string $contentType = self::contentTypes['validateFacturxPdfAsyncApiV1ProcessingValidateFacturxAsyncPost'][0])
     {
@@ -2785,19 +2785,19 @@ class InvoiceProcessingApi
             switch($statusCode) {
                 case 202:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\TaskResponse',
+                        '\FactPulse\SDK\Model\TaskResponse',
                         $request,
                         $response,
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -2819,7 +2819,7 @@ class InvoiceProcessingApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\TaskResponse',
+                '\FactPulse\SDK\Model\TaskResponse',
                 $request,
                 $response,
             );
@@ -2828,7 +2828,7 @@ class InvoiceProcessingApi
                 case 202:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\TaskResponse',
+                        '\FactPulse\SDK\Model\TaskResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2836,7 +2836,7 @@ class InvoiceProcessingApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2844,7 +2844,7 @@ class InvoiceProcessingApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2862,7 +2862,7 @@ class InvoiceProcessingApi
      * Validate a Factur-X PDF (asynchronous with polling)
      *
      * @param  \SplFileObject $pdf_file Factur-X PDF file to validate (.pdf format). (required)
-     * @param  \OpenAPI\Client\Model\APIProfile|null $profile (optional)
+     * @param  \FactPulse\SDK\Model\APIProfile|null $profile (optional)
      * @param  bool|null $use_verapdf Enable strict PDF/A validation with VeraPDF (recommended for production). May take several seconds. (optional, default to false)
      * @param  string|null $callback_url (optional)
      * @param  string|null $webhook_mode Webhook content delivery: &#39;inline&#39; (base64 in payload) or &#39;download_url&#39; (temporary URL, 1h TTL) (optional, default to 'inline')
@@ -2887,7 +2887,7 @@ class InvoiceProcessingApi
      * Validate a Factur-X PDF (asynchronous with polling)
      *
      * @param  \SplFileObject $pdf_file Factur-X PDF file to validate (.pdf format). (required)
-     * @param  \OpenAPI\Client\Model\APIProfile|null $profile (optional)
+     * @param  \FactPulse\SDK\Model\APIProfile|null $profile (optional)
      * @param  bool|null $use_verapdf Enable strict PDF/A validation with VeraPDF (recommended for production). May take several seconds. (optional, default to false)
      * @param  string|null $callback_url (optional)
      * @param  string|null $webhook_mode Webhook content delivery: &#39;inline&#39; (base64 in payload) or &#39;download_url&#39; (temporary URL, 1h TTL) (optional, default to 'inline')
@@ -2898,7 +2898,7 @@ class InvoiceProcessingApi
      */
     public function validateFacturxPdfAsyncApiV1ProcessingValidateFacturxAsyncPostAsyncWithHttpInfo($pdf_file, $profile = null, $use_verapdf = false, $callback_url = null, $webhook_mode = 'inline', string $contentType = self::contentTypes['validateFacturxPdfAsyncApiV1ProcessingValidateFacturxAsyncPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\TaskResponse';
+        $returnType = '\FactPulse\SDK\Model\TaskResponse';
         $request = $this->validateFacturxPdfAsyncApiV1ProcessingValidateFacturxAsyncPostRequest($pdf_file, $profile, $use_verapdf, $callback_url, $webhook_mode, $contentType);
 
         return $this->client
@@ -2941,7 +2941,7 @@ class InvoiceProcessingApi
      * Create request for operation 'validateFacturxPdfAsyncApiV1ProcessingValidateFacturxAsyncPost'
      *
      * @param  \SplFileObject $pdf_file Factur-X PDF file to validate (.pdf format). (required)
-     * @param  \OpenAPI\Client\Model\APIProfile|null $profile (optional)
+     * @param  \FactPulse\SDK\Model\APIProfile|null $profile (optional)
      * @param  bool|null $use_verapdf Enable strict PDF/A validation with VeraPDF (recommended for production). May take several seconds. (optional, default to false)
      * @param  string|null $callback_url (optional)
      * @param  string|null $webhook_mode Webhook content delivery: &#39;inline&#39; (base64 in payload) or &#39;download_url&#39; (temporary URL, 1h TTL) (optional, default to 'inline')
@@ -3055,9 +3055,9 @@ class InvoiceProcessingApi
      * @param  \SplFileObject $pdf_file PDF file to validate (will be analyzed to detect and validate signatures) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validatePdfSignatureEndpointApiV1ProcessingValidatePdfSignaturePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return mixed|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError
+     * @return mixed|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function validatePdfSignatureEndpointApiV1ProcessingValidatePdfSignaturePost($pdf_file, string $contentType = self::contentTypes['validatePdfSignatureEndpointApiV1ProcessingValidatePdfSignaturePost'][0])
     {
@@ -3073,9 +3073,9 @@ class InvoiceProcessingApi
      * @param  \SplFileObject $pdf_file PDF file to validate (will be analyzed to detect and validate signatures) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validatePdfSignatureEndpointApiV1ProcessingValidatePdfSignaturePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of mixed|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of mixed|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function validatePdfSignatureEndpointApiV1ProcessingValidatePdfSignaturePostWithHttpInfo($pdf_file, string $contentType = self::contentTypes['validatePdfSignatureEndpointApiV1ProcessingValidatePdfSignaturePost'][0])
     {
@@ -3113,13 +3113,13 @@ class InvoiceProcessingApi
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -3158,7 +3158,7 @@ class InvoiceProcessingApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3166,7 +3166,7 @@ class InvoiceProcessingApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3355,13 +3355,13 @@ class InvoiceProcessingApi
      * Validate an existing Factur-X XML
      *
      * @param  \SplFileObject $xml_file Factur-X XML file to validate (.xml format). (required)
-     * @param  \OpenAPI\Client\Model\APIProfile|null $profile Validation profile (MINIMUM, BASIC, EN16931, EXTENDED). (optional)
+     * @param  \FactPulse\SDK\Model\APIProfile|null $profile Validation profile (MINIMUM, BASIC, EN16931, EXTENDED). (optional)
      * @param  bool|null $skip_br_fr skip_br_fr (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateXmlApiV1ProcessingValidateXmlPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ValidationSuccessResponse|\OpenAPI\Client\Model\ValidationErrorResponse|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError
+     * @return \FactPulse\SDK\Model\ValidationSuccessResponse|\FactPulse\SDK\Model\ValidationErrorResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function validateXmlApiV1ProcessingValidateXmlPost($xml_file, $profile = null, $skip_br_fr = null, string $contentType = self::contentTypes['validateXmlApiV1ProcessingValidateXmlPost'][0])
     {
@@ -3375,13 +3375,13 @@ class InvoiceProcessingApi
      * Validate an existing Factur-X XML
      *
      * @param  \SplFileObject $xml_file Factur-X XML file to validate (.xml format). (required)
-     * @param  \OpenAPI\Client\Model\APIProfile|null $profile Validation profile (MINIMUM, BASIC, EN16931, EXTENDED). (optional)
+     * @param  \FactPulse\SDK\Model\APIProfile|null $profile Validation profile (MINIMUM, BASIC, EN16931, EXTENDED). (optional)
      * @param  bool|null $skip_br_fr (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateXmlApiV1ProcessingValidateXmlPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ValidationSuccessResponse|\OpenAPI\Client\Model\ValidationErrorResponse|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\ValidationSuccessResponse|\FactPulse\SDK\Model\ValidationErrorResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function validateXmlApiV1ProcessingValidateXmlPostWithHttpInfo($xml_file, $profile = null, $skip_br_fr = null, string $contentType = self::contentTypes['validateXmlApiV1ProcessingValidateXmlPost'][0])
     {
@@ -3413,25 +3413,25 @@ class InvoiceProcessingApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\ValidationSuccessResponse',
+                        '\FactPulse\SDK\Model\ValidationSuccessResponse',
                         $request,
                         $response,
                     );
                 case 400:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\ValidationErrorResponse',
+                        '\FactPulse\SDK\Model\ValidationErrorResponse',
                         $request,
                         $response,
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -3453,7 +3453,7 @@ class InvoiceProcessingApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\ValidationSuccessResponse',
+                '\FactPulse\SDK\Model\ValidationSuccessResponse',
                 $request,
                 $response,
             );
@@ -3462,7 +3462,7 @@ class InvoiceProcessingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ValidationSuccessResponse',
+                        '\FactPulse\SDK\Model\ValidationSuccessResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3470,7 +3470,7 @@ class InvoiceProcessingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ValidationErrorResponse',
+                        '\FactPulse\SDK\Model\ValidationErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3478,7 +3478,7 @@ class InvoiceProcessingApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3486,7 +3486,7 @@ class InvoiceProcessingApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3504,7 +3504,7 @@ class InvoiceProcessingApi
      * Validate an existing Factur-X XML
      *
      * @param  \SplFileObject $xml_file Factur-X XML file to validate (.xml format). (required)
-     * @param  \OpenAPI\Client\Model\APIProfile|null $profile Validation profile (MINIMUM, BASIC, EN16931, EXTENDED). (optional)
+     * @param  \FactPulse\SDK\Model\APIProfile|null $profile Validation profile (MINIMUM, BASIC, EN16931, EXTENDED). (optional)
      * @param  bool|null $skip_br_fr (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateXmlApiV1ProcessingValidateXmlPost'] to see the possible values for this operation
      *
@@ -3527,7 +3527,7 @@ class InvoiceProcessingApi
      * Validate an existing Factur-X XML
      *
      * @param  \SplFileObject $xml_file Factur-X XML file to validate (.xml format). (required)
-     * @param  \OpenAPI\Client\Model\APIProfile|null $profile Validation profile (MINIMUM, BASIC, EN16931, EXTENDED). (optional)
+     * @param  \FactPulse\SDK\Model\APIProfile|null $profile Validation profile (MINIMUM, BASIC, EN16931, EXTENDED). (optional)
      * @param  bool|null $skip_br_fr (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateXmlApiV1ProcessingValidateXmlPost'] to see the possible values for this operation
      *
@@ -3536,7 +3536,7 @@ class InvoiceProcessingApi
      */
     public function validateXmlApiV1ProcessingValidateXmlPostAsyncWithHttpInfo($xml_file, $profile = null, $skip_br_fr = null, string $contentType = self::contentTypes['validateXmlApiV1ProcessingValidateXmlPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\ValidationSuccessResponse';
+        $returnType = '\FactPulse\SDK\Model\ValidationSuccessResponse';
         $request = $this->validateXmlApiV1ProcessingValidateXmlPostRequest($xml_file, $profile, $skip_br_fr, $contentType);
 
         return $this->client
@@ -3579,7 +3579,7 @@ class InvoiceProcessingApi
      * Create request for operation 'validateXmlApiV1ProcessingValidateXmlPost'
      *
      * @param  \SplFileObject $xml_file Factur-X XML file to validate (.xml format). (required)
-     * @param  \OpenAPI\Client\Model\APIProfile|null $profile Validation profile (MINIMUM, BASIC, EN16931, EXTENDED). (optional)
+     * @param  \FactPulse\SDK\Model\APIProfile|null $profile Validation profile (MINIMUM, BASIC, EN16931, EXTENDED). (optional)
      * @param  bool|null $skip_br_fr (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateXmlApiV1ProcessingValidateXmlPost'] to see the possible values for this operation
      *

@@ -4,7 +4,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace FactPulse\SDK\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -37,17 +37,17 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\FormDataProcessor;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use FactPulse\SDK\ApiException;
+use FactPulse\SDK\Configuration;
+use FactPulse\SDK\FormDataProcessor;
+use FactPulse\SDK\HeaderSelector;
+use FactPulse\SDK\ObjectSerializer;
 
 /**
  * DocumentConversionApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -146,9 +146,9 @@ class DocumentConversionApi
      * @param  string|null $webhook_mode Mode de livraison du contenu: &#39;inline&#39; (base64 dans webhook) ou &#39;download_url&#39; (URL temporaire 1h) (optional, default to 'inline')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['convertDocumentAsyncApiV1ConvertAsyncPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return mixed|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError
+     * @return mixed|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function convertDocumentAsyncApiV1ConvertAsyncPost($file, $output = 'pdf', $callback_url = null, $webhook_mode = 'inline', string $contentType = self::contentTypes['convertDocumentAsyncApiV1ConvertAsyncPost'][0])
     {
@@ -167,9 +167,9 @@ class DocumentConversionApi
      * @param  string|null $webhook_mode Mode de livraison du contenu: &#39;inline&#39; (base64 dans webhook) ou &#39;download_url&#39; (URL temporaire 1h) (optional, default to 'inline')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['convertDocumentAsyncApiV1ConvertAsyncPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of mixed|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of mixed|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function convertDocumentAsyncApiV1ConvertAsyncPostWithHttpInfo($file, $output = 'pdf', $callback_url = null, $webhook_mode = 'inline', string $contentType = self::contentTypes['convertDocumentAsyncApiV1ConvertAsyncPost'][0])
     {
@@ -207,13 +207,13 @@ class DocumentConversionApi
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -252,7 +252,7 @@ class DocumentConversionApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -260,7 +260,7 @@ class DocumentConversionApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -467,9 +467,9 @@ class DocumentConversionApi
      * @param  string $filename File to download: &#39;facturx.pdf&#39; or &#39;facturx.xml&#39; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadFileApiV1ConvertConversionIdDownloadFilenameGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return mixed|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError
+     * @return mixed|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function downloadFileApiV1ConvertConversionIdDownloadFilenameGet($conversion_id, $filename, string $contentType = self::contentTypes['downloadFileApiV1ConvertConversionIdDownloadFilenameGet'][0])
     {
@@ -486,9 +486,9 @@ class DocumentConversionApi
      * @param  string $filename File to download: &#39;facturx.pdf&#39; or &#39;facturx.xml&#39; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadFileApiV1ConvertConversionIdDownloadFilenameGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of mixed|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of mixed|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function downloadFileApiV1ConvertConversionIdDownloadFilenameGetWithHttpInfo($conversion_id, $filename, string $contentType = self::contentTypes['downloadFileApiV1ConvertConversionIdDownloadFilenameGet'][0])
     {
@@ -526,13 +526,13 @@ class DocumentConversionApi
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -571,7 +571,7 @@ class DocumentConversionApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -579,7 +579,7 @@ class DocumentConversionApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -786,9 +786,9 @@ class DocumentConversionApi
      * @param  string $conversion_id Conversion ID returned by POST /convert (UUID format) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getConversionStatusApiV1ConvertConversionIdStatusGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array<string,mixed>|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError
+     * @return array<string,mixed>|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function getConversionStatusApiV1ConvertConversionIdStatusGet($conversion_id, string $contentType = self::contentTypes['getConversionStatusApiV1ConvertConversionIdStatusGet'][0])
     {
@@ -804,9 +804,9 @@ class DocumentConversionApi
      * @param  string $conversion_id Conversion ID returned by POST /convert (UUID format) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getConversionStatusApiV1ConvertConversionIdStatusGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of array<string,mixed>|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of array<string,mixed>|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getConversionStatusApiV1ConvertConversionIdStatusGetWithHttpInfo($conversion_id, string $contentType = self::contentTypes['getConversionStatusApiV1ConvertConversionIdStatusGet'][0])
     {
@@ -844,13 +844,13 @@ class DocumentConversionApi
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -889,7 +889,7 @@ class DocumentConversionApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -897,7 +897,7 @@ class DocumentConversionApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1084,12 +1084,12 @@ class DocumentConversionApi
      * Reprendre une conversion avec corrections
      *
      * @param  string $conversion_id Conversion ID returned by POST /convert (UUID format) (required)
-     * @param  \OpenAPI\Client\Model\ConvertResumeRequest $convert_resume_request convert_resume_request (required)
+     * @param  \FactPulse\SDK\Model\ConvertResumeRequest $convert_resume_request convert_resume_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resumeConversionApiV1ConvertConversionIdResumePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ConvertSuccessResponse|\OpenAPI\Client\Model\ConvertValidationFailedResponse|\OpenAPI\Client\Model\APIError
+     * @return \FactPulse\SDK\Model\ConvertSuccessResponse|\FactPulse\SDK\Model\ConvertValidationFailedResponse|\FactPulse\SDK\Model\APIError
      */
     public function resumeConversionApiV1ConvertConversionIdResumePost($conversion_id, $convert_resume_request, string $contentType = self::contentTypes['resumeConversionApiV1ConvertConversionIdResumePost'][0])
     {
@@ -1103,12 +1103,12 @@ class DocumentConversionApi
      * Reprendre une conversion avec corrections
      *
      * @param  string $conversion_id Conversion ID returned by POST /convert (UUID format) (required)
-     * @param  \OpenAPI\Client\Model\ConvertResumeRequest $convert_resume_request (required)
+     * @param  \FactPulse\SDK\Model\ConvertResumeRequest $convert_resume_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resumeConversionApiV1ConvertConversionIdResumePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ConvertSuccessResponse|\OpenAPI\Client\Model\ConvertValidationFailedResponse|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\ConvertSuccessResponse|\FactPulse\SDK\Model\ConvertValidationFailedResponse|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function resumeConversionApiV1ConvertConversionIdResumePostWithHttpInfo($conversion_id, $convert_resume_request, string $contentType = self::contentTypes['resumeConversionApiV1ConvertConversionIdResumePost'][0])
     {
@@ -1140,19 +1140,19 @@ class DocumentConversionApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\ConvertSuccessResponse',
+                        '\FactPulse\SDK\Model\ConvertSuccessResponse',
                         $request,
                         $response,
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\ConvertValidationFailedResponse',
+                        '\FactPulse\SDK\Model\ConvertValidationFailedResponse',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -1174,7 +1174,7 @@ class DocumentConversionApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\ConvertSuccessResponse',
+                '\FactPulse\SDK\Model\ConvertSuccessResponse',
                 $request,
                 $response,
             );
@@ -1183,7 +1183,7 @@ class DocumentConversionApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ConvertSuccessResponse',
+                        '\FactPulse\SDK\Model\ConvertSuccessResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1191,7 +1191,7 @@ class DocumentConversionApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ConvertValidationFailedResponse',
+                        '\FactPulse\SDK\Model\ConvertValidationFailedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1199,7 +1199,7 @@ class DocumentConversionApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1217,7 +1217,7 @@ class DocumentConversionApi
      * Reprendre une conversion avec corrections
      *
      * @param  string $conversion_id Conversion ID returned by POST /convert (UUID format) (required)
-     * @param  \OpenAPI\Client\Model\ConvertResumeRequest $convert_resume_request (required)
+     * @param  \FactPulse\SDK\Model\ConvertResumeRequest $convert_resume_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resumeConversionApiV1ConvertConversionIdResumePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1239,7 +1239,7 @@ class DocumentConversionApi
      * Reprendre une conversion avec corrections
      *
      * @param  string $conversion_id Conversion ID returned by POST /convert (UUID format) (required)
-     * @param  \OpenAPI\Client\Model\ConvertResumeRequest $convert_resume_request (required)
+     * @param  \FactPulse\SDK\Model\ConvertResumeRequest $convert_resume_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resumeConversionApiV1ConvertConversionIdResumePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1247,7 +1247,7 @@ class DocumentConversionApi
      */
     public function resumeConversionApiV1ConvertConversionIdResumePostAsyncWithHttpInfo($conversion_id, $convert_resume_request, string $contentType = self::contentTypes['resumeConversionApiV1ConvertConversionIdResumePost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\ConvertSuccessResponse';
+        $returnType = '\FactPulse\SDK\Model\ConvertSuccessResponse';
         $request = $this->resumeConversionApiV1ConvertConversionIdResumePostRequest($conversion_id, $convert_resume_request, $contentType);
 
         return $this->client
@@ -1290,7 +1290,7 @@ class DocumentConversionApi
      * Create request for operation 'resumeConversionApiV1ConvertConversionIdResumePost'
      *
      * @param  string $conversion_id Conversion ID returned by POST /convert (UUID format) (required)
-     * @param  \OpenAPI\Client\Model\ConvertResumeRequest $convert_resume_request (required)
+     * @param  \FactPulse\SDK\Model\ConvertResumeRequest $convert_resume_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resumeConversionApiV1ConvertConversionIdResumePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

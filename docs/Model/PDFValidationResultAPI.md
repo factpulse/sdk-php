@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **xmp_metadata** | **array<string,mixed>** | XMP metadata extracted from PDF | [optional]
 **is_signed** | **bool** | True if PDF contains at least one signature |
 **signature_count** | **int** | Number of electronic signatures found | [optional] [default to 0]
-**signatures** | [**\OpenAPI\Client\Model\SignatureInfoAPI[]**](SignatureInfoAPI.md) | List of found signatures with their information | [optional]
+**signatures** | [**\FactPulse\SDK\Model\SignatureInfoAPI[]**](SignatureInfoAPI.md) | List of found signatures with their information | [optional]
 **signature_errors** | **string[]** | List of errors during signature analysis | [optional]
 **summary_message** | **string** | Message summarizing the validation result |
 

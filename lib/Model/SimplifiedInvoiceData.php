@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * SimplifiedInvoiceData Class Doc Comment
  *
  * @category Class
  * @description Simplified invoice data (minimal format for auto-enrichment).
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -68,10 +68,10 @@ class SimplifiedInvoiceData implements ModelInterface, ArrayAccess, \JsonSeriali
         'comment' => 'string',
         'purchase_order_reference' => 'string',
         'contract_reference' => 'string',
-        'invoice_type' => '\OpenAPI\Client\Model\InvoiceTypeCode',
+        'invoice_type' => '\FactPulse\SDK\Model\InvoiceTypeCode',
         'preceding_invoice_reference' => 'string',
-        'operation_nature' => '\OpenAPI\Client\Model\OperationNature',
-        'invoicing_framework' => '\OpenAPI\Client\Model\InvoicingFrameworkCode'
+        'operation_nature' => '\FactPulse\SDK\Model\OperationNature',
+        'invoicing_framework' => '\FactPulse\SDK\Model\InvoicingFrameworkCode'
     ];
 
     /**
@@ -686,7 +686,7 @@ class SimplifiedInvoiceData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets invoice_type
      *
-     * @return \OpenAPI\Client\Model\InvoiceTypeCode|null
+     * @return \FactPulse\SDK\Model\InvoiceTypeCode|null
      */
     public function getInvoiceType()
     {
@@ -696,7 +696,7 @@ class SimplifiedInvoiceData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets invoice_type
      *
-     * @param \OpenAPI\Client\Model\InvoiceTypeCode|null $invoice_type Document type (UNTDID 1001). Default: 380 (Invoice).
+     * @param \FactPulse\SDK\Model\InvoiceTypeCode|null $invoice_type Document type (UNTDID 1001). Default: 380 (Invoice).
      *
      * @return self
      */
@@ -747,7 +747,7 @@ class SimplifiedInvoiceData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets operation_nature
      *
-     * @return \OpenAPI\Client\Model\OperationNature|null
+     * @return \FactPulse\SDK\Model\OperationNature|null
      */
     public function getOperationNature()
     {
@@ -757,7 +757,7 @@ class SimplifiedInvoiceData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets operation_nature
      *
-     * @param \OpenAPI\Client\Model\OperationNature|null $operation_nature operation_nature
+     * @param \FactPulse\SDK\Model\OperationNature|null $operation_nature operation_nature
      *
      * @return self
      */
@@ -781,7 +781,7 @@ class SimplifiedInvoiceData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets invoicing_framework
      *
-     * @return \OpenAPI\Client\Model\InvoicingFrameworkCode|null
+     * @return \FactPulse\SDK\Model\InvoicingFrameworkCode|null
      */
     public function getInvoicingFramework()
     {
@@ -791,7 +791,7 @@ class SimplifiedInvoiceData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets invoicing_framework
      *
-     * @param \OpenAPI\Client\Model\InvoicingFrameworkCode|null $invoicing_framework invoicing_framework
+     * @param \FactPulse\SDK\Model\InvoicingFrameworkCode|null $invoicing_framework invoicing_framework
      *
      * @return self
      */

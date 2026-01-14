@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * MandatoryNoteSchema Class Doc Comment
  *
  * @category Class
  * @description Mandatory note detected with location and XML/PDF comparison.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -63,9 +63,9 @@ class MandatoryNoteSchema implements ModelInterface, ArrayAccess, \JsonSerializa
         'label' => 'string',
         'pdf_value' => 'string',
         'xml_value' => 'string',
-        'status' => '\OpenAPI\Client\Model\FieldStatus',
+        'status' => '\FactPulse\SDK\Model\FieldStatus',
         'message' => 'string',
-        'bbox' => '\OpenAPI\Client\Model\BoundingBoxSchema'
+        'bbox' => '\FactPulse\SDK\Model\BoundingBoxSchema'
     ];
 
     /**
@@ -464,7 +464,7 @@ class MandatoryNoteSchema implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets status
      *
-     * @return \OpenAPI\Client\Model\FieldStatus|null
+     * @return \FactPulse\SDK\Model\FieldStatus|null
      */
     public function getStatus()
     {
@@ -474,7 +474,7 @@ class MandatoryNoteSchema implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets status
      *
-     * @param \OpenAPI\Client\Model\FieldStatus|null $status Compliance status (COMPLIANT if XML found in PDF)
+     * @param \FactPulse\SDK\Model\FieldStatus|null $status Compliance status (COMPLIANT if XML found in PDF)
      *
      * @return self
      */
@@ -525,7 +525,7 @@ class MandatoryNoteSchema implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets bbox
      *
-     * @return \OpenAPI\Client\Model\BoundingBoxSchema|null
+     * @return \FactPulse\SDK\Model\BoundingBoxSchema|null
      */
     public function getBbox()
     {
@@ -535,7 +535,7 @@ class MandatoryNoteSchema implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets bbox
      *
-     * @param \OpenAPI\Client\Model\BoundingBoxSchema|null $bbox bbox
+     * @param \FactPulse\SDK\Model\BoundingBoxSchema|null $bbox bbox
      *
      * @return self
      */

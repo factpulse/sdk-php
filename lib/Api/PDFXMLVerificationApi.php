@@ -4,7 +4,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace FactPulse\SDK\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -37,17 +37,17 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\FormDataProcessor;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use FactPulse\SDK\ApiException;
+use FactPulse\SDK\Configuration;
+use FactPulse\SDK\FormDataProcessor;
+use FactPulse\SDK\HeaderSelector;
+use FactPulse\SDK\ObjectSerializer;
 
 /**
  * PDFXMLVerificationApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -149,9 +149,9 @@ class PDFXMLVerificationApi
      * @param  string $task_id Celery task ID returned by /verify-async endpoint (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\AsyncTaskStatus|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError
+     * @return \FactPulse\SDK\Model\AsyncTaskStatus|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet($task_id, string $contentType = self::contentTypes['getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet'][0])
     {
@@ -167,9 +167,9 @@ class PDFXMLVerificationApi
      * @param  string $task_id Celery task ID returned by /verify-async endpoint (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\AsyncTaskStatus|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\AsyncTaskStatus|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGetWithHttpInfo($task_id, string $contentType = self::contentTypes['getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet'][0])
     {
@@ -201,19 +201,19 @@ class PDFXMLVerificationApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\AsyncTaskStatus',
+                        '\FactPulse\SDK\Model\AsyncTaskStatus',
                         $request,
                         $response,
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -235,7 +235,7 @@ class PDFXMLVerificationApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\AsyncTaskStatus',
+                '\FactPulse\SDK\Model\AsyncTaskStatus',
                 $request,
                 $response,
             );
@@ -244,7 +244,7 @@ class PDFXMLVerificationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AsyncTaskStatus',
+                        '\FactPulse\SDK\Model\AsyncTaskStatus',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -252,7 +252,7 @@ class PDFXMLVerificationApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -260,7 +260,7 @@ class PDFXMLVerificationApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -306,7 +306,7 @@ class PDFXMLVerificationApi
      */
     public function getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGetAsyncWithHttpInfo($task_id, string $contentType = self::contentTypes['getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\AsyncTaskStatus';
+        $returnType = '\FactPulse\SDK\Model\AsyncTaskStatus';
         $request = $this->getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGetRequest($task_id, $contentType);
 
         return $this->client
@@ -449,9 +449,9 @@ class PDFXMLVerificationApi
      * @param  string $task_id Celery task ID returned by /verify-async endpoint (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet_0'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\AsyncTaskStatus|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError
+     * @return \FactPulse\SDK\Model\AsyncTaskStatus|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet_0($task_id, string $contentType = self::contentTypes['getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet_0'][0])
     {
@@ -467,9 +467,9 @@ class PDFXMLVerificationApi
      * @param  string $task_id Celery task ID returned by /verify-async endpoint (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet_0'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\AsyncTaskStatus|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\AsyncTaskStatus|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet_0WithHttpInfo($task_id, string $contentType = self::contentTypes['getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet_0'][0])
     {
@@ -501,19 +501,19 @@ class PDFXMLVerificationApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\AsyncTaskStatus',
+                        '\FactPulse\SDK\Model\AsyncTaskStatus',
                         $request,
                         $response,
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -535,7 +535,7 @@ class PDFXMLVerificationApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\AsyncTaskStatus',
+                '\FactPulse\SDK\Model\AsyncTaskStatus',
                 $request,
                 $response,
             );
@@ -544,7 +544,7 @@ class PDFXMLVerificationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AsyncTaskStatus',
+                        '\FactPulse\SDK\Model\AsyncTaskStatus',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -552,7 +552,7 @@ class PDFXMLVerificationApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -560,7 +560,7 @@ class PDFXMLVerificationApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -606,7 +606,7 @@ class PDFXMLVerificationApi
      */
     public function getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet_0AsyncWithHttpInfo($task_id, string $contentType = self::contentTypes['getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet_0'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\AsyncTaskStatus';
+        $returnType = '\FactPulse\SDK\Model\AsyncTaskStatus';
         $request = $this->getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet_0Request($task_id, $contentType);
 
         return $this->client
@@ -752,9 +752,9 @@ class PDFXMLVerificationApi
      * @param  string|null $webhook_mode Webhook content delivery: &#39;inline&#39; (base64 in payload) or &#39;download_url&#39; (temporary URL, 1h TTL) (optional, default to 'inline')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyPdfAsyncApiV1VerificationVerifyAsyncPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\TaskResponse|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError
+     * @return \FactPulse\SDK\Model\TaskResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function verifyPdfAsyncApiV1VerificationVerifyAsyncPost($pdf_file, $force_ocr = false, $callback_url = null, $webhook_mode = 'inline', string $contentType = self::contentTypes['verifyPdfAsyncApiV1VerificationVerifyAsyncPost'][0])
     {
@@ -773,9 +773,9 @@ class PDFXMLVerificationApi
      * @param  string|null $webhook_mode Webhook content delivery: &#39;inline&#39; (base64 in payload) or &#39;download_url&#39; (temporary URL, 1h TTL) (optional, default to 'inline')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyPdfAsyncApiV1VerificationVerifyAsyncPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\TaskResponse|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\TaskResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function verifyPdfAsyncApiV1VerificationVerifyAsyncPostWithHttpInfo($pdf_file, $force_ocr = false, $callback_url = null, $webhook_mode = 'inline', string $contentType = self::contentTypes['verifyPdfAsyncApiV1VerificationVerifyAsyncPost'][0])
     {
@@ -807,19 +807,19 @@ class PDFXMLVerificationApi
             switch($statusCode) {
                 case 202:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\TaskResponse',
+                        '\FactPulse\SDK\Model\TaskResponse',
                         $request,
                         $response,
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -841,7 +841,7 @@ class PDFXMLVerificationApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\TaskResponse',
+                '\FactPulse\SDK\Model\TaskResponse',
                 $request,
                 $response,
             );
@@ -850,7 +850,7 @@ class PDFXMLVerificationApi
                 case 202:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\TaskResponse',
+                        '\FactPulse\SDK\Model\TaskResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -858,7 +858,7 @@ class PDFXMLVerificationApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -866,7 +866,7 @@ class PDFXMLVerificationApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -918,7 +918,7 @@ class PDFXMLVerificationApi
      */
     public function verifyPdfAsyncApiV1VerificationVerifyAsyncPostAsyncWithHttpInfo($pdf_file, $force_ocr = false, $callback_url = null, $webhook_mode = 'inline', string $contentType = self::contentTypes['verifyPdfAsyncApiV1VerificationVerifyAsyncPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\TaskResponse';
+        $returnType = '\FactPulse\SDK\Model\TaskResponse';
         $request = $this->verifyPdfAsyncApiV1VerificationVerifyAsyncPostRequest($pdf_file, $force_ocr, $callback_url, $webhook_mode, $contentType);
 
         return $this->client
@@ -1075,9 +1075,9 @@ class PDFXMLVerificationApi
      * @param  string|null $webhook_mode Webhook content delivery: &#39;inline&#39; (base64 in payload) or &#39;download_url&#39; (temporary URL, 1h TTL) (optional, default to 'inline')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyPdfAsyncApiV1VerificationVerifyAsyncPost_0'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\TaskResponse|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError
+     * @return \FactPulse\SDK\Model\TaskResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function verifyPdfAsyncApiV1VerificationVerifyAsyncPost_0($pdf_file, $force_ocr = false, $callback_url = null, $webhook_mode = 'inline', string $contentType = self::contentTypes['verifyPdfAsyncApiV1VerificationVerifyAsyncPost_0'][0])
     {
@@ -1096,9 +1096,9 @@ class PDFXMLVerificationApi
      * @param  string|null $webhook_mode Webhook content delivery: &#39;inline&#39; (base64 in payload) or &#39;download_url&#39; (temporary URL, 1h TTL) (optional, default to 'inline')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyPdfAsyncApiV1VerificationVerifyAsyncPost_0'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\TaskResponse|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\TaskResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function verifyPdfAsyncApiV1VerificationVerifyAsyncPost_0WithHttpInfo($pdf_file, $force_ocr = false, $callback_url = null, $webhook_mode = 'inline', string $contentType = self::contentTypes['verifyPdfAsyncApiV1VerificationVerifyAsyncPost_0'][0])
     {
@@ -1130,19 +1130,19 @@ class PDFXMLVerificationApi
             switch($statusCode) {
                 case 202:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\TaskResponse',
+                        '\FactPulse\SDK\Model\TaskResponse',
                         $request,
                         $response,
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -1164,7 +1164,7 @@ class PDFXMLVerificationApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\TaskResponse',
+                '\FactPulse\SDK\Model\TaskResponse',
                 $request,
                 $response,
             );
@@ -1173,7 +1173,7 @@ class PDFXMLVerificationApi
                 case 202:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\TaskResponse',
+                        '\FactPulse\SDK\Model\TaskResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1181,7 +1181,7 @@ class PDFXMLVerificationApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1189,7 +1189,7 @@ class PDFXMLVerificationApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1241,7 +1241,7 @@ class PDFXMLVerificationApi
      */
     public function verifyPdfAsyncApiV1VerificationVerifyAsyncPost_0AsyncWithHttpInfo($pdf_file, $force_ocr = false, $callback_url = null, $webhook_mode = 'inline', string $contentType = self::contentTypes['verifyPdfAsyncApiV1VerificationVerifyAsyncPost_0'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\TaskResponse';
+        $returnType = '\FactPulse\SDK\Model\TaskResponse';
         $request = $this->verifyPdfAsyncApiV1VerificationVerifyAsyncPost_0Request($pdf_file, $force_ocr, $callback_url, $webhook_mode, $contentType);
 
         return $this->client
@@ -1395,9 +1395,9 @@ class PDFXMLVerificationApi
      * @param  \SplFileObject $pdf_file Factur-X PDF file to verify (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyPdfSyncApiV1VerificationVerifyPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\VerificationSuccessResponse|\OpenAPI\Client\Model\APIError|\OpenAPI\Client\Model\APIError|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError
+     * @return \FactPulse\SDK\Model\VerificationSuccessResponse|\FactPulse\SDK\Model\APIError|\FactPulse\SDK\Model\APIError|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function verifyPdfSyncApiV1VerificationVerifyPost($pdf_file, string $contentType = self::contentTypes['verifyPdfSyncApiV1VerificationVerifyPost'][0])
     {
@@ -1413,9 +1413,9 @@ class PDFXMLVerificationApi
      * @param  \SplFileObject $pdf_file Factur-X PDF file to verify (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyPdfSyncApiV1VerificationVerifyPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\VerificationSuccessResponse|\OpenAPI\Client\Model\APIError|\OpenAPI\Client\Model\APIError|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\VerificationSuccessResponse|\FactPulse\SDK\Model\APIError|\FactPulse\SDK\Model\APIError|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function verifyPdfSyncApiV1VerificationVerifyPostWithHttpInfo($pdf_file, string $contentType = self::contentTypes['verifyPdfSyncApiV1VerificationVerifyPost'][0])
     {
@@ -1447,31 +1447,31 @@ class PDFXMLVerificationApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\VerificationSuccessResponse',
+                        '\FactPulse\SDK\Model\VerificationSuccessResponse',
                         $request,
                         $response,
                     );
                 case 400:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
                 case 413:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -1493,7 +1493,7 @@ class PDFXMLVerificationApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\VerificationSuccessResponse',
+                '\FactPulse\SDK\Model\VerificationSuccessResponse',
                 $request,
                 $response,
             );
@@ -1502,7 +1502,7 @@ class PDFXMLVerificationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\VerificationSuccessResponse',
+                        '\FactPulse\SDK\Model\VerificationSuccessResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1510,7 +1510,7 @@ class PDFXMLVerificationApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1518,7 +1518,7 @@ class PDFXMLVerificationApi
                 case 413:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1526,7 +1526,7 @@ class PDFXMLVerificationApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1534,7 +1534,7 @@ class PDFXMLVerificationApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1580,7 +1580,7 @@ class PDFXMLVerificationApi
      */
     public function verifyPdfSyncApiV1VerificationVerifyPostAsyncWithHttpInfo($pdf_file, string $contentType = self::contentTypes['verifyPdfSyncApiV1VerificationVerifyPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\VerificationSuccessResponse';
+        $returnType = '\FactPulse\SDK\Model\VerificationSuccessResponse';
         $request = $this->verifyPdfSyncApiV1VerificationVerifyPostRequest($pdf_file, $contentType);
 
         return $this->client
@@ -1725,9 +1725,9 @@ class PDFXMLVerificationApi
      * @param  \SplFileObject $pdf_file Factur-X PDF file to verify (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyPdfSyncApiV1VerificationVerifyPost_0'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\VerificationSuccessResponse|\OpenAPI\Client\Model\APIError|\OpenAPI\Client\Model\APIError|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError
+     * @return \FactPulse\SDK\Model\VerificationSuccessResponse|\FactPulse\SDK\Model\APIError|\FactPulse\SDK\Model\APIError|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function verifyPdfSyncApiV1VerificationVerifyPost_0($pdf_file, string $contentType = self::contentTypes['verifyPdfSyncApiV1VerificationVerifyPost_0'][0])
     {
@@ -1743,9 +1743,9 @@ class PDFXMLVerificationApi
      * @param  \SplFileObject $pdf_file Factur-X PDF file to verify (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyPdfSyncApiV1VerificationVerifyPost_0'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\VerificationSuccessResponse|\OpenAPI\Client\Model\APIError|\OpenAPI\Client\Model\APIError|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\VerificationSuccessResponse|\FactPulse\SDK\Model\APIError|\FactPulse\SDK\Model\APIError|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function verifyPdfSyncApiV1VerificationVerifyPost_0WithHttpInfo($pdf_file, string $contentType = self::contentTypes['verifyPdfSyncApiV1VerificationVerifyPost_0'][0])
     {
@@ -1777,31 +1777,31 @@ class PDFXMLVerificationApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\VerificationSuccessResponse',
+                        '\FactPulse\SDK\Model\VerificationSuccessResponse',
                         $request,
                         $response,
                     );
                 case 400:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
                 case 413:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -1823,7 +1823,7 @@ class PDFXMLVerificationApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\VerificationSuccessResponse',
+                '\FactPulse\SDK\Model\VerificationSuccessResponse',
                 $request,
                 $response,
             );
@@ -1832,7 +1832,7 @@ class PDFXMLVerificationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\VerificationSuccessResponse',
+                        '\FactPulse\SDK\Model\VerificationSuccessResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1840,7 +1840,7 @@ class PDFXMLVerificationApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1848,7 +1848,7 @@ class PDFXMLVerificationApi
                 case 413:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1856,7 +1856,7 @@ class PDFXMLVerificationApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1864,7 +1864,7 @@ class PDFXMLVerificationApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1910,7 +1910,7 @@ class PDFXMLVerificationApi
      */
     public function verifyPdfSyncApiV1VerificationVerifyPost_0AsyncWithHttpInfo($pdf_file, string $contentType = self::contentTypes['verifyPdfSyncApiV1VerificationVerifyPost_0'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\VerificationSuccessResponse';
+        $returnType = '\FactPulse\SDK\Model\VerificationSuccessResponse';
         $request = $this->verifyPdfSyncApiV1VerificationVerifyPost_0Request($pdf_file, $contentType);
 
         return $this->client

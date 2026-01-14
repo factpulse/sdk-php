@@ -12,6 +12,6 @@ Name | Type | Description | Notes
 **company_name** | **string** |  | [optional]
 **vat_number** | **string** |  | [optional]
 **structure_email** | **string** |  | [optional]
-**parameters** | [**\OpenAPI\Client\Model\StructureParameters**](StructureParameters.md) |  | [optional]
+**parameters** | [**\FactPulse\SDK\Model\StructureParameters**](StructureParameters.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * GetInvoiceResponse Class Doc Comment
  *
  * @category Class
  * @description Invoice details.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -65,7 +65,7 @@ class GetInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'invoice_number' => 'string',
         'invoice_date' => 'string',
         'total_gross_amount' => 'string',
-        'current_status' => '\OpenAPI\Client\Model\InvoiceStatus',
+        'current_status' => '\FactPulse\SDK\Model\InvoiceStatus',
         'recipient_structure_id' => 'int',
         'recipient_structure_name' => 'string'
     ];
@@ -546,7 +546,7 @@ class GetInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets current_status
      *
-     * @return \OpenAPI\Client\Model\InvoiceStatus|null
+     * @return \FactPulse\SDK\Model\InvoiceStatus|null
      */
     public function getCurrentStatus()
     {
@@ -556,7 +556,7 @@ class GetInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets current_status
      *
-     * @param \OpenAPI\Client\Model\InvoiceStatus|null $current_status current_status
+     * @param \FactPulse\SDK\Model\InvoiceStatus|null $current_status current_status
      *
      * @return self
      */

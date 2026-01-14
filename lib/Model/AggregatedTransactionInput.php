@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AggregatedTransactionInput Class Doc Comment
  *
  * @category Class
  * @description Aggregated transaction for B2C reporting (flux 10.3).  Represents daily aggregation by category (TLB1, TPS1, etc.). Each occurrence corresponds to one day + one currency + one category.  Source: Annexe 6 v1.9, bloc TG-31 \&quot;Transactions\&quot;
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -60,13 +60,13 @@ class AggregatedTransactionInput implements ModelInterface, ArrayAccess, \JsonSe
       */
     protected static $openAPITypes = [
         'date' => '\DateTime',
-        'category_code' => '\OpenAPI\Client\Model\TransactionCategory',
-        'currency' => '\OpenAPI\Client\Model\Currency',
-        'tax_exclusive_amount' => '\OpenAPI\Client\Model\Taxexclusiveamount',
-        'tax_amount' => '\OpenAPI\Client\Model\Taxamount',
-        'tax_breakdown' => '\OpenAPI\Client\Model\TaxBreakdownInput[]',
+        'category_code' => '\FactPulse\SDK\Model\TransactionCategory',
+        'currency' => '\FactPulse\SDK\Model\Currency',
+        'tax_exclusive_amount' => '\FactPulse\SDK\Model\Taxexclusiveamount',
+        'tax_amount' => '\FactPulse\SDK\Model\Taxamount',
+        'tax_breakdown' => '\FactPulse\SDK\Model\TaxBreakdownInput[]',
         'transaction_count' => 'int',
-        'tax_due_type' => '\OpenAPI\Client\Model\TaxDueDateType'
+        'tax_due_type' => '\FactPulse\SDK\Model\TaxDueDateType'
     ];
 
     /**
@@ -393,7 +393,7 @@ class AggregatedTransactionInput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets category_code
      *
-     * @return \OpenAPI\Client\Model\TransactionCategory
+     * @return \FactPulse\SDK\Model\TransactionCategory
      */
     public function getCategoryCode()
     {
@@ -403,7 +403,7 @@ class AggregatedTransactionInput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets category_code
      *
-     * @param \OpenAPI\Client\Model\TransactionCategory $category_code Transaction category code (TT-81). Use TLB1 for goods, TPS1 for services.
+     * @param \FactPulse\SDK\Model\TransactionCategory $category_code Transaction category code (TT-81). Use TLB1 for goods, TPS1 for services.
      *
      * @return self
      */
@@ -420,7 +420,7 @@ class AggregatedTransactionInput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets currency
      *
-     * @return \OpenAPI\Client\Model\Currency|null
+     * @return \FactPulse\SDK\Model\Currency|null
      */
     public function getCurrency()
     {
@@ -430,7 +430,7 @@ class AggregatedTransactionInput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets currency
      *
-     * @param \OpenAPI\Client\Model\Currency|null $currency currency
+     * @param \FactPulse\SDK\Model\Currency|null $currency currency
      *
      * @return self
      */
@@ -447,7 +447,7 @@ class AggregatedTransactionInput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets tax_exclusive_amount
      *
-     * @return \OpenAPI\Client\Model\Taxexclusiveamount
+     * @return \FactPulse\SDK\Model\Taxexclusiveamount
      */
     public function getTaxExclusiveAmount()
     {
@@ -457,7 +457,7 @@ class AggregatedTransactionInput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets tax_exclusive_amount
      *
-     * @param \OpenAPI\Client\Model\Taxexclusiveamount $tax_exclusive_amount tax_exclusive_amount
+     * @param \FactPulse\SDK\Model\Taxexclusiveamount $tax_exclusive_amount tax_exclusive_amount
      *
      * @return self
      */
@@ -474,7 +474,7 @@ class AggregatedTransactionInput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets tax_amount
      *
-     * @return \OpenAPI\Client\Model\Taxamount
+     * @return \FactPulse\SDK\Model\Taxamount
      */
     public function getTaxAmount()
     {
@@ -484,7 +484,7 @@ class AggregatedTransactionInput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets tax_amount
      *
-     * @param \OpenAPI\Client\Model\Taxamount $tax_amount tax_amount
+     * @param \FactPulse\SDK\Model\Taxamount $tax_amount tax_amount
      *
      * @return self
      */
@@ -501,7 +501,7 @@ class AggregatedTransactionInput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets tax_breakdown
      *
-     * @return \OpenAPI\Client\Model\TaxBreakdownInput[]
+     * @return \FactPulse\SDK\Model\TaxBreakdownInput[]
      */
     public function getTaxBreakdown()
     {
@@ -511,7 +511,7 @@ class AggregatedTransactionInput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets tax_breakdown
      *
-     * @param \OpenAPI\Client\Model\TaxBreakdownInput[] $tax_breakdown VAT breakdown by rate
+     * @param \FactPulse\SDK\Model\TaxBreakdownInput[] $tax_breakdown VAT breakdown by rate
      *
      * @return self
      */
@@ -572,7 +572,7 @@ class AggregatedTransactionInput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets tax_due_type
      *
-     * @return \OpenAPI\Client\Model\TaxDueDateType|null
+     * @return \FactPulse\SDK\Model\TaxDueDateType|null
      */
     public function getTaxDueType()
     {
@@ -582,7 +582,7 @@ class AggregatedTransactionInput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets tax_due_type
      *
-     * @param \OpenAPI\Client\Model\TaxDueDateType|null $tax_due_type tax_due_type
+     * @param \FactPulse\SDK\Model\TaxDueDateType|null $tax_due_type tax_due_type
      *
      * @return self
      */

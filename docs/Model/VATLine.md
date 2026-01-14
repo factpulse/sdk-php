@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**taxable_amount** | [**\OpenAPI\Client\Model\TaxableAmount**](TaxableAmount.md) |  |
-**vat_amount** | [**\OpenAPI\Client\Model\VATAmount**](VATAmount.md) |  |
+**taxable_amount** | [**\FactPulse\SDK\Model\TaxableAmount**](TaxableAmount.md) |  |
+**vat_amount** | [**\FactPulse\SDK\Model\VATAmount**](VATAmount.md) |  |
 **rate** | **string** |  | [optional]
-**manual_rate** | [**\OpenAPI\Client\Model\ManualRate**](ManualRate.md) |  | [optional]
-**category** | [**\OpenAPI\Client\Model\VATCategory**](VATCategory.md) |  | [optional]
-**due_date_type_code** | [**\OpenAPI\Client\Model\VATPointDateCode**](VATPointDateCode.md) |  | [optional]
+**manual_rate** | [**\FactPulse\SDK\Model\ManualRate**](ManualRate.md) |  | [optional]
+**category** | [**\FactPulse\SDK\Model\VATCategory**](VATCategory.md) |  | [optional]
+**due_date_type_code** | [**\FactPulse\SDK\Model\VATPointDateCode**](VATPointDateCode.md) |  | [optional]
 **exemption_reason** | **string** |  | [optional]
 **vatex_code** | **string** |  | [optional]
 

@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,15 +27,15 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
-use \OpenAPI\Client\ObjectSerializer;
+namespace FactPulse\SDK\Model;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORReasonCodeEnum Class Doc Comment
  *
  * @category Class
  * @description - &#x60;EmptyAttachement&#x60;      : One or more attachments are empty. (ie IRR_VID_PJ) - &#x60;AttachmentTypeError&#x60;   : The type and/or extension of one or more attachments is not compliant. (ie IRR_EXT_DOC) - &#x60;EmptyFlow&#x60;             : The binary flow is empty. (ie IRR_VID_F) - &#x60;OtherTechnicalError&#x60;   : Other technical error. (ie AUTRE) - &#x60;InvalidSchema&#x60;         : Invalid XML schema. (ie IRR_SYNTAX) - &#x60;FileSizeExceeded&#x60;      : File size limit reached. (ie IRR_TAILLE_F) - &#x60;FlowTypeError&#x60;         : The flow type and/or extension are not compliant. (ie IRR_TYPE_F) - &#x60;AlreadyExistingFlow&#x60;   : The flow has already been sent and received. (ie N/A) - &#x60;VirusFound&#x60;            : Presence of a virus. (ie IRR_ANTIVIRUS) - &#x60;ChecksumMismatch&#x60;      : Checksum provided is different from computed one - &#x60;InvoiceLCInvalidStatus&#x60;: One or more statuses are inconsistent - &#x60;InvoiceLCStatusError&#x60;  : One or more statuses are incorrect or not allowed - &#x60;InvoiceLCRuleError&#x60;    : One or more rules are not matched - &#x60;InvoiceLCAccessDenied&#x60; : One of the request is not authorized and requests permissions - &#x60;InvoiceLCAmountError&#x60;  : One or more amounts are not consistent in regards to the VAT
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

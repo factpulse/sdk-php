@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AllowanceCharge Class Doc Comment
  *
  * @category Class
  * @description Document-level or line-level allowance/charge.  Represents BG-20 (Document level allowances), BG-21 (Document level charges), BG-27 (Invoice line allowances), or BG-28 (Invoice line charges).
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -60,13 +60,13 @@ class AllowanceCharge implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'is_charge' => 'bool',
-        'amount' => '\OpenAPI\Client\Model\Amount1',
-        'base_amount' => '\OpenAPI\Client\Model\BaseAmount',
-        'percentage' => '\OpenAPI\Client\Model\Percentage',
+        'amount' => '\FactPulse\SDK\Model\Amount1',
+        'base_amount' => '\FactPulse\SDK\Model\BaseAmount',
+        'percentage' => '\FactPulse\SDK\Model\Percentage',
         'reason' => 'string',
-        'reason_code' => '\OpenAPI\Client\Model\AllowanceChargeReasonCode',
-        'vat_category' => '\OpenAPI\Client\Model\VATCategory',
-        'vat_rate' => '\OpenAPI\Client\Model\VatRate'
+        'reason_code' => '\FactPulse\SDK\Model\AllowanceChargeReasonCode',
+        'vat_category' => '\FactPulse\SDK\Model\VATCategory',
+        'vat_rate' => '\FactPulse\SDK\Model\VatRate'
     ];
 
     /**
@@ -376,7 +376,7 @@ class AllowanceCharge implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets amount
      *
-     * @return \OpenAPI\Client\Model\Amount1
+     * @return \FactPulse\SDK\Model\Amount1
      */
     public function getAmount()
     {
@@ -386,7 +386,7 @@ class AllowanceCharge implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets amount
      *
-     * @param \OpenAPI\Client\Model\Amount1 $amount amount
+     * @param \FactPulse\SDK\Model\Amount1 $amount amount
      *
      * @return self
      */
@@ -403,7 +403,7 @@ class AllowanceCharge implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets base_amount
      *
-     * @return \OpenAPI\Client\Model\BaseAmount|null
+     * @return \FactPulse\SDK\Model\BaseAmount|null
      */
     public function getBaseAmount()
     {
@@ -413,7 +413,7 @@ class AllowanceCharge implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets base_amount
      *
-     * @param \OpenAPI\Client\Model\BaseAmount|null $base_amount base_amount
+     * @param \FactPulse\SDK\Model\BaseAmount|null $base_amount base_amount
      *
      * @return self
      */
@@ -437,7 +437,7 @@ class AllowanceCharge implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets percentage
      *
-     * @return \OpenAPI\Client\Model\Percentage|null
+     * @return \FactPulse\SDK\Model\Percentage|null
      */
     public function getPercentage()
     {
@@ -447,7 +447,7 @@ class AllowanceCharge implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets percentage
      *
-     * @param \OpenAPI\Client\Model\Percentage|null $percentage percentage
+     * @param \FactPulse\SDK\Model\Percentage|null $percentage percentage
      *
      * @return self
      */
@@ -505,7 +505,7 @@ class AllowanceCharge implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets reason_code
      *
-     * @return \OpenAPI\Client\Model\AllowanceChargeReasonCode|null
+     * @return \FactPulse\SDK\Model\AllowanceChargeReasonCode|null
      */
     public function getReasonCode()
     {
@@ -515,7 +515,7 @@ class AllowanceCharge implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets reason_code
      *
-     * @param \OpenAPI\Client\Model\AllowanceChargeReasonCode|null $reason_code reason_code
+     * @param \FactPulse\SDK\Model\AllowanceChargeReasonCode|null $reason_code reason_code
      *
      * @return self
      */
@@ -539,7 +539,7 @@ class AllowanceCharge implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets vat_category
      *
-     * @return \OpenAPI\Client\Model\VATCategory|null
+     * @return \FactPulse\SDK\Model\VATCategory|null
      */
     public function getVatCategory()
     {
@@ -549,7 +549,7 @@ class AllowanceCharge implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets vat_category
      *
-     * @param \OpenAPI\Client\Model\VATCategory|null $vat_category vat_category
+     * @param \FactPulse\SDK\Model\VATCategory|null $vat_category vat_category
      *
      * @return self
      */
@@ -573,7 +573,7 @@ class AllowanceCharge implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets vat_rate
      *
-     * @return \OpenAPI\Client\Model\VatRate|null
+     * @return \FactPulse\SDK\Model\VatRate|null
      */
     public function getVatRate()
     {
@@ -583,7 +583,7 @@ class AllowanceCharge implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets vat_rate
      *
-     * @param \OpenAPI\Client\Model\VatRate|null $vat_rate vat_rate
+     * @param \FactPulse\SDK\Model\VatRate|null $vat_rate vat_rate
      *
      * @return self
      */

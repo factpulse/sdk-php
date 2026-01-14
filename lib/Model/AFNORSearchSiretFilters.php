@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORSearchSiretFilters Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,15 +58,15 @@ class AFNORSearchSiretFilters implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'siret' => '\OpenAPI\Client\Model\AFNORSearchSiretFiltersSiret',
-        'siren' => '\OpenAPI\Client\Model\AFNORSearchSirenFiltersSiren',
-        'facility_type' => '\OpenAPI\Client\Model\AFNORSearchSiretFiltersFacilityType',
-        'name' => '\OpenAPI\Client\Model\AFNORSearchSiretFiltersName',
-        'address_lines' => '\OpenAPI\Client\Model\AFNORSearchSiretFiltersAddressLines',
-        'postal_code' => '\OpenAPI\Client\Model\AFNORSearchSiretFiltersPostalCode',
-        'country_subdivision' => '\OpenAPI\Client\Model\AFNORSearchSiretFiltersCountrySubdivision',
-        'locality' => '\OpenAPI\Client\Model\AFNORSearchSiretFiltersLocality',
-        'administrative_status' => '\OpenAPI\Client\Model\AFNORSearchSiretFiltersAdministrativeStatus'
+        'siret' => '\FactPulse\SDK\Model\AFNORSearchSiretFiltersSiret',
+        'siren' => '\FactPulse\SDK\Model\AFNORSearchSirenFiltersSiren',
+        'facility_type' => '\FactPulse\SDK\Model\AFNORSearchSiretFiltersFacilityType',
+        'name' => '\FactPulse\SDK\Model\AFNORSearchSiretFiltersName',
+        'address_lines' => '\FactPulse\SDK\Model\AFNORSearchSiretFiltersAddressLines',
+        'postal_code' => '\FactPulse\SDK\Model\AFNORSearchSiretFiltersPostalCode',
+        'country_subdivision' => '\FactPulse\SDK\Model\AFNORSearchSiretFiltersCountrySubdivision',
+        'locality' => '\FactPulse\SDK\Model\AFNORSearchSiretFiltersLocality',
+        'administrative_status' => '\FactPulse\SDK\Model\AFNORSearchSiretFiltersAdministrativeStatus'
     ];
 
     /**
@@ -349,7 +349,7 @@ class AFNORSearchSiretFilters implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets siret
      *
-     * @return \OpenAPI\Client\Model\AFNORSearchSiretFiltersSiret|null
+     * @return \FactPulse\SDK\Model\AFNORSearchSiretFiltersSiret|null
      */
     public function getSiret()
     {
@@ -359,7 +359,7 @@ class AFNORSearchSiretFilters implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets siret
      *
-     * @param \OpenAPI\Client\Model\AFNORSearchSiretFiltersSiret|null $siret siret
+     * @param \FactPulse\SDK\Model\AFNORSearchSiretFiltersSiret|null $siret siret
      *
      * @return self
      */
@@ -376,7 +376,7 @@ class AFNORSearchSiretFilters implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets siren
      *
-     * @return \OpenAPI\Client\Model\AFNORSearchSirenFiltersSiren|null
+     * @return \FactPulse\SDK\Model\AFNORSearchSirenFiltersSiren|null
      */
     public function getSiren()
     {
@@ -386,7 +386,7 @@ class AFNORSearchSiretFilters implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets siren
      *
-     * @param \OpenAPI\Client\Model\AFNORSearchSirenFiltersSiren|null $siren siren
+     * @param \FactPulse\SDK\Model\AFNORSearchSirenFiltersSiren|null $siren siren
      *
      * @return self
      */
@@ -403,7 +403,7 @@ class AFNORSearchSiretFilters implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets facility_type
      *
-     * @return \OpenAPI\Client\Model\AFNORSearchSiretFiltersFacilityType|null
+     * @return \FactPulse\SDK\Model\AFNORSearchSiretFiltersFacilityType|null
      */
     public function getFacilityType()
     {
@@ -413,7 +413,7 @@ class AFNORSearchSiretFilters implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets facility_type
      *
-     * @param \OpenAPI\Client\Model\AFNORSearchSiretFiltersFacilityType|null $facility_type facility_type
+     * @param \FactPulse\SDK\Model\AFNORSearchSiretFiltersFacilityType|null $facility_type facility_type
      *
      * @return self
      */
@@ -430,7 +430,7 @@ class AFNORSearchSiretFilters implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets name
      *
-     * @return \OpenAPI\Client\Model\AFNORSearchSiretFiltersName|null
+     * @return \FactPulse\SDK\Model\AFNORSearchSiretFiltersName|null
      */
     public function getName()
     {
@@ -440,7 +440,7 @@ class AFNORSearchSiretFilters implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets name
      *
-     * @param \OpenAPI\Client\Model\AFNORSearchSiretFiltersName|null $name name
+     * @param \FactPulse\SDK\Model\AFNORSearchSiretFiltersName|null $name name
      *
      * @return self
      */
@@ -457,7 +457,7 @@ class AFNORSearchSiretFilters implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets address_lines
      *
-     * @return \OpenAPI\Client\Model\AFNORSearchSiretFiltersAddressLines|null
+     * @return \FactPulse\SDK\Model\AFNORSearchSiretFiltersAddressLines|null
      */
     public function getAddressLines()
     {
@@ -467,7 +467,7 @@ class AFNORSearchSiretFilters implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets address_lines
      *
-     * @param \OpenAPI\Client\Model\AFNORSearchSiretFiltersAddressLines|null $address_lines address_lines
+     * @param \FactPulse\SDK\Model\AFNORSearchSiretFiltersAddressLines|null $address_lines address_lines
      *
      * @return self
      */
@@ -484,7 +484,7 @@ class AFNORSearchSiretFilters implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets postal_code
      *
-     * @return \OpenAPI\Client\Model\AFNORSearchSiretFiltersPostalCode|null
+     * @return \FactPulse\SDK\Model\AFNORSearchSiretFiltersPostalCode|null
      */
     public function getPostalCode()
     {
@@ -494,7 +494,7 @@ class AFNORSearchSiretFilters implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets postal_code
      *
-     * @param \OpenAPI\Client\Model\AFNORSearchSiretFiltersPostalCode|null $postal_code postal_code
+     * @param \FactPulse\SDK\Model\AFNORSearchSiretFiltersPostalCode|null $postal_code postal_code
      *
      * @return self
      */
@@ -511,7 +511,7 @@ class AFNORSearchSiretFilters implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets country_subdivision
      *
-     * @return \OpenAPI\Client\Model\AFNORSearchSiretFiltersCountrySubdivision|null
+     * @return \FactPulse\SDK\Model\AFNORSearchSiretFiltersCountrySubdivision|null
      */
     public function getCountrySubdivision()
     {
@@ -521,7 +521,7 @@ class AFNORSearchSiretFilters implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets country_subdivision
      *
-     * @param \OpenAPI\Client\Model\AFNORSearchSiretFiltersCountrySubdivision|null $country_subdivision country_subdivision
+     * @param \FactPulse\SDK\Model\AFNORSearchSiretFiltersCountrySubdivision|null $country_subdivision country_subdivision
      *
      * @return self
      */
@@ -538,7 +538,7 @@ class AFNORSearchSiretFilters implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets locality
      *
-     * @return \OpenAPI\Client\Model\AFNORSearchSiretFiltersLocality|null
+     * @return \FactPulse\SDK\Model\AFNORSearchSiretFiltersLocality|null
      */
     public function getLocality()
     {
@@ -548,7 +548,7 @@ class AFNORSearchSiretFilters implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets locality
      *
-     * @param \OpenAPI\Client\Model\AFNORSearchSiretFiltersLocality|null $locality locality
+     * @param \FactPulse\SDK\Model\AFNORSearchSiretFiltersLocality|null $locality locality
      *
      * @return self
      */
@@ -565,7 +565,7 @@ class AFNORSearchSiretFilters implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets administrative_status
      *
-     * @return \OpenAPI\Client\Model\AFNORSearchSiretFiltersAdministrativeStatus|null
+     * @return \FactPulse\SDK\Model\AFNORSearchSiretFiltersAdministrativeStatus|null
      */
     public function getAdministrativeStatus()
     {
@@ -575,7 +575,7 @@ class AFNORSearchSiretFilters implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets administrative_status
      *
-     * @param \OpenAPI\Client\Model\AFNORSearchSiretFiltersAdministrativeStatus|null $administrative_status administrative_status
+     * @param \FactPulse\SDK\Model\AFNORSearchSiretFiltersAdministrativeStatus|null $administrative_status administrative_status
      *
      * @return self
      */

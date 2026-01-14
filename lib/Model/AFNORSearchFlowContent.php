@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORSearchFlowContent Class Doc Comment
  *
  * @category Class
  * @description A set of flows matching criterias, provided into the request
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -60,8 +60,8 @@ class AFNORSearchFlowContent implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPITypes = [
         'limit' => 'int',
-        'filters' => '\OpenAPI\Client\Model\AFNORSearchFlowFilters',
-        'results' => '\OpenAPI\Client\Model\AFNORFlow[]'
+        'filters' => '\FactPulse\SDK\Model\AFNORSearchFlowFilters',
+        'results' => '\FactPulse\SDK\Model\AFNORFlow[]'
     ];
 
     /**
@@ -335,7 +335,7 @@ class AFNORSearchFlowContent implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets filters
      *
-     * @return \OpenAPI\Client\Model\AFNORSearchFlowFilters|null
+     * @return \FactPulse\SDK\Model\AFNORSearchFlowFilters|null
      */
     public function getFilters()
     {
@@ -345,7 +345,7 @@ class AFNORSearchFlowContent implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets filters
      *
-     * @param \OpenAPI\Client\Model\AFNORSearchFlowFilters|null $filters filters
+     * @param \FactPulse\SDK\Model\AFNORSearchFlowFilters|null $filters filters
      *
      * @return self
      */
@@ -362,7 +362,7 @@ class AFNORSearchFlowContent implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets results
      *
-     * @return \OpenAPI\Client\Model\AFNORFlow[]|null
+     * @return \FactPulse\SDK\Model\AFNORFlow[]|null
      */
     public function getResults()
     {
@@ -372,7 +372,7 @@ class AFNORSearchFlowContent implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets results
      *
-     * @param \OpenAPI\Client\Model\AFNORFlow[]|null $results results
+     * @param \FactPulse\SDK\Model\AFNORFlow[]|null $results results
      *
      * @return self
      */

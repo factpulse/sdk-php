@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,15 +27,15 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
-use \OpenAPI\Client\ObjectSerializer;
+namespace FactPulse\SDK\Model;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * LineSubType Class Doc Comment
  *
  * @category Class
  * @description Sub-line type for EXTENDED profile (BT-X-8 / EXT-FR-FE-163).  Defines the role of an invoice line in a hierarchical structure: - DETAIL: Standard billing line, included in VAT calculations - INFORMATION: Additional information line, not included in VAT calculations - GROUP: Grouping/subtotal line, not included in VAT calculations
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

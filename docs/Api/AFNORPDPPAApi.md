@@ -1,4 +1,4 @@
-# OpenAPI\Client\AFNORPDPPAApi
+# FactPulse\SDK\AFNORPDPPAApi
 
 
 
@@ -29,10 +29,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\AFNORPDPPAApi(
+$apiInstance = new FactPulse\SDK\Api\AFNORPDPPAApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -71,7 +71,7 @@ This endpoint does not need any parameter.
 ## `getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet()`
 
 ```php
-getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet($flow_id, $include_document): \OpenAPI\Client\Model\IncomingInvoice
+getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet($flow_id, $include_document): \FactPulse\SDK\Model\IncomingInvoice
 ```
 
 Retrieve and extract an incoming invoice
@@ -86,10 +86,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\AFNORPDPPAApi(
+$apiInstance = new FactPulse\SDK\Api\AFNORPDPPAApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -115,7 +115,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\IncomingInvoice**](../Model/IncomingInvoice.md)
+[**\FactPulse\SDK\Model\IncomingInvoice**](../Model/IncomingInvoice.md)
 
 ### Authorization
 
@@ -148,7 +148,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\AFNORPDPPAApi(
+$apiInstance = new FactPulse\SDK\Api\AFNORPDPPAApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()

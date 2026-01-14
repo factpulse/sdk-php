@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORSearchSiretFiltersName Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,7 +58,7 @@ class AFNORSearchSiretFiltersName implements ModelInterface, ArrayAccess, \JsonS
       * @var string[]
       */
     protected static $openAPITypes = [
-        'op' => '\OpenAPI\Client\Model\AFNORContainsOperator',
+        'op' => '\FactPulse\SDK\Model\AFNORContainsOperator',
         'value' => 'string'
     ];
 
@@ -304,7 +304,7 @@ class AFNORSearchSiretFiltersName implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets op
      *
-     * @return \OpenAPI\Client\Model\AFNORContainsOperator|null
+     * @return \FactPulse\SDK\Model\AFNORContainsOperator|null
      */
     public function getOp()
     {
@@ -314,7 +314,7 @@ class AFNORSearchSiretFiltersName implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets op
      *
-     * @param \OpenAPI\Client\Model\AFNORContainsOperator|null $op op
+     * @param \FactPulse\SDK\Model\AFNORContainsOperator|null $op op
      *
      * @return self
      */

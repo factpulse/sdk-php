@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * ConvertValidationFailedResponse Class Doc Comment
  *
  * @category Class
  * @description Reponse echec de validation - inclut les donnees extraites pour correction.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -62,10 +62,10 @@ class ConvertValidationFailedResponse implements ModelInterface, ArrayAccess, \J
         'status' => 'string',
         'conversion_id' => 'string',
         'message' => 'string',
-        'extraction' => '\OpenAPI\Client\Model\ExtractionInfo',
+        'extraction' => '\FactPulse\SDK\Model\ExtractionInfo',
         'extracted_data' => 'array<string,mixed>',
-        'missing_fields' => '\OpenAPI\Client\Model\MissingField[]',
-        'validation' => '\OpenAPI\Client\Model\ValidationInfo',
+        'missing_fields' => '\FactPulse\SDK\Model\MissingField[]',
+        'validation' => '\FactPulse\SDK\Model\ValidationInfo',
         'resume_url' => 'string',
         'expires_at' => '\DateTime'
     ];
@@ -449,7 +449,7 @@ class ConvertValidationFailedResponse implements ModelInterface, ArrayAccess, \J
     /**
      * Gets extraction
      *
-     * @return \OpenAPI\Client\Model\ExtractionInfo
+     * @return \FactPulse\SDK\Model\ExtractionInfo
      */
     public function getExtraction()
     {
@@ -459,7 +459,7 @@ class ConvertValidationFailedResponse implements ModelInterface, ArrayAccess, \J
     /**
      * Sets extraction
      *
-     * @param \OpenAPI\Client\Model\ExtractionInfo $extraction Informations sur l'extraction OCR
+     * @param \FactPulse\SDK\Model\ExtractionInfo $extraction Informations sur l'extraction OCR
      *
      * @return self
      */
@@ -503,7 +503,7 @@ class ConvertValidationFailedResponse implements ModelInterface, ArrayAccess, \J
     /**
      * Gets missing_fields
      *
-     * @return \OpenAPI\Client\Model\MissingField[]|null
+     * @return \FactPulse\SDK\Model\MissingField[]|null
      */
     public function getMissingFields()
     {
@@ -513,7 +513,7 @@ class ConvertValidationFailedResponse implements ModelInterface, ArrayAccess, \J
     /**
      * Sets missing_fields
      *
-     * @param \OpenAPI\Client\Model\MissingField[]|null $missing_fields Champs manquants pour conformite Factur-X
+     * @param \FactPulse\SDK\Model\MissingField[]|null $missing_fields Champs manquants pour conformite Factur-X
      *
      * @return self
      */
@@ -530,7 +530,7 @@ class ConvertValidationFailedResponse implements ModelInterface, ArrayAccess, \J
     /**
      * Gets validation
      *
-     * @return \OpenAPI\Client\Model\ValidationInfo
+     * @return \FactPulse\SDK\Model\ValidationInfo
      */
     public function getValidation()
     {
@@ -540,7 +540,7 @@ class ConvertValidationFailedResponse implements ModelInterface, ArrayAccess, \J
     /**
      * Sets validation
      *
-     * @param \OpenAPI\Client\Model\ValidationInfo $validation Resultat de la validation Factur-X
+     * @param \FactPulse\SDK\Model\ValidationInfo $validation Resultat de la validation Factur-X
      *
      * @return self
      */

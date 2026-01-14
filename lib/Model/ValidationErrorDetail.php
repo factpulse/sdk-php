@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * ValidationErrorDetail Class Doc Comment
  *
  * @category Class
  * @description Validation error detail (aligned with AFNOR AcknowledgementDetail).  Unified format for all Factur-X validation errors, compatible with AFNOR XP Z12-013 standard.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,10 +59,10 @@ class ValidationErrorDetail implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'level' => '\OpenAPI\Client\Model\ErrorLevel',
+        'level' => '\FactPulse\SDK\Model\ErrorLevel',
         'item' => 'string',
         'reason' => 'string',
-        'source' => '\OpenAPI\Client\Model\ErrorSource',
+        'source' => '\FactPulse\SDK\Model\ErrorSource',
         'code' => 'string'
     ];
 
@@ -328,7 +328,7 @@ class ValidationErrorDetail implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets level
      *
-     * @return \OpenAPI\Client\Model\ErrorLevel|null
+     * @return \FactPulse\SDK\Model\ErrorLevel|null
      */
     public function getLevel()
     {
@@ -338,7 +338,7 @@ class ValidationErrorDetail implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets level
      *
-     * @param \OpenAPI\Client\Model\ErrorLevel|null $level Severity level: 'Error' or 'Warning'
+     * @param \FactPulse\SDK\Model\ErrorLevel|null $level Severity level: 'Error' or 'Warning'
      *
      * @return self
      */
@@ -409,7 +409,7 @@ class ValidationErrorDetail implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets source
      *
-     * @return \OpenAPI\Client\Model\ErrorSource|null
+     * @return \FactPulse\SDK\Model\ErrorSource|null
      */
     public function getSource()
     {
@@ -419,7 +419,7 @@ class ValidationErrorDetail implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets source
      *
-     * @param \OpenAPI\Client\Model\ErrorSource|null $source source
+     * @param \FactPulse\SDK\Model\ErrorSource|null $source source
      *
      * @return self
      */

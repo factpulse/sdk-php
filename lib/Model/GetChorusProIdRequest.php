@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * GetChorusProIdRequest Class Doc Comment
  *
  * @category Class
  * @description Get Chorus Pro ID from SIRET.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,7 +59,7 @@ class GetChorusProIdRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'credentials' => '\OpenAPI\Client\Model\ChorusProCredentials',
+        'credentials' => '\FactPulse\SDK\Model\ChorusProCredentials',
         'siret' => 'string',
         'identifier_type' => 'string'
     ];
@@ -311,7 +311,7 @@ class GetChorusProIdRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets credentials
      *
-     * @return \OpenAPI\Client\Model\ChorusProCredentials|null
+     * @return \FactPulse\SDK\Model\ChorusProCredentials|null
      */
     public function getCredentials()
     {
@@ -321,7 +321,7 @@ class GetChorusProIdRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets credentials
      *
-     * @param \OpenAPI\Client\Model\ChorusProCredentials|null $credentials credentials
+     * @param \FactPulse\SDK\Model\ChorusProCredentials|null $credentials credentials
      *
      * @return self
      */

@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,7 +27,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace FactPulse\SDK\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -36,7 +36,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description Requete de reprise de conversion avec corrections.  Le champ &#x60;overrides&#x60; accepte n&#39;importe quel sous-ensemble de FacturXInvoice. Seuls les champs fournis seront mis a jour (merge profond).  Exemple:     {         \&quot;overrides\&quot;: {             \&quot;supplier\&quot;: {                 \&quot;name\&quot;: \&quot;Ma Société\&quot;,                 \&quot;siret\&quot;: \&quot;12345678901234\&quot;             },             \&quot;totals\&quot;: {                 \&quot;total_net_amount\&quot;: 1000.00             }         }     }
- * @package     OpenAPI\Client
+ * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */

@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * SubmitCompleteInvoiceRequest Class Doc Comment
  *
  * @category Class
  * @description Request to submit a complete invoice (generation + submission).  Workflow: 1. Auto-enrichment (optional) 2. Factur-X PDF generation 3. Signature (optional) 4. Submission to destination
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,11 +59,11 @@ class SubmitCompleteInvoiceRequest implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'invoice_data' => '\OpenAPI\Client\Model\SimplifiedInvoiceData',
+        'invoice_data' => '\FactPulse\SDK\Model\SimplifiedInvoiceData',
         'source_pdf' => 'string',
-        'destination' => '\OpenAPI\Client\Model\Destination',
-        'signature' => '\OpenAPI\Client\Model\SignatureParameters',
-        'options' => '\OpenAPI\Client\Model\ProcessingOptions'
+        'destination' => '\FactPulse\SDK\Model\Destination',
+        'signature' => '\FactPulse\SDK\Model\SignatureParameters',
+        'options' => '\FactPulse\SDK\Model\ProcessingOptions'
     ];
 
     /**
@@ -331,7 +331,7 @@ class SubmitCompleteInvoiceRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets invoice_data
      *
-     * @return \OpenAPI\Client\Model\SimplifiedInvoiceData
+     * @return \FactPulse\SDK\Model\SimplifiedInvoiceData
      */
     public function getInvoiceData()
     {
@@ -341,7 +341,7 @@ class SubmitCompleteInvoiceRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets invoice_data
      *
-     * @param \OpenAPI\Client\Model\SimplifiedInvoiceData $invoice_data Invoice data in simplified format (see examples)
+     * @param \FactPulse\SDK\Model\SimplifiedInvoiceData $invoice_data Invoice data in simplified format (see examples)
      *
      * @return self
      */
@@ -385,7 +385,7 @@ class SubmitCompleteInvoiceRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets destination
      *
-     * @return \OpenAPI\Client\Model\Destination
+     * @return \FactPulse\SDK\Model\Destination
      */
     public function getDestination()
     {
@@ -395,7 +395,7 @@ class SubmitCompleteInvoiceRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets destination
      *
-     * @param \OpenAPI\Client\Model\Destination $destination destination
+     * @param \FactPulse\SDK\Model\Destination $destination destination
      *
      * @return self
      */
@@ -412,7 +412,7 @@ class SubmitCompleteInvoiceRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets signature
      *
-     * @return \OpenAPI\Client\Model\SignatureParameters|null
+     * @return \FactPulse\SDK\Model\SignatureParameters|null
      */
     public function getSignature()
     {
@@ -422,7 +422,7 @@ class SubmitCompleteInvoiceRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets signature
      *
-     * @param \OpenAPI\Client\Model\SignatureParameters|null $signature signature
+     * @param \FactPulse\SDK\Model\SignatureParameters|null $signature signature
      *
      * @return self
      */
@@ -446,7 +446,7 @@ class SubmitCompleteInvoiceRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets options
      *
-     * @return \OpenAPI\Client\Model\ProcessingOptions|null
+     * @return \FactPulse\SDK\Model\ProcessingOptions|null
      */
     public function getOptions()
     {
@@ -456,7 +456,7 @@ class SubmitCompleteInvoiceRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets options
      *
-     * @param \OpenAPI\Client\Model\ProcessingOptions|null $options Processing options
+     * @param \FactPulse\SDK\Model\ProcessingOptions|null $options Processing options
      *
      * @return self
      */

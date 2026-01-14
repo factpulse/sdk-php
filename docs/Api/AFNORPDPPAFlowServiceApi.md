@@ -1,4 +1,4 @@
-# OpenAPI\Client\AFNORPDPPAFlowServiceApi
+# FactPulse\SDK\AFNORPDPPAFlowServiceApi
 
 
 
@@ -15,7 +15,7 @@ All URIs are relative to https://factpulse.fr, except if the operation defines a
 ## `downloadFlowProxyApiV1AfnorFlowV1FlowsFlowIdGet()`
 
 ```php
-downloadFlowProxyApiV1AfnorFlowV1FlowsFlowIdGet($flow_id, $doc_type): \OpenAPI\Client\Model\AFNORFlow
+downloadFlowProxyApiV1AfnorFlowV1FlowsFlowIdGet($flow_id, $doc_type): \FactPulse\SDK\Model\AFNORFlow
 ```
 
 Download a flow
@@ -30,13 +30,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\AFNORPDPPAFlowServiceApi(
+$apiInstance = new FactPulse\SDK\Api\AFNORPDPPAFlowServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $flow_id = 'flow_id_example'; // string | AFNOR flow identifier (UUID)
-$doc_type = new \OpenAPI\Client\Model\\OpenAPIClientModelDocType(); // \OpenAPIClientModelDocType | Type of file to download: Metadata (default, JSON), Original, Converted, or ReadableView
+$doc_type = new \FactPulse\SDK\Model\\FactPulseSDKModelDocType(); // \FactPulseSDKModelDocType | Type of file to download: Metadata (default, JSON), Original, Converted, or ReadableView
 
 try {
     $result = $apiInstance->downloadFlowProxyApiV1AfnorFlowV1FlowsFlowIdGet($flow_id, $doc_type);
@@ -51,11 +51,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **flow_id** | **string**| AFNOR flow identifier (UUID) | |
-| **doc_type** | [**\OpenAPIClientModelDocType**](../Model/.md)| Type of file to download: Metadata (default, JSON), Original, Converted, or ReadableView | [optional] |
+| **doc_type** | [**\FactPulseSDKModelDocType**](../Model/.md)| Type of file to download: Metadata (default, JSON), Original, Converted, or ReadableView | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AFNORFlow**](../Model/AFNORFlow.md)
+[**\FactPulse\SDK\Model\AFNORFlow**](../Model/AFNORFlow.md)
 
 ### Authorization
 
@@ -88,7 +88,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\AFNORPDPPAFlowServiceApi(
+$apiInstance = new FactPulse\SDK\Api\AFNORPDPPAFlowServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -126,7 +126,7 @@ No authorization required
 ## `searchFlowsProxyApiV1AfnorFlowV1FlowsSearchPost()`
 
 ```php
-searchFlowsProxyApiV1AfnorFlowV1FlowsSearchPost($afnor_search_flow_params): \OpenAPI\Client\Model\AFNORSearchFlowContent
+searchFlowsProxyApiV1AfnorFlowV1FlowsSearchPost($afnor_search_flow_params): \FactPulse\SDK\Model\AFNORSearchFlowContent
 ```
 
 Search flows
@@ -141,12 +141,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\AFNORPDPPAFlowServiceApi(
+$apiInstance = new FactPulse\SDK\Api\AFNORPDPPAFlowServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$afnor_search_flow_params = new \OpenAPI\Client\Model\AFNORSearchFlowParams(); // \OpenAPI\Client\Model\AFNORSearchFlowParams
+$afnor_search_flow_params = new \FactPulse\SDK\Model\AFNORSearchFlowParams(); // \FactPulse\SDK\Model\AFNORSearchFlowParams
 
 try {
     $result = $apiInstance->searchFlowsProxyApiV1AfnorFlowV1FlowsSearchPost($afnor_search_flow_params);
@@ -160,11 +160,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **afnor_search_flow_params** | [**\OpenAPI\Client\Model\AFNORSearchFlowParams**](../Model/AFNORSearchFlowParams.md)|  | |
+| **afnor_search_flow_params** | [**\FactPulse\SDK\Model\AFNORSearchFlowParams**](../Model/AFNORSearchFlowParams.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AFNORSearchFlowContent**](../Model/AFNORSearchFlowContent.md)
+[**\FactPulse\SDK\Model\AFNORSearchFlowContent**](../Model/AFNORSearchFlowContent.md)
 
 ### Authorization
 
@@ -197,12 +197,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\AFNORPDPPAFlowServiceApi(
+$apiInstance = new FactPulse\SDK\Api\AFNORPDPPAFlowServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$flow_info = new \OpenAPI\Client\Model\AFNORFlowInfo(); // \OpenAPI\Client\Model\AFNORFlowInfo
+$flow_info = new \FactPulse\SDK\Model\AFNORFlowInfo(); // \FactPulse\SDK\Model\AFNORFlowInfo
 $file = '/path/to/file.txt'; // \SplFileObject | Flow file (PDF/A-3 with embedded XML or XML)
 
 try {
@@ -217,7 +217,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **flow_info** | [**\OpenAPI\Client\Model\AFNORFlowInfo**](../Model/AFNORFlowInfo.md)|  | |
+| **flow_info** | [**\FactPulse\SDK\Model\AFNORFlowInfo**](../Model/AFNORFlowInfo.md)|  | |
 | **file** | **\SplFileObject****\SplFileObject**| Flow file (PDF/A-3 with embedded XML or XML) | |
 
 ### Return type

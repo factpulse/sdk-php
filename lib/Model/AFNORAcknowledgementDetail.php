@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORAcknowledgementDetail Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -60,7 +60,7 @@ class AFNORAcknowledgementDetail implements ModelInterface, ArrayAccess, \JsonSe
     protected static $openAPITypes = [
         'level' => 'string',
         'item' => 'string',
-        'reason_code' => '\OpenAPI\Client\Model\AFNORReasonCode',
+        'reason_code' => '\FactPulse\SDK\Model\AFNORReasonCode',
         'reason_message' => 'string'
     ];
 
@@ -414,7 +414,7 @@ class AFNORAcknowledgementDetail implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets reason_code
      *
-     * @return \OpenAPI\Client\Model\AFNORReasonCode
+     * @return \FactPulse\SDK\Model\AFNORReasonCode
      */
     public function getReasonCode()
     {
@@ -424,7 +424,7 @@ class AFNORAcknowledgementDetail implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets reason_code
      *
-     * @param \OpenAPI\Client\Model\AFNORReasonCode $reason_code reason_code
+     * @param \FactPulse\SDK\Model\AFNORReasonCode $reason_code reason_code
      *
      * @return self
      */

@@ -1,4 +1,4 @@
-# OpenAPI\Client\DocumentConversionApi
+# FactPulse\SDK\DocumentConversionApi
 
 
 
@@ -30,10 +30,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\DocumentConversionApi(
+$apiInstance = new FactPulse\SDK\Api\DocumentConversionApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -96,10 +96,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\DocumentConversionApi(
+$apiInstance = new FactPulse\SDK\Api\DocumentConversionApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -158,10 +158,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\DocumentConversionApi(
+$apiInstance = new FactPulse\SDK\Api\DocumentConversionApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -203,7 +203,7 @@ try {
 ## `resumeConversionApiV1ConvertConversionIdResumePost()`
 
 ```php
-resumeConversionApiV1ConvertConversionIdResumePost($conversion_id, $convert_resume_request): \OpenAPI\Client\Model\ConvertSuccessResponse
+resumeConversionApiV1ConvertConversionIdResumePost($conversion_id, $convert_resume_request): \FactPulse\SDK\Model\ConvertSuccessResponse
 ```
 
 Reprendre une conversion avec corrections
@@ -218,17 +218,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\DocumentConversionApi(
+$apiInstance = new FactPulse\SDK\Api\DocumentConversionApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $conversion_id = 'conversion_id_example'; // string | Conversion ID returned by POST /convert (UUID format)
-$convert_resume_request = new \OpenAPI\Client\Model\ConvertResumeRequest(); // \OpenAPI\Client\Model\ConvertResumeRequest
+$convert_resume_request = new \FactPulse\SDK\Model\ConvertResumeRequest(); // \FactPulse\SDK\Model\ConvertResumeRequest
 
 try {
     $result = $apiInstance->resumeConversionApiV1ConvertConversionIdResumePost($conversion_id, $convert_resume_request);
@@ -243,11 +243,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **conversion_id** | **string**| Conversion ID returned by POST /convert (UUID format) | |
-| **convert_resume_request** | [**\OpenAPI\Client\Model\ConvertResumeRequest**](../Model/ConvertResumeRequest.md)|  | |
+| **convert_resume_request** | [**\FactPulse\SDK\Model\ConvertResumeRequest**](../Model/ConvertResumeRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ConvertSuccessResponse**](../Model/ConvertSuccessResponse.md)
+[**\FactPulse\SDK\Model\ConvertSuccessResponse**](../Model/ConvertSuccessResponse.md)
 
 ### Authorization
 

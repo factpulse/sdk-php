@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORSearchDirectoryLine Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,9 +58,9 @@ class AFNORSearchDirectoryLine implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'filters' => '\OpenAPI\Client\Model\AFNORSearchDirectoryLineFilters',
-        'sorting' => '\OpenAPI\Client\Model\AFNORSearchDirectoryLineSortingInner[]',
-        'fields' => '\OpenAPI\Client\Model\AFNORDirectoryLineField[]',
+        'filters' => '\FactPulse\SDK\Model\AFNORSearchDirectoryLineFilters',
+        'sorting' => '\FactPulse\SDK\Model\AFNORSearchDirectoryLineSortingInner[]',
+        'fields' => '\FactPulse\SDK\Model\AFNORDirectoryLineField[]',
         'limit' => 'int',
         'ignore' => 'int'
     ];
@@ -321,7 +321,7 @@ class AFNORSearchDirectoryLine implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets filters
      *
-     * @return \OpenAPI\Client\Model\AFNORSearchDirectoryLineFilters|null
+     * @return \FactPulse\SDK\Model\AFNORSearchDirectoryLineFilters|null
      */
     public function getFilters()
     {
@@ -331,7 +331,7 @@ class AFNORSearchDirectoryLine implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets filters
      *
-     * @param \OpenAPI\Client\Model\AFNORSearchDirectoryLineFilters|null $filters filters
+     * @param \FactPulse\SDK\Model\AFNORSearchDirectoryLineFilters|null $filters filters
      *
      * @return self
      */
@@ -348,7 +348,7 @@ class AFNORSearchDirectoryLine implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets sorting
      *
-     * @return \OpenAPI\Client\Model\AFNORSearchDirectoryLineSortingInner[]|null
+     * @return \FactPulse\SDK\Model\AFNORSearchDirectoryLineSortingInner[]|null
      */
     public function getSorting()
     {
@@ -358,7 +358,7 @@ class AFNORSearchDirectoryLine implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets sorting
      *
-     * @param \OpenAPI\Client\Model\AFNORSearchDirectoryLineSortingInner[]|null $sorting Sorting criteria on a field and an order (ascending or descending).
+     * @param \FactPulse\SDK\Model\AFNORSearchDirectoryLineSortingInner[]|null $sorting Sorting criteria on a field and an order (ascending or descending).
      *
      * @return self
      */
@@ -375,7 +375,7 @@ class AFNORSearchDirectoryLine implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets fields
      *
-     * @return \OpenAPI\Client\Model\AFNORDirectoryLineField[]|null
+     * @return \FactPulse\SDK\Model\AFNORDirectoryLineField[]|null
      */
     public function getFields()
     {
@@ -385,7 +385,7 @@ class AFNORSearchDirectoryLine implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets fields
      *
-     * @param \OpenAPI\Client\Model\AFNORDirectoryLineField[]|null $fields Allows you to filter the desired fields in the response.
+     * @param \FactPulse\SDK\Model\AFNORDirectoryLineField[]|null $fields Allows you to filter the desired fields in the response.
      *
      * @return self
      */

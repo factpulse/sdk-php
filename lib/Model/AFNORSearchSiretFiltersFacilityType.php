@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORSearchSiretFiltersFacilityType Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,8 +58,8 @@ class AFNORSearchSiretFiltersFacilityType implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'op' => '\OpenAPI\Client\Model\AFNORContainsOperator',
-        'value' => '\OpenAPI\Client\Model\AFNORFacilityType'
+        'op' => '\FactPulse\SDK\Model\AFNORContainsOperator',
+        'value' => '\FactPulse\SDK\Model\AFNORFacilityType'
     ];
 
     /**
@@ -300,7 +300,7 @@ class AFNORSearchSiretFiltersFacilityType implements ModelInterface, ArrayAccess
     /**
      * Gets op
      *
-     * @return \OpenAPI\Client\Model\AFNORContainsOperator|null
+     * @return \FactPulse\SDK\Model\AFNORContainsOperator|null
      */
     public function getOp()
     {
@@ -310,7 +310,7 @@ class AFNORSearchSiretFiltersFacilityType implements ModelInterface, ArrayAccess
     /**
      * Sets op
      *
-     * @param \OpenAPI\Client\Model\AFNORContainsOperator|null $op op
+     * @param \FactPulse\SDK\Model\AFNORContainsOperator|null $op op
      *
      * @return self
      */
@@ -327,7 +327,7 @@ class AFNORSearchSiretFiltersFacilityType implements ModelInterface, ArrayAccess
     /**
      * Gets value
      *
-     * @return \OpenAPI\Client\Model\AFNORFacilityType|null
+     * @return \FactPulse\SDK\Model\AFNORFacilityType|null
      */
     public function getValue()
     {
@@ -337,7 +337,7 @@ class AFNORSearchSiretFiltersFacilityType implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param \OpenAPI\Client\Model\AFNORFacilityType|null $value value
+     * @param \FactPulse\SDK\Model\AFNORFacilityType|null $value value
      *
      * @return self
      */

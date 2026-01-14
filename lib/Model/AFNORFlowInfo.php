@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORFlowInfo Class Doc Comment
  *
  * @category Class
  * @description Signaling of the flow: - The tracking id is an external identifier and is used to track the flow by the sender - The sha256 is the fingerprint of the attached file:   - if provided in the request: it should be checked once received   - if not provided in the request: it should be computed and returned in the response
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -61,9 +61,9 @@ class AFNORFlowInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'tracking_id' => 'string',
         'name' => 'string',
-        'processing_rule' => '\OpenAPI\Client\Model\AFNORProcessingRule',
-        'flow_syntax' => '\OpenAPI\Client\Model\AFNORFlowSyntax',
-        'flow_profile' => '\OpenAPI\Client\Model\AFNORFlowProfile',
+        'processing_rule' => '\FactPulse\SDK\Model\AFNORProcessingRule',
+        'flow_syntax' => '\FactPulse\SDK\Model\AFNORFlowSyntax',
+        'flow_profile' => '\FactPulse\SDK\Model\AFNORFlowProfile',
         'sha256' => 'string'
     ];
 
@@ -406,7 +406,7 @@ class AFNORFlowInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets processing_rule
      *
-     * @return \OpenAPI\Client\Model\AFNORProcessingRule|null
+     * @return \FactPulse\SDK\Model\AFNORProcessingRule|null
      */
     public function getProcessingRule()
     {
@@ -416,7 +416,7 @@ class AFNORFlowInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets processing_rule
      *
-     * @param \OpenAPI\Client\Model\AFNORProcessingRule|null $processing_rule processing_rule
+     * @param \FactPulse\SDK\Model\AFNORProcessingRule|null $processing_rule processing_rule
      *
      * @return self
      */
@@ -433,7 +433,7 @@ class AFNORFlowInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets flow_syntax
      *
-     * @return \OpenAPI\Client\Model\AFNORFlowSyntax
+     * @return \FactPulse\SDK\Model\AFNORFlowSyntax
      */
     public function getFlowSyntax()
     {
@@ -443,7 +443,7 @@ class AFNORFlowInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets flow_syntax
      *
-     * @param \OpenAPI\Client\Model\AFNORFlowSyntax $flow_syntax flow_syntax
+     * @param \FactPulse\SDK\Model\AFNORFlowSyntax $flow_syntax flow_syntax
      *
      * @return self
      */
@@ -460,7 +460,7 @@ class AFNORFlowInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets flow_profile
      *
-     * @return \OpenAPI\Client\Model\AFNORFlowProfile|null
+     * @return \FactPulse\SDK\Model\AFNORFlowProfile|null
      */
     public function getFlowProfile()
     {
@@ -470,7 +470,7 @@ class AFNORFlowInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets flow_profile
      *
-     * @param \OpenAPI\Client\Model\AFNORFlowProfile|null $flow_profile flow_profile
+     * @param \FactPulse\SDK\Model\AFNORFlowProfile|null $flow_profile flow_profile
      *
      * @return self
      */

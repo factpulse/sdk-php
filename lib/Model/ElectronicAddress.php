@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * ElectronicAddress Class Doc Comment
  *
  * @category Class
  * @description Represents an electronic invoicing address, composed of an identifier and its scheme (SchemeID) in accordance with EN16931. Example: { \&quot;identifier\&quot;: \&quot;123456789\&quot;, \&quot;scheme_id\&quot;: \&quot;0225\&quot; }
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -60,7 +60,7 @@ class ElectronicAddress implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static $openAPITypes = [
         'identifier' => 'string',
-        'scheme_id' => '\OpenAPI\Client\Model\SchemeID'
+        'scheme_id' => '\FactPulse\SDK\Model\SchemeID'
     ];
 
     /**
@@ -331,7 +331,7 @@ class ElectronicAddress implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets scheme_id
      *
-     * @return \OpenAPI\Client\Model\SchemeID|null
+     * @return \FactPulse\SDK\Model\SchemeID|null
      */
     public function getSchemeId()
     {
@@ -341,7 +341,7 @@ class ElectronicAddress implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets scheme_id
      *
-     * @param \OpenAPI\Client\Model\SchemeID|null $scheme_id Identification scheme (EAS code)
+     * @param \FactPulse\SDK\Model\SchemeID|null $scheme_id Identification scheme (EAS code)
      *
      * @return self
      */

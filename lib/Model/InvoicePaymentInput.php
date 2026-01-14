@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * InvoicePaymentInput Class Doc Comment
  *
  * @category Class
  * @description Payment linked to a specific invoice (flux 10.2).  Used for B2B international invoice payments.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -62,8 +62,8 @@ class InvoicePaymentInput implements ModelInterface, ArrayAccess, \JsonSerializa
         'invoice_id' => 'string',
         'invoice_date' => '\DateTime',
         'payment_date' => '\DateTime',
-        'currency' => '\OpenAPI\Client\Model\Currency',
-        'amounts_by_rate' => '\OpenAPI\Client\Model\PaymentAmountByRate[]'
+        'currency' => '\FactPulse\SDK\Model\Currency',
+        'amounts_by_rate' => '\FactPulse\SDK\Model\PaymentAmountByRate[]'
     ];
 
     /**
@@ -419,7 +419,7 @@ class InvoicePaymentInput implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets currency
      *
-     * @return \OpenAPI\Client\Model\Currency|null
+     * @return \FactPulse\SDK\Model\Currency|null
      */
     public function getCurrency()
     {
@@ -429,7 +429,7 @@ class InvoicePaymentInput implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets currency
      *
-     * @param \OpenAPI\Client\Model\Currency|null $currency currency
+     * @param \FactPulse\SDK\Model\Currency|null $currency currency
      *
      * @return self
      */
@@ -446,7 +446,7 @@ class InvoicePaymentInput implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets amounts_by_rate
      *
-     * @return \OpenAPI\Client\Model\PaymentAmountByRate[]
+     * @return \FactPulse\SDK\Model\PaymentAmountByRate[]
      */
     public function getAmountsByRate()
     {
@@ -456,7 +456,7 @@ class InvoicePaymentInput implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets amounts_by_rate
      *
-     * @param \OpenAPI\Client\Model\PaymentAmountByRate[] $amounts_by_rate Payment amounts by VAT rate
+     * @param \FactPulse\SDK\Model\PaymentAmountByRate[] $amounts_by_rate Payment amounts by VAT rate
      *
      * @return self
      */

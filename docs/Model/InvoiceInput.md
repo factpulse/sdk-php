@@ -6,18 +6,18 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **invoice_id** | **string** | Invoice identifier |
 **issue_date** | **\DateTime** | Invoice issue date |
-**type_code** | [**\OpenAPI\Client\Model\FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCode**](FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCode.md) | Invoice type code | [optional]
-**currency** | [**\OpenAPI\Client\Model\Currency**](Currency.md) |  | [optional]
+**type_code** | [**\FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCode**](FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCode.md) | Invoice type code | [optional]
+**currency** | [**\FactPulse\SDK\Model\Currency**](Currency.md) |  | [optional]
 **due_date** | **\DateTime** |  | [optional]
 **seller_siren** | **string** | Seller SIREN/SIRET |
 **seller_vat_id** | **string** |  | [optional]
-**seller_country** | [**\OpenAPI\Client\Model\Sellercountry**](Sellercountry.md) |  | [optional]
+**seller_country** | [**\FactPulse\SDK\Model\Sellercountry**](Sellercountry.md) |  | [optional]
 **buyer_id** | **string** |  | [optional]
 **buyer_vat_id** | **string** |  | [optional]
-**buyer_country** | [**\OpenAPI\Client\Model\Buyercountry**](Buyercountry.md) |  |
-**tax_exclusive_amount** | [**\OpenAPI\Client\Model\Taxexclusiveamount1**](Taxexclusiveamount1.md) |  |
-**tax_amount** | [**\OpenAPI\Client\Model\Taxamount1**](Taxamount1.md) |  |
-**tax_breakdown** | [**\OpenAPI\Client\Model\TaxBreakdownInput[]**](TaxBreakdownInput.md) | VAT breakdown |
+**buyer_country** | [**\FactPulse\SDK\Model\Buyercountry**](Buyercountry.md) |  |
+**tax_exclusive_amount** | [**\FactPulse\SDK\Model\Taxexclusiveamount1**](Taxexclusiveamount1.md) |  |
+**tax_amount** | [**\FactPulse\SDK\Model\Taxamount1**](Taxamount1.md) |  |
+**tax_breakdown** | [**\FactPulse\SDK\Model\TaxBreakdownInput[]**](TaxBreakdownInput.md) | VAT breakdown |
 **referenced_invoice_id** | **string** |  | [optional]
 **referenced_invoice_date** | **\DateTime** |  | [optional]
 

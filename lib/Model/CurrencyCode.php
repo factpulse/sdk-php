@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,15 +27,15 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
-use \OpenAPI\Client\ObjectSerializer;
+namespace FactPulse\SDK\Model;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * CurrencyCode Class Doc Comment
  *
  * @category Class
  * @description ISO 4217 currency codes.  Most common currencies used in e-reporting and invoicing. This is not an exhaustive list but covers all practical use cases for French e-reporting (EUR zone + major trading partners).
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

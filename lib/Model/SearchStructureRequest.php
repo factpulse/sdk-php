@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * SearchStructureRequest Class Doc Comment
  *
  * @category Class
  * @description Search structures by criteria.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,7 +59,7 @@ class SearchStructureRequest implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'credentials' => '\OpenAPI\Client\Model\ChorusProCredentials',
+        'credentials' => '\FactPulse\SDK\Model\ChorusProCredentials',
         'structure_identifier' => 'string',
         'structure_identifier_type' => 'string',
         'company_name' => 'string',
@@ -322,7 +322,7 @@ class SearchStructureRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets credentials
      *
-     * @return \OpenAPI\Client\Model\ChorusProCredentials|null
+     * @return \FactPulse\SDK\Model\ChorusProCredentials|null
      */
     public function getCredentials()
     {
@@ -332,7 +332,7 @@ class SearchStructureRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets credentials
      *
-     * @param \OpenAPI\Client\Model\ChorusProCredentials|null $credentials credentials
+     * @param \FactPulse\SDK\Model\ChorusProCredentials|null $credentials credentials
      *
      * @return self
      */

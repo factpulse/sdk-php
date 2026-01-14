@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * APIError Class Doc Comment
  *
  * @category Class
  * @description Standardized API error (aligned with AFNOR Error schema).  Unified format for all HTTP error responses.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -61,7 +61,7 @@ class APIError implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'error_code' => 'string',
         'error_message' => 'string',
-        'details' => '\OpenAPI\Client\Model\ValidationErrorDetail[]'
+        'details' => '\FactPulse\SDK\Model\ValidationErrorDetail[]'
     ];
 
     /**
@@ -368,7 +368,7 @@ class APIError implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets details
      *
-     * @return \OpenAPI\Client\Model\ValidationErrorDetail[]|null
+     * @return \FactPulse\SDK\Model\ValidationErrorDetail[]|null
      */
     public function getDetails()
     {
@@ -378,7 +378,7 @@ class APIError implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets details
      *
-     * @param \OpenAPI\Client\Model\ValidationErrorDetail[]|null $details details
+     * @param \FactPulse\SDK\Model\ValidationErrorDetail[]|null $details details
      *
      * @return self
      */

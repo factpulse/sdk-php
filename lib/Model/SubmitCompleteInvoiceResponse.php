@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * SubmitCompleteInvoiceResponse Class Doc Comment
  *
  * @category Class
  * @description Complete response after automated submission.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -61,11 +61,11 @@ class SubmitCompleteInvoiceResponse implements ModelInterface, ArrayAccess, \Jso
     protected static $openAPITypes = [
         'success' => 'bool',
         'destination_type' => 'string',
-        'chorus_result' => '\OpenAPI\Client\Model\ChorusProResult',
-        'afnor_result' => '\OpenAPI\Client\Model\AFNORResult',
-        'enriched_invoice' => '\OpenAPI\Client\Model\EnrichedInvoiceInfo',
-        'facturx_pdf' => '\OpenAPI\Client\Model\FacturXPDFInfo',
-        'signature' => '\OpenAPI\Client\Model\SignatureInfo',
+        'chorus_result' => '\FactPulse\SDK\Model\ChorusProResult',
+        'afnor_result' => '\FactPulse\SDK\Model\AFNORResult',
+        'enriched_invoice' => '\FactPulse\SDK\Model\EnrichedInvoiceInfo',
+        'facturx_pdf' => '\FactPulse\SDK\Model\FacturXPDFInfo',
+        'signature' => '\FactPulse\SDK\Model\SignatureInfo',
         'pdf_base64' => 'string',
         'message' => 'string'
     ];
@@ -456,7 +456,7 @@ class SubmitCompleteInvoiceResponse implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets chorus_result
      *
-     * @return \OpenAPI\Client\Model\ChorusProResult|null
+     * @return \FactPulse\SDK\Model\ChorusProResult|null
      */
     public function getChorusResult()
     {
@@ -466,7 +466,7 @@ class SubmitCompleteInvoiceResponse implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets chorus_result
      *
-     * @param \OpenAPI\Client\Model\ChorusProResult|null $chorus_result chorus_result
+     * @param \FactPulse\SDK\Model\ChorusProResult|null $chorus_result chorus_result
      *
      * @return self
      */
@@ -490,7 +490,7 @@ class SubmitCompleteInvoiceResponse implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets afnor_result
      *
-     * @return \OpenAPI\Client\Model\AFNORResult|null
+     * @return \FactPulse\SDK\Model\AFNORResult|null
      */
     public function getAfnorResult()
     {
@@ -500,7 +500,7 @@ class SubmitCompleteInvoiceResponse implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets afnor_result
      *
-     * @param \OpenAPI\Client\Model\AFNORResult|null $afnor_result afnor_result
+     * @param \FactPulse\SDK\Model\AFNORResult|null $afnor_result afnor_result
      *
      * @return self
      */
@@ -524,7 +524,7 @@ class SubmitCompleteInvoiceResponse implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets enriched_invoice
      *
-     * @return \OpenAPI\Client\Model\EnrichedInvoiceInfo
+     * @return \FactPulse\SDK\Model\EnrichedInvoiceInfo
      */
     public function getEnrichedInvoice()
     {
@@ -534,7 +534,7 @@ class SubmitCompleteInvoiceResponse implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets enriched_invoice
      *
-     * @param \OpenAPI\Client\Model\EnrichedInvoiceInfo $enriched_invoice Enriched invoice data
+     * @param \FactPulse\SDK\Model\EnrichedInvoiceInfo $enriched_invoice Enriched invoice data
      *
      * @return self
      */
@@ -551,7 +551,7 @@ class SubmitCompleteInvoiceResponse implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets facturx_pdf
      *
-     * @return \OpenAPI\Client\Model\FacturXPDFInfo
+     * @return \FactPulse\SDK\Model\FacturXPDFInfo
      */
     public function getFacturxPdf()
     {
@@ -561,7 +561,7 @@ class SubmitCompleteInvoiceResponse implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets facturx_pdf
      *
-     * @param \OpenAPI\Client\Model\FacturXPDFInfo $facturx_pdf Generated PDF information
+     * @param \FactPulse\SDK\Model\FacturXPDFInfo $facturx_pdf Generated PDF information
      *
      * @return self
      */
@@ -578,7 +578,7 @@ class SubmitCompleteInvoiceResponse implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets signature
      *
-     * @return \OpenAPI\Client\Model\SignatureInfo|null
+     * @return \FactPulse\SDK\Model\SignatureInfo|null
      */
     public function getSignature()
     {
@@ -588,7 +588,7 @@ class SubmitCompleteInvoiceResponse implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets signature
      *
-     * @param \OpenAPI\Client\Model\SignatureInfo|null $signature signature
+     * @param \FactPulse\SDK\Model\SignatureInfo|null $signature signature
      *
      * @return self
      */

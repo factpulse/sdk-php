@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,7 +27,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace FactPulse\SDK\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -36,7 +36,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description Standardized VAT categories for Factur-X (EN 16931 standard).  **Possible values:** - &#x60;S&#x60;: STANDARD - Standard VAT rate - &#x60;Z&#x60;: ZERO - Zero VAT rate - &#x60;E&#x60;: EXEMPT - VAT exemption - &#x60;AE&#x60;: REVERSE_CHARGE - Reverse charge (auto-liquidation) - &#x60;K&#x60;: INTRA_COMMUNITY - Intra-community supply - &#x60;G&#x60;: EXPORT - Export outside EU - &#x60;O&#x60;: OUT_OF_SCOPE - Outside VAT scope - &#x60;L&#x60;: CANARY_ISLANDS - Canary Islands VAT - &#x60;M&#x60;: CEUTA_MELILLA - Ceuta/Melilla VAT
- * @package     OpenAPI\Client
+ * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */

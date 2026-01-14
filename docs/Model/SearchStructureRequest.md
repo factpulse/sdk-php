@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**credentials** | [**\OpenAPI\Client\Model\ChorusProCredentials**](ChorusProCredentials.md) |  | [optional]
+**credentials** | [**\FactPulse\SDK\Model\ChorusProCredentials**](ChorusProCredentials.md) |  | [optional]
 **structure_identifier** | **string** |  | [optional]
 **structure_identifier_type** | **string** |  | [optional]
 **company_name** | **string** |  | [optional]

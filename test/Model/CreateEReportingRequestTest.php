@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,7 +27,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace FactPulse\SDK\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -36,7 +36,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description Request to create an e-reporting submission.  Supports all four flux types: - 10.1: B2B international invoices (use &#x60;invoices&#x60; field) - 10.2: B2B international payments (use &#x60;invoicePayments&#x60; field) - 10.3: B2C aggregated transactions (use &#x60;transactions&#x60; field) - 10.4: B2C aggregated payments (use &#x60;aggregatedPayments&#x60; field)
- * @package     OpenAPI\Client
+ * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */

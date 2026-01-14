@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * VerifiedFieldSchema Class Doc Comment
  *
  * @category Class
  * @description A verified field with all its information (extraction + compliance + location).
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -63,11 +63,11 @@ class VerifiedFieldSchema implements ModelInterface, ArrayAccess, \JsonSerializa
         'label' => 'string',
         'pdf_value' => 'string',
         'xml_value' => 'string',
-        'status' => '\OpenAPI\Client\Model\FieldStatus',
+        'status' => '\FactPulse\SDK\Model\FieldStatus',
         'message' => 'string',
         'confidence' => 'float',
         'source' => 'string',
-        'bbox' => '\OpenAPI\Client\Model\BoundingBoxSchema'
+        'bbox' => '\FactPulse\SDK\Model\BoundingBoxSchema'
     ];
 
     /**
@@ -489,7 +489,7 @@ class VerifiedFieldSchema implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets status
      *
-     * @return \OpenAPI\Client\Model\FieldStatus
+     * @return \FactPulse\SDK\Model\FieldStatus
      */
     public function getStatus()
     {
@@ -499,7 +499,7 @@ class VerifiedFieldSchema implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets status
      *
-     * @param \OpenAPI\Client\Model\FieldStatus $status Compliance status
+     * @param \FactPulse\SDK\Model\FieldStatus $status Compliance status
      *
      * @return self
      */
@@ -612,7 +612,7 @@ class VerifiedFieldSchema implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets bbox
      *
-     * @return \OpenAPI\Client\Model\BoundingBoxSchema|null
+     * @return \FactPulse\SDK\Model\BoundingBoxSchema|null
      */
     public function getBbox()
     {
@@ -622,7 +622,7 @@ class VerifiedFieldSchema implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets bbox
      *
-     * @param \OpenAPI\Client\Model\BoundingBoxSchema|null $bbox bbox
+     * @param \FactPulse\SDK\Model\BoundingBoxSchema|null $bbox bbox
      *
      * @return self
      */

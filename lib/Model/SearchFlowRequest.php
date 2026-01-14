@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * SearchFlowRequest Class Doc Comment
  *
  * @category Class
  * @description Request to search submitted flows.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -61,11 +61,11 @@ class SearchFlowRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $openAPITypes = [
         'updated_after' => '\DateTime',
         'updated_before' => '\DateTime',
-        'flow_types' => '\OpenAPI\Client\Model\FlowType[]',
-        'flow_directions' => '\OpenAPI\Client\Model\FlowDirection[]',
+        'flow_types' => '\FactPulse\SDK\Model\FlowType[]',
+        'flow_directions' => '\FactPulse\SDK\Model\FlowDirection[]',
         'tracking_id' => 'string',
         'flow_id' => 'string',
-        'acknowledgment_status' => '\OpenAPI\Client\Model\AcknowledgmentStatus',
+        'acknowledgment_status' => '\FactPulse\SDK\Model\AcknowledgmentStatus',
         'offset' => 'int',
         'limit' => 'int'
     ];
@@ -430,7 +430,7 @@ class SearchFlowRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets flow_types
      *
-     * @return \OpenAPI\Client\Model\FlowType[]|null
+     * @return \FactPulse\SDK\Model\FlowType[]|null
      */
     public function getFlowTypes()
     {
@@ -440,7 +440,7 @@ class SearchFlowRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets flow_types
      *
-     * @param \OpenAPI\Client\Model\FlowType[]|null $flow_types flow_types
+     * @param \FactPulse\SDK\Model\FlowType[]|null $flow_types flow_types
      *
      * @return self
      */
@@ -464,7 +464,7 @@ class SearchFlowRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets flow_directions
      *
-     * @return \OpenAPI\Client\Model\FlowDirection[]|null
+     * @return \FactPulse\SDK\Model\FlowDirection[]|null
      */
     public function getFlowDirections()
     {
@@ -474,7 +474,7 @@ class SearchFlowRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets flow_directions
      *
-     * @param \OpenAPI\Client\Model\FlowDirection[]|null $flow_directions flow_directions
+     * @param \FactPulse\SDK\Model\FlowDirection[]|null $flow_directions flow_directions
      *
      * @return self
      */
@@ -566,7 +566,7 @@ class SearchFlowRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets acknowledgment_status
      *
-     * @return \OpenAPI\Client\Model\AcknowledgmentStatus|null
+     * @return \FactPulse\SDK\Model\AcknowledgmentStatus|null
      */
     public function getAcknowledgmentStatus()
     {
@@ -576,7 +576,7 @@ class SearchFlowRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets acknowledgment_status
      *
-     * @param \OpenAPI\Client\Model\AcknowledgmentStatus|null $acknowledgment_status acknowledgment_status
+     * @param \FactPulse\SDK\Model\AcknowledgmentStatus|null $acknowledgment_status acknowledgment_status
      *
      * @return self
      */

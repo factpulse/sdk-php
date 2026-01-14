@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * ValidateEReportingRequest Class Doc Comment
  *
  * @category Class
  * @description Request to validate e-reporting data without submitting.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,7 +59,7 @@ class ValidateEReportingRequest implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\OpenAPI\Client\Model\CreateEReportingRequest'
+        'data' => '\FactPulse\SDK\Model\CreateEReportingRequest'
     ];
 
     /**
@@ -297,7 +297,7 @@ class ValidateEReportingRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\CreateEReportingRequest
+     * @return \FactPulse\SDK\Model\CreateEReportingRequest
      */
     public function getData()
     {
@@ -307,7 +307,7 @@ class ValidateEReportingRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\CreateEReportingRequest $data E-Reporting data to validate
+     * @param \FactPulse\SDK\Model\CreateEReportingRequest $data E-Reporting data to validate
      *
      * @return self
      */

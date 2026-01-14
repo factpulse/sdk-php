@@ -4,7 +4,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace FactPulse\SDK\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -37,17 +37,17 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\FormDataProcessor;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use FactPulse\SDK\ApiException;
+use FactPulse\SDK\Configuration;
+use FactPulse\SDK\FormDataProcessor;
+use FactPulse\SDK\HeaderSelector;
+use FactPulse\SDK\ObjectSerializer;
 
 /**
  * EReportingApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -161,12 +161,12 @@ class EReportingApi
      *
      * Generate aggregated e-reporting XML (PPF-compliant)
      *
-     * @param  \OpenAPI\Client\Model\CreateAggregatedReportRequest $create_aggregated_report_request create_aggregated_report_request (required)
+     * @param  \FactPulse\SDK\Model\CreateAggregatedReportRequest $create_aggregated_report_request create_aggregated_report_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateAggregatedEreportingApiV1EreportingGenerateAggregatedPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GenerateAggregatedReportResponse|\OpenAPI\Client\Model\APIError
+     * @return \FactPulse\SDK\Model\GenerateAggregatedReportResponse|\FactPulse\SDK\Model\APIError
      */
     public function generateAggregatedEreportingApiV1EreportingGenerateAggregatedPost($create_aggregated_report_request, string $contentType = self::contentTypes['generateAggregatedEreportingApiV1EreportingGenerateAggregatedPost'][0])
     {
@@ -179,12 +179,12 @@ class EReportingApi
      *
      * Generate aggregated e-reporting XML (PPF-compliant)
      *
-     * @param  \OpenAPI\Client\Model\CreateAggregatedReportRequest $create_aggregated_report_request (required)
+     * @param  \FactPulse\SDK\Model\CreateAggregatedReportRequest $create_aggregated_report_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateAggregatedEreportingApiV1EreportingGenerateAggregatedPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GenerateAggregatedReportResponse|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\GenerateAggregatedReportResponse|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function generateAggregatedEreportingApiV1EreportingGenerateAggregatedPostWithHttpInfo($create_aggregated_report_request, string $contentType = self::contentTypes['generateAggregatedEreportingApiV1EreportingGenerateAggregatedPost'][0])
     {
@@ -216,13 +216,13 @@ class EReportingApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\GenerateAggregatedReportResponse',
+                        '\FactPulse\SDK\Model\GenerateAggregatedReportResponse',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -244,7 +244,7 @@ class EReportingApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\GenerateAggregatedReportResponse',
+                '\FactPulse\SDK\Model\GenerateAggregatedReportResponse',
                 $request,
                 $response,
             );
@@ -253,7 +253,7 @@ class EReportingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GenerateAggregatedReportResponse',
+                        '\FactPulse\SDK\Model\GenerateAggregatedReportResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -261,7 +261,7 @@ class EReportingApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -278,7 +278,7 @@ class EReportingApi
      *
      * Generate aggregated e-reporting XML (PPF-compliant)
      *
-     * @param  \OpenAPI\Client\Model\CreateAggregatedReportRequest $create_aggregated_report_request (required)
+     * @param  \FactPulse\SDK\Model\CreateAggregatedReportRequest $create_aggregated_report_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateAggregatedEreportingApiV1EreportingGenerateAggregatedPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -299,7 +299,7 @@ class EReportingApi
      *
      * Generate aggregated e-reporting XML (PPF-compliant)
      *
-     * @param  \OpenAPI\Client\Model\CreateAggregatedReportRequest $create_aggregated_report_request (required)
+     * @param  \FactPulse\SDK\Model\CreateAggregatedReportRequest $create_aggregated_report_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateAggregatedEreportingApiV1EreportingGenerateAggregatedPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -307,7 +307,7 @@ class EReportingApi
      */
     public function generateAggregatedEreportingApiV1EreportingGenerateAggregatedPostAsyncWithHttpInfo($create_aggregated_report_request, string $contentType = self::contentTypes['generateAggregatedEreportingApiV1EreportingGenerateAggregatedPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GenerateAggregatedReportResponse';
+        $returnType = '\FactPulse\SDK\Model\GenerateAggregatedReportResponse';
         $request = $this->generateAggregatedEreportingApiV1EreportingGenerateAggregatedPostRequest($create_aggregated_report_request, $contentType);
 
         return $this->client
@@ -349,7 +349,7 @@ class EReportingApi
     /**
      * Create request for operation 'generateAggregatedEreportingApiV1EreportingGenerateAggregatedPost'
      *
-     * @param  \OpenAPI\Client\Model\CreateAggregatedReportRequest $create_aggregated_report_request (required)
+     * @param  \FactPulse\SDK\Model\CreateAggregatedReportRequest $create_aggregated_report_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateAggregatedEreportingApiV1EreportingGenerateAggregatedPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -446,12 +446,12 @@ class EReportingApi
      *
      * Generate e-reporting XML
      *
-     * @param  \OpenAPI\Client\Model\CreateEReportingRequest $create_e_reporting_request create_e_reporting_request (required)
+     * @param  \FactPulse\SDK\Model\CreateEReportingRequest $create_e_reporting_request create_e_reporting_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEreportingApiV1EreportingGeneratePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GenerateEReportingResponse|\OpenAPI\Client\Model\APIError
+     * @return \FactPulse\SDK\Model\GenerateEReportingResponse|\FactPulse\SDK\Model\APIError
      */
     public function generateEreportingApiV1EreportingGeneratePost($create_e_reporting_request, string $contentType = self::contentTypes['generateEreportingApiV1EreportingGeneratePost'][0])
     {
@@ -464,12 +464,12 @@ class EReportingApi
      *
      * Generate e-reporting XML
      *
-     * @param  \OpenAPI\Client\Model\CreateEReportingRequest $create_e_reporting_request (required)
+     * @param  \FactPulse\SDK\Model\CreateEReportingRequest $create_e_reporting_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEreportingApiV1EreportingGeneratePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GenerateEReportingResponse|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\GenerateEReportingResponse|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function generateEreportingApiV1EreportingGeneratePostWithHttpInfo($create_e_reporting_request, string $contentType = self::contentTypes['generateEreportingApiV1EreportingGeneratePost'][0])
     {
@@ -501,13 +501,13 @@ class EReportingApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\GenerateEReportingResponse',
+                        '\FactPulse\SDK\Model\GenerateEReportingResponse',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -529,7 +529,7 @@ class EReportingApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\GenerateEReportingResponse',
+                '\FactPulse\SDK\Model\GenerateEReportingResponse',
                 $request,
                 $response,
             );
@@ -538,7 +538,7 @@ class EReportingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GenerateEReportingResponse',
+                        '\FactPulse\SDK\Model\GenerateEReportingResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -546,7 +546,7 @@ class EReportingApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -563,7 +563,7 @@ class EReportingApi
      *
      * Generate e-reporting XML
      *
-     * @param  \OpenAPI\Client\Model\CreateEReportingRequest $create_e_reporting_request (required)
+     * @param  \FactPulse\SDK\Model\CreateEReportingRequest $create_e_reporting_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEreportingApiV1EreportingGeneratePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -584,7 +584,7 @@ class EReportingApi
      *
      * Generate e-reporting XML
      *
-     * @param  \OpenAPI\Client\Model\CreateEReportingRequest $create_e_reporting_request (required)
+     * @param  \FactPulse\SDK\Model\CreateEReportingRequest $create_e_reporting_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEreportingApiV1EreportingGeneratePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -592,7 +592,7 @@ class EReportingApi
      */
     public function generateEreportingApiV1EreportingGeneratePostAsyncWithHttpInfo($create_e_reporting_request, string $contentType = self::contentTypes['generateEreportingApiV1EreportingGeneratePost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GenerateEReportingResponse';
+        $returnType = '\FactPulse\SDK\Model\GenerateEReportingResponse';
         $request = $this->generateEreportingApiV1EreportingGeneratePostRequest($create_e_reporting_request, $contentType);
 
         return $this->client
@@ -634,7 +634,7 @@ class EReportingApi
     /**
      * Create request for operation 'generateEreportingApiV1EreportingGeneratePost'
      *
-     * @param  \OpenAPI\Client\Model\CreateEReportingRequest $create_e_reporting_request (required)
+     * @param  \FactPulse\SDK\Model\CreateEReportingRequest $create_e_reporting_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEreportingApiV1EreportingGeneratePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -731,11 +731,11 @@ class EReportingApi
      *
      * Generate and download e-reporting XML
      *
-     * @param  \OpenAPI\Client\Model\CreateEReportingRequest $create_e_reporting_request create_e_reporting_request (required)
+     * @param  \FactPulse\SDK\Model\CreateEReportingRequest $create_e_reporting_request create_e_reporting_request (required)
      * @param  string|null $filename Output filename (default: ereporting_{reportId}.xml) (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEreportingDownloadApiV1EreportingGenerateDownloadPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -749,11 +749,11 @@ class EReportingApi
      *
      * Generate and download e-reporting XML
      *
-     * @param  \OpenAPI\Client\Model\CreateEReportingRequest $create_e_reporting_request (required)
+     * @param  \FactPulse\SDK\Model\CreateEReportingRequest $create_e_reporting_request (required)
      * @param  string|null $filename Output filename (default: ereporting_{reportId}.xml) (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEreportingDownloadApiV1EreportingGenerateDownloadPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -790,7 +790,7 @@ class EReportingApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -807,7 +807,7 @@ class EReportingApi
      *
      * Generate and download e-reporting XML
      *
-     * @param  \OpenAPI\Client\Model\CreateEReportingRequest $create_e_reporting_request (required)
+     * @param  \FactPulse\SDK\Model\CreateEReportingRequest $create_e_reporting_request (required)
      * @param  string|null $filename Output filename (default: ereporting_{reportId}.xml) (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEreportingDownloadApiV1EreportingGenerateDownloadPost'] to see the possible values for this operation
      *
@@ -829,7 +829,7 @@ class EReportingApi
      *
      * Generate and download e-reporting XML
      *
-     * @param  \OpenAPI\Client\Model\CreateEReportingRequest $create_e_reporting_request (required)
+     * @param  \FactPulse\SDK\Model\CreateEReportingRequest $create_e_reporting_request (required)
      * @param  string|null $filename Output filename (default: ereporting_{reportId}.xml) (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEreportingDownloadApiV1EreportingGenerateDownloadPost'] to see the possible values for this operation
      *
@@ -867,7 +867,7 @@ class EReportingApi
     /**
      * Create request for operation 'generateEreportingDownloadApiV1EreportingGenerateDownloadPost'
      *
-     * @param  \OpenAPI\Client\Model\CreateEReportingRequest $create_e_reporting_request (required)
+     * @param  \FactPulse\SDK\Model\CreateEReportingRequest $create_e_reporting_request (required)
      * @param  string|null $filename Output filename (default: ereporting_{reportId}.xml) (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEreportingDownloadApiV1EreportingGenerateDownloadPost'] to see the possible values for this operation
      *
@@ -977,7 +977,7 @@ class EReportingApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCategoryCodesApiV1EreportingCategoryCodesGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>
      */
@@ -994,7 +994,7 @@ class EReportingApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCategoryCodesApiV1EreportingCategoryCodesGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1225,7 +1225,7 @@ class EReportingApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listFlowTypesApiV1EreportingFlowTypesGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>
      */
@@ -1242,7 +1242,7 @@ class EReportingApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listFlowTypesApiV1EreportingFlowTypesGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1471,12 +1471,12 @@ class EReportingApi
      *
      * Submit aggregated e-reporting to PA/PDP
      *
-     * @param  \OpenAPI\Client\Model\SubmitAggregatedReportRequest $submit_aggregated_report_request submit_aggregated_report_request (required)
+     * @param  \FactPulse\SDK\Model\SubmitAggregatedReportRequest $submit_aggregated_report_request submit_aggregated_report_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitAggregatedEreportingApiV1EreportingSubmitAggregatedPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SubmitEReportingResponse|\OpenAPI\Client\Model\APIError
+     * @return \FactPulse\SDK\Model\SubmitEReportingResponse|\FactPulse\SDK\Model\APIError
      */
     public function submitAggregatedEreportingApiV1EreportingSubmitAggregatedPost($submit_aggregated_report_request, string $contentType = self::contentTypes['submitAggregatedEreportingApiV1EreportingSubmitAggregatedPost'][0])
     {
@@ -1489,12 +1489,12 @@ class EReportingApi
      *
      * Submit aggregated e-reporting to PA/PDP
      *
-     * @param  \OpenAPI\Client\Model\SubmitAggregatedReportRequest $submit_aggregated_report_request (required)
+     * @param  \FactPulse\SDK\Model\SubmitAggregatedReportRequest $submit_aggregated_report_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitAggregatedEreportingApiV1EreportingSubmitAggregatedPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SubmitEReportingResponse|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\SubmitEReportingResponse|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function submitAggregatedEreportingApiV1EreportingSubmitAggregatedPostWithHttpInfo($submit_aggregated_report_request, string $contentType = self::contentTypes['submitAggregatedEreportingApiV1EreportingSubmitAggregatedPost'][0])
     {
@@ -1526,13 +1526,13 @@ class EReportingApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\SubmitEReportingResponse',
+                        '\FactPulse\SDK\Model\SubmitEReportingResponse',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -1554,7 +1554,7 @@ class EReportingApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\SubmitEReportingResponse',
+                '\FactPulse\SDK\Model\SubmitEReportingResponse',
                 $request,
                 $response,
             );
@@ -1563,7 +1563,7 @@ class EReportingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SubmitEReportingResponse',
+                        '\FactPulse\SDK\Model\SubmitEReportingResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1571,7 +1571,7 @@ class EReportingApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1588,7 +1588,7 @@ class EReportingApi
      *
      * Submit aggregated e-reporting to PA/PDP
      *
-     * @param  \OpenAPI\Client\Model\SubmitAggregatedReportRequest $submit_aggregated_report_request (required)
+     * @param  \FactPulse\SDK\Model\SubmitAggregatedReportRequest $submit_aggregated_report_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitAggregatedEreportingApiV1EreportingSubmitAggregatedPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1609,7 +1609,7 @@ class EReportingApi
      *
      * Submit aggregated e-reporting to PA/PDP
      *
-     * @param  \OpenAPI\Client\Model\SubmitAggregatedReportRequest $submit_aggregated_report_request (required)
+     * @param  \FactPulse\SDK\Model\SubmitAggregatedReportRequest $submit_aggregated_report_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitAggregatedEreportingApiV1EreportingSubmitAggregatedPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1617,7 +1617,7 @@ class EReportingApi
      */
     public function submitAggregatedEreportingApiV1EreportingSubmitAggregatedPostAsyncWithHttpInfo($submit_aggregated_report_request, string $contentType = self::contentTypes['submitAggregatedEreportingApiV1EreportingSubmitAggregatedPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\SubmitEReportingResponse';
+        $returnType = '\FactPulse\SDK\Model\SubmitEReportingResponse';
         $request = $this->submitAggregatedEreportingApiV1EreportingSubmitAggregatedPostRequest($submit_aggregated_report_request, $contentType);
 
         return $this->client
@@ -1659,7 +1659,7 @@ class EReportingApi
     /**
      * Create request for operation 'submitAggregatedEreportingApiV1EreportingSubmitAggregatedPost'
      *
-     * @param  \OpenAPI\Client\Model\SubmitAggregatedReportRequest $submit_aggregated_report_request (required)
+     * @param  \FactPulse\SDK\Model\SubmitAggregatedReportRequest $submit_aggregated_report_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitAggregatedEreportingApiV1EreportingSubmitAggregatedPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1756,12 +1756,12 @@ class EReportingApi
      *
      * Submit e-reporting to PA/PDP
      *
-     * @param  \OpenAPI\Client\Model\SubmitEReportingRequest $submit_e_reporting_request submit_e_reporting_request (required)
+     * @param  \FactPulse\SDK\Model\SubmitEReportingRequest $submit_e_reporting_request submit_e_reporting_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitEreportingApiV1EreportingSubmitPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SubmitEReportingResponse|\OpenAPI\Client\Model\APIError
+     * @return \FactPulse\SDK\Model\SubmitEReportingResponse|\FactPulse\SDK\Model\APIError
      */
     public function submitEreportingApiV1EreportingSubmitPost($submit_e_reporting_request, string $contentType = self::contentTypes['submitEreportingApiV1EreportingSubmitPost'][0])
     {
@@ -1774,12 +1774,12 @@ class EReportingApi
      *
      * Submit e-reporting to PA/PDP
      *
-     * @param  \OpenAPI\Client\Model\SubmitEReportingRequest $submit_e_reporting_request (required)
+     * @param  \FactPulse\SDK\Model\SubmitEReportingRequest $submit_e_reporting_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitEreportingApiV1EreportingSubmitPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SubmitEReportingResponse|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\SubmitEReportingResponse|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function submitEreportingApiV1EreportingSubmitPostWithHttpInfo($submit_e_reporting_request, string $contentType = self::contentTypes['submitEreportingApiV1EreportingSubmitPost'][0])
     {
@@ -1811,13 +1811,13 @@ class EReportingApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\SubmitEReportingResponse',
+                        '\FactPulse\SDK\Model\SubmitEReportingResponse',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -1839,7 +1839,7 @@ class EReportingApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\SubmitEReportingResponse',
+                '\FactPulse\SDK\Model\SubmitEReportingResponse',
                 $request,
                 $response,
             );
@@ -1848,7 +1848,7 @@ class EReportingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SubmitEReportingResponse',
+                        '\FactPulse\SDK\Model\SubmitEReportingResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1856,7 +1856,7 @@ class EReportingApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1873,7 +1873,7 @@ class EReportingApi
      *
      * Submit e-reporting to PA/PDP
      *
-     * @param  \OpenAPI\Client\Model\SubmitEReportingRequest $submit_e_reporting_request (required)
+     * @param  \FactPulse\SDK\Model\SubmitEReportingRequest $submit_e_reporting_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitEreportingApiV1EreportingSubmitPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1894,7 +1894,7 @@ class EReportingApi
      *
      * Submit e-reporting to PA/PDP
      *
-     * @param  \OpenAPI\Client\Model\SubmitEReportingRequest $submit_e_reporting_request (required)
+     * @param  \FactPulse\SDK\Model\SubmitEReportingRequest $submit_e_reporting_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitEreportingApiV1EreportingSubmitPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1902,7 +1902,7 @@ class EReportingApi
      */
     public function submitEreportingApiV1EreportingSubmitPostAsyncWithHttpInfo($submit_e_reporting_request, string $contentType = self::contentTypes['submitEreportingApiV1EreportingSubmitPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\SubmitEReportingResponse';
+        $returnType = '\FactPulse\SDK\Model\SubmitEReportingResponse';
         $request = $this->submitEreportingApiV1EreportingSubmitPostRequest($submit_e_reporting_request, $contentType);
 
         return $this->client
@@ -1944,7 +1944,7 @@ class EReportingApi
     /**
      * Create request for operation 'submitEreportingApiV1EreportingSubmitPost'
      *
-     * @param  \OpenAPI\Client\Model\SubmitEReportingRequest $submit_e_reporting_request (required)
+     * @param  \FactPulse\SDK\Model\SubmitEReportingRequest $submit_e_reporting_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitEreportingApiV1EreportingSubmitPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2050,9 +2050,9 @@ class EReportingApi
      * @param  string|null $pdp_client_secret pdp_client_secret (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitXmlEreportingApiV1EreportingSubmitXmlPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SubmitEReportingResponse|\OpenAPI\Client\Model\APIError
+     * @return \FactPulse\SDK\Model\SubmitEReportingResponse|\FactPulse\SDK\Model\APIError
      */
     public function submitXmlEreportingApiV1EreportingSubmitXmlPost($xml_file, $tracking_id = null, $skip_validation = false, $pdp_flow_service_url = null, $pdp_token_url = null, $pdp_client_id = null, $pdp_client_secret = null, string $contentType = self::contentTypes['submitXmlEreportingApiV1EreportingSubmitXmlPost'][0])
     {
@@ -2074,9 +2074,9 @@ class EReportingApi
      * @param  string|null $pdp_client_secret (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitXmlEreportingApiV1EreportingSubmitXmlPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SubmitEReportingResponse|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\SubmitEReportingResponse|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function submitXmlEreportingApiV1EreportingSubmitXmlPostWithHttpInfo($xml_file, $tracking_id = null, $skip_validation = false, $pdp_flow_service_url = null, $pdp_token_url = null, $pdp_client_id = null, $pdp_client_secret = null, string $contentType = self::contentTypes['submitXmlEreportingApiV1EreportingSubmitXmlPost'][0])
     {
@@ -2108,13 +2108,13 @@ class EReportingApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\SubmitEReportingResponse',
+                        '\FactPulse\SDK\Model\SubmitEReportingResponse',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -2136,7 +2136,7 @@ class EReportingApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\SubmitEReportingResponse',
+                '\FactPulse\SDK\Model\SubmitEReportingResponse',
                 $request,
                 $response,
             );
@@ -2145,7 +2145,7 @@ class EReportingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SubmitEReportingResponse',
+                        '\FactPulse\SDK\Model\SubmitEReportingResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2153,7 +2153,7 @@ class EReportingApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2211,7 +2211,7 @@ class EReportingApi
      */
     public function submitXmlEreportingApiV1EreportingSubmitXmlPostAsyncWithHttpInfo($xml_file, $tracking_id = null, $skip_validation = false, $pdp_flow_service_url = null, $pdp_token_url = null, $pdp_client_id = null, $pdp_client_secret = null, string $contentType = self::contentTypes['submitXmlEreportingApiV1EreportingSubmitXmlPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\SubmitEReportingResponse';
+        $returnType = '\FactPulse\SDK\Model\SubmitEReportingResponse';
         $request = $this->submitXmlEreportingApiV1EreportingSubmitXmlPostRequest($xml_file, $tracking_id, $skip_validation, $pdp_flow_service_url, $pdp_token_url, $pdp_client_id, $pdp_client_secret, $contentType);
 
         return $this->client
@@ -2371,12 +2371,12 @@ class EReportingApi
      *
      * Validate aggregated e-reporting data
      *
-     * @param  \OpenAPI\Client\Model\CreateAggregatedReportRequest $create_aggregated_report_request create_aggregated_report_request (required)
+     * @param  \FactPulse\SDK\Model\CreateAggregatedReportRequest $create_aggregated_report_request create_aggregated_report_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateAggregatedEreportingApiV1EreportingValidateAggregatedPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array<string,mixed>|\OpenAPI\Client\Model\APIError
+     * @return array<string,mixed>|\FactPulse\SDK\Model\APIError
      */
     public function validateAggregatedEreportingApiV1EreportingValidateAggregatedPost($create_aggregated_report_request, string $contentType = self::contentTypes['validateAggregatedEreportingApiV1EreportingValidateAggregatedPost'][0])
     {
@@ -2389,12 +2389,12 @@ class EReportingApi
      *
      * Validate aggregated e-reporting data
      *
-     * @param  \OpenAPI\Client\Model\CreateAggregatedReportRequest $create_aggregated_report_request (required)
+     * @param  \FactPulse\SDK\Model\CreateAggregatedReportRequest $create_aggregated_report_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateAggregatedEreportingApiV1EreportingValidateAggregatedPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of array<string,mixed>|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of array<string,mixed>|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function validateAggregatedEreportingApiV1EreportingValidateAggregatedPostWithHttpInfo($create_aggregated_report_request, string $contentType = self::contentTypes['validateAggregatedEreportingApiV1EreportingValidateAggregatedPost'][0])
     {
@@ -2432,7 +2432,7 @@ class EReportingApi
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -2471,7 +2471,7 @@ class EReportingApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2488,7 +2488,7 @@ class EReportingApi
      *
      * Validate aggregated e-reporting data
      *
-     * @param  \OpenAPI\Client\Model\CreateAggregatedReportRequest $create_aggregated_report_request (required)
+     * @param  \FactPulse\SDK\Model\CreateAggregatedReportRequest $create_aggregated_report_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateAggregatedEreportingApiV1EreportingValidateAggregatedPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2509,7 +2509,7 @@ class EReportingApi
      *
      * Validate aggregated e-reporting data
      *
-     * @param  \OpenAPI\Client\Model\CreateAggregatedReportRequest $create_aggregated_report_request (required)
+     * @param  \FactPulse\SDK\Model\CreateAggregatedReportRequest $create_aggregated_report_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateAggregatedEreportingApiV1EreportingValidateAggregatedPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2559,7 +2559,7 @@ class EReportingApi
     /**
      * Create request for operation 'validateAggregatedEreportingApiV1EreportingValidateAggregatedPost'
      *
-     * @param  \OpenAPI\Client\Model\CreateAggregatedReportRequest $create_aggregated_report_request (required)
+     * @param  \FactPulse\SDK\Model\CreateAggregatedReportRequest $create_aggregated_report_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateAggregatedEreportingApiV1EreportingValidateAggregatedPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2656,12 +2656,12 @@ class EReportingApi
      *
      * Validate e-reporting data
      *
-     * @param  \OpenAPI\Client\Model\ValidateEReportingRequest $validate_e_reporting_request validate_e_reporting_request (required)
+     * @param  \FactPulse\SDK\Model\ValidateEReportingRequest $validate_e_reporting_request validate_e_reporting_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateEreportingApiV1EreportingValidatePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ValidateEReportingResponse|\OpenAPI\Client\Model\APIError
+     * @return \FactPulse\SDK\Model\ValidateEReportingResponse|\FactPulse\SDK\Model\APIError
      */
     public function validateEreportingApiV1EreportingValidatePost($validate_e_reporting_request, string $contentType = self::contentTypes['validateEreportingApiV1EreportingValidatePost'][0])
     {
@@ -2674,12 +2674,12 @@ class EReportingApi
      *
      * Validate e-reporting data
      *
-     * @param  \OpenAPI\Client\Model\ValidateEReportingRequest $validate_e_reporting_request (required)
+     * @param  \FactPulse\SDK\Model\ValidateEReportingRequest $validate_e_reporting_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateEreportingApiV1EreportingValidatePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ValidateEReportingResponse|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\ValidateEReportingResponse|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function validateEreportingApiV1EreportingValidatePostWithHttpInfo($validate_e_reporting_request, string $contentType = self::contentTypes['validateEreportingApiV1EreportingValidatePost'][0])
     {
@@ -2711,13 +2711,13 @@ class EReportingApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\ValidateEReportingResponse',
+                        '\FactPulse\SDK\Model\ValidateEReportingResponse',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -2739,7 +2739,7 @@ class EReportingApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\ValidateEReportingResponse',
+                '\FactPulse\SDK\Model\ValidateEReportingResponse',
                 $request,
                 $response,
             );
@@ -2748,7 +2748,7 @@ class EReportingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ValidateEReportingResponse',
+                        '\FactPulse\SDK\Model\ValidateEReportingResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2756,7 +2756,7 @@ class EReportingApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2773,7 +2773,7 @@ class EReportingApi
      *
      * Validate e-reporting data
      *
-     * @param  \OpenAPI\Client\Model\ValidateEReportingRequest $validate_e_reporting_request (required)
+     * @param  \FactPulse\SDK\Model\ValidateEReportingRequest $validate_e_reporting_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateEreportingApiV1EreportingValidatePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2794,7 +2794,7 @@ class EReportingApi
      *
      * Validate e-reporting data
      *
-     * @param  \OpenAPI\Client\Model\ValidateEReportingRequest $validate_e_reporting_request (required)
+     * @param  \FactPulse\SDK\Model\ValidateEReportingRequest $validate_e_reporting_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateEreportingApiV1EreportingValidatePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2802,7 +2802,7 @@ class EReportingApi
      */
     public function validateEreportingApiV1EreportingValidatePostAsyncWithHttpInfo($validate_e_reporting_request, string $contentType = self::contentTypes['validateEreportingApiV1EreportingValidatePost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\ValidateEReportingResponse';
+        $returnType = '\FactPulse\SDK\Model\ValidateEReportingResponse';
         $request = $this->validateEreportingApiV1EreportingValidatePostRequest($validate_e_reporting_request, $contentType);
 
         return $this->client
@@ -2844,7 +2844,7 @@ class EReportingApi
     /**
      * Create request for operation 'validateEreportingApiV1EreportingValidatePost'
      *
-     * @param  \OpenAPI\Client\Model\ValidateEReportingRequest $validate_e_reporting_request (required)
+     * @param  \FactPulse\SDK\Model\ValidateEReportingRequest $validate_e_reporting_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateEreportingApiV1EreportingValidatePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2945,9 +2945,9 @@ class EReportingApi
      * @param  bool|null $validate_business_rules Also validate business rules (ISO codes, enums) (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateXmlEreportingApiV1EreportingValidateXmlPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array<string,mixed>|\OpenAPI\Client\Model\APIError
+     * @return array<string,mixed>|\FactPulse\SDK\Model\APIError
      */
     public function validateXmlEreportingApiV1EreportingValidateXmlPost($xml_file, $validate_business_rules = true, string $contentType = self::contentTypes['validateXmlEreportingApiV1EreportingValidateXmlPost'][0])
     {
@@ -2964,9 +2964,9 @@ class EReportingApi
      * @param  bool|null $validate_business_rules Also validate business rules (ISO codes, enums) (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateXmlEreportingApiV1EreportingValidateXmlPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of array<string,mixed>|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of array<string,mixed>|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function validateXmlEreportingApiV1EreportingValidateXmlPostWithHttpInfo($xml_file, $validate_business_rules = true, string $contentType = self::contentTypes['validateXmlEreportingApiV1EreportingValidateXmlPost'][0])
     {
@@ -3004,7 +3004,7 @@ class EReportingApi
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -3043,7 +3043,7 @@ class EReportingApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

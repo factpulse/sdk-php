@@ -4,7 +4,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace FactPulse\SDK\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -37,17 +37,17 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\FormDataProcessor;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use FactPulse\SDK\ApiException;
+use FactPulse\SDK\Configuration;
+use FactPulse\SDK\FormDataProcessor;
+use FactPulse\SDK\HeaderSelector;
+use FactPulse\SDK\ObjectSerializer;
 
 /**
  * ChorusProApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -179,9 +179,9 @@ class ChorusProApi
      * @param  array<string,mixed> $request_body request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ajouterFichierApiV1ChorusProTransversesAjouterFichierPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return mixed|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError
+     * @return mixed|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function ajouterFichierApiV1ChorusProTransversesAjouterFichierPost($request_body, string $contentType = self::contentTypes['ajouterFichierApiV1ChorusProTransversesAjouterFichierPost'][0])
     {
@@ -197,9 +197,9 @@ class ChorusProApi
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ajouterFichierApiV1ChorusProTransversesAjouterFichierPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of mixed|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of mixed|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function ajouterFichierApiV1ChorusProTransversesAjouterFichierPostWithHttpInfo($request_body, string $contentType = self::contentTypes['ajouterFichierApiV1ChorusProTransversesAjouterFichierPost'][0])
     {
@@ -237,13 +237,13 @@ class ChorusProApi
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -282,7 +282,7 @@ class ChorusProApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -290,7 +290,7 @@ class ChorusProApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -478,9 +478,9 @@ class ChorusProApi
      * @param  array<string,mixed> $request_body request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['completerFactureApiV1ChorusProFacturesCompleterPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return mixed|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError
+     * @return mixed|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function completerFactureApiV1ChorusProFacturesCompleterPost($request_body, string $contentType = self::contentTypes['completerFactureApiV1ChorusProFacturesCompleterPost'][0])
     {
@@ -496,9 +496,9 @@ class ChorusProApi
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['completerFactureApiV1ChorusProFacturesCompleterPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of mixed|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of mixed|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function completerFactureApiV1ChorusProFacturesCompleterPostWithHttpInfo($request_body, string $contentType = self::contentTypes['completerFactureApiV1ChorusProFacturesCompleterPost'][0])
     {
@@ -536,13 +536,13 @@ class ChorusProApi
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -581,7 +581,7 @@ class ChorusProApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -589,7 +589,7 @@ class ChorusProApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -774,12 +774,12 @@ class ChorusProApi
      *
      * Consult invoice status
      *
-     * @param  \OpenAPI\Client\Model\GetInvoiceRequest $get_invoice_request get_invoice_request (required)
+     * @param  \FactPulse\SDK\Model\GetInvoiceRequest $get_invoice_request get_invoice_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consulterFactureApiV1ChorusProFacturesConsulterPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetInvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError
+     * @return \FactPulse\SDK\Model\GetInvoiceResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function consulterFactureApiV1ChorusProFacturesConsulterPost($get_invoice_request, string $contentType = self::contentTypes['consulterFactureApiV1ChorusProFacturesConsulterPost'][0])
     {
@@ -792,12 +792,12 @@ class ChorusProApi
      *
      * Consult invoice status
      *
-     * @param  \OpenAPI\Client\Model\GetInvoiceRequest $get_invoice_request (required)
+     * @param  \FactPulse\SDK\Model\GetInvoiceRequest $get_invoice_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consulterFactureApiV1ChorusProFacturesConsulterPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetInvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\GetInvoiceResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function consulterFactureApiV1ChorusProFacturesConsulterPostWithHttpInfo($get_invoice_request, string $contentType = self::contentTypes['consulterFactureApiV1ChorusProFacturesConsulterPost'][0])
     {
@@ -829,19 +829,19 @@ class ChorusProApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\GetInvoiceResponse',
+                        '\FactPulse\SDK\Model\GetInvoiceResponse',
                         $request,
                         $response,
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -863,7 +863,7 @@ class ChorusProApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\GetInvoiceResponse',
+                '\FactPulse\SDK\Model\GetInvoiceResponse',
                 $request,
                 $response,
             );
@@ -872,7 +872,7 @@ class ChorusProApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetInvoiceResponse',
+                        '\FactPulse\SDK\Model\GetInvoiceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -880,7 +880,7 @@ class ChorusProApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -888,7 +888,7 @@ class ChorusProApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -905,7 +905,7 @@ class ChorusProApi
      *
      * Consult invoice status
      *
-     * @param  \OpenAPI\Client\Model\GetInvoiceRequest $get_invoice_request (required)
+     * @param  \FactPulse\SDK\Model\GetInvoiceRequest $get_invoice_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consulterFactureApiV1ChorusProFacturesConsulterPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -926,7 +926,7 @@ class ChorusProApi
      *
      * Consult invoice status
      *
-     * @param  \OpenAPI\Client\Model\GetInvoiceRequest $get_invoice_request (required)
+     * @param  \FactPulse\SDK\Model\GetInvoiceRequest $get_invoice_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consulterFactureApiV1ChorusProFacturesConsulterPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -934,7 +934,7 @@ class ChorusProApi
      */
     public function consulterFactureApiV1ChorusProFacturesConsulterPostAsyncWithHttpInfo($get_invoice_request, string $contentType = self::contentTypes['consulterFactureApiV1ChorusProFacturesConsulterPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetInvoiceResponse';
+        $returnType = '\FactPulse\SDK\Model\GetInvoiceResponse';
         $request = $this->consulterFactureApiV1ChorusProFacturesConsulterPostRequest($get_invoice_request, $contentType);
 
         return $this->client
@@ -976,7 +976,7 @@ class ChorusProApi
     /**
      * Create request for operation 'consulterFactureApiV1ChorusProFacturesConsulterPost'
      *
-     * @param  \OpenAPI\Client\Model\GetInvoiceRequest $get_invoice_request (required)
+     * @param  \FactPulse\SDK\Model\GetInvoiceRequest $get_invoice_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consulterFactureApiV1ChorusProFacturesConsulterPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1073,12 +1073,12 @@ class ChorusProApi
      *
      * Consult structure details
      *
-     * @param  \OpenAPI\Client\Model\GetStructureRequest $get_structure_request get_structure_request (required)
+     * @param  \FactPulse\SDK\Model\GetStructureRequest $get_structure_request get_structure_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consulterStructureApiV1ChorusProStructuresConsulterPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetStructureResponse|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError
+     * @return \FactPulse\SDK\Model\GetStructureResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function consulterStructureApiV1ChorusProStructuresConsulterPost($get_structure_request, string $contentType = self::contentTypes['consulterStructureApiV1ChorusProStructuresConsulterPost'][0])
     {
@@ -1091,12 +1091,12 @@ class ChorusProApi
      *
      * Consult structure details
      *
-     * @param  \OpenAPI\Client\Model\GetStructureRequest $get_structure_request (required)
+     * @param  \FactPulse\SDK\Model\GetStructureRequest $get_structure_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consulterStructureApiV1ChorusProStructuresConsulterPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetStructureResponse|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\GetStructureResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function consulterStructureApiV1ChorusProStructuresConsulterPostWithHttpInfo($get_structure_request, string $contentType = self::contentTypes['consulterStructureApiV1ChorusProStructuresConsulterPost'][0])
     {
@@ -1128,19 +1128,19 @@ class ChorusProApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\GetStructureResponse',
+                        '\FactPulse\SDK\Model\GetStructureResponse',
                         $request,
                         $response,
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -1162,7 +1162,7 @@ class ChorusProApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\GetStructureResponse',
+                '\FactPulse\SDK\Model\GetStructureResponse',
                 $request,
                 $response,
             );
@@ -1171,7 +1171,7 @@ class ChorusProApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetStructureResponse',
+                        '\FactPulse\SDK\Model\GetStructureResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1179,7 +1179,7 @@ class ChorusProApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1187,7 +1187,7 @@ class ChorusProApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1204,7 +1204,7 @@ class ChorusProApi
      *
      * Consult structure details
      *
-     * @param  \OpenAPI\Client\Model\GetStructureRequest $get_structure_request (required)
+     * @param  \FactPulse\SDK\Model\GetStructureRequest $get_structure_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consulterStructureApiV1ChorusProStructuresConsulterPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1225,7 +1225,7 @@ class ChorusProApi
      *
      * Consult structure details
      *
-     * @param  \OpenAPI\Client\Model\GetStructureRequest $get_structure_request (required)
+     * @param  \FactPulse\SDK\Model\GetStructureRequest $get_structure_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consulterStructureApiV1ChorusProStructuresConsulterPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1233,7 +1233,7 @@ class ChorusProApi
      */
     public function consulterStructureApiV1ChorusProStructuresConsulterPostAsyncWithHttpInfo($get_structure_request, string $contentType = self::contentTypes['consulterStructureApiV1ChorusProStructuresConsulterPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetStructureResponse';
+        $returnType = '\FactPulse\SDK\Model\GetStructureResponse';
         $request = $this->consulterStructureApiV1ChorusProStructuresConsulterPostRequest($get_structure_request, $contentType);
 
         return $this->client
@@ -1275,7 +1275,7 @@ class ChorusProApi
     /**
      * Create request for operation 'consulterStructureApiV1ChorusProStructuresConsulterPost'
      *
-     * @param  \OpenAPI\Client\Model\GetStructureRequest $get_structure_request (required)
+     * @param  \FactPulse\SDK\Model\GetStructureRequest $get_structure_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consulterStructureApiV1ChorusProStructuresConsulterPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1375,9 +1375,9 @@ class ChorusProApi
      * @param  int $id_structure_cpp Chorus Pro structure ID (idStructureCPP) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SearchServicesResponse|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError
+     * @return \FactPulse\SDK\Model\SearchServicesResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet($id_structure_cpp, string $contentType = self::contentTypes['listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet'][0])
     {
@@ -1393,9 +1393,9 @@ class ChorusProApi
      * @param  int $id_structure_cpp Chorus Pro structure ID (idStructureCPP) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SearchServicesResponse|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\SearchServicesResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGetWithHttpInfo($id_structure_cpp, string $contentType = self::contentTypes['listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet'][0])
     {
@@ -1427,19 +1427,19 @@ class ChorusProApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\SearchServicesResponse',
+                        '\FactPulse\SDK\Model\SearchServicesResponse',
                         $request,
                         $response,
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -1461,7 +1461,7 @@ class ChorusProApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\SearchServicesResponse',
+                '\FactPulse\SDK\Model\SearchServicesResponse',
                 $request,
                 $response,
             );
@@ -1470,7 +1470,7 @@ class ChorusProApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SearchServicesResponse',
+                        '\FactPulse\SDK\Model\SearchServicesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1478,7 +1478,7 @@ class ChorusProApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1486,7 +1486,7 @@ class ChorusProApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1532,7 +1532,7 @@ class ChorusProApi
      */
     public function listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGetAsyncWithHttpInfo($id_structure_cpp, string $contentType = self::contentTypes['listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\SearchServicesResponse';
+        $returnType = '\FactPulse\SDK\Model\SearchServicesResponse';
         $request = $this->listerServicesStructureApiV1ChorusProStructuresIdStructureCppServicesGetRequest($id_structure_cpp, $contentType);
 
         return $this->client
@@ -1672,12 +1672,12 @@ class ChorusProApi
      *
      * Utility: Get Chorus Pro ID from SIRET
      *
-     * @param  \OpenAPI\Client\Model\GetChorusProIdRequest $get_chorus_pro_id_request get_chorus_pro_id_request (required)
+     * @param  \FactPulse\SDK\Model\GetChorusProIdRequest $get_chorus_pro_id_request get_chorus_pro_id_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetChorusProIdResponse|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError
+     * @return \FactPulse\SDK\Model\GetChorusProIdResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost($get_chorus_pro_id_request, string $contentType = self::contentTypes['obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost'][0])
     {
@@ -1690,12 +1690,12 @@ class ChorusProApi
      *
      * Utility: Get Chorus Pro ID from SIRET
      *
-     * @param  \OpenAPI\Client\Model\GetChorusProIdRequest $get_chorus_pro_id_request (required)
+     * @param  \FactPulse\SDK\Model\GetChorusProIdRequest $get_chorus_pro_id_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetChorusProIdResponse|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\GetChorusProIdResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPostWithHttpInfo($get_chorus_pro_id_request, string $contentType = self::contentTypes['obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost'][0])
     {
@@ -1727,19 +1727,19 @@ class ChorusProApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\GetChorusProIdResponse',
+                        '\FactPulse\SDK\Model\GetChorusProIdResponse',
                         $request,
                         $response,
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -1761,7 +1761,7 @@ class ChorusProApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\GetChorusProIdResponse',
+                '\FactPulse\SDK\Model\GetChorusProIdResponse',
                 $request,
                 $response,
             );
@@ -1770,7 +1770,7 @@ class ChorusProApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetChorusProIdResponse',
+                        '\FactPulse\SDK\Model\GetChorusProIdResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1778,7 +1778,7 @@ class ChorusProApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1786,7 +1786,7 @@ class ChorusProApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1803,7 +1803,7 @@ class ChorusProApi
      *
      * Utility: Get Chorus Pro ID from SIRET
      *
-     * @param  \OpenAPI\Client\Model\GetChorusProIdRequest $get_chorus_pro_id_request (required)
+     * @param  \FactPulse\SDK\Model\GetChorusProIdRequest $get_chorus_pro_id_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1824,7 +1824,7 @@ class ChorusProApi
      *
      * Utility: Get Chorus Pro ID from SIRET
      *
-     * @param  \OpenAPI\Client\Model\GetChorusProIdRequest $get_chorus_pro_id_request (required)
+     * @param  \FactPulse\SDK\Model\GetChorusProIdRequest $get_chorus_pro_id_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1832,7 +1832,7 @@ class ChorusProApi
      */
     public function obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPostAsyncWithHttpInfo($get_chorus_pro_id_request, string $contentType = self::contentTypes['obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetChorusProIdResponse';
+        $returnType = '\FactPulse\SDK\Model\GetChorusProIdResponse';
         $request = $this->obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPostRequest($get_chorus_pro_id_request, $contentType);
 
         return $this->client
@@ -1874,7 +1874,7 @@ class ChorusProApi
     /**
      * Create request for operation 'obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost'
      *
-     * @param  \OpenAPI\Client\Model\GetChorusProIdRequest $get_chorus_pro_id_request (required)
+     * @param  \FactPulse\SDK\Model\GetChorusProIdRequest $get_chorus_pro_id_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['obtenirIdChorusProDepuisSiretApiV1ChorusProStructuresObtenirIdDepuisSiretPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1974,9 +1974,9 @@ class ChorusProApi
      * @param  array<string,mixed> $request_body request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rechercherFacturesDestinataireApiV1ChorusProFacturesRechercherDestinatairePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return mixed|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError
+     * @return mixed|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function rechercherFacturesDestinataireApiV1ChorusProFacturesRechercherDestinatairePost($request_body, string $contentType = self::contentTypes['rechercherFacturesDestinataireApiV1ChorusProFacturesRechercherDestinatairePost'][0])
     {
@@ -1992,9 +1992,9 @@ class ChorusProApi
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rechercherFacturesDestinataireApiV1ChorusProFacturesRechercherDestinatairePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of mixed|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of mixed|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function rechercherFacturesDestinataireApiV1ChorusProFacturesRechercherDestinatairePostWithHttpInfo($request_body, string $contentType = self::contentTypes['rechercherFacturesDestinataireApiV1ChorusProFacturesRechercherDestinatairePost'][0])
     {
@@ -2032,13 +2032,13 @@ class ChorusProApi
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -2077,7 +2077,7 @@ class ChorusProApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2085,7 +2085,7 @@ class ChorusProApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2273,9 +2273,9 @@ class ChorusProApi
      * @param  array<string,mixed> $request_body request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rechercherFacturesFournisseurApiV1ChorusProFacturesRechercherFournisseurPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return mixed|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError
+     * @return mixed|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function rechercherFacturesFournisseurApiV1ChorusProFacturesRechercherFournisseurPost($request_body, string $contentType = self::contentTypes['rechercherFacturesFournisseurApiV1ChorusProFacturesRechercherFournisseurPost'][0])
     {
@@ -2291,9 +2291,9 @@ class ChorusProApi
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rechercherFacturesFournisseurApiV1ChorusProFacturesRechercherFournisseurPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of mixed|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of mixed|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function rechercherFacturesFournisseurApiV1ChorusProFacturesRechercherFournisseurPostWithHttpInfo($request_body, string $contentType = self::contentTypes['rechercherFacturesFournisseurApiV1ChorusProFacturesRechercherFournisseurPost'][0])
     {
@@ -2331,13 +2331,13 @@ class ChorusProApi
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -2376,7 +2376,7 @@ class ChorusProApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2384,7 +2384,7 @@ class ChorusProApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2569,12 +2569,12 @@ class ChorusProApi
      *
      * Search Chorus Pro structures
      *
-     * @param  \OpenAPI\Client\Model\SearchStructureRequest $search_structure_request search_structure_request (required)
+     * @param  \FactPulse\SDK\Model\SearchStructureRequest $search_structure_request search_structure_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rechercherStructuresApiV1ChorusProStructuresRechercherPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SearchStructureResponse|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError
+     * @return \FactPulse\SDK\Model\SearchStructureResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function rechercherStructuresApiV1ChorusProStructuresRechercherPost($search_structure_request, string $contentType = self::contentTypes['rechercherStructuresApiV1ChorusProStructuresRechercherPost'][0])
     {
@@ -2587,12 +2587,12 @@ class ChorusProApi
      *
      * Search Chorus Pro structures
      *
-     * @param  \OpenAPI\Client\Model\SearchStructureRequest $search_structure_request (required)
+     * @param  \FactPulse\SDK\Model\SearchStructureRequest $search_structure_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rechercherStructuresApiV1ChorusProStructuresRechercherPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SearchStructureResponse|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\SearchStructureResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function rechercherStructuresApiV1ChorusProStructuresRechercherPostWithHttpInfo($search_structure_request, string $contentType = self::contentTypes['rechercherStructuresApiV1ChorusProStructuresRechercherPost'][0])
     {
@@ -2624,19 +2624,19 @@ class ChorusProApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\SearchStructureResponse',
+                        '\FactPulse\SDK\Model\SearchStructureResponse',
                         $request,
                         $response,
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -2658,7 +2658,7 @@ class ChorusProApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\SearchStructureResponse',
+                '\FactPulse\SDK\Model\SearchStructureResponse',
                 $request,
                 $response,
             );
@@ -2667,7 +2667,7 @@ class ChorusProApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SearchStructureResponse',
+                        '\FactPulse\SDK\Model\SearchStructureResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2675,7 +2675,7 @@ class ChorusProApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2683,7 +2683,7 @@ class ChorusProApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2700,7 +2700,7 @@ class ChorusProApi
      *
      * Search Chorus Pro structures
      *
-     * @param  \OpenAPI\Client\Model\SearchStructureRequest $search_structure_request (required)
+     * @param  \FactPulse\SDK\Model\SearchStructureRequest $search_structure_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rechercherStructuresApiV1ChorusProStructuresRechercherPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2721,7 +2721,7 @@ class ChorusProApi
      *
      * Search Chorus Pro structures
      *
-     * @param  \OpenAPI\Client\Model\SearchStructureRequest $search_structure_request (required)
+     * @param  \FactPulse\SDK\Model\SearchStructureRequest $search_structure_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rechercherStructuresApiV1ChorusProStructuresRechercherPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2729,7 +2729,7 @@ class ChorusProApi
      */
     public function rechercherStructuresApiV1ChorusProStructuresRechercherPostAsyncWithHttpInfo($search_structure_request, string $contentType = self::contentTypes['rechercherStructuresApiV1ChorusProStructuresRechercherPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\SearchStructureResponse';
+        $returnType = '\FactPulse\SDK\Model\SearchStructureResponse';
         $request = $this->rechercherStructuresApiV1ChorusProStructuresRechercherPostRequest($search_structure_request, $contentType);
 
         return $this->client
@@ -2771,7 +2771,7 @@ class ChorusProApi
     /**
      * Create request for operation 'rechercherStructuresApiV1ChorusProStructuresRechercherPost'
      *
-     * @param  \OpenAPI\Client\Model\SearchStructureRequest $search_structure_request (required)
+     * @param  \FactPulse\SDK\Model\SearchStructureRequest $search_structure_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rechercherStructuresApiV1ChorusProStructuresRechercherPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2871,9 +2871,9 @@ class ChorusProApi
      * @param  array<string,mixed> $request_body request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['recyclerFactureApiV1ChorusProFacturesRecyclerPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return mixed|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError
+     * @return mixed|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function recyclerFactureApiV1ChorusProFacturesRecyclerPost($request_body, string $contentType = self::contentTypes['recyclerFactureApiV1ChorusProFacturesRecyclerPost'][0])
     {
@@ -2889,9 +2889,9 @@ class ChorusProApi
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['recyclerFactureApiV1ChorusProFacturesRecyclerPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of mixed|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of mixed|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function recyclerFactureApiV1ChorusProFacturesRecyclerPostWithHttpInfo($request_body, string $contentType = self::contentTypes['recyclerFactureApiV1ChorusProFacturesRecyclerPost'][0])
     {
@@ -2929,13 +2929,13 @@ class ChorusProApi
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -2974,7 +2974,7 @@ class ChorusProApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2982,7 +2982,7 @@ class ChorusProApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3167,12 +3167,12 @@ class ChorusProApi
      *
      * Submit an invoice to Chorus Pro
      *
-     * @param  \OpenAPI\Client\Model\SubmitInvoiceRequest $submit_invoice_request submit_invoice_request (required)
+     * @param  \FactPulse\SDK\Model\SubmitInvoiceRequest $submit_invoice_request submit_invoice_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['soumettreFactureApiV1ChorusProFacturesSoumettrePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SubmitInvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError
+     * @return \FactPulse\SDK\Model\SubmitInvoiceResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function soumettreFactureApiV1ChorusProFacturesSoumettrePost($submit_invoice_request, string $contentType = self::contentTypes['soumettreFactureApiV1ChorusProFacturesSoumettrePost'][0])
     {
@@ -3185,12 +3185,12 @@ class ChorusProApi
      *
      * Submit an invoice to Chorus Pro
      *
-     * @param  \OpenAPI\Client\Model\SubmitInvoiceRequest $submit_invoice_request (required)
+     * @param  \FactPulse\SDK\Model\SubmitInvoiceRequest $submit_invoice_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['soumettreFactureApiV1ChorusProFacturesSoumettrePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SubmitInvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\SubmitInvoiceResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function soumettreFactureApiV1ChorusProFacturesSoumettrePostWithHttpInfo($submit_invoice_request, string $contentType = self::contentTypes['soumettreFactureApiV1ChorusProFacturesSoumettrePost'][0])
     {
@@ -3222,19 +3222,19 @@ class ChorusProApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\SubmitInvoiceResponse',
+                        '\FactPulse\SDK\Model\SubmitInvoiceResponse',
                         $request,
                         $response,
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -3256,7 +3256,7 @@ class ChorusProApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\SubmitInvoiceResponse',
+                '\FactPulse\SDK\Model\SubmitInvoiceResponse',
                 $request,
                 $response,
             );
@@ -3265,7 +3265,7 @@ class ChorusProApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SubmitInvoiceResponse',
+                        '\FactPulse\SDK\Model\SubmitInvoiceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3273,7 +3273,7 @@ class ChorusProApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3281,7 +3281,7 @@ class ChorusProApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3298,7 +3298,7 @@ class ChorusProApi
      *
      * Submit an invoice to Chorus Pro
      *
-     * @param  \OpenAPI\Client\Model\SubmitInvoiceRequest $submit_invoice_request (required)
+     * @param  \FactPulse\SDK\Model\SubmitInvoiceRequest $submit_invoice_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['soumettreFactureApiV1ChorusProFacturesSoumettrePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3319,7 +3319,7 @@ class ChorusProApi
      *
      * Submit an invoice to Chorus Pro
      *
-     * @param  \OpenAPI\Client\Model\SubmitInvoiceRequest $submit_invoice_request (required)
+     * @param  \FactPulse\SDK\Model\SubmitInvoiceRequest $submit_invoice_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['soumettreFactureApiV1ChorusProFacturesSoumettrePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3327,7 +3327,7 @@ class ChorusProApi
      */
     public function soumettreFactureApiV1ChorusProFacturesSoumettrePostAsyncWithHttpInfo($submit_invoice_request, string $contentType = self::contentTypes['soumettreFactureApiV1ChorusProFacturesSoumettrePost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\SubmitInvoiceResponse';
+        $returnType = '\FactPulse\SDK\Model\SubmitInvoiceResponse';
         $request = $this->soumettreFactureApiV1ChorusProFacturesSoumettrePostRequest($submit_invoice_request, $contentType);
 
         return $this->client
@@ -3369,7 +3369,7 @@ class ChorusProApi
     /**
      * Create request for operation 'soumettreFactureApiV1ChorusProFacturesSoumettrePost'
      *
-     * @param  \OpenAPI\Client\Model\SubmitInvoiceRequest $submit_invoice_request (required)
+     * @param  \FactPulse\SDK\Model\SubmitInvoiceRequest $submit_invoice_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['soumettreFactureApiV1ChorusProFacturesSoumettrePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3469,9 +3469,9 @@ class ChorusProApi
      * @param  array<string,mixed> $request_body request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['telechargerGroupeFacturesApiV1ChorusProFacturesTelechargerGroupePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return mixed|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError
+     * @return mixed|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function telechargerGroupeFacturesApiV1ChorusProFacturesTelechargerGroupePost($request_body, string $contentType = self::contentTypes['telechargerGroupeFacturesApiV1ChorusProFacturesTelechargerGroupePost'][0])
     {
@@ -3487,9 +3487,9 @@ class ChorusProApi
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['telechargerGroupeFacturesApiV1ChorusProFacturesTelechargerGroupePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of mixed|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of mixed|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function telechargerGroupeFacturesApiV1ChorusProFacturesTelechargerGroupePostWithHttpInfo($request_body, string $contentType = self::contentTypes['telechargerGroupeFacturesApiV1ChorusProFacturesTelechargerGroupePost'][0])
     {
@@ -3527,13 +3527,13 @@ class ChorusProApi
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -3572,7 +3572,7 @@ class ChorusProApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3580,7 +3580,7 @@ class ChorusProApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3768,9 +3768,9 @@ class ChorusProApi
      * @param  array<string,mixed> $request_body request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['traiterFactureRecueApiV1ChorusProFacturesTraiterFactureRecuePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return mixed|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError
+     * @return mixed|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function traiterFactureRecueApiV1ChorusProFacturesTraiterFactureRecuePost($request_body, string $contentType = self::contentTypes['traiterFactureRecueApiV1ChorusProFacturesTraiterFactureRecuePost'][0])
     {
@@ -3786,9 +3786,9 @@ class ChorusProApi
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['traiterFactureRecueApiV1ChorusProFacturesTraiterFactureRecuePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of mixed|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of mixed|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function traiterFactureRecueApiV1ChorusProFacturesTraiterFactureRecuePostWithHttpInfo($request_body, string $contentType = self::contentTypes['traiterFactureRecueApiV1ChorusProFacturesTraiterFactureRecuePost'][0])
     {
@@ -3826,13 +3826,13 @@ class ChorusProApi
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -3871,7 +3871,7 @@ class ChorusProApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3879,7 +3879,7 @@ class ChorusProApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4067,9 +4067,9 @@ class ChorusProApi
      * @param  array<string,mixed> $request_body request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['valideurConsulterFactureApiV1ChorusProFacturesValideurConsulterPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return mixed|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError
+     * @return mixed|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function valideurConsulterFactureApiV1ChorusProFacturesValideurConsulterPost($request_body, string $contentType = self::contentTypes['valideurConsulterFactureApiV1ChorusProFacturesValideurConsulterPost'][0])
     {
@@ -4085,9 +4085,9 @@ class ChorusProApi
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['valideurConsulterFactureApiV1ChorusProFacturesValideurConsulterPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of mixed|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of mixed|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function valideurConsulterFactureApiV1ChorusProFacturesValideurConsulterPostWithHttpInfo($request_body, string $contentType = self::contentTypes['valideurConsulterFactureApiV1ChorusProFacturesValideurConsulterPost'][0])
     {
@@ -4125,13 +4125,13 @@ class ChorusProApi
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -4170,7 +4170,7 @@ class ChorusProApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4178,7 +4178,7 @@ class ChorusProApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4366,9 +4366,9 @@ class ChorusProApi
      * @param  array<string,mixed> $request_body request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['valideurRechercherFacturesApiV1ChorusProFacturesValideurRechercherPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return mixed|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError
+     * @return mixed|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function valideurRechercherFacturesApiV1ChorusProFacturesValideurRechercherPost($request_body, string $contentType = self::contentTypes['valideurRechercherFacturesApiV1ChorusProFacturesValideurRechercherPost'][0])
     {
@@ -4384,9 +4384,9 @@ class ChorusProApi
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['valideurRechercherFacturesApiV1ChorusProFacturesValideurRechercherPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of mixed|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of mixed|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function valideurRechercherFacturesApiV1ChorusProFacturesValideurRechercherPostWithHttpInfo($request_body, string $contentType = self::contentTypes['valideurRechercherFacturesApiV1ChorusProFacturesValideurRechercherPost'][0])
     {
@@ -4424,13 +4424,13 @@ class ChorusProApi
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -4469,7 +4469,7 @@ class ChorusProApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4477,7 +4477,7 @@ class ChorusProApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4665,9 +4665,9 @@ class ChorusProApi
      * @param  array<string,mixed> $request_body request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['valideurTraiterFactureApiV1ChorusProFacturesValideurTraiterPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return mixed|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError
+     * @return mixed|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function valideurTraiterFactureApiV1ChorusProFacturesValideurTraiterPost($request_body, string $contentType = self::contentTypes['valideurTraiterFactureApiV1ChorusProFacturesValideurTraiterPost'][0])
     {
@@ -4683,9 +4683,9 @@ class ChorusProApi
      * @param  array<string,mixed> $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['valideurTraiterFactureApiV1ChorusProFacturesValideurTraiterPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of mixed|\OpenAPI\Client\Model\HTTPValidationError|\OpenAPI\Client\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of mixed|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function valideurTraiterFactureApiV1ChorusProFacturesValideurTraiterPostWithHttpInfo($request_body, string $contentType = self::contentTypes['valideurTraiterFactureApiV1ChorusProFacturesValideurTraiterPost'][0])
     {
@@ -4723,13 +4723,13 @@ class ChorusProApi
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $request,
                         $response,
                     );
@@ -4768,7 +4768,7 @@ class ChorusProApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4776,7 +4776,7 @@ class ChorusProApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\APIError',
+                        '\FactPulse\SDK\Model\APIError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

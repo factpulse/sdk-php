@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * InvoiceInput Class Doc Comment
  *
  * @category Class
  * @description Invoice for B2B international reporting (flux 10.1).  Used for unitary declaration of international B2B invoices.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -61,18 +61,18 @@ class InvoiceInput implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'invoice_id' => 'string',
         'issue_date' => '\DateTime',
-        'type_code' => '\OpenAPI\Client\Model\FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCode',
-        'currency' => '\OpenAPI\Client\Model\Currency',
+        'type_code' => '\FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCode',
+        'currency' => '\FactPulse\SDK\Model\Currency',
         'due_date' => '\DateTime',
         'seller_siren' => 'string',
         'seller_vat_id' => 'string',
-        'seller_country' => '\OpenAPI\Client\Model\Sellercountry',
+        'seller_country' => '\FactPulse\SDK\Model\Sellercountry',
         'buyer_id' => 'string',
         'buyer_vat_id' => 'string',
-        'buyer_country' => '\OpenAPI\Client\Model\Buyercountry',
-        'tax_exclusive_amount' => '\OpenAPI\Client\Model\Taxexclusiveamount1',
-        'tax_amount' => '\OpenAPI\Client\Model\Taxamount1',
-        'tax_breakdown' => '\OpenAPI\Client\Model\TaxBreakdownInput[]',
+        'buyer_country' => '\FactPulse\SDK\Model\Buyercountry',
+        'tax_exclusive_amount' => '\FactPulse\SDK\Model\Taxexclusiveamount1',
+        'tax_amount' => '\FactPulse\SDK\Model\Taxamount1',
+        'tax_breakdown' => '\FactPulse\SDK\Model\TaxBreakdownInput[]',
         'referenced_invoice_id' => 'string',
         'referenced_invoice_date' => '\DateTime'
     ];
@@ -478,7 +478,7 @@ class InvoiceInput implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets type_code
      *
-     * @return \OpenAPI\Client\Model\FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCode|null
+     * @return \FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCode|null
      */
     public function getTypeCode()
     {
@@ -488,7 +488,7 @@ class InvoiceInput implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type_code
      *
-     * @param \OpenAPI\Client\Model\FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCode|null $type_code Invoice type code
+     * @param \FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCode|null $type_code Invoice type code
      *
      * @return self
      */
@@ -505,7 +505,7 @@ class InvoiceInput implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets currency
      *
-     * @return \OpenAPI\Client\Model\Currency|null
+     * @return \FactPulse\SDK\Model\Currency|null
      */
     public function getCurrency()
     {
@@ -515,7 +515,7 @@ class InvoiceInput implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets currency
      *
-     * @param \OpenAPI\Client\Model\Currency|null $currency currency
+     * @param \FactPulse\SDK\Model\Currency|null $currency currency
      *
      * @return self
      */
@@ -627,7 +627,7 @@ class InvoiceInput implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets seller_country
      *
-     * @return \OpenAPI\Client\Model\Sellercountry|null
+     * @return \FactPulse\SDK\Model\Sellercountry|null
      */
     public function getSellerCountry()
     {
@@ -637,7 +637,7 @@ class InvoiceInput implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets seller_country
      *
-     * @param \OpenAPI\Client\Model\Sellercountry|null $seller_country seller_country
+     * @param \FactPulse\SDK\Model\Sellercountry|null $seller_country seller_country
      *
      * @return self
      */
@@ -722,7 +722,7 @@ class InvoiceInput implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets buyer_country
      *
-     * @return \OpenAPI\Client\Model\Buyercountry
+     * @return \FactPulse\SDK\Model\Buyercountry
      */
     public function getBuyerCountry()
     {
@@ -732,7 +732,7 @@ class InvoiceInput implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets buyer_country
      *
-     * @param \OpenAPI\Client\Model\Buyercountry $buyer_country buyer_country
+     * @param \FactPulse\SDK\Model\Buyercountry $buyer_country buyer_country
      *
      * @return self
      */
@@ -749,7 +749,7 @@ class InvoiceInput implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets tax_exclusive_amount
      *
-     * @return \OpenAPI\Client\Model\Taxexclusiveamount1
+     * @return \FactPulse\SDK\Model\Taxexclusiveamount1
      */
     public function getTaxExclusiveAmount()
     {
@@ -759,7 +759,7 @@ class InvoiceInput implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tax_exclusive_amount
      *
-     * @param \OpenAPI\Client\Model\Taxexclusiveamount1 $tax_exclusive_amount tax_exclusive_amount
+     * @param \FactPulse\SDK\Model\Taxexclusiveamount1 $tax_exclusive_amount tax_exclusive_amount
      *
      * @return self
      */
@@ -776,7 +776,7 @@ class InvoiceInput implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets tax_amount
      *
-     * @return \OpenAPI\Client\Model\Taxamount1
+     * @return \FactPulse\SDK\Model\Taxamount1
      */
     public function getTaxAmount()
     {
@@ -786,7 +786,7 @@ class InvoiceInput implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tax_amount
      *
-     * @param \OpenAPI\Client\Model\Taxamount1 $tax_amount tax_amount
+     * @param \FactPulse\SDK\Model\Taxamount1 $tax_amount tax_amount
      *
      * @return self
      */
@@ -803,7 +803,7 @@ class InvoiceInput implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets tax_breakdown
      *
-     * @return \OpenAPI\Client\Model\TaxBreakdownInput[]
+     * @return \FactPulse\SDK\Model\TaxBreakdownInput[]
      */
     public function getTaxBreakdown()
     {
@@ -813,7 +813,7 @@ class InvoiceInput implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tax_breakdown
      *
-     * @param \OpenAPI\Client\Model\TaxBreakdownInput[] $tax_breakdown VAT breakdown
+     * @param \FactPulse\SDK\Model\TaxBreakdownInput[] $tax_breakdown VAT breakdown
      *
      * @return self
      */

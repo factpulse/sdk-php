@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * ValidationError Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,7 +58,7 @@ class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'loc' => '\OpenAPI\Client\Model\LocationInner[]',
+        'loc' => '\FactPulse\SDK\Model\LocationInner[]',
         'msg' => 'string',
         'type' => 'string'
     ];
@@ -316,7 +316,7 @@ class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets loc
      *
-     * @return \OpenAPI\Client\Model\LocationInner[]
+     * @return \FactPulse\SDK\Model\LocationInner[]
      */
     public function getLoc()
     {
@@ -326,7 +326,7 @@ class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets loc
      *
-     * @param \OpenAPI\Client\Model\LocationInner[] $loc loc
+     * @param \FactPulse\SDK\Model\LocationInner[] $loc loc
      *
      * @return self
      */

@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * ChorusProDestination Class Doc Comment
  *
  * @category Class
  * @description Specific configuration for Chorus Pro destination.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -60,7 +60,7 @@ class ChorusProDestination implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPITypes = [
         'type' => 'string',
-        'credentials' => '\OpenAPI\Client\Model\FactureElectroniqueRestApiSchemasProcessingChorusProCredentials'
+        'credentials' => '\FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasProcessingChorusProCredentials'
     ];
 
     /**
@@ -360,7 +360,7 @@ class ChorusProDestination implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets credentials
      *
-     * @return \OpenAPI\Client\Model\FactureElectroniqueRestApiSchemasProcessingChorusProCredentials|null
+     * @return \FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasProcessingChorusProCredentials|null
      */
     public function getCredentials()
     {
@@ -370,7 +370,7 @@ class ChorusProDestination implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets credentials
      *
-     * @param \OpenAPI\Client\Model\FactureElectroniqueRestApiSchemasProcessingChorusProCredentials|null $credentials credentials
+     * @param \FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasProcessingChorusProCredentials|null $credentials credentials
      *
      * @return self
      */

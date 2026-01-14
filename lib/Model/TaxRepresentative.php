@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * TaxRepresentative Class Doc Comment
  *
  * @category Class
  * @description Seller tax representative (BG-11).  The tax representative is required when the seller is not established in the country where VAT is due.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -61,7 +61,7 @@ class TaxRepresentative implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $openAPITypes = [
         'name' => 'string',
         'vat_number' => 'string',
-        'postal_address' => '\OpenAPI\Client\Model\PostalAddress'
+        'postal_address' => '\FactPulse\SDK\Model\PostalAddress'
     ];
 
     /**
@@ -371,7 +371,7 @@ class TaxRepresentative implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets postal_address
      *
-     * @return \OpenAPI\Client\Model\PostalAddress
+     * @return \FactPulse\SDK\Model\PostalAddress
      */
     public function getPostalAddress()
     {
@@ -381,7 +381,7 @@ class TaxRepresentative implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets postal_address
      *
-     * @param \OpenAPI\Client\Model\PostalAddress $postal_address Tax representative postal address (BG-12).
+     * @param \FactPulse\SDK\Model\PostalAddress $postal_address Tax representative postal address (BG-12).
      *
      * @return self
      */

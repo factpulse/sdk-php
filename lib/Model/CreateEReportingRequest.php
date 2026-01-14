@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * CreateEReportingRequest Class Doc Comment
  *
  * @category Class
  * @description Request to create an e-reporting submission.  Supports all four flux types: - 10.1: B2B international invoices (use &#x60;invoices&#x60; field) - 10.2: B2B international payments (use &#x60;invoicePayments&#x60; field) - 10.3: B2C aggregated transactions (use &#x60;transactions&#x60; field) - 10.4: B2C aggregated payments (use &#x60;aggregatedPayments&#x60; field)
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -61,14 +61,14 @@ class CreateEReportingRequest implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $openAPITypes = [
         'report_id' => 'string',
         'report_name' => 'string',
-        'flow_type' => '\OpenAPI\Client\Model\EReportingFlowType',
-        'transmission_type' => '\OpenAPI\Client\Model\TransmissionTypeCode',
-        'sender' => '\OpenAPI\Client\Model\ReportSender',
-        'period' => '\OpenAPI\Client\Model\ReportPeriod',
-        'invoices' => '\OpenAPI\Client\Model\InvoiceInput[]',
-        'transactions' => '\OpenAPI\Client\Model\AggregatedTransactionInput[]',
-        'invoice_payments' => '\OpenAPI\Client\Model\InvoicePaymentInput[]',
-        'aggregated_payments' => '\OpenAPI\Client\Model\AggregatedPaymentInput[]'
+        'flow_type' => '\FactPulse\SDK\Model\EReportingFlowType',
+        'transmission_type' => '\FactPulse\SDK\Model\TransmissionTypeCode',
+        'sender' => '\FactPulse\SDK\Model\ReportSender',
+        'period' => '\FactPulse\SDK\Model\ReportPeriod',
+        'invoices' => '\FactPulse\SDK\Model\InvoiceInput[]',
+        'transactions' => '\FactPulse\SDK\Model\AggregatedTransactionInput[]',
+        'invoice_payments' => '\FactPulse\SDK\Model\InvoicePaymentInput[]',
+        'aggregated_payments' => '\FactPulse\SDK\Model\AggregatedPaymentInput[]'
     ];
 
     /**
@@ -430,7 +430,7 @@ class CreateEReportingRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets flow_type
      *
-     * @return \OpenAPI\Client\Model\EReportingFlowType
+     * @return \FactPulse\SDK\Model\EReportingFlowType
      */
     public function getFlowType()
     {
@@ -440,7 +440,7 @@ class CreateEReportingRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets flow_type
      *
-     * @param \OpenAPI\Client\Model\EReportingFlowType $flow_type E-Reporting flux type (for internal routing)
+     * @param \FactPulse\SDK\Model\EReportingFlowType $flow_type E-Reporting flux type (for internal routing)
      *
      * @return self
      */
@@ -457,7 +457,7 @@ class CreateEReportingRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets transmission_type
      *
-     * @return \OpenAPI\Client\Model\TransmissionTypeCode|null
+     * @return \FactPulse\SDK\Model\TransmissionTypeCode|null
      */
     public function getTransmissionType()
     {
@@ -467,7 +467,7 @@ class CreateEReportingRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets transmission_type
      *
-     * @param \OpenAPI\Client\Model\TransmissionTypeCode|null $transmission_type Transmission type (TT-4 TypeCode): IN=Initial, RE=Rectificative
+     * @param \FactPulse\SDK\Model\TransmissionTypeCode|null $transmission_type Transmission type (TT-4 TypeCode): IN=Initial, RE=Rectificative
      *
      * @return self
      */
@@ -484,7 +484,7 @@ class CreateEReportingRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets sender
      *
-     * @return \OpenAPI\Client\Model\ReportSender
+     * @return \FactPulse\SDK\Model\ReportSender
      */
     public function getSender()
     {
@@ -494,7 +494,7 @@ class CreateEReportingRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets sender
      *
-     * @param \OpenAPI\Client\Model\ReportSender $sender Report sender (declarant)
+     * @param \FactPulse\SDK\Model\ReportSender $sender Report sender (declarant)
      *
      * @return self
      */
@@ -511,7 +511,7 @@ class CreateEReportingRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets period
      *
-     * @return \OpenAPI\Client\Model\ReportPeriod
+     * @return \FactPulse\SDK\Model\ReportPeriod
      */
     public function getPeriod()
     {
@@ -521,7 +521,7 @@ class CreateEReportingRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets period
      *
-     * @param \OpenAPI\Client\Model\ReportPeriod $period Reporting period
+     * @param \FactPulse\SDK\Model\ReportPeriod $period Reporting period
      *
      * @return self
      */
@@ -538,7 +538,7 @@ class CreateEReportingRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets invoices
      *
-     * @return \OpenAPI\Client\Model\InvoiceInput[]|null
+     * @return \FactPulse\SDK\Model\InvoiceInput[]|null
      */
     public function getInvoices()
     {
@@ -548,7 +548,7 @@ class CreateEReportingRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets invoices
      *
-     * @param \OpenAPI\Client\Model\InvoiceInput[]|null $invoices invoices
+     * @param \FactPulse\SDK\Model\InvoiceInput[]|null $invoices invoices
      *
      * @return self
      */
@@ -572,7 +572,7 @@ class CreateEReportingRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets transactions
      *
-     * @return \OpenAPI\Client\Model\AggregatedTransactionInput[]|null
+     * @return \FactPulse\SDK\Model\AggregatedTransactionInput[]|null
      */
     public function getTransactions()
     {
@@ -582,7 +582,7 @@ class CreateEReportingRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets transactions
      *
-     * @param \OpenAPI\Client\Model\AggregatedTransactionInput[]|null $transactions transactions
+     * @param \FactPulse\SDK\Model\AggregatedTransactionInput[]|null $transactions transactions
      *
      * @return self
      */
@@ -606,7 +606,7 @@ class CreateEReportingRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets invoice_payments
      *
-     * @return \OpenAPI\Client\Model\InvoicePaymentInput[]|null
+     * @return \FactPulse\SDK\Model\InvoicePaymentInput[]|null
      */
     public function getInvoicePayments()
     {
@@ -616,7 +616,7 @@ class CreateEReportingRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets invoice_payments
      *
-     * @param \OpenAPI\Client\Model\InvoicePaymentInput[]|null $invoice_payments invoice_payments
+     * @param \FactPulse\SDK\Model\InvoicePaymentInput[]|null $invoice_payments invoice_payments
      *
      * @return self
      */
@@ -640,7 +640,7 @@ class CreateEReportingRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets aggregated_payments
      *
-     * @return \OpenAPI\Client\Model\AggregatedPaymentInput[]|null
+     * @return \FactPulse\SDK\Model\AggregatedPaymentInput[]|null
      */
     public function getAggregatedPayments()
     {
@@ -650,7 +650,7 @@ class CreateEReportingRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets aggregated_payments
      *
-     * @param \OpenAPI\Client\Model\AggregatedPaymentInput[]|null $aggregated_payments aggregated_payments
+     * @param \FactPulse\SDK\Model\AggregatedPaymentInput[]|null $aggregated_payments aggregated_payments
      *
      * @return self
      */

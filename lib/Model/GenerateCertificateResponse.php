@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * GenerateCertificateResponse Class Doc Comment
  *
  * @category Class
  * @description Response after generating a test certificate.  Contains certificate PEM, private key PEM, and optionally PKCS#12.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -63,7 +63,7 @@ class GenerateCertificateResponse implements ModelInterface, ArrayAccess, \JsonS
         'certificate_pem' => 'string',
         'private_key_pem' => 'string',
         'pkcs12_base64' => 'string',
-        'info' => '\OpenAPI\Client\Model\CertificateInfoResponse',
+        'info' => '\FactPulse\SDK\Model\CertificateInfoResponse',
         'warning' => 'string'
     ];
 
@@ -453,7 +453,7 @@ class GenerateCertificateResponse implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets info
      *
-     * @return \OpenAPI\Client\Model\CertificateInfoResponse
+     * @return \FactPulse\SDK\Model\CertificateInfoResponse
      */
     public function getInfo()
     {
@@ -463,7 +463,7 @@ class GenerateCertificateResponse implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets info
      *
-     * @param \OpenAPI\Client\Model\CertificateInfoResponse $info Generated certificate information
+     * @param \FactPulse\SDK\Model\CertificateInfoResponse $info Generated certificate information
      *
      * @return self
      */

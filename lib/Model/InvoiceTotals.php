@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * InvoiceTotals Class Doc Comment
  *
  * @category Class
  * @description Contains all invoice total amounts (BG-22).
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,16 +59,16 @@ class InvoiceTotals implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'line_total_amount' => '\OpenAPI\Client\Model\LineTotalAmount',
-        'allowance_total_amount' => '\OpenAPI\Client\Model\AllowanceTotalAmount',
-        'charge_total_amount' => '\OpenAPI\Client\Model\ChargeTotalAmount',
-        'total_net_amount' => '\OpenAPI\Client\Model\TotalNetAmount',
-        'vat_amount' => '\OpenAPI\Client\Model\TotalVATAmount',
-        'total_gross_amount' => '\OpenAPI\Client\Model\TotalGrossAmount',
-        'prepayment' => '\OpenAPI\Client\Model\InvoiceTotalsPrepayment',
-        'rounding_amount' => '\OpenAPI\Client\Model\RoundingAmount',
-        'amount_due' => '\OpenAPI\Client\Model\AmountDue',
-        'global_allowance_amount' => '\OpenAPI\Client\Model\GlobalAllowanceAmount',
+        'line_total_amount' => '\FactPulse\SDK\Model\LineTotalAmount',
+        'allowance_total_amount' => '\FactPulse\SDK\Model\AllowanceTotalAmount',
+        'charge_total_amount' => '\FactPulse\SDK\Model\ChargeTotalAmount',
+        'total_net_amount' => '\FactPulse\SDK\Model\TotalNetAmount',
+        'vat_amount' => '\FactPulse\SDK\Model\TotalVATAmount',
+        'total_gross_amount' => '\FactPulse\SDK\Model\TotalGrossAmount',
+        'prepayment' => '\FactPulse\SDK\Model\InvoiceTotalsPrepayment',
+        'rounding_amount' => '\FactPulse\SDK\Model\RoundingAmount',
+        'amount_due' => '\FactPulse\SDK\Model\AmountDue',
+        'global_allowance_amount' => '\FactPulse\SDK\Model\GlobalAllowanceAmount',
         'global_allowance_reason' => 'string'
     ];
 
@@ -376,7 +376,7 @@ class InvoiceTotals implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets line_total_amount
      *
-     * @return \OpenAPI\Client\Model\LineTotalAmount|null
+     * @return \FactPulse\SDK\Model\LineTotalAmount|null
      */
     public function getLineTotalAmount()
     {
@@ -386,7 +386,7 @@ class InvoiceTotals implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets line_total_amount
      *
-     * @param \OpenAPI\Client\Model\LineTotalAmount|null $line_total_amount line_total_amount
+     * @param \FactPulse\SDK\Model\LineTotalAmount|null $line_total_amount line_total_amount
      *
      * @return self
      */
@@ -410,7 +410,7 @@ class InvoiceTotals implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets allowance_total_amount
      *
-     * @return \OpenAPI\Client\Model\AllowanceTotalAmount|null
+     * @return \FactPulse\SDK\Model\AllowanceTotalAmount|null
      */
     public function getAllowanceTotalAmount()
     {
@@ -420,7 +420,7 @@ class InvoiceTotals implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets allowance_total_amount
      *
-     * @param \OpenAPI\Client\Model\AllowanceTotalAmount|null $allowance_total_amount allowance_total_amount
+     * @param \FactPulse\SDK\Model\AllowanceTotalAmount|null $allowance_total_amount allowance_total_amount
      *
      * @return self
      */
@@ -444,7 +444,7 @@ class InvoiceTotals implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets charge_total_amount
      *
-     * @return \OpenAPI\Client\Model\ChargeTotalAmount|null
+     * @return \FactPulse\SDK\Model\ChargeTotalAmount|null
      */
     public function getChargeTotalAmount()
     {
@@ -454,7 +454,7 @@ class InvoiceTotals implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets charge_total_amount
      *
-     * @param \OpenAPI\Client\Model\ChargeTotalAmount|null $charge_total_amount charge_total_amount
+     * @param \FactPulse\SDK\Model\ChargeTotalAmount|null $charge_total_amount charge_total_amount
      *
      * @return self
      */
@@ -478,7 +478,7 @@ class InvoiceTotals implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets total_net_amount
      *
-     * @return \OpenAPI\Client\Model\TotalNetAmount
+     * @return \FactPulse\SDK\Model\TotalNetAmount
      */
     public function getTotalNetAmount()
     {
@@ -488,7 +488,7 @@ class InvoiceTotals implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets total_net_amount
      *
-     * @param \OpenAPI\Client\Model\TotalNetAmount $total_net_amount total_net_amount
+     * @param \FactPulse\SDK\Model\TotalNetAmount $total_net_amount total_net_amount
      *
      * @return self
      */
@@ -505,7 +505,7 @@ class InvoiceTotals implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets vat_amount
      *
-     * @return \OpenAPI\Client\Model\TotalVATAmount
+     * @return \FactPulse\SDK\Model\TotalVATAmount
      */
     public function getVatAmount()
     {
@@ -515,7 +515,7 @@ class InvoiceTotals implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets vat_amount
      *
-     * @param \OpenAPI\Client\Model\TotalVATAmount $vat_amount vat_amount
+     * @param \FactPulse\SDK\Model\TotalVATAmount $vat_amount vat_amount
      *
      * @return self
      */
@@ -532,7 +532,7 @@ class InvoiceTotals implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets total_gross_amount
      *
-     * @return \OpenAPI\Client\Model\TotalGrossAmount
+     * @return \FactPulse\SDK\Model\TotalGrossAmount
      */
     public function getTotalGrossAmount()
     {
@@ -542,7 +542,7 @@ class InvoiceTotals implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets total_gross_amount
      *
-     * @param \OpenAPI\Client\Model\TotalGrossAmount $total_gross_amount total_gross_amount
+     * @param \FactPulse\SDK\Model\TotalGrossAmount $total_gross_amount total_gross_amount
      *
      * @return self
      */
@@ -559,7 +559,7 @@ class InvoiceTotals implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets prepayment
      *
-     * @return \OpenAPI\Client\Model\InvoiceTotalsPrepayment|null
+     * @return \FactPulse\SDK\Model\InvoiceTotalsPrepayment|null
      */
     public function getPrepayment()
     {
@@ -569,7 +569,7 @@ class InvoiceTotals implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets prepayment
      *
-     * @param \OpenAPI\Client\Model\InvoiceTotalsPrepayment|null $prepayment prepayment
+     * @param \FactPulse\SDK\Model\InvoiceTotalsPrepayment|null $prepayment prepayment
      *
      * @return self
      */
@@ -593,7 +593,7 @@ class InvoiceTotals implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets rounding_amount
      *
-     * @return \OpenAPI\Client\Model\RoundingAmount|null
+     * @return \FactPulse\SDK\Model\RoundingAmount|null
      */
     public function getRoundingAmount()
     {
@@ -603,7 +603,7 @@ class InvoiceTotals implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets rounding_amount
      *
-     * @param \OpenAPI\Client\Model\RoundingAmount|null $rounding_amount rounding_amount
+     * @param \FactPulse\SDK\Model\RoundingAmount|null $rounding_amount rounding_amount
      *
      * @return self
      */
@@ -627,7 +627,7 @@ class InvoiceTotals implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets amount_due
      *
-     * @return \OpenAPI\Client\Model\AmountDue
+     * @return \FactPulse\SDK\Model\AmountDue
      */
     public function getAmountDue()
     {
@@ -637,7 +637,7 @@ class InvoiceTotals implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets amount_due
      *
-     * @param \OpenAPI\Client\Model\AmountDue $amount_due amount_due
+     * @param \FactPulse\SDK\Model\AmountDue $amount_due amount_due
      *
      * @return self
      */
@@ -654,7 +654,7 @@ class InvoiceTotals implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets global_allowance_amount
      *
-     * @return \OpenAPI\Client\Model\GlobalAllowanceAmount|null
+     * @return \FactPulse\SDK\Model\GlobalAllowanceAmount|null
      */
     public function getGlobalAllowanceAmount()
     {
@@ -664,7 +664,7 @@ class InvoiceTotals implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets global_allowance_amount
      *
-     * @param \OpenAPI\Client\Model\GlobalAllowanceAmount|null $global_allowance_amount global_allowance_amount
+     * @param \FactPulse\SDK\Model\GlobalAllowanceAmount|null $global_allowance_amount global_allowance_amount
      *
      * @return self
      */

@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,15 +27,15 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
-use \OpenAPI\Client\ObjectSerializer;
+namespace FactPulse\SDK\Model;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * CeleryStatus Class Doc Comment
  *
  * @category Class
  * @description Possible states of a Celery task during polling.  **Possible values:** - &#x60;PENDING&#x60;: Task waiting for processing - &#x60;STARTED&#x60;: Task currently executing - &#x60;SUCCESS&#x60;: Task completed successfully (check &#x60;result.status&#x60; for business result) - &#x60;FAILURE&#x60;: System error during execution (crash, unhandled exception) - &#x60;RETRY&#x60;: Retry attempt in progress (after temporary failure)
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

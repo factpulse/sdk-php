@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AggregatedPaymentInput Class Doc Comment
  *
  * @category Class
  * @description Aggregated payment for B2C (flux 10.4).  Used for B2C payment aggregates.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -60,8 +60,8 @@ class AggregatedPaymentInput implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPITypes = [
         'payment_date' => '\DateTime',
-        'currency' => '\OpenAPI\Client\Model\Currency',
-        'amounts_by_rate' => '\OpenAPI\Client\Model\PaymentAmountByRate[]'
+        'currency' => '\FactPulse\SDK\Model\Currency',
+        'amounts_by_rate' => '\FactPulse\SDK\Model\PaymentAmountByRate[]'
     ];
 
     /**
@@ -345,7 +345,7 @@ class AggregatedPaymentInput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets currency
      *
-     * @return \OpenAPI\Client\Model\Currency|null
+     * @return \FactPulse\SDK\Model\Currency|null
      */
     public function getCurrency()
     {
@@ -355,7 +355,7 @@ class AggregatedPaymentInput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets currency
      *
-     * @param \OpenAPI\Client\Model\Currency|null $currency currency
+     * @param \FactPulse\SDK\Model\Currency|null $currency currency
      *
      * @return self
      */
@@ -372,7 +372,7 @@ class AggregatedPaymentInput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets amounts_by_rate
      *
-     * @return \OpenAPI\Client\Model\PaymentAmountByRate[]
+     * @return \FactPulse\SDK\Model\PaymentAmountByRate[]
      */
     public function getAmountsByRate()
     {
@@ -382,7 +382,7 @@ class AggregatedPaymentInput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets amounts_by_rate
      *
-     * @param \OpenAPI\Client\Model\PaymentAmountByRate[] $amounts_by_rate Payment amounts by VAT rate
+     * @param \FactPulse\SDK\Model\PaymentAmountByRate[] $amounts_by_rate Payment amounts by VAT rate
      *
      * @return self
      */

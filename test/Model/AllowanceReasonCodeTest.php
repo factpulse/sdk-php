@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,7 +27,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace FactPulse\SDK\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -36,7 +36,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description Standardized codes for allowance or charge reasons (EN 16931 standard).  **Possible values:** - &#x60;AA&#x60;: ADVERTISING_ALLOWANCE - Advertising discount or rebate - &#x60;ABL&#x60;: PACKAGING_SURCHARGE - Packaging surcharge - &#x60;ADR&#x60;: OTHER_SERVICES - Other services - &#x60;ADT&#x60;: PICKUP_COST - Pickup cost - &#x60;FC&#x60;: FREIGHT_CHARGES - Freight/transport costs - &#x60;FI&#x60;: FINANCING_CHARGES - Financing charges - &#x60;LA&#x60;: LABELING - Labeling
- * @package     OpenAPI\Client
+ * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */

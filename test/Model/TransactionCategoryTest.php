@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,7 +27,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace FactPulse\SDK\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -36,7 +36,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description Transaction category codes (TT-81 CategoryCode).  Source: Annexe 6 - Format sémantique FE e-reporting v1.9 Onglet: E-REPORTING - Flux 10, ligne 127 Path XML: /TransactionsReport/Transactions/CategoryCode Longueur: 10 caractères max Cardinalité: 1..1 (obligatoire pour flux 10.3) Règle de gestion: G1.68  Note: Legacy aliases (B2C, B2B_INT, EXEMPT) were removed to fix OpenAPI generator issues. Use LEGACY_CATEGORY_MAPPING for backward compatibility.
- * @package     OpenAPI\Client
+ * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */

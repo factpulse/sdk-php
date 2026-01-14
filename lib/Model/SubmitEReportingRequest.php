@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * SubmitEReportingRequest Class Doc Comment
  *
  * @category Class
  * @description Request to submit e-reporting to a PA/PDP.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,7 +59,7 @@ class SubmitEReportingRequest implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\OpenAPI\Client\Model\CreateEReportingRequest',
+        'data' => '\FactPulse\SDK\Model\CreateEReportingRequest',
         'tracking_id' => 'string',
         'pdp_flow_service_url' => 'string',
         'pdp_token_url' => 'string',
@@ -332,7 +332,7 @@ class SubmitEReportingRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\CreateEReportingRequest
+     * @return \FactPulse\SDK\Model\CreateEReportingRequest
      */
     public function getData()
     {
@@ -342,7 +342,7 @@ class SubmitEReportingRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\CreateEReportingRequest $data E-Reporting data to submit
+     * @param \FactPulse\SDK\Model\CreateEReportingRequest $data E-Reporting data to submit
      *
      * @return self
      */

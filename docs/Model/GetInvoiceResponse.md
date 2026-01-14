@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **invoice_number** | **string** |  | [optional]
 **invoice_date** | **string** |  | [optional]
 **total_gross_amount** | **string** |  | [optional]
-**current_status** | [**\OpenAPI\Client\Model\InvoiceStatus**](InvoiceStatus.md) |  | [optional]
+**current_status** | [**\FactPulse\SDK\Model\InvoiceStatus**](InvoiceStatus.md) |  | [optional]
 **recipient_structure_id** | **int** |  | [optional]
 **recipient_structure_name** | **string** |  | [optional]
 

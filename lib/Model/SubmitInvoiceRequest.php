@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * SubmitInvoiceRequest Class Doc Comment
  *
  * @category Class
  * @description Submit an invoice to Chorus Pro.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,16 +59,16 @@ class SubmitInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'credentials' => '\OpenAPI\Client\Model\ChorusProCredentials',
+        'credentials' => '\FactPulse\SDK\Model\ChorusProCredentials',
         'invoice_number' => 'string',
         'invoice_date' => 'string',
         'payment_due_date' => 'string',
         'structure_id' => 'int',
         'service_code' => 'string',
         'engagement_number' => 'string',
-        'total_net_amount' => '\OpenAPI\Client\Model\SubmitNetAmount',
-        'vat_amount' => '\OpenAPI\Client\Model\SubmitVatAmount',
-        'total_gross_amount' => '\OpenAPI\Client\Model\SubmitGrossAmount',
+        'total_net_amount' => '\FactPulse\SDK\Model\SubmitNetAmount',
+        'vat_amount' => '\FactPulse\SDK\Model\SubmitVatAmount',
+        'total_gross_amount' => '\FactPulse\SDK\Model\SubmitGrossAmount',
         'main_attachment_id' => 'int',
         'main_attachment_label' => 'string',
         'comment' => 'string',
@@ -410,7 +410,7 @@ class SubmitInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets credentials
      *
-     * @return \OpenAPI\Client\Model\ChorusProCredentials|null
+     * @return \FactPulse\SDK\Model\ChorusProCredentials|null
      */
     public function getCredentials()
     {
@@ -420,7 +420,7 @@ class SubmitInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets credentials
      *
-     * @param \OpenAPI\Client\Model\ChorusProCredentials|null $credentials credentials
+     * @param \FactPulse\SDK\Model\ChorusProCredentials|null $credentials credentials
      *
      * @return self
      */
@@ -627,7 +627,7 @@ class SubmitInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets total_net_amount
      *
-     * @return \OpenAPI\Client\Model\SubmitNetAmount
+     * @return \FactPulse\SDK\Model\SubmitNetAmount
      */
     public function getTotalNetAmount()
     {
@@ -637,7 +637,7 @@ class SubmitInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets total_net_amount
      *
-     * @param \OpenAPI\Client\Model\SubmitNetAmount $total_net_amount total_net_amount
+     * @param \FactPulse\SDK\Model\SubmitNetAmount $total_net_amount total_net_amount
      *
      * @return self
      */
@@ -654,7 +654,7 @@ class SubmitInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets vat_amount
      *
-     * @return \OpenAPI\Client\Model\SubmitVatAmount
+     * @return \FactPulse\SDK\Model\SubmitVatAmount
      */
     public function getVatAmount()
     {
@@ -664,7 +664,7 @@ class SubmitInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets vat_amount
      *
-     * @param \OpenAPI\Client\Model\SubmitVatAmount $vat_amount vat_amount
+     * @param \FactPulse\SDK\Model\SubmitVatAmount $vat_amount vat_amount
      *
      * @return self
      */
@@ -681,7 +681,7 @@ class SubmitInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets total_gross_amount
      *
-     * @return \OpenAPI\Client\Model\SubmitGrossAmount
+     * @return \FactPulse\SDK\Model\SubmitGrossAmount
      */
     public function getTotalGrossAmount()
     {
@@ -691,7 +691,7 @@ class SubmitInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets total_gross_amount
      *
-     * @param \OpenAPI\Client\Model\SubmitGrossAmount $total_gross_amount total_gross_amount
+     * @param \FactPulse\SDK\Model\SubmitGrossAmount $total_gross_amount total_gross_amount
      *
      * @return self
      */

@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORRoutingCodeSearchFilters Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,13 +58,13 @@ class AFNORRoutingCodeSearchFilters implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'routing_identifier' => '\OpenAPI\Client\Model\AFNORRoutingCodeSearchFiltersRoutingIdentifier',
-        'siret' => '\OpenAPI\Client\Model\AFNORSearchSiretFiltersSiret',
-        'routing_code_name' => '\OpenAPI\Client\Model\AFNORRoutingCodeSearchFiltersRoutingCodeName',
-        'administrative_status' => '\OpenAPI\Client\Model\AFNORRoutingCodeSearchFiltersAdministrativeStatus',
-        'address_lines' => '\OpenAPI\Client\Model\AFNORSearchSiretFiltersAddressLines',
-        'postal_code' => '\OpenAPI\Client\Model\AFNORSearchSiretFiltersPostalCode',
-        'locality' => '\OpenAPI\Client\Model\AFNORSearchSiretFiltersLocality'
+        'routing_identifier' => '\FactPulse\SDK\Model\AFNORRoutingCodeSearchFiltersRoutingIdentifier',
+        'siret' => '\FactPulse\SDK\Model\AFNORSearchSiretFiltersSiret',
+        'routing_code_name' => '\FactPulse\SDK\Model\AFNORRoutingCodeSearchFiltersRoutingCodeName',
+        'administrative_status' => '\FactPulse\SDK\Model\AFNORRoutingCodeSearchFiltersAdministrativeStatus',
+        'address_lines' => '\FactPulse\SDK\Model\AFNORSearchSiretFiltersAddressLines',
+        'postal_code' => '\FactPulse\SDK\Model\AFNORSearchSiretFiltersPostalCode',
+        'locality' => '\FactPulse\SDK\Model\AFNORSearchSiretFiltersLocality'
     ];
 
     /**
@@ -335,7 +335,7 @@ class AFNORRoutingCodeSearchFilters implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets routing_identifier
      *
-     * @return \OpenAPI\Client\Model\AFNORRoutingCodeSearchFiltersRoutingIdentifier|null
+     * @return \FactPulse\SDK\Model\AFNORRoutingCodeSearchFiltersRoutingIdentifier|null
      */
     public function getRoutingIdentifier()
     {
@@ -345,7 +345,7 @@ class AFNORRoutingCodeSearchFilters implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets routing_identifier
      *
-     * @param \OpenAPI\Client\Model\AFNORRoutingCodeSearchFiltersRoutingIdentifier|null $routing_identifier routing_identifier
+     * @param \FactPulse\SDK\Model\AFNORRoutingCodeSearchFiltersRoutingIdentifier|null $routing_identifier routing_identifier
      *
      * @return self
      */
@@ -362,7 +362,7 @@ class AFNORRoutingCodeSearchFilters implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets siret
      *
-     * @return \OpenAPI\Client\Model\AFNORSearchSiretFiltersSiret|null
+     * @return \FactPulse\SDK\Model\AFNORSearchSiretFiltersSiret|null
      */
     public function getSiret()
     {
@@ -372,7 +372,7 @@ class AFNORRoutingCodeSearchFilters implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets siret
      *
-     * @param \OpenAPI\Client\Model\AFNORSearchSiretFiltersSiret|null $siret siret
+     * @param \FactPulse\SDK\Model\AFNORSearchSiretFiltersSiret|null $siret siret
      *
      * @return self
      */
@@ -389,7 +389,7 @@ class AFNORRoutingCodeSearchFilters implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets routing_code_name
      *
-     * @return \OpenAPI\Client\Model\AFNORRoutingCodeSearchFiltersRoutingCodeName|null
+     * @return \FactPulse\SDK\Model\AFNORRoutingCodeSearchFiltersRoutingCodeName|null
      */
     public function getRoutingCodeName()
     {
@@ -399,7 +399,7 @@ class AFNORRoutingCodeSearchFilters implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets routing_code_name
      *
-     * @param \OpenAPI\Client\Model\AFNORRoutingCodeSearchFiltersRoutingCodeName|null $routing_code_name routing_code_name
+     * @param \FactPulse\SDK\Model\AFNORRoutingCodeSearchFiltersRoutingCodeName|null $routing_code_name routing_code_name
      *
      * @return self
      */
@@ -416,7 +416,7 @@ class AFNORRoutingCodeSearchFilters implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets administrative_status
      *
-     * @return \OpenAPI\Client\Model\AFNORRoutingCodeSearchFiltersAdministrativeStatus|null
+     * @return \FactPulse\SDK\Model\AFNORRoutingCodeSearchFiltersAdministrativeStatus|null
      */
     public function getAdministrativeStatus()
     {
@@ -426,7 +426,7 @@ class AFNORRoutingCodeSearchFilters implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets administrative_status
      *
-     * @param \OpenAPI\Client\Model\AFNORRoutingCodeSearchFiltersAdministrativeStatus|null $administrative_status administrative_status
+     * @param \FactPulse\SDK\Model\AFNORRoutingCodeSearchFiltersAdministrativeStatus|null $administrative_status administrative_status
      *
      * @return self
      */
@@ -443,7 +443,7 @@ class AFNORRoutingCodeSearchFilters implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets address_lines
      *
-     * @return \OpenAPI\Client\Model\AFNORSearchSiretFiltersAddressLines|null
+     * @return \FactPulse\SDK\Model\AFNORSearchSiretFiltersAddressLines|null
      */
     public function getAddressLines()
     {
@@ -453,7 +453,7 @@ class AFNORRoutingCodeSearchFilters implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets address_lines
      *
-     * @param \OpenAPI\Client\Model\AFNORSearchSiretFiltersAddressLines|null $address_lines address_lines
+     * @param \FactPulse\SDK\Model\AFNORSearchSiretFiltersAddressLines|null $address_lines address_lines
      *
      * @return self
      */
@@ -470,7 +470,7 @@ class AFNORRoutingCodeSearchFilters implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets postal_code
      *
-     * @return \OpenAPI\Client\Model\AFNORSearchSiretFiltersPostalCode|null
+     * @return \FactPulse\SDK\Model\AFNORSearchSiretFiltersPostalCode|null
      */
     public function getPostalCode()
     {
@@ -480,7 +480,7 @@ class AFNORRoutingCodeSearchFilters implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets postal_code
      *
-     * @param \OpenAPI\Client\Model\AFNORSearchSiretFiltersPostalCode|null $postal_code postal_code
+     * @param \FactPulse\SDK\Model\AFNORSearchSiretFiltersPostalCode|null $postal_code postal_code
      *
      * @return self
      */
@@ -497,7 +497,7 @@ class AFNORRoutingCodeSearchFilters implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets locality
      *
-     * @return \OpenAPI\Client\Model\AFNORSearchSiretFiltersLocality|null
+     * @return \FactPulse\SDK\Model\AFNORSearchSiretFiltersLocality|null
      */
     public function getLocality()
     {
@@ -507,7 +507,7 @@ class AFNORRoutingCodeSearchFilters implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets locality
      *
-     * @param \OpenAPI\Client\Model\AFNORSearchSiretFiltersLocality|null $locality locality
+     * @param \FactPulse\SDK\Model\AFNORSearchSiretFiltersLocality|null $locality locality
      *
      * @return self
      */

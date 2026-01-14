@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORSearchDirectoryLineSortingInner Class Doc Comment
  *
  * @category Class
  * @description A sort criteria composed of a field and an order (ascending or descending).
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,8 +59,8 @@ class AFNORSearchDirectoryLineSortingInner implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $openAPITypes = [
-        'field' => '\OpenAPI\Client\Model\AFNORDirectoryLineField',
-        'sorting_order' => '\OpenAPI\Client\Model\AFNORSortingOrder'
+        'field' => '\FactPulse\SDK\Model\AFNORDirectoryLineField',
+        'sorting_order' => '\FactPulse\SDK\Model\AFNORSortingOrder'
     ];
 
     /**
@@ -301,7 +301,7 @@ class AFNORSearchDirectoryLineSortingInner implements ModelInterface, ArrayAcces
     /**
      * Gets field
      *
-     * @return \OpenAPI\Client\Model\AFNORDirectoryLineField|null
+     * @return \FactPulse\SDK\Model\AFNORDirectoryLineField|null
      */
     public function getField()
     {
@@ -311,7 +311,7 @@ class AFNORSearchDirectoryLineSortingInner implements ModelInterface, ArrayAcces
     /**
      * Sets field
      *
-     * @param \OpenAPI\Client\Model\AFNORDirectoryLineField|null $field field
+     * @param \FactPulse\SDK\Model\AFNORDirectoryLineField|null $field field
      *
      * @return self
      */
@@ -328,7 +328,7 @@ class AFNORSearchDirectoryLineSortingInner implements ModelInterface, ArrayAcces
     /**
      * Gets sorting_order
      *
-     * @return \OpenAPI\Client\Model\AFNORSortingOrder|null
+     * @return \FactPulse\SDK\Model\AFNORSortingOrder|null
      */
     public function getSortingOrder()
     {
@@ -338,7 +338,7 @@ class AFNORSearchDirectoryLineSortingInner implements ModelInterface, ArrayAcces
     /**
      * Sets sorting_order
      *
-     * @param \OpenAPI\Client\Model\AFNORSortingOrder|null $sorting_order sorting_order
+     * @param \FactPulse\SDK\Model\AFNORSortingOrder|null $sorting_order sorting_order
      *
      * @return self
      */

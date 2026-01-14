@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORRoutingCodePayloadHistoryLegalUnitFacility Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -63,10 +63,10 @@ class AFNORRoutingCodePayloadHistoryLegalUnitFacility implements ModelInterface,
         'routing_identifier_type' => 'string',
         'routing_code_name' => 'string',
         'manages_legal_commitment_code' => 'bool',
-        'administrative_status' => '\OpenAPI\Client\Model\AFNORRoutingCodeAdministrativeStatus',
-        'address' => '\OpenAPI\Client\Model\AFNORAddressRead',
-        'legal_unit' => '\OpenAPI\Client\Model\AFNORLegalUnitPayloadIncluded',
-        'facility' => '\OpenAPI\Client\Model\AFNORFacilityPayloadIncluded'
+        'administrative_status' => '\FactPulse\SDK\Model\AFNORRoutingCodeAdministrativeStatus',
+        'address' => '\FactPulse\SDK\Model\AFNORAddressRead',
+        'legal_unit' => '\FactPulse\SDK\Model\AFNORLegalUnitPayloadIncluded',
+        'facility' => '\FactPulse\SDK\Model\AFNORFacilityPayloadIncluded'
     ];
 
     /**
@@ -544,7 +544,7 @@ class AFNORRoutingCodePayloadHistoryLegalUnitFacility implements ModelInterface,
     /**
      * Gets administrative_status
      *
-     * @return \OpenAPI\Client\Model\AFNORRoutingCodeAdministrativeStatus|null
+     * @return \FactPulse\SDK\Model\AFNORRoutingCodeAdministrativeStatus|null
      */
     public function getAdministrativeStatus()
     {
@@ -554,7 +554,7 @@ class AFNORRoutingCodePayloadHistoryLegalUnitFacility implements ModelInterface,
     /**
      * Sets administrative_status
      *
-     * @param \OpenAPI\Client\Model\AFNORRoutingCodeAdministrativeStatus|null $administrative_status administrative_status
+     * @param \FactPulse\SDK\Model\AFNORRoutingCodeAdministrativeStatus|null $administrative_status administrative_status
      *
      * @return self
      */
@@ -571,7 +571,7 @@ class AFNORRoutingCodePayloadHistoryLegalUnitFacility implements ModelInterface,
     /**
      * Gets address
      *
-     * @return \OpenAPI\Client\Model\AFNORAddressRead|null
+     * @return \FactPulse\SDK\Model\AFNORAddressRead|null
      */
     public function getAddress()
     {
@@ -581,7 +581,7 @@ class AFNORRoutingCodePayloadHistoryLegalUnitFacility implements ModelInterface,
     /**
      * Sets address
      *
-     * @param \OpenAPI\Client\Model\AFNORAddressRead|null $address address
+     * @param \FactPulse\SDK\Model\AFNORAddressRead|null $address address
      *
      * @return self
      */
@@ -598,7 +598,7 @@ class AFNORRoutingCodePayloadHistoryLegalUnitFacility implements ModelInterface,
     /**
      * Gets legal_unit
      *
-     * @return \OpenAPI\Client\Model\AFNORLegalUnitPayloadIncluded|null
+     * @return \FactPulse\SDK\Model\AFNORLegalUnitPayloadIncluded|null
      */
     public function getLegalUnit()
     {
@@ -608,7 +608,7 @@ class AFNORRoutingCodePayloadHistoryLegalUnitFacility implements ModelInterface,
     /**
      * Sets legal_unit
      *
-     * @param \OpenAPI\Client\Model\AFNORLegalUnitPayloadIncluded|null $legal_unit legal_unit
+     * @param \FactPulse\SDK\Model\AFNORLegalUnitPayloadIncluded|null $legal_unit legal_unit
      *
      * @return self
      */
@@ -625,7 +625,7 @@ class AFNORRoutingCodePayloadHistoryLegalUnitFacility implements ModelInterface,
     /**
      * Gets facility
      *
-     * @return \OpenAPI\Client\Model\AFNORFacilityPayloadIncluded|null
+     * @return \FactPulse\SDK\Model\AFNORFacilityPayloadIncluded|null
      */
     public function getFacility()
     {
@@ -635,7 +635,7 @@ class AFNORRoutingCodePayloadHistoryLegalUnitFacility implements ModelInterface,
     /**
      * Sets facility
      *
-     * @param \OpenAPI\Client\Model\AFNORFacilityPayloadIncluded|null $facility facility
+     * @param \FactPulse\SDK\Model\AFNORFacilityPayloadIncluded|null $facility facility
      *
      * @return self
      */

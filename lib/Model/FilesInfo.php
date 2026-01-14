@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * FilesInfo Class Doc Comment
  *
  * @category Class
  * @description Fichiers generes.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,8 +59,8 @@ class FilesInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'facturx_pdf' => '\OpenAPI\Client\Model\FileInfo',
-        'xml' => '\OpenAPI\Client\Model\FileInfo'
+        'facturx_pdf' => '\FactPulse\SDK\Model\FileInfo',
+        'xml' => '\FactPulse\SDK\Model\FileInfo'
     ];
 
     /**
@@ -301,7 +301,7 @@ class FilesInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets facturx_pdf
      *
-     * @return \OpenAPI\Client\Model\FileInfo|null
+     * @return \FactPulse\SDK\Model\FileInfo|null
      */
     public function getFacturxPdf()
     {
@@ -311,7 +311,7 @@ class FilesInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets facturx_pdf
      *
-     * @param \OpenAPI\Client\Model\FileInfo|null $facturx_pdf facturx_pdf
+     * @param \FactPulse\SDK\Model\FileInfo|null $facturx_pdf facturx_pdf
      *
      * @return self
      */
@@ -335,7 +335,7 @@ class FilesInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets xml
      *
-     * @return \OpenAPI\Client\Model\FileInfo|null
+     * @return \FactPulse\SDK\Model\FileInfo|null
      */
     public function getXml()
     {
@@ -345,7 +345,7 @@ class FilesInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets xml
      *
-     * @param \OpenAPI\Client\Model\FileInfo|null $xml xml
+     * @param \FactPulse\SDK\Model\FileInfo|null $xml xml
      *
      * @return self
      */

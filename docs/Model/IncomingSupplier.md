@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **siren** | **string** |  | [optional]
 **siret** | **string** |  | [optional]
 **vat_number** | **string** |  | [optional]
-**postal_address** | [**\OpenAPI\Client\Model\PostalAddress**](PostalAddress.md) |  | [optional]
-**electronic_address** | [**\OpenAPI\Client\Model\ElectronicAddress**](ElectronicAddress.md) |  | [optional]
+**postal_address** | [**\FactPulse\SDK\Model\PostalAddress**](PostalAddress.md) |  | [optional]
+**electronic_address** | [**\FactPulse\SDK\Model\ElectronicAddress**](ElectronicAddress.md) |  | [optional]
 **email** | **string** |  | [optional]
 **phone** | **string** |  | [optional]
 

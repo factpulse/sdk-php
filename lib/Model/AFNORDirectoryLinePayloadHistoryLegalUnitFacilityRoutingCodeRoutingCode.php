@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCodeRoutingCode Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -62,8 +62,8 @@ class AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCodeRoutingCode im
         'routing_identifier_type' => 'string',
         'routing_code_name' => 'string',
         'manages_legal_commitment' => 'bool',
-        'administrative_status' => '\OpenAPI\Client\Model\AFNORRoutingCodeAdministrativeStatus',
-        'address' => '\OpenAPI\Client\Model\AFNORAddressRead'
+        'administrative_status' => '\FactPulse\SDK\Model\AFNORRoutingCodeAdministrativeStatus',
+        'address' => '\FactPulse\SDK\Model\AFNORAddressRead'
     ];
 
     /**
@@ -481,7 +481,7 @@ class AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCodeRoutingCode im
     /**
      * Gets administrative_status
      *
-     * @return \OpenAPI\Client\Model\AFNORRoutingCodeAdministrativeStatus|null
+     * @return \FactPulse\SDK\Model\AFNORRoutingCodeAdministrativeStatus|null
      */
     public function getAdministrativeStatus()
     {
@@ -491,7 +491,7 @@ class AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCodeRoutingCode im
     /**
      * Sets administrative_status
      *
-     * @param \OpenAPI\Client\Model\AFNORRoutingCodeAdministrativeStatus|null $administrative_status administrative_status
+     * @param \FactPulse\SDK\Model\AFNORRoutingCodeAdministrativeStatus|null $administrative_status administrative_status
      *
      * @return self
      */
@@ -508,7 +508,7 @@ class AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCodeRoutingCode im
     /**
      * Gets address
      *
-     * @return \OpenAPI\Client\Model\AFNORAddressRead|null
+     * @return \FactPulse\SDK\Model\AFNORAddressRead|null
      */
     public function getAddress()
     {
@@ -518,7 +518,7 @@ class AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCodeRoutingCode im
     /**
      * Sets address
      *
-     * @param \OpenAPI\Client\Model\AFNORAddressRead|null $address address
+     * @param \FactPulse\SDK\Model\AFNORAddressRead|null $address address
      *
      * @return self
      */

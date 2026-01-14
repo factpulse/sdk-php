@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCode Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -62,10 +62,10 @@ class AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCode implements Mo
         'siren' => 'string',
         'siret' => 'string',
         'addressing_suffix' => 'string',
-        'routing_code' => '\OpenAPI\Client\Model\AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCodeRoutingCode',
-        'platform' => '\OpenAPI\Client\Model\AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCodePlatform',
-        'legal_unit' => '\OpenAPI\Client\Model\AFNORLegalUnitPayloadIncludedNoSiren',
-        'facility' => '\OpenAPI\Client\Model\AFNORFacilityPayloadIncluded'
+        'routing_code' => '\FactPulse\SDK\Model\AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCodeRoutingCode',
+        'platform' => '\FactPulse\SDK\Model\AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCodePlatform',
+        'legal_unit' => '\FactPulse\SDK\Model\AFNORLegalUnitPayloadIncludedNoSiren',
+        'facility' => '\FactPulse\SDK\Model\AFNORFacilityPayloadIncluded'
     ];
 
     /**
@@ -496,7 +496,7 @@ class AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCode implements Mo
     /**
      * Gets routing_code
      *
-     * @return \OpenAPI\Client\Model\AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCodeRoutingCode|null
+     * @return \FactPulse\SDK\Model\AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCodeRoutingCode|null
      */
     public function getRoutingCode()
     {
@@ -506,7 +506,7 @@ class AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCode implements Mo
     /**
      * Sets routing_code
      *
-     * @param \OpenAPI\Client\Model\AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCodeRoutingCode|null $routing_code routing_code
+     * @param \FactPulse\SDK\Model\AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCodeRoutingCode|null $routing_code routing_code
      *
      * @return self
      */
@@ -523,7 +523,7 @@ class AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCode implements Mo
     /**
      * Gets platform
      *
-     * @return \OpenAPI\Client\Model\AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCodePlatform|null
+     * @return \FactPulse\SDK\Model\AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCodePlatform|null
      */
     public function getPlatform()
     {
@@ -533,7 +533,7 @@ class AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCode implements Mo
     /**
      * Sets platform
      *
-     * @param \OpenAPI\Client\Model\AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCodePlatform|null $platform platform
+     * @param \FactPulse\SDK\Model\AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCodePlatform|null $platform platform
      *
      * @return self
      */
@@ -550,7 +550,7 @@ class AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCode implements Mo
     /**
      * Gets legal_unit
      *
-     * @return \OpenAPI\Client\Model\AFNORLegalUnitPayloadIncludedNoSiren|null
+     * @return \FactPulse\SDK\Model\AFNORLegalUnitPayloadIncludedNoSiren|null
      */
     public function getLegalUnit()
     {
@@ -560,7 +560,7 @@ class AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCode implements Mo
     /**
      * Sets legal_unit
      *
-     * @param \OpenAPI\Client\Model\AFNORLegalUnitPayloadIncludedNoSiren|null $legal_unit legal_unit
+     * @param \FactPulse\SDK\Model\AFNORLegalUnitPayloadIncludedNoSiren|null $legal_unit legal_unit
      *
      * @return self
      */
@@ -577,7 +577,7 @@ class AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCode implements Mo
     /**
      * Gets facility
      *
-     * @return \OpenAPI\Client\Model\AFNORFacilityPayloadIncluded|null
+     * @return \FactPulse\SDK\Model\AFNORFacilityPayloadIncluded|null
      */
     public function getFacility()
     {
@@ -587,7 +587,7 @@ class AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCode implements Mo
     /**
      * Sets facility
      *
-     * @param \OpenAPI\Client\Model\AFNORFacilityPayloadIncluded|null $facility facility
+     * @param \FactPulse\SDK\Model\AFNORFacilityPayloadIncluded|null $facility facility
      *
      * @return self
      */

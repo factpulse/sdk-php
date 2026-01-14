@@ -6,11 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **success** | **bool** | Invoice was successfully submitted |
 **destination_type** | **string** | Destination type |
-**chorus_result** | [**\OpenAPI\Client\Model\ChorusProResult**](ChorusProResult.md) |  | [optional]
-**afnor_result** | [**\OpenAPI\Client\Model\AFNORResult**](AFNORResult.md) |  | [optional]
-**enriched_invoice** | [**\OpenAPI\Client\Model\EnrichedInvoiceInfo**](EnrichedInvoiceInfo.md) | Enriched invoice data |
-**facturx_pdf** | [**\OpenAPI\Client\Model\FacturXPDFInfo**](FacturXPDFInfo.md) | Generated PDF information |
-**signature** | [**\OpenAPI\Client\Model\SignatureInfo**](SignatureInfo.md) |  | [optional]
+**chorus_result** | [**\FactPulse\SDK\Model\ChorusProResult**](ChorusProResult.md) |  | [optional]
+**afnor_result** | [**\FactPulse\SDK\Model\AFNORResult**](AFNORResult.md) |  | [optional]
+**enriched_invoice** | [**\FactPulse\SDK\Model\EnrichedInvoiceInfo**](EnrichedInvoiceInfo.md) | Enriched invoice data |
+**facturx_pdf** | [**\FactPulse\SDK\Model\FacturXPDFInfo**](FacturXPDFInfo.md) | Generated PDF information |
+**signature** | [**\FactPulse\SDK\Model\SignatureInfo**](SignatureInfo.md) |  | [optional]
 **pdf_base64** | **string** | Generated Factur-X PDF (and signed if requested) base64-encoded |
 **message** | **string** | Return message |
 

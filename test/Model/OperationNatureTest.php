@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,7 +27,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace FactPulse\SDK\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -36,7 +36,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description Operation nature (BT-23) for Factur-X - French Reform.  BR-FR-08: The invoicing framework must be one of the following codes. First letter indicates: B &#x3D; Goods, S &#x3D; Services, M &#x3D; Mixed.  Ref: XP Z12-012, article_conformite_pdf_facturx.md  Example:     &gt;&gt;&gt; framework &#x3D; InvoicingFramework(     ...     invoicing_framework_code&#x3D;InvoicingFrameworkCode.A1_SUPPLIER_INVOICE,     ...     operation_nature&#x3D;OperationNature.GOODS     ... )
- * @package     OpenAPI\Client
+ * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */

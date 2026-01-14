@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**electronic_address** | [**\OpenAPI\Client\Model\ElectronicAddress**](ElectronicAddress.md) |  |
+**electronic_address** | [**\FactPulse\SDK\Model\ElectronicAddress**](ElectronicAddress.md) |  |
 **supplier_id** | **int** |  |
 **private_id** | **string** |  | [optional]
 **supplier_bank_account_code** | **int** |  | [optional]
@@ -19,8 +19,8 @@ Name | Type | Description | Notes
 **bic** | **string** |  | [optional]
 **bank_account_name** | **string** |  | [optional]
 **proprietary_id** | **string** |  | [optional]
-**postal_address** | [**\OpenAPI\Client\Model\PostalAddress**](PostalAddress.md) |  | [optional]
-**contact** | [**\OpenAPI\Client\Model\Contact**](Contact.md) |  | [optional]
-**global_ids** | [**\OpenAPI\Client\Model\ElectronicAddress[]**](ElectronicAddress.md) |  | [optional]
+**postal_address** | [**\FactPulse\SDK\Model\PostalAddress**](PostalAddress.md) |  | [optional]
+**contact** | [**\FactPulse\SDK\Model\Contact**](Contact.md) |  | [optional]
+**global_ids** | [**\FactPulse\SDK\Model\ElectronicAddress[]**](ElectronicAddress.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

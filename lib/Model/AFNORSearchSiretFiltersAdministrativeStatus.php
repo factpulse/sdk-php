@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORSearchSiretFiltersAdministrativeStatus Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,8 +58,8 @@ class AFNORSearchSiretFiltersAdministrativeStatus implements ModelInterface, Arr
       * @var string[]
       */
     protected static $openAPITypes = [
-        'op' => '\OpenAPI\Client\Model\AFNORStrictOperator',
-        'value' => '\OpenAPI\Client\Model\AFNORFacilityAdministrativeStatus'
+        'op' => '\FactPulse\SDK\Model\AFNORStrictOperator',
+        'value' => '\FactPulse\SDK\Model\AFNORFacilityAdministrativeStatus'
     ];
 
     /**
@@ -300,7 +300,7 @@ class AFNORSearchSiretFiltersAdministrativeStatus implements ModelInterface, Arr
     /**
      * Gets op
      *
-     * @return \OpenAPI\Client\Model\AFNORStrictOperator|null
+     * @return \FactPulse\SDK\Model\AFNORStrictOperator|null
      */
     public function getOp()
     {
@@ -310,7 +310,7 @@ class AFNORSearchSiretFiltersAdministrativeStatus implements ModelInterface, Arr
     /**
      * Sets op
      *
-     * @param \OpenAPI\Client\Model\AFNORStrictOperator|null $op op
+     * @param \FactPulse\SDK\Model\AFNORStrictOperator|null $op op
      *
      * @return self
      */
@@ -327,7 +327,7 @@ class AFNORSearchSiretFiltersAdministrativeStatus implements ModelInterface, Arr
     /**
      * Gets value
      *
-     * @return \OpenAPI\Client\Model\AFNORFacilityAdministrativeStatus|null
+     * @return \FactPulse\SDK\Model\AFNORFacilityAdministrativeStatus|null
      */
     public function getValue()
     {
@@ -337,7 +337,7 @@ class AFNORSearchSiretFiltersAdministrativeStatus implements ModelInterface, Arr
     /**
      * Sets value
      *
-     * @param \OpenAPI\Client\Model\AFNORFacilityAdministrativeStatus|null $value value
+     * @param \FactPulse\SDK\Model\AFNORFacilityAdministrativeStatus|null $value value
      *
      * @return self
      */

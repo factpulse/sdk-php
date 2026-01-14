@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**credentials** | [**\OpenAPI\Client\Model\ChorusProCredentials**](ChorusProCredentials.md) |  | [optional]
+**credentials** | [**\FactPulse\SDK\Model\ChorusProCredentials**](ChorusProCredentials.md) |  | [optional]
 **invoice_number** | **string** | Invoice number |
 **invoice_date** | **string** | Invoice date (ISO format: YYYY-MM-DD) |
 **payment_due_date** | **string** |  | [optional]
 **structure_id** | **int** | Chorus Pro recipient structure ID |
 **service_code** | **string** |  | [optional]
 **engagement_number** | **string** |  | [optional]
-**total_net_amount** | [**\OpenAPI\Client\Model\SubmitNetAmount**](SubmitNetAmount.md) |  |
-**vat_amount** | [**\OpenAPI\Client\Model\SubmitVatAmount**](SubmitVatAmount.md) |  |
-**total_gross_amount** | [**\OpenAPI\Client\Model\SubmitGrossAmount**](SubmitGrossAmount.md) |  |
+**total_net_amount** | [**\FactPulse\SDK\Model\SubmitNetAmount**](SubmitNetAmount.md) |  |
+**vat_amount** | [**\FactPulse\SDK\Model\SubmitVatAmount**](SubmitVatAmount.md) |  |
+**total_gross_amount** | [**\FactPulse\SDK\Model\SubmitGrossAmount**](SubmitGrossAmount.md) |  |
 **main_attachment_id** | **int** |  | [optional]
 **main_attachment_label** | **string** |  | [optional]
 **comment** | **string** |  | [optional]

@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORFacilityPayloadHistory Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -61,12 +61,12 @@ class AFNORFacilityPayloadHistory implements ModelInterface, ArrayAccess, \JsonS
         'siret' => 'string',
         'siren' => 'string',
         'name' => 'string',
-        'facility_type' => '\OpenAPI\Client\Model\AFNORFacilityType',
-        'diffusible' => '\OpenAPI\Client\Model\AFNORDiffusionStatus',
-        'administrative_status' => '\OpenAPI\Client\Model\AFNORFacilityAdministrativeStatus',
-        'address' => '\OpenAPI\Client\Model\AFNORAddressRead',
-        'b2g_additional_data' => '\OpenAPI\Client\Model\AFNORFacilityPayloadHistoryUleB2gAdditionalData',
-        'legal_unit' => '\OpenAPI\Client\Model\AFNORLegalUnitPayloadIncludedNoSiren'
+        'facility_type' => '\FactPulse\SDK\Model\AFNORFacilityType',
+        'diffusible' => '\FactPulse\SDK\Model\AFNORDiffusionStatus',
+        'administrative_status' => '\FactPulse\SDK\Model\AFNORFacilityAdministrativeStatus',
+        'address' => '\FactPulse\SDK\Model\AFNORAddressRead',
+        'b2g_additional_data' => '\FactPulse\SDK\Model\AFNORFacilityPayloadHistoryUleB2gAdditionalData',
+        'legal_unit' => '\FactPulse\SDK\Model\AFNORLegalUnitPayloadIncludedNoSiren'
     ];
 
     /**
@@ -468,7 +468,7 @@ class AFNORFacilityPayloadHistory implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets facility_type
      *
-     * @return \OpenAPI\Client\Model\AFNORFacilityType|null
+     * @return \FactPulse\SDK\Model\AFNORFacilityType|null
      */
     public function getFacilityType()
     {
@@ -478,7 +478,7 @@ class AFNORFacilityPayloadHistory implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets facility_type
      *
-     * @param \OpenAPI\Client\Model\AFNORFacilityType|null $facility_type facility_type
+     * @param \FactPulse\SDK\Model\AFNORFacilityType|null $facility_type facility_type
      *
      * @return self
      */
@@ -495,7 +495,7 @@ class AFNORFacilityPayloadHistory implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets diffusible
      *
-     * @return \OpenAPI\Client\Model\AFNORDiffusionStatus|null
+     * @return \FactPulse\SDK\Model\AFNORDiffusionStatus|null
      */
     public function getDiffusible()
     {
@@ -505,7 +505,7 @@ class AFNORFacilityPayloadHistory implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets diffusible
      *
-     * @param \OpenAPI\Client\Model\AFNORDiffusionStatus|null $diffusible diffusible
+     * @param \FactPulse\SDK\Model\AFNORDiffusionStatus|null $diffusible diffusible
      *
      * @return self
      */
@@ -522,7 +522,7 @@ class AFNORFacilityPayloadHistory implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets administrative_status
      *
-     * @return \OpenAPI\Client\Model\AFNORFacilityAdministrativeStatus|null
+     * @return \FactPulse\SDK\Model\AFNORFacilityAdministrativeStatus|null
      */
     public function getAdministrativeStatus()
     {
@@ -532,7 +532,7 @@ class AFNORFacilityPayloadHistory implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets administrative_status
      *
-     * @param \OpenAPI\Client\Model\AFNORFacilityAdministrativeStatus|null $administrative_status administrative_status
+     * @param \FactPulse\SDK\Model\AFNORFacilityAdministrativeStatus|null $administrative_status administrative_status
      *
      * @return self
      */
@@ -549,7 +549,7 @@ class AFNORFacilityPayloadHistory implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets address
      *
-     * @return \OpenAPI\Client\Model\AFNORAddressRead|null
+     * @return \FactPulse\SDK\Model\AFNORAddressRead|null
      */
     public function getAddress()
     {
@@ -559,7 +559,7 @@ class AFNORFacilityPayloadHistory implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets address
      *
-     * @param \OpenAPI\Client\Model\AFNORAddressRead|null $address address
+     * @param \FactPulse\SDK\Model\AFNORAddressRead|null $address address
      *
      * @return self
      */
@@ -576,7 +576,7 @@ class AFNORFacilityPayloadHistory implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets b2g_additional_data
      *
-     * @return \OpenAPI\Client\Model\AFNORFacilityPayloadHistoryUleB2gAdditionalData|null
+     * @return \FactPulse\SDK\Model\AFNORFacilityPayloadHistoryUleB2gAdditionalData|null
      */
     public function getB2gAdditionalData()
     {
@@ -586,7 +586,7 @@ class AFNORFacilityPayloadHistory implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets b2g_additional_data
      *
-     * @param \OpenAPI\Client\Model\AFNORFacilityPayloadHistoryUleB2gAdditionalData|null $b2g_additional_data b2g_additional_data
+     * @param \FactPulse\SDK\Model\AFNORFacilityPayloadHistoryUleB2gAdditionalData|null $b2g_additional_data b2g_additional_data
      *
      * @return self
      */
@@ -603,7 +603,7 @@ class AFNORFacilityPayloadHistory implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets legal_unit
      *
-     * @return \OpenAPI\Client\Model\AFNORLegalUnitPayloadIncludedNoSiren|null
+     * @return \FactPulse\SDK\Model\AFNORLegalUnitPayloadIncludedNoSiren|null
      */
     public function getLegalUnit()
     {
@@ -613,7 +613,7 @@ class AFNORFacilityPayloadHistory implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets legal_unit
      *
-     * @param \OpenAPI\Client\Model\AFNORLegalUnitPayloadIncludedNoSiren|null $legal_unit legal_unit
+     * @param \FactPulse\SDK\Model\AFNORLegalUnitPayloadIncludedNoSiren|null $legal_unit legal_unit
      *
      * @return self
      */

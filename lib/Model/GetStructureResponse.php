@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * GetStructureResponse Class Doc Comment
  *
  * @category Class
  * @description Structure details.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -67,7 +67,7 @@ class GetStructureResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'company_name' => 'string',
         'vat_number' => 'string',
         'structure_email' => 'string',
-        'parameters' => '\OpenAPI\Client\Model\StructureParameters'
+        'parameters' => '\FactPulse\SDK\Model\StructureParameters'
     ];
 
     /**
@@ -614,7 +614,7 @@ class GetStructureResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets parameters
      *
-     * @return \OpenAPI\Client\Model\StructureParameters|null
+     * @return \FactPulse\SDK\Model\StructureParameters|null
      */
     public function getParameters()
     {
@@ -624,7 +624,7 @@ class GetStructureResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets parameters
      *
-     * @param \OpenAPI\Client\Model\StructureParameters|null $parameters parameters
+     * @param \FactPulse\SDK\Model\StructureParameters|null $parameters parameters
      *
      * @return self
      */

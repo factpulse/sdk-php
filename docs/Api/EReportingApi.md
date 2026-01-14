@@ -1,4 +1,4 @@
-# OpenAPI\Client\EReportingApi
+# FactPulse\SDK\EReportingApi
 
 
 
@@ -22,7 +22,7 @@ All URIs are relative to https://factpulse.fr, except if the operation defines a
 ## `generateAggregatedEreportingApiV1EreportingGenerateAggregatedPost()`
 
 ```php
-generateAggregatedEreportingApiV1EreportingGenerateAggregatedPost($create_aggregated_report_request): \OpenAPI\Client\Model\GenerateAggregatedReportResponse
+generateAggregatedEreportingApiV1EreportingGenerateAggregatedPost($create_aggregated_report_request): \FactPulse\SDK\Model\GenerateAggregatedReportResponse
 ```
 
 Generate aggregated e-reporting XML (PPF-compliant)
@@ -37,16 +37,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\EReportingApi(
+$apiInstance = new FactPulse\SDK\Api\EReportingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$create_aggregated_report_request = new \OpenAPI\Client\Model\CreateAggregatedReportRequest(); // \OpenAPI\Client\Model\CreateAggregatedReportRequest
+$create_aggregated_report_request = new \FactPulse\SDK\Model\CreateAggregatedReportRequest(); // \FactPulse\SDK\Model\CreateAggregatedReportRequest
 
 try {
     $result = $apiInstance->generateAggregatedEreportingApiV1EreportingGenerateAggregatedPost($create_aggregated_report_request);
@@ -60,11 +60,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_aggregated_report_request** | [**\OpenAPI\Client\Model\CreateAggregatedReportRequest**](../Model/CreateAggregatedReportRequest.md)|  | |
+| **create_aggregated_report_request** | [**\FactPulse\SDK\Model\CreateAggregatedReportRequest**](../Model/CreateAggregatedReportRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GenerateAggregatedReportResponse**](../Model/GenerateAggregatedReportResponse.md)
+[**\FactPulse\SDK\Model\GenerateAggregatedReportResponse**](../Model/GenerateAggregatedReportResponse.md)
 
 ### Authorization
 
@@ -82,7 +82,7 @@ try {
 ## `generateEreportingApiV1EreportingGeneratePost()`
 
 ```php
-generateEreportingApiV1EreportingGeneratePost($create_e_reporting_request): \OpenAPI\Client\Model\GenerateEReportingResponse
+generateEreportingApiV1EreportingGeneratePost($create_e_reporting_request): \FactPulse\SDK\Model\GenerateEReportingResponse
 ```
 
 Generate e-reporting XML
@@ -97,16 +97,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\EReportingApi(
+$apiInstance = new FactPulse\SDK\Api\EReportingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$create_e_reporting_request = new \OpenAPI\Client\Model\CreateEReportingRequest(); // \OpenAPI\Client\Model\CreateEReportingRequest
+$create_e_reporting_request = new \FactPulse\SDK\Model\CreateEReportingRequest(); // \FactPulse\SDK\Model\CreateEReportingRequest
 
 try {
     $result = $apiInstance->generateEreportingApiV1EreportingGeneratePost($create_e_reporting_request);
@@ -120,11 +120,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_e_reporting_request** | [**\OpenAPI\Client\Model\CreateEReportingRequest**](../Model/CreateEReportingRequest.md)|  | |
+| **create_e_reporting_request** | [**\FactPulse\SDK\Model\CreateEReportingRequest**](../Model/CreateEReportingRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GenerateEReportingResponse**](../Model/GenerateEReportingResponse.md)
+[**\FactPulse\SDK\Model\GenerateEReportingResponse**](../Model/GenerateEReportingResponse.md)
 
 ### Authorization
 
@@ -157,16 +157,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\EReportingApi(
+$apiInstance = new FactPulse\SDK\Api\EReportingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$create_e_reporting_request = new \OpenAPI\Client\Model\CreateEReportingRequest(); // \OpenAPI\Client\Model\CreateEReportingRequest
+$create_e_reporting_request = new \FactPulse\SDK\Model\CreateEReportingRequest(); // \FactPulse\SDK\Model\CreateEReportingRequest
 $filename = 'filename_example'; // string | Output filename (default: ereporting_{reportId}.xml)
 
 try {
@@ -180,7 +180,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_e_reporting_request** | [**\OpenAPI\Client\Model\CreateEReportingRequest**](../Model/CreateEReportingRequest.md)|  | |
+| **create_e_reporting_request** | [**\FactPulse\SDK\Model\CreateEReportingRequest**](../Model/CreateEReportingRequest.md)|  | |
 | **filename** | **string**| Output filename (default: ereporting_{reportId}.xml) | [optional] |
 
 ### Return type
@@ -218,7 +218,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\EReportingApi(
+$apiInstance = new FactPulse\SDK\Api\EReportingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -271,7 +271,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\EReportingApi(
+$apiInstance = new FactPulse\SDK\Api\EReportingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -309,7 +309,7 @@ No authorization required
 ## `submitAggregatedEreportingApiV1EreportingSubmitAggregatedPost()`
 
 ```php
-submitAggregatedEreportingApiV1EreportingSubmitAggregatedPost($submit_aggregated_report_request): \OpenAPI\Client\Model\SubmitEReportingResponse
+submitAggregatedEreportingApiV1EreportingSubmitAggregatedPost($submit_aggregated_report_request): \FactPulse\SDK\Model\SubmitEReportingResponse
 ```
 
 Submit aggregated e-reporting to PA/PDP
@@ -324,16 +324,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\EReportingApi(
+$apiInstance = new FactPulse\SDK\Api\EReportingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$submit_aggregated_report_request = new \OpenAPI\Client\Model\SubmitAggregatedReportRequest(); // \OpenAPI\Client\Model\SubmitAggregatedReportRequest
+$submit_aggregated_report_request = new \FactPulse\SDK\Model\SubmitAggregatedReportRequest(); // \FactPulse\SDK\Model\SubmitAggregatedReportRequest
 
 try {
     $result = $apiInstance->submitAggregatedEreportingApiV1EreportingSubmitAggregatedPost($submit_aggregated_report_request);
@@ -347,11 +347,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **submit_aggregated_report_request** | [**\OpenAPI\Client\Model\SubmitAggregatedReportRequest**](../Model/SubmitAggregatedReportRequest.md)|  | |
+| **submit_aggregated_report_request** | [**\FactPulse\SDK\Model\SubmitAggregatedReportRequest**](../Model/SubmitAggregatedReportRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SubmitEReportingResponse**](../Model/SubmitEReportingResponse.md)
+[**\FactPulse\SDK\Model\SubmitEReportingResponse**](../Model/SubmitEReportingResponse.md)
 
 ### Authorization
 
@@ -369,7 +369,7 @@ try {
 ## `submitEreportingApiV1EreportingSubmitPost()`
 
 ```php
-submitEreportingApiV1EreportingSubmitPost($submit_e_reporting_request): \OpenAPI\Client\Model\SubmitEReportingResponse
+submitEreportingApiV1EreportingSubmitPost($submit_e_reporting_request): \FactPulse\SDK\Model\SubmitEReportingResponse
 ```
 
 Submit e-reporting to PA/PDP
@@ -384,16 +384,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\EReportingApi(
+$apiInstance = new FactPulse\SDK\Api\EReportingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$submit_e_reporting_request = new \OpenAPI\Client\Model\SubmitEReportingRequest(); // \OpenAPI\Client\Model\SubmitEReportingRequest
+$submit_e_reporting_request = new \FactPulse\SDK\Model\SubmitEReportingRequest(); // \FactPulse\SDK\Model\SubmitEReportingRequest
 
 try {
     $result = $apiInstance->submitEreportingApiV1EreportingSubmitPost($submit_e_reporting_request);
@@ -407,11 +407,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **submit_e_reporting_request** | [**\OpenAPI\Client\Model\SubmitEReportingRequest**](../Model/SubmitEReportingRequest.md)|  | |
+| **submit_e_reporting_request** | [**\FactPulse\SDK\Model\SubmitEReportingRequest**](../Model/SubmitEReportingRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SubmitEReportingResponse**](../Model/SubmitEReportingResponse.md)
+[**\FactPulse\SDK\Model\SubmitEReportingResponse**](../Model/SubmitEReportingResponse.md)
 
 ### Authorization
 
@@ -429,7 +429,7 @@ try {
 ## `submitXmlEreportingApiV1EreportingSubmitXmlPost()`
 
 ```php
-submitXmlEreportingApiV1EreportingSubmitXmlPost($xml_file, $tracking_id, $skip_validation, $pdp_flow_service_url, $pdp_token_url, $pdp_client_id, $pdp_client_secret): \OpenAPI\Client\Model\SubmitEReportingResponse
+submitXmlEreportingApiV1EreportingSubmitXmlPost($xml_file, $tracking_id, $skip_validation, $pdp_flow_service_url, $pdp_token_url, $pdp_client_id, $pdp_client_secret): \FactPulse\SDK\Model\SubmitEReportingResponse
 ```
 
 Submit pre-generated e-reporting XML
@@ -444,10 +444,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\EReportingApi(
+$apiInstance = new FactPulse\SDK\Api\EReportingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -483,7 +483,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SubmitEReportingResponse**](../Model/SubmitEReportingResponse.md)
+[**\FactPulse\SDK\Model\SubmitEReportingResponse**](../Model/SubmitEReportingResponse.md)
 
 ### Authorization
 
@@ -516,16 +516,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\EReportingApi(
+$apiInstance = new FactPulse\SDK\Api\EReportingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$create_aggregated_report_request = new \OpenAPI\Client\Model\CreateAggregatedReportRequest(); // \OpenAPI\Client\Model\CreateAggregatedReportRequest
+$create_aggregated_report_request = new \FactPulse\SDK\Model\CreateAggregatedReportRequest(); // \FactPulse\SDK\Model\CreateAggregatedReportRequest
 
 try {
     $result = $apiInstance->validateAggregatedEreportingApiV1EreportingValidateAggregatedPost($create_aggregated_report_request);
@@ -539,7 +539,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_aggregated_report_request** | [**\OpenAPI\Client\Model\CreateAggregatedReportRequest**](../Model/CreateAggregatedReportRequest.md)|  | |
+| **create_aggregated_report_request** | [**\FactPulse\SDK\Model\CreateAggregatedReportRequest**](../Model/CreateAggregatedReportRequest.md)|  | |
 
 ### Return type
 
@@ -561,7 +561,7 @@ try {
 ## `validateEreportingApiV1EreportingValidatePost()`
 
 ```php
-validateEreportingApiV1EreportingValidatePost($validate_e_reporting_request): \OpenAPI\Client\Model\ValidateEReportingResponse
+validateEreportingApiV1EreportingValidatePost($validate_e_reporting_request): \FactPulse\SDK\Model\ValidateEReportingResponse
 ```
 
 Validate e-reporting data
@@ -576,16 +576,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\EReportingApi(
+$apiInstance = new FactPulse\SDK\Api\EReportingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$validate_e_reporting_request = new \OpenAPI\Client\Model\ValidateEReportingRequest(); // \OpenAPI\Client\Model\ValidateEReportingRequest
+$validate_e_reporting_request = new \FactPulse\SDK\Model\ValidateEReportingRequest(); // \FactPulse\SDK\Model\ValidateEReportingRequest
 
 try {
     $result = $apiInstance->validateEreportingApiV1EreportingValidatePost($validate_e_reporting_request);
@@ -599,11 +599,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **validate_e_reporting_request** | [**\OpenAPI\Client\Model\ValidateEReportingRequest**](../Model/ValidateEReportingRequest.md)|  | |
+| **validate_e_reporting_request** | [**\FactPulse\SDK\Model\ValidateEReportingRequest**](../Model/ValidateEReportingRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ValidateEReportingResponse**](../Model/ValidateEReportingResponse.md)
+[**\FactPulse\SDK\Model\ValidateEReportingResponse**](../Model/ValidateEReportingResponse.md)
 
 ### Authorization
 
@@ -636,10 +636,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\EReportingApi(
+$apiInstance = new FactPulse\SDK\Api\EReportingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),

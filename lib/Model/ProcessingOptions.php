@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * ProcessingOptions Class Doc Comment
  *
  * @category Class
  * @description Processing options for generation and submission.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,7 +59,7 @@ class ProcessingOptions implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'facturx_profile' => '\OpenAPI\Client\Model\APIProfile',
+        'facturx_profile' => '\FactPulse\SDK\Model\APIProfile',
         'auto_enrich' => 'bool',
         'validate_xml' => 'bool',
         'verify_destination_parameters' => 'bool'
@@ -315,7 +315,7 @@ class ProcessingOptions implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets facturx_profile
      *
-     * @return \OpenAPI\Client\Model\APIProfile|null
+     * @return \FactPulse\SDK\Model\APIProfile|null
      */
     public function getFacturxProfile()
     {
@@ -325,7 +325,7 @@ class ProcessingOptions implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets facturx_profile
      *
-     * @param \OpenAPI\Client\Model\APIProfile|null $facturx_profile Factur-X profile to use
+     * @param \FactPulse\SDK\Model\APIProfile|null $facturx_profile Factur-X profile to use
      *
      * @return self
      */

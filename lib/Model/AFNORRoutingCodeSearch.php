@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORRoutingCodeSearch Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,9 +58,9 @@ class AFNORRoutingCodeSearch implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'filters' => '\OpenAPI\Client\Model\AFNORRoutingCodeSearchFilters',
-        'sorting' => '\OpenAPI\Client\Model\AFNORRoutingCodeSearchSortingInner[]',
-        'fields' => '\OpenAPI\Client\Model\AFNORRoutingCodeField[]',
+        'filters' => '\FactPulse\SDK\Model\AFNORRoutingCodeSearchFilters',
+        'sorting' => '\FactPulse\SDK\Model\AFNORRoutingCodeSearchSortingInner[]',
+        'fields' => '\FactPulse\SDK\Model\AFNORRoutingCodeField[]',
         'include' => 'string[]',
         'limit' => 'int',
         'ignore' => 'int'
@@ -343,7 +343,7 @@ class AFNORRoutingCodeSearch implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets filters
      *
-     * @return \OpenAPI\Client\Model\AFNORRoutingCodeSearchFilters|null
+     * @return \FactPulse\SDK\Model\AFNORRoutingCodeSearchFilters|null
      */
     public function getFilters()
     {
@@ -353,7 +353,7 @@ class AFNORRoutingCodeSearch implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets filters
      *
-     * @param \OpenAPI\Client\Model\AFNORRoutingCodeSearchFilters|null $filters filters
+     * @param \FactPulse\SDK\Model\AFNORRoutingCodeSearchFilters|null $filters filters
      *
      * @return self
      */
@@ -370,7 +370,7 @@ class AFNORRoutingCodeSearch implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets sorting
      *
-     * @return \OpenAPI\Client\Model\AFNORRoutingCodeSearchSortingInner[]|null
+     * @return \FactPulse\SDK\Model\AFNORRoutingCodeSearchSortingInner[]|null
      */
     public function getSorting()
     {
@@ -380,7 +380,7 @@ class AFNORRoutingCodeSearch implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets sorting
      *
-     * @param \OpenAPI\Client\Model\AFNORRoutingCodeSearchSortingInner[]|null $sorting Sorting criteria on a field and an order (ascending or descending).
+     * @param \FactPulse\SDK\Model\AFNORRoutingCodeSearchSortingInner[]|null $sorting Sorting criteria on a field and an order (ascending or descending).
      *
      * @return self
      */
@@ -397,7 +397,7 @@ class AFNORRoutingCodeSearch implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets fields
      *
-     * @return \OpenAPI\Client\Model\AFNORRoutingCodeField[]|null
+     * @return \FactPulse\SDK\Model\AFNORRoutingCodeField[]|null
      */
     public function getFields()
     {
@@ -407,7 +407,7 @@ class AFNORRoutingCodeSearch implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets fields
      *
-     * @param \OpenAPI\Client\Model\AFNORRoutingCodeField[]|null $fields Allows you to filter the desired fields in the response.
+     * @param \FactPulse\SDK\Model\AFNORRoutingCodeField[]|null $fields Allows you to filter the desired fields in the response.
      *
      * @return self
      */

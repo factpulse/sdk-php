@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * Payee Class Doc Comment
  *
  * @category Class
  * @description Information about the payment beneficiary (BG-10 / PayeeTradeParty).  The payee is the party receiving payment. This block is used only if the payee is different from the seller (supplier).  **Main use case**: Factoring When an invoice is factored, the factor (factoring company) becomes the payment beneficiary instead of the supplier.  **Business Terms (EN16931)**: - BT-59: Payee name (mandatory) - BT-60: Payee identifier (SIRET with schemeID 0009) - BT-61: Payee legal identifier (SIREN with schemeID 0002)  **Reference**: docs/guide_affacturage.md
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -63,10 +63,10 @@ class Payee implements ModelInterface, ArrayAccess, \JsonSerializable
         'payee_id' => 'string',
         'siret' => 'string',
         'siren' => 'string',
-        'electronic_address' => '\OpenAPI\Client\Model\ElectronicAddress',
+        'electronic_address' => '\FactPulse\SDK\Model\ElectronicAddress',
         'iban' => 'string',
         'bic' => 'string',
-        'global_ids' => '\OpenAPI\Client\Model\ElectronicAddress[]'
+        'global_ids' => '\FactPulse\SDK\Model\ElectronicAddress[]'
     ];
 
     /**
@@ -502,7 +502,7 @@ class Payee implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets electronic_address
      *
-     * @return \OpenAPI\Client\Model\ElectronicAddress|null
+     * @return \FactPulse\SDK\Model\ElectronicAddress|null
      */
     public function getElectronicAddress()
     {
@@ -512,7 +512,7 @@ class Payee implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets electronic_address
      *
-     * @param \OpenAPI\Client\Model\ElectronicAddress|null $electronic_address electronic_address
+     * @param \FactPulse\SDK\Model\ElectronicAddress|null $electronic_address electronic_address
      *
      * @return self
      */
@@ -604,7 +604,7 @@ class Payee implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets global_ids
      *
-     * @return \OpenAPI\Client\Model\ElectronicAddress[]|null
+     * @return \FactPulse\SDK\Model\ElectronicAddress[]|null
      */
     public function getGlobalIds()
     {
@@ -614,7 +614,7 @@ class Payee implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets global_ids
      *
-     * @param \OpenAPI\Client\Model\ElectronicAddress[]|null $global_ids global_ids
+     * @param \FactPulse\SDK\Model\ElectronicAddress[]|null $global_ids global_ids
      *
      * @return self
      */

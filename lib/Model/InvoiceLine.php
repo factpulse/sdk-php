@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * InvoiceLine Class Doc Comment
  *
  * @category Class
  * @description Represents an invoice line item (BG-25).
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -62,7 +62,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
         'line_number' => 'int',
         'line_note' => 'string',
         'parent_line_id' => 'string',
-        'line_sub_type' => '\OpenAPI\Client\Model\LineSubType',
+        'line_sub_type' => '\FactPulse\SDK\Model\LineSubType',
         'reference' => 'string',
         'buyer_assigned_id' => 'string',
         'product_global_id' => 'string',
@@ -70,29 +70,29 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
         'item_name' => 'string',
         'item_description' => 'string',
         'origin_country' => 'string',
-        'characteristics' => '\OpenAPI\Client\Model\ProductCharacteristic[]',
-        'classifications' => '\OpenAPI\Client\Model\ProductClassification[]',
-        'quantity' => '\OpenAPI\Client\Model\Quantity',
-        'unit' => '\OpenAPI\Client\Model\UnitOfMeasure',
-        'gross_unit_price' => '\OpenAPI\Client\Model\GrossUnitPrice',
-        'unit_net_price' => '\OpenAPI\Client\Model\UnitNetPrice',
-        'price_basis_quantity' => '\OpenAPI\Client\Model\PriceBasisQuantity',
+        'characteristics' => '\FactPulse\SDK\Model\ProductCharacteristic[]',
+        'classifications' => '\FactPulse\SDK\Model\ProductClassification[]',
+        'quantity' => '\FactPulse\SDK\Model\Quantity',
+        'unit' => '\FactPulse\SDK\Model\UnitOfMeasure',
+        'gross_unit_price' => '\FactPulse\SDK\Model\GrossUnitPrice',
+        'unit_net_price' => '\FactPulse\SDK\Model\UnitNetPrice',
+        'price_basis_quantity' => '\FactPulse\SDK\Model\PriceBasisQuantity',
         'price_basis_unit' => 'string',
-        'price_allowance_amount' => '\OpenAPI\Client\Model\PriceAllowanceAmount',
-        'line_net_amount' => '\OpenAPI\Client\Model\LineNetAmount',
-        'allowance_amount' => '\OpenAPI\Client\Model\InvoiceLineAllowanceAmount',
-        'allowance_reason_code' => '\OpenAPI\Client\Model\AllowanceReasonCode',
+        'price_allowance_amount' => '\FactPulse\SDK\Model\PriceAllowanceAmount',
+        'line_net_amount' => '\FactPulse\SDK\Model\LineNetAmount',
+        'allowance_amount' => '\FactPulse\SDK\Model\InvoiceLineAllowanceAmount',
+        'allowance_reason_code' => '\FactPulse\SDK\Model\AllowanceReasonCode',
         'allowance_reason' => 'string',
-        'allowances_charges' => '\OpenAPI\Client\Model\AllowanceCharge[]',
+        'allowances_charges' => '\FactPulse\SDK\Model\AllowanceCharge[]',
         'vat_rate' => 'string',
-        'manual_vat_rate' => '\OpenAPI\Client\Model\ManualVatRate',
-        'vat_category' => '\OpenAPI\Client\Model\VATCategory',
+        'manual_vat_rate' => '\FactPulse\SDK\Model\ManualVatRate',
+        'vat_category' => '\FactPulse\SDK\Model\VATCategory',
         'period_start_date' => 'string',
         'period_end_date' => 'string',
         'purchase_order_line_ref' => 'string',
         'accounting_account' => 'string',
-        'additional_documents' => '\OpenAPI\Client\Model\AdditionalDocument[]',
-        'line_notes' => '\OpenAPI\Client\Model\InvoiceNote[]'
+        'additional_documents' => '\FactPulse\SDK\Model\AdditionalDocument[]',
+        'line_notes' => '\FactPulse\SDK\Model\InvoiceNote[]'
     ];
 
     /**
@@ -635,7 +635,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets line_sub_type
      *
-     * @return \OpenAPI\Client\Model\LineSubType|null
+     * @return \FactPulse\SDK\Model\LineSubType|null
      */
     public function getLineSubType()
     {
@@ -645,7 +645,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets line_sub_type
      *
-     * @param \OpenAPI\Client\Model\LineSubType|null $line_sub_type line_sub_type
+     * @param \FactPulse\SDK\Model\LineSubType|null $line_sub_type line_sub_type
      *
      * @return self
      */
@@ -900,7 +900,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets characteristics
      *
-     * @return \OpenAPI\Client\Model\ProductCharacteristic[]|null
+     * @return \FactPulse\SDK\Model\ProductCharacteristic[]|null
      */
     public function getCharacteristics()
     {
@@ -910,7 +910,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets characteristics
      *
-     * @param \OpenAPI\Client\Model\ProductCharacteristic[]|null $characteristics characteristics
+     * @param \FactPulse\SDK\Model\ProductCharacteristic[]|null $characteristics characteristics
      *
      * @return self
      */
@@ -934,7 +934,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets classifications
      *
-     * @return \OpenAPI\Client\Model\ProductClassification[]|null
+     * @return \FactPulse\SDK\Model\ProductClassification[]|null
      */
     public function getClassifications()
     {
@@ -944,7 +944,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets classifications
      *
-     * @param \OpenAPI\Client\Model\ProductClassification[]|null $classifications classifications
+     * @param \FactPulse\SDK\Model\ProductClassification[]|null $classifications classifications
      *
      * @return self
      */
@@ -968,7 +968,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets quantity
      *
-     * @return \OpenAPI\Client\Model\Quantity
+     * @return \FactPulse\SDK\Model\Quantity
      */
     public function getQuantity()
     {
@@ -978,7 +978,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets quantity
      *
-     * @param \OpenAPI\Client\Model\Quantity $quantity quantity
+     * @param \FactPulse\SDK\Model\Quantity $quantity quantity
      *
      * @return self
      */
@@ -995,7 +995,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets unit
      *
-     * @return \OpenAPI\Client\Model\UnitOfMeasure
+     * @return \FactPulse\SDK\Model\UnitOfMeasure
      */
     public function getUnit()
     {
@@ -1005,7 +1005,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets unit
      *
-     * @param \OpenAPI\Client\Model\UnitOfMeasure $unit Invoiced quantity unit of measure code (BT-130).
+     * @param \FactPulse\SDK\Model\UnitOfMeasure $unit Invoiced quantity unit of measure code (BT-130).
      *
      * @return self
      */
@@ -1022,7 +1022,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets gross_unit_price
      *
-     * @return \OpenAPI\Client\Model\GrossUnitPrice|null
+     * @return \FactPulse\SDK\Model\GrossUnitPrice|null
      */
     public function getGrossUnitPrice()
     {
@@ -1032,7 +1032,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets gross_unit_price
      *
-     * @param \OpenAPI\Client\Model\GrossUnitPrice|null $gross_unit_price gross_unit_price
+     * @param \FactPulse\SDK\Model\GrossUnitPrice|null $gross_unit_price gross_unit_price
      *
      * @return self
      */
@@ -1056,7 +1056,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets unit_net_price
      *
-     * @return \OpenAPI\Client\Model\UnitNetPrice
+     * @return \FactPulse\SDK\Model\UnitNetPrice
      */
     public function getUnitNetPrice()
     {
@@ -1066,7 +1066,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets unit_net_price
      *
-     * @param \OpenAPI\Client\Model\UnitNetPrice $unit_net_price unit_net_price
+     * @param \FactPulse\SDK\Model\UnitNetPrice $unit_net_price unit_net_price
      *
      * @return self
      */
@@ -1083,7 +1083,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets price_basis_quantity
      *
-     * @return \OpenAPI\Client\Model\PriceBasisQuantity|null
+     * @return \FactPulse\SDK\Model\PriceBasisQuantity|null
      */
     public function getPriceBasisQuantity()
     {
@@ -1093,7 +1093,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets price_basis_quantity
      *
-     * @param \OpenAPI\Client\Model\PriceBasisQuantity|null $price_basis_quantity price_basis_quantity
+     * @param \FactPulse\SDK\Model\PriceBasisQuantity|null $price_basis_quantity price_basis_quantity
      *
      * @return self
      */
@@ -1151,7 +1151,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets price_allowance_amount
      *
-     * @return \OpenAPI\Client\Model\PriceAllowanceAmount|null
+     * @return \FactPulse\SDK\Model\PriceAllowanceAmount|null
      */
     public function getPriceAllowanceAmount()
     {
@@ -1161,7 +1161,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets price_allowance_amount
      *
-     * @param \OpenAPI\Client\Model\PriceAllowanceAmount|null $price_allowance_amount price_allowance_amount
+     * @param \FactPulse\SDK\Model\PriceAllowanceAmount|null $price_allowance_amount price_allowance_amount
      *
      * @return self
      */
@@ -1185,7 +1185,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets line_net_amount
      *
-     * @return \OpenAPI\Client\Model\LineNetAmount|null
+     * @return \FactPulse\SDK\Model\LineNetAmount|null
      */
     public function getLineNetAmount()
     {
@@ -1195,7 +1195,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets line_net_amount
      *
-     * @param \OpenAPI\Client\Model\LineNetAmount|null $line_net_amount line_net_amount
+     * @param \FactPulse\SDK\Model\LineNetAmount|null $line_net_amount line_net_amount
      *
      * @return self
      */
@@ -1219,7 +1219,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets allowance_amount
      *
-     * @return \OpenAPI\Client\Model\InvoiceLineAllowanceAmount|null
+     * @return \FactPulse\SDK\Model\InvoiceLineAllowanceAmount|null
      */
     public function getAllowanceAmount()
     {
@@ -1229,7 +1229,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets allowance_amount
      *
-     * @param \OpenAPI\Client\Model\InvoiceLineAllowanceAmount|null $allowance_amount allowance_amount
+     * @param \FactPulse\SDK\Model\InvoiceLineAllowanceAmount|null $allowance_amount allowance_amount
      *
      * @return self
      */
@@ -1253,7 +1253,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets allowance_reason_code
      *
-     * @return \OpenAPI\Client\Model\AllowanceReasonCode|null
+     * @return \FactPulse\SDK\Model\AllowanceReasonCode|null
      */
     public function getAllowanceReasonCode()
     {
@@ -1263,7 +1263,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets allowance_reason_code
      *
-     * @param \OpenAPI\Client\Model\AllowanceReasonCode|null $allowance_reason_code allowance_reason_code
+     * @param \FactPulse\SDK\Model\AllowanceReasonCode|null $allowance_reason_code allowance_reason_code
      *
      * @return self
      */
@@ -1321,7 +1321,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets allowances_charges
      *
-     * @return \OpenAPI\Client\Model\AllowanceCharge[]|null
+     * @return \FactPulse\SDK\Model\AllowanceCharge[]|null
      */
     public function getAllowancesCharges()
     {
@@ -1331,7 +1331,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets allowances_charges
      *
-     * @param \OpenAPI\Client\Model\AllowanceCharge[]|null $allowances_charges allowances_charges
+     * @param \FactPulse\SDK\Model\AllowanceCharge[]|null $allowances_charges allowances_charges
      *
      * @return self
      */
@@ -1389,7 +1389,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets manual_vat_rate
      *
-     * @return \OpenAPI\Client\Model\ManualVatRate|null
+     * @return \FactPulse\SDK\Model\ManualVatRate|null
      */
     public function getManualVatRate()
     {
@@ -1399,7 +1399,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets manual_vat_rate
      *
-     * @param \OpenAPI\Client\Model\ManualVatRate|null $manual_vat_rate manual_vat_rate
+     * @param \FactPulse\SDK\Model\ManualVatRate|null $manual_vat_rate manual_vat_rate
      *
      * @return self
      */
@@ -1416,7 +1416,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets vat_category
      *
-     * @return \OpenAPI\Client\Model\VATCategory|null
+     * @return \FactPulse\SDK\Model\VATCategory|null
      */
     public function getVatCategory()
     {
@@ -1426,7 +1426,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets vat_category
      *
-     * @param \OpenAPI\Client\Model\VATCategory|null $vat_category vat_category
+     * @param \FactPulse\SDK\Model\VATCategory|null $vat_category vat_category
      *
      * @return self
      */
@@ -1586,7 +1586,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets additional_documents
      *
-     * @return \OpenAPI\Client\Model\AdditionalDocument[]|null
+     * @return \FactPulse\SDK\Model\AdditionalDocument[]|null
      */
     public function getAdditionalDocuments()
     {
@@ -1596,7 +1596,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets additional_documents
      *
-     * @param \OpenAPI\Client\Model\AdditionalDocument[]|null $additional_documents additional_documents
+     * @param \FactPulse\SDK\Model\AdditionalDocument[]|null $additional_documents additional_documents
      *
      * @return self
      */
@@ -1620,7 +1620,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets line_notes
      *
-     * @return \OpenAPI\Client\Model\InvoiceNote[]|null
+     * @return \FactPulse\SDK\Model\InvoiceNote[]|null
      */
     public function getLineNotes()
     {
@@ -1630,7 +1630,7 @@ class InvoiceLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets line_notes
      *
-     * @param \OpenAPI\Client\Model\InvoiceNote[]|null $line_notes line_notes
+     * @param \FactPulse\SDK\Model\InvoiceNote[]|null $line_notes line_notes
      *
      * @return self
      */

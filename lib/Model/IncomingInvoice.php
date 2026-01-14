@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * IncomingInvoice Class Doc Comment
  *
  * @category Class
  * @description Invoice received from a supplier via PDP/PA.  This model contains essential metadata extracted from incoming invoices, regardless of their source format (CII, UBL, Factur-X).  Amounts are Decimal in Python but will be serialized as strings in JSON to preserve monetary precision.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -60,10 +60,10 @@ class IncomingInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'flow_id' => 'string',
-        'source_format' => '\OpenAPI\Client\Model\InvoiceFormat',
+        'source_format' => '\FactPulse\SDK\Model\InvoiceFormat',
         'supplier_reference' => 'string',
-        'document_type' => '\OpenAPI\Client\Model\InvoiceTypeCodeOutput',
-        'supplier' => '\OpenAPI\Client\Model\IncomingSupplier',
+        'document_type' => '\FactPulse\SDK\Model\InvoiceTypeCodeOutput',
+        'supplier' => '\FactPulse\SDK\Model\IncomingSupplier',
         'billing_site_name' => 'string',
         'billing_site_siret' => 'string',
         'issue_date' => 'string',
@@ -478,7 +478,7 @@ class IncomingInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets source_format
      *
-     * @return \OpenAPI\Client\Model\InvoiceFormat
+     * @return \FactPulse\SDK\Model\InvoiceFormat
      */
     public function getSourceFormat()
     {
@@ -488,7 +488,7 @@ class IncomingInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets source_format
      *
-     * @param \OpenAPI\Client\Model\InvoiceFormat $source_format Invoice source format
+     * @param \FactPulse\SDK\Model\InvoiceFormat $source_format Invoice source format
      *
      * @return self
      */
@@ -532,7 +532,7 @@ class IncomingInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets document_type
      *
-     * @return \OpenAPI\Client\Model\InvoiceTypeCodeOutput|null
+     * @return \FactPulse\SDK\Model\InvoiceTypeCodeOutput|null
      */
     public function getDocumentType()
     {
@@ -542,7 +542,7 @@ class IncomingInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets document_type
      *
-     * @param \OpenAPI\Client\Model\InvoiceTypeCodeOutput|null $document_type Document type (BT-3)
+     * @param \FactPulse\SDK\Model\InvoiceTypeCodeOutput|null $document_type Document type (BT-3)
      *
      * @return self
      */
@@ -559,7 +559,7 @@ class IncomingInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets supplier
      *
-     * @return \OpenAPI\Client\Model\IncomingSupplier
+     * @return \FactPulse\SDK\Model\IncomingSupplier
      */
     public function getSupplier()
     {
@@ -569,7 +569,7 @@ class IncomingInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets supplier
      *
-     * @param \OpenAPI\Client\Model\IncomingSupplier $supplier Invoice issuer (SellerTradeParty)
+     * @param \FactPulse\SDK\Model\IncomingSupplier $supplier Invoice issuer (SellerTradeParty)
      *
      * @return self
      */

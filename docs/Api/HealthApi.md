@@ -1,4 +1,4 @@
-# OpenAPI\Client\HealthApi
+# FactPulse\SDK\HealthApi
 
 ## Endpoints de santé  Vérification de la disponibilité et du bon fonctionnement des services.  ### Endpoints  - &#x60;GET /&#x60; : Vérification rapide du statut API - &#x60;GET /healthcheck&#x60; : Healthcheck Docker/Kubernetes
 
@@ -28,7 +28,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\HealthApi(
+$apiInstance = new FactPulse\SDK\Api\HealthApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -81,7 +81,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\HealthApi(
+$apiInstance = new FactPulse\SDK\Api\HealthApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()

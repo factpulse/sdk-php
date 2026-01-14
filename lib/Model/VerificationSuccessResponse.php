@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * VerificationSuccessResponse Class Doc Comment
  *
  * @category Class
  * @description Successful verification response with unified data.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -65,9 +65,9 @@ class VerificationSuccessResponse implements ModelInterface, ArrayAccess, \JsonS
         'compliant_fields_count' => 'int',
         'is_facturx' => 'bool',
         'facturx_profile' => 'string',
-        'fields' => '\OpenAPI\Client\Model\VerifiedFieldSchema[]',
-        'mandatory_notes' => '\OpenAPI\Client\Model\MandatoryNoteSchema[]',
-        'page_dimensions' => '\OpenAPI\Client\Model\PageDimensionsSchema[]',
+        'fields' => '\FactPulse\SDK\Model\VerifiedFieldSchema[]',
+        'mandatory_notes' => '\FactPulse\SDK\Model\MandatoryNoteSchema[]',
+        'page_dimensions' => '\FactPulse\SDK\Model\PageDimensionsSchema[]',
         'warnings' => 'string[]'
     ];
 
@@ -566,7 +566,7 @@ class VerificationSuccessResponse implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets fields
      *
-     * @return \OpenAPI\Client\Model\VerifiedFieldSchema[]|null
+     * @return \FactPulse\SDK\Model\VerifiedFieldSchema[]|null
      */
     public function getFields()
     {
@@ -576,7 +576,7 @@ class VerificationSuccessResponse implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets fields
      *
-     * @param \OpenAPI\Client\Model\VerifiedFieldSchema[]|null $fields List of verified fields with values, statuses and PDF coordinates
+     * @param \FactPulse\SDK\Model\VerifiedFieldSchema[]|null $fields List of verified fields with values, statuses and PDF coordinates
      *
      * @return self
      */
@@ -593,7 +593,7 @@ class VerificationSuccessResponse implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets mandatory_notes
      *
-     * @return \OpenAPI\Client\Model\MandatoryNoteSchema[]|null
+     * @return \FactPulse\SDK\Model\MandatoryNoteSchema[]|null
      */
     public function getMandatoryNotes()
     {
@@ -603,7 +603,7 @@ class VerificationSuccessResponse implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets mandatory_notes
      *
-     * @param \OpenAPI\Client\Model\MandatoryNoteSchema[]|null $mandatory_notes Mandatory notes (PMT, PMD, AAB) with PDF location
+     * @param \FactPulse\SDK\Model\MandatoryNoteSchema[]|null $mandatory_notes Mandatory notes (PMT, PMD, AAB) with PDF location
      *
      * @return self
      */
@@ -620,7 +620,7 @@ class VerificationSuccessResponse implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets page_dimensions
      *
-     * @return \OpenAPI\Client\Model\PageDimensionsSchema[]|null
+     * @return \FactPulse\SDK\Model\PageDimensionsSchema[]|null
      */
     public function getPageDimensions()
     {
@@ -630,7 +630,7 @@ class VerificationSuccessResponse implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets page_dimensions
      *
-     * @param \OpenAPI\Client\Model\PageDimensionsSchema[]|null $page_dimensions Dimensions of each PDF page (width, height)
+     * @param \FactPulse\SDK\Model\PageDimensionsSchema[]|null $page_dimensions Dimensions of each PDF page (width, height)
      *
      * @return self
      */

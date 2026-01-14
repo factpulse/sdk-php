@@ -1,4 +1,4 @@
-# OpenAPI\Client\PDFXMLVerificationApi
+# FactPulse\SDK\PDFXMLVerificationApi
 
 
 
@@ -17,7 +17,7 @@ All URIs are relative to https://factpulse.fr, except if the operation defines a
 ## `getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet()`
 
 ```php
-getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet($task_id): \OpenAPI\Client\Model\AsyncTaskStatus
+getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet($task_id): \FactPulse\SDK\Model\AsyncTaskStatus
 ```
 
 Get status of an asynchronous verification
@@ -32,10 +32,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PDFXMLVerificationApi(
+$apiInstance = new FactPulse\SDK\Api\PDFXMLVerificationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -59,7 +59,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AsyncTaskStatus**](../Model/AsyncTaskStatus.md)
+[**\FactPulse\SDK\Model\AsyncTaskStatus**](../Model/AsyncTaskStatus.md)
 
 ### Authorization
 
@@ -77,7 +77,7 @@ try {
 ## `getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet_0()`
 
 ```php
-getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet_0($task_id): \OpenAPI\Client\Model\AsyncTaskStatus
+getVerificationStatusApiV1VerificationVerifyAsyncTaskIdStatusGet_0($task_id): \FactPulse\SDK\Model\AsyncTaskStatus
 ```
 
 Get status of an asynchronous verification
@@ -92,10 +92,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PDFXMLVerificationApi(
+$apiInstance = new FactPulse\SDK\Api\PDFXMLVerificationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -119,7 +119,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AsyncTaskStatus**](../Model/AsyncTaskStatus.md)
+[**\FactPulse\SDK\Model\AsyncTaskStatus**](../Model/AsyncTaskStatus.md)
 
 ### Authorization
 
@@ -137,7 +137,7 @@ try {
 ## `verifyPdfAsyncApiV1VerificationVerifyAsyncPost()`
 
 ```php
-verifyPdfAsyncApiV1VerificationVerifyAsyncPost($pdf_file, $force_ocr, $callback_url, $webhook_mode): \OpenAPI\Client\Model\TaskResponse
+verifyPdfAsyncApiV1VerificationVerifyAsyncPost($pdf_file, $force_ocr, $callback_url, $webhook_mode): \FactPulse\SDK\Model\TaskResponse
 ```
 
 Verify PDF/XML Factur-X compliance (asynchronous)
@@ -152,10 +152,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PDFXMLVerificationApi(
+$apiInstance = new FactPulse\SDK\Api\PDFXMLVerificationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -185,7 +185,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\TaskResponse**](../Model/TaskResponse.md)
+[**\FactPulse\SDK\Model\TaskResponse**](../Model/TaskResponse.md)
 
 ### Authorization
 
@@ -203,7 +203,7 @@ try {
 ## `verifyPdfAsyncApiV1VerificationVerifyAsyncPost_0()`
 
 ```php
-verifyPdfAsyncApiV1VerificationVerifyAsyncPost_0($pdf_file, $force_ocr, $callback_url, $webhook_mode): \OpenAPI\Client\Model\TaskResponse
+verifyPdfAsyncApiV1VerificationVerifyAsyncPost_0($pdf_file, $force_ocr, $callback_url, $webhook_mode): \FactPulse\SDK\Model\TaskResponse
 ```
 
 Verify PDF/XML Factur-X compliance (asynchronous)
@@ -218,10 +218,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PDFXMLVerificationApi(
+$apiInstance = new FactPulse\SDK\Api\PDFXMLVerificationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -251,7 +251,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\TaskResponse**](../Model/TaskResponse.md)
+[**\FactPulse\SDK\Model\TaskResponse**](../Model/TaskResponse.md)
 
 ### Authorization
 
@@ -269,7 +269,7 @@ try {
 ## `verifyPdfSyncApiV1VerificationVerifyPost()`
 
 ```php
-verifyPdfSyncApiV1VerificationVerifyPost($pdf_file): \OpenAPI\Client\Model\VerificationSuccessResponse
+verifyPdfSyncApiV1VerificationVerifyPost($pdf_file): \FactPulse\SDK\Model\VerificationSuccessResponse
 ```
 
 Verify PDF/XML Factur-X compliance (synchronous)
@@ -284,10 +284,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PDFXMLVerificationApi(
+$apiInstance = new FactPulse\SDK\Api\PDFXMLVerificationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -311,7 +311,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\VerificationSuccessResponse**](../Model/VerificationSuccessResponse.md)
+[**\FactPulse\SDK\Model\VerificationSuccessResponse**](../Model/VerificationSuccessResponse.md)
 
 ### Authorization
 
@@ -329,7 +329,7 @@ try {
 ## `verifyPdfSyncApiV1VerificationVerifyPost_0()`
 
 ```php
-verifyPdfSyncApiV1VerificationVerifyPost_0($pdf_file): \OpenAPI\Client\Model\VerificationSuccessResponse
+verifyPdfSyncApiV1VerificationVerifyPost_0($pdf_file): \FactPulse\SDK\Model\VerificationSuccessResponse
 ```
 
 Verify PDF/XML Factur-X compliance (synchronous)
@@ -344,10 +344,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PDFXMLVerificationApi(
+$apiInstance = new FactPulse\SDK\Api\PDFXMLVerificationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -371,7 +371,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\VerificationSuccessResponse**](../Model/VerificationSuccessResponse.md)
+[**\FactPulse\SDK\Model\VerificationSuccessResponse**](../Model/VerificationSuccessResponse.md)
 
 ### Authorization
 

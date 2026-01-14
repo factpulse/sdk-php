@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORSearchSirenFilters Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,10 +58,10 @@ class AFNORSearchSirenFilters implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'siren' => '\OpenAPI\Client\Model\AFNORSearchSirenFiltersSiren',
-        'business_name' => '\OpenAPI\Client\Model\AFNORSearchSirenFiltersBusinessName',
-        'entity_type' => '\OpenAPI\Client\Model\AFNORSearchSirenFiltersEntityType',
-        'administrative_status' => '\OpenAPI\Client\Model\AFNORSearchSirenFiltersAdministrativeStatus'
+        'siren' => '\FactPulse\SDK\Model\AFNORSearchSirenFiltersSiren',
+        'business_name' => '\FactPulse\SDK\Model\AFNORSearchSirenFiltersBusinessName',
+        'entity_type' => '\FactPulse\SDK\Model\AFNORSearchSirenFiltersEntityType',
+        'administrative_status' => '\FactPulse\SDK\Model\AFNORSearchSirenFiltersAdministrativeStatus'
     ];
 
     /**
@@ -314,7 +314,7 @@ class AFNORSearchSirenFilters implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets siren
      *
-     * @return \OpenAPI\Client\Model\AFNORSearchSirenFiltersSiren|null
+     * @return \FactPulse\SDK\Model\AFNORSearchSirenFiltersSiren|null
      */
     public function getSiren()
     {
@@ -324,7 +324,7 @@ class AFNORSearchSirenFilters implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets siren
      *
-     * @param \OpenAPI\Client\Model\AFNORSearchSirenFiltersSiren|null $siren siren
+     * @param \FactPulse\SDK\Model\AFNORSearchSirenFiltersSiren|null $siren siren
      *
      * @return self
      */
@@ -341,7 +341,7 @@ class AFNORSearchSirenFilters implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets business_name
      *
-     * @return \OpenAPI\Client\Model\AFNORSearchSirenFiltersBusinessName|null
+     * @return \FactPulse\SDK\Model\AFNORSearchSirenFiltersBusinessName|null
      */
     public function getBusinessName()
     {
@@ -351,7 +351,7 @@ class AFNORSearchSirenFilters implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets business_name
      *
-     * @param \OpenAPI\Client\Model\AFNORSearchSirenFiltersBusinessName|null $business_name business_name
+     * @param \FactPulse\SDK\Model\AFNORSearchSirenFiltersBusinessName|null $business_name business_name
      *
      * @return self
      */
@@ -368,7 +368,7 @@ class AFNORSearchSirenFilters implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets entity_type
      *
-     * @return \OpenAPI\Client\Model\AFNORSearchSirenFiltersEntityType|null
+     * @return \FactPulse\SDK\Model\AFNORSearchSirenFiltersEntityType|null
      */
     public function getEntityType()
     {
@@ -378,7 +378,7 @@ class AFNORSearchSirenFilters implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets entity_type
      *
-     * @param \OpenAPI\Client\Model\AFNORSearchSirenFiltersEntityType|null $entity_type entity_type
+     * @param \FactPulse\SDK\Model\AFNORSearchSirenFiltersEntityType|null $entity_type entity_type
      *
      * @return self
      */
@@ -395,7 +395,7 @@ class AFNORSearchSirenFilters implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets administrative_status
      *
-     * @return \OpenAPI\Client\Model\AFNORSearchSirenFiltersAdministrativeStatus|null
+     * @return \FactPulse\SDK\Model\AFNORSearchSirenFiltersAdministrativeStatus|null
      */
     public function getAdministrativeStatus()
     {
@@ -405,7 +405,7 @@ class AFNORSearchSirenFilters implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets administrative_status
      *
-     * @param \OpenAPI\Client\Model\AFNORSearchSirenFiltersAdministrativeStatus|null $administrative_status administrative_status
+     * @param \FactPulse\SDK\Model\AFNORSearchSirenFiltersAdministrativeStatus|null $administrative_status administrative_status
      *
      * @return self
      */

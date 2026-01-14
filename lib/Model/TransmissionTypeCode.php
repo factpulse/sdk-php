@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,15 +27,15 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
-use \OpenAPI\Client\ObjectSerializer;
+namespace FactPulse\SDK\Model;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * TransmissionTypeCode Class Doc Comment
  *
  * @category Class
  * @description Transmission type codes (TT-4 TypeCode).  Source: Annexe 6 - Format sémantique FE e-reporting v1.9 Onglet: E-REPORTING - Flux 10, ligne 8 Path XML: /ReportDocument/TypeCode Longueur: 2 caractères Cardinalité: 1..1 (obligatoire) Règles: G8.01, G8.02
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORSearchSirenFiltersEntityType Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,8 +58,8 @@ class AFNORSearchSirenFiltersEntityType implements ModelInterface, ArrayAccess, 
       * @var string[]
       */
     protected static $openAPITypes = [
-        'op' => '\OpenAPI\Client\Model\AFNORStrictOperator',
-        'value' => '\OpenAPI\Client\Model\AFNOREntityType'
+        'op' => '\FactPulse\SDK\Model\AFNORStrictOperator',
+        'value' => '\FactPulse\SDK\Model\AFNOREntityType'
     ];
 
     /**
@@ -300,7 +300,7 @@ class AFNORSearchSirenFiltersEntityType implements ModelInterface, ArrayAccess, 
     /**
      * Gets op
      *
-     * @return \OpenAPI\Client\Model\AFNORStrictOperator|null
+     * @return \FactPulse\SDK\Model\AFNORStrictOperator|null
      */
     public function getOp()
     {
@@ -310,7 +310,7 @@ class AFNORSearchSirenFiltersEntityType implements ModelInterface, ArrayAccess, 
     /**
      * Sets op
      *
-     * @param \OpenAPI\Client\Model\AFNORStrictOperator|null $op op
+     * @param \FactPulse\SDK\Model\AFNORStrictOperator|null $op op
      *
      * @return self
      */
@@ -327,7 +327,7 @@ class AFNORSearchSirenFiltersEntityType implements ModelInterface, ArrayAccess, 
     /**
      * Gets value
      *
-     * @return \OpenAPI\Client\Model\AFNOREntityType|null
+     * @return \FactPulse\SDK\Model\AFNOREntityType|null
      */
     public function getValue()
     {
@@ -337,7 +337,7 @@ class AFNORSearchSirenFiltersEntityType implements ModelInterface, ArrayAccess, 
     /**
      * Sets value
      *
-     * @param \OpenAPI\Client\Model\AFNOREntityType|null $value value
+     * @param \FactPulse\SDK\Model\AFNOREntityType|null $value value
      *
      * @return self
      */

@@ -4,7 +4,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace FactPulse\SDK\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -37,17 +37,17 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\FormDataProcessor;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use FactPulse\SDK\ApiException;
+use FactPulse\SDK\Configuration;
+use FactPulse\SDK\FormDataProcessor;
+use FactPulse\SDK\HeaderSelector;
+use FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORPDPPAFlowServiceApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -141,12 +141,12 @@ class AFNORPDPPAFlowServiceApi
      * Download a flow
      *
      * @param  string $flow_id AFNOR flow identifier (UUID) (required)
-     * @param  \OpenAPIClientModelDocType|null $doc_type Type of file to download: Metadata (default, JSON), Original, Converted, or ReadableView (optional)
+     * @param  \FactPulseSDKModelDocType|null $doc_type Type of file to download: Metadata (default, JSON), Original, Converted, or ReadableView (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadFlowProxyApiV1AfnorFlowV1FlowsFlowIdGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\AFNORFlow|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \FactPulse\SDK\Model\AFNORFlow|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\HTTPValidationError
      */
     public function downloadFlowProxyApiV1AfnorFlowV1FlowsFlowIdGet($flow_id, $doc_type = null, string $contentType = self::contentTypes['downloadFlowProxyApiV1AfnorFlowV1FlowsFlowIdGet'][0])
     {
@@ -160,12 +160,12 @@ class AFNORPDPPAFlowServiceApi
      * Download a flow
      *
      * @param  string $flow_id AFNOR flow identifier (UUID) (required)
-     * @param  \OpenAPIClientModelDocType|null $doc_type Type of file to download: Metadata (default, JSON), Original, Converted, or ReadableView (optional)
+     * @param  \FactPulseSDKModelDocType|null $doc_type Type of file to download: Metadata (default, JSON), Original, Converted, or ReadableView (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadFlowProxyApiV1AfnorFlowV1FlowsFlowIdGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\AFNORFlow|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\AFNORFlow|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function downloadFlowProxyApiV1AfnorFlowV1FlowsFlowIdGetWithHttpInfo($flow_id, $doc_type = null, string $contentType = self::contentTypes['downloadFlowProxyApiV1AfnorFlowV1FlowsFlowIdGet'][0])
     {
@@ -197,55 +197,55 @@ class AFNORPDPPAFlowServiceApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\AFNORFlow',
+                        '\FactPulse\SDK\Model\AFNORFlow',
                         $request,
                         $response,
                     );
                 case 400:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $request,
                         $response,
                     );
                 case 403:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $request,
                         $response,
                     );
                 case 404:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $request,
                         $response,
                     );
                 case 429:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $request,
                         $response,
                     );
                 case 500:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $request,
                         $response,
                     );
                 case 503:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $request,
                         $response,
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
@@ -267,7 +267,7 @@ class AFNORPDPPAFlowServiceApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\AFNORFlow',
+                '\FactPulse\SDK\Model\AFNORFlow',
                 $request,
                 $response,
             );
@@ -276,7 +276,7 @@ class AFNORPDPPAFlowServiceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AFNORFlow',
+                        '\FactPulse\SDK\Model\AFNORFlow',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -284,7 +284,7 @@ class AFNORPDPPAFlowServiceApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -292,7 +292,7 @@ class AFNORPDPPAFlowServiceApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -300,7 +300,7 @@ class AFNORPDPPAFlowServiceApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -308,7 +308,7 @@ class AFNORPDPPAFlowServiceApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -316,7 +316,7 @@ class AFNORPDPPAFlowServiceApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -324,7 +324,7 @@ class AFNORPDPPAFlowServiceApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -332,7 +332,7 @@ class AFNORPDPPAFlowServiceApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -340,7 +340,7 @@ class AFNORPDPPAFlowServiceApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\FactPulse\SDK\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -358,7 +358,7 @@ class AFNORPDPPAFlowServiceApi
      * Download a flow
      *
      * @param  string $flow_id AFNOR flow identifier (UUID) (required)
-     * @param  \OpenAPIClientModelDocType|null $doc_type Type of file to download: Metadata (default, JSON), Original, Converted, or ReadableView (optional)
+     * @param  \FactPulseSDKModelDocType|null $doc_type Type of file to download: Metadata (default, JSON), Original, Converted, or ReadableView (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadFlowProxyApiV1AfnorFlowV1FlowsFlowIdGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -380,7 +380,7 @@ class AFNORPDPPAFlowServiceApi
      * Download a flow
      *
      * @param  string $flow_id AFNOR flow identifier (UUID) (required)
-     * @param  \OpenAPIClientModelDocType|null $doc_type Type of file to download: Metadata (default, JSON), Original, Converted, or ReadableView (optional)
+     * @param  \FactPulseSDKModelDocType|null $doc_type Type of file to download: Metadata (default, JSON), Original, Converted, or ReadableView (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadFlowProxyApiV1AfnorFlowV1FlowsFlowIdGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -388,7 +388,7 @@ class AFNORPDPPAFlowServiceApi
      */
     public function downloadFlowProxyApiV1AfnorFlowV1FlowsFlowIdGetAsyncWithHttpInfo($flow_id, $doc_type = null, string $contentType = self::contentTypes['downloadFlowProxyApiV1AfnorFlowV1FlowsFlowIdGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\AFNORFlow';
+        $returnType = '\FactPulse\SDK\Model\AFNORFlow';
         $request = $this->downloadFlowProxyApiV1AfnorFlowV1FlowsFlowIdGetRequest($flow_id, $doc_type, $contentType);
 
         return $this->client
@@ -431,7 +431,7 @@ class AFNORPDPPAFlowServiceApi
      * Create request for operation 'downloadFlowProxyApiV1AfnorFlowV1FlowsFlowIdGet'
      *
      * @param  string $flow_id AFNOR flow identifier (UUID) (required)
-     * @param  \OpenAPIClientModelDocType|null $doc_type Type of file to download: Metadata (default, JSON), Original, Converted, or ReadableView (optional)
+     * @param  \FactPulseSDKModelDocType|null $doc_type Type of file to download: Metadata (default, JSON), Original, Converted, or ReadableView (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadFlowProxyApiV1AfnorFlowV1FlowsFlowIdGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -537,9 +537,9 @@ class AFNORPDPPAFlowServiceApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['flowHealthcheckProxyApiV1AfnorFlowV1HealthcheckGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return object|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError
+     * @return object|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError
      */
     public function flowHealthcheckProxyApiV1AfnorFlowV1HealthcheckGet(string $contentType = self::contentTypes['flowHealthcheckProxyApiV1AfnorFlowV1HealthcheckGet'][0])
     {
@@ -554,9 +554,9 @@ class AFNORPDPPAFlowServiceApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['flowHealthcheckProxyApiV1AfnorFlowV1HealthcheckGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of object|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError, HTTP status code, HTTP response headers (array of strings)
      */
     public function flowHealthcheckProxyApiV1AfnorFlowV1HealthcheckGetWithHttpInfo(string $contentType = self::contentTypes['flowHealthcheckProxyApiV1AfnorFlowV1HealthcheckGet'][0])
     {
@@ -594,13 +594,13 @@ class AFNORPDPPAFlowServiceApi
                     );
                 case 500:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $request,
                         $response,
                     );
                 case 503:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $request,
                         $response,
                     );
@@ -639,7 +639,7 @@ class AFNORPDPPAFlowServiceApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -647,7 +647,7 @@ class AFNORPDPPAFlowServiceApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -811,12 +811,12 @@ class AFNORPDPPAFlowServiceApi
      *
      * Search flows
      *
-     * @param  \OpenAPI\Client\Model\AFNORSearchFlowParams $afnor_search_flow_params afnor_search_flow_params (required)
+     * @param  \FactPulse\SDK\Model\AFNORSearchFlowParams $afnor_search_flow_params afnor_search_flow_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchFlowsProxyApiV1AfnorFlowV1FlowsSearchPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\AFNORSearchFlowContent|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError
+     * @return \FactPulse\SDK\Model\AFNORSearchFlowContent|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError
      */
     public function searchFlowsProxyApiV1AfnorFlowV1FlowsSearchPost($afnor_search_flow_params, string $contentType = self::contentTypes['searchFlowsProxyApiV1AfnorFlowV1FlowsSearchPost'][0])
     {
@@ -829,12 +829,12 @@ class AFNORPDPPAFlowServiceApi
      *
      * Search flows
      *
-     * @param  \OpenAPI\Client\Model\AFNORSearchFlowParams $afnor_search_flow_params (required)
+     * @param  \FactPulse\SDK\Model\AFNORSearchFlowParams $afnor_search_flow_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchFlowsProxyApiV1AfnorFlowV1FlowsSearchPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\AFNORSearchFlowContent|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\AFNORSearchFlowContent|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchFlowsProxyApiV1AfnorFlowV1FlowsSearchPostWithHttpInfo($afnor_search_flow_params, string $contentType = self::contentTypes['searchFlowsProxyApiV1AfnorFlowV1FlowsSearchPost'][0])
     {
@@ -866,43 +866,43 @@ class AFNORPDPPAFlowServiceApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\AFNORSearchFlowContent',
+                        '\FactPulse\SDK\Model\AFNORSearchFlowContent',
                         $request,
                         $response,
                     );
                 case 400:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $request,
                         $response,
                     );
                 case 403:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $request,
                         $response,
                     );
                 case 429:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $request,
                         $response,
                     );
                 case 500:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $request,
                         $response,
                     );
                 case 503:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $request,
                         $response,
                     );
@@ -924,7 +924,7 @@ class AFNORPDPPAFlowServiceApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\AFNORSearchFlowContent',
+                '\FactPulse\SDK\Model\AFNORSearchFlowContent',
                 $request,
                 $response,
             );
@@ -933,7 +933,7 @@ class AFNORPDPPAFlowServiceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AFNORSearchFlowContent',
+                        '\FactPulse\SDK\Model\AFNORSearchFlowContent',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -941,7 +941,7 @@ class AFNORPDPPAFlowServiceApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -949,7 +949,7 @@ class AFNORPDPPAFlowServiceApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -957,7 +957,7 @@ class AFNORPDPPAFlowServiceApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -965,7 +965,7 @@ class AFNORPDPPAFlowServiceApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -973,7 +973,7 @@ class AFNORPDPPAFlowServiceApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -981,7 +981,7 @@ class AFNORPDPPAFlowServiceApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -998,7 +998,7 @@ class AFNORPDPPAFlowServiceApi
      *
      * Search flows
      *
-     * @param  \OpenAPI\Client\Model\AFNORSearchFlowParams $afnor_search_flow_params (required)
+     * @param  \FactPulse\SDK\Model\AFNORSearchFlowParams $afnor_search_flow_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchFlowsProxyApiV1AfnorFlowV1FlowsSearchPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1019,7 +1019,7 @@ class AFNORPDPPAFlowServiceApi
      *
      * Search flows
      *
-     * @param  \OpenAPI\Client\Model\AFNORSearchFlowParams $afnor_search_flow_params (required)
+     * @param  \FactPulse\SDK\Model\AFNORSearchFlowParams $afnor_search_flow_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchFlowsProxyApiV1AfnorFlowV1FlowsSearchPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1027,7 +1027,7 @@ class AFNORPDPPAFlowServiceApi
      */
     public function searchFlowsProxyApiV1AfnorFlowV1FlowsSearchPostAsyncWithHttpInfo($afnor_search_flow_params, string $contentType = self::contentTypes['searchFlowsProxyApiV1AfnorFlowV1FlowsSearchPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\AFNORSearchFlowContent';
+        $returnType = '\FactPulse\SDK\Model\AFNORSearchFlowContent';
         $request = $this->searchFlowsProxyApiV1AfnorFlowV1FlowsSearchPostRequest($afnor_search_flow_params, $contentType);
 
         return $this->client
@@ -1069,7 +1069,7 @@ class AFNORPDPPAFlowServiceApi
     /**
      * Create request for operation 'searchFlowsProxyApiV1AfnorFlowV1FlowsSearchPost'
      *
-     * @param  \OpenAPI\Client\Model\AFNORSearchFlowParams $afnor_search_flow_params (required)
+     * @param  \FactPulse\SDK\Model\AFNORSearchFlowParams $afnor_search_flow_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchFlowsProxyApiV1AfnorFlowV1FlowsSearchPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1162,13 +1162,13 @@ class AFNORPDPPAFlowServiceApi
      *
      * Submit an invoicing flow
      *
-     * @param  \OpenAPI\Client\Model\AFNORFlowInfo $flow_info flow_info (required)
+     * @param  \FactPulse\SDK\Model\AFNORFlowInfo $flow_info flow_info (required)
      * @param  \SplFileObject $file Flow file (PDF/A-3 with embedded XML or XML) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitFlowProxyApiV1AfnorFlowV1FlowsPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return mixed|\OpenAPI\Client\Model\AFNORFullFlowInfo|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError
+     * @return mixed|\FactPulse\SDK\Model\AFNORFullFlowInfo|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError
      */
     public function submitFlowProxyApiV1AfnorFlowV1FlowsPost($flow_info, $file, string $contentType = self::contentTypes['submitFlowProxyApiV1AfnorFlowV1FlowsPost'][0])
     {
@@ -1181,13 +1181,13 @@ class AFNORPDPPAFlowServiceApi
      *
      * Submit an invoicing flow
      *
-     * @param  \OpenAPI\Client\Model\AFNORFlowInfo $flow_info (required)
+     * @param  \FactPulse\SDK\Model\AFNORFlowInfo $flow_info (required)
      * @param  \SplFileObject $file Flow file (PDF/A-3 with embedded XML or XML) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitFlowProxyApiV1AfnorFlowV1FlowsPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of mixed|\OpenAPI\Client\Model\AFNORFullFlowInfo|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError|\OpenAPI\Client\Model\AFNORError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of mixed|\FactPulse\SDK\Model\AFNORFullFlowInfo|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError, HTTP status code, HTTP response headers (array of strings)
      */
     public function submitFlowProxyApiV1AfnorFlowV1FlowsPostWithHttpInfo($flow_info, $file, string $contentType = self::contentTypes['submitFlowProxyApiV1AfnorFlowV1FlowsPost'][0])
     {
@@ -1225,61 +1225,61 @@ class AFNORPDPPAFlowServiceApi
                     );
                 case 202:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\AFNORFullFlowInfo',
+                        '\FactPulse\SDK\Model\AFNORFullFlowInfo',
                         $request,
                         $response,
                     );
                 case 400:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $request,
                         $response,
                     );
                 case 403:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $request,
                         $response,
                     );
                 case 404:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $request,
                         $response,
                     );
                 case 413:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $request,
                         $response,
                     );
                 case 422:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $request,
                         $response,
                     );
                 case 429:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $request,
                         $response,
                     );
                 case 500:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $request,
                         $response,
                     );
                 case 503:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $request,
                         $response,
                     );
@@ -1318,7 +1318,7 @@ class AFNORPDPPAFlowServiceApi
                 case 202:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AFNORFullFlowInfo',
+                        '\FactPulse\SDK\Model\AFNORFullFlowInfo',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1326,7 +1326,7 @@ class AFNORPDPPAFlowServiceApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1334,7 +1334,7 @@ class AFNORPDPPAFlowServiceApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1342,7 +1342,7 @@ class AFNORPDPPAFlowServiceApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1350,7 +1350,7 @@ class AFNORPDPPAFlowServiceApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1358,7 +1358,7 @@ class AFNORPDPPAFlowServiceApi
                 case 413:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1366,7 +1366,7 @@ class AFNORPDPPAFlowServiceApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1374,7 +1374,7 @@ class AFNORPDPPAFlowServiceApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1382,7 +1382,7 @@ class AFNORPDPPAFlowServiceApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1390,7 +1390,7 @@ class AFNORPDPPAFlowServiceApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AFNORError',
+                        '\FactPulse\SDK\Model\AFNORError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1407,7 +1407,7 @@ class AFNORPDPPAFlowServiceApi
      *
      * Submit an invoicing flow
      *
-     * @param  \OpenAPI\Client\Model\AFNORFlowInfo $flow_info (required)
+     * @param  \FactPulse\SDK\Model\AFNORFlowInfo $flow_info (required)
      * @param  \SplFileObject $file Flow file (PDF/A-3 with embedded XML or XML) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitFlowProxyApiV1AfnorFlowV1FlowsPost'] to see the possible values for this operation
      *
@@ -1429,7 +1429,7 @@ class AFNORPDPPAFlowServiceApi
      *
      * Submit an invoicing flow
      *
-     * @param  \OpenAPI\Client\Model\AFNORFlowInfo $flow_info (required)
+     * @param  \FactPulse\SDK\Model\AFNORFlowInfo $flow_info (required)
      * @param  \SplFileObject $file Flow file (PDF/A-3 with embedded XML or XML) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitFlowProxyApiV1AfnorFlowV1FlowsPost'] to see the possible values for this operation
      *
@@ -1480,7 +1480,7 @@ class AFNORPDPPAFlowServiceApi
     /**
      * Create request for operation 'submitFlowProxyApiV1AfnorFlowV1FlowsPost'
      *
-     * @param  \OpenAPI\Client\Model\AFNORFlowInfo $flow_info (required)
+     * @param  \FactPulse\SDK\Model\AFNORFlowInfo $flow_info (required)
      * @param  \SplFileObject $file Flow file (PDF/A-3 with embedded XML or XML) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitFlowProxyApiV1AfnorFlowV1FlowsPost'] to see the possible values for this operation
      *

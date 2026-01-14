@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * CreateAggregatedReportRequest Class Doc Comment
  *
  * @category Class
  * @description Request to create a PPF-compliant aggregated e-reporting submission.  This schema allows creating a SINGLE report file containing multiple flux types, as expected by the PPF and PA platforms: - TransactionsReport: Contains both Invoice (10.1) and Transactions (10.3) - PaymentsReport: Contains both Invoice payments (10.2) and Transaction payments (10.4)  Source: Specifications externes v3.1, XSD ereporting.xsd
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -61,13 +61,13 @@ class CreateAggregatedReportRequest implements ModelInterface, ArrayAccess, \Jso
     protected static $openAPITypes = [
         'report_id' => 'string',
         'report_name' => 'string',
-        'transmission_type' => '\OpenAPI\Client\Model\TransmissionTypeCode',
-        'sender' => '\OpenAPI\Client\Model\ReportSender',
-        'period' => '\OpenAPI\Client\Model\ReportPeriod',
-        'invoices' => '\OpenAPI\Client\Model\InvoiceInput[]',
-        'transactions' => '\OpenAPI\Client\Model\AggregatedTransactionInput[]',
-        'invoice_payments' => '\OpenAPI\Client\Model\InvoicePaymentInput[]',
-        'transaction_payments' => '\OpenAPI\Client\Model\AggregatedPaymentInput[]'
+        'transmission_type' => '\FactPulse\SDK\Model\TransmissionTypeCode',
+        'sender' => '\FactPulse\SDK\Model\ReportSender',
+        'period' => '\FactPulse\SDK\Model\ReportPeriod',
+        'invoices' => '\FactPulse\SDK\Model\InvoiceInput[]',
+        'transactions' => '\FactPulse\SDK\Model\AggregatedTransactionInput[]',
+        'invoice_payments' => '\FactPulse\SDK\Model\InvoicePaymentInput[]',
+        'transaction_payments' => '\FactPulse\SDK\Model\AggregatedPaymentInput[]'
     ];
 
     /**
@@ -420,7 +420,7 @@ class CreateAggregatedReportRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets transmission_type
      *
-     * @return \OpenAPI\Client\Model\TransmissionTypeCode|null
+     * @return \FactPulse\SDK\Model\TransmissionTypeCode|null
      */
     public function getTransmissionType()
     {
@@ -430,7 +430,7 @@ class CreateAggregatedReportRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets transmission_type
      *
-     * @param \OpenAPI\Client\Model\TransmissionTypeCode|null $transmission_type Transmission type: IN=Initial, RE=Rectificative (TT-4)
+     * @param \FactPulse\SDK\Model\TransmissionTypeCode|null $transmission_type Transmission type: IN=Initial, RE=Rectificative (TT-4)
      *
      * @return self
      */
@@ -447,7 +447,7 @@ class CreateAggregatedReportRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets sender
      *
-     * @return \OpenAPI\Client\Model\ReportSender
+     * @return \FactPulse\SDK\Model\ReportSender
      */
     public function getSender()
     {
@@ -457,7 +457,7 @@ class CreateAggregatedReportRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets sender
      *
-     * @param \OpenAPI\Client\Model\ReportSender $sender Report sender/declarant
+     * @param \FactPulse\SDK\Model\ReportSender $sender Report sender/declarant
      *
      * @return self
      */
@@ -474,7 +474,7 @@ class CreateAggregatedReportRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets period
      *
-     * @return \OpenAPI\Client\Model\ReportPeriod
+     * @return \FactPulse\SDK\Model\ReportPeriod
      */
     public function getPeriod()
     {
@@ -484,7 +484,7 @@ class CreateAggregatedReportRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets period
      *
-     * @param \OpenAPI\Client\Model\ReportPeriod $period Reporting period
+     * @param \FactPulse\SDK\Model\ReportPeriod $period Reporting period
      *
      * @return self
      */
@@ -501,7 +501,7 @@ class CreateAggregatedReportRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets invoices
      *
-     * @return \OpenAPI\Client\Model\InvoiceInput[]|null
+     * @return \FactPulse\SDK\Model\InvoiceInput[]|null
      */
     public function getInvoices()
     {
@@ -511,7 +511,7 @@ class CreateAggregatedReportRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets invoices
      *
-     * @param \OpenAPI\Client\Model\InvoiceInput[]|null $invoices invoices
+     * @param \FactPulse\SDK\Model\InvoiceInput[]|null $invoices invoices
      *
      * @return self
      */
@@ -535,7 +535,7 @@ class CreateAggregatedReportRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets transactions
      *
-     * @return \OpenAPI\Client\Model\AggregatedTransactionInput[]|null
+     * @return \FactPulse\SDK\Model\AggregatedTransactionInput[]|null
      */
     public function getTransactions()
     {
@@ -545,7 +545,7 @@ class CreateAggregatedReportRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets transactions
      *
-     * @param \OpenAPI\Client\Model\AggregatedTransactionInput[]|null $transactions transactions
+     * @param \FactPulse\SDK\Model\AggregatedTransactionInput[]|null $transactions transactions
      *
      * @return self
      */
@@ -569,7 +569,7 @@ class CreateAggregatedReportRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets invoice_payments
      *
-     * @return \OpenAPI\Client\Model\InvoicePaymentInput[]|null
+     * @return \FactPulse\SDK\Model\InvoicePaymentInput[]|null
      */
     public function getInvoicePayments()
     {
@@ -579,7 +579,7 @@ class CreateAggregatedReportRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets invoice_payments
      *
-     * @param \OpenAPI\Client\Model\InvoicePaymentInput[]|null $invoice_payments invoice_payments
+     * @param \FactPulse\SDK\Model\InvoicePaymentInput[]|null $invoice_payments invoice_payments
      *
      * @return self
      */
@@ -603,7 +603,7 @@ class CreateAggregatedReportRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets transaction_payments
      *
-     * @return \OpenAPI\Client\Model\AggregatedPaymentInput[]|null
+     * @return \FactPulse\SDK\Model\AggregatedPaymentInput[]|null
      */
     public function getTransactionPayments()
     {
@@ -613,7 +613,7 @@ class CreateAggregatedReportRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets transaction_payments
      *
-     * @param \OpenAPI\Client\Model\AggregatedPaymentInput[]|null $transaction_payments transaction_payments
+     * @param \FactPulse\SDK\Model\AggregatedPaymentInput[]|null $transaction_payments transaction_payments
      *
      * @return self
      */

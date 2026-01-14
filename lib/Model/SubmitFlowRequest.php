@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * SubmitFlowRequest Class Doc Comment
  *
  * @category Class
  * @description Request to submit an invoice to a PDP/PA via AFNOR.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -60,11 +60,11 @@ class SubmitFlowRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static $openAPITypes = [
         'flow_name' => 'string',
-        'flow_syntax' => '\OpenAPI\Client\Model\FlowSyntax',
-        'flow_profile' => '\OpenAPI\Client\Model\FlowProfile',
+        'flow_syntax' => '\FactPulse\SDK\Model\FlowSyntax',
+        'flow_profile' => '\FactPulse\SDK\Model\FlowProfile',
         'tracking_id' => 'string',
         'request_id' => 'string',
-        'pdp_credentials' => '\OpenAPI\Client\Model\PDPCredentials'
+        'pdp_credentials' => '\FactPulse\SDK\Model\PDPCredentials'
     ];
 
     /**
@@ -359,7 +359,7 @@ class SubmitFlowRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets flow_syntax
      *
-     * @return \OpenAPI\Client\Model\FlowSyntax|null
+     * @return \FactPulse\SDK\Model\FlowSyntax|null
      */
     public function getFlowSyntax()
     {
@@ -369,7 +369,7 @@ class SubmitFlowRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets flow_syntax
      *
-     * @param \OpenAPI\Client\Model\FlowSyntax|null $flow_syntax Flow syntax (CII for Factur-X)
+     * @param \FactPulse\SDK\Model\FlowSyntax|null $flow_syntax Flow syntax (CII for Factur-X)
      *
      * @return self
      */
@@ -386,7 +386,7 @@ class SubmitFlowRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets flow_profile
      *
-     * @return \OpenAPI\Client\Model\FlowProfile|null
+     * @return \FactPulse\SDK\Model\FlowProfile|null
      */
     public function getFlowProfile()
     {
@@ -396,7 +396,7 @@ class SubmitFlowRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets flow_profile
      *
-     * @param \OpenAPI\Client\Model\FlowProfile|null $flow_profile flow_profile
+     * @param \FactPulse\SDK\Model\FlowProfile|null $flow_profile flow_profile
      *
      * @return self
      */
@@ -488,7 +488,7 @@ class SubmitFlowRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets pdp_credentials
      *
-     * @return \OpenAPI\Client\Model\PDPCredentials|null
+     * @return \FactPulse\SDK\Model\PDPCredentials|null
      */
     public function getPdpCredentials()
     {
@@ -498,7 +498,7 @@ class SubmitFlowRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets pdp_credentials
      *
-     * @param \OpenAPI\Client\Model\PDPCredentials|null $pdp_credentials pdp_credentials
+     * @param \FactPulse\SDK\Model\PDPCredentials|null $pdp_credentials pdp_credentials
      *
      * @return self
      */

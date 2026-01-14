@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORFlow Class Doc Comment
  *
  * @category Class
  * @description The properties of a Flow resource
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -63,13 +63,13 @@ class AFNORFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         'updated_at' => '\DateTime',
         'flow_id' => 'string',
         'tracking_id' => 'string',
-        'flow_type' => '\OpenAPI\Client\Model\AFNORFlowType',
-        'processing_rule' => '\OpenAPI\Client\Model\AFNORProcessingRule',
+        'flow_type' => '\FactPulse\SDK\Model\AFNORFlowType',
+        'processing_rule' => '\FactPulse\SDK\Model\AFNORProcessingRule',
         'processing_rule_source' => 'string',
-        'flow_direction' => '\OpenAPI\Client\Model\AFNORFlowDirection',
-        'flow_syntax' => '\OpenAPI\Client\Model\AFNORFlowSyntax',
-        'flow_profile' => '\OpenAPI\Client\Model\AFNORFlowProfile',
-        'acknowledgement' => '\OpenAPI\Client\Model\AFNORAcknowledgement'
+        'flow_direction' => '\FactPulse\SDK\Model\AFNORFlowDirection',
+        'flow_syntax' => '\FactPulse\SDK\Model\AFNORFlowSyntax',
+        'flow_profile' => '\FactPulse\SDK\Model\AFNORFlowProfile',
+        'acknowledgement' => '\FactPulse\SDK\Model\AFNORAcknowledgement'
     ];
 
     /**
@@ -512,7 +512,7 @@ class AFNORFlow implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets flow_type
      *
-     * @return \OpenAPI\Client\Model\AFNORFlowType|null
+     * @return \FactPulse\SDK\Model\AFNORFlowType|null
      */
     public function getFlowType()
     {
@@ -522,7 +522,7 @@ class AFNORFlow implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets flow_type
      *
-     * @param \OpenAPI\Client\Model\AFNORFlowType|null $flow_type flow_type
+     * @param \FactPulse\SDK\Model\AFNORFlowType|null $flow_type flow_type
      *
      * @return self
      */
@@ -539,7 +539,7 @@ class AFNORFlow implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets processing_rule
      *
-     * @return \OpenAPI\Client\Model\AFNORProcessingRule|null
+     * @return \FactPulse\SDK\Model\AFNORProcessingRule|null
      */
     public function getProcessingRule()
     {
@@ -549,7 +549,7 @@ class AFNORFlow implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets processing_rule
      *
-     * @param \OpenAPI\Client\Model\AFNORProcessingRule|null $processing_rule processing_rule
+     * @param \FactPulse\SDK\Model\AFNORProcessingRule|null $processing_rule processing_rule
      *
      * @return self
      */
@@ -603,7 +603,7 @@ class AFNORFlow implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets flow_direction
      *
-     * @return \OpenAPI\Client\Model\AFNORFlowDirection|null
+     * @return \FactPulse\SDK\Model\AFNORFlowDirection|null
      */
     public function getFlowDirection()
     {
@@ -613,7 +613,7 @@ class AFNORFlow implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets flow_direction
      *
-     * @param \OpenAPI\Client\Model\AFNORFlowDirection|null $flow_direction flow_direction
+     * @param \FactPulse\SDK\Model\AFNORFlowDirection|null $flow_direction flow_direction
      *
      * @return self
      */
@@ -630,7 +630,7 @@ class AFNORFlow implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets flow_syntax
      *
-     * @return \OpenAPI\Client\Model\AFNORFlowSyntax|null
+     * @return \FactPulse\SDK\Model\AFNORFlowSyntax|null
      */
     public function getFlowSyntax()
     {
@@ -640,7 +640,7 @@ class AFNORFlow implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets flow_syntax
      *
-     * @param \OpenAPI\Client\Model\AFNORFlowSyntax|null $flow_syntax flow_syntax
+     * @param \FactPulse\SDK\Model\AFNORFlowSyntax|null $flow_syntax flow_syntax
      *
      * @return self
      */
@@ -657,7 +657,7 @@ class AFNORFlow implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets flow_profile
      *
-     * @return \OpenAPI\Client\Model\AFNORFlowProfile|null
+     * @return \FactPulse\SDK\Model\AFNORFlowProfile|null
      */
     public function getFlowProfile()
     {
@@ -667,7 +667,7 @@ class AFNORFlow implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets flow_profile
      *
-     * @param \OpenAPI\Client\Model\AFNORFlowProfile|null $flow_profile flow_profile
+     * @param \FactPulse\SDK\Model\AFNORFlowProfile|null $flow_profile flow_profile
      *
      * @return self
      */
@@ -684,7 +684,7 @@ class AFNORFlow implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets acknowledgement
      *
-     * @return \OpenAPI\Client\Model\AFNORAcknowledgement|null
+     * @return \FactPulse\SDK\Model\AFNORAcknowledgement|null
      */
     public function getAcknowledgement()
     {
@@ -694,7 +694,7 @@ class AFNORFlow implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets acknowledgement
      *
-     * @param \OpenAPI\Client\Model\AFNORAcknowledgement|null $acknowledgement acknowledgement
+     * @param \FactPulse\SDK\Model\AFNORAcknowledgement|null $acknowledgement acknowledgement
      *
      * @return self
      */

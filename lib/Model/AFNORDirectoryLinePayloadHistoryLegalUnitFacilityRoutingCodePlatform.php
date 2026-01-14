@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCodePlatform Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,8 +58,8 @@ class AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCodePlatform imple
       * @var string[]
       */
     protected static $openAPITypes = [
-        'platform_type' => '\OpenAPI\Client\Model\AFNORRecipientPlatformType',
-        'platform_status' => '\OpenAPI\Client\Model\AFNORPlatformStatus'
+        'platform_type' => '\FactPulse\SDK\Model\AFNORRecipientPlatformType',
+        'platform_status' => '\FactPulse\SDK\Model\AFNORPlatformStatus'
     ];
 
     /**
@@ -300,7 +300,7 @@ class AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCodePlatform imple
     /**
      * Gets platform_type
      *
-     * @return \OpenAPI\Client\Model\AFNORRecipientPlatformType|null
+     * @return \FactPulse\SDK\Model\AFNORRecipientPlatformType|null
      */
     public function getPlatformType()
     {
@@ -310,7 +310,7 @@ class AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCodePlatform imple
     /**
      * Sets platform_type
      *
-     * @param \OpenAPI\Client\Model\AFNORRecipientPlatformType|null $platform_type platform_type
+     * @param \FactPulse\SDK\Model\AFNORRecipientPlatformType|null $platform_type platform_type
      *
      * @return self
      */
@@ -327,7 +327,7 @@ class AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCodePlatform imple
     /**
      * Gets platform_status
      *
-     * @return \OpenAPI\Client\Model\AFNORPlatformStatus|null
+     * @return \FactPulse\SDK\Model\AFNORPlatformStatus|null
      */
     public function getPlatformStatus()
     {
@@ -337,7 +337,7 @@ class AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCodePlatform imple
     /**
      * Sets platform_status
      *
-     * @param \OpenAPI\Client\Model\AFNORPlatformStatus|null $platform_status platform_status
+     * @param \FactPulse\SDK\Model\AFNORPlatformStatus|null $platform_status platform_status
      *
      * @return self
      */

@@ -1,4 +1,4 @@
-# OpenAPI\Client\InvoiceProcessingApi
+# FactPulse\SDK\InvoiceProcessingApi
 
 
 
@@ -22,7 +22,7 @@ All URIs are relative to https://factpulse.fr, except if the operation defines a
 ## `generateInvoiceApiV1ProcessingGenerateInvoicePost()`
 
 ```php
-generateInvoiceApiV1ProcessingGenerateInvoicePost($invoice_data, $profile, $output_format, $auto_enrich, $source_pdf, $callback_url, $webhook_mode, $skip_br_fr): \OpenAPI\Client\Model\TaskResponse
+generateInvoiceApiV1ProcessingGenerateInvoicePost($invoice_data, $profile, $output_format, $auto_enrich, $source_pdf, $callback_url, $webhook_mode, $skip_br_fr): \FactPulse\SDK\Model\TaskResponse
 ```
 
 Generate a Factur-X invoice
@@ -37,18 +37,18 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\InvoiceProcessingApi(
+$apiInstance = new FactPulse\SDK\Api\InvoiceProcessingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $invoice_data = 'invoice_data_example'; // string | Invoice data in JSON format.              Two formats accepted:             1. **Classic format**: Complete FacturXInvoice structure (all fields)             2. **Simplified format** (🆕 P0.1): Minimal structure with auto-enrichment              Format is detected automatically!
-$profile = new \OpenAPI\Client\Model\APIProfile(); // \OpenAPI\Client\Model\APIProfile | Factur-X profile: MINIMUM, BASIC, EN16931 or EXTENDED.
-$output_format = new \OpenAPI\Client\Model\OutputFormat(); // \OpenAPI\Client\Model\OutputFormat | Output format: 'xml' (XML only) or 'pdf' (Factur-X PDF with embedded XML).
+$profile = new \FactPulse\SDK\Model\APIProfile(); // \FactPulse\SDK\Model\APIProfile | Factur-X profile: MINIMUM, BASIC, EN16931 or EXTENDED.
+$output_format = new \FactPulse\SDK\Model\OutputFormat(); // \FactPulse\SDK\Model\OutputFormat | Output format: 'xml' (XML only) or 'pdf' (Factur-X PDF with embedded XML).
 $auto_enrich = true; // bool | 🆕 Enable auto-enrichment from SIRET/SIREN (simplified format only)
 $source_pdf = '/path/to/file.txt'; // \SplFileObject
 $callback_url = 'callback_url_example'; // string
@@ -68,8 +68,8 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **invoice_data** | **string**| Invoice data in JSON format.              Two formats accepted:             1. **Classic format**: Complete FacturXInvoice structure (all fields)             2. **Simplified format** (🆕 P0.1): Minimal structure with auto-enrichment              Format is detected automatically! | |
-| **profile** | [**\OpenAPI\Client\Model\APIProfile**](../Model/APIProfile.md)| Factur-X profile: MINIMUM, BASIC, EN16931 or EXTENDED. | [optional] |
-| **output_format** | [**\OpenAPI\Client\Model\OutputFormat**](../Model/OutputFormat.md)| Output format: &#39;xml&#39; (XML only) or &#39;pdf&#39; (Factur-X PDF with embedded XML). | [optional] |
+| **profile** | [**\FactPulse\SDK\Model\APIProfile**](../Model/APIProfile.md)| Factur-X profile: MINIMUM, BASIC, EN16931 or EXTENDED. | [optional] |
+| **output_format** | [**\FactPulse\SDK\Model\OutputFormat**](../Model/OutputFormat.md)| Output format: &#39;xml&#39; (XML only) or &#39;pdf&#39; (Factur-X PDF with embedded XML). | [optional] |
 | **auto_enrich** | **bool**| 🆕 Enable auto-enrichment from SIRET/SIREN (simplified format only) | [optional] [default to true] |
 | **source_pdf** | **\SplFileObject****\SplFileObject**|  | [optional] |
 | **callback_url** | **string**|  | [optional] |
@@ -78,7 +78,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\TaskResponse**](../Model/TaskResponse.md)
+[**\FactPulse\SDK\Model\TaskResponse**](../Model/TaskResponse.md)
 
 ### Authorization
 
@@ -96,7 +96,7 @@ try {
 ## `generateTestCertificateApiV1ProcessingGenerateTestCertificatePost()`
 
 ```php
-generateTestCertificateApiV1ProcessingGenerateTestCertificatePost($generate_certificate_request): \OpenAPI\Client\Model\GenerateCertificateResponse
+generateTestCertificateApiV1ProcessingGenerateTestCertificatePost($generate_certificate_request): \FactPulse\SDK\Model\GenerateCertificateResponse
 ```
 
 Generate a self-signed X.509 test certificate
@@ -111,16 +111,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\InvoiceProcessingApi(
+$apiInstance = new FactPulse\SDK\Api\InvoiceProcessingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$generate_certificate_request = new \OpenAPI\Client\Model\GenerateCertificateRequest(); // \OpenAPI\Client\Model\GenerateCertificateRequest
+$generate_certificate_request = new \FactPulse\SDK\Model\GenerateCertificateRequest(); // \FactPulse\SDK\Model\GenerateCertificateRequest
 
 try {
     $result = $apiInstance->generateTestCertificateApiV1ProcessingGenerateTestCertificatePost($generate_certificate_request);
@@ -134,11 +134,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **generate_certificate_request** | [**\OpenAPI\Client\Model\GenerateCertificateRequest**](../Model/GenerateCertificateRequest.md)|  | |
+| **generate_certificate_request** | [**\FactPulse\SDK\Model\GenerateCertificateRequest**](../Model/GenerateCertificateRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GenerateCertificateResponse**](../Model/GenerateCertificateResponse.md)
+[**\FactPulse\SDK\Model\GenerateCertificateResponse**](../Model/GenerateCertificateResponse.md)
 
 ### Authorization
 
@@ -156,7 +156,7 @@ try {
 ## `getTaskStatusApiV1ProcessingTasksTaskIdStatusGet()`
 
 ```php
-getTaskStatusApiV1ProcessingTasksTaskIdStatusGet($task_id): \OpenAPI\Client\Model\AsyncTaskStatus
+getTaskStatusApiV1ProcessingTasksTaskIdStatusGet($task_id): \FactPulse\SDK\Model\AsyncTaskStatus
 ```
 
 Get task generation status
@@ -171,10 +171,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\InvoiceProcessingApi(
+$apiInstance = new FactPulse\SDK\Api\InvoiceProcessingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -198,7 +198,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AsyncTaskStatus**](../Model/AsyncTaskStatus.md)
+[**\FactPulse\SDK\Model\AsyncTaskStatus**](../Model/AsyncTaskStatus.md)
 
 ### Authorization
 
@@ -231,10 +231,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\InvoiceProcessingApi(
+$apiInstance = new FactPulse\SDK\Api\InvoiceProcessingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -303,10 +303,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\InvoiceProcessingApi(
+$apiInstance = new FactPulse\SDK\Api\InvoiceProcessingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -364,7 +364,7 @@ try {
 ## `submitCompleteInvoiceApiV1ProcessingInvoicesSubmitCompletePost()`
 
 ```php
-submitCompleteInvoiceApiV1ProcessingInvoicesSubmitCompletePost($submit_complete_invoice_request): \OpenAPI\Client\Model\SubmitCompleteInvoiceResponse
+submitCompleteInvoiceApiV1ProcessingInvoicesSubmitCompletePost($submit_complete_invoice_request): \FactPulse\SDK\Model\SubmitCompleteInvoiceResponse
 ```
 
 Submit a complete invoice (generation + signature + submission)
@@ -379,16 +379,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\InvoiceProcessingApi(
+$apiInstance = new FactPulse\SDK\Api\InvoiceProcessingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$submit_complete_invoice_request = new \OpenAPI\Client\Model\SubmitCompleteInvoiceRequest(); // \OpenAPI\Client\Model\SubmitCompleteInvoiceRequest
+$submit_complete_invoice_request = new \FactPulse\SDK\Model\SubmitCompleteInvoiceRequest(); // \FactPulse\SDK\Model\SubmitCompleteInvoiceRequest
 
 try {
     $result = $apiInstance->submitCompleteInvoiceApiV1ProcessingInvoicesSubmitCompletePost($submit_complete_invoice_request);
@@ -402,11 +402,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **submit_complete_invoice_request** | [**\OpenAPI\Client\Model\SubmitCompleteInvoiceRequest**](../Model/SubmitCompleteInvoiceRequest.md)|  | |
+| **submit_complete_invoice_request** | [**\FactPulse\SDK\Model\SubmitCompleteInvoiceRequest**](../Model/SubmitCompleteInvoiceRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SubmitCompleteInvoiceResponse**](../Model/SubmitCompleteInvoiceResponse.md)
+[**\FactPulse\SDK\Model\SubmitCompleteInvoiceResponse**](../Model/SubmitCompleteInvoiceResponse.md)
 
 ### Authorization
 
@@ -424,7 +424,7 @@ try {
 ## `submitCompleteInvoiceAsyncApiV1ProcessingInvoicesSubmitCompleteAsyncPost()`
 
 ```php
-submitCompleteInvoiceAsyncApiV1ProcessingInvoicesSubmitCompleteAsyncPost($submit_complete_invoice_request, $callback_url, $webhook_mode): \OpenAPI\Client\Model\TaskResponse
+submitCompleteInvoiceAsyncApiV1ProcessingInvoicesSubmitCompleteAsyncPost($submit_complete_invoice_request, $callback_url, $webhook_mode): \FactPulse\SDK\Model\TaskResponse
 ```
 
 Submit a complete invoice (asynchronous with Celery)
@@ -439,16 +439,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\InvoiceProcessingApi(
+$apiInstance = new FactPulse\SDK\Api\InvoiceProcessingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$submit_complete_invoice_request = new \OpenAPI\Client\Model\SubmitCompleteInvoiceRequest(); // \OpenAPI\Client\Model\SubmitCompleteInvoiceRequest
+$submit_complete_invoice_request = new \FactPulse\SDK\Model\SubmitCompleteInvoiceRequest(); // \FactPulse\SDK\Model\SubmitCompleteInvoiceRequest
 $callback_url = 'callback_url_example'; // string | Webhook URL for async notification when submission completes.
 $webhook_mode = 'inline'; // string | Webhook content delivery: 'inline' (base64 in payload) or 'download_url' (temporary URL, 1h TTL)
 
@@ -464,13 +464,13 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **submit_complete_invoice_request** | [**\OpenAPI\Client\Model\SubmitCompleteInvoiceRequest**](../Model/SubmitCompleteInvoiceRequest.md)|  | |
+| **submit_complete_invoice_request** | [**\FactPulse\SDK\Model\SubmitCompleteInvoiceRequest**](../Model/SubmitCompleteInvoiceRequest.md)|  | |
 | **callback_url** | **string**| Webhook URL for async notification when submission completes. | [optional] |
 | **webhook_mode** | **string**| Webhook content delivery: &#39;inline&#39; (base64 in payload) or &#39;download_url&#39; (temporary URL, 1h TTL) | [optional] [default to &#39;inline&#39;] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\TaskResponse**](../Model/TaskResponse.md)
+[**\FactPulse\SDK\Model\TaskResponse**](../Model/TaskResponse.md)
 
 ### Authorization
 
@@ -488,7 +488,7 @@ try {
 ## `validateFacturxPdfApiV1ProcessingValidateFacturxPdfPost()`
 
 ```php
-validateFacturxPdfApiV1ProcessingValidateFacturxPdfPost($pdf_file, $profile, $use_verapdf, $skip_br_fr): \OpenAPI\Client\Model\PDFValidationResultAPI
+validateFacturxPdfApiV1ProcessingValidateFacturxPdfPost($pdf_file, $profile, $use_verapdf, $skip_br_fr): \FactPulse\SDK\Model\PDFValidationResultAPI
 ```
 
 Validate a complete Factur-X PDF
@@ -503,17 +503,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\InvoiceProcessingApi(
+$apiInstance = new FactPulse\SDK\Api\InvoiceProcessingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $pdf_file = '/path/to/file.txt'; // \SplFileObject | Factur-X PDF file to validate (.pdf format).
-$profile = new \OpenAPI\Client\Model\APIProfile(); // \OpenAPI\Client\Model\APIProfile
+$profile = new \FactPulse\SDK\Model\APIProfile(); // \FactPulse\SDK\Model\APIProfile
 $use_verapdf = false; // bool | Enable strict PDF/A validation with VeraPDF (recommended for production). If False, uses basic metadata validation.
 $skip_br_fr = True; // bool
 
@@ -530,13 +530,13 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **pdf_file** | **\SplFileObject****\SplFileObject**| Factur-X PDF file to validate (.pdf format). | |
-| **profile** | [**\OpenAPI\Client\Model\APIProfile**](../Model/APIProfile.md)|  | [optional] |
+| **profile** | [**\FactPulse\SDK\Model\APIProfile**](../Model/APIProfile.md)|  | [optional] |
 | **use_verapdf** | **bool**| Enable strict PDF/A validation with VeraPDF (recommended for production). If False, uses basic metadata validation. | [optional] [default to false] |
 | **skip_br_fr** | **bool**|  | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\PDFValidationResultAPI**](../Model/PDFValidationResultAPI.md)
+[**\FactPulse\SDK\Model\PDFValidationResultAPI**](../Model/PDFValidationResultAPI.md)
 
 ### Authorization
 
@@ -554,7 +554,7 @@ try {
 ## `validateFacturxPdfAsyncApiV1ProcessingValidateFacturxAsyncPost()`
 
 ```php
-validateFacturxPdfAsyncApiV1ProcessingValidateFacturxAsyncPost($pdf_file, $profile, $use_verapdf, $callback_url, $webhook_mode): \OpenAPI\Client\Model\TaskResponse
+validateFacturxPdfAsyncApiV1ProcessingValidateFacturxAsyncPost($pdf_file, $profile, $use_verapdf, $callback_url, $webhook_mode): \FactPulse\SDK\Model\TaskResponse
 ```
 
 Validate a Factur-X PDF (asynchronous with polling)
@@ -569,17 +569,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\InvoiceProcessingApi(
+$apiInstance = new FactPulse\SDK\Api\InvoiceProcessingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $pdf_file = '/path/to/file.txt'; // \SplFileObject | Factur-X PDF file to validate (.pdf format).
-$profile = new \OpenAPI\Client\Model\APIProfile(); // \OpenAPI\Client\Model\APIProfile
+$profile = new \FactPulse\SDK\Model\APIProfile(); // \FactPulse\SDK\Model\APIProfile
 $use_verapdf = false; // bool | Enable strict PDF/A validation with VeraPDF (recommended for production). May take several seconds.
 $callback_url = 'callback_url_example'; // string
 $webhook_mode = 'inline'; // string | Webhook content delivery: 'inline' (base64 in payload) or 'download_url' (temporary URL, 1h TTL)
@@ -597,14 +597,14 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **pdf_file** | **\SplFileObject****\SplFileObject**| Factur-X PDF file to validate (.pdf format). | |
-| **profile** | [**\OpenAPI\Client\Model\APIProfile**](../Model/APIProfile.md)|  | [optional] |
+| **profile** | [**\FactPulse\SDK\Model\APIProfile**](../Model/APIProfile.md)|  | [optional] |
 | **use_verapdf** | **bool**| Enable strict PDF/A validation with VeraPDF (recommended for production). May take several seconds. | [optional] [default to false] |
 | **callback_url** | **string**|  | [optional] |
 | **webhook_mode** | **string**| Webhook content delivery: &#39;inline&#39; (base64 in payload) or &#39;download_url&#39; (temporary URL, 1h TTL) | [optional] [default to &#39;inline&#39;] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\TaskResponse**](../Model/TaskResponse.md)
+[**\FactPulse\SDK\Model\TaskResponse**](../Model/TaskResponse.md)
 
 ### Authorization
 
@@ -637,10 +637,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\InvoiceProcessingApi(
+$apiInstance = new FactPulse\SDK\Api\InvoiceProcessingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -682,7 +682,7 @@ try {
 ## `validateXmlApiV1ProcessingValidateXmlPost()`
 
 ```php
-validateXmlApiV1ProcessingValidateXmlPost($xml_file, $profile, $skip_br_fr): \OpenAPI\Client\Model\ValidationSuccessResponse
+validateXmlApiV1ProcessingValidateXmlPost($xml_file, $profile, $skip_br_fr): \FactPulse\SDK\Model\ValidationSuccessResponse
 ```
 
 Validate an existing Factur-X XML
@@ -697,17 +697,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\InvoiceProcessingApi(
+$apiInstance = new FactPulse\SDK\Api\InvoiceProcessingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xml_file = '/path/to/file.txt'; // \SplFileObject | Factur-X XML file to validate (.xml format).
-$profile = new \OpenAPI\Client\Model\APIProfile(); // \OpenAPI\Client\Model\APIProfile | Validation profile (MINIMUM, BASIC, EN16931, EXTENDED).
+$profile = new \FactPulse\SDK\Model\APIProfile(); // \FactPulse\SDK\Model\APIProfile | Validation profile (MINIMUM, BASIC, EN16931, EXTENDED).
 $skip_br_fr = True; // bool
 
 try {
@@ -723,12 +723,12 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **xml_file** | **\SplFileObject****\SplFileObject**| Factur-X XML file to validate (.xml format). | |
-| **profile** | [**\OpenAPI\Client\Model\APIProfile**](../Model/APIProfile.md)| Validation profile (MINIMUM, BASIC, EN16931, EXTENDED). | [optional] |
+| **profile** | [**\FactPulse\SDK\Model\APIProfile**](../Model/APIProfile.md)| Validation profile (MINIMUM, BASIC, EN16931, EXTENDED). | [optional] |
 | **skip_br_fr** | **bool**|  | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ValidationSuccessResponse**](../Model/ValidationSuccessResponse.md)
+[**\FactPulse\SDK\Model\ValidationSuccessResponse**](../Model/ValidationSuccessResponse.md)
 
 ### Authorization
 

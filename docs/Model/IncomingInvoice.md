@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **flow_id** | **string** |  | [optional]
-**source_format** | [**\OpenAPI\Client\Model\InvoiceFormat**](InvoiceFormat.md) | Invoice source format |
+**source_format** | [**\FactPulse\SDK\Model\InvoiceFormat**](InvoiceFormat.md) | Invoice source format |
 **supplier_reference** | **string** | Invoice number issued by the supplier (BT-1) |
-**document_type** | [**\OpenAPI\Client\Model\InvoiceTypeCodeOutput**](InvoiceTypeCodeOutput.md) | Document type (BT-3) | [optional]
-**supplier** | [**\OpenAPI\Client\Model\IncomingSupplier**](IncomingSupplier.md) | Invoice issuer (SellerTradeParty) |
+**document_type** | [**\FactPulse\SDK\Model\InvoiceTypeCodeOutput**](InvoiceTypeCodeOutput.md) | Document type (BT-3) | [optional]
+**supplier** | [**\FactPulse\SDK\Model\IncomingSupplier**](IncomingSupplier.md) | Invoice issuer (SellerTradeParty) |
 **billing_site_name** | **string** | Recipient name / your company (BT-44) |
 **billing_site_siret** | **string** |  | [optional]
 **issue_date** | **string** | Invoice date (BT-2) - YYYY-MM-DD |

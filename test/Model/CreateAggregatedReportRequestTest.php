@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,7 +27,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace FactPulse\SDK\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -36,7 +36,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description Request to create a PPF-compliant aggregated e-reporting submission.  This schema allows creating a SINGLE report file containing multiple flux types, as expected by the PPF and PA platforms: - TransactionsReport: Contains both Invoice (10.1) and Transactions (10.3) - PaymentsReport: Contains both Invoice payments (10.2) and Transaction payments (10.4)  Source: Specifications externes v3.1, XSD ereporting.xsd
- * @package     OpenAPI\Client
+ * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */

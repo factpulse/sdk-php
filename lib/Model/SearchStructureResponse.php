@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * SearchStructureResponse Class Doc Comment
  *
  * @category Class
  * @description Structure search response.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -61,7 +61,7 @@ class SearchStructureResponse implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $openAPITypes = [
         'return_code' => 'int',
         'message' => 'string',
-        'structures' => '\OpenAPI\Client\Model\StructureInfo[]',
+        'structures' => '\FactPulse\SDK\Model\StructureInfo[]',
         'total' => 'int'
     ];
 
@@ -375,7 +375,7 @@ class SearchStructureResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets structures
      *
-     * @return \OpenAPI\Client\Model\StructureInfo[]|null
+     * @return \FactPulse\SDK\Model\StructureInfo[]|null
      */
     public function getStructures()
     {
@@ -385,7 +385,7 @@ class SearchStructureResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets structures
      *
-     * @param \OpenAPI\Client\Model\StructureInfo[]|null $structures structures
+     * @param \FactPulse\SDK\Model\StructureInfo[]|null $structures structures
      *
      * @return self
      */

@@ -1,4 +1,4 @@
-# OpenAPI\Client\UserApi
+# FactPulse\SDK\UserApi
 
 ## Gestion utilisateur  Endpoints pour la gestion du compte utilisateur et des informations de session.  ### Endpoints  - &#x60;GET /api/v1/me&#x60; : Informations sur l&#39;utilisateur connecté et son quota
 
@@ -27,10 +27,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\UserApi(
+$apiInstance = new FactPulse\SDK\Api\UserApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),

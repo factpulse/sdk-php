@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * DeliveryParty Class Doc Comment
  *
  * @category Class
  * @description Delivery location information (BG-15 Deliver to).  Represents the party or location where goods/services are delivered.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -60,9 +60,9 @@ class DeliveryParty implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'global_id' => '\OpenAPI\Client\Model\ElectronicAddress',
+        'global_id' => '\FactPulse\SDK\Model\ElectronicAddress',
         'name' => 'string',
-        'postal_address' => '\OpenAPI\Client\Model\PostalAddress'
+        'postal_address' => '\FactPulse\SDK\Model\PostalAddress'
     ];
 
     /**
@@ -349,7 +349,7 @@ class DeliveryParty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets global_id
      *
-     * @return \OpenAPI\Client\Model\ElectronicAddress|null
+     * @return \FactPulse\SDK\Model\ElectronicAddress|null
      */
     public function getGlobalId()
     {
@@ -359,7 +359,7 @@ class DeliveryParty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets global_id
      *
-     * @param \OpenAPI\Client\Model\ElectronicAddress|null $global_id global_id
+     * @param \FactPulse\SDK\Model\ElectronicAddress|null $global_id global_id
      *
      * @return self
      */
@@ -417,7 +417,7 @@ class DeliveryParty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets postal_address
      *
-     * @return \OpenAPI\Client\Model\PostalAddress|null
+     * @return \FactPulse\SDK\Model\PostalAddress|null
      */
     public function getPostalAddress()
     {
@@ -427,7 +427,7 @@ class DeliveryParty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets postal_address
      *
-     * @param \OpenAPI\Client\Model\PostalAddress|null $postal_address postal_address
+     * @param \FactPulse\SDK\Model\PostalAddress|null $postal_address postal_address
      *
      * @return self
      */

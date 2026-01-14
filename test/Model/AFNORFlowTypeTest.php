@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,7 +27,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace FactPulse\SDK\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -36,7 +36,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description - &#x60;CustomerInvoice&#x60;: a non-self-billed outgoing invoice or a self-billed incoming invoice - &#x60;SupplierInvoice&#x60;: a non-self-billed incoming invoice or self-billed outgoing invoice - &#x60;StateInvoice&#x60;: an invoice Flow sent to DFH - &#x60;CustomerInvoiceLC&#x60;: a lifecycle (CDAR) related to a customer invoice - &#x60;SupplierInvoiceLC&#x60;: a lifecycle (CDAR) related to supplier invoice - &#x60;StateCustomerInvoiceLC&#x60;: a customer invoice LC sent to DFH - &#x60;StateSupplierInvoiceLC&#x60;: a supplier invoice LC sent to DFH - &#x60;AggregatedCustomerTransactionReport&#x60; : a transaction E-Reporting flow containing aggregated B2C sales (FRR 10.3) - &#x60;IndividualCustomerTransactionReport&#x60;: a transaction E-Reporting flow containing international B2B sales or a B2C transaction flow reported individually (FRR 10.1) - &#x60;AggregatedCustomerPaymentReport&#x60; : a E-Reporting of collections flow containing collections linked to B2C sales (FRR 10.4) - &#x60;UnitaryCustomerPaymentReport&#x60; : an E-Reporting of collections flow containing collections linked to unit international B2B sales or B2C sales (FRR 10.2) - &#x60;UnitarySupplierTransactionReport&#x60;: a transaction E-Reporting flow containing international B2B purchases (FRR 10.1) - &#x60;MultiFlowReport&#x60;: an E-Reporting flow which contains at least 2 different flow types (FRR 10)
- * @package     OpenAPI\Client
+ * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */

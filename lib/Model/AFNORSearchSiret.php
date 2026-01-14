@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORSearchSiret Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,9 +58,9 @@ class AFNORSearchSiret implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'filters' => '\OpenAPI\Client\Model\AFNORSearchSiretFilters',
-        'sorting' => '\OpenAPI\Client\Model\AFNORSearchSiretSortingInner[]',
-        'fields' => '\OpenAPI\Client\Model\AFNORSiretField[]',
+        'filters' => '\FactPulse\SDK\Model\AFNORSearchSiretFilters',
+        'sorting' => '\FactPulse\SDK\Model\AFNORSearchSiretSortingInner[]',
+        'fields' => '\FactPulse\SDK\Model\AFNORSiretField[]',
         'include' => 'string[]',
         'limit' => 'int',
         'ignore' => 'int'
@@ -341,7 +341,7 @@ class AFNORSearchSiret implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets filters
      *
-     * @return \OpenAPI\Client\Model\AFNORSearchSiretFilters|null
+     * @return \FactPulse\SDK\Model\AFNORSearchSiretFilters|null
      */
     public function getFilters()
     {
@@ -351,7 +351,7 @@ class AFNORSearchSiret implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets filters
      *
-     * @param \OpenAPI\Client\Model\AFNORSearchSiretFilters|null $filters filters
+     * @param \FactPulse\SDK\Model\AFNORSearchSiretFilters|null $filters filters
      *
      * @return self
      */
@@ -368,7 +368,7 @@ class AFNORSearchSiret implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets sorting
      *
-     * @return \OpenAPI\Client\Model\AFNORSearchSiretSortingInner[]|null
+     * @return \FactPulse\SDK\Model\AFNORSearchSiretSortingInner[]|null
      */
     public function getSorting()
     {
@@ -378,7 +378,7 @@ class AFNORSearchSiret implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets sorting
      *
-     * @param \OpenAPI\Client\Model\AFNORSearchSiretSortingInner[]|null $sorting Sorting criteria on a field and an order (ascending or descending).
+     * @param \FactPulse\SDK\Model\AFNORSearchSiretSortingInner[]|null $sorting Sorting criteria on a field and an order (ascending or descending).
      *
      * @return self
      */
@@ -395,7 +395,7 @@ class AFNORSearchSiret implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets fields
      *
-     * @return \OpenAPI\Client\Model\AFNORSiretField[]|null
+     * @return \FactPulse\SDK\Model\AFNORSiretField[]|null
      */
     public function getFields()
     {
@@ -405,7 +405,7 @@ class AFNORSearchSiret implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets fields
      *
-     * @param \OpenAPI\Client\Model\AFNORSiretField[]|null $fields Allows you to filter the desired fields in the response.
+     * @param \FactPulse\SDK\Model\AFNORSiretField[]|null $fields Allows you to filter the desired fields in the response.
      *
      * @return self
      */

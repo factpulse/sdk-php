@@ -8,10 +8,10 @@ Name | Type | Description | Notes
 **label** | **string** | Field label (e.g., Invoice Number) |
 **pdf_value** | **string** |  | [optional]
 **xml_value** | **string** |  | [optional]
-**status** | [**\OpenAPI\Client\Model\FieldStatus**](FieldStatus.md) | Compliance status |
+**status** | [**\FactPulse\SDK\Model\FieldStatus**](FieldStatus.md) | Compliance status |
 **message** | **string** |  | [optional]
 **confidence** | **float** | Confidence score (0-1) | [optional] [default to 1.0]
 **source** | **string** | Extraction source | [optional] [default to 'native_pdf']
-**bbox** | [**\OpenAPI\Client\Model\BoundingBoxSchema**](BoundingBoxSchema.md) |  | [optional]
+**bbox** | [**\FactPulse\SDK\Model\BoundingBoxSchema**](BoundingBoxSchema.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

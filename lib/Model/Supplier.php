@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * Supplier Class Doc Comment
  *
  * @category Class
  * @description Information about the supplier / seller (BG-4).
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,7 +59,7 @@ class Supplier implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'electronic_address' => '\OpenAPI\Client\Model\ElectronicAddress',
+        'electronic_address' => '\FactPulse\SDK\Model\ElectronicAddress',
         'supplier_id' => 'int',
         'private_id' => 'string',
         'supplier_bank_account_code' => 'int',
@@ -74,9 +74,9 @@ class Supplier implements ModelInterface, ArrayAccess, \JsonSerializable
         'bic' => 'string',
         'bank_account_name' => 'string',
         'proprietary_id' => 'string',
-        'postal_address' => '\OpenAPI\Client\Model\PostalAddress',
-        'contact' => '\OpenAPI\Client\Model\Contact',
-        'global_ids' => '\OpenAPI\Client\Model\ElectronicAddress[]'
+        'postal_address' => '\FactPulse\SDK\Model\PostalAddress',
+        'contact' => '\FactPulse\SDK\Model\Contact',
+        'global_ids' => '\FactPulse\SDK\Model\ElectronicAddress[]'
     ];
 
     /**
@@ -419,7 +419,7 @@ class Supplier implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets electronic_address
      *
-     * @return \OpenAPI\Client\Model\ElectronicAddress|null
+     * @return \FactPulse\SDK\Model\ElectronicAddress|null
      */
     public function getElectronicAddress()
     {
@@ -429,7 +429,7 @@ class Supplier implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets electronic_address
      *
-     * @param \OpenAPI\Client\Model\ElectronicAddress|null $electronic_address electronic_address
+     * @param \FactPulse\SDK\Model\ElectronicAddress|null $electronic_address electronic_address
      *
      * @return self
      */
@@ -922,7 +922,7 @@ class Supplier implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets postal_address
      *
-     * @return \OpenAPI\Client\Model\PostalAddress|null
+     * @return \FactPulse\SDK\Model\PostalAddress|null
      */
     public function getPostalAddress()
     {
@@ -932,7 +932,7 @@ class Supplier implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets postal_address
      *
-     * @param \OpenAPI\Client\Model\PostalAddress|null $postal_address postal_address
+     * @param \FactPulse\SDK\Model\PostalAddress|null $postal_address postal_address
      *
      * @return self
      */
@@ -956,7 +956,7 @@ class Supplier implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets contact
      *
-     * @return \OpenAPI\Client\Model\Contact|null
+     * @return \FactPulse\SDK\Model\Contact|null
      */
     public function getContact()
     {
@@ -966,7 +966,7 @@ class Supplier implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets contact
      *
-     * @param \OpenAPI\Client\Model\Contact|null $contact contact
+     * @param \FactPulse\SDK\Model\Contact|null $contact contact
      *
      * @return self
      */
@@ -990,7 +990,7 @@ class Supplier implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets global_ids
      *
-     * @return \OpenAPI\Client\Model\ElectronicAddress[]|null
+     * @return \FactPulse\SDK\Model\ElectronicAddress[]|null
      */
     public function getGlobalIds()
     {
@@ -1000,7 +1000,7 @@ class Supplier implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets global_ids
      *
-     * @param \OpenAPI\Client\Model\ElectronicAddress[]|null $global_ids global_ids
+     * @param \FactPulse\SDK\Model\ElectronicAddress[]|null $global_ids global_ids
      *
      * @return self
      */

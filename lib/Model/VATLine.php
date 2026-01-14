@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * VATLine Class Doc Comment
  *
  * @category Class
  * @description Represents a VAT breakdown line by rate (BG-23).  For exemptions (categories E, AE, K, G, O), the fields &#x60;exemption_reason&#x60; and &#x60;vatex_code&#x60; are required per EN16931.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,12 +59,12 @@ class VATLine implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'taxable_amount' => '\OpenAPI\Client\Model\TaxableAmount',
-        'vat_amount' => '\OpenAPI\Client\Model\VATAmount',
+        'taxable_amount' => '\FactPulse\SDK\Model\TaxableAmount',
+        'vat_amount' => '\FactPulse\SDK\Model\VATAmount',
         'rate' => 'string',
-        'manual_rate' => '\OpenAPI\Client\Model\ManualRate',
-        'category' => '\OpenAPI\Client\Model\VATCategory',
-        'due_date_type_code' => '\OpenAPI\Client\Model\VATPointDateCode',
+        'manual_rate' => '\FactPulse\SDK\Model\ManualRate',
+        'category' => '\FactPulse\SDK\Model\VATCategory',
+        'due_date_type_code' => '\FactPulse\SDK\Model\VATPointDateCode',
         'exemption_reason' => 'string',
         'vatex_code' => 'string'
     ];
@@ -349,7 +349,7 @@ class VATLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets taxable_amount
      *
-     * @return \OpenAPI\Client\Model\TaxableAmount
+     * @return \FactPulse\SDK\Model\TaxableAmount
      */
     public function getTaxableAmount()
     {
@@ -359,7 +359,7 @@ class VATLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets taxable_amount
      *
-     * @param \OpenAPI\Client\Model\TaxableAmount $taxable_amount taxable_amount
+     * @param \FactPulse\SDK\Model\TaxableAmount $taxable_amount taxable_amount
      *
      * @return self
      */
@@ -376,7 +376,7 @@ class VATLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets vat_amount
      *
-     * @return \OpenAPI\Client\Model\VATAmount
+     * @return \FactPulse\SDK\Model\VATAmount
      */
     public function getVatAmount()
     {
@@ -386,7 +386,7 @@ class VATLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets vat_amount
      *
-     * @param \OpenAPI\Client\Model\VATAmount $vat_amount vat_amount
+     * @param \FactPulse\SDK\Model\VATAmount $vat_amount vat_amount
      *
      * @return self
      */
@@ -437,7 +437,7 @@ class VATLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets manual_rate
      *
-     * @return \OpenAPI\Client\Model\ManualRate|null
+     * @return \FactPulse\SDK\Model\ManualRate|null
      */
     public function getManualRate()
     {
@@ -447,7 +447,7 @@ class VATLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets manual_rate
      *
-     * @param \OpenAPI\Client\Model\ManualRate|null $manual_rate manual_rate
+     * @param \FactPulse\SDK\Model\ManualRate|null $manual_rate manual_rate
      *
      * @return self
      */
@@ -464,7 +464,7 @@ class VATLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets category
      *
-     * @return \OpenAPI\Client\Model\VATCategory|null
+     * @return \FactPulse\SDK\Model\VATCategory|null
      */
     public function getCategory()
     {
@@ -474,7 +474,7 @@ class VATLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets category
      *
-     * @param \OpenAPI\Client\Model\VATCategory|null $category category
+     * @param \FactPulse\SDK\Model\VATCategory|null $category category
      *
      * @return self
      */
@@ -498,7 +498,7 @@ class VATLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets due_date_type_code
      *
-     * @return \OpenAPI\Client\Model\VATPointDateCode|null
+     * @return \FactPulse\SDK\Model\VATPointDateCode|null
      */
     public function getDueDateTypeCode()
     {
@@ -508,7 +508,7 @@ class VATLine implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets due_date_type_code
      *
-     * @param \OpenAPI\Client\Model\VATPointDateCode|null $due_date_type_code due_date_type_code
+     * @param \FactPulse\SDK\Model\VATPointDateCode|null $due_date_type_code due_date_type_code
      *
      * @return self
      */

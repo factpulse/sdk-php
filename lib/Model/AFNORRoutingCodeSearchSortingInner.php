@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORRoutingCodeSearchSortingInner Class Doc Comment
  *
  * @category Class
  * @description A sort criteria composed of a field and an order (ascending or descending).
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,8 +59,8 @@ class AFNORRoutingCodeSearchSortingInner implements ModelInterface, ArrayAccess,
       * @var string[]
       */
     protected static $openAPITypes = [
-        'field' => '\OpenAPI\Client\Model\AFNORRoutingCodeField',
-        'order' => '\OpenAPI\Client\Model\AFNORSortingOrder'
+        'field' => '\FactPulse\SDK\Model\AFNORRoutingCodeField',
+        'order' => '\FactPulse\SDK\Model\AFNORSortingOrder'
     ];
 
     /**
@@ -301,7 +301,7 @@ class AFNORRoutingCodeSearchSortingInner implements ModelInterface, ArrayAccess,
     /**
      * Gets field
      *
-     * @return \OpenAPI\Client\Model\AFNORRoutingCodeField|null
+     * @return \FactPulse\SDK\Model\AFNORRoutingCodeField|null
      */
     public function getField()
     {
@@ -311,7 +311,7 @@ class AFNORRoutingCodeSearchSortingInner implements ModelInterface, ArrayAccess,
     /**
      * Sets field
      *
-     * @param \OpenAPI\Client\Model\AFNORRoutingCodeField|null $field field
+     * @param \FactPulse\SDK\Model\AFNORRoutingCodeField|null $field field
      *
      * @return self
      */
@@ -328,7 +328,7 @@ class AFNORRoutingCodeSearchSortingInner implements ModelInterface, ArrayAccess,
     /**
      * Gets order
      *
-     * @return \OpenAPI\Client\Model\AFNORSortingOrder|null
+     * @return \FactPulse\SDK\Model\AFNORSortingOrder|null
      */
     public function getOrder()
     {
@@ -338,7 +338,7 @@ class AFNORRoutingCodeSearchSortingInner implements ModelInterface, ArrayAccess,
     /**
      * Sets order
      *
-     * @param \OpenAPI\Client\Model\AFNORSortingOrder|null $order order
+     * @param \FactPulse\SDK\Model\AFNORSortingOrder|null $order order
      *
      * @return self
      */

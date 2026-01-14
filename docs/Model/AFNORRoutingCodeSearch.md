@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**filters** | [**\OpenAPI\Client\Model\AFNORRoutingCodeSearchFilters**](AFNORRoutingCodeSearchFilters.md) |  | [optional]
-**sorting** | [**\OpenAPI\Client\Model\AFNORRoutingCodeSearchSortingInner[]**](AFNORRoutingCodeSearchSortingInner.md) | Sorting criteria on a field and an order (ascending or descending). | [optional]
-**fields** | [**\OpenAPI\Client\Model\AFNORRoutingCodeField[]**](AFNORRoutingCodeField.md) | Allows you to filter the desired fields in the response. | [optional]
+**filters** | [**\FactPulse\SDK\Model\AFNORRoutingCodeSearchFilters**](AFNORRoutingCodeSearchFilters.md) |  | [optional]
+**sorting** | [**\FactPulse\SDK\Model\AFNORRoutingCodeSearchSortingInner[]**](AFNORRoutingCodeSearchSortingInner.md) | Sorting criteria on a field and an order (ascending or descending). | [optional]
+**fields** | [**\FactPulse\SDK\Model\AFNORRoutingCodeField[]**](AFNORRoutingCodeField.md) | Allows you to filter the desired fields in the response. | [optional]
 **include** | **string[]** |  | [optional]
 **limit** | **int** | Maximum number of results | [optional]
 **ignore** | **int** | Number of results to skip | [optional]

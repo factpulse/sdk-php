@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORDestination Class Doc Comment
  *
  * @category Class
  * @description Specific configuration for AFNOR PDP destination.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -60,10 +60,10 @@ class AFNORDestination implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'type' => 'string',
-        'credentials' => '\OpenAPI\Client\Model\AFNORCredentials',
-        'flow_syntax' => '\OpenAPI\Client\Model\FlowSyntax',
+        'credentials' => '\FactPulse\SDK\Model\AFNORCredentials',
+        'flow_syntax' => '\FactPulse\SDK\Model\FlowSyntax',
         'tracking_id' => 'string',
-        'processing_rule' => '\OpenAPI\Client\Model\ProcessingRule'
+        'processing_rule' => '\FactPulse\SDK\Model\ProcessingRule'
     ];
 
     /**
@@ -381,7 +381,7 @@ class AFNORDestination implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets credentials
      *
-     * @return \OpenAPI\Client\Model\AFNORCredentials|null
+     * @return \FactPulse\SDK\Model\AFNORCredentials|null
      */
     public function getCredentials()
     {
@@ -391,7 +391,7 @@ class AFNORDestination implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets credentials
      *
-     * @param \OpenAPI\Client\Model\AFNORCredentials|null $credentials credentials
+     * @param \FactPulse\SDK\Model\AFNORCredentials|null $credentials credentials
      *
      * @return self
      */
@@ -415,7 +415,7 @@ class AFNORDestination implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets flow_syntax
      *
-     * @return \OpenAPI\Client\Model\FlowSyntax|null
+     * @return \FactPulse\SDK\Model\FlowSyntax|null
      */
     public function getFlowSyntax()
     {
@@ -425,7 +425,7 @@ class AFNORDestination implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets flow_syntax
      *
-     * @param \OpenAPI\Client\Model\FlowSyntax|null $flow_syntax Flow syntax (AFNOR XP Z12-013)
+     * @param \FactPulse\SDK\Model\FlowSyntax|null $flow_syntax Flow syntax (AFNOR XP Z12-013)
      *
      * @return self
      */
@@ -476,7 +476,7 @@ class AFNORDestination implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets processing_rule
      *
-     * @return \OpenAPI\Client\Model\ProcessingRule|null
+     * @return \FactPulse\SDK\Model\ProcessingRule|null
      */
     public function getProcessingRule()
     {
@@ -486,7 +486,7 @@ class AFNORDestination implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets processing_rule
      *
-     * @param \OpenAPI\Client\Model\ProcessingRule|null $processing_rule processing_rule
+     * @param \FactPulse\SDK\Model\ProcessingRule|null $processing_rule processing_rule
      *
      * @return self
      */

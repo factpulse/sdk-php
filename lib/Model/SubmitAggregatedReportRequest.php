@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * SubmitAggregatedReportRequest Class Doc Comment
  *
  * @category Class
  * @description Request to submit an aggregated e-reporting to a PA/PDP.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,7 +59,7 @@ class SubmitAggregatedReportRequest implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\OpenAPI\Client\Model\CreateAggregatedReportRequest',
+        'data' => '\FactPulse\SDK\Model\CreateAggregatedReportRequest',
         'tracking_id' => 'string',
         'pdp_flow_service_url' => 'string',
         'pdp_token_url' => 'string',
@@ -332,7 +332,7 @@ class SubmitAggregatedReportRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\CreateAggregatedReportRequest
+     * @return \FactPulse\SDK\Model\CreateAggregatedReportRequest
      */
     public function getData()
     {
@@ -342,7 +342,7 @@ class SubmitAggregatedReportRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\CreateAggregatedReportRequest $data Aggregated e-reporting data
+     * @param \FactPulse\SDK\Model\CreateAggregatedReportRequest $data Aggregated e-reporting data
      *
      * @return self
      */

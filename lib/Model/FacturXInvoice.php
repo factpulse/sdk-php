@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * FacturXInvoice Class Doc Comment
  *
  * @category Class
  * @description Data model for an invoice to be converted to Factur-X.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -62,21 +62,21 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
         'invoice_number' => 'string',
         'payment_due_date' => 'string',
         'invoice_date' => 'string',
-        'submission_mode' => '\OpenAPI\Client\Model\SubmissionMode',
-        'recipient' => '\OpenAPI\Client\Model\Recipient',
-        'supplier' => '\OpenAPI\Client\Model\Supplier',
-        'invoicing_framework' => '\OpenAPI\Client\Model\InvoicingFramework',
-        'references' => '\OpenAPI\Client\Model\InvoiceReferences',
-        'totals' => '\OpenAPI\Client\Model\InvoiceTotals',
-        'invoice_lines' => '\OpenAPI\Client\Model\InvoiceLine[]',
-        'vat_lines' => '\OpenAPI\Client\Model\VATLine[]',
-        'notes' => '\OpenAPI\Client\Model\InvoiceNote[]',
+        'submission_mode' => '\FactPulse\SDK\Model\SubmissionMode',
+        'recipient' => '\FactPulse\SDK\Model\Recipient',
+        'supplier' => '\FactPulse\SDK\Model\Supplier',
+        'invoicing_framework' => '\FactPulse\SDK\Model\InvoicingFramework',
+        'references' => '\FactPulse\SDK\Model\InvoiceReferences',
+        'totals' => '\FactPulse\SDK\Model\InvoiceTotals',
+        'invoice_lines' => '\FactPulse\SDK\Model\InvoiceLine[]',
+        'vat_lines' => '\FactPulse\SDK\Model\VATLine[]',
+        'notes' => '\FactPulse\SDK\Model\InvoiceNote[]',
         'comment' => 'string',
         'current_user_id' => 'int',
-        'supplementary_attachments' => '\OpenAPI\Client\Model\SupplementaryAttachment[]',
-        'payee' => '\OpenAPI\Client\Model\Payee',
-        'delivery_party' => '\OpenAPI\Client\Model\DeliveryParty',
-        'tax_representative' => '\OpenAPI\Client\Model\TaxRepresentative',
+        'supplementary_attachments' => '\FactPulse\SDK\Model\SupplementaryAttachment[]',
+        'payee' => '\FactPulse\SDK\Model\Payee',
+        'delivery_party' => '\FactPulse\SDK\Model\DeliveryParty',
+        'tax_representative' => '\FactPulse\SDK\Model\TaxRepresentative',
         'delivery_date' => 'string',
         'billing_period_start' => 'string',
         'billing_period_end' => 'string',
@@ -85,10 +85,10 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
         'direct_debit_mandate_id' => 'string',
         'debtor_iban' => 'string',
         'payment_terms' => 'string',
-        'allowances_charges' => '\OpenAPI\Client\Model\AllowanceCharge[]',
-        'additional_documents' => '\OpenAPI\Client\Model\AdditionalDocument[]',
+        'allowances_charges' => '\FactPulse\SDK\Model\AllowanceCharge[]',
+        'additional_documents' => '\FactPulse\SDK\Model\AdditionalDocument[]',
         'buyer_accounting_reference' => 'string',
-        'payment_card' => '\OpenAPI\Client\Model\PaymentCard'
+        'payment_card' => '\FactPulse\SDK\Model\PaymentCard'
     ];
 
     /**
@@ -602,7 +602,7 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets submission_mode
      *
-     * @return \OpenAPI\Client\Model\SubmissionMode
+     * @return \FactPulse\SDK\Model\SubmissionMode
      */
     public function getSubmissionMode()
     {
@@ -612,7 +612,7 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets submission_mode
      *
-     * @param \OpenAPI\Client\Model\SubmissionMode $submission_mode submission_mode
+     * @param \FactPulse\SDK\Model\SubmissionMode $submission_mode submission_mode
      *
      * @return self
      */
@@ -629,7 +629,7 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets recipient
      *
-     * @return \OpenAPI\Client\Model\Recipient
+     * @return \FactPulse\SDK\Model\Recipient
      */
     public function getRecipient()
     {
@@ -639,7 +639,7 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets recipient
      *
-     * @param \OpenAPI\Client\Model\Recipient $recipient recipient
+     * @param \FactPulse\SDK\Model\Recipient $recipient recipient
      *
      * @return self
      */
@@ -656,7 +656,7 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets supplier
      *
-     * @return \OpenAPI\Client\Model\Supplier
+     * @return \FactPulse\SDK\Model\Supplier
      */
     public function getSupplier()
     {
@@ -666,7 +666,7 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets supplier
      *
-     * @param \OpenAPI\Client\Model\Supplier $supplier supplier
+     * @param \FactPulse\SDK\Model\Supplier $supplier supplier
      *
      * @return self
      */
@@ -683,7 +683,7 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets invoicing_framework
      *
-     * @return \OpenAPI\Client\Model\InvoicingFramework
+     * @return \FactPulse\SDK\Model\InvoicingFramework
      */
     public function getInvoicingFramework()
     {
@@ -693,7 +693,7 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets invoicing_framework
      *
-     * @param \OpenAPI\Client\Model\InvoicingFramework $invoicing_framework invoicing_framework
+     * @param \FactPulse\SDK\Model\InvoicingFramework $invoicing_framework invoicing_framework
      *
      * @return self
      */
@@ -710,7 +710,7 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets references
      *
-     * @return \OpenAPI\Client\Model\InvoiceReferences
+     * @return \FactPulse\SDK\Model\InvoiceReferences
      */
     public function getReferences()
     {
@@ -720,7 +720,7 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets references
      *
-     * @param \OpenAPI\Client\Model\InvoiceReferences $references references
+     * @param \FactPulse\SDK\Model\InvoiceReferences $references references
      *
      * @return self
      */
@@ -737,7 +737,7 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets totals
      *
-     * @return \OpenAPI\Client\Model\InvoiceTotals
+     * @return \FactPulse\SDK\Model\InvoiceTotals
      */
     public function getTotals()
     {
@@ -747,7 +747,7 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets totals
      *
-     * @param \OpenAPI\Client\Model\InvoiceTotals $totals totals
+     * @param \FactPulse\SDK\Model\InvoiceTotals $totals totals
      *
      * @return self
      */
@@ -764,7 +764,7 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets invoice_lines
      *
-     * @return \OpenAPI\Client\Model\InvoiceLine[]|null
+     * @return \FactPulse\SDK\Model\InvoiceLine[]|null
      */
     public function getInvoiceLines()
     {
@@ -774,7 +774,7 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets invoice_lines
      *
-     * @param \OpenAPI\Client\Model\InvoiceLine[]|null $invoice_lines invoice_lines
+     * @param \FactPulse\SDK\Model\InvoiceLine[]|null $invoice_lines invoice_lines
      *
      * @return self
      */
@@ -791,7 +791,7 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets vat_lines
      *
-     * @return \OpenAPI\Client\Model\VATLine[]|null
+     * @return \FactPulse\SDK\Model\VATLine[]|null
      */
     public function getVatLines()
     {
@@ -801,7 +801,7 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets vat_lines
      *
-     * @param \OpenAPI\Client\Model\VATLine[]|null $vat_lines vat_lines
+     * @param \FactPulse\SDK\Model\VATLine[]|null $vat_lines vat_lines
      *
      * @return self
      */
@@ -818,7 +818,7 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets notes
      *
-     * @return \OpenAPI\Client\Model\InvoiceNote[]|null
+     * @return \FactPulse\SDK\Model\InvoiceNote[]|null
      */
     public function getNotes()
     {
@@ -828,7 +828,7 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets notes
      *
-     * @param \OpenAPI\Client\Model\InvoiceNote[]|null $notes notes
+     * @param \FactPulse\SDK\Model\InvoiceNote[]|null $notes notes
      *
      * @return self
      */
@@ -913,7 +913,7 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets supplementary_attachments
      *
-     * @return \OpenAPI\Client\Model\SupplementaryAttachment[]|null
+     * @return \FactPulse\SDK\Model\SupplementaryAttachment[]|null
      */
     public function getSupplementaryAttachments()
     {
@@ -923,7 +923,7 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets supplementary_attachments
      *
-     * @param \OpenAPI\Client\Model\SupplementaryAttachment[]|null $supplementary_attachments supplementary_attachments
+     * @param \FactPulse\SDK\Model\SupplementaryAttachment[]|null $supplementary_attachments supplementary_attachments
      *
      * @return self
      */
@@ -947,7 +947,7 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets payee
      *
-     * @return \OpenAPI\Client\Model\Payee|null
+     * @return \FactPulse\SDK\Model\Payee|null
      */
     public function getPayee()
     {
@@ -957,7 +957,7 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets payee
      *
-     * @param \OpenAPI\Client\Model\Payee|null $payee payee
+     * @param \FactPulse\SDK\Model\Payee|null $payee payee
      *
      * @return self
      */
@@ -981,7 +981,7 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets delivery_party
      *
-     * @return \OpenAPI\Client\Model\DeliveryParty|null
+     * @return \FactPulse\SDK\Model\DeliveryParty|null
      */
     public function getDeliveryParty()
     {
@@ -991,7 +991,7 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets delivery_party
      *
-     * @param \OpenAPI\Client\Model\DeliveryParty|null $delivery_party delivery_party
+     * @param \FactPulse\SDK\Model\DeliveryParty|null $delivery_party delivery_party
      *
      * @return self
      */
@@ -1015,7 +1015,7 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets tax_representative
      *
-     * @return \OpenAPI\Client\Model\TaxRepresentative|null
+     * @return \FactPulse\SDK\Model\TaxRepresentative|null
      */
     public function getTaxRepresentative()
     {
@@ -1025,7 +1025,7 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tax_representative
      *
-     * @param \OpenAPI\Client\Model\TaxRepresentative|null $tax_representative tax_representative
+     * @param \FactPulse\SDK\Model\TaxRepresentative|null $tax_representative tax_representative
      *
      * @return self
      */
@@ -1321,7 +1321,7 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets allowances_charges
      *
-     * @return \OpenAPI\Client\Model\AllowanceCharge[]|null
+     * @return \FactPulse\SDK\Model\AllowanceCharge[]|null
      */
     public function getAllowancesCharges()
     {
@@ -1331,7 +1331,7 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets allowances_charges
      *
-     * @param \OpenAPI\Client\Model\AllowanceCharge[]|null $allowances_charges allowances_charges
+     * @param \FactPulse\SDK\Model\AllowanceCharge[]|null $allowances_charges allowances_charges
      *
      * @return self
      */
@@ -1355,7 +1355,7 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets additional_documents
      *
-     * @return \OpenAPI\Client\Model\AdditionalDocument[]|null
+     * @return \FactPulse\SDK\Model\AdditionalDocument[]|null
      */
     public function getAdditionalDocuments()
     {
@@ -1365,7 +1365,7 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets additional_documents
      *
-     * @param \OpenAPI\Client\Model\AdditionalDocument[]|null $additional_documents additional_documents
+     * @param \FactPulse\SDK\Model\AdditionalDocument[]|null $additional_documents additional_documents
      *
      * @return self
      */
@@ -1423,7 +1423,7 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets payment_card
      *
-     * @return \OpenAPI\Client\Model\PaymentCard|null
+     * @return \FactPulse\SDK\Model\PaymentCard|null
      */
     public function getPaymentCard()
     {
@@ -1433,7 +1433,7 @@ class FacturXInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets payment_card
      *
-     * @param \OpenAPI\Client\Model\PaymentCard|null $payment_card payment_card
+     * @param \FactPulse\SDK\Model\PaymentCard|null $payment_card payment_card
      *
      * @return self
      */

@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORLegalUnitPayloadHistory Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -60,8 +60,8 @@ class AFNORLegalUnitPayloadHistory implements ModelInterface, ArrayAccess, \Json
     protected static $openAPITypes = [
         'siren' => 'string',
         'business_name' => 'string',
-        'entity_type' => '\OpenAPI\Client\Model\AFNOREntityType',
-        'administrative_status' => '\OpenAPI\Client\Model\AFNORLegalUnitAdministrativeStatus'
+        'entity_type' => '\FactPulse\SDK\Model\AFNOREntityType',
+        'administrative_status' => '\FactPulse\SDK\Model\AFNORLegalUnitAdministrativeStatus'
     ];
 
     /**
@@ -391,7 +391,7 @@ class AFNORLegalUnitPayloadHistory implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets entity_type
      *
-     * @return \OpenAPI\Client\Model\AFNOREntityType|null
+     * @return \FactPulse\SDK\Model\AFNOREntityType|null
      */
     public function getEntityType()
     {
@@ -401,7 +401,7 @@ class AFNORLegalUnitPayloadHistory implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets entity_type
      *
-     * @param \OpenAPI\Client\Model\AFNOREntityType|null $entity_type entity_type
+     * @param \FactPulse\SDK\Model\AFNOREntityType|null $entity_type entity_type
      *
      * @return self
      */
@@ -418,7 +418,7 @@ class AFNORLegalUnitPayloadHistory implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets administrative_status
      *
-     * @return \OpenAPI\Client\Model\AFNORLegalUnitAdministrativeStatus|null
+     * @return \FactPulse\SDK\Model\AFNORLegalUnitAdministrativeStatus|null
      */
     public function getAdministrativeStatus()
     {
@@ -428,7 +428,7 @@ class AFNORLegalUnitPayloadHistory implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets administrative_status
      *
-     * @param \OpenAPI\Client\Model\AFNORLegalUnitAdministrativeStatus|null $administrative_status administrative_status
+     * @param \FactPulse\SDK\Model\AFNORLegalUnitAdministrativeStatus|null $administrative_status administrative_status
      *
      * @return self
      */

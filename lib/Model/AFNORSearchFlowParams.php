@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORSearchFlowParams Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,7 +59,7 @@ class AFNORSearchFlowParams implements ModelInterface, ArrayAccess, \JsonSeriali
       */
     protected static $openAPITypes = [
         'limit' => 'int',
-        'where' => '\OpenAPI\Client\Model\AFNORSearchFlowFilters'
+        'where' => '\FactPulse\SDK\Model\AFNORSearchFlowFilters'
     ];
 
     /**
@@ -339,7 +339,7 @@ class AFNORSearchFlowParams implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets where
      *
-     * @return \OpenAPI\Client\Model\AFNORSearchFlowFilters
+     * @return \FactPulse\SDK\Model\AFNORSearchFlowFilters
      */
     public function getWhere()
     {
@@ -349,7 +349,7 @@ class AFNORSearchFlowParams implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets where
      *
-     * @param \OpenAPI\Client\Model\AFNORSearchFlowFilters $where where
+     * @param \FactPulse\SDK\Model\AFNORSearchFlowFilters $where where
      *
      * @return self
      */

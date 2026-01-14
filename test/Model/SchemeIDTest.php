@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,7 +27,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace FactPulse\SDK\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -36,7 +36,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description Identification scheme codes (Electronic Address Scheme - EAS), mainly for electronic invoice addressing.  **Possible values:** - &#x60;0225&#x60;: FR_SIREN - French SIREN (most common for France) - &#x60;0009&#x60;: FR_SIRET - French SIRET - &#x60;0002&#x60;: FR_SIREN_OLD - French SIREN (old code, for legal organization ID) - &#x60;0088&#x60;: GLN - Global Location Number - &#x60;0060&#x60;: DUNS - Data Universal Numbering System - &#x60;9957&#x60;: FR_VAT_INTRA - French intra-community VAT number - &#x60;0199&#x60;: GLEIF - Global Legal Entity Identifier Foundation - &#x60;0231&#x60;: DT_DIRECTORY_ID - Directory ID for tax administration - &#x60;EM&#x60;: EMAIL - Email-based electronic address (BT-34/BT-49)
- * @package     OpenAPI\Client
+ * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */

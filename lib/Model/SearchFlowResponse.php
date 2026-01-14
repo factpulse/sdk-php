@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * SearchFlowResponse Class Doc Comment
  *
  * @category Class
  * @description Response from a flow search.
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -62,7 +62,7 @@ class SearchFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'total' => 'int',
         'offset' => 'int',
         'limit' => 'int',
-        'results' => '\OpenAPI\Client\Model\FlowSummary[]'
+        'results' => '\FactPulse\SDK\Model\FlowSummary[]'
     ];
 
     /**
@@ -408,7 +408,7 @@ class SearchFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets results
      *
-     * @return \OpenAPI\Client\Model\FlowSummary[]
+     * @return \FactPulse\SDK\Model\FlowSummary[]
      */
     public function getResults()
     {
@@ -418,7 +418,7 @@ class SearchFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets results
      *
-     * @param \OpenAPI\Client\Model\FlowSummary[] $results List of found flows
+     * @param \FactPulse\SDK\Model\FlowSummary[] $results List of found flows
      *
      * @return self
      */

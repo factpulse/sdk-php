@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORSearchFlowFilters Class Doc Comment
  *
  * @category Class
  * @description Filtering criteria, at least one is required
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -61,11 +61,11 @@ class AFNORSearchFlowFilters implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $openAPITypes = [
         'updated_after' => '\DateTime',
         'updated_before' => '\DateTime',
-        'processing_rule' => '\OpenAPI\Client\Model\AFNORProcessingRule[]',
-        'flow_type' => '\OpenAPI\Client\Model\AFNORFlowType[]',
-        'flow_direction' => '\OpenAPI\Client\Model\AFNORFlowDirection[]',
+        'processing_rule' => '\FactPulse\SDK\Model\AFNORProcessingRule[]',
+        'flow_type' => '\FactPulse\SDK\Model\AFNORFlowType[]',
+        'flow_direction' => '\FactPulse\SDK\Model\AFNORFlowDirection[]',
         'tracking_id' => 'string',
-        'ack_status' => '\OpenAPI\Client\Model\AFNORFlowAckStatus'
+        'ack_status' => '\FactPulse\SDK\Model\AFNORFlowAckStatus'
     ];
 
     /**
@@ -394,7 +394,7 @@ class AFNORSearchFlowFilters implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets processing_rule
      *
-     * @return \OpenAPI\Client\Model\AFNORProcessingRule[]|null
+     * @return \FactPulse\SDK\Model\AFNORProcessingRule[]|null
      */
     public function getProcessingRule()
     {
@@ -404,7 +404,7 @@ class AFNORSearchFlowFilters implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets processing_rule
      *
-     * @param \OpenAPI\Client\Model\AFNORProcessingRule[]|null $processing_rule processing_rule
+     * @param \FactPulse\SDK\Model\AFNORProcessingRule[]|null $processing_rule processing_rule
      *
      * @return self
      */
@@ -421,7 +421,7 @@ class AFNORSearchFlowFilters implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets flow_type
      *
-     * @return \OpenAPI\Client\Model\AFNORFlowType[]|null
+     * @return \FactPulse\SDK\Model\AFNORFlowType[]|null
      */
     public function getFlowType()
     {
@@ -431,7 +431,7 @@ class AFNORSearchFlowFilters implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets flow_type
      *
-     * @param \OpenAPI\Client\Model\AFNORFlowType[]|null $flow_type flow_type
+     * @param \FactPulse\SDK\Model\AFNORFlowType[]|null $flow_type flow_type
      *
      * @return self
      */
@@ -448,7 +448,7 @@ class AFNORSearchFlowFilters implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets flow_direction
      *
-     * @return \OpenAPI\Client\Model\AFNORFlowDirection[]|null
+     * @return \FactPulse\SDK\Model\AFNORFlowDirection[]|null
      */
     public function getFlowDirection()
     {
@@ -458,7 +458,7 @@ class AFNORSearchFlowFilters implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets flow_direction
      *
-     * @param \OpenAPI\Client\Model\AFNORFlowDirection[]|null $flow_direction flow_direction
+     * @param \FactPulse\SDK\Model\AFNORFlowDirection[]|null $flow_direction flow_direction
      *
      * @return self
      */
@@ -506,7 +506,7 @@ class AFNORSearchFlowFilters implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets ack_status
      *
-     * @return \OpenAPI\Client\Model\AFNORFlowAckStatus|null
+     * @return \FactPulse\SDK\Model\AFNORFlowAckStatus|null
      */
     public function getAckStatus()
     {
@@ -516,7 +516,7 @@ class AFNORSearchFlowFilters implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets ack_status
      *
-     * @param \OpenAPI\Client\Model\AFNORFlowAckStatus|null $ack_status ack_status
+     * @param \FactPulse\SDK\Model\AFNORFlowAckStatus|null $ack_status ack_status
      *
      * @return self
      */

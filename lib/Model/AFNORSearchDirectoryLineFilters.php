@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORSearchDirectoryLineFilters Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,11 +58,11 @@ class AFNORSearchDirectoryLineFilters implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-        'addressing_identifier' => '\OpenAPI\Client\Model\AFNORSearchDirectoryLineFiltersAddressingIdentifier',
-        'siren' => '\OpenAPI\Client\Model\AFNORSearchSirenFiltersSiren',
-        'siret' => '\OpenAPI\Client\Model\AFNORSearchSiretFiltersSiret',
-        'routing_identifier' => '\OpenAPI\Client\Model\AFNORRoutingCodeSearchFiltersRoutingIdentifier',
-        'addressing_suffix' => '\OpenAPI\Client\Model\AFNORSearchDirectoryLineFiltersAddressingSuffix'
+        'addressing_identifier' => '\FactPulse\SDK\Model\AFNORSearchDirectoryLineFiltersAddressingIdentifier',
+        'siren' => '\FactPulse\SDK\Model\AFNORSearchSirenFiltersSiren',
+        'siret' => '\FactPulse\SDK\Model\AFNORSearchSiretFiltersSiret',
+        'routing_identifier' => '\FactPulse\SDK\Model\AFNORRoutingCodeSearchFiltersRoutingIdentifier',
+        'addressing_suffix' => '\FactPulse\SDK\Model\AFNORSearchDirectoryLineFiltersAddressingSuffix'
     ];
 
     /**
@@ -321,7 +321,7 @@ class AFNORSearchDirectoryLineFilters implements ModelInterface, ArrayAccess, \J
     /**
      * Gets addressing_identifier
      *
-     * @return \OpenAPI\Client\Model\AFNORSearchDirectoryLineFiltersAddressingIdentifier|null
+     * @return \FactPulse\SDK\Model\AFNORSearchDirectoryLineFiltersAddressingIdentifier|null
      */
     public function getAddressingIdentifier()
     {
@@ -331,7 +331,7 @@ class AFNORSearchDirectoryLineFilters implements ModelInterface, ArrayAccess, \J
     /**
      * Sets addressing_identifier
      *
-     * @param \OpenAPI\Client\Model\AFNORSearchDirectoryLineFiltersAddressingIdentifier|null $addressing_identifier addressing_identifier
+     * @param \FactPulse\SDK\Model\AFNORSearchDirectoryLineFiltersAddressingIdentifier|null $addressing_identifier addressing_identifier
      *
      * @return self
      */
@@ -348,7 +348,7 @@ class AFNORSearchDirectoryLineFilters implements ModelInterface, ArrayAccess, \J
     /**
      * Gets siren
      *
-     * @return \OpenAPI\Client\Model\AFNORSearchSirenFiltersSiren|null
+     * @return \FactPulse\SDK\Model\AFNORSearchSirenFiltersSiren|null
      */
     public function getSiren()
     {
@@ -358,7 +358,7 @@ class AFNORSearchDirectoryLineFilters implements ModelInterface, ArrayAccess, \J
     /**
      * Sets siren
      *
-     * @param \OpenAPI\Client\Model\AFNORSearchSirenFiltersSiren|null $siren siren
+     * @param \FactPulse\SDK\Model\AFNORSearchSirenFiltersSiren|null $siren siren
      *
      * @return self
      */
@@ -375,7 +375,7 @@ class AFNORSearchDirectoryLineFilters implements ModelInterface, ArrayAccess, \J
     /**
      * Gets siret
      *
-     * @return \OpenAPI\Client\Model\AFNORSearchSiretFiltersSiret|null
+     * @return \FactPulse\SDK\Model\AFNORSearchSiretFiltersSiret|null
      */
     public function getSiret()
     {
@@ -385,7 +385,7 @@ class AFNORSearchDirectoryLineFilters implements ModelInterface, ArrayAccess, \J
     /**
      * Sets siret
      *
-     * @param \OpenAPI\Client\Model\AFNORSearchSiretFiltersSiret|null $siret siret
+     * @param \FactPulse\SDK\Model\AFNORSearchSiretFiltersSiret|null $siret siret
      *
      * @return self
      */
@@ -402,7 +402,7 @@ class AFNORSearchDirectoryLineFilters implements ModelInterface, ArrayAccess, \J
     /**
      * Gets routing_identifier
      *
-     * @return \OpenAPI\Client\Model\AFNORRoutingCodeSearchFiltersRoutingIdentifier|null
+     * @return \FactPulse\SDK\Model\AFNORRoutingCodeSearchFiltersRoutingIdentifier|null
      */
     public function getRoutingIdentifier()
     {
@@ -412,7 +412,7 @@ class AFNORSearchDirectoryLineFilters implements ModelInterface, ArrayAccess, \J
     /**
      * Sets routing_identifier
      *
-     * @param \OpenAPI\Client\Model\AFNORRoutingCodeSearchFiltersRoutingIdentifier|null $routing_identifier routing_identifier
+     * @param \FactPulse\SDK\Model\AFNORRoutingCodeSearchFiltersRoutingIdentifier|null $routing_identifier routing_identifier
      *
      * @return self
      */
@@ -429,7 +429,7 @@ class AFNORSearchDirectoryLineFilters implements ModelInterface, ArrayAccess, \J
     /**
      * Gets addressing_suffix
      *
-     * @return \OpenAPI\Client\Model\AFNORSearchDirectoryLineFiltersAddressingSuffix|null
+     * @return \FactPulse\SDK\Model\AFNORSearchDirectoryLineFiltersAddressingSuffix|null
      */
     public function getAddressingSuffix()
     {
@@ -439,7 +439,7 @@ class AFNORSearchDirectoryLineFilters implements ModelInterface, ArrayAccess, \J
     /**
      * Sets addressing_suffix
      *
-     * @param \OpenAPI\Client\Model\AFNORSearchDirectoryLineFiltersAddressingSuffix|null $addressing_suffix addressing_suffix
+     * @param \FactPulse\SDK\Model\AFNORSearchDirectoryLineFiltersAddressingSuffix|null $addressing_suffix addressing_suffix
      *
      * @return self
      */

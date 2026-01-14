@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace FactPulse\SDK\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \FactPulse\SDK\ObjectSerializer;
 
 /**
  * AFNORCreateDirectoryLineBody Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,8 +58,8 @@ class AFNORCreateDirectoryLineBody implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'period' => '\OpenAPI\Client\Model\AFNORCreateDirectoryLineBodyPeriod',
-        'addressing_information' => '\OpenAPI\Client\Model\AFNORCreateDirectoryLineBodyAddressingInformation'
+        'period' => '\FactPulse\SDK\Model\AFNORCreateDirectoryLineBodyPeriod',
+        'addressing_information' => '\FactPulse\SDK\Model\AFNORCreateDirectoryLineBodyAddressingInformation'
     ];
 
     /**
@@ -300,7 +300,7 @@ class AFNORCreateDirectoryLineBody implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets period
      *
-     * @return \OpenAPI\Client\Model\AFNORCreateDirectoryLineBodyPeriod|null
+     * @return \FactPulse\SDK\Model\AFNORCreateDirectoryLineBodyPeriod|null
      */
     public function getPeriod()
     {
@@ -310,7 +310,7 @@ class AFNORCreateDirectoryLineBody implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets period
      *
-     * @param \OpenAPI\Client\Model\AFNORCreateDirectoryLineBodyPeriod|null $period period
+     * @param \FactPulse\SDK\Model\AFNORCreateDirectoryLineBodyPeriod|null $period period
      *
      * @return self
      */
@@ -327,7 +327,7 @@ class AFNORCreateDirectoryLineBody implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets addressing_information
      *
-     * @return \OpenAPI\Client\Model\AFNORCreateDirectoryLineBodyAddressingInformation|null
+     * @return \FactPulse\SDK\Model\AFNORCreateDirectoryLineBodyAddressingInformation|null
      */
     public function getAddressingInformation()
     {
@@ -337,7 +337,7 @@ class AFNORCreateDirectoryLineBody implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets addressing_information
      *
-     * @param \OpenAPI\Client\Model\AFNORCreateDirectoryLineBodyAddressingInformation|null $addressing_information addressing_information
+     * @param \FactPulse\SDK\Model\AFNORCreateDirectoryLineBodyAddressingInformation|null $addressing_information addressing_information
      *
      * @return self
      */
