@@ -1,6 +1,9 @@
 <?php
 namespace FactPulse\SDK\Helpers;
 
+// Include exception classes
+require_once __DIR__ . '/Exceptions.php';
+
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\MultipartStream;
@@ -452,24 +455,40 @@ class FactPulseClient {
     // ==================== AFNOR Directory ====================
 
     /**
-     * Searches a company by SIRET in the AFNOR directory.
+     * Gets a facility by SIRET in the AFNOR directory.
      */
-    public function searchSiretAfnor(string $siret): array {
-        return $this->makeAfnorRequest('GET', "/directory/siret/{$siret}");
+    public function getSiretAfnor(string $siret): array {
+        return $this->makeAfnorRequest('GET', "/directory/v1/siret/code-insee:{$siret}");
     }
 
     /**
-     * Searches a company by SIREN in the AFNOR directory.
+     * Gets a legal unit by SIREN in the AFNOR directory.
      */
-    public function searchSirenAfnor(string $siren): array {
-        return $this->makeAfnorRequest('GET', "/directory/siren/{$siren}");
+    public function getSirenAfnor(string $siren): array {
+        return $this->makeAfnorRequest('GET', "/directory/v1/siren/code-insee:{$siren}");
     }
 
     /**
-     * Lists available routing codes for a SIREN.
+     * Searches for legal units (SIREN) in the AFNOR directory.
      */
-    public function listRoutingCodesAfnor(string $siren): array {
-        return $this->makeAfnorRequest('GET', "/directory/siren/{$siren}/routing-codes");
+    public function searchSirenAfnor(array $filters = [], int $limit = 25): array {
+        $searchBody = ['filters' => $filters, 'limit' => $limit];
+        return $this->makeAfnorRequest('POST', '/directory/v1/siren/search', $searchBody);
+    }
+
+    /**
+     * Searches for routing codes in the AFNOR directory.
+     */
+    public function searchRoutingCodesAfnor(array $filters = [], int $limit = 25): array {
+        $searchBody = ['filters' => $filters, 'limit' => $limit];
+        return $this->makeAfnorRequest('POST', '/directory/v1/routing-code/search', $searchBody);
+    }
+
+    /**
+     * Gets a routing code by SIRET and routing identifier.
+     */
+    public function getRoutingCodeAfnor(string $siret, string $routingIdentifier): array {
+        return $this->makeAfnorRequest('GET', "/directory/v1/routing-code/siret:{$siret}/code:{$routingIdentifier}");
     }
 
     // =========================================================================
