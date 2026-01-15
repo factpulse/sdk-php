@@ -25,9 +25,6 @@ The `Helpers` module provides a simplified API with automatic authentication and
 require_once(__DIR__ . '/vendor/autoload.php');
 
 use FactPulse\SDK\Helpers\FactPulseClient;
-use function FactPulse\SDK\Helpers\{
-    amount, invoiceTotals, invoiceLine, vatLine, supplier, recipient
-};
 
 // Create the client
 $client = new FactPulseClient(
@@ -35,37 +32,30 @@ $client = new FactPulseClient(
     'your_password'
 );
 
-// Build the invoice with helpers
+// Build the invoice using simplified format (auto-calculates totals)
 $invoiceData = [
-    'invoiceNumber' => 'INV-2025-001',
-    'issueDate' => '2025-01-15',
-    'dueDate' => '2025-02-15',
-    'currencyCode' => 'EUR',
-    'supplier' => supplier(
-        'My Company SAS',
-        '12345678901234',
-        '123 Example Street',
-        '75001',
-        'Paris'
-    ),
-    'recipient' => recipient(
-        'Client SARL',
-        '98765432109876',
-        '456 Test Avenue',
-        '69001',
-        'Lyon'
-    ),
-    'totals' => invoiceTotals(1000.00, 200.00, 1200.00, 1200.00),
-    'lines' => [
-        invoiceLine(1, 'Consulting services', 10, 100.00, 1000.00)
+    'number' => 'INV-2025-001',
+    'supplier' => [
+        'name' => 'My Company SAS',
+        'siret' => '12345678901234',
+        'iban' => 'FR7630001007941234567890185',
     ],
-    'vatLines' => [
-        vatLine(1000.00, 200.00)
+    'recipient' => [
+        'name' => 'Client SARL',
+        'siret' => '98765432109876',
+    ],
+    'lines' => [
+        [
+            'description' => 'Consulting services',
+            'quantity' => 10,
+            'unitPrice' => 100.0,
+            'vatRate' => 20,
+        ]
     ],
 ];
 
 // Generate the Factur-X PDF
-$pdfBytes = $client->generateFacturx($invoiceData, 'source_invoice.pdf', 'EN16931');
+$pdfBytes = $client->generateFacturx($invoiceData, 'source_invoice.pdf');
 
 file_put_contents('invoice_facturx.pdf', $pdfBytes);
 ```

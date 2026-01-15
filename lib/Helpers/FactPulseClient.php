@@ -265,7 +265,7 @@ class FactPulseClient {
                         ['name' => 'source_pdf', 'contents' => fopen($pdfPath, 'r'), 'filename' => basename($pdfPath)],
                     ],
                 ]);
-                $taskId = json_decode($response->getBody()->getContents(), true)['task_id'] ?? null;
+                $taskId = json_decode($response->getBody()->getContents(), true)['taskId'] ?? null;
                 if (!$taskId) throw new FactPulseValidationException("No task ID");
                 if (!$sync) return $taskId;
                 $result = $this->pollTask($taskId, $timeout);
