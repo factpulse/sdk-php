@@ -1,6 +1,6 @@
 <?php
 /**
- * FactureElectroniqueRestApiSchemasEreportingValidationError
+ * EReportingValidationError
  *
  * PHP version 8.1
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \FactPulse\SDK\ObjectSerializer;
 
 /**
- * FactureElectroniqueRestApiSchemasEreportingValidationError Class Doc Comment
+ * EReportingValidationError Class Doc Comment
  *
  * @category Class
- * @description Validation error detail.
+ * @description Validation error detail for E-Reporting.
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class FactureElectroniqueRestApiSchemasEreportingValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
+class EReportingValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class FactureElectroniqueRestApiSchemasEreportingValidationError implements Mode
       *
       * @var string
       */
-    protected static $openAPIModelName = 'facture_electronique__rest_api__schemas__ereporting__ValidationError';
+    protected static $openAPIModelName = 'EReportingValidationError';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

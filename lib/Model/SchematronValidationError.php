@@ -1,6 +1,6 @@
 <?php
 /**
- * ValidateEReportingResponse
+ * SchematronValidationError
  *
  * PHP version 8.1
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \FactPulse\SDK\ObjectSerializer;
 
 /**
- * ValidateEReportingResponse Class Doc Comment
+ * SchematronValidationError Class Doc Comment
  *
  * @category Class
- * @description Response after validating e-reporting data.
+ * @description Erreur de validation Schematron avec suggestion de correction.
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ValidateEReportingResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class SchematronValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class ValidateEReportingResponse implements ModelInterface, ArrayAccess, \JsonSe
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ValidateEReportingResponse';
+    protected static $openAPIModelName = 'SchematronValidationError';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,12 +59,14 @@ class ValidateEReportingResponse implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'valid' => 'bool',
-        'report_id' => 'string',
-        'flow_type' => 'string',
-        'errors' => '\FactPulse\SDK\Model\EReportingValidationError[]',
-        'warnings' => '\FactPulse\SDK\Model\EReportingValidationError[]',
-        'message' => 'string'
+        'rule' => 'string',
+        'bt_code' => 'string',
+        'severity' => 'string',
+        'message' => 'string',
+        'suggested_value' => 'string',
+        'suggested_field' => 'string',
+        'explanation' => 'string',
+        'confidence' => 'float'
     ];
 
     /**
@@ -75,12 +77,14 @@ class ValidateEReportingResponse implements ModelInterface, ArrayAccess, \JsonSe
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'valid' => null,
-        'report_id' => null,
-        'flow_type' => null,
-        'errors' => null,
-        'warnings' => null,
-        'message' => null
+        'rule' => null,
+        'bt_code' => null,
+        'severity' => null,
+        'message' => null,
+        'suggested_value' => null,
+        'suggested_field' => null,
+        'explanation' => null,
+        'confidence' => null
     ];
 
     /**
@@ -89,12 +93,14 @@ class ValidateEReportingResponse implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'valid' => false,
-        'report_id' => false,
-        'flow_type' => false,
-        'errors' => false,
-        'warnings' => false,
-        'message' => false
+        'rule' => false,
+        'bt_code' => true,
+        'severity' => false,
+        'message' => false,
+        'suggested_value' => true,
+        'suggested_field' => true,
+        'explanation' => true,
+        'confidence' => true
     ];
 
     /**
@@ -183,12 +189,14 @@ class ValidateEReportingResponse implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
-        'valid' => 'valid',
-        'report_id' => 'reportId',
-        'flow_type' => 'flowType',
-        'errors' => 'errors',
-        'warnings' => 'warnings',
-        'message' => 'message'
+        'rule' => 'rule',
+        'bt_code' => 'bt_code',
+        'severity' => 'severity',
+        'message' => 'message',
+        'suggested_value' => 'suggested_value',
+        'suggested_field' => 'suggested_field',
+        'explanation' => 'explanation',
+        'confidence' => 'confidence'
     ];
 
     /**
@@ -197,12 +205,14 @@ class ValidateEReportingResponse implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
-        'valid' => 'setValid',
-        'report_id' => 'setReportId',
-        'flow_type' => 'setFlowType',
-        'errors' => 'setErrors',
-        'warnings' => 'setWarnings',
-        'message' => 'setMessage'
+        'rule' => 'setRule',
+        'bt_code' => 'setBtCode',
+        'severity' => 'setSeverity',
+        'message' => 'setMessage',
+        'suggested_value' => 'setSuggestedValue',
+        'suggested_field' => 'setSuggestedField',
+        'explanation' => 'setExplanation',
+        'confidence' => 'setConfidence'
     ];
 
     /**
@@ -211,12 +221,14 @@ class ValidateEReportingResponse implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
-        'valid' => 'getValid',
-        'report_id' => 'getReportId',
-        'flow_type' => 'getFlowType',
-        'errors' => 'getErrors',
-        'warnings' => 'getWarnings',
-        'message' => 'getMessage'
+        'rule' => 'getRule',
+        'bt_code' => 'getBtCode',
+        'severity' => 'getSeverity',
+        'message' => 'getMessage',
+        'suggested_value' => 'getSuggestedValue',
+        'suggested_field' => 'getSuggestedField',
+        'explanation' => 'getExplanation',
+        'confidence' => 'getConfidence'
     ];
 
     /**
@@ -276,12 +288,14 @@ class ValidateEReportingResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('valid', $data ?? [], null);
-        $this->setIfExists('report_id', $data ?? [], null);
-        $this->setIfExists('flow_type', $data ?? [], null);
-        $this->setIfExists('errors', $data ?? [], null);
-        $this->setIfExists('warnings', $data ?? [], null);
+        $this->setIfExists('rule', $data ?? [], null);
+        $this->setIfExists('bt_code', $data ?? [], null);
+        $this->setIfExists('severity', $data ?? [], null);
         $this->setIfExists('message', $data ?? [], null);
+        $this->setIfExists('suggested_value', $data ?? [], null);
+        $this->setIfExists('suggested_field', $data ?? [], null);
+        $this->setIfExists('explanation', $data ?? [], null);
+        $this->setIfExists('confidence', $data ?? [], null);
     }
 
     /**
@@ -311,18 +325,23 @@ class ValidateEReportingResponse implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
-        if ($this->container['valid'] === null) {
-            $invalidProperties[] = "'valid' can't be null";
+        if ($this->container['rule'] === null) {
+            $invalidProperties[] = "'rule' can't be null";
         }
-        if ($this->container['report_id'] === null) {
-            $invalidProperties[] = "'report_id' can't be null";
-        }
-        if ($this->container['flow_type'] === null) {
-            $invalidProperties[] = "'flow_type' can't be null";
+        if ($this->container['severity'] === null) {
+            $invalidProperties[] = "'severity' can't be null";
         }
         if ($this->container['message'] === null) {
             $invalidProperties[] = "'message' can't be null";
         }
+        if (!is_null($this->container['confidence']) && ($this->container['confidence'] > 1.0)) {
+            $invalidProperties[] = "invalid value for 'confidence', must be smaller than or equal to 1.0.";
+        }
+
+        if (!is_null($this->container['confidence']) && ($this->container['confidence'] < 0.0)) {
+            $invalidProperties[] = "invalid value for 'confidence', must be bigger than or equal to 0.0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -339,136 +358,89 @@ class ValidateEReportingResponse implements ModelInterface, ArrayAccess, \JsonSe
 
 
     /**
-     * Gets valid
-     *
-     * @return bool
-     */
-    public function getValid()
-    {
-        return $this->container['valid'];
-    }
-
-    /**
-     * Sets valid
-     *
-     * @param bool $valid Whether the data is valid
-     *
-     * @return self
-     */
-    public function setValid($valid)
-    {
-        if (is_null($valid)) {
-            throw new \InvalidArgumentException('non-nullable valid cannot be null');
-        }
-        $this->container['valid'] = $valid;
-
-        return $this;
-    }
-
-    /**
-     * Gets report_id
+     * Gets rule
      *
      * @return string
      */
-    public function getReportId()
+    public function getRule()
     {
-        return $this->container['report_id'];
+        return $this->container['rule'];
     }
 
     /**
-     * Sets report_id
+     * Sets rule
      *
-     * @param string $report_id Report identifier
+     * @param string $rule Code de la regle (BR-XX, BR-FR-XX)
      *
      * @return self
      */
-    public function setReportId($report_id)
+    public function setRule($rule)
     {
-        if (is_null($report_id)) {
-            throw new \InvalidArgumentException('non-nullable report_id cannot be null');
+        if (is_null($rule)) {
+            throw new \InvalidArgumentException('non-nullable rule cannot be null');
         }
-        $this->container['report_id'] = $report_id;
+        $this->container['rule'] = $rule;
 
         return $this;
     }
 
     /**
-     * Gets flow_type
+     * Gets bt_code
+     *
+     * @return string|null
+     */
+    public function getBtCode()
+    {
+        return $this->container['bt_code'];
+    }
+
+    /**
+     * Sets bt_code
+     *
+     * @param string|null $bt_code bt_code
+     *
+     * @return self
+     */
+    public function setBtCode($bt_code)
+    {
+        if (is_null($bt_code)) {
+            array_push($this->openAPINullablesSetToNull, 'bt_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('bt_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['bt_code'] = $bt_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets severity
      *
      * @return string
      */
-    public function getFlowType()
+    public function getSeverity()
     {
-        return $this->container['flow_type'];
+        return $this->container['severity'];
     }
 
     /**
-     * Sets flow_type
+     * Sets severity
      *
-     * @param string $flow_type Flux type
+     * @param string $severity Gravite: error, warning
      *
      * @return self
      */
-    public function setFlowType($flow_type)
+    public function setSeverity($severity)
     {
-        if (is_null($flow_type)) {
-            throw new \InvalidArgumentException('non-nullable flow_type cannot be null');
+        if (is_null($severity)) {
+            throw new \InvalidArgumentException('non-nullable severity cannot be null');
         }
-        $this->container['flow_type'] = $flow_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets errors
-     *
-     * @return \FactPulse\SDK\Model\EReportingValidationError[]|null
-     */
-    public function getErrors()
-    {
-        return $this->container['errors'];
-    }
-
-    /**
-     * Sets errors
-     *
-     * @param \FactPulse\SDK\Model\EReportingValidationError[]|null $errors List of validation errors (if any)
-     *
-     * @return self
-     */
-    public function setErrors($errors)
-    {
-        if (is_null($errors)) {
-            throw new \InvalidArgumentException('non-nullable errors cannot be null');
-        }
-        $this->container['errors'] = $errors;
-
-        return $this;
-    }
-
-    /**
-     * Gets warnings
-     *
-     * @return \FactPulse\SDK\Model\EReportingValidationError[]|null
-     */
-    public function getWarnings()
-    {
-        return $this->container['warnings'];
-    }
-
-    /**
-     * Sets warnings
-     *
-     * @param \FactPulse\SDK\Model\EReportingValidationError[]|null $warnings List of validation warnings (if any)
-     *
-     * @return self
-     */
-    public function setWarnings($warnings)
-    {
-        if (is_null($warnings)) {
-            throw new \InvalidArgumentException('non-nullable warnings cannot be null');
-        }
-        $this->container['warnings'] = $warnings;
+        $this->container['severity'] = $severity;
 
         return $this;
     }
@@ -486,7 +458,7 @@ class ValidateEReportingResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets message
      *
-     * @param string $message Status message
+     * @param string $message Message d'erreur
      *
      * @return self
      */
@@ -496,6 +468,150 @@ class ValidateEReportingResponse implements ModelInterface, ArrayAccess, \JsonSe
             throw new \InvalidArgumentException('non-nullable message cannot be null');
         }
         $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets suggested_value
+     *
+     * @return string|null
+     */
+    public function getSuggestedValue()
+    {
+        return $this->container['suggested_value'];
+    }
+
+    /**
+     * Sets suggested_value
+     *
+     * @param string|null $suggested_value suggested_value
+     *
+     * @return self
+     */
+    public function setSuggestedValue($suggested_value)
+    {
+        if (is_null($suggested_value)) {
+            array_push($this->openAPINullablesSetToNull, 'suggested_value');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('suggested_value', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['suggested_value'] = $suggested_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets suggested_field
+     *
+     * @return string|null
+     */
+    public function getSuggestedField()
+    {
+        return $this->container['suggested_field'];
+    }
+
+    /**
+     * Sets suggested_field
+     *
+     * @param string|null $suggested_field suggested_field
+     *
+     * @return self
+     */
+    public function setSuggestedField($suggested_field)
+    {
+        if (is_null($suggested_field)) {
+            array_push($this->openAPINullablesSetToNull, 'suggested_field');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('suggested_field', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['suggested_field'] = $suggested_field;
+
+        return $this;
+    }
+
+    /**
+     * Gets explanation
+     *
+     * @return string|null
+     */
+    public function getExplanation()
+    {
+        return $this->container['explanation'];
+    }
+
+    /**
+     * Sets explanation
+     *
+     * @param string|null $explanation explanation
+     *
+     * @return self
+     */
+    public function setExplanation($explanation)
+    {
+        if (is_null($explanation)) {
+            array_push($this->openAPINullablesSetToNull, 'explanation');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('explanation', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['explanation'] = $explanation;
+
+        return $this;
+    }
+
+    /**
+     * Gets confidence
+     *
+     * @return float|null
+     */
+    public function getConfidence()
+    {
+        return $this->container['confidence'];
+    }
+
+    /**
+     * Sets confidence
+     *
+     * @param float|null $confidence confidence
+     *
+     * @return self
+     */
+    public function setConfidence($confidence)
+    {
+        if (is_null($confidence)) {
+            array_push($this->openAPINullablesSetToNull, 'confidence');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('confidence', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+        if (!is_null($confidence) && ($confidence > 1.0)) {
+            throw new \InvalidArgumentException('invalid value for $confidence when calling SchematronValidationError., must be smaller than or equal to 1.0.');
+        }
+        if (!is_null($confidence) && ($confidence < 0.0)) {
+            throw new \InvalidArgumentException('invalid value for $confidence when calling SchematronValidationError., must be bigger than or equal to 0.0.');
+        }
+
+        $this->container['confidence'] = $confidence;
 
         return $this;
     }

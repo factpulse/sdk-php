@@ -64,7 +64,7 @@ class ValidationInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'schematron_rules_total' => 'int',
         'pdfa_compliant' => 'bool',
         'xml_embedded' => 'bool',
-        'errors' => '\FactPulse\SDK\Model\ValidationError[]'
+        'errors' => '\FactPulse\SDK\Model\SchematronValidationError[]'
     ];
 
     /**
@@ -473,7 +473,7 @@ class ValidationInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets errors
      *
-     * @return \FactPulse\SDK\Model\ValidationError[]|null
+     * @return \FactPulse\SDK\Model\SchematronValidationError[]|null
      */
     public function getErrors()
     {
@@ -483,7 +483,7 @@ class ValidationInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets errors
      *
-     * @param \FactPulse\SDK\Model\ValidationError[]|null $errors errors
+     * @param \FactPulse\SDK\Model\SchematronValidationError[]|null $errors errors
      *
      * @return self
      */

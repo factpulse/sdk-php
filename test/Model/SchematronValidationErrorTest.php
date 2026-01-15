@@ -1,6 +1,6 @@
 <?php
 /**
- * FactureElectroniqueRestApiSchemasEreportingValidationErrorTest
+ * SchematronValidationErrorTest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * FactureElectroniqueRestApiSchemasEreportingValidationErrorTest Class Doc Comment
+ * SchematronValidationErrorTest Class Doc Comment
  *
  * @category    Class
- * @description Validation error detail.
+ * @description Erreur de validation Schematron avec suggestion de correction.
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class FactureElectroniqueRestApiSchemasEreportingValidationErrorTest extends TestCase
+class SchematronValidationErrorTest extends TestCase
 {
 
     /**
@@ -72,18 +72,36 @@ class FactureElectroniqueRestApiSchemasEreportingValidationErrorTest extends Tes
     }
 
     /**
-     * Test "FactureElectroniqueRestApiSchemasEreportingValidationError"
+     * Test "SchematronValidationError"
      */
-    public function testFactureElectroniqueRestApiSchemasEreportingValidationError()
+    public function testSchematronValidationError()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "field"
+     * Test attribute "rule"
      */
-    public function testPropertyField()
+    public function testPropertyRule()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "bt_code"
+     */
+    public function testPropertyBtCode()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "severity"
+     */
+    public function testPropertySeverity()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -99,9 +117,36 @@ class FactureElectroniqueRestApiSchemasEreportingValidationErrorTest extends Tes
     }
 
     /**
-     * Test attribute "code"
+     * Test attribute "suggested_value"
      */
-    public function testPropertyCode()
+    public function testPropertySuggestedValue()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "suggested_field"
+     */
+    public function testPropertySuggestedField()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "explanation"
+     */
+    public function testPropertyExplanation()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "confidence"
+     */
+    public function testPropertyConfidence()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
