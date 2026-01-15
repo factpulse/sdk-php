@@ -241,11 +241,11 @@ class FactPulseClient {
                 $response = $this->httpClient->get($this->apiUrl . "/api/v1/processing/tasks/{$taskId}/status",
                     ['headers' => ['Authorization' => 'Bearer ' . $this->accessToken]]);
                 $data = json_decode($response->getBody()->getContents(), true);
-                if ($data['statut'] === 'SUCCESS') return $data['resultat'] ?? [];
-                if ($data['statut'] === 'FAILURE') {
+                if ($data['status'] === 'SUCCESS') return $data['result'] ?? [];
+                if ($data['status'] === 'FAILURE') {
                     // Format AFNOR: errorMessage, details
-                    $errors = array_map(fn($e) => ValidationErrorDetail::fromArray($e), $data['resultat']['details'] ?? []);
-                    throw new FactPulseValidationException("Task {$taskId} failed: " . ($data['resultat']['errorMessage'] ?? '?'), $errors);
+                    $errors = array_map(fn($e) => ValidationErrorDetail::fromArray($e), $data['result']['details'] ?? []);
+                    throw new FactPulseValidationException("Task {$taskId} failed: " . ($data['result']['errorMessage'] ?? '?'), $errors);
                 }
             } catch (GuzzleException $e) { if ($e->getCode() === 401) { $this->resetAuth(); continue; } throw $e; }
             usleep((int)($currentInterval * 1000)); $currentInterval = min($currentInterval * 1.5, 10000);
