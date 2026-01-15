@@ -30,7 +30,7 @@ All URIs are relative to https://factpulse.fr, except if the operation defines a
 ## `createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost()`
 
 ```php
-createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost($accept_language): mixed
+createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost(): mixed
 ```
 
 Creating a directory line
@@ -44,20 +44,15 @@ Creation of a new directory line for a SIREN, a SIRET or a ROUTING CODE.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: HTTPBearer
-$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$accept_language = new \FactPulse\SDK\Model\\FactPulseSDKModelAcceptLanguage(); // \FactPulseSDKModelAcceptLanguage | Specifies the language in which the resource is requested.
 
 try {
-    $result = $apiInstance->createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost($accept_language);
+    $result = $apiInstance->createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AFNORPDPPADirectoryServiceApi->createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost: ', $e->getMessage(), PHP_EOL;
@@ -66,9 +61,7 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **accept_language** | [**\FactPulseSDKModelAcceptLanguage**](../Model/.md)| Specifies the language in which the resource is requested. | [optional] |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -76,7 +69,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -90,7 +83,7 @@ try {
 ## `createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost()`
 
 ```php
-createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost($accept_language): mixed
+createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost(): mixed
 ```
 
 Create a routing code
@@ -104,20 +97,15 @@ Creating a routing code.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: HTTPBearer
-$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$accept_language = new \FactPulse\SDK\Model\\FactPulseSDKModelAcceptLanguage(); // \FactPulseSDKModelAcceptLanguage | Specifies the language in which the resource is requested.
 
 try {
-    $result = $apiInstance->createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost($accept_language);
+    $result = $apiInstance->createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AFNORPDPPADirectoryServiceApi->createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost: ', $e->getMessage(), PHP_EOL;
@@ -126,9 +114,7 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **accept_language** | [**\FactPulseSDKModelAcceptLanguage**](../Model/.md)| Specifies the language in which the resource is requested. | [optional] |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -136,7 +122,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -150,7 +136,7 @@ try {
 ## `deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete()`
 
 ```php
-deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete($id_instance, $accept_language): mixed
+deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete($id_instance): mixed
 ```
 
 Delete a directory line
@@ -164,21 +150,16 @@ Delete a directory line.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: HTTPBearer
-$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $id_instance = 'id_instance_example'; // string | AFNOR instance ID (UUID)
-$accept_language = new \FactPulse\SDK\Model\\FactPulseSDKModelAcceptLanguage(); // \FactPulseSDKModelAcceptLanguage | Specifies the language in which the resource is requested.
 
 try {
-    $result = $apiInstance->deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete($id_instance, $accept_language);
+    $result = $apiInstance->deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete($id_instance);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AFNORPDPPADirectoryServiceApi->deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete: ', $e->getMessage(), PHP_EOL;
@@ -190,7 +171,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id_instance** | **string**| AFNOR instance ID (UUID) | |
-| **accept_language** | [**\FactPulseSDKModelAcceptLanguage**](../Model/.md)| Specifies the language in which the resource is requested. | [optional] |
 
 ### Return type
 
@@ -198,7 +178,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -265,7 +245,7 @@ No authorization required
 ## `getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet()`
 
 ```php
-getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet($addressing_identifier, $fields, $include, $accept_language): \FactPulse\SDK\Model\AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCode
+getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet($addressing_identifier): \FactPulse\SDK\Model\AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCode
 ```
 
 Get a directory line.
@@ -279,23 +259,16 @@ Retrieve the data from the directory line corresponding to the identifier passed
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: HTTPBearer
-$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $addressing_identifier = 'addressing_identifier_example'; // string | Addressing identifier (SIREN, SIRET or routing code)
-$fields = array('fields_example'); // string[] | Fields of the Directory Line resource.
-$include = array(new \FactPulse\SDK\Model\\FactPulse\SDK\Model\DirectoryLineInclude()); // \FactPulse\SDK\Model\DirectoryLineInclude[] | Relations to include in the response.
-$accept_language = new \FactPulse\SDK\Model\\FactPulseSDKModelAcceptLanguage(); // \FactPulseSDKModelAcceptLanguage | Specifies the language in which the resource is requested.
 
 try {
-    $result = $apiInstance->getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet($addressing_identifier, $fields, $include, $accept_language);
+    $result = $apiInstance->getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet($addressing_identifier);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AFNORPDPPADirectoryServiceApi->getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet: ', $e->getMessage(), PHP_EOL;
@@ -307,9 +280,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **addressing_identifier** | **string**| Addressing identifier (SIREN, SIRET or routing code) | |
-| **fields** | [**string[]**](../Model/string.md)| Fields of the Directory Line resource. | [optional] |
-| **include** | [**\FactPulse\SDK\Model\DirectoryLineInclude[]**](../Model/\FactPulse\SDK\Model\DirectoryLineInclude.md)| Relations to include in the response. | [optional] |
-| **accept_language** | [**\FactPulseSDKModelAcceptLanguage**](../Model/.md)| Specifies the language in which the resource is requested. | [optional] |
 
 ### Return type
 
@@ -317,7 +287,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -331,7 +301,7 @@ try {
 ## `getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet()`
 
 ```php
-getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet($id_instance, $fields, $accept_language): \FactPulse\SDK\Model\AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCode
+getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet($id_instance): \FactPulse\SDK\Model\AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCode
 ```
 
 Get a directory line.
@@ -345,22 +315,16 @@ Retrieve the data from the directory line corresponding to the identifier passed
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: HTTPBearer
-$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $id_instance = 'id_instance_example'; // string | AFNOR instance ID (UUID)
-$fields = array('fields_example'); // string[] | Fields of the Directory Line resource.
-$accept_language = new \FactPulse\SDK\Model\\FactPulseSDKModelAcceptLanguage(); // \FactPulseSDKModelAcceptLanguage | Specifies the language in which the resource is requested.
 
 try {
-    $result = $apiInstance->getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet($id_instance, $fields, $accept_language);
+    $result = $apiInstance->getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet($id_instance);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AFNORPDPPADirectoryServiceApi->getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet: ', $e->getMessage(), PHP_EOL;
@@ -372,8 +336,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id_instance** | **string**| AFNOR instance ID (UUID) | |
-| **fields** | [**string[]**](../Model/string.md)| Fields of the Directory Line resource. | [optional] |
-| **accept_language** | [**\FactPulseSDKModelAcceptLanguage**](../Model/.md)| Specifies the language in which the resource is requested. | [optional] |
 
 ### Return type
 
@@ -381,7 +343,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -395,7 +357,7 @@ try {
 ## `getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet()`
 
 ```php
-getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet($id_instance, $fields, $accept_language): \FactPulse\SDK\Model\AFNORRoutingCodePayloadHistoryLegalUnitFacility
+getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet($id_instance): \FactPulse\SDK\Model\AFNORRoutingCodePayloadHistoryLegalUnitFacility
 ```
 
 Get a routing code by instance-id.
@@ -409,22 +371,16 @@ Retrieve the Routing Code data corresponding to the Instance ID.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: HTTPBearer
-$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $id_instance = 'id_instance_example'; // string | AFNOR instance ID (UUID)
-$fields = array('fields_example'); // string[] | Fields of the Routing Code resource
-$accept_language = new \FactPulse\SDK\Model\\FactPulseSDKModelAcceptLanguage(); // \FactPulseSDKModelAcceptLanguage | Specifies the language in which the resource is requested.
 
 try {
-    $result = $apiInstance->getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet($id_instance, $fields, $accept_language);
+    $result = $apiInstance->getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet($id_instance);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AFNORPDPPADirectoryServiceApi->getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet: ', $e->getMessage(), PHP_EOL;
@@ -436,8 +392,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id_instance** | **string**| AFNOR instance ID (UUID) | |
-| **fields** | [**string[]**](../Model/string.md)| Fields of the Routing Code resource | [optional] |
-| **accept_language** | [**\FactPulseSDKModelAcceptLanguage**](../Model/.md)| Specifies the language in which the resource is requested. | [optional] |
 
 ### Return type
 
@@ -445,7 +399,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -459,7 +413,7 @@ try {
 ## `getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet()`
 
 ```php
-getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet($siret, $routing_identifier, $fields, $include, $accept_language): \FactPulse\SDK\Model\AFNORRoutingCodePayloadHistoryLegalUnitFacility
+getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet($siret, $routing_identifier): \FactPulse\SDK\Model\AFNORRoutingCodePayloadHistoryLegalUnitFacility
 ```
 
 Get a routing code by SIRET and routing identifier
@@ -473,24 +427,17 @@ Retrieve the Routing Code data corresponding to the identifier passed in paramet
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: HTTPBearer
-$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $siret = 'siret_example'; // string | 14-digit SIRET number (INSEE establishment identifier)
 $routing_identifier = 'routing_identifier_example'; // string | Routing code identifier
-$fields = array('fields_example'); // string[] | Fields of the Routing Code resource
-$include = array(new \FactPulse\SDK\Model\\FactPulse\SDK\Model\RoutingCodeInclude()); // \FactPulse\SDK\Model\RoutingCodeInclude[] | Relations to include in the response.
-$accept_language = new \FactPulse\SDK\Model\\FactPulseSDKModelAcceptLanguage(); // \FactPulseSDKModelAcceptLanguage | Specifies the language in which the resource is requested.
 
 try {
-    $result = $apiInstance->getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet($siret, $routing_identifier, $fields, $include, $accept_language);
+    $result = $apiInstance->getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet($siret, $routing_identifier);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AFNORPDPPADirectoryServiceApi->getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet: ', $e->getMessage(), PHP_EOL;
@@ -503,9 +450,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **siret** | **string**| 14-digit SIRET number (INSEE establishment identifier) | |
 | **routing_identifier** | **string**| Routing code identifier | |
-| **fields** | [**string[]**](../Model/string.md)| Fields of the Routing Code resource | [optional] |
-| **include** | [**\FactPulse\SDK\Model\RoutingCodeInclude[]**](../Model/\FactPulse\SDK\Model\RoutingCodeInclude.md)| Relations to include in the response. | [optional] |
-| **accept_language** | [**\FactPulseSDKModelAcceptLanguage**](../Model/.md)| Specifies the language in which the resource is requested. | [optional] |
 
 ### Return type
 
@@ -513,7 +457,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -527,7 +471,7 @@ try {
 ## `getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet()`
 
 ```php
-getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet($siren, $fields, $accept_language): \FactPulse\SDK\Model\AFNORLegalUnitPayloadHistory
+getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet($siren): \FactPulse\SDK\Model\AFNORLegalUnitPayloadHistory
 ```
 
 Consult a siren (legal unit) by SIREN number
@@ -541,22 +485,16 @@ Returns the details of a company (legal unit) identified by the SIREN number pas
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: HTTPBearer
-$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $siren = 'siren_example'; // string | 9-digit SIREN number (INSEE company identifier)
-$fields = array('fields_example'); // string[] | Fields of the SIREN resource
-$accept_language = new \FactPulse\SDK\Model\\FactPulseSDKModelAcceptLanguage(); // \FactPulseSDKModelAcceptLanguage | Specifies the language in which the resource is requested.
 
 try {
-    $result = $apiInstance->getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet($siren, $fields, $accept_language);
+    $result = $apiInstance->getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet($siren);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AFNORPDPPADirectoryServiceApi->getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet: ', $e->getMessage(), PHP_EOL;
@@ -568,8 +506,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **siren** | **string**| 9-digit SIREN number (INSEE company identifier) | |
-| **fields** | [**string[]**](../Model/string.md)| Fields of the SIREN resource | [optional] |
-| **accept_language** | [**\FactPulseSDKModelAcceptLanguage**](../Model/.md)| Specifies the language in which the resource is requested. | [optional] |
 
 ### Return type
 
@@ -577,7 +513,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -591,7 +527,7 @@ try {
 ## `getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet()`
 
 ```php
-getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet($id_instance, $fields, $accept_language): \FactPulse\SDK\Model\AFNORLegalUnitPayloadHistory
+getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet($id_instance): \FactPulse\SDK\Model\AFNORLegalUnitPayloadHistory
 ```
 
 Gets a siren (legal unit) by instance ID
@@ -605,22 +541,16 @@ Returns the details of a company (legal unit) identified by the id-instance pass
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: HTTPBearer
-$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $id_instance = 'id_instance_example'; // string | AFNOR instance ID (UUID)
-$fields = array('fields_example'); // string[] | Fields of the SIREN resource
-$accept_language = new \FactPulse\SDK\Model\\FactPulseSDKModelAcceptLanguage(); // \FactPulseSDKModelAcceptLanguage | Specifies the language in which the resource is requested.
 
 try {
-    $result = $apiInstance->getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet($id_instance, $fields, $accept_language);
+    $result = $apiInstance->getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet($id_instance);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AFNORPDPPADirectoryServiceApi->getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet: ', $e->getMessage(), PHP_EOL;
@@ -632,8 +562,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id_instance** | **string**| AFNOR instance ID (UUID) | |
-| **fields** | [**string[]**](../Model/string.md)| Fields of the SIREN resource | [optional] |
-| **accept_language** | [**\FactPulseSDKModelAcceptLanguage**](../Model/.md)| Specifies the language in which the resource is requested. | [optional] |
 
 ### Return type
 
@@ -641,7 +569,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -655,7 +583,7 @@ try {
 ## `getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet()`
 
 ```php
-getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet($siret, $fields, $include, $accept_language): \FactPulse\SDK\Model\AFNORFacilityPayloadHistory
+getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet($siret): \FactPulse\SDK\Model\AFNORFacilityPayloadHistory
 ```
 
 Gets a siret (facility) by SIRET number
@@ -669,23 +597,16 @@ Returns the details of a facility associated to a SIRET.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: HTTPBearer
-$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $siret = 'siret_example'; // string | 14-digit SIRET number (INSEE establishment identifier)
-$fields = array('fields_example'); // string[] | Fields of a SIRET resource.
-$include = array(new \FactPulse\SDK\Model\\FactPulse\SDK\Model\SiretInclude()); // \FactPulse\SDK\Model\SiretInclude[] | Relations to include in the response.
-$accept_language = new \FactPulse\SDK\Model\\FactPulseSDKModelAcceptLanguage(); // \FactPulseSDKModelAcceptLanguage | Specifies the language in which the resource is requested.
 
 try {
-    $result = $apiInstance->getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet($siret, $fields, $include, $accept_language);
+    $result = $apiInstance->getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet($siret);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AFNORPDPPADirectoryServiceApi->getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet: ', $e->getMessage(), PHP_EOL;
@@ -697,9 +618,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **siret** | **string**| 14-digit SIRET number (INSEE establishment identifier) | |
-| **fields** | [**string[]**](../Model/string.md)| Fields of a SIRET resource. | [optional] |
-| **include** | [**\FactPulse\SDK\Model\SiretInclude[]**](../Model/\FactPulse\SDK\Model\SiretInclude.md)| Relations to include in the response. | [optional] |
-| **accept_language** | [**\FactPulseSDKModelAcceptLanguage**](../Model/.md)| Specifies the language in which the resource is requested. | [optional] |
 
 ### Return type
 
@@ -707,7 +625,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -721,7 +639,7 @@ try {
 ## `getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet()`
 
 ```php
-getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet($id_instance, $fields, $accept_language): \FactPulse\SDK\Model\AFNORFacilityPayloadHistory
+getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet($id_instance): \FactPulse\SDK\Model\AFNORFacilityPayloadHistory
 ```
 
 Gets a siret (facility) by id-instance
@@ -735,22 +653,16 @@ Returns the details of a facility according to an instance-id.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: HTTPBearer
-$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $id_instance = 'id_instance_example'; // string | AFNOR instance ID (UUID)
-$fields = array('fields_example'); // string[] | Fields of a SIRET resource.
-$accept_language = new \FactPulse\SDK\Model\\FactPulseSDKModelAcceptLanguage(); // \FactPulseSDKModelAcceptLanguage | Specifies the language in which the resource is requested.
 
 try {
-    $result = $apiInstance->getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet($id_instance, $fields, $accept_language);
+    $result = $apiInstance->getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet($id_instance);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AFNORPDPPADirectoryServiceApi->getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet: ', $e->getMessage(), PHP_EOL;
@@ -762,8 +674,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id_instance** | **string**| AFNOR instance ID (UUID) | |
-| **fields** | [**string[]**](../Model/string.md)| Fields of a SIRET resource. | [optional] |
-| **accept_language** | [**\FactPulseSDKModelAcceptLanguage**](../Model/.md)| Specifies the language in which the resource is requested. | [optional] |
 
 ### Return type
 
@@ -771,7 +681,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -785,7 +695,7 @@ try {
 ## `patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch()`
 
 ```php
-patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch($id_instance, $accept_language): \FactPulse\SDK\Model\AFNORDirectoryLinePost201Response
+patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch($id_instance): \FactPulse\SDK\Model\AFNORDirectoryLinePost201Response
 ```
 
 Partially updates a directory line..
@@ -799,21 +709,16 @@ Partially updates a directory line.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: HTTPBearer
-$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $id_instance = 'id_instance_example'; // string | AFNOR instance ID (UUID)
-$accept_language = new \FactPulse\SDK\Model\\FactPulseSDKModelAcceptLanguage(); // \FactPulseSDKModelAcceptLanguage | Specifies the language in which the resource is requested.
 
 try {
-    $result = $apiInstance->patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch($id_instance, $accept_language);
+    $result = $apiInstance->patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch($id_instance);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AFNORPDPPADirectoryServiceApi->patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch: ', $e->getMessage(), PHP_EOL;
@@ -825,7 +730,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id_instance** | **string**| AFNOR instance ID (UUID) | |
-| **accept_language** | [**\FactPulseSDKModelAcceptLanguage**](../Model/.md)| Specifies the language in which the resource is requested. | [optional] |
 
 ### Return type
 
@@ -833,7 +737,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -847,7 +751,7 @@ try {
 ## `patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch()`
 
 ```php
-patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch($id_instance, $accept_language): \FactPulse\SDK\Model\AFNORRoutingCodePost201Response
+patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch($id_instance): \FactPulse\SDK\Model\AFNORRoutingCodePost201Response
 ```
 
 Partially update a private routing code.
@@ -861,21 +765,16 @@ Partially update a private routing code.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: HTTPBearer
-$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $id_instance = 'id_instance_example'; // string | AFNOR instance ID (UUID)
-$accept_language = new \FactPulse\SDK\Model\\FactPulseSDKModelAcceptLanguage(); // \FactPulseSDKModelAcceptLanguage | Specifies the language in which the resource is requested.
 
 try {
-    $result = $apiInstance->patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch($id_instance, $accept_language);
+    $result = $apiInstance->patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch($id_instance);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AFNORPDPPADirectoryServiceApi->patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch: ', $e->getMessage(), PHP_EOL;
@@ -887,7 +786,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id_instance** | **string**| AFNOR instance ID (UUID) | |
-| **accept_language** | [**\FactPulseSDKModelAcceptLanguage**](../Model/.md)| Specifies the language in which the resource is requested. | [optional] |
 
 ### Return type
 
@@ -895,7 +793,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -909,7 +807,7 @@ try {
 ## `putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut()`
 
 ```php
-putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut($id_instance, $accept_language): \FactPulse\SDK\Model\AFNORRoutingCodePost201Response
+putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut($id_instance): \FactPulse\SDK\Model\AFNORRoutingCodePost201Response
 ```
 
 Completely update a private routing code.
@@ -923,21 +821,16 @@ Completely update a private routing code.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: HTTPBearer
-$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $id_instance = 'id_instance_example'; // string | AFNOR instance ID (UUID)
-$accept_language = new \FactPulse\SDK\Model\\FactPulseSDKModelAcceptLanguage(); // \FactPulseSDKModelAcceptLanguage | Specifies the language in which the resource is requested.
 
 try {
-    $result = $apiInstance->putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut($id_instance, $accept_language);
+    $result = $apiInstance->putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut($id_instance);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AFNORPDPPADirectoryServiceApi->putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut: ', $e->getMessage(), PHP_EOL;
@@ -949,7 +842,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id_instance** | **string**| AFNOR instance ID (UUID) | |
-| **accept_language** | [**\FactPulseSDKModelAcceptLanguage**](../Model/.md)| Specifies the language in which the resource is requested. | [optional] |
 
 ### Return type
 
@@ -957,7 +849,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -971,7 +863,7 @@ try {
 ## `searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost()`
 
 ```php
-searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost($accept_language): \FactPulse\SDK\Model\AFNORDirectoryLineSearchPost200Response
+searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost(): \FactPulse\SDK\Model\AFNORDirectoryLineSearchPost200Response
 ```
 
 Search for a directory line
@@ -985,20 +877,15 @@ Search for directory lines that meet all the criteria passed as parameters and r
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: HTTPBearer
-$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$accept_language = new \FactPulse\SDK\Model\\FactPulseSDKModelAcceptLanguage(); // \FactPulseSDKModelAcceptLanguage | Specifies the language in which the resource is requested.
 
 try {
-    $result = $apiInstance->searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost($accept_language);
+    $result = $apiInstance->searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AFNORPDPPADirectoryServiceApi->searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost: ', $e->getMessage(), PHP_EOL;
@@ -1007,9 +894,7 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **accept_language** | [**\FactPulseSDKModelAcceptLanguage**](../Model/.md)| Specifies the language in which the resource is requested. | [optional] |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -1017,7 +902,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -1031,7 +916,7 @@ try {
 ## `searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost()`
 
 ```php
-searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost($accept_language): \FactPulse\SDK\Model\AFNORRoutingCodeSearchPost200Response
+searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost(): \FactPulse\SDK\Model\AFNORRoutingCodeSearchPost200Response
 ```
 
 Search for a routing code
@@ -1045,20 +930,15 @@ Search for routing codes that meet all the criteria passed as parameters and ret
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: HTTPBearer
-$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$accept_language = new \FactPulse\SDK\Model\\FactPulseSDKModelAcceptLanguage(); // \FactPulseSDKModelAcceptLanguage | Specifies the language in which the resource is requested.
 
 try {
-    $result = $apiInstance->searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost($accept_language);
+    $result = $apiInstance->searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AFNORPDPPADirectoryServiceApi->searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost: ', $e->getMessage(), PHP_EOL;
@@ -1067,9 +947,7 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **accept_language** | [**\FactPulseSDKModelAcceptLanguage**](../Model/.md)| Specifies the language in which the resource is requested. | [optional] |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -1077,7 +955,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -1091,7 +969,7 @@ try {
 ## `searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost()`
 
 ```php
-searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost($accept_language): \FactPulse\SDK\Model\AFNORSirenSearchPost200Response
+searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost(): \FactPulse\SDK\Model\AFNORSirenSearchPost200Response
 ```
 
 SIREN search (or legal unit)
@@ -1105,20 +983,15 @@ Multi-criteria company search.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: HTTPBearer
-$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$accept_language = new \FactPulse\SDK\Model\\FactPulseSDKModelAcceptLanguage(); // \FactPulseSDKModelAcceptLanguage | Specifies the language in which the resource is requested.
 
 try {
-    $result = $apiInstance->searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost($accept_language);
+    $result = $apiInstance->searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AFNORPDPPADirectoryServiceApi->searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost: ', $e->getMessage(), PHP_EOL;
@@ -1127,9 +1000,7 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **accept_language** | [**\FactPulseSDKModelAcceptLanguage**](../Model/.md)| Specifies the language in which the resource is requested. | [optional] |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -1137,7 +1008,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -1151,7 +1022,7 @@ try {
 ## `searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost()`
 
 ```php
-searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost($accept_language): \FactPulse\SDK\Model\AFNORSiretSearchPost200Response
+searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost(): \FactPulse\SDK\Model\AFNORSiretSearchPost200Response
 ```
 
 Search for a SIRET (facility)
@@ -1165,20 +1036,15 @@ Multi-criteria search for facilities.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: HTTPBearer
-$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new FactPulse\SDK\Api\AFNORPDPPADirectoryServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$accept_language = new \FactPulse\SDK\Model\\FactPulseSDKModelAcceptLanguage(); // \FactPulseSDKModelAcceptLanguage | Specifies the language in which the resource is requested.
 
 try {
-    $result = $apiInstance->searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost($accept_language);
+    $result = $apiInstance->searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AFNORPDPPADirectoryServiceApi->searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost: ', $e->getMessage(), PHP_EOL;
@@ -1187,9 +1053,7 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **accept_language** | [**\FactPulseSDKModelAcceptLanguage**](../Model/.md)| Specifies the language in which the resource is requested. | [optional] |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -1197,7 +1061,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+No authorization required
 
 ### HTTP request headers
 

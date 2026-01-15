@@ -112,7 +112,6 @@ docs/Model/AFNORUpdatePutRoutingCodeBody.md
 docs/Model/AFNORWebhookCallbackContent.md
 docs/Model/APIError.md
 docs/Model/APIProfile.md
-docs/Model/AcceptLanguage.md
 docs/Model/AcknowledgmentStatus.md
 docs/Model/AdditionalDocument.md
 docs/Model/AggregatedPaymentInput.md
@@ -145,7 +144,6 @@ docs/Model/Currency.md
 docs/Model/CurrencyCode.md
 docs/Model/DeliveryParty.md
 docs/Model/Destination.md
-docs/Model/DirectoryLineInclude.md
 docs/Model/DocType.md
 docs/Model/DocumentTypeInfo.md
 docs/Model/EReportingFlowType.md
@@ -157,8 +155,8 @@ docs/Model/ErrorSource.md
 docs/Model/ExtractionInfo.md
 docs/Model/FacturXInvoice.md
 docs/Model/FacturXPDFInfo.md
+docs/Model/FactureElectroniqueRestApiSchemasChorusProChorusProCredentials.md
 docs/Model/FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCode.md
-docs/Model/FactureElectroniqueRestApiSchemasProcessingChorusProCredentials.md
 docs/Model/FieldStatus.md
 docs/Model/FileInfo.md
 docs/Model/FilesInfo.md
@@ -228,7 +226,6 @@ docs/Model/Recipient.md
 docs/Model/ReportPeriod.md
 docs/Model/ReportSender.md
 docs/Model/RoundingAmount.md
-docs/Model/RoutingCodeInclude.md
 docs/Model/SchematronValidationError.md
 docs/Model/SchemeID.md
 docs/Model/SearchFlowRequest.md
@@ -241,7 +238,6 @@ docs/Model/SignatureInfo.md
 docs/Model/SignatureInfoAPI.md
 docs/Model/SignatureParameters.md
 docs/Model/SimplifiedInvoiceData.md
-docs/Model/SiretInclude.md
 docs/Model/StructureInfo.md
 docs/Model/StructureParameters.md
 docs/Model/StructureService.md
@@ -406,7 +402,6 @@ lib/Model/AFNORUpdatePutRoutingCodeBody.php
 lib/Model/AFNORWebhookCallbackContent.php
 lib/Model/APIError.php
 lib/Model/APIProfile.php
-lib/Model/AcceptLanguage.php
 lib/Model/AcknowledgmentStatus.php
 lib/Model/AdditionalDocument.php
 lib/Model/AggregatedPaymentInput.php
@@ -439,7 +434,6 @@ lib/Model/Currency.php
 lib/Model/CurrencyCode.php
 lib/Model/DeliveryParty.php
 lib/Model/Destination.php
-lib/Model/DirectoryLineInclude.php
 lib/Model/DocType.php
 lib/Model/DocumentTypeInfo.php
 lib/Model/EReportingFlowType.php
@@ -451,8 +445,8 @@ lib/Model/ErrorSource.php
 lib/Model/ExtractionInfo.php
 lib/Model/FacturXInvoice.php
 lib/Model/FacturXPDFInfo.php
+lib/Model/FactureElectroniqueRestApiSchemasChorusProChorusProCredentials.php
 lib/Model/FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCode.php
-lib/Model/FactureElectroniqueRestApiSchemasProcessingChorusProCredentials.php
 lib/Model/FieldStatus.php
 lib/Model/FileInfo.php
 lib/Model/FilesInfo.php
@@ -523,7 +517,6 @@ lib/Model/Recipient.php
 lib/Model/ReportPeriod.php
 lib/Model/ReportSender.php
 lib/Model/RoundingAmount.php
-lib/Model/RoutingCodeInclude.php
 lib/Model/SchematronValidationError.php
 lib/Model/SchemeID.php
 lib/Model/SearchFlowRequest.php
@@ -536,7 +529,6 @@ lib/Model/SignatureInfo.php
 lib/Model/SignatureInfoAPI.php
 lib/Model/SignatureParameters.php
 lib/Model/SimplifiedInvoiceData.php
-lib/Model/SiretInclude.php
 lib/Model/StructureInfo.php
 lib/Model/StructureParameters.php
 lib/Model/StructureService.php
@@ -698,7 +690,6 @@ test/Model/AFNORUpdatePutRoutingCodeBodyTest.php
 test/Model/AFNORWebhookCallbackContentTest.php
 test/Model/APIErrorTest.php
 test/Model/APIProfileTest.php
-test/Model/AcceptLanguageTest.php
 test/Model/AcknowledgmentStatusTest.php
 test/Model/AdditionalDocumentTest.php
 test/Model/AggregatedPaymentInputTest.php
@@ -731,7 +722,6 @@ test/Model/CurrencyCodeTest.php
 test/Model/CurrencyTest.php
 test/Model/DeliveryPartyTest.php
 test/Model/DestinationTest.php
-test/Model/DirectoryLineIncludeTest.php
 test/Model/DocTypeTest.php
 test/Model/DocumentTypeInfoTest.php
 test/Model/EReportingFlowTypeTest.php
@@ -743,8 +733,8 @@ test/Model/ErrorSourceTest.php
 test/Model/ExtractionInfoTest.php
 test/Model/FacturXInvoiceTest.php
 test/Model/FacturXPDFInfoTest.php
+test/Model/FactureElectroniqueRestApiSchemasChorusProChorusProCredentialsTest.php
 test/Model/FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCodeTest.php
-test/Model/FactureElectroniqueRestApiSchemasProcessingChorusProCredentialsTest.php
 test/Model/FieldStatusTest.php
 test/Model/FileInfoTest.php
 test/Model/FilesInfoTest.php
@@ -814,7 +804,6 @@ test/Model/RecipientTest.php
 test/Model/ReportPeriodTest.php
 test/Model/ReportSenderTest.php
 test/Model/RoundingAmountTest.php
-test/Model/RoutingCodeIncludeTest.php
 test/Model/SchematronValidationErrorTest.php
 test/Model/SchemeIDTest.php
 test/Model/SearchFlowRequestTest.php
@@ -827,7 +816,6 @@ test/Model/SignatureInfoAPITest.php
 test/Model/SignatureInfoTest.php
 test/Model/SignatureParametersTest.php
 test/Model/SimplifiedInvoiceDataTest.php
-test/Model/SiretIncludeTest.php
 test/Model/StructureInfoTest.php
 test/Model/StructureParametersTest.php
 test/Model/StructureServiceTest.php

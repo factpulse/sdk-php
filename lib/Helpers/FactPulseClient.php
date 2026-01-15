@@ -426,13 +426,15 @@ class FactPulseClient {
      * Searches AFNOR invoice flows.
      */
     public function searchFlowsAfnor(array $criteria = []): array {
+        $where = new \stdClass();  // Force JSON object {} instead of array []
+        if (isset($criteria['trackingId'])) $where->trackingId = $criteria['trackingId'];
+        if (isset($criteria['status'])) $where->status = $criteria['status'];
+
         $searchBody = [
             'offset' => $criteria['offset'] ?? 0,
             'limit' => $criteria['limit'] ?? 25,
-            'where' => [],
+            'where' => $where,
         ];
-        if (isset($criteria['trackingId'])) $searchBody['where']['trackingId'] = $criteria['trackingId'];
-        if (isset($criteria['status'])) $searchBody['where']['status'] = $criteria['status'];
 
         return $this->makeAfnorRequest('POST', '/flow/v1/flows/search', $searchBody);
     }
@@ -472,7 +474,8 @@ class FactPulseClient {
      * Searches for legal units (SIREN) in the AFNOR directory.
      */
     public function searchSirenAfnor(array $filters = [], int $limit = 25): array {
-        $searchBody = ['filters' => $filters, 'limit' => $limit];
+        // Force JSON object {} for empty filters instead of array []
+        $searchBody = ['filters' => empty($filters) ? new \stdClass() : $filters, 'limit' => $limit];
         return $this->makeAfnorRequest('POST', '/directory/v1/siren/search', $searchBody);
     }
 
@@ -480,7 +483,8 @@ class FactPulseClient {
      * Searches for routing codes in the AFNOR directory.
      */
     public function searchRoutingCodesAfnor(array $filters = [], int $limit = 25): array {
-        $searchBody = ['filters' => $filters, 'limit' => $limit];
+        // Force JSON object {} for empty filters instead of array []
+        $searchBody = ['filters' => empty($filters) ? new \stdClass() : $filters, 'limit' => $limit];
         return $this->makeAfnorRequest('POST', '/directory/v1/routing-code/search', $searchBody);
     }
 

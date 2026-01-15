@@ -185,16 +185,15 @@ class AFNORPDPPADirectoryServiceApi
      *
      * Creating a directory line
      *
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return mixed|\FactPulse\SDK\Model\AFNORDirectoryLinePost201Response
      */
-    public function createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost($accept_language = null, string $contentType = self::contentTypes['createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost'][0])
+    public function createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost(string $contentType = self::contentTypes['createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost'][0])
     {
-        list($response) = $this->createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePostWithHttpInfo($accept_language, $contentType);
+        list($response) = $this->createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePostWithHttpInfo($contentType);
         return $response;
     }
 
@@ -203,16 +202,15 @@ class AFNORPDPPADirectoryServiceApi
      *
      * Creating a directory line
      *
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of mixed|\FactPulse\SDK\Model\AFNORDirectoryLinePost201Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePostWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost'][0])
+    public function createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePostWithHttpInfo(string $contentType = self::contentTypes['createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost'][0])
     {
-        $request = $this->createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePostRequest($accept_language, $contentType);
+        $request = $this->createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePostRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -302,15 +300,14 @@ class AFNORPDPPADirectoryServiceApi
      *
      * Creating a directory line
      *
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePostAsync($accept_language = null, string $contentType = self::contentTypes['createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost'][0])
+    public function createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePostAsync(string $contentType = self::contentTypes['createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost'][0])
     {
-        return $this->createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePostAsyncWithHttpInfo($accept_language, $contentType)
+        return $this->createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePostAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -323,16 +320,15 @@ class AFNORPDPPADirectoryServiceApi
      *
      * Creating a directory line
      *
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePostAsyncWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost'][0])
+    public function createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePostAsyncWithHttpInfo(string $contentType = self::contentTypes['createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost'][0])
     {
         $returnType = 'mixed';
-        $request = $this->createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePostRequest($accept_language, $contentType);
+        $request = $this->createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePostRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -373,15 +369,13 @@ class AFNORPDPPADirectoryServiceApi
     /**
      * Create request for operation 'createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost'
      *
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePostRequest($accept_language = null, string $contentType = self::contentTypes['createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost'][0])
+    public function createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePostRequest(string $contentType = self::contentTypes['createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost'][0])
     {
-
 
 
         $resourcePath = '/api/v1/afnor/directory/v1/directory-line';
@@ -392,10 +386,6 @@ class AFNORPDPPADirectoryServiceApi
         $multipart = false;
 
 
-        // header params
-        if ($accept_language !== null) {
-            $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
-        }
 
 
 
@@ -430,10 +420,6 @@ class AFNORPDPPADirectoryServiceApi
             }
         }
 
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -461,16 +447,15 @@ class AFNORPDPPADirectoryServiceApi
      *
      * Create a routing code
      *
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return mixed|\FactPulse\SDK\Model\AFNORRoutingCodePost201Response
      */
-    public function createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost($accept_language = null, string $contentType = self::contentTypes['createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost'][0])
+    public function createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost(string $contentType = self::contentTypes['createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost'][0])
     {
-        list($response) = $this->createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePostWithHttpInfo($accept_language, $contentType);
+        list($response) = $this->createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePostWithHttpInfo($contentType);
         return $response;
     }
 
@@ -479,16 +464,15 @@ class AFNORPDPPADirectoryServiceApi
      *
      * Create a routing code
      *
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of mixed|\FactPulse\SDK\Model\AFNORRoutingCodePost201Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePostWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost'][0])
+    public function createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePostWithHttpInfo(string $contentType = self::contentTypes['createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost'][0])
     {
-        $request = $this->createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePostRequest($accept_language, $contentType);
+        $request = $this->createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePostRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -578,15 +562,14 @@ class AFNORPDPPADirectoryServiceApi
      *
      * Create a routing code
      *
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePostAsync($accept_language = null, string $contentType = self::contentTypes['createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost'][0])
+    public function createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePostAsync(string $contentType = self::contentTypes['createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost'][0])
     {
-        return $this->createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePostAsyncWithHttpInfo($accept_language, $contentType)
+        return $this->createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePostAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -599,16 +582,15 @@ class AFNORPDPPADirectoryServiceApi
      *
      * Create a routing code
      *
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePostAsyncWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost'][0])
+    public function createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePostAsyncWithHttpInfo(string $contentType = self::contentTypes['createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost'][0])
     {
         $returnType = 'mixed';
-        $request = $this->createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePostRequest($accept_language, $contentType);
+        $request = $this->createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePostRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -649,15 +631,13 @@ class AFNORPDPPADirectoryServiceApi
     /**
      * Create request for operation 'createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost'
      *
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePostRequest($accept_language = null, string $contentType = self::contentTypes['createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost'][0])
+    public function createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePostRequest(string $contentType = self::contentTypes['createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost'][0])
     {
-
 
 
         $resourcePath = '/api/v1/afnor/directory/v1/routing-code';
@@ -668,10 +648,6 @@ class AFNORPDPPADirectoryServiceApi
         $multipart = false;
 
 
-        // header params
-        if ($accept_language !== null) {
-            $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
-        }
 
 
 
@@ -706,10 +682,6 @@ class AFNORPDPPADirectoryServiceApi
             }
         }
 
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -738,16 +710,15 @@ class AFNORPDPPADirectoryServiceApi
      * Delete a directory line
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return mixed
      */
-    public function deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete($id_instance, $accept_language = null, string $contentType = self::contentTypes['deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete'][0])
+    public function deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete($id_instance, string $contentType = self::contentTypes['deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete'][0])
     {
-        list($response) = $this->deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDeleteWithHttpInfo($id_instance, $accept_language, $contentType);
+        list($response) = $this->deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDeleteWithHttpInfo($id_instance, $contentType);
         return $response;
     }
 
@@ -757,16 +728,15 @@ class AFNORPDPPADirectoryServiceApi
      * Delete a directory line
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of mixed, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDeleteWithHttpInfo($id_instance, $accept_language = null, string $contentType = self::contentTypes['deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete'][0])
+    public function deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDeleteWithHttpInfo($id_instance, string $contentType = self::contentTypes['deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete'][0])
     {
-        $request = $this->deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDeleteRequest($id_instance, $accept_language, $contentType);
+        $request = $this->deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDeleteRequest($id_instance, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -843,15 +813,14 @@ class AFNORPDPPADirectoryServiceApi
      * Delete a directory line
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDeleteAsync($id_instance, $accept_language = null, string $contentType = self::contentTypes['deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete'][0])
+    public function deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDeleteAsync($id_instance, string $contentType = self::contentTypes['deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete'][0])
     {
-        return $this->deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDeleteAsyncWithHttpInfo($id_instance, $accept_language, $contentType)
+        return $this->deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDeleteAsyncWithHttpInfo($id_instance, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -865,16 +834,15 @@ class AFNORPDPPADirectoryServiceApi
      * Delete a directory line
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDeleteAsyncWithHttpInfo($id_instance, $accept_language = null, string $contentType = self::contentTypes['deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete'][0])
+    public function deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDeleteAsyncWithHttpInfo($id_instance, string $contentType = self::contentTypes['deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete'][0])
     {
         $returnType = 'mixed';
-        $request = $this->deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDeleteRequest($id_instance, $accept_language, $contentType);
+        $request = $this->deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDeleteRequest($id_instance, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -916,13 +884,12 @@ class AFNORPDPPADirectoryServiceApi
      * Create request for operation 'deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete'
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDeleteRequest($id_instance, $accept_language = null, string $contentType = self::contentTypes['deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete'][0])
+    public function deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDeleteRequest($id_instance, string $contentType = self::contentTypes['deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete'][0])
     {
 
         // verify the required parameter 'id_instance' is set
@@ -933,7 +900,6 @@ class AFNORPDPPADirectoryServiceApi
         }
 
 
-
         $resourcePath = '/api/v1/afnor/directory/v1/directory-line/id-instance:{id_instance}';
         $formParams = [];
         $queryParams = [];
@@ -942,10 +908,6 @@ class AFNORPDPPADirectoryServiceApi
         $multipart = false;
 
 
-        // header params
-        if ($accept_language !== null) {
-            $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
-        }
 
         // path params
         if ($id_instance !== null) {
@@ -988,10 +950,6 @@ class AFNORPDPPADirectoryServiceApi
             }
         }
 
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1268,18 +1226,15 @@ class AFNORPDPPADirectoryServiceApi
      * Get a directory line.
      *
      * @param  string $addressing_identifier Addressing identifier (SIREN, SIRET or routing code) (required)
-     * @param  string[]|null $fields Fields of the Directory Line resource. (optional)
-     * @param  \FactPulse\SDK\Model\DirectoryLineInclude[]|null $include Relations to include in the response. (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \FactPulse\SDK\Model\AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCode
      */
-    public function getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet($addressing_identifier, $fields = null, $include = null, $accept_language = null, string $contentType = self::contentTypes['getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet'][0])
+    public function getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet($addressing_identifier, string $contentType = self::contentTypes['getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet'][0])
     {
-        list($response) = $this->getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGetWithHttpInfo($addressing_identifier, $fields, $include, $accept_language, $contentType);
+        list($response) = $this->getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGetWithHttpInfo($addressing_identifier, $contentType);
         return $response;
     }
 
@@ -1289,18 +1244,15 @@ class AFNORPDPPADirectoryServiceApi
      * Get a directory line.
      *
      * @param  string $addressing_identifier Addressing identifier (SIREN, SIRET or routing code) (required)
-     * @param  string[]|null $fields Fields of the Directory Line resource. (optional)
-     * @param  \FactPulse\SDK\Model\DirectoryLineInclude[]|null $include Relations to include in the response. (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \FactPulse\SDK\Model\AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCode, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGetWithHttpInfo($addressing_identifier, $fields = null, $include = null, $accept_language = null, string $contentType = self::contentTypes['getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet'][0])
+    public function getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGetWithHttpInfo($addressing_identifier, string $contentType = self::contentTypes['getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet'][0])
     {
-        $request = $this->getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGetRequest($addressing_identifier, $fields, $include, $accept_language, $contentType);
+        $request = $this->getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGetRequest($addressing_identifier, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1377,17 +1329,14 @@ class AFNORPDPPADirectoryServiceApi
      * Get a directory line.
      *
      * @param  string $addressing_identifier Addressing identifier (SIREN, SIRET or routing code) (required)
-     * @param  string[]|null $fields Fields of the Directory Line resource. (optional)
-     * @param  \FactPulse\SDK\Model\DirectoryLineInclude[]|null $include Relations to include in the response. (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGetAsync($addressing_identifier, $fields = null, $include = null, $accept_language = null, string $contentType = self::contentTypes['getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet'][0])
+    public function getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGetAsync($addressing_identifier, string $contentType = self::contentTypes['getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet'][0])
     {
-        return $this->getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGetAsyncWithHttpInfo($addressing_identifier, $fields, $include, $accept_language, $contentType)
+        return $this->getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGetAsyncWithHttpInfo($addressing_identifier, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1401,18 +1350,15 @@ class AFNORPDPPADirectoryServiceApi
      * Get a directory line.
      *
      * @param  string $addressing_identifier Addressing identifier (SIREN, SIRET or routing code) (required)
-     * @param  string[]|null $fields Fields of the Directory Line resource. (optional)
-     * @param  \FactPulse\SDK\Model\DirectoryLineInclude[]|null $include Relations to include in the response. (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGetAsyncWithHttpInfo($addressing_identifier, $fields = null, $include = null, $accept_language = null, string $contentType = self::contentTypes['getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet'][0])
+    public function getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGetAsyncWithHttpInfo($addressing_identifier, string $contentType = self::contentTypes['getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet'][0])
     {
         $returnType = '\FactPulse\SDK\Model\AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCode';
-        $request = $this->getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGetRequest($addressing_identifier, $fields, $include, $accept_language, $contentType);
+        $request = $this->getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGetRequest($addressing_identifier, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1454,15 +1400,12 @@ class AFNORPDPPADirectoryServiceApi
      * Create request for operation 'getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet'
      *
      * @param  string $addressing_identifier Addressing identifier (SIREN, SIRET or routing code) (required)
-     * @param  string[]|null $fields Fields of the Directory Line resource. (optional)
-     * @param  \FactPulse\SDK\Model\DirectoryLineInclude[]|null $include Relations to include in the response. (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGetRequest($addressing_identifier, $fields = null, $include = null, $accept_language = null, string $contentType = self::contentTypes['getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet'][0])
+    public function getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGetRequest($addressing_identifier, string $contentType = self::contentTypes['getDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet'][0])
     {
 
         // verify the required parameter 'addressing_identifier' is set
@@ -1473,9 +1416,6 @@ class AFNORPDPPADirectoryServiceApi
         }
 
 
-
-
-
         $resourcePath = '/api/v1/afnor/directory/v1/directory-line/code:{addressing_identifier}';
         $formParams = [];
         $queryParams = [];
@@ -1483,29 +1423,7 @@ class AFNORPDPPADirectoryServiceApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $fields,
-            'fields', // param base name
-            'array', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $include,
-            'include', // param base name
-            'array', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
 
-        // header params
-        if ($accept_language !== null) {
-            $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
-        }
 
         // path params
         if ($addressing_identifier !== null) {
@@ -1548,10 +1466,6 @@ class AFNORPDPPADirectoryServiceApi
             }
         }
 
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1580,17 +1494,15 @@ class AFNORPDPPADirectoryServiceApi
      * Get a directory line.
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  string[]|null $fields Fields of the Directory Line resource. (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \FactPulse\SDK\Model\AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCode
      */
-    public function getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet($id_instance, $fields = null, $accept_language = null, string $contentType = self::contentTypes['getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet'][0])
+    public function getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet($id_instance, string $contentType = self::contentTypes['getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet'][0])
     {
-        list($response) = $this->getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGetWithHttpInfo($id_instance, $fields, $accept_language, $contentType);
+        list($response) = $this->getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGetWithHttpInfo($id_instance, $contentType);
         return $response;
     }
 
@@ -1600,17 +1512,15 @@ class AFNORPDPPADirectoryServiceApi
      * Get a directory line.
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  string[]|null $fields Fields of the Directory Line resource. (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \FactPulse\SDK\Model\AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCode, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGetWithHttpInfo($id_instance, $fields = null, $accept_language = null, string $contentType = self::contentTypes['getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet'][0])
+    public function getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGetWithHttpInfo($id_instance, string $contentType = self::contentTypes['getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet'][0])
     {
-        $request = $this->getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGetRequest($id_instance, $fields, $accept_language, $contentType);
+        $request = $this->getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGetRequest($id_instance, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1687,16 +1597,14 @@ class AFNORPDPPADirectoryServiceApi
      * Get a directory line.
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  string[]|null $fields Fields of the Directory Line resource. (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGetAsync($id_instance, $fields = null, $accept_language = null, string $contentType = self::contentTypes['getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet'][0])
+    public function getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGetAsync($id_instance, string $contentType = self::contentTypes['getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet'][0])
     {
-        return $this->getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGetAsyncWithHttpInfo($id_instance, $fields, $accept_language, $contentType)
+        return $this->getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGetAsyncWithHttpInfo($id_instance, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1710,17 +1618,15 @@ class AFNORPDPPADirectoryServiceApi
      * Get a directory line.
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  string[]|null $fields Fields of the Directory Line resource. (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGetAsyncWithHttpInfo($id_instance, $fields = null, $accept_language = null, string $contentType = self::contentTypes['getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet'][0])
+    public function getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGetAsyncWithHttpInfo($id_instance, string $contentType = self::contentTypes['getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet'][0])
     {
         $returnType = '\FactPulse\SDK\Model\AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCode';
-        $request = $this->getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGetRequest($id_instance, $fields, $accept_language, $contentType);
+        $request = $this->getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGetRequest($id_instance, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1762,14 +1668,12 @@ class AFNORPDPPADirectoryServiceApi
      * Create request for operation 'getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet'
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  string[]|null $fields Fields of the Directory Line resource. (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGetRequest($id_instance, $fields = null, $accept_language = null, string $contentType = self::contentTypes['getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet'][0])
+    public function getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGetRequest($id_instance, string $contentType = self::contentTypes['getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet'][0])
     {
 
         // verify the required parameter 'id_instance' is set
@@ -1780,8 +1684,6 @@ class AFNORPDPPADirectoryServiceApi
         }
 
 
-
-
         $resourcePath = '/api/v1/afnor/directory/v1/directory-line/id-instance:{id_instance}';
         $formParams = [];
         $queryParams = [];
@@ -1789,20 +1691,7 @@ class AFNORPDPPADirectoryServiceApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $fields,
-            'fields', // param base name
-            'array', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
 
-        // header params
-        if ($accept_language !== null) {
-            $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
-        }
 
         // path params
         if ($id_instance !== null) {
@@ -1845,10 +1734,6 @@ class AFNORPDPPADirectoryServiceApi
             }
         }
 
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1877,17 +1762,15 @@ class AFNORPDPPADirectoryServiceApi
      * Get a routing code by instance-id.
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  string[]|null $fields Fields of the Routing Code resource (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \FactPulse\SDK\Model\AFNORRoutingCodePayloadHistoryLegalUnitFacility
      */
-    public function getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet($id_instance, $fields = null, $accept_language = null, string $contentType = self::contentTypes['getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet'][0])
+    public function getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet($id_instance, string $contentType = self::contentTypes['getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet'][0])
     {
-        list($response) = $this->getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGetWithHttpInfo($id_instance, $fields, $accept_language, $contentType);
+        list($response) = $this->getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGetWithHttpInfo($id_instance, $contentType);
         return $response;
     }
 
@@ -1897,17 +1780,15 @@ class AFNORPDPPADirectoryServiceApi
      * Get a routing code by instance-id.
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  string[]|null $fields Fields of the Routing Code resource (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \FactPulse\SDK\Model\AFNORRoutingCodePayloadHistoryLegalUnitFacility, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGetWithHttpInfo($id_instance, $fields = null, $accept_language = null, string $contentType = self::contentTypes['getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet'][0])
+    public function getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGetWithHttpInfo($id_instance, string $contentType = self::contentTypes['getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet'][0])
     {
-        $request = $this->getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGetRequest($id_instance, $fields, $accept_language, $contentType);
+        $request = $this->getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGetRequest($id_instance, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1984,16 +1865,14 @@ class AFNORPDPPADirectoryServiceApi
      * Get a routing code by instance-id.
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  string[]|null $fields Fields of the Routing Code resource (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGetAsync($id_instance, $fields = null, $accept_language = null, string $contentType = self::contentTypes['getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet'][0])
+    public function getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGetAsync($id_instance, string $contentType = self::contentTypes['getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet'][0])
     {
-        return $this->getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGetAsyncWithHttpInfo($id_instance, $fields, $accept_language, $contentType)
+        return $this->getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGetAsyncWithHttpInfo($id_instance, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2007,17 +1886,15 @@ class AFNORPDPPADirectoryServiceApi
      * Get a routing code by instance-id.
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  string[]|null $fields Fields of the Routing Code resource (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGetAsyncWithHttpInfo($id_instance, $fields = null, $accept_language = null, string $contentType = self::contentTypes['getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet'][0])
+    public function getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGetAsyncWithHttpInfo($id_instance, string $contentType = self::contentTypes['getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet'][0])
     {
         $returnType = '\FactPulse\SDK\Model\AFNORRoutingCodePayloadHistoryLegalUnitFacility';
-        $request = $this->getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGetRequest($id_instance, $fields, $accept_language, $contentType);
+        $request = $this->getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGetRequest($id_instance, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2059,14 +1936,12 @@ class AFNORPDPPADirectoryServiceApi
      * Create request for operation 'getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet'
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  string[]|null $fields Fields of the Routing Code resource (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGetRequest($id_instance, $fields = null, $accept_language = null, string $contentType = self::contentTypes['getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet'][0])
+    public function getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGetRequest($id_instance, string $contentType = self::contentTypes['getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet'][0])
     {
 
         // verify the required parameter 'id_instance' is set
@@ -2077,8 +1952,6 @@ class AFNORPDPPADirectoryServiceApi
         }
 
 
-
-
         $resourcePath = '/api/v1/afnor/directory/v1/routing-code/id-instance:{id_instance}';
         $formParams = [];
         $queryParams = [];
@@ -2086,20 +1959,7 @@ class AFNORPDPPADirectoryServiceApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $fields,
-            'fields', // param base name
-            'array', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
 
-        // header params
-        if ($accept_language !== null) {
-            $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
-        }
 
         // path params
         if ($id_instance !== null) {
@@ -2142,10 +2002,6 @@ class AFNORPDPPADirectoryServiceApi
             }
         }
 
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2175,18 +2031,15 @@ class AFNORPDPPADirectoryServiceApi
      *
      * @param  string $siret 14-digit SIRET number (INSEE establishment identifier) (required)
      * @param  string $routing_identifier Routing code identifier (required)
-     * @param  string[]|null $fields Fields of the Routing Code resource (optional)
-     * @param  \FactPulse\SDK\Model\RoutingCodeInclude[]|null $include Relations to include in the response. (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \FactPulse\SDK\Model\AFNORRoutingCodePayloadHistoryLegalUnitFacility
      */
-    public function getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet($siret, $routing_identifier, $fields = null, $include = null, $accept_language = null, string $contentType = self::contentTypes['getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet'][0])
+    public function getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet($siret, $routing_identifier, string $contentType = self::contentTypes['getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet'][0])
     {
-        list($response) = $this->getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGetWithHttpInfo($siret, $routing_identifier, $fields, $include, $accept_language, $contentType);
+        list($response) = $this->getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGetWithHttpInfo($siret, $routing_identifier, $contentType);
         return $response;
     }
 
@@ -2197,18 +2050,15 @@ class AFNORPDPPADirectoryServiceApi
      *
      * @param  string $siret 14-digit SIRET number (INSEE establishment identifier) (required)
      * @param  string $routing_identifier Routing code identifier (required)
-     * @param  string[]|null $fields Fields of the Routing Code resource (optional)
-     * @param  \FactPulse\SDK\Model\RoutingCodeInclude[]|null $include Relations to include in the response. (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \FactPulse\SDK\Model\AFNORRoutingCodePayloadHistoryLegalUnitFacility, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGetWithHttpInfo($siret, $routing_identifier, $fields = null, $include = null, $accept_language = null, string $contentType = self::contentTypes['getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet'][0])
+    public function getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGetWithHttpInfo($siret, $routing_identifier, string $contentType = self::contentTypes['getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet'][0])
     {
-        $request = $this->getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGetRequest($siret, $routing_identifier, $fields, $include, $accept_language, $contentType);
+        $request = $this->getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGetRequest($siret, $routing_identifier, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2286,17 +2136,14 @@ class AFNORPDPPADirectoryServiceApi
      *
      * @param  string $siret 14-digit SIRET number (INSEE establishment identifier) (required)
      * @param  string $routing_identifier Routing code identifier (required)
-     * @param  string[]|null $fields Fields of the Routing Code resource (optional)
-     * @param  \FactPulse\SDK\Model\RoutingCodeInclude[]|null $include Relations to include in the response. (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGetAsync($siret, $routing_identifier, $fields = null, $include = null, $accept_language = null, string $contentType = self::contentTypes['getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet'][0])
+    public function getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGetAsync($siret, $routing_identifier, string $contentType = self::contentTypes['getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet'][0])
     {
-        return $this->getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGetAsyncWithHttpInfo($siret, $routing_identifier, $fields, $include, $accept_language, $contentType)
+        return $this->getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGetAsyncWithHttpInfo($siret, $routing_identifier, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2311,18 +2158,15 @@ class AFNORPDPPADirectoryServiceApi
      *
      * @param  string $siret 14-digit SIRET number (INSEE establishment identifier) (required)
      * @param  string $routing_identifier Routing code identifier (required)
-     * @param  string[]|null $fields Fields of the Routing Code resource (optional)
-     * @param  \FactPulse\SDK\Model\RoutingCodeInclude[]|null $include Relations to include in the response. (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGetAsyncWithHttpInfo($siret, $routing_identifier, $fields = null, $include = null, $accept_language = null, string $contentType = self::contentTypes['getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet'][0])
+    public function getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGetAsyncWithHttpInfo($siret, $routing_identifier, string $contentType = self::contentTypes['getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet'][0])
     {
         $returnType = '\FactPulse\SDK\Model\AFNORRoutingCodePayloadHistoryLegalUnitFacility';
-        $request = $this->getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGetRequest($siret, $routing_identifier, $fields, $include, $accept_language, $contentType);
+        $request = $this->getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGetRequest($siret, $routing_identifier, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2365,15 +2209,12 @@ class AFNORPDPPADirectoryServiceApi
      *
      * @param  string $siret 14-digit SIRET number (INSEE establishment identifier) (required)
      * @param  string $routing_identifier Routing code identifier (required)
-     * @param  string[]|null $fields Fields of the Routing Code resource (optional)
-     * @param  \FactPulse\SDK\Model\RoutingCodeInclude[]|null $include Relations to include in the response. (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGetRequest($siret, $routing_identifier, $fields = null, $include = null, $accept_language = null, string $contentType = self::contentTypes['getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet'][0])
+    public function getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGetRequest($siret, $routing_identifier, string $contentType = self::contentTypes['getRoutingCodeBySiretAndCodeProxyApiV1AfnorDirectoryV1RoutingCodeSiretSiretCodeRoutingIdentifierGet'][0])
     {
 
         // verify the required parameter 'siret' is set
@@ -2391,9 +2232,6 @@ class AFNORPDPPADirectoryServiceApi
         }
 
 
-
-
-
         $resourcePath = '/api/v1/afnor/directory/v1/routing-code/siret:{siret}/code:{routing_identifier}';
         $formParams = [];
         $queryParams = [];
@@ -2401,29 +2239,7 @@ class AFNORPDPPADirectoryServiceApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $fields,
-            'fields', // param base name
-            'array', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $include,
-            'include', // param base name
-            'array', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
 
-        // header params
-        if ($accept_language !== null) {
-            $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
-        }
 
         // path params
         if ($siret !== null) {
@@ -2474,10 +2290,6 @@ class AFNORPDPPADirectoryServiceApi
             }
         }
 
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2506,17 +2318,15 @@ class AFNORPDPPADirectoryServiceApi
      * Consult a siren (legal unit) by SIREN number
      *
      * @param  string $siren 9-digit SIREN number (INSEE company identifier) (required)
-     * @param  string[]|null $fields Fields of the SIREN resource (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \FactPulse\SDK\Model\AFNORLegalUnitPayloadHistory
      */
-    public function getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet($siren, $fields = null, $accept_language = null, string $contentType = self::contentTypes['getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet'][0])
+    public function getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet($siren, string $contentType = self::contentTypes['getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet'][0])
     {
-        list($response) = $this->getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGetWithHttpInfo($siren, $fields, $accept_language, $contentType);
+        list($response) = $this->getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGetWithHttpInfo($siren, $contentType);
         return $response;
     }
 
@@ -2526,17 +2336,15 @@ class AFNORPDPPADirectoryServiceApi
      * Consult a siren (legal unit) by SIREN number
      *
      * @param  string $siren 9-digit SIREN number (INSEE company identifier) (required)
-     * @param  string[]|null $fields Fields of the SIREN resource (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \FactPulse\SDK\Model\AFNORLegalUnitPayloadHistory, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGetWithHttpInfo($siren, $fields = null, $accept_language = null, string $contentType = self::contentTypes['getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet'][0])
+    public function getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGetWithHttpInfo($siren, string $contentType = self::contentTypes['getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet'][0])
     {
-        $request = $this->getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGetRequest($siren, $fields, $accept_language, $contentType);
+        $request = $this->getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGetRequest($siren, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2613,16 +2421,14 @@ class AFNORPDPPADirectoryServiceApi
      * Consult a siren (legal unit) by SIREN number
      *
      * @param  string $siren 9-digit SIREN number (INSEE company identifier) (required)
-     * @param  string[]|null $fields Fields of the SIREN resource (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGetAsync($siren, $fields = null, $accept_language = null, string $contentType = self::contentTypes['getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet'][0])
+    public function getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGetAsync($siren, string $contentType = self::contentTypes['getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet'][0])
     {
-        return $this->getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGetAsyncWithHttpInfo($siren, $fields, $accept_language, $contentType)
+        return $this->getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGetAsyncWithHttpInfo($siren, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2636,17 +2442,15 @@ class AFNORPDPPADirectoryServiceApi
      * Consult a siren (legal unit) by SIREN number
      *
      * @param  string $siren 9-digit SIREN number (INSEE company identifier) (required)
-     * @param  string[]|null $fields Fields of the SIREN resource (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGetAsyncWithHttpInfo($siren, $fields = null, $accept_language = null, string $contentType = self::contentTypes['getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet'][0])
+    public function getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGetAsyncWithHttpInfo($siren, string $contentType = self::contentTypes['getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet'][0])
     {
         $returnType = '\FactPulse\SDK\Model\AFNORLegalUnitPayloadHistory';
-        $request = $this->getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGetRequest($siren, $fields, $accept_language, $contentType);
+        $request = $this->getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGetRequest($siren, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2688,14 +2492,12 @@ class AFNORPDPPADirectoryServiceApi
      * Create request for operation 'getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet'
      *
      * @param  string $siren 9-digit SIREN number (INSEE company identifier) (required)
-     * @param  string[]|null $fields Fields of the SIREN resource (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGetRequest($siren, $fields = null, $accept_language = null, string $contentType = self::contentTypes['getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet'][0])
+    public function getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGetRequest($siren, string $contentType = self::contentTypes['getSirenByCodeInseeProxyApiV1AfnorDirectoryV1SirenCodeInseeSirenGet'][0])
     {
 
         // verify the required parameter 'siren' is set
@@ -2706,8 +2508,6 @@ class AFNORPDPPADirectoryServiceApi
         }
 
 
-
-
         $resourcePath = '/api/v1/afnor/directory/v1/siren/code-insee:{siren}';
         $formParams = [];
         $queryParams = [];
@@ -2715,20 +2515,7 @@ class AFNORPDPPADirectoryServiceApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $fields,
-            'fields', // param base name
-            'array', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
 
-        // header params
-        if ($accept_language !== null) {
-            $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
-        }
 
         // path params
         if ($siren !== null) {
@@ -2771,10 +2558,6 @@ class AFNORPDPPADirectoryServiceApi
             }
         }
 
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2803,17 +2586,15 @@ class AFNORPDPPADirectoryServiceApi
      * Gets a siren (legal unit) by instance ID
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  string[]|null $fields Fields of the SIREN resource (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \FactPulse\SDK\Model\AFNORLegalUnitPayloadHistory
      */
-    public function getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet($id_instance, $fields = null, $accept_language = null, string $contentType = self::contentTypes['getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet'][0])
+    public function getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet($id_instance, string $contentType = self::contentTypes['getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet'][0])
     {
-        list($response) = $this->getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGetWithHttpInfo($id_instance, $fields, $accept_language, $contentType);
+        list($response) = $this->getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGetWithHttpInfo($id_instance, $contentType);
         return $response;
     }
 
@@ -2823,17 +2604,15 @@ class AFNORPDPPADirectoryServiceApi
      * Gets a siren (legal unit) by instance ID
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  string[]|null $fields Fields of the SIREN resource (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \FactPulse\SDK\Model\AFNORLegalUnitPayloadHistory, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGetWithHttpInfo($id_instance, $fields = null, $accept_language = null, string $contentType = self::contentTypes['getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet'][0])
+    public function getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGetWithHttpInfo($id_instance, string $contentType = self::contentTypes['getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet'][0])
     {
-        $request = $this->getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGetRequest($id_instance, $fields, $accept_language, $contentType);
+        $request = $this->getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGetRequest($id_instance, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2910,16 +2689,14 @@ class AFNORPDPPADirectoryServiceApi
      * Gets a siren (legal unit) by instance ID
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  string[]|null $fields Fields of the SIREN resource (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGetAsync($id_instance, $fields = null, $accept_language = null, string $contentType = self::contentTypes['getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet'][0])
+    public function getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGetAsync($id_instance, string $contentType = self::contentTypes['getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet'][0])
     {
-        return $this->getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGetAsyncWithHttpInfo($id_instance, $fields, $accept_language, $contentType)
+        return $this->getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGetAsyncWithHttpInfo($id_instance, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2933,17 +2710,15 @@ class AFNORPDPPADirectoryServiceApi
      * Gets a siren (legal unit) by instance ID
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  string[]|null $fields Fields of the SIREN resource (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGetAsyncWithHttpInfo($id_instance, $fields = null, $accept_language = null, string $contentType = self::contentTypes['getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet'][0])
+    public function getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGetAsyncWithHttpInfo($id_instance, string $contentType = self::contentTypes['getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet'][0])
     {
         $returnType = '\FactPulse\SDK\Model\AFNORLegalUnitPayloadHistory';
-        $request = $this->getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGetRequest($id_instance, $fields, $accept_language, $contentType);
+        $request = $this->getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGetRequest($id_instance, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2985,14 +2760,12 @@ class AFNORPDPPADirectoryServiceApi
      * Create request for operation 'getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet'
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  string[]|null $fields Fields of the SIREN resource (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGetRequest($id_instance, $fields = null, $accept_language = null, string $contentType = self::contentTypes['getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet'][0])
+    public function getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGetRequest($id_instance, string $contentType = self::contentTypes['getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet'][0])
     {
 
         // verify the required parameter 'id_instance' is set
@@ -3003,8 +2776,6 @@ class AFNORPDPPADirectoryServiceApi
         }
 
 
-
-
         $resourcePath = '/api/v1/afnor/directory/v1/siren/id-instance:{id_instance}';
         $formParams = [];
         $queryParams = [];
@@ -3012,20 +2783,7 @@ class AFNORPDPPADirectoryServiceApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $fields,
-            'fields', // param base name
-            'array', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
 
-        // header params
-        if ($accept_language !== null) {
-            $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
-        }
 
         // path params
         if ($id_instance !== null) {
@@ -3068,10 +2826,6 @@ class AFNORPDPPADirectoryServiceApi
             }
         }
 
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -3100,18 +2854,15 @@ class AFNORPDPPADirectoryServiceApi
      * Gets a siret (facility) by SIRET number
      *
      * @param  string $siret 14-digit SIRET number (INSEE establishment identifier) (required)
-     * @param  string[]|null $fields Fields of a SIRET resource. (optional)
-     * @param  \FactPulse\SDK\Model\SiretInclude[]|null $include Relations to include in the response. (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \FactPulse\SDK\Model\AFNORFacilityPayloadHistory
      */
-    public function getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet($siret, $fields = null, $include = null, $accept_language = null, string $contentType = self::contentTypes['getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet'][0])
+    public function getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet($siret, string $contentType = self::contentTypes['getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet'][0])
     {
-        list($response) = $this->getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGetWithHttpInfo($siret, $fields, $include, $accept_language, $contentType);
+        list($response) = $this->getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGetWithHttpInfo($siret, $contentType);
         return $response;
     }
 
@@ -3121,18 +2872,15 @@ class AFNORPDPPADirectoryServiceApi
      * Gets a siret (facility) by SIRET number
      *
      * @param  string $siret 14-digit SIRET number (INSEE establishment identifier) (required)
-     * @param  string[]|null $fields Fields of a SIRET resource. (optional)
-     * @param  \FactPulse\SDK\Model\SiretInclude[]|null $include Relations to include in the response. (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \FactPulse\SDK\Model\AFNORFacilityPayloadHistory, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGetWithHttpInfo($siret, $fields = null, $include = null, $accept_language = null, string $contentType = self::contentTypes['getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet'][0])
+    public function getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGetWithHttpInfo($siret, string $contentType = self::contentTypes['getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet'][0])
     {
-        $request = $this->getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGetRequest($siret, $fields, $include, $accept_language, $contentType);
+        $request = $this->getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGetRequest($siret, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3209,17 +2957,14 @@ class AFNORPDPPADirectoryServiceApi
      * Gets a siret (facility) by SIRET number
      *
      * @param  string $siret 14-digit SIRET number (INSEE establishment identifier) (required)
-     * @param  string[]|null $fields Fields of a SIRET resource. (optional)
-     * @param  \FactPulse\SDK\Model\SiretInclude[]|null $include Relations to include in the response. (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGetAsync($siret, $fields = null, $include = null, $accept_language = null, string $contentType = self::contentTypes['getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet'][0])
+    public function getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGetAsync($siret, string $contentType = self::contentTypes['getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet'][0])
     {
-        return $this->getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGetAsyncWithHttpInfo($siret, $fields, $include, $accept_language, $contentType)
+        return $this->getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGetAsyncWithHttpInfo($siret, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3233,18 +2978,15 @@ class AFNORPDPPADirectoryServiceApi
      * Gets a siret (facility) by SIRET number
      *
      * @param  string $siret 14-digit SIRET number (INSEE establishment identifier) (required)
-     * @param  string[]|null $fields Fields of a SIRET resource. (optional)
-     * @param  \FactPulse\SDK\Model\SiretInclude[]|null $include Relations to include in the response. (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGetAsyncWithHttpInfo($siret, $fields = null, $include = null, $accept_language = null, string $contentType = self::contentTypes['getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet'][0])
+    public function getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGetAsyncWithHttpInfo($siret, string $contentType = self::contentTypes['getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet'][0])
     {
         $returnType = '\FactPulse\SDK\Model\AFNORFacilityPayloadHistory';
-        $request = $this->getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGetRequest($siret, $fields, $include, $accept_language, $contentType);
+        $request = $this->getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGetRequest($siret, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3286,15 +3028,12 @@ class AFNORPDPPADirectoryServiceApi
      * Create request for operation 'getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet'
      *
      * @param  string $siret 14-digit SIRET number (INSEE establishment identifier) (required)
-     * @param  string[]|null $fields Fields of a SIRET resource. (optional)
-     * @param  \FactPulse\SDK\Model\SiretInclude[]|null $include Relations to include in the response. (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGetRequest($siret, $fields = null, $include = null, $accept_language = null, string $contentType = self::contentTypes['getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet'][0])
+    public function getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGetRequest($siret, string $contentType = self::contentTypes['getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet'][0])
     {
 
         // verify the required parameter 'siret' is set
@@ -3305,9 +3044,6 @@ class AFNORPDPPADirectoryServiceApi
         }
 
 
-
-
-
         $resourcePath = '/api/v1/afnor/directory/v1/siret/code-insee:{siret}';
         $formParams = [];
         $queryParams = [];
@@ -3315,29 +3051,7 @@ class AFNORPDPPADirectoryServiceApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $fields,
-            'fields', // param base name
-            'array', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $include,
-            'include', // param base name
-            'array', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
 
-        // header params
-        if ($accept_language !== null) {
-            $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
-        }
 
         // path params
         if ($siret !== null) {
@@ -3380,10 +3094,6 @@ class AFNORPDPPADirectoryServiceApi
             }
         }
 
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -3412,17 +3122,15 @@ class AFNORPDPPADirectoryServiceApi
      * Gets a siret (facility) by id-instance
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  string[]|null $fields Fields of a SIRET resource. (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \FactPulse\SDK\Model\AFNORFacilityPayloadHistory
      */
-    public function getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet($id_instance, $fields = null, $accept_language = null, string $contentType = self::contentTypes['getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet'][0])
+    public function getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet($id_instance, string $contentType = self::contentTypes['getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet'][0])
     {
-        list($response) = $this->getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGetWithHttpInfo($id_instance, $fields, $accept_language, $contentType);
+        list($response) = $this->getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGetWithHttpInfo($id_instance, $contentType);
         return $response;
     }
 
@@ -3432,17 +3140,15 @@ class AFNORPDPPADirectoryServiceApi
      * Gets a siret (facility) by id-instance
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  string[]|null $fields Fields of a SIRET resource. (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \FactPulse\SDK\Model\AFNORFacilityPayloadHistory, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGetWithHttpInfo($id_instance, $fields = null, $accept_language = null, string $contentType = self::contentTypes['getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet'][0])
+    public function getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGetWithHttpInfo($id_instance, string $contentType = self::contentTypes['getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet'][0])
     {
-        $request = $this->getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGetRequest($id_instance, $fields, $accept_language, $contentType);
+        $request = $this->getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGetRequest($id_instance, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3519,16 +3225,14 @@ class AFNORPDPPADirectoryServiceApi
      * Gets a siret (facility) by id-instance
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  string[]|null $fields Fields of a SIRET resource. (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGetAsync($id_instance, $fields = null, $accept_language = null, string $contentType = self::contentTypes['getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet'][0])
+    public function getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGetAsync($id_instance, string $contentType = self::contentTypes['getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet'][0])
     {
-        return $this->getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGetAsyncWithHttpInfo($id_instance, $fields, $accept_language, $contentType)
+        return $this->getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGetAsyncWithHttpInfo($id_instance, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3542,17 +3246,15 @@ class AFNORPDPPADirectoryServiceApi
      * Gets a siret (facility) by id-instance
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  string[]|null $fields Fields of a SIRET resource. (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGetAsyncWithHttpInfo($id_instance, $fields = null, $accept_language = null, string $contentType = self::contentTypes['getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet'][0])
+    public function getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGetAsyncWithHttpInfo($id_instance, string $contentType = self::contentTypes['getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet'][0])
     {
         $returnType = '\FactPulse\SDK\Model\AFNORFacilityPayloadHistory';
-        $request = $this->getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGetRequest($id_instance, $fields, $accept_language, $contentType);
+        $request = $this->getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGetRequest($id_instance, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3594,14 +3296,12 @@ class AFNORPDPPADirectoryServiceApi
      * Create request for operation 'getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet'
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  string[]|null $fields Fields of a SIRET resource. (optional)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGetRequest($id_instance, $fields = null, $accept_language = null, string $contentType = self::contentTypes['getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet'][0])
+    public function getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGetRequest($id_instance, string $contentType = self::contentTypes['getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet'][0])
     {
 
         // verify the required parameter 'id_instance' is set
@@ -3612,8 +3312,6 @@ class AFNORPDPPADirectoryServiceApi
         }
 
 
-
-
         $resourcePath = '/api/v1/afnor/directory/v1/siret/id-instance:{id_instance}';
         $formParams = [];
         $queryParams = [];
@@ -3621,20 +3319,7 @@ class AFNORPDPPADirectoryServiceApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $fields,
-            'fields', // param base name
-            'array', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
 
-        // header params
-        if ($accept_language !== null) {
-            $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
-        }
 
         // path params
         if ($id_instance !== null) {
@@ -3677,10 +3362,6 @@ class AFNORPDPPADirectoryServiceApi
             }
         }
 
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -3709,16 +3390,15 @@ class AFNORPDPPADirectoryServiceApi
      * Partially updates a directory line..
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \FactPulse\SDK\Model\AFNORDirectoryLinePost201Response
      */
-    public function patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch($id_instance, $accept_language = null, string $contentType = self::contentTypes['patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch'][0])
+    public function patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch($id_instance, string $contentType = self::contentTypes['patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch'][0])
     {
-        list($response) = $this->patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatchWithHttpInfo($id_instance, $accept_language, $contentType);
+        list($response) = $this->patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatchWithHttpInfo($id_instance, $contentType);
         return $response;
     }
 
@@ -3728,16 +3408,15 @@ class AFNORPDPPADirectoryServiceApi
      * Partially updates a directory line..
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \FactPulse\SDK\Model\AFNORDirectoryLinePost201Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatchWithHttpInfo($id_instance, $accept_language = null, string $contentType = self::contentTypes['patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch'][0])
+    public function patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatchWithHttpInfo($id_instance, string $contentType = self::contentTypes['patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch'][0])
     {
-        $request = $this->patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatchRequest($id_instance, $accept_language, $contentType);
+        $request = $this->patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatchRequest($id_instance, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3814,15 +3493,14 @@ class AFNORPDPPADirectoryServiceApi
      * Partially updates a directory line..
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatchAsync($id_instance, $accept_language = null, string $contentType = self::contentTypes['patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch'][0])
+    public function patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatchAsync($id_instance, string $contentType = self::contentTypes['patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch'][0])
     {
-        return $this->patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatchAsyncWithHttpInfo($id_instance, $accept_language, $contentType)
+        return $this->patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatchAsyncWithHttpInfo($id_instance, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3836,16 +3514,15 @@ class AFNORPDPPADirectoryServiceApi
      * Partially updates a directory line..
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatchAsyncWithHttpInfo($id_instance, $accept_language = null, string $contentType = self::contentTypes['patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch'][0])
+    public function patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatchAsyncWithHttpInfo($id_instance, string $contentType = self::contentTypes['patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch'][0])
     {
         $returnType = '\FactPulse\SDK\Model\AFNORDirectoryLinePost201Response';
-        $request = $this->patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatchRequest($id_instance, $accept_language, $contentType);
+        $request = $this->patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatchRequest($id_instance, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3887,13 +3564,12 @@ class AFNORPDPPADirectoryServiceApi
      * Create request for operation 'patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch'
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatchRequest($id_instance, $accept_language = null, string $contentType = self::contentTypes['patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch'][0])
+    public function patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatchRequest($id_instance, string $contentType = self::contentTypes['patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch'][0])
     {
 
         // verify the required parameter 'id_instance' is set
@@ -3904,7 +3580,6 @@ class AFNORPDPPADirectoryServiceApi
         }
 
 
-
         $resourcePath = '/api/v1/afnor/directory/v1/directory-line/id-instance:{id_instance}';
         $formParams = [];
         $queryParams = [];
@@ -3913,10 +3588,6 @@ class AFNORPDPPADirectoryServiceApi
         $multipart = false;
 
 
-        // header params
-        if ($accept_language !== null) {
-            $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
-        }
 
         // path params
         if ($id_instance !== null) {
@@ -3959,10 +3630,6 @@ class AFNORPDPPADirectoryServiceApi
             }
         }
 
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -3991,16 +3658,15 @@ class AFNORPDPPADirectoryServiceApi
      * Partially update a private routing code.
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \FactPulse\SDK\Model\AFNORRoutingCodePost201Response
      */
-    public function patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch($id_instance, $accept_language = null, string $contentType = self::contentTypes['patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch'][0])
+    public function patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch($id_instance, string $contentType = self::contentTypes['patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch'][0])
     {
-        list($response) = $this->patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatchWithHttpInfo($id_instance, $accept_language, $contentType);
+        list($response) = $this->patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatchWithHttpInfo($id_instance, $contentType);
         return $response;
     }
 
@@ -4010,16 +3676,15 @@ class AFNORPDPPADirectoryServiceApi
      * Partially update a private routing code.
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \FactPulse\SDK\Model\AFNORRoutingCodePost201Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatchWithHttpInfo($id_instance, $accept_language = null, string $contentType = self::contentTypes['patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch'][0])
+    public function patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatchWithHttpInfo($id_instance, string $contentType = self::contentTypes['patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch'][0])
     {
-        $request = $this->patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatchRequest($id_instance, $accept_language, $contentType);
+        $request = $this->patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatchRequest($id_instance, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4096,15 +3761,14 @@ class AFNORPDPPADirectoryServiceApi
      * Partially update a private routing code.
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatchAsync($id_instance, $accept_language = null, string $contentType = self::contentTypes['patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch'][0])
+    public function patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatchAsync($id_instance, string $contentType = self::contentTypes['patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch'][0])
     {
-        return $this->patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatchAsyncWithHttpInfo($id_instance, $accept_language, $contentType)
+        return $this->patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatchAsyncWithHttpInfo($id_instance, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4118,16 +3782,15 @@ class AFNORPDPPADirectoryServiceApi
      * Partially update a private routing code.
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatchAsyncWithHttpInfo($id_instance, $accept_language = null, string $contentType = self::contentTypes['patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch'][0])
+    public function patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatchAsyncWithHttpInfo($id_instance, string $contentType = self::contentTypes['patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch'][0])
     {
         $returnType = '\FactPulse\SDK\Model\AFNORRoutingCodePost201Response';
-        $request = $this->patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatchRequest($id_instance, $accept_language, $contentType);
+        $request = $this->patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatchRequest($id_instance, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4169,13 +3832,12 @@ class AFNORPDPPADirectoryServiceApi
      * Create request for operation 'patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch'
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatchRequest($id_instance, $accept_language = null, string $contentType = self::contentTypes['patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch'][0])
+    public function patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatchRequest($id_instance, string $contentType = self::contentTypes['patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch'][0])
     {
 
         // verify the required parameter 'id_instance' is set
@@ -4186,7 +3848,6 @@ class AFNORPDPPADirectoryServiceApi
         }
 
 
-
         $resourcePath = '/api/v1/afnor/directory/v1/routing-code/id-instance:{id_instance}';
         $formParams = [];
         $queryParams = [];
@@ -4195,10 +3856,6 @@ class AFNORPDPPADirectoryServiceApi
         $multipart = false;
 
 
-        // header params
-        if ($accept_language !== null) {
-            $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
-        }
 
         // path params
         if ($id_instance !== null) {
@@ -4241,10 +3898,6 @@ class AFNORPDPPADirectoryServiceApi
             }
         }
 
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -4273,16 +3926,15 @@ class AFNORPDPPADirectoryServiceApi
      * Completely update a private routing code.
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \FactPulse\SDK\Model\AFNORRoutingCodePost201Response
      */
-    public function putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut($id_instance, $accept_language = null, string $contentType = self::contentTypes['putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut'][0])
+    public function putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut($id_instance, string $contentType = self::contentTypes['putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut'][0])
     {
-        list($response) = $this->putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePutWithHttpInfo($id_instance, $accept_language, $contentType);
+        list($response) = $this->putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePutWithHttpInfo($id_instance, $contentType);
         return $response;
     }
 
@@ -4292,16 +3944,15 @@ class AFNORPDPPADirectoryServiceApi
      * Completely update a private routing code.
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \FactPulse\SDK\Model\AFNORRoutingCodePost201Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePutWithHttpInfo($id_instance, $accept_language = null, string $contentType = self::contentTypes['putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut'][0])
+    public function putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePutWithHttpInfo($id_instance, string $contentType = self::contentTypes['putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut'][0])
     {
-        $request = $this->putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePutRequest($id_instance, $accept_language, $contentType);
+        $request = $this->putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePutRequest($id_instance, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4378,15 +4029,14 @@ class AFNORPDPPADirectoryServiceApi
      * Completely update a private routing code.
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePutAsync($id_instance, $accept_language = null, string $contentType = self::contentTypes['putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut'][0])
+    public function putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePutAsync($id_instance, string $contentType = self::contentTypes['putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut'][0])
     {
-        return $this->putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePutAsyncWithHttpInfo($id_instance, $accept_language, $contentType)
+        return $this->putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePutAsyncWithHttpInfo($id_instance, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4400,16 +4050,15 @@ class AFNORPDPPADirectoryServiceApi
      * Completely update a private routing code.
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePutAsyncWithHttpInfo($id_instance, $accept_language = null, string $contentType = self::contentTypes['putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut'][0])
+    public function putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePutAsyncWithHttpInfo($id_instance, string $contentType = self::contentTypes['putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut'][0])
     {
         $returnType = '\FactPulse\SDK\Model\AFNORRoutingCodePost201Response';
-        $request = $this->putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePutRequest($id_instance, $accept_language, $contentType);
+        $request = $this->putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePutRequest($id_instance, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4451,13 +4100,12 @@ class AFNORPDPPADirectoryServiceApi
      * Create request for operation 'putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut'
      *
      * @param  string $id_instance AFNOR instance ID (UUID) (required)
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePutRequest($id_instance, $accept_language = null, string $contentType = self::contentTypes['putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut'][0])
+    public function putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePutRequest($id_instance, string $contentType = self::contentTypes['putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut'][0])
     {
 
         // verify the required parameter 'id_instance' is set
@@ -4468,7 +4116,6 @@ class AFNORPDPPADirectoryServiceApi
         }
 
 
-
         $resourcePath = '/api/v1/afnor/directory/v1/routing-code/id-instance:{id_instance}';
         $formParams = [];
         $queryParams = [];
@@ -4477,10 +4124,6 @@ class AFNORPDPPADirectoryServiceApi
         $multipart = false;
 
 
-        // header params
-        if ($accept_language !== null) {
-            $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
-        }
 
         // path params
         if ($id_instance !== null) {
@@ -4523,10 +4166,6 @@ class AFNORPDPPADirectoryServiceApi
             }
         }
 
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -4554,16 +4193,15 @@ class AFNORPDPPADirectoryServiceApi
      *
      * Search for a directory line
      *
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \FactPulse\SDK\Model\AFNORDirectoryLineSearchPost200Response|\FactPulse\SDK\Model\AFNORDirectoryLineSearchPost200Response
      */
-    public function searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost($accept_language = null, string $contentType = self::contentTypes['searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost'][0])
+    public function searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost(string $contentType = self::contentTypes['searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost'][0])
     {
-        list($response) = $this->searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPostWithHttpInfo($accept_language, $contentType);
+        list($response) = $this->searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPostWithHttpInfo($contentType);
         return $response;
     }
 
@@ -4572,16 +4210,15 @@ class AFNORPDPPADirectoryServiceApi
      *
      * Search for a directory line
      *
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \FactPulse\SDK\Model\AFNORDirectoryLineSearchPost200Response|\FactPulse\SDK\Model\AFNORDirectoryLineSearchPost200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPostWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost'][0])
+    public function searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPostWithHttpInfo(string $contentType = self::contentTypes['searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost'][0])
     {
-        $request = $this->searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPostRequest($accept_language, $contentType);
+        $request = $this->searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPostRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4671,15 +4308,14 @@ class AFNORPDPPADirectoryServiceApi
      *
      * Search for a directory line
      *
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPostAsync($accept_language = null, string $contentType = self::contentTypes['searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost'][0])
+    public function searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPostAsync(string $contentType = self::contentTypes['searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost'][0])
     {
-        return $this->searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPostAsyncWithHttpInfo($accept_language, $contentType)
+        return $this->searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPostAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4692,16 +4328,15 @@ class AFNORPDPPADirectoryServiceApi
      *
      * Search for a directory line
      *
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPostAsyncWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost'][0])
+    public function searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPostAsyncWithHttpInfo(string $contentType = self::contentTypes['searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost'][0])
     {
         $returnType = '\FactPulse\SDK\Model\AFNORDirectoryLineSearchPost200Response';
-        $request = $this->searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPostRequest($accept_language, $contentType);
+        $request = $this->searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPostRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4742,15 +4377,13 @@ class AFNORPDPPADirectoryServiceApi
     /**
      * Create request for operation 'searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost'
      *
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPostRequest($accept_language = null, string $contentType = self::contentTypes['searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost'][0])
+    public function searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPostRequest(string $contentType = self::contentTypes['searchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineSearchPost'][0])
     {
-
 
 
         $resourcePath = '/api/v1/afnor/directory/v1/directory-line/search';
@@ -4761,10 +4394,6 @@ class AFNORPDPPADirectoryServiceApi
         $multipart = false;
 
 
-        // header params
-        if ($accept_language !== null) {
-            $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
-        }
 
 
 
@@ -4799,10 +4428,6 @@ class AFNORPDPPADirectoryServiceApi
             }
         }
 
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -4830,16 +4455,15 @@ class AFNORPDPPADirectoryServiceApi
      *
      * Search for a routing code
      *
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \FactPulse\SDK\Model\AFNORRoutingCodeSearchPost200Response|\FactPulse\SDK\Model\AFNORRoutingCodeSearchPost200Response
      */
-    public function searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost($accept_language = null, string $contentType = self::contentTypes['searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost'][0])
+    public function searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost(string $contentType = self::contentTypes['searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost'][0])
     {
-        list($response) = $this->searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPostWithHttpInfo($accept_language, $contentType);
+        list($response) = $this->searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPostWithHttpInfo($contentType);
         return $response;
     }
 
@@ -4848,16 +4472,15 @@ class AFNORPDPPADirectoryServiceApi
      *
      * Search for a routing code
      *
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \FactPulse\SDK\Model\AFNORRoutingCodeSearchPost200Response|\FactPulse\SDK\Model\AFNORRoutingCodeSearchPost200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPostWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost'][0])
+    public function searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPostWithHttpInfo(string $contentType = self::contentTypes['searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost'][0])
     {
-        $request = $this->searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPostRequest($accept_language, $contentType);
+        $request = $this->searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPostRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4947,15 +4570,14 @@ class AFNORPDPPADirectoryServiceApi
      *
      * Search for a routing code
      *
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPostAsync($accept_language = null, string $contentType = self::contentTypes['searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost'][0])
+    public function searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPostAsync(string $contentType = self::contentTypes['searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost'][0])
     {
-        return $this->searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPostAsyncWithHttpInfo($accept_language, $contentType)
+        return $this->searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPostAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4968,16 +4590,15 @@ class AFNORPDPPADirectoryServiceApi
      *
      * Search for a routing code
      *
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPostAsyncWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost'][0])
+    public function searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPostAsyncWithHttpInfo(string $contentType = self::contentTypes['searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost'][0])
     {
         $returnType = '\FactPulse\SDK\Model\AFNORRoutingCodeSearchPost200Response';
-        $request = $this->searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPostRequest($accept_language, $contentType);
+        $request = $this->searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPostRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5018,15 +4639,13 @@ class AFNORPDPPADirectoryServiceApi
     /**
      * Create request for operation 'searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost'
      *
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPostRequest($accept_language = null, string $contentType = self::contentTypes['searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost'][0])
+    public function searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPostRequest(string $contentType = self::contentTypes['searchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeSearchPost'][0])
     {
-
 
 
         $resourcePath = '/api/v1/afnor/directory/v1/routing-code/search';
@@ -5037,10 +4656,6 @@ class AFNORPDPPADirectoryServiceApi
         $multipart = false;
 
 
-        // header params
-        if ($accept_language !== null) {
-            $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
-        }
 
 
 
@@ -5075,10 +4690,6 @@ class AFNORPDPPADirectoryServiceApi
             }
         }
 
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -5106,16 +4717,15 @@ class AFNORPDPPADirectoryServiceApi
      *
      * SIREN search (or legal unit)
      *
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \FactPulse\SDK\Model\AFNORSirenSearchPost200Response|\FactPulse\SDK\Model\AFNORSirenSearchPost200Response
      */
-    public function searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost($accept_language = null, string $contentType = self::contentTypes['searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost'][0])
+    public function searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost(string $contentType = self::contentTypes['searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost'][0])
     {
-        list($response) = $this->searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPostWithHttpInfo($accept_language, $contentType);
+        list($response) = $this->searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPostWithHttpInfo($contentType);
         return $response;
     }
 
@@ -5124,16 +4734,15 @@ class AFNORPDPPADirectoryServiceApi
      *
      * SIREN search (or legal unit)
      *
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \FactPulse\SDK\Model\AFNORSirenSearchPost200Response|\FactPulse\SDK\Model\AFNORSirenSearchPost200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPostWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost'][0])
+    public function searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPostWithHttpInfo(string $contentType = self::contentTypes['searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost'][0])
     {
-        $request = $this->searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPostRequest($accept_language, $contentType);
+        $request = $this->searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPostRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5223,15 +4832,14 @@ class AFNORPDPPADirectoryServiceApi
      *
      * SIREN search (or legal unit)
      *
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPostAsync($accept_language = null, string $contentType = self::contentTypes['searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost'][0])
+    public function searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPostAsync(string $contentType = self::contentTypes['searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost'][0])
     {
-        return $this->searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPostAsyncWithHttpInfo($accept_language, $contentType)
+        return $this->searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPostAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5244,16 +4852,15 @@ class AFNORPDPPADirectoryServiceApi
      *
      * SIREN search (or legal unit)
      *
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPostAsyncWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost'][0])
+    public function searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPostAsyncWithHttpInfo(string $contentType = self::contentTypes['searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost'][0])
     {
         $returnType = '\FactPulse\SDK\Model\AFNORSirenSearchPost200Response';
-        $request = $this->searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPostRequest($accept_language, $contentType);
+        $request = $this->searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPostRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5294,15 +4901,13 @@ class AFNORPDPPADirectoryServiceApi
     /**
      * Create request for operation 'searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost'
      *
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPostRequest($accept_language = null, string $contentType = self::contentTypes['searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost'][0])
+    public function searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPostRequest(string $contentType = self::contentTypes['searchSirenProxyApiV1AfnorDirectoryV1SirenSearchPost'][0])
     {
-
 
 
         $resourcePath = '/api/v1/afnor/directory/v1/siren/search';
@@ -5313,10 +4918,6 @@ class AFNORPDPPADirectoryServiceApi
         $multipart = false;
 
 
-        // header params
-        if ($accept_language !== null) {
-            $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
-        }
 
 
 
@@ -5351,10 +4952,6 @@ class AFNORPDPPADirectoryServiceApi
             }
         }
 
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -5382,16 +4979,15 @@ class AFNORPDPPADirectoryServiceApi
      *
      * Search for a SIRET (facility)
      *
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \FactPulse\SDK\Model\AFNORSiretSearchPost200Response|\FactPulse\SDK\Model\AFNORSiretSearchPost200Response
      */
-    public function searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost($accept_language = null, string $contentType = self::contentTypes['searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost'][0])
+    public function searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost(string $contentType = self::contentTypes['searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost'][0])
     {
-        list($response) = $this->searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPostWithHttpInfo($accept_language, $contentType);
+        list($response) = $this->searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPostWithHttpInfo($contentType);
         return $response;
     }
 
@@ -5400,16 +4996,15 @@ class AFNORPDPPADirectoryServiceApi
      *
      * Search for a SIRET (facility)
      *
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \FactPulse\SDK\Model\AFNORSiretSearchPost200Response|\FactPulse\SDK\Model\AFNORSiretSearchPost200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPostWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost'][0])
+    public function searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPostWithHttpInfo(string $contentType = self::contentTypes['searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost'][0])
     {
-        $request = $this->searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPostRequest($accept_language, $contentType);
+        $request = $this->searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPostRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5499,15 +5094,14 @@ class AFNORPDPPADirectoryServiceApi
      *
      * Search for a SIRET (facility)
      *
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPostAsync($accept_language = null, string $contentType = self::contentTypes['searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost'][0])
+    public function searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPostAsync(string $contentType = self::contentTypes['searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost'][0])
     {
-        return $this->searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPostAsyncWithHttpInfo($accept_language, $contentType)
+        return $this->searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPostAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5520,16 +5114,15 @@ class AFNORPDPPADirectoryServiceApi
      *
      * Search for a SIRET (facility)
      *
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPostAsyncWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost'][0])
+    public function searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPostAsyncWithHttpInfo(string $contentType = self::contentTypes['searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost'][0])
     {
         $returnType = '\FactPulse\SDK\Model\AFNORSiretSearchPost200Response';
-        $request = $this->searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPostRequest($accept_language, $contentType);
+        $request = $this->searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPostRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5570,15 +5163,13 @@ class AFNORPDPPADirectoryServiceApi
     /**
      * Create request for operation 'searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost'
      *
-     * @param  \FactPulseSDKModelAcceptLanguage|null $accept_language Specifies the language in which the resource is requested. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPostRequest($accept_language = null, string $contentType = self::contentTypes['searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost'][0])
+    public function searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPostRequest(string $contentType = self::contentTypes['searchSiretProxyApiV1AfnorDirectoryV1SiretSearchPost'][0])
     {
-
 
 
         $resourcePath = '/api/v1/afnor/directory/v1/siret/search';
@@ -5589,10 +5180,6 @@ class AFNORPDPPADirectoryServiceApi
         $multipart = false;
 
 
-        // header params
-        if ($accept_language !== null) {
-            $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
-        }
 
 
 
@@ -5627,10 +5214,6 @@ class AFNORPDPPADirectoryServiceApi
             }
         }
 
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
