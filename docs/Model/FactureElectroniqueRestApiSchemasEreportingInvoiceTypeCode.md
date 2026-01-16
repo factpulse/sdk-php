@@ -1,4 +1,4 @@
-# # FactureElectroniqueModelsInvoiceTypeCode
+# # FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCode
 
 ## Properties
 
