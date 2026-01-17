@@ -260,9 +260,9 @@ class FactPulseClient {
                 $response = $this->httpClient->post($this->apiUrl . '/api/v1/processing/generate-invoice', [
                     'headers' => ['Authorization' => 'Bearer ' . $this->accessToken],
                     'multipart' => [
-                        ['name' => 'invoice_data', 'contents' => $jsonData],
+                        ['name' => 'invoice_data', 'contents' => $jsonData, 'headers' => ['Content-Type' => 'application/json']],
                         ['name' => 'profile', 'contents' => $profile], ['name' => 'output_format', 'contents' => $outputFormat],
-                        ['name' => 'source_pdf', 'contents' => fopen($pdfPath, 'r'), 'filename' => basename($pdfPath)],
+                        ['name' => 'source_pdf', 'contents' => fopen($pdfPath, 'r'), 'filename' => basename($pdfPath), 'headers' => ['Content-Type' => 'application/pdf']],
                     ],
                 ]);
                 $taskId = json_decode($response->getBody()->getContents(), true)['taskId'] ?? null;

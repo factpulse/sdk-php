@@ -7,11 +7,18 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
-## [3.0.34] - 2026-01-17
+## [3.0.35] - 2026-01-17
 
-### Fixed
-- Gestion des erreurs métier (`result.status === "ERROR"`) dans tous les SDK - corrige l'erreur "No content" lors d'échecs de validation
+### Added
+- Version initiale du SDK php
+- Support complet de l'API FactPulse
+- Endpoints Factur-X (génération, validation)
+- Endpoints AFNOR PDP/PA (Flow Service, Directory Service)
+- Endpoints Chorus Pro (recherche entreprise, soumission factures)
+- Endpoints Signature électronique (PAdES-B-B, PAdES-B-T, PAdES-B-LT)
+- Support des deux modes d'authentification (stored credentials et zero-trust)
+- Documentation complète et exemples
 
 
-[Unreleased]: https://github.com/factpulse/sdk-php/compare/v3.0.34...HEAD
-[3.0.34]: https://github.com/factpulse/sdk-php/releases/tag/v3.0.34
+[Unreleased]: https://github.com/factpulse/sdk-php/compare/v3.0.35...HEAD
+[3.0.35]: https://github.com/factpulse/sdk-php/releases/tag/v3.0.35
