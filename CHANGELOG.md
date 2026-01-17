@@ -7,14 +7,11 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
-## [3.0.33] - 2026-01-17
-
-### Added
-- Support API cycle de vie CDAR
+## [3.0.34] - 2026-01-17
 
 ### Fixed
-- Soumission AFNOR dans le flux complet
+- - Gestion des erreurs métier (`result.status === "ERROR"`) dans tous les SDK - corrige l'erreur "No content" lors d'échecs de validatio
 
 
-[Unreleased]: https://github.com/factpulse/sdk-php/compare/v3.0.33...HEAD
-[3.0.33]: https://github.com/factpulse/sdk-php/releases/tag/v3.0.33
+[Unreleased]: https://github.com/factpulse/sdk-php/compare/v3.0.34...HEAD
+[3.0.34]: https://github.com/factpulse/sdk-php/releases/tag/v3.0.34

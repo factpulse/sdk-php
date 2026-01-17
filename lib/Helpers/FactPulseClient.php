@@ -269,6 +269,25 @@ class FactPulseClient {
                 if (!$taskId) throw new FactPulseValidationException("No task ID");
                 if (!$sync) return $taskId;
                 $result = $this->pollTask($taskId, $timeout);
+
+                // Check for business error (task succeeded but business result is ERROR)
+                if (($result['status'] ?? '') === 'ERROR') {
+                    $errorMsg = $result['errorMessage'] ?? 'Business error';
+                    $errors = [];
+                    foreach ($result['details'] ?? [] as $err) {
+                        if (is_array($err)) {
+                            $errors[] = new ValidationErrorDetail(
+                                $err['level'] ?? 'ERROR',
+                                $err['item'] ?? '',
+                                $err['reason'] ?? '',
+                                $err['source'] ?? null,
+                                $err['code'] ?? null
+                            );
+                        }
+                    }
+                    throw new FactPulseValidationException($errorMsg, $errors);
+                }
+
                 return isset($result['content_b64']) ? base64_decode($result['content_b64']) : throw new FactPulseValidationException("No content");
             } catch (GuzzleException $e) {
                 if ($e->getCode() === 401 && $attempt < $this->maxRetries) { $this->resetAuth(); continue; }
