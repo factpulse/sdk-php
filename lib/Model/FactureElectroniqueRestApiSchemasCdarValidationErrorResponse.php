@@ -1,6 +1,6 @@
 <?php
 /**
- * FactureElectroniqueRestApiSchemasValidationValidationErrorResponse
+ * FactureElectroniqueRestApiSchemasCdarValidationErrorResponse
  *
  * PHP version 8.1
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \FactPulse\SDK\ObjectSerializer;
 
 /**
- * FactureElectroniqueRestApiSchemasValidationValidationErrorResponse Class Doc Comment
+ * FactureElectroniqueRestApiSchemasCdarValidationErrorResponse Class Doc Comment
  *
  * @category Class
- * @description Response for validation errors.
+ * @description Erreur de validation.
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class FactureElectroniqueRestApiSchemasValidationValidationErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class FactureElectroniqueRestApiSchemasCdarValidationErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class FactureElectroniqueRestApiSchemasValidationValidationErrorResponse impleme
       *
       * @var string
       */
-    protected static $openAPIModelName = 'facture_electronique__rest_api__schemas__validation__ValidationErrorResponse';
+    protected static $openAPIModelName = 'facture_electronique__rest_api__schemas__cdar__ValidationErrorResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +59,10 @@ class FactureElectroniqueRestApiSchemasValidationValidationErrorResponse impleme
       * @var string[]
       */
     protected static $openAPITypes = [
-        'detail' => 'string[]'
+        'field' => 'string',
+        'message' => 'string',
+        'rule' => 'string',
+        'severity' => 'string'
     ];
 
     /**
@@ -70,7 +73,10 @@ class FactureElectroniqueRestApiSchemasValidationValidationErrorResponse impleme
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'detail' => null
+        'field' => null,
+        'message' => null,
+        'rule' => null,
+        'severity' => null
     ];
 
     /**
@@ -79,7 +85,10 @@ class FactureElectroniqueRestApiSchemasValidationValidationErrorResponse impleme
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'detail' => false
+        'field' => false,
+        'message' => false,
+        'rule' => true,
+        'severity' => false
     ];
 
     /**
@@ -168,7 +177,10 @@ class FactureElectroniqueRestApiSchemasValidationValidationErrorResponse impleme
      * @var string[]
      */
     protected static $attributeMap = [
-        'detail' => 'detail'
+        'field' => 'field',
+        'message' => 'message',
+        'rule' => 'rule',
+        'severity' => 'severity'
     ];
 
     /**
@@ -177,7 +189,10 @@ class FactureElectroniqueRestApiSchemasValidationValidationErrorResponse impleme
      * @var string[]
      */
     protected static $setters = [
-        'detail' => 'setDetail'
+        'field' => 'setField',
+        'message' => 'setMessage',
+        'rule' => 'setRule',
+        'severity' => 'setSeverity'
     ];
 
     /**
@@ -186,7 +201,10 @@ class FactureElectroniqueRestApiSchemasValidationValidationErrorResponse impleme
      * @var string[]
      */
     protected static $getters = [
-        'detail' => 'getDetail'
+        'field' => 'getField',
+        'message' => 'getMessage',
+        'rule' => 'getRule',
+        'severity' => 'getSeverity'
     ];
 
     /**
@@ -246,7 +264,10 @@ class FactureElectroniqueRestApiSchemasValidationValidationErrorResponse impleme
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('detail', $data ?? [], null);
+        $this->setIfExists('field', $data ?? [], null);
+        $this->setIfExists('message', $data ?? [], null);
+        $this->setIfExists('rule', $data ?? [], null);
+        $this->setIfExists('severity', $data ?? [], 'error');
     }
 
     /**
@@ -276,8 +297,11 @@ class FactureElectroniqueRestApiSchemasValidationValidationErrorResponse impleme
     {
         $invalidProperties = [];
 
-        if ($this->container['detail'] === null) {
-            $invalidProperties[] = "'detail' can't be null";
+        if ($this->container['field'] === null) {
+            $invalidProperties[] = "'field' can't be null";
+        }
+        if ($this->container['message'] === null) {
+            $invalidProperties[] = "'message' can't be null";
         }
         return $invalidProperties;
     }
@@ -295,28 +319,116 @@ class FactureElectroniqueRestApiSchemasValidationValidationErrorResponse impleme
 
 
     /**
-     * Gets detail
+     * Gets field
      *
-     * @return string[]
+     * @return string
      */
-    public function getDetail()
+    public function getField()
     {
-        return $this->container['detail'];
+        return $this->container['field'];
     }
 
     /**
-     * Sets detail
+     * Sets field
      *
-     * @param string[] $detail List of detected validation errors.
+     * @param string $field Champ concerné
      *
      * @return self
      */
-    public function setDetail($detail)
+    public function setField($field)
     {
-        if (is_null($detail)) {
-            throw new \InvalidArgumentException('non-nullable detail cannot be null');
+        if (is_null($field)) {
+            throw new \InvalidArgumentException('non-nullable field cannot be null');
         }
-        $this->container['detail'] = $detail;
+        $this->container['field'] = $field;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string $message Message d'erreur
+     *
+     * @return self
+     */
+    public function setMessage($message)
+    {
+        if (is_null($message)) {
+            throw new \InvalidArgumentException('non-nullable message cannot be null');
+        }
+        $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets rule
+     *
+     * @return string|null
+     */
+    public function getRule()
+    {
+        return $this->container['rule'];
+    }
+
+    /**
+     * Sets rule
+     *
+     * @param string|null $rule rule
+     *
+     * @return self
+     */
+    public function setRule($rule)
+    {
+        if (is_null($rule)) {
+            array_push($this->openAPINullablesSetToNull, 'rule');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('rule', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['rule'] = $rule;
+
+        return $this;
+    }
+
+    /**
+     * Gets severity
+     *
+     * @return string|null
+     */
+    public function getSeverity()
+    {
+        return $this->container['severity'];
+    }
+
+    /**
+     * Sets severity
+     *
+     * @param string|null $severity Sévérité (error/warning)
+     *
+     * @return self
+     */
+    public function setSeverity($severity)
+    {
+        if (is_null($severity)) {
+            throw new \InvalidArgumentException('non-nullable severity cannot be null');
+        }
+        $this->container['severity'] = $severity;
 
         return $this;
     }

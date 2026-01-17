@@ -1,6 +1,6 @@
 <?php
 /**
- * FactureElectroniqueRestApiSchemasValidationValidationErrorResponseTest
+ * FactureElectroniqueRestApiSchemasCdarValidationErrorResponseTest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * FactureElectroniqueRestApiSchemasValidationValidationErrorResponseTest Class Doc Comment
+ * FactureElectroniqueRestApiSchemasCdarValidationErrorResponseTest Class Doc Comment
  *
  * @category    Class
- * @description Response for validation errors.
+ * @description Erreur de validation.
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class FactureElectroniqueRestApiSchemasValidationValidationErrorResponseTest extends TestCase
+class FactureElectroniqueRestApiSchemasCdarValidationErrorResponseTest extends TestCase
 {
 
     /**
@@ -72,18 +72,45 @@ class FactureElectroniqueRestApiSchemasValidationValidationErrorResponseTest ext
     }
 
     /**
-     * Test "FactureElectroniqueRestApiSchemasValidationValidationErrorResponse"
+     * Test "FactureElectroniqueRestApiSchemasCdarValidationErrorResponse"
      */
-    public function testFactureElectroniqueRestApiSchemasValidationValidationErrorResponse()
+    public function testFactureElectroniqueRestApiSchemasCdarValidationErrorResponse()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "detail"
+     * Test attribute "field"
      */
-    public function testPropertyDetail()
+    public function testPropertyField()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "message"
+     */
+    public function testPropertyMessage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "rule"
+     */
+    public function testPropertyRule()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "severity"
+     */
+    public function testPropertySeverity()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

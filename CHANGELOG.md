@@ -10,7 +10,7 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ## [3.0.34] - 2026-01-17
 
 ### Fixed
-- - Gestion des erreurs métier (`result.status === "ERROR"`) dans tous les SDK - corrige l'erreur "No content" lors d'échecs de validatio
+- Gestion des erreurs métier (`result.status === "ERROR"`) dans tous les SDK - corrige l'erreur "No content" lors d'échecs de validation
 
 
 [Unreleased]: https://github.com/factpulse/sdk-php/compare/v3.0.34...HEAD
