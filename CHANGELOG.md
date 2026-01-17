@@ -7,22 +7,14 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
-## [3.0.32] - 2026-01-16
+## [3.0.33] - 2026-01-17
 
 ### Added
-- Version initiale du SDK php
-- Support complet de l'API FactPulse v1.0.0
-- Endpoints Factur-X (génération, validation)
-- Endpoints AFNOR PDP/PA (Flow Service, Directory Service)
-- Endpoints Chorus Pro (recherche entreprise, soumission factures)
-- Endpoints Signature électronique (PAdES-B-B, PAdES-B-T, PAdES-B-LT)
-- Support des deux modes d'authentification (stored credentials et zero-trust)
-- Documentation complète et exemples
+- Support API cycle de vie CDAR
 
-### Documentation
-- README.md avec quickstart et exemples
-- Guide d'authentification JWT
-- Configuration avancée (timeout, proxy, debug)
+### Fixed
+- Soumission AFNOR dans le flux complet
 
-[Unreleased]: https://github.com/factpulse/sdk-php/compare/v3.0.32...HEAD
-[3.0.32]: https://github.com/factpulse/sdk-php/releases/tag/v3.0.32
+
+[Unreleased]: https://github.com/factpulse/sdk-php/compare/v3.0.33...HEAD
+[3.0.33]: https://github.com/factpulse/sdk-php/releases/tag/v3.0.33

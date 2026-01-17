@@ -1,6 +1,6 @@
 <?php
 /**
- * FactureElectroniqueRestApiSchemasProcessingChorusProCredentialsTest
+ * GenerateCDARResponseTest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * FactureElectroniqueRestApiSchemasProcessingChorusProCredentialsTest Class Doc Comment
+ * GenerateCDARResponseTest Class Doc Comment
  *
  * @category    Class
- * @description Optional Chorus Pro credentials.  **MODE 1 - JWT retrieval (recommended):** Do not provide this &#x60;credentials&#x60; field in the payload. Credentials will be automatically retrieved via client_uid from JWT (0-trust).  **MODE 2 - Credentials in payload:** Provide all required fields below. Useful for tests or third-party integrations.
+ * @description Réponse de génération de message CDAR.
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class FactureElectroniqueRestApiSchemasProcessingChorusProCredentialsTest extends TestCase
+class GenerateCDARResponseTest extends TestCase
 {
 
     /**
@@ -72,54 +72,54 @@ class FactureElectroniqueRestApiSchemasProcessingChorusProCredentialsTest extend
     }
 
     /**
-     * Test "FactureElectroniqueRestApiSchemasProcessingChorusProCredentials"
+     * Test "GenerateCDARResponse"
      */
-    public function testFactureElectroniqueRestApiSchemasProcessingChorusProCredentials()
+    public function testGenerateCDARResponse()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "piste_client_id"
+     * Test attribute "document_id"
      */
-    public function testPropertyPisteClientId()
+    public function testPropertyDocumentId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "piste_client_secret"
+     * Test attribute "xml"
      */
-    public function testPropertyPisteClientSecret()
+    public function testPropertyXml()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "chorus_login"
+     * Test attribute "xml_size"
      */
-    public function testPropertyChorusLogin()
+    public function testPropertyXmlSize()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "chorus_password"
+     * Test attribute "sha256"
      */
-    public function testPropertyChorusPassword()
+    public function testPropertySha256()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "sandbox_mode"
+     * Test attribute "message"
      */
-    public function testPropertySandboxMode()
+    public function testPropertyMessage()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

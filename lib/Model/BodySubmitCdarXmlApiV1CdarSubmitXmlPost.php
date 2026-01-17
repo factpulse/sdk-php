@@ -1,6 +1,6 @@
 <?php
 /**
- * FactureElectroniqueRestApiSchemasProcessingChorusProCredentials
+ * BodySubmitCdarXmlApiV1CdarSubmitXmlPost
  *
  * PHP version 8.1
  *
@@ -33,16 +33,15 @@ use \ArrayAccess;
 use \FactPulse\SDK\ObjectSerializer;
 
 /**
- * FactureElectroniqueRestApiSchemasProcessingChorusProCredentials Class Doc Comment
+ * BodySubmitCdarXmlApiV1CdarSubmitXmlPost Class Doc Comment
  *
  * @category Class
- * @description Optional Chorus Pro credentials.  **MODE 1 - JWT retrieval (recommended):** Do not provide this &#x60;credentials&#x60; field in the payload. Credentials will be automatically retrieved via client_uid from JWT (0-trust).  **MODE 2 - Credentials in payload:** Provide all required fields below. Useful for tests or third-party integrations.
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class FactureElectroniqueRestApiSchemasProcessingChorusProCredentials implements ModelInterface, ArrayAccess, \JsonSerializable
+class BodySubmitCdarXmlApiV1CdarSubmitXmlPost implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +50,7 @@ class FactureElectroniqueRestApiSchemasProcessingChorusProCredentials implements
       *
       * @var string
       */
-    protected static $openAPIModelName = 'facture_electronique__rest_api__schemas__processing__ChorusProCredentials';
+    protected static $openAPIModelName = 'Body_submit_cdar_xml_api_v1_cdar_submit_xml_post';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,11 +58,8 @@ class FactureElectroniqueRestApiSchemasProcessingChorusProCredentials implements
       * @var string[]
       */
     protected static $openAPITypes = [
-        'piste_client_id' => 'string',
-        'piste_client_secret' => 'string',
-        'chorus_login' => 'string',
-        'chorus_password' => 'string',
-        'sandbox_mode' => 'bool'
+        'request' => '\FactPulse\SDK\Model\SubmitCDARXMLRequest',
+        'pdp_credentials' => '\FactPulse\SDK\Model\PDPCredentials'
     ];
 
     /**
@@ -74,11 +70,8 @@ class FactureElectroniqueRestApiSchemasProcessingChorusProCredentials implements
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'piste_client_id' => null,
-        'piste_client_secret' => null,
-        'chorus_login' => null,
-        'chorus_password' => null,
-        'sandbox_mode' => null
+        'request' => null,
+        'pdp_credentials' => null
     ];
 
     /**
@@ -87,11 +80,8 @@ class FactureElectroniqueRestApiSchemasProcessingChorusProCredentials implements
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'piste_client_id' => true,
-        'piste_client_secret' => true,
-        'chorus_login' => true,
-        'chorus_password' => true,
-        'sandbox_mode' => false
+        'request' => false,
+        'pdp_credentials' => true
     ];
 
     /**
@@ -180,11 +170,8 @@ class FactureElectroniqueRestApiSchemasProcessingChorusProCredentials implements
      * @var string[]
      */
     protected static $attributeMap = [
-        'piste_client_id' => 'pisteClientId',
-        'piste_client_secret' => 'pisteClientSecret',
-        'chorus_login' => 'chorusLogin',
-        'chorus_password' => 'chorusPassword',
-        'sandbox_mode' => 'sandboxMode'
+        'request' => 'request',
+        'pdp_credentials' => 'pdp_credentials'
     ];
 
     /**
@@ -193,11 +180,8 @@ class FactureElectroniqueRestApiSchemasProcessingChorusProCredentials implements
      * @var string[]
      */
     protected static $setters = [
-        'piste_client_id' => 'setPisteClientId',
-        'piste_client_secret' => 'setPisteClientSecret',
-        'chorus_login' => 'setChorusLogin',
-        'chorus_password' => 'setChorusPassword',
-        'sandbox_mode' => 'setSandboxMode'
+        'request' => 'setRequest',
+        'pdp_credentials' => 'setPdpCredentials'
     ];
 
     /**
@@ -206,11 +190,8 @@ class FactureElectroniqueRestApiSchemasProcessingChorusProCredentials implements
      * @var string[]
      */
     protected static $getters = [
-        'piste_client_id' => 'getPisteClientId',
-        'piste_client_secret' => 'getPisteClientSecret',
-        'chorus_login' => 'getChorusLogin',
-        'chorus_password' => 'getChorusPassword',
-        'sandbox_mode' => 'getSandboxMode'
+        'request' => 'getRequest',
+        'pdp_credentials' => 'getPdpCredentials'
     ];
 
     /**
@@ -270,11 +251,8 @@ class FactureElectroniqueRestApiSchemasProcessingChorusProCredentials implements
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('piste_client_id', $data ?? [], null);
-        $this->setIfExists('piste_client_secret', $data ?? [], null);
-        $this->setIfExists('chorus_login', $data ?? [], null);
-        $this->setIfExists('chorus_password', $data ?? [], null);
-        $this->setIfExists('sandbox_mode', $data ?? [], true);
+        $this->setIfExists('request', $data ?? [], null);
+        $this->setIfExists('pdp_credentials', $data ?? [], null);
     }
 
     /**
@@ -304,6 +282,9 @@ class FactureElectroniqueRestApiSchemasProcessingChorusProCredentials implements
     {
         $invalidProperties = [];
 
+        if ($this->container['request'] === null) {
+            $invalidProperties[] = "'request' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -320,164 +301,62 @@ class FactureElectroniqueRestApiSchemasProcessingChorusProCredentials implements
 
 
     /**
-     * Gets piste_client_id
+     * Gets request
      *
-     * @return string|null
+     * @return \FactPulse\SDK\Model\SubmitCDARXMLRequest
      */
-    public function getPisteClientId()
+    public function getRequest()
     {
-        return $this->container['piste_client_id'];
+        return $this->container['request'];
     }
 
     /**
-     * Sets piste_client_id
+     * Sets request
      *
-     * @param string|null $piste_client_id piste_client_id
+     * @param \FactPulse\SDK\Model\SubmitCDARXMLRequest $request request
      *
      * @return self
      */
-    public function setPisteClientId($piste_client_id)
+    public function setRequest($request)
     {
-        if (is_null($piste_client_id)) {
-            array_push($this->openAPINullablesSetToNull, 'piste_client_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('piste_client_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($request)) {
+            throw new \InvalidArgumentException('non-nullable request cannot be null');
         }
-        $this->container['piste_client_id'] = $piste_client_id;
+        $this->container['request'] = $request;
 
         return $this;
     }
 
     /**
-     * Gets piste_client_secret
+     * Gets pdp_credentials
      *
-     * @return string|null
+     * @return \FactPulse\SDK\Model\PDPCredentials|null
      */
-    public function getPisteClientSecret()
+    public function getPdpCredentials()
     {
-        return $this->container['piste_client_secret'];
+        return $this->container['pdp_credentials'];
     }
 
     /**
-     * Sets piste_client_secret
+     * Sets pdp_credentials
      *
-     * @param string|null $piste_client_secret piste_client_secret
+     * @param \FactPulse\SDK\Model\PDPCredentials|null $pdp_credentials pdp_credentials
      *
      * @return self
      */
-    public function setPisteClientSecret($piste_client_secret)
+    public function setPdpCredentials($pdp_credentials)
     {
-        if (is_null($piste_client_secret)) {
-            array_push($this->openAPINullablesSetToNull, 'piste_client_secret');
+        if (is_null($pdp_credentials)) {
+            array_push($this->openAPINullablesSetToNull, 'pdp_credentials');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('piste_client_secret', $nullablesSetToNull);
+            $index = array_search('pdp_credentials', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['piste_client_secret'] = $piste_client_secret;
-
-        return $this;
-    }
-
-    /**
-     * Gets chorus_login
-     *
-     * @return string|null
-     */
-    public function getChorusLogin()
-    {
-        return $this->container['chorus_login'];
-    }
-
-    /**
-     * Sets chorus_login
-     *
-     * @param string|null $chorus_login chorus_login
-     *
-     * @return self
-     */
-    public function setChorusLogin($chorus_login)
-    {
-        if (is_null($chorus_login)) {
-            array_push($this->openAPINullablesSetToNull, 'chorus_login');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('chorus_login', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['chorus_login'] = $chorus_login;
-
-        return $this;
-    }
-
-    /**
-     * Gets chorus_password
-     *
-     * @return string|null
-     */
-    public function getChorusPassword()
-    {
-        return $this->container['chorus_password'];
-    }
-
-    /**
-     * Sets chorus_password
-     *
-     * @param string|null $chorus_password chorus_password
-     *
-     * @return self
-     */
-    public function setChorusPassword($chorus_password)
-    {
-        if (is_null($chorus_password)) {
-            array_push($this->openAPINullablesSetToNull, 'chorus_password');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('chorus_password', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['chorus_password'] = $chorus_password;
-
-        return $this;
-    }
-
-    /**
-     * Gets sandbox_mode
-     *
-     * @return bool|null
-     */
-    public function getSandboxMode()
-    {
-        return $this->container['sandbox_mode'];
-    }
-
-    /**
-     * Sets sandbox_mode
-     *
-     * @param bool|null $sandbox_mode [MODE 2] Use sandbox mode (default: True)
-     *
-     * @return self
-     */
-    public function setSandboxMode($sandbox_mode)
-    {
-        if (is_null($sandbox_mode)) {
-            throw new \InvalidArgumentException('non-nullable sandbox_mode cannot be null');
-        }
-        $this->container['sandbox_mode'] = $sandbox_mode;
+        $this->container['pdp_credentials'] = $pdp_credentials;
 
         return $this;
     }

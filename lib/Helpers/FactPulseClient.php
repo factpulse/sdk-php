@@ -722,7 +722,7 @@ class FactPulseClient {
             if ($validate) {
                 $validation = $this->validateFacturxPdf($tempPath, $profile);
                 $result['validation'] = $validation;
-                if (!($validation['is_compliant'] ?? false)) {
+                if (!($validation['isCompliant'] ?? false)) {
                     if (isset($options['outputPath'])) {
                         file_put_contents($options['outputPath'], $pdfBytes);
                         $result['pdfPath'] = $options['outputPath'];
