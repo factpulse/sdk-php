@@ -1,6 +1,6 @@
 <?php
 /**
- * FactureElectroniqueRestApiSchemasCdarValidationErrorResponseTest
+ * FactureElectroniqueRestApiSchemasChorusProChorusProCredentialsTest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * FactureElectroniqueRestApiSchemasCdarValidationErrorResponseTest Class Doc Comment
+ * FactureElectroniqueRestApiSchemasChorusProChorusProCredentialsTest Class Doc Comment
  *
  * @category    Class
- * @description Erreur de validation.
+ * @description Chorus Pro credentials for Zero-Trust mode.  **Zero-Trust Mode**: Credentials are passed in each request and are NEVER stored.  **Security**: - Credentials are never persisted in the database - They are used only for the duration of the request - Secure transmission via HTTPS  **Use cases**: - High-security environments (banks, administrations) - Strict GDPR compliance - Tests with temporary credentials - Users who don&#39;t want to store their credentials
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class FactureElectroniqueRestApiSchemasCdarValidationErrorResponseTest extends TestCase
+class FactureElectroniqueRestApiSchemasChorusProChorusProCredentialsTest extends TestCase
 {
 
     /**
@@ -72,45 +72,54 @@ class FactureElectroniqueRestApiSchemasCdarValidationErrorResponseTest extends T
     }
 
     /**
-     * Test "FactureElectroniqueRestApiSchemasCdarValidationErrorResponse"
+     * Test "FactureElectroniqueRestApiSchemasChorusProChorusProCredentials"
      */
-    public function testFactureElectroniqueRestApiSchemasCdarValidationErrorResponse()
+    public function testFactureElectroniqueRestApiSchemasChorusProChorusProCredentials()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "field"
+     * Test attribute "piste_client_id"
      */
-    public function testPropertyField()
+    public function testPropertyPisteClientId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "message"
+     * Test attribute "piste_client_secret"
      */
-    public function testPropertyMessage()
+    public function testPropertyPisteClientSecret()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "rule"
+     * Test attribute "chorus_pro_login"
      */
-    public function testPropertyRule()
+    public function testPropertyChorusProLogin()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "severity"
+     * Test attribute "chorus_pro_password"
      */
-    public function testPropertySeverity()
+    public function testPropertyChorusProPassword()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "sandbox"
+     */
+    public function testPropertySandbox()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
