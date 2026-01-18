@@ -395,9 +395,6 @@ class Supplier implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['electronic_address'] === null && !$this->isNullableSetToNull('electronic_address')) {
-            $invalidProperties[] = "'electronic_address' can't be null";
-        }
         if ($this->container['supplier_id'] === null) {
             $invalidProperties[] = "'supplier_id' can't be null";
         }

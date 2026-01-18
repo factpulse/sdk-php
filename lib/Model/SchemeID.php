@@ -34,7 +34,7 @@ use \FactPulse\SDK\ObjectSerializer;
  * SchemeID Class Doc Comment
  *
  * @category Class
- * @description Identification scheme codes (Electronic Address Scheme - EAS), mainly for electronic invoice addressing.  **Possible values:** - &#x60;0225&#x60;: FR_SIREN - French SIREN (most common for France) - &#x60;0009&#x60;: FR_SIRET - French SIRET - &#x60;0002&#x60;: FR_SIREN_OLD - French SIREN (old code, for legal organization ID) - &#x60;0088&#x60;: GLN - Global Location Number - &#x60;0060&#x60;: DUNS - Data Universal Numbering System - &#x60;9957&#x60;: FR_VAT_INTRA - French intra-community VAT number - &#x60;0199&#x60;: GLEIF - Global Legal Entity Identifier Foundation - &#x60;0231&#x60;: DT_DIRECTORY_ID - Directory ID for tax administration - &#x60;EM&#x60;: EMAIL - Email-based electronic address (BT-34/BT-49)
+ * @description Identification scheme codes (Electronic Address Scheme - EAS).  **Electronic Address (routing for PDP/Chorus Pro):** - &#x60;0225&#x60;: FR_ELECTRONIC_ADDRESS - French electronic billing address (BT-34/BT-49)             Format: SIREN or SIREN_SUFFIX (e.g., \&quot;920195229_92019522900017\&quot;)  **Legal Identifiers (entity identification):** - &#x60;0002&#x60;: FR_SIREN - French SIREN (9 digits) for BT-30/BT-47 - &#x60;0009&#x60;: FR_SIRET - French SIRET (14 digits) for BT-29/BT-46  **Other schemes:** - &#x60;0088&#x60;: GLN - Global Location Number - &#x60;0060&#x60;: DUNS - Data Universal Numbering System - &#x60;9957&#x60;: FR_VAT_INTRA - French intra-community VAT number - &#x60;0199&#x60;: GLEIF - Global Legal Entity Identifier Foundation - &#x60;0231&#x60;: DT_DIRECTORY_ID - Directory ID for tax administration - &#x60;EM&#x60;: EMAIL - Email-based electronic address
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -45,19 +45,19 @@ class SchemeID
      * Possible values of this enum
      */
     /**
-     * FR_SIREN - French SIREN (most common for France)
+     * FR_ELECTRONIC_ADDRESS - French electronic billing address (BT-34/BT-49)
      */
-    public const FR_SIREN = '0225';
+    public const FR_ELECTRONIC_ADDRESS = '0225';
 
     /**
-     * FR_SIRET - French SIRET
+     * FR_SIREN - French SIREN (9 digits) - Legal organization ID
+     */
+    public const FR_SIREN = '0002';
+
+    /**
+     * FR_SIRET - French SIRET (14 digits) - Establishment ID
      */
     public const FR_SIRET = '0009';
-
-    /**
-     * FR_SIREN_OLD - French SIREN (old code, for legal organization ID)
-     */
-    public const FR_SIREN_OLD = '0002';
 
     /**
      * GLN - Global Location Number (GLN)
@@ -141,9 +141,9 @@ class SchemeID
     public static function getAllowableEnumValues()
     {
         return [
+            self::FR_ELECTRONIC_ADDRESS,
             self::FR_SIREN,
             self::FR_SIRET,
-            self::FR_SIREN_OLD,
             self::GLN,
             self::DUNS,
             self::FR_VAT_INTRA,

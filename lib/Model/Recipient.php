@@ -332,9 +332,6 @@ class Recipient implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['electronic_address'] === null && !$this->isNullableSetToNull('electronic_address')) {
-            $invalidProperties[] = "'electronic_address' can't be null";
-        }
         return $invalidProperties;
     }
 
