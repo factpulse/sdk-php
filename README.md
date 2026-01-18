@@ -5,10 +5,10 @@ Official PHP client for the FactPulse API - French electronic invoicing.
 ## Features
 
 - **Factur-X**: Generation and validation of electronic invoices (MINIMUM, BASIC, EN16931, EXTENDED profiles)
-- **Chorus Pro**: Integration with the French public sector invoicing platform
-- **AFNOR PDP/PA**: Submission of flows compliant with the XP Z12-013 standard
-- **Electronic signature**: PDF signature (PAdES-B-B, PAdES-B-T, PAdES-B-LT)
-- **Simplified client**: JWT authentication and integrated polling via `Helpers`
+- **Chorus Pro**: Integration with the French public invoicing platform
+- **AFNOR PDP/PA**: Submission of flows compliant with XP Z12-013 standard
+- **Electronic signature**: PDF signing (PAdES-B-B, PAdES-B-T, PAdES-B-LT)
+- **Thin HTTP wrapper**: Generic `post()` and `get()` methods with automatic JWT auth and polling
 
 ## Installation
 
@@ -18,213 +18,186 @@ composer require factpulse/sdk
 
 ## Quick Start
 
-The `Helpers` module provides a simplified API with automatic authentication and polling:
-
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'vendor/autoload.php';
 
-use FactPulse\SDK\Helpers\FactPulseClient;
+use FactPulse\SDK\FactPulseClient;
 
 // Create the client
 $client = new FactPulseClient(
-    'your_email@example.com',
-    'your_password'
+    "your_email@example.com",
+    "your_password",
+    "your-client-uuid"  // From dashboard: Configuration > Clients
 );
 
-// Build the invoice using simplified format (auto-calculates totals)
-$invoiceData = [
-    'number' => 'INV-2025-001',
-    'supplier' => [
-        'name' => 'My Company SAS',
-        'siret' => '12345678901234',
-        'iban' => 'FR7630001007941234567890185',
+// Read your source PDF
+$pdfB64 = base64_encode(file_get_contents("source_invoice.pdf"));
+
+// Generate Factur-X and submit to PDP in one call
+$result = $client->post("processing/invoices/submit-complete-async", [
+    "invoiceData" => [
+        "number" => "INV-2025-001",
+        "supplier" => [
+            "siret" => "12345678901234",
+            "iban" => "FR7630001007941234567890185",
+            "routingAddress" => "12345678901234",
+        ],
+        "recipient" => [
+            "siret" => "98765432109876",
+            "routingAddress" => "98765432109876",
+        ],
+        "lines" => [
+            [
+                "description" => "Consulting services",
+                "quantity" => 10,
+                "unitPrice" => 100.0,
+                "vatRate" => 20.0,
+            ],
+        ],
     ],
-    'recipient' => [
-        'name' => 'Client SARL',
-        'siret' => '98765432109876',
+    "sourcePdf" => $pdfB64,
+    "profile" => "EN16931",
+    "destination" => ["type" => "afnor"],
+]);
+
+// PDF is in $result["content"] (auto-polled, auto-decoded from base64)
+file_put_contents("facturx_invoice.pdf", $result["content"]);
+
+echo "Flow ID: " . $result["afnorResult"]["flowId"] . "\n";
+```
+
+## API Methods
+
+The SDK provides two generic methods that map directly to API endpoints:
+
+```php
+// POST /api/v1/{path}
+$result = $client->post("path/to/endpoint", ["key1" => $value1, "key2" => $value2]);
+
+// GET /api/v1/{path}
+$result = $client->get("path/to/endpoint", ["param1" => $value1]);
+```
+
+### Common Endpoints
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `processing/invoices/submit-complete-async` | POST | Generate Factur-X + submit to PDP |
+| `processing/generate-invoice` | POST | Generate Factur-X XML or PDF |
+| `processing/validate-xml` | POST | Validate Factur-X XML |
+| `processing/validate-facturx-pdf` | POST | Validate Factur-X PDF |
+| `processing/sign-pdf` | POST | Sign PDF with certificate |
+| `afnor/flow/v1/flows` | POST | Submit flow to AFNOR PDP |
+| `afnor/incoming-flows/{flow_id}` | GET | Get incoming invoice |
+| `chorus-pro/factures/soumettre` | POST | Submit to Chorus Pro |
+
+## Webhooks
+
+Instead of polling, you can receive results via webhook by adding `callbackUrl`:
+
+```php
+// Submit with webhook - returns immediately
+$result = $client->post("processing/invoices/submit-complete-async", [
+    "invoiceData" => $invoiceData,
+    "sourcePdf" => $pdfB64,
+    "destination" => ["type" => "afnor"],
+    "callbackUrl" => "https://your-server.com/webhook/factpulse",
+    "webhookMode" => "INLINE",  // or "DOWNLOAD_URL"
+]);
+
+$taskId = $result["taskId"];
+// Result will be POSTed to your webhook URL
+```
+
+### Webhook Receiver Example
+
+```php
+<?php
+$webhookSecret = "your-shared-secret";
+
+function verifySignature(string $payload, string $signature): bool {
+    if (strpos($signature, "sha256=") !== 0) {
+        return false;
+    }
+    $expected = hash_hmac("sha256", $payload, $GLOBALS["webhookSecret"]);
+    return hash_equals($expected, substr($signature, 7));
+}
+
+// Get raw POST body
+$payload = file_get_contents("php://input");
+$signature = $_SERVER["HTTP_X_WEBHOOK_SIGNATURE"] ?? "";
+
+if (!verifySignature($payload, $signature)) {
+    http_response_code(401);
+    echo json_encode(["error" => "Invalid signature"]);
+    exit;
+}
+
+$event = json_decode($payload, true);
+$eventType = $event["event_type"];
+$data = $event["data"];
+
+if ($eventType === "submission.completed") {
+    $flowId = $data["afnorResult"]["flowId"] ?? null;
+    error_log("Invoice submitted: $flowId");
+} elseif ($eventType === "submission.failed") {
+    error_log("Submission failed: " . ($data["error"] ?? "Unknown"));
+}
+
+header("Content-Type: application/json");
+echo json_encode(["status" => "received"]);
+```
+
+### Webhook Event Types
+
+| Event | Description |
+|-------|-------------|
+| `generation.completed` | Factur-X generated successfully |
+| `generation.failed` | Generation failed |
+| `validation.completed` | Validation passed |
+| `validation.failed` | Validation failed |
+| `signature.completed` | PDF signed |
+| `submission.completed` | Submitted to PDP/Chorus |
+| `submission.failed` | Submission failed |
+
+## Zero-Storage Mode
+
+Pass PDP credentials directly in the request (no server-side storage):
+
+```php
+$result = $client->post("processing/invoices/submit-complete-async", [
+    "invoiceData" => $invoiceData,
+    "sourcePdf" => $pdfB64,
+    "destination" => [
+        "type" => "afnor",
+        "flowServiceUrl" => "https://api.pdp.example.com/flow/v1",
+        "tokenUrl" => "https://auth.pdp.example.com/oauth/token",
+        "clientId" => "your_pdp_client_id",
+        "clientSecret" => "your_pdp_client_secret",
     ],
-    'lines' => [
-        [
-            'description' => 'Consulting services',
-            'quantity' => 10,
-            'unitPrice' => 100.0,
-            'vatRate' => 20,
-        ]
-    ],
-];
-
-// Generate the Factur-X PDF
-$pdfBytes = $client->generateFacturx($invoiceData, 'source_invoice.pdf');
-
-file_put_contents('invoice_facturx.pdf', $pdfBytes);
-```
-
-## Available Helpers
-
-### amount($value)
-
-Converts a value to a formatted string for monetary amounts.
-
-```php
-use function FactPulse\SDK\Helpers\amount;
-
-amount(1234.5);      // "1234.50"
-amount("1234.56");   // "1234.56"
-amount(null);        // "0.00"
-```
-
-### invoiceTotals($totalNetAmount, $vatAmount, $totalGrossAmount, $amountDue, ...)
-
-Creates a complete invoice totals object.
-
-```php
-use function FactPulse\SDK\Helpers\invoiceTotals;
-
-$totals = invoiceTotals(
-    1000.00,
-    200.00,
-    1200.00,
-    1200.00,
-    50.00,                  // globalAllowanceAmount (optional)
-    'Loyalty discount',     // globalAllowanceReason (optional)
-    100.00                  // prepayment (optional)
-);
-```
-
-### invoiceLine($lineNumber, $itemName, $quantity, $unitNetPrice, $lineNetAmount, ...)
-
-Creates an invoice line.
-
-```php
-use function FactPulse\SDK\Helpers\invoiceLine;
-
-$line = invoiceLine(
-    1,
-    'Consulting services',
-    5,
-    200.00,
-    1000.00,
-    'S',      // vatCategory: S, Z, E, AE, K
-    'HOUR',   // unit: LUMP_SUM, PIECE, HOUR, DAY...
-    [
-        'vatRate' => 'TVA20',        // Or 'manualVatRate' => '20.00'
-        'reference' => 'REF-001',
-    ]
-);
-```
-
-### vatLine($baseExcludingTax, $vatAmount, ...)
-
-Creates a VAT breakdown line.
-
-```php
-use function FactPulse\SDK\Helpers\vatLine;
-
-$vat = vatLine(1000.00, 200.00, 'S', [
-    'rate' => 'VAT20',       // Or 'manualRate' => '20.00'
 ]);
 ```
 
-### postalAddress($line1, $postalCode, $city, ...)
-
-Creates a structured postal address.
+## Error Handling
 
 ```php
-use function FactPulse\SDK\Helpers\postalAddress;
+use FactPulse\SDK\FactPulseClient;
+use FactPulse\SDK\FactPulseError;
 
-$address = postalAddress(
-    '123 Republic Street',
-    '75001',
-    'Paris',
-    'FR',           // country (default: 'FR')
-    'Building A'    // line2 (optional)
-);
-```
-
-### electronicAddress($identifier, $schemeId)
-
-Creates an electronic address (digital identifier).
-
-```php
-use function FactPulse\SDK\Helpers\electronicAddress;
-
-// SIRET (schemeId="0225")
-$address = electronicAddress('12345678901234', '0225');
-
-// SIREN (schemeId="0009", default)
-$address = electronicAddress('123456789');
-```
-
-### supplier($name, $siret, $addressLine1, $postalCode, $city, $options)
-
-Creates a complete supplier with automatic calculation of SIREN and intra-community VAT.
-
-```php
-use function FactPulse\SDK\Helpers\supplier;
-
-$s = supplier(
-    'My Company SAS',
-    '12345678901234',
-    '123 Example Street',
-    '75001',
-    'Paris',
-    ['iban' => 'FR7630006000011234567890189']
-);
-// SIREN and intra-community VAT automatically calculated
-```
-
-### recipient($name, $siret, $addressLine1, $postalCode, $city, $options)
-
-Creates a recipient (customer) with automatic calculation of SIREN.
-
-```php
-use function FactPulse\SDK\Helpers\recipient;
-
-$r = recipient(
-    'Client SARL',
-    '98765432109876',
-    '456 Test Avenue',
-    '69001',
-    'Lyon'
-);
-```
-
-## Zero-Trust Mode (Chorus Pro / AFNOR)
-
-To pass your own credentials without server-side storage:
-
-```php
-use FactPulse\SDK\Helpers\{FactPulseClient, ChorusProCredentials, AFNORCredentials};
-
-$chorusCreds = new ChorusProCredentials(
-    'your_client_id',
-    'your_client_secret',
-    'your_login',
-    'your_password',
-    true  // sandbox
-);
-
-$afnorCreds = new AFNORCredentials(
-    'https://api.pdp.fr/flow/v1',
-    'https://auth.pdp.fr/oauth/token',
-    'your_client_id',
-    'your_client_secret'
-);
-
-$client = new FactPulseClient(
-    'your_email@example.com',
-    'your_password',
-    null,  // apiUrl
-    null,  // clientUid
-    $chorusCreds,
-    $afnorCreds
-);
+try {
+    $result = $client->post("processing/validate-xml", ["xmlContent" => $xml]);
+} catch (FactPulseError $e) {
+    echo "Error: " . $e->getMessage() . "\n";
+    echo "Status code: " . $e->getStatusCode() . "\n";
+    echo "Details: " . print_r($e->getDetails(), true) . "\n";
+}
 ```
 
 ## Resources
 
 - **API Documentation**: https://factpulse.fr/api/facturation/documentation
+- **Webhooks Guide**: https://factpulse.fr/docs/webhooks
 - **Support**: contact@factpulse.fr
 
 ## License
