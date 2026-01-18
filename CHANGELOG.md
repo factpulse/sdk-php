@@ -7,7 +7,7 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
-## [3.1.0] - 2026-01-18
+## [1.0.0] - 2026-01-18
 
 ### Added
 - Version initiale du SDK php
@@ -20,5 +20,5 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - Documentation complète et exemples
 
 
-[Unreleased]: https://github.com/factpulse/sdk-php/compare/v3.1.0...HEAD
-[3.1.0]: https://github.com/factpulse/sdk-php/releases/tag/v3.1.0
+[Unreleased]: https://github.com/factpulse/sdk-php/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/factpulse/sdk-php/releases/tag/v1.0.0

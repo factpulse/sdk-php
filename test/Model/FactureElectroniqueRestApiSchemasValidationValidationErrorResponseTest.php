@@ -1,6 +1,6 @@
 <?php
 /**
- * FactureElectroniqueModelsInvoiceTypeCodeTest
+ * FactureElectroniqueRestApiSchemasValidationValidationErrorResponseTest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * FactureElectroniqueModelsInvoiceTypeCodeTest Class Doc Comment
+ * FactureElectroniqueRestApiSchemasValidationValidationErrorResponseTest Class Doc Comment
  *
  * @category    Class
- * @description Document type according to BR-FR-04 (UNTDID 1001 codes).  | Code | Name | Description | |------|------|-------------| | 380 | INVOICE | Commercial invoice | | 389 | SELF_BILLED_INVOICE | Self-billed invoice | | 393 | FACTORED_INVOICE | Factored invoice | | 501 | SELF_BILLED_FACTORED_INVOICE | Self-billed factored invoice | | 386 | PREPAYMENT_INVOICE | Prepayment invoice | | 500 | SELF_BILLED_PREPAYMENT_INVOICE | Self-billed prepayment invoice | | 384 | CORRECTIVE_INVOICE | Corrective invoice | | 471 | SELF_BILLED_CORRECTIVE_INVOICE | Self-billed corrective invoice | | 472 | FACTORED_CORRECTIVE_INVOICE | Factored corrective invoice | | 473 | SELF_BILLED_FACTORED_CORRECTIVE_INVOICE | Self-billed factored corrective invoice | | 381 | CREDIT_NOTE | Credit note | | 261 | SELF_BILLED_CREDIT_NOTE | Self-billed credit note | | 262 | GLOBAL_ALLOWANCE_CREDIT_NOTE | Credit note for global allowance | | 396 | FACTORED_CREDIT_NOTE | Factored credit note | | 502 | SELF_BILLED_FACTORED_CREDIT_NOTE | Self-billed factored credit note | | 503 | PREPAYMENT_CREDIT_NOTE | Credit note for prepayment invoice |
+ * @description Response for validation errors.
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class FactureElectroniqueModelsInvoiceTypeCodeTest extends TestCase
+class FactureElectroniqueRestApiSchemasValidationValidationErrorResponseTest extends TestCase
 {
 
     /**
@@ -72,9 +72,18 @@ class FactureElectroniqueModelsInvoiceTypeCodeTest extends TestCase
     }
 
     /**
-     * Test "FactureElectroniqueModelsInvoiceTypeCode"
+     * Test "FactureElectroniqueRestApiSchemasValidationValidationErrorResponse"
      */
-    public function testFactureElectroniqueModelsInvoiceTypeCode()
+    public function testFactureElectroniqueRestApiSchemasValidationValidationErrorResponse()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "detail"
+     */
+    public function testPropertyDetail()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

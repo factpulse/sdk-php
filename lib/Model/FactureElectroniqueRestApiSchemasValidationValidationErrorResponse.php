@@ -1,6 +1,6 @@
 <?php
 /**
- * FactureElectroniqueRestApiSchemasCdarValidationErrorResponse
+ * FactureElectroniqueRestApiSchemasValidationValidationErrorResponse
  *
  * PHP version 8.1
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \FactPulse\SDK\ObjectSerializer;
 
 /**
- * FactureElectroniqueRestApiSchemasCdarValidationErrorResponse Class Doc Comment
+ * FactureElectroniqueRestApiSchemasValidationValidationErrorResponse Class Doc Comment
  *
  * @category Class
- * @description Erreur de validation.
+ * @description Response for validation errors.
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class FactureElectroniqueRestApiSchemasCdarValidationErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class FactureElectroniqueRestApiSchemasValidationValidationErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class FactureElectroniqueRestApiSchemasCdarValidationErrorResponse implements Mo
       *
       * @var string
       */
-    protected static $openAPIModelName = 'facture_electronique__rest_api__schemas__cdar__ValidationErrorResponse';
+    protected static $openAPIModelName = 'facture_electronique__rest_api__schemas__validation__ValidationErrorResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,10 +59,7 @@ class FactureElectroniqueRestApiSchemasCdarValidationErrorResponse implements Mo
       * @var string[]
       */
     protected static $openAPITypes = [
-        'field' => 'string',
-        'message' => 'string',
-        'rule' => 'string',
-        'severity' => 'string'
+        'detail' => 'string[]'
     ];
 
     /**
@@ -73,10 +70,7 @@ class FactureElectroniqueRestApiSchemasCdarValidationErrorResponse implements Mo
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'field' => null,
-        'message' => null,
-        'rule' => null,
-        'severity' => null
+        'detail' => null
     ];
 
     /**
@@ -85,10 +79,7 @@ class FactureElectroniqueRestApiSchemasCdarValidationErrorResponse implements Mo
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'field' => false,
-        'message' => false,
-        'rule' => true,
-        'severity' => false
+        'detail' => false
     ];
 
     /**
@@ -177,10 +168,7 @@ class FactureElectroniqueRestApiSchemasCdarValidationErrorResponse implements Mo
      * @var string[]
      */
     protected static $attributeMap = [
-        'field' => 'field',
-        'message' => 'message',
-        'rule' => 'rule',
-        'severity' => 'severity'
+        'detail' => 'detail'
     ];
 
     /**
@@ -189,10 +177,7 @@ class FactureElectroniqueRestApiSchemasCdarValidationErrorResponse implements Mo
      * @var string[]
      */
     protected static $setters = [
-        'field' => 'setField',
-        'message' => 'setMessage',
-        'rule' => 'setRule',
-        'severity' => 'setSeverity'
+        'detail' => 'setDetail'
     ];
 
     /**
@@ -201,10 +186,7 @@ class FactureElectroniqueRestApiSchemasCdarValidationErrorResponse implements Mo
      * @var string[]
      */
     protected static $getters = [
-        'field' => 'getField',
-        'message' => 'getMessage',
-        'rule' => 'getRule',
-        'severity' => 'getSeverity'
+        'detail' => 'getDetail'
     ];
 
     /**
@@ -264,10 +246,7 @@ class FactureElectroniqueRestApiSchemasCdarValidationErrorResponse implements Mo
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('field', $data ?? [], null);
-        $this->setIfExists('message', $data ?? [], null);
-        $this->setIfExists('rule', $data ?? [], null);
-        $this->setIfExists('severity', $data ?? [], 'error');
+        $this->setIfExists('detail', $data ?? [], null);
     }
 
     /**
@@ -297,11 +276,8 @@ class FactureElectroniqueRestApiSchemasCdarValidationErrorResponse implements Mo
     {
         $invalidProperties = [];
 
-        if ($this->container['field'] === null) {
-            $invalidProperties[] = "'field' can't be null";
-        }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
+        if ($this->container['detail'] === null) {
+            $invalidProperties[] = "'detail' can't be null";
         }
         return $invalidProperties;
     }
@@ -319,116 +295,28 @@ class FactureElectroniqueRestApiSchemasCdarValidationErrorResponse implements Mo
 
 
     /**
-     * Gets field
+     * Gets detail
      *
-     * @return string
+     * @return string[]
      */
-    public function getField()
+    public function getDetail()
     {
-        return $this->container['field'];
+        return $this->container['detail'];
     }
 
     /**
-     * Sets field
+     * Sets detail
      *
-     * @param string $field Champ concerné
+     * @param string[] $detail List of detected validation errors.
      *
      * @return self
      */
-    public function setField($field)
+    public function setDetail($detail)
     {
-        if (is_null($field)) {
-            throw new \InvalidArgumentException('non-nullable field cannot be null');
+        if (is_null($detail)) {
+            throw new \InvalidArgumentException('non-nullable detail cannot be null');
         }
-        $this->container['field'] = $field;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
-     *
-     * @return string
-     */
-    public function getMessage()
-    {
-        return $this->container['message'];
-    }
-
-    /**
-     * Sets message
-     *
-     * @param string $message Message d'erreur
-     *
-     * @return self
-     */
-    public function setMessage($message)
-    {
-        if (is_null($message)) {
-            throw new \InvalidArgumentException('non-nullable message cannot be null');
-        }
-        $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets rule
-     *
-     * @return string|null
-     */
-    public function getRule()
-    {
-        return $this->container['rule'];
-    }
-
-    /**
-     * Sets rule
-     *
-     * @param string|null $rule rule
-     *
-     * @return self
-     */
-    public function setRule($rule)
-    {
-        if (is_null($rule)) {
-            array_push($this->openAPINullablesSetToNull, 'rule');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('rule', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['rule'] = $rule;
-
-        return $this;
-    }
-
-    /**
-     * Gets severity
-     *
-     * @return string|null
-     */
-    public function getSeverity()
-    {
-        return $this->container['severity'];
-    }
-
-    /**
-     * Sets severity
-     *
-     * @param string|null $severity Sévérité (error/warning)
-     *
-     * @return self
-     */
-    public function setSeverity($severity)
-    {
-        if (is_null($severity)) {
-            throw new \InvalidArgumentException('non-nullable severity cannot be null');
-        }
-        $this->container['severity'] = $severity;
+        $this->container['detail'] = $detail;
 
         return $this;
     }
