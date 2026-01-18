@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **enriched_invoice** | [**\FactPulse\SDK\Model\EnrichedInvoiceInfo**](EnrichedInvoiceInfo.md) | Enriched invoice data |
 **facturx_pdf** | [**\FactPulse\SDK\Model\FacturXPDFInfo**](FacturXPDFInfo.md) | Generated PDF information |
 **signature** | [**\FactPulse\SDK\Model\SignatureInfo**](SignatureInfo.md) |  | [optional]
-**pdf_base64** | **string** | Generated Factur-X PDF (and signed if requested) base64-encoded |
+**content_b64** | **string** | Generated Factur-X PDF (and signed if requested) base64-encoded |
 **message** | **string** | Return message |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

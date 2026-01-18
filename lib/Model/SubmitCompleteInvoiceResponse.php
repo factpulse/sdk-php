@@ -66,7 +66,7 @@ class SubmitCompleteInvoiceResponse implements ModelInterface, ArrayAccess, \Jso
         'enriched_invoice' => '\FactPulse\SDK\Model\EnrichedInvoiceInfo',
         'facturx_pdf' => '\FactPulse\SDK\Model\FacturXPDFInfo',
         'signature' => '\FactPulse\SDK\Model\SignatureInfo',
-        'pdf_base64' => 'string',
+        'content_b64' => 'string',
         'message' => 'string'
     ];
 
@@ -85,7 +85,7 @@ class SubmitCompleteInvoiceResponse implements ModelInterface, ArrayAccess, \Jso
         'enriched_invoice' => null,
         'facturx_pdf' => null,
         'signature' => null,
-        'pdf_base64' => null,
+        'content_b64' => null,
         'message' => null
     ];
 
@@ -102,7 +102,7 @@ class SubmitCompleteInvoiceResponse implements ModelInterface, ArrayAccess, \Jso
         'enriched_invoice' => false,
         'facturx_pdf' => false,
         'signature' => true,
-        'pdf_base64' => false,
+        'content_b64' => false,
         'message' => false
     ];
 
@@ -199,7 +199,7 @@ class SubmitCompleteInvoiceResponse implements ModelInterface, ArrayAccess, \Jso
         'enriched_invoice' => 'enrichedInvoice',
         'facturx_pdf' => 'facturxPdf',
         'signature' => 'signature',
-        'pdf_base64' => 'pdfBase64',
+        'content_b64' => 'contentB64',
         'message' => 'message'
     ];
 
@@ -216,7 +216,7 @@ class SubmitCompleteInvoiceResponse implements ModelInterface, ArrayAccess, \Jso
         'enriched_invoice' => 'setEnrichedInvoice',
         'facturx_pdf' => 'setFacturxPdf',
         'signature' => 'setSignature',
-        'pdf_base64' => 'setPdfBase64',
+        'content_b64' => 'setContentB64',
         'message' => 'setMessage'
     ];
 
@@ -233,7 +233,7 @@ class SubmitCompleteInvoiceResponse implements ModelInterface, ArrayAccess, \Jso
         'enriched_invoice' => 'getEnrichedInvoice',
         'facturx_pdf' => 'getFacturxPdf',
         'signature' => 'getSignature',
-        'pdf_base64' => 'getPdfBase64',
+        'content_b64' => 'getContentB64',
         'message' => 'getMessage'
     ];
 
@@ -316,7 +316,7 @@ class SubmitCompleteInvoiceResponse implements ModelInterface, ArrayAccess, \Jso
         $this->setIfExists('enriched_invoice', $data ?? [], null);
         $this->setIfExists('facturx_pdf', $data ?? [], null);
         $this->setIfExists('signature', $data ?? [], null);
-        $this->setIfExists('pdf_base64', $data ?? [], null);
+        $this->setIfExists('content_b64', $data ?? [], null);
         $this->setIfExists('message', $data ?? [], null);
     }
 
@@ -368,8 +368,8 @@ class SubmitCompleteInvoiceResponse implements ModelInterface, ArrayAccess, \Jso
         if ($this->container['facturx_pdf'] === null) {
             $invalidProperties[] = "'facturx_pdf' can't be null";
         }
-        if ($this->container['pdf_base64'] === null) {
-            $invalidProperties[] = "'pdf_base64' can't be null";
+        if ($this->container['content_b64'] === null) {
+            $invalidProperties[] = "'content_b64' can't be null";
         }
         if ($this->container['message'] === null) {
             $invalidProperties[] = "'message' can't be null";
@@ -610,28 +610,28 @@ class SubmitCompleteInvoiceResponse implements ModelInterface, ArrayAccess, \Jso
     }
 
     /**
-     * Gets pdf_base64
+     * Gets content_b64
      *
      * @return string
      */
-    public function getPdfBase64()
+    public function getContentB64()
     {
-        return $this->container['pdf_base64'];
+        return $this->container['content_b64'];
     }
 
     /**
-     * Sets pdf_base64
+     * Sets content_b64
      *
-     * @param string $pdf_base64 Generated Factur-X PDF (and signed if requested) base64-encoded
+     * @param string $content_b64 Generated Factur-X PDF (and signed if requested) base64-encoded
      *
      * @return self
      */
-    public function setPdfBase64($pdf_base64)
+    public function setContentB64($content_b64)
     {
-        if (is_null($pdf_base64)) {
-            throw new \InvalidArgumentException('non-nullable pdf_base64 cannot be null');
+        if (is_null($content_b64)) {
+            throw new \InvalidArgumentException('non-nullable content_b64 cannot be null');
         }
-        $this->container['pdf_base64'] = $pdf_base64;
+        $this->container['content_b64'] = $content_b64;
 
         return $this;
     }

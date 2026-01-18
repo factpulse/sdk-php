@@ -144,9 +144,9 @@ class SubmitCompleteInvoiceResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "pdf_base64"
+     * Test attribute "content_b64"
      */
-    public function testPropertyPdfBase64()
+    public function testPropertyContentB64()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

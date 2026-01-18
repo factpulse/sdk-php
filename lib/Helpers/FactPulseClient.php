@@ -91,15 +91,17 @@ class FactPulseClient {
             $this->handleGuzzleError($e);
         }
 
-        // Auto-poll if taskId present
-        if (isset($result['taskId'])) {
-            $result = $this->poll($result['taskId']);
+        // Auto-poll: support both taskId (camelCase) and task_id (snake_case)
+        $taskId = $result['taskId'] ?? $result['task_id'] ?? null;
+        if ($taskId) {
+            $result = $this->poll($taskId);
         }
 
-        // Auto-decode base64
-        if (isset($result['content_b64'])) {
-            $result['content'] = base64_decode($result['content_b64']);
-            unset($result['content_b64']);
+        // Auto-decode: support both content_b64 and contentB64
+        $b64Content = $result['content_b64'] ?? $result['contentB64'] ?? null;
+        if ($b64Content) {
+            $result['content'] = base64_decode($b64Content);
+            unset($result['content_b64'], $result['contentB64']);
         }
 
         return $result;
@@ -134,9 +136,11 @@ class FactPulseClient {
 
             if ($status === 'SUCCESS') {
                 $result = $data['result'] ?? [];
-                if (isset($result['content_b64'])) {
-                    $result['content'] = base64_decode($result['content_b64']);
-                    unset($result['content_b64']);
+                // Support both content_b64 and contentB64
+                $b64Content = $result['content_b64'] ?? $result['contentB64'] ?? null;
+                if ($b64Content) {
+                    $result['content'] = base64_decode($b64Content);
+                    unset($result['content_b64'], $result['contentB64']);
                 }
                 return $result;
             }
