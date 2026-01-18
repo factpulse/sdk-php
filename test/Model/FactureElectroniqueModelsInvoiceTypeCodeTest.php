@@ -1,6 +1,6 @@
 <?php
 /**
- * FactureElectroniqueRestApiSchemasChorusProChorusProCredentialsTest
+ * FactureElectroniqueModelsInvoiceTypeCodeTest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * FactureElectroniqueRestApiSchemasChorusProChorusProCredentialsTest Class Doc Comment
+ * FactureElectroniqueModelsInvoiceTypeCodeTest Class Doc Comment
  *
  * @category    Class
- * @description Chorus Pro credentials for Zero-Trust mode.  **Zero-Trust Mode**: Credentials are passed in each request and are NEVER stored.  **Security**: - Credentials are never persisted in the database - They are used only for the duration of the request - Secure transmission via HTTPS  **Use cases**: - High-security environments (banks, administrations) - Strict GDPR compliance - Tests with temporary credentials - Users who don&#39;t want to store their credentials
+ * @description Document type according to BR-FR-04 (UNTDID 1001 codes).  | Code | Name | Description | |------|------|-------------| | 380 | INVOICE | Commercial invoice | | 389 | SELF_BILLED_INVOICE | Self-billed invoice | | 393 | FACTORED_INVOICE | Factored invoice | | 501 | SELF_BILLED_FACTORED_INVOICE | Self-billed factored invoice | | 386 | PREPAYMENT_INVOICE | Prepayment invoice | | 500 | SELF_BILLED_PREPAYMENT_INVOICE | Self-billed prepayment invoice | | 384 | CORRECTIVE_INVOICE | Corrective invoice | | 471 | SELF_BILLED_CORRECTIVE_INVOICE | Self-billed corrective invoice | | 472 | FACTORED_CORRECTIVE_INVOICE | Factored corrective invoice | | 473 | SELF_BILLED_FACTORED_CORRECTIVE_INVOICE | Self-billed factored corrective invoice | | 381 | CREDIT_NOTE | Credit note | | 261 | SELF_BILLED_CREDIT_NOTE | Self-billed credit note | | 262 | GLOBAL_ALLOWANCE_CREDIT_NOTE | Credit note for global allowance | | 396 | FACTORED_CREDIT_NOTE | Factored credit note | | 502 | SELF_BILLED_FACTORED_CREDIT_NOTE | Self-billed factored credit note | | 503 | PREPAYMENT_CREDIT_NOTE | Credit note for prepayment invoice |
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class FactureElectroniqueRestApiSchemasChorusProChorusProCredentialsTest extends TestCase
+class FactureElectroniqueModelsInvoiceTypeCodeTest extends TestCase
 {
 
     /**
@@ -72,54 +72,9 @@ class FactureElectroniqueRestApiSchemasChorusProChorusProCredentialsTest extends
     }
 
     /**
-     * Test "FactureElectroniqueRestApiSchemasChorusProChorusProCredentials"
+     * Test "FactureElectroniqueModelsInvoiceTypeCode"
      */
-    public function testFactureElectroniqueRestApiSchemasChorusProChorusProCredentials()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "piste_client_id"
-     */
-    public function testPropertyPisteClientId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "piste_client_secret"
-     */
-    public function testPropertyPisteClientSecret()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "chorus_pro_login"
-     */
-    public function testPropertyChorusProLogin()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "chorus_pro_password"
-     */
-    public function testPropertyChorusProPassword()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "sandbox"
-     */
-    public function testPropertySandbox()
+    public function testFactureElectroniqueModelsInvoiceTypeCode()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

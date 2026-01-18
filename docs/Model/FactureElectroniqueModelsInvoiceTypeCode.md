@@ -1,9 +1,8 @@
-# # FactureElectroniqueRestApiSchemasValidationValidationErrorResponse
+# # FactureElectroniqueModelsInvoiceTypeCode
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**detail** | **string[]** | List of detected validation errors. |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -3361,7 +3361,7 @@ class InvoiceProcessingApi
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \FactPulse\SDK\Model\ValidationSuccessResponse|\FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasValidationValidationErrorResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
+     * @return \FactPulse\SDK\Model\ValidationSuccessResponse|\FactPulse\SDK\Model\ValidationErrorResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function validateXmlApiV1ProcessingValidateXmlPost($xml_file, $profile = null, $skip_br_fr = null, string $contentType = self::contentTypes['validateXmlApiV1ProcessingValidateXmlPost'][0])
     {
@@ -3381,7 +3381,7 @@ class InvoiceProcessingApi
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \FactPulse\SDK\Model\ValidationSuccessResponse|\FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasValidationValidationErrorResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\ValidationSuccessResponse|\FactPulse\SDK\Model\ValidationErrorResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function validateXmlApiV1ProcessingValidateXmlPostWithHttpInfo($xml_file, $profile = null, $skip_br_fr = null, string $contentType = self::contentTypes['validateXmlApiV1ProcessingValidateXmlPost'][0])
     {
@@ -3419,7 +3419,7 @@ class InvoiceProcessingApi
                     );
                 case 400:
                     return $this->handleResponseWithDataType(
-                        '\FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasValidationValidationErrorResponse',
+                        '\FactPulse\SDK\Model\ValidationErrorResponse',
                         $request,
                         $response,
                     );
@@ -3470,7 +3470,7 @@ class InvoiceProcessingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasValidationValidationErrorResponse',
+                        '\FactPulse\SDK\Model\ValidationErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

@@ -1,6 +1,6 @@
 <?php
 /**
- * FactureElectroniqueRestApiSchemasChorusProChorusProCredentials
+ * FactureElectroniqueRestApiSchemasCdarValidationErrorResponse
  *
  * PHP version 8.1
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \FactPulse\SDK\ObjectSerializer;
 
 /**
- * FactureElectroniqueRestApiSchemasChorusProChorusProCredentials Class Doc Comment
+ * FactureElectroniqueRestApiSchemasCdarValidationErrorResponse Class Doc Comment
  *
  * @category Class
- * @description Chorus Pro credentials for Zero-Trust mode.  **Zero-Trust Mode**: Credentials are passed in each request and are NEVER stored.  **Security**: - Credentials are never persisted in the database - They are used only for the duration of the request - Secure transmission via HTTPS  **Use cases**: - High-security environments (banks, administrations) - Strict GDPR compliance - Tests with temporary credentials - Users who don&#39;t want to store their credentials
+ * @description Erreur de validation.
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class FactureElectroniqueRestApiSchemasChorusProChorusProCredentials implements ModelInterface, ArrayAccess, \JsonSerializable
+class FactureElectroniqueRestApiSchemasCdarValidationErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class FactureElectroniqueRestApiSchemasChorusProChorusProCredentials implements 
       *
       * @var string
       */
-    protected static $openAPIModelName = 'facture_electronique__rest_api__schemas__chorus_pro__ChorusProCredentials';
+    protected static $openAPIModelName = 'facture_electronique__rest_api__schemas__cdar__ValidationErrorResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,11 +59,10 @@ class FactureElectroniqueRestApiSchemasChorusProChorusProCredentials implements 
       * @var string[]
       */
     protected static $openAPITypes = [
-        'piste_client_id' => 'string',
-        'piste_client_secret' => 'string',
-        'chorus_pro_login' => 'string',
-        'chorus_pro_password' => 'string',
-        'sandbox' => 'bool'
+        'field' => 'string',
+        'message' => 'string',
+        'rule' => 'string',
+        'severity' => 'string'
     ];
 
     /**
@@ -74,11 +73,10 @@ class FactureElectroniqueRestApiSchemasChorusProChorusProCredentials implements 
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'piste_client_id' => null,
-        'piste_client_secret' => null,
-        'chorus_pro_login' => null,
-        'chorus_pro_password' => null,
-        'sandbox' => null
+        'field' => null,
+        'message' => null,
+        'rule' => null,
+        'severity' => null
     ];
 
     /**
@@ -87,11 +85,10 @@ class FactureElectroniqueRestApiSchemasChorusProChorusProCredentials implements 
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'piste_client_id' => false,
-        'piste_client_secret' => false,
-        'chorus_pro_login' => false,
-        'chorus_pro_password' => false,
-        'sandbox' => false
+        'field' => false,
+        'message' => false,
+        'rule' => true,
+        'severity' => false
     ];
 
     /**
@@ -180,11 +177,10 @@ class FactureElectroniqueRestApiSchemasChorusProChorusProCredentials implements 
      * @var string[]
      */
     protected static $attributeMap = [
-        'piste_client_id' => 'pisteClientId',
-        'piste_client_secret' => 'pisteClientSecret',
-        'chorus_pro_login' => 'chorusProLogin',
-        'chorus_pro_password' => 'chorusProPassword',
-        'sandbox' => 'sandbox'
+        'field' => 'field',
+        'message' => 'message',
+        'rule' => 'rule',
+        'severity' => 'severity'
     ];
 
     /**
@@ -193,11 +189,10 @@ class FactureElectroniqueRestApiSchemasChorusProChorusProCredentials implements 
      * @var string[]
      */
     protected static $setters = [
-        'piste_client_id' => 'setPisteClientId',
-        'piste_client_secret' => 'setPisteClientSecret',
-        'chorus_pro_login' => 'setChorusProLogin',
-        'chorus_pro_password' => 'setChorusProPassword',
-        'sandbox' => 'setSandbox'
+        'field' => 'setField',
+        'message' => 'setMessage',
+        'rule' => 'setRule',
+        'severity' => 'setSeverity'
     ];
 
     /**
@@ -206,11 +201,10 @@ class FactureElectroniqueRestApiSchemasChorusProChorusProCredentials implements 
      * @var string[]
      */
     protected static $getters = [
-        'piste_client_id' => 'getPisteClientId',
-        'piste_client_secret' => 'getPisteClientSecret',
-        'chorus_pro_login' => 'getChorusProLogin',
-        'chorus_pro_password' => 'getChorusProPassword',
-        'sandbox' => 'getSandbox'
+        'field' => 'getField',
+        'message' => 'getMessage',
+        'rule' => 'getRule',
+        'severity' => 'getSeverity'
     ];
 
     /**
@@ -270,11 +264,10 @@ class FactureElectroniqueRestApiSchemasChorusProChorusProCredentials implements 
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('piste_client_id', $data ?? [], null);
-        $this->setIfExists('piste_client_secret', $data ?? [], null);
-        $this->setIfExists('chorus_pro_login', $data ?? [], null);
-        $this->setIfExists('chorus_pro_password', $data ?? [], null);
-        $this->setIfExists('sandbox', $data ?? [], true);
+        $this->setIfExists('field', $data ?? [], null);
+        $this->setIfExists('message', $data ?? [], null);
+        $this->setIfExists('rule', $data ?? [], null);
+        $this->setIfExists('severity', $data ?? [], 'error');
     }
 
     /**
@@ -304,17 +297,11 @@ class FactureElectroniqueRestApiSchemasChorusProChorusProCredentials implements 
     {
         $invalidProperties = [];
 
-        if ($this->container['piste_client_id'] === null) {
-            $invalidProperties[] = "'piste_client_id' can't be null";
+        if ($this->container['field'] === null) {
+            $invalidProperties[] = "'field' can't be null";
         }
-        if ($this->container['piste_client_secret'] === null) {
-            $invalidProperties[] = "'piste_client_secret' can't be null";
-        }
-        if ($this->container['chorus_pro_login'] === null) {
-            $invalidProperties[] = "'chorus_pro_login' can't be null";
-        }
-        if ($this->container['chorus_pro_password'] === null) {
-            $invalidProperties[] = "'chorus_pro_password' can't be null";
+        if ($this->container['message'] === null) {
+            $invalidProperties[] = "'message' can't be null";
         }
         return $invalidProperties;
     }
@@ -332,136 +319,116 @@ class FactureElectroniqueRestApiSchemasChorusProChorusProCredentials implements 
 
 
     /**
-     * Gets piste_client_id
+     * Gets field
      *
      * @return string
      */
-    public function getPisteClientId()
+    public function getField()
     {
-        return $this->container['piste_client_id'];
+        return $this->container['field'];
     }
 
     /**
-     * Sets piste_client_id
+     * Sets field
      *
-     * @param string $piste_client_id PISTE Client ID (government API portal)
+     * @param string $field Champ concerné
      *
      * @return self
      */
-    public function setPisteClientId($piste_client_id)
+    public function setField($field)
     {
-        if (is_null($piste_client_id)) {
-            throw new \InvalidArgumentException('non-nullable piste_client_id cannot be null');
+        if (is_null($field)) {
+            throw new \InvalidArgumentException('non-nullable field cannot be null');
         }
-        $this->container['piste_client_id'] = $piste_client_id;
+        $this->container['field'] = $field;
 
         return $this;
     }
 
     /**
-     * Gets piste_client_secret
+     * Gets message
      *
      * @return string
      */
-    public function getPisteClientSecret()
+    public function getMessage()
     {
-        return $this->container['piste_client_secret'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets piste_client_secret
+     * Sets message
      *
-     * @param string $piste_client_secret PISTE Client Secret
+     * @param string $message Message d'erreur
      *
      * @return self
      */
-    public function setPisteClientSecret($piste_client_secret)
+    public function setMessage($message)
     {
-        if (is_null($piste_client_secret)) {
-            throw new \InvalidArgumentException('non-nullable piste_client_secret cannot be null');
+        if (is_null($message)) {
+            throw new \InvalidArgumentException('non-nullable message cannot be null');
         }
-        $this->container['piste_client_secret'] = $piste_client_secret;
+        $this->container['message'] = $message;
 
         return $this;
     }
 
     /**
-     * Gets chorus_pro_login
+     * Gets rule
      *
-     * @return string
+     * @return string|null
      */
-    public function getChorusProLogin()
+    public function getRule()
     {
-        return $this->container['chorus_pro_login'];
+        return $this->container['rule'];
     }
 
     /**
-     * Sets chorus_pro_login
+     * Sets rule
      *
-     * @param string $chorus_pro_login Chorus Pro login
+     * @param string|null $rule rule
      *
      * @return self
      */
-    public function setChorusProLogin($chorus_pro_login)
+    public function setRule($rule)
     {
-        if (is_null($chorus_pro_login)) {
-            throw new \InvalidArgumentException('non-nullable chorus_pro_login cannot be null');
+        if (is_null($rule)) {
+            array_push($this->openAPINullablesSetToNull, 'rule');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('rule', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['chorus_pro_login'] = $chorus_pro_login;
+        $this->container['rule'] = $rule;
 
         return $this;
     }
 
     /**
-     * Gets chorus_pro_password
+     * Gets severity
      *
-     * @return string
+     * @return string|null
      */
-    public function getChorusProPassword()
+    public function getSeverity()
     {
-        return $this->container['chorus_pro_password'];
+        return $this->container['severity'];
     }
 
     /**
-     * Sets chorus_pro_password
+     * Sets severity
      *
-     * @param string $chorus_pro_password Chorus Pro password
+     * @param string|null $severity Sévérité (error/warning)
      *
      * @return self
      */
-    public function setChorusProPassword($chorus_pro_password)
+    public function setSeverity($severity)
     {
-        if (is_null($chorus_pro_password)) {
-            throw new \InvalidArgumentException('non-nullable chorus_pro_password cannot be null');
+        if (is_null($severity)) {
+            throw new \InvalidArgumentException('non-nullable severity cannot be null');
         }
-        $this->container['chorus_pro_password'] = $chorus_pro_password;
-
-        return $this;
-    }
-
-    /**
-     * Gets sandbox
-     *
-     * @return bool|null
-     */
-    public function getSandbox()
-    {
-        return $this->container['sandbox'];
-    }
-
-    /**
-     * Sets sandbox
-     *
-     * @param bool|null $sandbox Use sandbox environment (true) or production (false)
-     *
-     * @return self
-     */
-    public function setSandbox($sandbox)
-    {
-        if (is_null($sandbox)) {
-            throw new \InvalidArgumentException('non-nullable sandbox cannot be null');
-        }
-        $this->container['sandbox'] = $sandbox;
+        $this->container['severity'] = $severity;
 
         return $this;
     }
