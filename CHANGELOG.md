@@ -10,10 +10,11 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ## [4.0.0] - 2026-01-19
 
 ### Added
-- Ajout de la gestion automatique des endpoints async
+- Gestion automatique des taches asynchrones
+- Gestion automatique du décodage des documents renvoyés en base 64.
 
 ### Changed
-- Rework API des SDK
+- Rework complet du fonctionnement des SDK, fonctionnement totalement générique et transparent
 
 
 [Unreleased]: https://github.com/factpulse/sdk-php/compare/v4.0.0...HEAD
