@@ -1,6 +1,6 @@
 <?php
 /**
- * ValidateCDARResponse
+ * FactureElectroniqueRestApiSchemasValidationValidationErrorResponse
  *
  * PHP version 8.1
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \FactPulse\SDK\ObjectSerializer;
 
 /**
- * ValidateCDARResponse Class Doc Comment
+ * FactureElectroniqueRestApiSchemasValidationValidationErrorResponse Class Doc Comment
  *
  * @category Class
- * @description Réponse de validation CDAR.
+ * @description Response for validation errors.
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ValidateCDARResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class FactureElectroniqueRestApiSchemasValidationValidationErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class ValidateCDARResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ValidateCDARResponse';
+    protected static $openAPIModelName = 'facture_electronique__rest_api__schemas__validation__ValidationErrorResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,9 +59,7 @@ class ValidateCDARResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'valid' => 'bool',
-        'errors' => '\FactPulse\SDK\Model\ValidationErrorResponse[]',
-        'warnings' => '\FactPulse\SDK\Model\ValidationErrorResponse[]'
+        'detail' => 'string[]'
     ];
 
     /**
@@ -72,9 +70,7 @@ class ValidateCDARResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'valid' => null,
-        'errors' => null,
-        'warnings' => null
+        'detail' => null
     ];
 
     /**
@@ -83,9 +79,7 @@ class ValidateCDARResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'valid' => false,
-        'errors' => false,
-        'warnings' => false
+        'detail' => false
     ];
 
     /**
@@ -174,9 +168,7 @@ class ValidateCDARResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'valid' => 'valid',
-        'errors' => 'errors',
-        'warnings' => 'warnings'
+        'detail' => 'detail'
     ];
 
     /**
@@ -185,9 +177,7 @@ class ValidateCDARResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'valid' => 'setValid',
-        'errors' => 'setErrors',
-        'warnings' => 'setWarnings'
+        'detail' => 'setDetail'
     ];
 
     /**
@@ -196,9 +186,7 @@ class ValidateCDARResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'valid' => 'getValid',
-        'errors' => 'getErrors',
-        'warnings' => 'getWarnings'
+        'detail' => 'getDetail'
     ];
 
     /**
@@ -258,9 +246,7 @@ class ValidateCDARResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('valid', $data ?? [], null);
-        $this->setIfExists('errors', $data ?? [], null);
-        $this->setIfExists('warnings', $data ?? [], null);
+        $this->setIfExists('detail', $data ?? [], null);
     }
 
     /**
@@ -290,8 +276,8 @@ class ValidateCDARResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $invalidProperties = [];
 
-        if ($this->container['valid'] === null) {
-            $invalidProperties[] = "'valid' can't be null";
+        if ($this->container['detail'] === null) {
+            $invalidProperties[] = "'detail' can't be null";
         }
         return $invalidProperties;
     }
@@ -309,82 +295,28 @@ class ValidateCDARResponse implements ModelInterface, ArrayAccess, \JsonSerializ
 
 
     /**
-     * Gets valid
+     * Gets detail
      *
-     * @return bool
+     * @return string[]
      */
-    public function getValid()
+    public function getDetail()
     {
-        return $this->container['valid'];
+        return $this->container['detail'];
     }
 
     /**
-     * Sets valid
+     * Sets detail
      *
-     * @param bool $valid Résultat de validation
+     * @param string[] $detail List of detected validation errors.
      *
      * @return self
      */
-    public function setValid($valid)
+    public function setDetail($detail)
     {
-        if (is_null($valid)) {
-            throw new \InvalidArgumentException('non-nullable valid cannot be null');
+        if (is_null($detail)) {
+            throw new \InvalidArgumentException('non-nullable detail cannot be null');
         }
-        $this->container['valid'] = $valid;
-
-        return $this;
-    }
-
-    /**
-     * Gets errors
-     *
-     * @return \FactPulse\SDK\Model\ValidationErrorResponse[]|null
-     */
-    public function getErrors()
-    {
-        return $this->container['errors'];
-    }
-
-    /**
-     * Sets errors
-     *
-     * @param \FactPulse\SDK\Model\ValidationErrorResponse[]|null $errors Liste des erreurs
-     *
-     * @return self
-     */
-    public function setErrors($errors)
-    {
-        if (is_null($errors)) {
-            throw new \InvalidArgumentException('non-nullable errors cannot be null');
-        }
-        $this->container['errors'] = $errors;
-
-        return $this;
-    }
-
-    /**
-     * Gets warnings
-     *
-     * @return \FactPulse\SDK\Model\ValidationErrorResponse[]|null
-     */
-    public function getWarnings()
-    {
-        return $this->container['warnings'];
-    }
-
-    /**
-     * Sets warnings
-     *
-     * @param \FactPulse\SDK\Model\ValidationErrorResponse[]|null $warnings Liste des avertissements
-     *
-     * @return self
-     */
-    public function setWarnings($warnings)
-    {
-        if (is_null($warnings)) {
-            throw new \InvalidArgumentException('non-nullable warnings cannot be null');
-        }
-        $this->container['warnings'] = $warnings;
+        $this->container['detail'] = $detail;
 
         return $this;
     }

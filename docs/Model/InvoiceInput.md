@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **invoice_id** | **string** | Invoice identifier |
 **issue_date** | **\DateTime** | Invoice issue date |
-**type_code** | [**\FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCode**](FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCode.md) | Invoice type code | [optional]
+**type_code** | [**\FactPulse\SDK\Model\InvoiceTypeCode**](InvoiceTypeCode.md) | Invoice type code | [optional]
 **currency** | [**\FactPulse\SDK\Model\Currency**](Currency.md) |  | [optional]
 **due_date** | **\DateTime** |  | [optional]
 **seller_siren** | **string** | Seller SIREN/SIRET |

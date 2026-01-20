@@ -1,6 +1,6 @@
 <?php
 /**
- * FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCodeTest
+ * FactureElectroniqueRestApiSchemasValidationValidationErrorResponseTest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCodeTest Class Doc Comment
+ * FactureElectroniqueRestApiSchemasValidationValidationErrorResponseTest Class Doc Comment
  *
  * @category    Class
- * @description Invoice type codes (UNTDID 1001).
+ * @description Response for validation errors.
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCodeTest extends TestCase
+class FactureElectroniqueRestApiSchemasValidationValidationErrorResponseTest extends TestCase
 {
 
     /**
@@ -72,9 +72,18 @@ class FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCodeTest extends Tes
     }
 
     /**
-     * Test "FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCode"
+     * Test "FactureElectroniqueRestApiSchemasValidationValidationErrorResponse"
      */
-    public function testFactureElectroniqueRestApiSchemasEreportingInvoiceTypeCode()
+    public function testFactureElectroniqueRestApiSchemasValidationValidationErrorResponse()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "detail"
+     */
+    public function testPropertyDetail()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
