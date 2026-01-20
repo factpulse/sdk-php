@@ -7,15 +7,18 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
-## [4.0.0] - 2026-01-19
+## [1.0.0] - 2026-01-20
 
 ### Added
-- Gestion automatique des taches asynchrones
-- Gestion automatique du décodage des documents renvoyés en base 64.
+- Version initiale du SDK php
+- Support complet de l'API FactPulse
+- Endpoints Factur-X (génération, validation)
+- Endpoints AFNOR PDP/PA (Flow Service, Directory Service)
+- Endpoints Chorus Pro (recherche entreprise, soumission factures)
+- Endpoints Signature électronique (PAdES-B-B, PAdES-B-T, PAdES-B-LT)
+- Support des deux modes d'authentification (stored credentials et zero-trust)
+- Documentation complète et exemples
 
-### Changed
-- Rework complet du fonctionnement des SDK, fonctionnement totalement générique et transparent
 
-
-[Unreleased]: https://github.com/factpulse/sdk-php/compare/v4.0.0...HEAD
-[4.0.0]: https://github.com/factpulse/sdk-php/releases/tag/v4.0.0
+[Unreleased]: https://github.com/factpulse/sdk-php/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/factpulse/sdk-php/releases/tag/v1.0.0

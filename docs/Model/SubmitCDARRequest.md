@@ -23,5 +23,9 @@ Name | Type | Description | Notes
 **action_code** | **string** |  | [optional]
 **encaisse_amount** | [**\FactPulse\SDK\Model\Encaisseamount**](Encaisseamount.md) |  | [optional]
 **flow_type** | **string** | Type de flux AFNOR (CustomerInvoiceLC, SupplierInvoiceLC, etc.) | [optional] [default to 'CustomerInvoiceLC']
+**pdp_flow_service_url** | **string** |  | [optional]
+**pdp_token_url** | **string** |  | [optional]
+**pdp_client_id** | **string** |  | [optional]
+**pdp_client_secret** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

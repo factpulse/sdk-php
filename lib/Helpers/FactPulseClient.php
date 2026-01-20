@@ -69,6 +69,11 @@ class FactPulseClient {
         return $this->request('GET', $path, $params, true);
     }
 
+    /** POST request with multipart/form-data (for file uploads) */
+    public function postMultipart(string $path, array $data = [], array $files = []): array {
+        return $this->requestMultipart($path, $data, $files, true);
+    }
+
     private function request(string $method, string $path, array $data, bool $retryAuth): array {
         $this->ensureAuth();
         $url = "{$this->apiUrl}/api/v1/{$path}";
@@ -87,6 +92,49 @@ class FactPulseClient {
             if ($retryAuth && method_exists($e, 'getResponse') && $e->getResponse()?->getStatusCode() === 401) {
                 $this->invalidateToken();
                 return $this->request($method, $path, $data, false);
+            }
+            $this->handleGuzzleError($e);
+        }
+
+        // Auto-poll: support both taskId (camelCase) and task_id (snake_case)
+        $taskId = $result['taskId'] ?? $result['task_id'] ?? null;
+        if ($taskId) {
+            $result = $this->poll($taskId);
+        }
+
+        // Auto-decode: support both content_b64 and contentB64
+        $b64Content = $result['content_b64'] ?? $result['contentB64'] ?? null;
+        if ($b64Content) {
+            $result['content'] = base64_decode($b64Content);
+            unset($result['content_b64'], $result['contentB64']);
+        }
+
+        return $result;
+    }
+
+    private function requestMultipart(string $path, array $data, array $files, bool $retryAuth): array {
+        $this->ensureAuth();
+        $url = "{$this->apiUrl}/api/v1/{$path}";
+
+        // Build multipart array
+        $multipart = [];
+        foreach ($data as $key => $value) {
+            $multipart[] = ['name' => $key, 'contents' => $value];
+        }
+        foreach ($files as $key => $contents) {
+            $multipart[] = ['name' => $key, 'contents' => $contents, 'filename' => $key];
+        }
+
+        try {
+            $response = $this->httpClient->post($url, [
+                'headers' => ['Authorization' => "Bearer {$this->token}"],
+                'multipart' => $multipart,
+            ]);
+            $result = json_decode($response->getBody()->getContents(), true) ?? [];
+        } catch (GuzzleException $e) {
+            if ($retryAuth && method_exists($e, 'getResponse') && $e->getResponse()?->getStatusCode() === 401) {
+                $this->invalidateToken();
+                return $this->requestMultipart($path, $data, $files, false);
             }
             $this->handleGuzzleError($e);
         }

@@ -12,6 +12,8 @@ All URIs are relative to https://factpulse.fr, except if the operation defines a
 | [**getStatusCodesApiV1CdarStatusCodesGet()**](CDARCycleDeVieApi.md#getStatusCodesApiV1CdarStatusCodesGet) | **GET** /api/v1/cdar/status-codes | Liste des codes statut CDAR |
 | [**submitCdarApiV1CdarSubmitPost()**](CDARCycleDeVieApi.md#submitCdarApiV1CdarSubmitPost) | **POST** /api/v1/cdar/submit | Générer et soumettre un message CDAR |
 | [**submitCdarXmlApiV1CdarSubmitXmlPost()**](CDARCycleDeVieApi.md#submitCdarXmlApiV1CdarSubmitXmlPost) | **POST** /api/v1/cdar/submit-xml | Soumettre un XML CDAR pré-généré |
+| [**submitEncaisseeApiV1CdarEncaisseePost()**](CDARCycleDeVieApi.md#submitEncaisseeApiV1CdarEncaisseePost) | **POST** /api/v1/cdar/encaissee | [Simplifié] Soumettre un statut ENCAISSÉE (212) |
+| [**submitRefuseeApiV1CdarRefuseePost()**](CDARCycleDeVieApi.md#submitRefuseeApiV1CdarRefuseePost) | **POST** /api/v1/cdar/refusee | [Simplifié] Soumettre un statut REFUSÉE (210) |
 | [**validateCdarApiV1CdarValidatePost()**](CDARCycleDeVieApi.md#validateCdarApiV1CdarValidatePost) | **POST** /api/v1/cdar/validate | Valider des données CDAR |
 
 
@@ -237,12 +239,12 @@ No authorization required
 ## `submitCdarApiV1CdarSubmitPost()`
 
 ```php
-submitCdarApiV1CdarSubmitPost($user_id, $body_submit_cdar_api_v1_cdar_submit_post, $jwt_token, $client_uid): \FactPulse\SDK\Model\SubmitCDARResponse
+submitCdarApiV1CdarSubmitPost($submit_cdar_request): \FactPulse\SDK\Model\SubmitCDARResponse
 ```
 
 Générer et soumettre un message CDAR
 
-Génère un message CDAR et le soumet à la plateforme PA/PDP.  Nécessite une authentification AFNOR valide.  **Types de flux (flowType):** - `CustomerInvoiceLC`: Cycle de vie côté client (acheteur) - `SupplierInvoiceLC`: Cycle de vie côté fournisseur (vendeur)
+Génère un message CDAR et le soumet à la plateforme PA/PDP.  **Stratégies d'authentification:** 1. **JWT avec client_uid** (recommandé): credentials PDP récupérés du backend 2. **Zero-storage**: Fournir pdpFlowServiceUrl, pdpClientId, pdpClientSecret dans la requête  **Types de flux (flowType):** - `CustomerInvoiceLC`: Cycle de vie côté client (acheteur) - `SupplierInvoiceLC`: Cycle de vie côté fournisseur (vendeur)
 
 ### Example
 
@@ -261,13 +263,10 @@ $apiInstance = new FactPulse\SDK\Api\CDARCycleDeVieApi(
     new GuzzleHttp\Client(),
     $config
 );
-$user_id = 56; // int
-$body_submit_cdar_api_v1_cdar_submit_post = new \FactPulse\SDK\Model\BodySubmitCdarApiV1CdarSubmitPost(); // \FactPulse\SDK\Model\BodySubmitCdarApiV1CdarSubmitPost
-$jwt_token = 'jwt_token_example'; // string
-$client_uid = 'client_uid_example'; // string
+$submit_cdar_request = new \FactPulse\SDK\Model\SubmitCDARRequest(); // \FactPulse\SDK\Model\SubmitCDARRequest
 
 try {
-    $result = $apiInstance->submitCdarApiV1CdarSubmitPost($user_id, $body_submit_cdar_api_v1_cdar_submit_post, $jwt_token, $client_uid);
+    $result = $apiInstance->submitCdarApiV1CdarSubmitPost($submit_cdar_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CDARCycleDeVieApi->submitCdarApiV1CdarSubmitPost: ', $e->getMessage(), PHP_EOL;
@@ -278,10 +277,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **user_id** | **int**|  | |
-| **body_submit_cdar_api_v1_cdar_submit_post** | [**\FactPulse\SDK\Model\BodySubmitCdarApiV1CdarSubmitPost**](../Model/BodySubmitCdarApiV1CdarSubmitPost.md)|  | |
-| **jwt_token** | **string**|  | [optional] |
-| **client_uid** | **string**|  | [optional] |
+| **submit_cdar_request** | [**\FactPulse\SDK\Model\SubmitCDARRequest**](../Model/SubmitCDARRequest.md)|  | |
 
 ### Return type
 
@@ -303,12 +299,12 @@ try {
 ## `submitCdarXmlApiV1CdarSubmitXmlPost()`
 
 ```php
-submitCdarXmlApiV1CdarSubmitXmlPost($user_id, $body_submit_cdar_xml_api_v1_cdar_submit_xml_post, $jwt_token, $client_uid): \FactPulse\SDK\Model\SubmitCDARResponse
+submitCdarXmlApiV1CdarSubmitXmlPost($submit_cdarxml_request): \FactPulse\SDK\Model\SubmitCDARResponse
 ```
 
 Soumettre un XML CDAR pré-généré
 
-Soumet un message XML CDAR pré-généré à la plateforme PA/PDP.  Utile pour soumettre des XML générés par d'autres systèmes.
+Soumet un message XML CDAR pré-généré à la plateforme PA/PDP.  Utile pour soumettre des XML générés par d'autres systèmes.  **Stratégies d'authentification:** 1. **JWT avec client_uid** (recommandé): credentials PDP récupérés du backend 2. **Zero-storage**: Fournir pdpFlowServiceUrl, pdpClientId, pdpClientSecret dans la requête
 
 ### Example
 
@@ -327,13 +323,10 @@ $apiInstance = new FactPulse\SDK\Api\CDARCycleDeVieApi(
     new GuzzleHttp\Client(),
     $config
 );
-$user_id = 56; // int
-$body_submit_cdar_xml_api_v1_cdar_submit_xml_post = new \FactPulse\SDK\Model\BodySubmitCdarXmlApiV1CdarSubmitXmlPost(); // \FactPulse\SDK\Model\BodySubmitCdarXmlApiV1CdarSubmitXmlPost
-$jwt_token = 'jwt_token_example'; // string
-$client_uid = 'client_uid_example'; // string
+$submit_cdarxml_request = new \FactPulse\SDK\Model\SubmitCDARXMLRequest(); // \FactPulse\SDK\Model\SubmitCDARXMLRequest
 
 try {
-    $result = $apiInstance->submitCdarXmlApiV1CdarSubmitXmlPost($user_id, $body_submit_cdar_xml_api_v1_cdar_submit_xml_post, $jwt_token, $client_uid);
+    $result = $apiInstance->submitCdarXmlApiV1CdarSubmitXmlPost($submit_cdarxml_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CDARCycleDeVieApi->submitCdarXmlApiV1CdarSubmitXmlPost: ', $e->getMessage(), PHP_EOL;
@@ -344,14 +337,131 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **user_id** | **int**|  | |
-| **body_submit_cdar_xml_api_v1_cdar_submit_xml_post** | [**\FactPulse\SDK\Model\BodySubmitCdarXmlApiV1CdarSubmitXmlPost**](../Model/BodySubmitCdarXmlApiV1CdarSubmitXmlPost.md)|  | |
-| **jwt_token** | **string**|  | [optional] |
-| **client_uid** | **string**|  | [optional] |
+| **submit_cdarxml_request** | [**\FactPulse\SDK\Model\SubmitCDARXMLRequest**](../Model/SubmitCDARXMLRequest.md)|  | |
 
 ### Return type
 
 [**\FactPulse\SDK\Model\SubmitCDARResponse**](../Model/SubmitCDARResponse.md)
+
+### Authorization
+
+[HTTPBearer](../../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `submitEncaisseeApiV1CdarEncaisseePost()`
+
+```php
+submitEncaisseeApiV1CdarEncaisseePost($encaissee_request): \FactPulse\SDK\Model\SimplifiedCDARResponse
+```
+
+[Simplifié] Soumettre un statut ENCAISSÉE (212)
+
+**Endpoint simplifié pour OD** - Soumet un statut ENCAISSÉE (212) pour une facture.  Ce statut est **obligatoire pour le PPF** (BR-FR-CDV-14 requiert le montant encaissé).  **Cas d'usage:** L'acheteur confirme le paiement d'une facture.  **Authentification:** JWT Bearer (recommandé) ou credentials PDP dans la requête.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: HTTPBearer
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new FactPulse\SDK\Api\CDARCycleDeVieApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$encaissee_request = new \FactPulse\SDK\Model\EncaisseeRequest(); // \FactPulse\SDK\Model\EncaisseeRequest
+
+try {
+    $result = $apiInstance->submitEncaisseeApiV1CdarEncaisseePost($encaissee_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CDARCycleDeVieApi->submitEncaisseeApiV1CdarEncaisseePost: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **encaissee_request** | [**\FactPulse\SDK\Model\EncaisseeRequest**](../Model/EncaisseeRequest.md)|  | |
+
+### Return type
+
+[**\FactPulse\SDK\Model\SimplifiedCDARResponse**](../Model/SimplifiedCDARResponse.md)
+
+### Authorization
+
+[HTTPBearer](../../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `submitRefuseeApiV1CdarRefuseePost()`
+
+```php
+submitRefuseeApiV1CdarRefuseePost($refusee_request): \FactPulse\SDK\Model\SimplifiedCDARResponse
+```
+
+[Simplifié] Soumettre un statut REFUSÉE (210)
+
+**Endpoint simplifié pour OD** - Soumet un statut REFUSÉE (210) pour une facture.  Ce statut est **obligatoire pour le PPF** (BR-FR-CDV-15 requiert un code motif).  **Cas d'usage:** L'acheteur refuse une facture reçue.  **Codes motif autorisés (BR-FR-CDV-CL-09):** - `TX_TVA_ERR`: Taux de TVA erroné - `MONTANTTOTAL_ERR`: Montant total erroné - `CALCUL_ERR`: Erreur de calcul - `NON_CONFORME`: Non conforme - `DOUBLON`: Doublon - `DEST_ERR`: Destinataire erroné - `TRANSAC_INC`: Transaction incomplète - `EMMET_INC`: Émetteur inconnu - `CONTRAT_TERM`: Contrat terminé - `DOUBLE_FACT`: Double facturation - `CMD_ERR`: Commande erronée - `ADR_ERR`: Adresse erronée - `REF_CT_ABSENT`: Référence contrat absente  **Authentification:** JWT Bearer (recommandé) ou credentials PDP dans la requête.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: HTTPBearer
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new FactPulse\SDK\Api\CDARCycleDeVieApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$refusee_request = new \FactPulse\SDK\Model\RefuseeRequest(); // \FactPulse\SDK\Model\RefuseeRequest
+
+try {
+    $result = $apiInstance->submitRefuseeApiV1CdarRefuseePost($refusee_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CDARCycleDeVieApi->submitRefuseeApiV1CdarRefuseePost: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **refusee_request** | [**\FactPulse\SDK\Model\RefuseeRequest**](../Model/RefuseeRequest.md)|  | |
+
+### Return type
+
+[**\FactPulse\SDK\Model\SimplifiedCDARResponse**](../Model/SimplifiedCDARResponse.md)
 
 ### Authorization
 
