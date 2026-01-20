@@ -170,7 +170,7 @@ docs/Model/ErrorSource.md
 docs/Model/ExtractionInfo.md
 docs/Model/FacturXInvoice.md
 docs/Model/FacturXPDFInfo.md
-docs/Model/FactureElectroniqueModelsInvoiceTypeCode.md
+docs/Model/FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCode.md
 docs/Model/FactureElectroniqueRestApiSchemasProcessingChorusProCredentials.md
 docs/Model/FactureElectroniqueRestApiSchemasValidationValidationErrorResponse.md
 docs/Model/FieldStatus.md
@@ -492,7 +492,7 @@ lib/Model/ErrorSource.php
 lib/Model/ExtractionInfo.php
 lib/Model/FacturXInvoice.php
 lib/Model/FacturXPDFInfo.php
-lib/Model/FactureElectroniqueModelsInvoiceTypeCode.php
+lib/Model/FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCode.php
 lib/Model/FactureElectroniqueRestApiSchemasProcessingChorusProCredentials.php
 lib/Model/FactureElectroniqueRestApiSchemasValidationValidationErrorResponse.php
 lib/Model/FieldStatus.php
@@ -812,7 +812,7 @@ test/Model/ErrorSourceTest.php
 test/Model/ExtractionInfoTest.php
 test/Model/FacturXInvoiceTest.php
 test/Model/FacturXPDFInfoTest.php
-test/Model/FactureElectroniqueModelsInvoiceTypeCodeTest.php
+test/Model/FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCodeTest.php
 test/Model/FactureElectroniqueRestApiSchemasProcessingChorusProCredentialsTest.php
 test/Model/FactureElectroniqueRestApiSchemasValidationValidationErrorResponseTest.php
 test/Model/FieldStatusTest.php
