@@ -13,7 +13,7 @@
 /**
  * FactPulse REST API
  *
- * REST API for electronic invoicing in France: Factur-X, AFNOR PDP/PA, electronic signatures.  ## 🎯 Main Features  ### 📄 Factur-X Invoice Generation - **Formats**: XML only or PDF/A-3 with embedded XML - **Profiles**: MINIMUM, BASIC, EN16931, EXTENDED - **Standards**: EN 16931 (EU directive 2014/55), ISO 19005-3 (PDF/A-3), CII (UN/CEFACT) - **🆕 Simplified Format**: Generation from SIRET + auto-enrichment (Chorus Pro API + Business Search)  ### ✅ Validation and Compliance - **XML Validation**: Schematron (45 to 210+ rules depending on profile) - **PDF Validation**: PDF/A-3, Factur-X XMP metadata, electronic signatures - **VeraPDF**: Strict PDF/A validation (146+ ISO 19005-3 rules) - **Asynchronous Processing**: Celery support for heavy validations (VeraPDF)  ### 📡 AFNOR PDP/PA Integration (XP Z12-013) - **Flow Submission**: Send invoices to Partner Dematerialization Platforms - **Flow Search**: View submitted invoices - **Download**: Retrieve PDF/A-3 with XML - **Directory Service**: Company search (SIREN/SIRET) - **Multi-client**: Support for multiple PDP configs per user (stored credentials or zero-storage)  ### ✍️ PDF Electronic Signature - **Standards**: PAdES-B-B, PAdES-B-T (RFC 3161 timestamping), PAdES-B-LT (long-term archival) - **eIDAS Levels**: SES (self-signed), AdES (commercial CA), QES (QTSP) - **Validation**: Cryptographic integrity and certificate verification - **Certificate Generation**: Self-signed X.509 certificates for testing  ### 🔄 Asynchronous Processing - **Celery**: Asynchronous generation, validation and signing - **Polling**: Status tracking via `/tasks/{task_id}/status` - **No timeout**: Ideal for large files or heavy validations  ## 🔒 Authentication  All requests require a **JWT token** in the Authorization header: ``` Authorization: Bearer YOUR_JWT_TOKEN ```  ### How to obtain a JWT token?  #### 🔑 Method 1: `/api/token/` API (Recommended)  **URL:** `https://factpulse.fr/api/token/`  This method is **recommended** for integration in your applications and CI/CD workflows.  **Prerequisites:** Having set a password on your account  **For users registered via email/password:** - You already have a password, use it directly  **For users registered via OAuth (Google/GitHub):** - You must first set a password at: https://factpulse.fr/accounts/password/set/ - Once the password is created, you can use the API  **Request example:** ```bash curl -X POST https://factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"your_email@example.com\",     \"password\": \"your_password\"   }' ```  **Optional `client_uid` parameter:**  To select credentials for a specific client (PA/PDP, Chorus Pro, signing certificates), add `client_uid`:  ```bash curl -X POST https://factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"your_email@example.com\",     \"password\": \"your_password\",     \"client_uid\": \"550e8400-e29b-41d4-a716-446655440000\"   }' ```  The `client_uid` will be included in the JWT and allow the API to automatically use: - AFNOR/PDP credentials configured for this client - Chorus Pro credentials configured for this client - Electronic signature certificates configured for this client  **Response:** ```json {   \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\",  // Access token (validity: 30 min)   \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\"  // Refresh token (validity: 7 days) } ```  **Advantages:** - ✅ Full automation (CI/CD, scripts) - ✅ Programmatic token management - ✅ Refresh token support for automatic access renewal - ✅ Easy integration in any language/tool  #### 🖥️ Method 2: Dashboard Generation (Alternative)  **URL:** https://factpulse.fr/api/dashboard/  This method is suitable for quick tests or occasional use via the graphical interface.  **How it works:** - Log in to the dashboard - Use the \"Generate Test Token\" or \"Generate Production Token\" buttons - Works for **all** users (OAuth and email/password), without requiring a password  **Token types:** - **Test Token**: 24h validity, 1000 calls/day quota (free) - **Production Token**: 7 days validity, quota based on your plan  **Advantages:** - ✅ Quick for API testing - ✅ No password required - ✅ Simple visual interface  **Disadvantages:** - ❌ Requires manual action - ❌ No refresh token - ❌ Less suited for automation  ### 📚 Full Documentation  For more information on authentication and API usage: https://factpulse.fr/documentation-api/
+ * REST API for electronic invoicing in France: Factur-X, AFNOR PDP/PA, electronic signatures.  ## 🎯 Main Features  ### 📄 Factur-X - Generation - **Formats**: XML only or PDF/A-3 with embedded XML - **Profiles**: MINIMUM, BASIC, EN16931, EXTENDED - **Standards**: EN 16931 (EU directive 2014/55), ISO 19005-3 (PDF/A-3), CII (UN/CEFACT) - **🆕 Simplified Format**: Generation from SIRET + auto-enrichment (Chorus Pro API + Business Search)  ### ✅ Factur-X - Validation - **XML Validation**: Schematron (45 to 210+ rules depending on profile) - **PDF Validation**: PDF/A-3, Factur-X XMP metadata - **VeraPDF**: Strict PDF/A validation (146+ ISO 19005-3 rules)  ### ✍️ Electronic Signature - **Standards**: PAdES-B-B, PAdES-B-T (RFC 3161 timestamping), PAdES-B-LT (long-term archival) - **eIDAS Levels**: SES (self-signed), AdES (commercial CA), QES (QTSP) - **Validation**: Cryptographic integrity and certificate verification  ### 📋 Flux 6 - Invoice Lifecycle (CDAR) - **CDAR Messages**: Acknowledgements, invoice statuses - **PPF Statuses**: REFUSED (210), PAID (212)  ### 📊 Flux 10 - E-Reporting - **Tax Declarations**: International B2B, B2C - **Flow Types**: 10.1 (B2B transactions), 10.2 (B2B payments), 10.3 (B2C transactions), 10.4 (B2C payments)  ### 📡 AFNOR PDP/PA (XP Z12-013) - **Flow Service**: Submit and search flows to PDPs - **Directory Service**: Company search (SIREN/SIRET) - **Multi-client**: Support for multiple PDP configs per user  ### 🏛️ Chorus Pro - **Public Sector Invoicing**: Complete API for Chorus Pro  ### ⏳ Async Tasks - **Celery**: Asynchronous generation, validation and signing - **Polling**: Status tracking via `/tasks/{task_id}/status` - **Webhooks**: Automatic notifications when tasks complete  ## 🔒 Authentication  All requests require a **JWT token** in the Authorization header: ``` Authorization: Bearer YOUR_JWT_TOKEN ```  ### How to obtain a JWT token?  #### 🔑 Method 1: `/api/token/` API (Recommended)  **URL:** `https://factpulse.fr/api/token/`  This method is **recommended** for integration in your applications and CI/CD workflows.  **Prerequisites:** Having set a password on your account  **For users registered via email/password:** - You already have a password, use it directly  **For users registered via OAuth (Google/GitHub):** - You must first set a password at: https://factpulse.fr/accounts/password/set/ - Once the password is created, you can use the API  **Request example:** ```bash curl -X POST https://factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"your_email@example.com\",     \"password\": \"your_password\"   }' ```  **Optional `client_uid` parameter:**  To select credentials for a specific client (PA/PDP, Chorus Pro, signing certificates), add `client_uid`:  ```bash curl -X POST https://factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"your_email@example.com\",     \"password\": \"your_password\",     \"client_uid\": \"550e8400-e29b-41d4-a716-446655440000\"   }' ```  The `client_uid` will be included in the JWT and allow the API to automatically use: - AFNOR/PDP credentials configured for this client - Chorus Pro credentials configured for this client - Electronic signature certificates configured for this client  **Response:** ```json {   \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\",  // Access token (validity: 30 min)   \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\"  // Refresh token (validity: 7 days) } ```  **Advantages:** - ✅ Full automation (CI/CD, scripts) - ✅ Programmatic token management - ✅ Refresh token support for automatic access renewal - ✅ Easy integration in any language/tool  #### 🖥️ Method 2: Dashboard Generation (Alternative)  **URL:** https://factpulse.fr/api/dashboard/  This method is suitable for quick tests or occasional use via the graphical interface.  **How it works:** - Log in to the dashboard - Use the \"Generate Test Token\" or \"Generate Production Token\" buttons - Works for **all** users (OAuth and email/password), without requiring a password  **Token types:** - **Test Token**: 24h validity, 1000 calls/day quota (free) - **Production Token**: 7 days validity, quota based on your plan  **Advantages:** - ✅ Quick for API testing - ✅ No password required - ✅ Simple visual interface  **Disadvantages:** - ❌ Requires manual action - ❌ No refresh token - ❌ Less suited for automation  ### 📚 Full Documentation  For more information on authentication and API usage: https://factpulse.fr/documentation-api/
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: contact@factpulse.fr
@@ -36,7 +36,7 @@ use \FactPulse\SDK\ObjectSerializer;
  * EncaisseeRequest Class Doc Comment
  *
  * @category Class
- * @description Requête simplifiée pour soumettre un statut ENCAISSÉE (212).  Statut obligatoire PPF - Le paiement a été effectué. Le montant encaissé est OBLIGATOIRE (BR-FR-CDV-14).
+ * @description Requête simplifiée pour soumettre un statut ENCAISSÉE (212).  **Usage** : Pour une facture ÉMISE (vous êtes vendeur). Le vendeur confirme l&#39;encaissement et envoie le statut à l&#39;acheteur.  Statut obligatoire PPF - Le montant encaissé est OBLIGATOIRE (BR-FR-CDV-14).
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -61,14 +61,16 @@ class EncaisseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'invoice_id' => 'string',
         'invoice_issue_date' => '\DateTime',
+        'invoice_buyer_siren' => 'string',
+        'invoice_buyer_electronic_address' => 'string',
+        'amount' => '\FactPulse\SDK\Model\Amount',
+        'currency' => 'string',
         'sender_siren' => 'string',
         'flow_type' => 'string',
         'pdp_flow_service_url' => 'string',
         'pdp_token_url' => 'string',
         'pdp_client_id' => 'string',
-        'pdp_client_secret' => 'string',
-        'amount' => '\FactPulse\SDK\Model\Amount',
-        'currency' => 'string'
+        'pdp_client_secret' => 'string'
     ];
 
     /**
@@ -81,14 +83,16 @@ class EncaisseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'invoice_id' => null,
         'invoice_issue_date' => 'date',
+        'invoice_buyer_siren' => null,
+        'invoice_buyer_electronic_address' => null,
+        'amount' => null,
+        'currency' => null,
         'sender_siren' => null,
         'flow_type' => null,
         'pdp_flow_service_url' => null,
         'pdp_token_url' => null,
         'pdp_client_id' => null,
-        'pdp_client_secret' => null,
-        'amount' => null,
-        'currency' => null
+        'pdp_client_secret' => null
     ];
 
     /**
@@ -99,14 +103,16 @@ class EncaisseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'invoice_id' => false,
         'invoice_issue_date' => false,
+        'invoice_buyer_siren' => false,
+        'invoice_buyer_electronic_address' => false,
+        'amount' => false,
+        'currency' => false,
         'sender_siren' => true,
         'flow_type' => false,
         'pdp_flow_service_url' => true,
         'pdp_token_url' => true,
         'pdp_client_id' => true,
-        'pdp_client_secret' => true,
-        'amount' => false,
-        'currency' => false
+        'pdp_client_secret' => true
     ];
 
     /**
@@ -197,14 +203,16 @@ class EncaisseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'invoice_id' => 'invoiceId',
         'invoice_issue_date' => 'invoiceIssueDate',
+        'invoice_buyer_siren' => 'invoiceBuyerSiren',
+        'invoice_buyer_electronic_address' => 'invoiceBuyerElectronicAddress',
+        'amount' => 'amount',
+        'currency' => 'currency',
         'sender_siren' => 'senderSiren',
         'flow_type' => 'flowType',
         'pdp_flow_service_url' => 'pdpFlowServiceUrl',
         'pdp_token_url' => 'pdpTokenUrl',
         'pdp_client_id' => 'pdpClientId',
-        'pdp_client_secret' => 'pdpClientSecret',
-        'amount' => 'amount',
-        'currency' => 'currency'
+        'pdp_client_secret' => 'pdpClientSecret'
     ];
 
     /**
@@ -215,14 +223,16 @@ class EncaisseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'invoice_id' => 'setInvoiceId',
         'invoice_issue_date' => 'setInvoiceIssueDate',
+        'invoice_buyer_siren' => 'setInvoiceBuyerSiren',
+        'invoice_buyer_electronic_address' => 'setInvoiceBuyerElectronicAddress',
+        'amount' => 'setAmount',
+        'currency' => 'setCurrency',
         'sender_siren' => 'setSenderSiren',
         'flow_type' => 'setFlowType',
         'pdp_flow_service_url' => 'setPdpFlowServiceUrl',
         'pdp_token_url' => 'setPdpTokenUrl',
         'pdp_client_id' => 'setPdpClientId',
-        'pdp_client_secret' => 'setPdpClientSecret',
-        'amount' => 'setAmount',
-        'currency' => 'setCurrency'
+        'pdp_client_secret' => 'setPdpClientSecret'
     ];
 
     /**
@@ -233,14 +243,16 @@ class EncaisseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'invoice_id' => 'getInvoiceId',
         'invoice_issue_date' => 'getInvoiceIssueDate',
+        'invoice_buyer_siren' => 'getInvoiceBuyerSiren',
+        'invoice_buyer_electronic_address' => 'getInvoiceBuyerElectronicAddress',
+        'amount' => 'getAmount',
+        'currency' => 'getCurrency',
         'sender_siren' => 'getSenderSiren',
         'flow_type' => 'getFlowType',
         'pdp_flow_service_url' => 'getPdpFlowServiceUrl',
         'pdp_token_url' => 'getPdpTokenUrl',
         'pdp_client_id' => 'getPdpClientId',
-        'pdp_client_secret' => 'getPdpClientSecret',
-        'amount' => 'getAmount',
-        'currency' => 'getCurrency'
+        'pdp_client_secret' => 'getPdpClientSecret'
     ];
 
     /**
@@ -302,14 +314,16 @@ class EncaisseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('invoice_id', $data ?? [], null);
         $this->setIfExists('invoice_issue_date', $data ?? [], null);
+        $this->setIfExists('invoice_buyer_siren', $data ?? [], null);
+        $this->setIfExists('invoice_buyer_electronic_address', $data ?? [], null);
+        $this->setIfExists('amount', $data ?? [], null);
+        $this->setIfExists('currency', $data ?? [], 'EUR');
         $this->setIfExists('sender_siren', $data ?? [], null);
-        $this->setIfExists('flow_type', $data ?? [], 'SupplierInvoiceLC');
+        $this->setIfExists('flow_type', $data ?? [], 'CustomerInvoiceLC');
         $this->setIfExists('pdp_flow_service_url', $data ?? [], null);
         $this->setIfExists('pdp_token_url', $data ?? [], null);
         $this->setIfExists('pdp_client_id', $data ?? [], null);
         $this->setIfExists('pdp_client_secret', $data ?? [], null);
-        $this->setIfExists('amount', $data ?? [], null);
-        $this->setIfExists('currency', $data ?? [], 'EUR');
     }
 
     /**
@@ -344,6 +358,12 @@ class EncaisseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['invoice_issue_date'] === null) {
             $invalidProperties[] = "'invoice_issue_date' can't be null";
+        }
+        if ($this->container['invoice_buyer_siren'] === null) {
+            $invalidProperties[] = "'invoice_buyer_siren' can't be null";
+        }
+        if ($this->container['invoice_buyer_electronic_address'] === null) {
+            $invalidProperties[] = "'invoice_buyer_electronic_address' can't be null";
         }
         if ($this->container['amount'] === null) {
             $invalidProperties[] = "'amount' can't be null";
@@ -418,6 +438,114 @@ class EncaisseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets invoice_buyer_siren
+     *
+     * @return string
+     */
+    public function getInvoiceBuyerSiren()
+    {
+        return $this->container['invoice_buyer_siren'];
+    }
+
+    /**
+     * Sets invoice_buyer_siren
+     *
+     * @param string $invoice_buyer_siren SIREN de l'acheteur (destinataire du statut)
+     *
+     * @return self
+     */
+    public function setInvoiceBuyerSiren($invoice_buyer_siren)
+    {
+        if (is_null($invoice_buyer_siren)) {
+            throw new \InvalidArgumentException('non-nullable invoice_buyer_siren cannot be null');
+        }
+        $this->container['invoice_buyer_siren'] = $invoice_buyer_siren;
+
+        return $this;
+    }
+
+    /**
+     * Gets invoice_buyer_electronic_address
+     *
+     * @return string
+     */
+    public function getInvoiceBuyerElectronicAddress()
+    {
+        return $this->container['invoice_buyer_electronic_address'];
+    }
+
+    /**
+     * Sets invoice_buyer_electronic_address
+     *
+     * @param string $invoice_buyer_electronic_address Adresse électronique de l'acheteur (MDT-73)
+     *
+     * @return self
+     */
+    public function setInvoiceBuyerElectronicAddress($invoice_buyer_electronic_address)
+    {
+        if (is_null($invoice_buyer_electronic_address)) {
+            throw new \InvalidArgumentException('non-nullable invoice_buyer_electronic_address cannot be null');
+        }
+        $this->container['invoice_buyer_electronic_address'] = $invoice_buyer_electronic_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets amount
+     *
+     * @return \FactPulse\SDK\Model\Amount
+     */
+    public function getAmount()
+    {
+        return $this->container['amount'];
+    }
+
+    /**
+     * Sets amount
+     *
+     * @param \FactPulse\SDK\Model\Amount $amount amount
+     *
+     * @return self
+     */
+    public function setAmount($amount)
+    {
+        if (is_null($amount)) {
+            throw new \InvalidArgumentException('non-nullable amount cannot be null');
+        }
+        $this->container['amount'] = $amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency
+     *
+     * @return string|null
+     */
+    public function getCurrency()
+    {
+        return $this->container['currency'];
+    }
+
+    /**
+     * Sets currency
+     *
+     * @param string|null $currency Code devise ISO 4217
+     *
+     * @return self
+     */
+    public function setCurrency($currency)
+    {
+        if (is_null($currency)) {
+            throw new \InvalidArgumentException('non-nullable currency cannot be null');
+        }
+        $this->container['currency'] = $currency;
+
+        return $this;
+    }
+
+    /**
      * Gets sender_siren
      *
      * @return string|null
@@ -464,7 +592,7 @@ class EncaisseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets flow_type
      *
-     * @param string|null $flow_type Type de flux: SupplierInvoiceLC (acheteur) ou CustomerInvoiceLC (vendeur)
+     * @param string|null $flow_type Type de flux (CustomerInvoiceLC pour facture émise)
      *
      * @return self
      */
@@ -610,60 +738,6 @@ class EncaisseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['pdp_client_secret'] = $pdp_client_secret;
-
-        return $this;
-    }
-
-    /**
-     * Gets amount
-     *
-     * @return \FactPulse\SDK\Model\Amount
-     */
-    public function getAmount()
-    {
-        return $this->container['amount'];
-    }
-
-    /**
-     * Sets amount
-     *
-     * @param \FactPulse\SDK\Model\Amount $amount amount
-     *
-     * @return self
-     */
-    public function setAmount($amount)
-    {
-        if (is_null($amount)) {
-            throw new \InvalidArgumentException('non-nullable amount cannot be null');
-        }
-        $this->container['amount'] = $amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets currency
-     *
-     * @return string|null
-     */
-    public function getCurrency()
-    {
-        return $this->container['currency'];
-    }
-
-    /**
-     * Sets currency
-     *
-     * @param string|null $currency Code devise ISO 4217
-     *
-     * @return self
-     */
-    public function setCurrency($currency)
-    {
-        if (is_null($currency)) {
-            throw new \InvalidArgumentException('non-nullable currency cannot be null');
-        }
-        $this->container['currency'] = $currency;
 
         return $this;
     }

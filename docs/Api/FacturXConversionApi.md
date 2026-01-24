@@ -1,4 +1,4 @@
-# FactPulse\SDK\DocumentConversionApi
+# FactPulse\SDK\FacturXConversionApi
 
 
 
@@ -6,10 +6,10 @@ All URIs are relative to https://factpulse.fr, except if the operation defines a
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**convertDocumentAsyncApiV1ConvertAsyncPost()**](DocumentConversionApi.md#convertDocumentAsyncApiV1ConvertAsyncPost) | **POST** /api/v1/convert/async | Convertir un document en Factur-X (mode asynchrone) |
-| [**downloadFileApiV1ConvertConversionIdDownloadFilenameGet()**](DocumentConversionApi.md#downloadFileApiV1ConvertConversionIdDownloadFilenameGet) | **GET** /api/v1/convert/{conversion_id}/download/{filename} | Télécharger un fichier généré |
-| [**getConversionStatusApiV1ConvertConversionIdStatusGet()**](DocumentConversionApi.md#getConversionStatusApiV1ConvertConversionIdStatusGet) | **GET** /api/v1/convert/{conversion_id}/status | Vérifier le statut d&#39;une conversion |
-| [**resumeConversionApiV1ConvertConversionIdResumePost()**](DocumentConversionApi.md#resumeConversionApiV1ConvertConversionIdResumePost) | **POST** /api/v1/convert/{conversion_id}/resume | Reprendre une conversion avec corrections |
+| [**convertDocumentAsyncApiV1ConvertAsyncPost()**](FacturXConversionApi.md#convertDocumentAsyncApiV1ConvertAsyncPost) | **POST** /api/v1/convert/async | Convert a document to Factur-X (async mode) |
+| [**downloadFileApiV1ConvertConversionIdDownloadFilenameGet()**](FacturXConversionApi.md#downloadFileApiV1ConvertConversionIdDownloadFilenameGet) | **GET** /api/v1/convert/{conversion_id}/download/{filename} | Download a generated file |
+| [**getConversionStatusApiV1ConvertConversionIdStatusGet()**](FacturXConversionApi.md#getConversionStatusApiV1ConvertConversionIdStatusGet) | **GET** /api/v1/convert/{conversion_id}/status | Check conversion status |
+| [**resumeConversionApiV1ConvertConversionIdResumePost()**](FacturXConversionApi.md#resumeConversionApiV1ConvertConversionIdResumePost) | **POST** /api/v1/convert/{conversion_id}/resume | Resume a conversion with corrections |
 
 
 ## `convertDocumentAsyncApiV1ConvertAsyncPost()`
@@ -18,9 +18,9 @@ All URIs are relative to https://factpulse.fr, except if the operation defines a
 convertDocumentAsyncApiV1ConvertAsyncPost($file, $output, $callback_url, $webhook_mode): mixed
 ```
 
-Convertir un document en Factur-X (mode asynchrone)
+Convert a document to Factur-X (async mode)
 
-Lance une conversion asynchrone via Celery.  ## Workflow  1. **Upload** : Le document est envoyé en multipart/form-data 2. **Task Celery** : La tâche est mise en file d'attente 3. **Callback** : Notification par webhook à la fin  ## Réponses possibles  - **202** : Tâche acceptée, en cours de traitement - **400** : Fichier invalide
+Launch an asynchronous conversion via Celery.  ## Workflow  1. **Upload**: Document is sent as multipart/form-data 2. **Celery Task**: Task is queued for processing 3. **Callback**: Webhook notification on completion  ## Possible responses  - **202**: Task accepted, processing - **400**: Invalid file
 
 ### Example
 
@@ -33,22 +33,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new FactPulse\SDK\Api\DocumentConversionApi(
+$apiInstance = new FactPulse\SDK\Api\FacturXConversionApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$file = '/path/to/file.txt'; // \SplFileObject | Document à convertir (PDF, DOCX, XLSX, JPG, PNG)
-$output = 'pdf'; // string | Format de sortie: pdf, xml, both
+$file = '/path/to/file.txt'; // \SplFileObject | Document to convert (PDF, DOCX, XLSX, JPG, PNG)
+$output = 'pdf'; // string | Output format: pdf, xml, both
 $callback_url = 'callback_url_example'; // string
-$webhook_mode = 'inline'; // string | Mode de livraison du contenu: 'inline' (base64 dans webhook) ou 'download_url' (URL temporaire 1h)
+$webhook_mode = 'inline'; // string | Content delivery mode: 'inline' (base64 in webhook) or 'download_url' (temporary URL, 1h TTL)
 
 try {
     $result = $apiInstance->convertDocumentAsyncApiV1ConvertAsyncPost($file, $output, $callback_url, $webhook_mode);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DocumentConversionApi->convertDocumentAsyncApiV1ConvertAsyncPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FacturXConversionApi->convertDocumentAsyncApiV1ConvertAsyncPost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -56,10 +56,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **file** | **\SplFileObject****\SplFileObject**| Document à convertir (PDF, DOCX, XLSX, JPG, PNG) | |
-| **output** | **string**| Format de sortie: pdf, xml, both | [optional] [default to &#39;pdf&#39;] |
+| **file** | **\SplFileObject****\SplFileObject**| Document to convert (PDF, DOCX, XLSX, JPG, PNG) | |
+| **output** | **string**| Output format: pdf, xml, both | [optional] [default to &#39;pdf&#39;] |
 | **callback_url** | **string**|  | [optional] |
-| **webhook_mode** | **string**| Mode de livraison du contenu: &#39;inline&#39; (base64 dans webhook) ou &#39;download_url&#39; (URL temporaire 1h) | [optional] [default to &#39;inline&#39;] |
+| **webhook_mode** | **string**| Content delivery mode: &#39;inline&#39; (base64 in webhook) or &#39;download_url&#39; (temporary URL, 1h TTL) | [optional] [default to &#39;inline&#39;] |
 
 ### Return type
 
@@ -84,9 +84,9 @@ try {
 downloadFileApiV1ConvertConversionIdDownloadFilenameGet($conversion_id, $filename): mixed
 ```
 
-Télécharger un fichier généré
+Download a generated file
 
-Télécharge le fichier Factur-X PDF ou XML généré.  ## Fichiers disponibles  - `facturx.pdf` : PDF/A-3 avec XML embarqué - `facturx.xml` : XML CII seul (Cross Industry Invoice)  Les fichiers sont disponibles pendant 24 heures après génération.
+Download the generated Factur-X PDF or XML file.  ## Available files  - `facturx.pdf`: PDF/A-3 with embedded XML - `facturx.xml`: XML CII only (Cross Industry Invoice)  Files are available for 24 hours after generation.
 
 ### Example
 
@@ -99,7 +99,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new FactPulse\SDK\Api\DocumentConversionApi(
+$apiInstance = new FactPulse\SDK\Api\FacturXConversionApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -112,7 +112,7 @@ try {
     $result = $apiInstance->downloadFileApiV1ConvertConversionIdDownloadFilenameGet($conversion_id, $filename);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DocumentConversionApi->downloadFileApiV1ConvertConversionIdDownloadFilenameGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FacturXConversionApi->downloadFileApiV1ConvertConversionIdDownloadFilenameGet: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -146,9 +146,9 @@ try {
 getConversionStatusApiV1ConvertConversionIdStatusGet($conversion_id): array<string,mixed>
 ```
 
-Vérifier le statut d'une conversion
+Check conversion status
 
-Retourne le statut actuel d'une conversion asynchrone.
+Returns the current status of an asynchronous conversion.
 
 ### Example
 
@@ -161,7 +161,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new FactPulse\SDK\Api\DocumentConversionApi(
+$apiInstance = new FactPulse\SDK\Api\FacturXConversionApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -173,7 +173,7 @@ try {
     $result = $apiInstance->getConversionStatusApiV1ConvertConversionIdStatusGet($conversion_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DocumentConversionApi->getConversionStatusApiV1ConvertConversionIdStatusGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FacturXConversionApi->getConversionStatusApiV1ConvertConversionIdStatusGet: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -206,9 +206,9 @@ try {
 resumeConversionApiV1ConvertConversionIdResumePost($conversion_id, $convert_resume_request): \FactPulse\SDK\Model\ConvertSuccessResponse
 ```
 
-Reprendre une conversion avec corrections
+Resume a conversion with corrections
 
-Reprend une conversion après complétion des données manquantes ou correction des erreurs.  L'extraction OCR est conservée, les données sont mises à jour avec les corrections, puis une nouvelle validation Schematron est effectuée.
+Resume a conversion after completing missing data or correcting errors.  The OCR extraction is preserved, data is updated with corrections, then a new Schematron validation is performed.
 
 ### Example
 
@@ -221,7 +221,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new FactPulse\SDK\Api\DocumentConversionApi(
+$apiInstance = new FactPulse\SDK\Api\FacturXConversionApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -234,7 +234,7 @@ try {
     $result = $apiInstance->resumeConversionApiV1ConvertConversionIdResumePost($conversion_id, $convert_resume_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DocumentConversionApi->resumeConversionApiV1ConvertConversionIdResumePost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FacturXConversionApi->resumeConversionApiV1ConvertConversionIdResumePost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

@@ -9,7 +9,8 @@ Name | Type | Description | Notes
 **type_code** | [**\FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCode**](FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCode.md) | Invoice type code | [optional]
 **currency** | [**\FactPulse\SDK\Model\Currency**](Currency.md) |  | [optional]
 **due_date** | **\DateTime** |  | [optional]
-**seller_siren** | **string** | Seller SIREN/SIRET |
+**seller_id** | **string** |  | [optional]
+**seller_siren** | **string** |  | [optional]
 **seller_vat_id** | **string** |  | [optional]
 **seller_country** | [**\FactPulse\SDK\Model\Sellercountry**](Sellercountry.md) |  | [optional]
 **buyer_id** | **string** |  | [optional]

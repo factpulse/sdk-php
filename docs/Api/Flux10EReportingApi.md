@@ -1,4 +1,4 @@
-# FactPulse\SDK\EReportingApi
+# FactPulse\SDK\Flux10EReportingApi
 
 
 
@@ -6,17 +6,17 @@ All URIs are relative to https://factpulse.fr, except if the operation defines a
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**generateAggregatedEreportingApiV1EreportingGenerateAggregatedPost()**](EReportingApi.md#generateAggregatedEreportingApiV1EreportingGenerateAggregatedPost) | **POST** /api/v1/ereporting/generate-aggregated | Generate aggregated e-reporting XML (PPF-compliant) |
-| [**generateEreportingApiV1EreportingGeneratePost()**](EReportingApi.md#generateEreportingApiV1EreportingGeneratePost) | **POST** /api/v1/ereporting/generate | Generate e-reporting XML |
-| [**generateEreportingDownloadApiV1EreportingGenerateDownloadPost()**](EReportingApi.md#generateEreportingDownloadApiV1EreportingGenerateDownloadPost) | **POST** /api/v1/ereporting/generate/download | Generate and download e-reporting XML |
-| [**listCategoryCodesApiV1EreportingCategoryCodesGet()**](EReportingApi.md#listCategoryCodesApiV1EreportingCategoryCodesGet) | **GET** /api/v1/ereporting/category-codes | List PPF-compliant category codes |
-| [**listFlowTypesApiV1EreportingFlowTypesGet()**](EReportingApi.md#listFlowTypesApiV1EreportingFlowTypesGet) | **GET** /api/v1/ereporting/flow-types | List available flow types |
-| [**submitAggregatedEreportingApiV1EreportingSubmitAggregatedPost()**](EReportingApi.md#submitAggregatedEreportingApiV1EreportingSubmitAggregatedPost) | **POST** /api/v1/ereporting/submit-aggregated | Submit aggregated e-reporting to PA/PDP |
-| [**submitEreportingApiV1EreportingSubmitPost()**](EReportingApi.md#submitEreportingApiV1EreportingSubmitPost) | **POST** /api/v1/ereporting/submit | Submit e-reporting to PA/PDP |
-| [**submitXmlEreportingApiV1EreportingSubmitXmlPost()**](EReportingApi.md#submitXmlEreportingApiV1EreportingSubmitXmlPost) | **POST** /api/v1/ereporting/submit-xml | Submit pre-generated e-reporting XML |
-| [**validateAggregatedEreportingApiV1EreportingValidateAggregatedPost()**](EReportingApi.md#validateAggregatedEreportingApiV1EreportingValidateAggregatedPost) | **POST** /api/v1/ereporting/validate-aggregated | Validate aggregated e-reporting data |
-| [**validateEreportingApiV1EreportingValidatePost()**](EReportingApi.md#validateEreportingApiV1EreportingValidatePost) | **POST** /api/v1/ereporting/validate | Validate e-reporting data |
-| [**validateXmlEreportingApiV1EreportingValidateXmlPost()**](EReportingApi.md#validateXmlEreportingApiV1EreportingValidateXmlPost) | **POST** /api/v1/ereporting/validate-xml | Validate e-reporting XML against PPF XSD schemas and business rules |
+| [**generateAggregatedEreportingApiV1EreportingGenerateAggregatedPost()**](Flux10EReportingApi.md#generateAggregatedEreportingApiV1EreportingGenerateAggregatedPost) | **POST** /api/v1/ereporting/generate-aggregated | Generate aggregated e-reporting XML (PPF-compliant) |
+| [**generateEreportingApiV1EreportingGeneratePost()**](Flux10EReportingApi.md#generateEreportingApiV1EreportingGeneratePost) | **POST** /api/v1/ereporting/generate | Generate e-reporting XML |
+| [**generateEreportingDownloadApiV1EreportingGenerateDownloadPost()**](Flux10EReportingApi.md#generateEreportingDownloadApiV1EreportingGenerateDownloadPost) | **POST** /api/v1/ereporting/generate/download | Generate and download e-reporting XML |
+| [**listCategoryCodesApiV1EreportingCategoryCodesGet()**](Flux10EReportingApi.md#listCategoryCodesApiV1EreportingCategoryCodesGet) | **GET** /api/v1/ereporting/category-codes | List PPF-compliant category codes |
+| [**listFlowTypesApiV1EreportingFlowTypesGet()**](Flux10EReportingApi.md#listFlowTypesApiV1EreportingFlowTypesGet) | **GET** /api/v1/ereporting/flow-types | List available flow types |
+| [**submitAggregatedEreportingApiV1EreportingSubmitAggregatedPost()**](Flux10EReportingApi.md#submitAggregatedEreportingApiV1EreportingSubmitAggregatedPost) | **POST** /api/v1/ereporting/submit-aggregated | Submit aggregated e-reporting to PA/PDP |
+| [**submitEreportingApiV1EreportingSubmitPost()**](Flux10EReportingApi.md#submitEreportingApiV1EreportingSubmitPost) | **POST** /api/v1/ereporting/submit | Submit e-reporting to PA/PDP |
+| [**submitXmlEreportingApiV1EreportingSubmitXmlPost()**](Flux10EReportingApi.md#submitXmlEreportingApiV1EreportingSubmitXmlPost) | **POST** /api/v1/ereporting/submit-xml | Submit pre-generated e-reporting XML |
+| [**validateAggregatedEreportingApiV1EreportingValidateAggregatedPost()**](Flux10EReportingApi.md#validateAggregatedEreportingApiV1EreportingValidateAggregatedPost) | **POST** /api/v1/ereporting/validate-aggregated | Validate aggregated e-reporting data |
+| [**validateEreportingApiV1EreportingValidatePost()**](Flux10EReportingApi.md#validateEreportingApiV1EreportingValidatePost) | **POST** /api/v1/ereporting/validate | Validate e-reporting data |
+| [**validateXmlEreportingApiV1EreportingValidateXmlPost()**](Flux10EReportingApi.md#validateXmlEreportingApiV1EreportingValidateXmlPost) | **POST** /api/v1/ereporting/validate-xml | Validate e-reporting XML (PPF Annexe 6 v1.9 compliant) |
 
 
 ## `generateAggregatedEreportingApiV1EreportingGenerateAggregatedPost()`
@@ -40,7 +40,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new FactPulse\SDK\Api\EReportingApi(
+$apiInstance = new FactPulse\SDK\Api\Flux10EReportingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -52,7 +52,7 @@ try {
     $result = $apiInstance->generateAggregatedEreportingApiV1EreportingGenerateAggregatedPost($create_aggregated_report_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling EReportingApi->generateAggregatedEreportingApiV1EreportingGenerateAggregatedPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling Flux10EReportingApi->generateAggregatedEreportingApiV1EreportingGenerateAggregatedPost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -100,7 +100,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new FactPulse\SDK\Api\EReportingApi(
+$apiInstance = new FactPulse\SDK\Api\Flux10EReportingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -112,7 +112,7 @@ try {
     $result = $apiInstance->generateEreportingApiV1EreportingGeneratePost($create_e_reporting_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling EReportingApi->generateEreportingApiV1EreportingGeneratePost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling Flux10EReportingApi->generateEreportingApiV1EreportingGeneratePost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -160,7 +160,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new FactPulse\SDK\Api\EReportingApi(
+$apiInstance = new FactPulse\SDK\Api\Flux10EReportingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -172,7 +172,7 @@ $filename = 'filename_example'; // string | Output filename (default: ereporting
 try {
     $apiInstance->generateEreportingDownloadApiV1EreportingGenerateDownloadPost($create_e_reporting_request, $filename);
 } catch (Exception $e) {
-    echo 'Exception when calling EReportingApi->generateEreportingDownloadApiV1EreportingGenerateDownloadPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling Flux10EReportingApi->generateEreportingDownloadApiV1EreportingGenerateDownloadPost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -218,7 +218,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new FactPulse\SDK\Api\EReportingApi(
+$apiInstance = new FactPulse\SDK\Api\Flux10EReportingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -228,7 +228,7 @@ try {
     $result = $apiInstance->listCategoryCodesApiV1EreportingCategoryCodesGet();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling EReportingApi->listCategoryCodesApiV1EreportingCategoryCodesGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling Flux10EReportingApi->listCategoryCodesApiV1EreportingCategoryCodesGet: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -271,7 +271,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new FactPulse\SDK\Api\EReportingApi(
+$apiInstance = new FactPulse\SDK\Api\Flux10EReportingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -281,7 +281,7 @@ try {
     $result = $apiInstance->listFlowTypesApiV1EreportingFlowTypesGet();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling EReportingApi->listFlowTypesApiV1EreportingFlowTypesGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling Flux10EReportingApi->listFlowTypesApiV1EreportingFlowTypesGet: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -327,7 +327,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new FactPulse\SDK\Api\EReportingApi(
+$apiInstance = new FactPulse\SDK\Api\Flux10EReportingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -339,7 +339,7 @@ try {
     $result = $apiInstance->submitAggregatedEreportingApiV1EreportingSubmitAggregatedPost($submit_aggregated_report_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling EReportingApi->submitAggregatedEreportingApiV1EreportingSubmitAggregatedPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling Flux10EReportingApi->submitAggregatedEreportingApiV1EreportingSubmitAggregatedPost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -387,7 +387,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new FactPulse\SDK\Api\EReportingApi(
+$apiInstance = new FactPulse\SDK\Api\Flux10EReportingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -399,7 +399,7 @@ try {
     $result = $apiInstance->submitEreportingApiV1EreportingSubmitPost($submit_e_reporting_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling EReportingApi->submitEreportingApiV1EreportingSubmitPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling Flux10EReportingApi->submitEreportingApiV1EreportingSubmitPost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -447,7 +447,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new FactPulse\SDK\Api\EReportingApi(
+$apiInstance = new FactPulse\SDK\Api\Flux10EReportingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -465,7 +465,7 @@ try {
     $result = $apiInstance->submitXmlEreportingApiV1EreportingSubmitXmlPost($xml_file, $tracking_id, $skip_validation, $pdp_flow_service_url, $pdp_token_url, $pdp_client_id, $pdp_client_secret);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling EReportingApi->submitXmlEreportingApiV1EreportingSubmitXmlPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling Flux10EReportingApi->submitXmlEreportingApiV1EreportingSubmitXmlPost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -519,7 +519,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new FactPulse\SDK\Api\EReportingApi(
+$apiInstance = new FactPulse\SDK\Api\Flux10EReportingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -531,7 +531,7 @@ try {
     $result = $apiInstance->validateAggregatedEreportingApiV1EreportingValidateAggregatedPost($create_aggregated_report_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling EReportingApi->validateAggregatedEreportingApiV1EreportingValidateAggregatedPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling Flux10EReportingApi->validateAggregatedEreportingApiV1EreportingValidateAggregatedPost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -579,7 +579,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new FactPulse\SDK\Api\EReportingApi(
+$apiInstance = new FactPulse\SDK\Api\Flux10EReportingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -591,7 +591,7 @@ try {
     $result = $apiInstance->validateEreportingApiV1EreportingValidatePost($validate_e_reporting_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling EReportingApi->validateEreportingApiV1EreportingValidatePost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling Flux10EReportingApi->validateEreportingApiV1EreportingValidatePost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -621,12 +621,12 @@ try {
 ## `validateXmlEreportingApiV1EreportingValidateXmlPost()`
 
 ```php
-validateXmlEreportingApiV1EreportingValidateXmlPost($xml_file, $validate_business_rules): array<string,mixed>
+validateXmlEreportingApiV1EreportingValidateXmlPost($xml_file, $validate_coherence, $validate_period): array<string,mixed>
 ```
 
-Validate e-reporting XML against PPF XSD schemas and business rules
+Validate e-reporting XML (PPF Annexe 6 v1.9 compliant)
 
-Validates an e-reporting XML file against:  1. **XSD schemas**: Official PPF e-reporting XSD (structure, types, cardinality) 2. **Business rules**: ISO codes and enum validation    - Currency codes (ISO 4217: EUR, USD, GBP, etc.)    - Country codes (ISO 3166-1 alpha-2: FR, DE, US, etc.)    - Scheme IDs (0009=SIRET, 0002=SIREN, etc.)    - Role codes (UNCL 3035: SE=Seller, BY=Buyer, WK=Working party, etc.)  Returns validation status and detailed error messages if invalid.
+Validates an e-reporting XML file against PPF specifications (Annexe 6 v1.9):  **Validation levels:** 1. **XSD (REJ_SEMAN)**: Structure, types, cardinality 2. **Semantic (REJ_SEMAN)**: Authorized values from codelists 3. **Coherence (REJ_COH)**: Data consistency (totals = sum of breakdowns) 4. **Period (REJ_PER)**: Transaction dates within declared period  **Validated codes:** - SchemeID (ISO 6523): 0002=SIREN, 0009=SIRET, 0224=RoutingCode, etc. - RoleCode (UNCL 3035): SE=Seller, BY=Buyer, WK=Working party - CategoryCode (TT-81): TLB1, TPS1, TNT1, TMA1 - TaxCategoryCode (UNTDID 5305): S, Z, E, AE, K, G, O - Currency (ISO 4217), Country (ISO 3166-1)  Returns structured validation errors with PPF rejection codes.
 
 ### Example
 
@@ -639,20 +639,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new FactPulse\SDK\Api\EReportingApi(
+$apiInstance = new FactPulse\SDK\Api\Flux10EReportingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xml_file = '/path/to/file.txt'; // \SplFileObject | E-reporting XML file to validate
-$validate_business_rules = true; // bool | Also validate business rules (ISO codes, enums)
+$validate_coherence = true; // bool | Validate data coherence (REJ_COH)
+$validate_period = true; // bool | Validate period coherence (REJ_PER)
 
 try {
-    $result = $apiInstance->validateXmlEreportingApiV1EreportingValidateXmlPost($xml_file, $validate_business_rules);
+    $result = $apiInstance->validateXmlEreportingApiV1EreportingValidateXmlPost($xml_file, $validate_coherence, $validate_period);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling EReportingApi->validateXmlEreportingApiV1EreportingValidateXmlPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling Flux10EReportingApi->validateXmlEreportingApiV1EreportingValidateXmlPost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -661,7 +662,8 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **xml_file** | **\SplFileObject****\SplFileObject**| E-reporting XML file to validate | |
-| **validate_business_rules** | **bool**| Also validate business rules (ISO codes, enums) | [optional] [default to true] |
+| **validate_coherence** | **bool**| Validate data coherence (REJ_COH) | [optional] [default to true] |
+| **validate_period** | **bool**| Validate period coherence (REJ_PER) | [optional] [default to true] |
 
 ### Return type
 

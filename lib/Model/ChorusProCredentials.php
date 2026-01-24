@@ -13,7 +13,7 @@
 /**
  * FactPulse REST API
  *
- * REST API for electronic invoicing in France: Factur-X, AFNOR PDP/PA, electronic signatures.  ## 🎯 Main Features  ### 📄 Factur-X Invoice Generation - **Formats**: XML only or PDF/A-3 with embedded XML - **Profiles**: MINIMUM, BASIC, EN16931, EXTENDED - **Standards**: EN 16931 (EU directive 2014/55), ISO 19005-3 (PDF/A-3), CII (UN/CEFACT) - **🆕 Simplified Format**: Generation from SIRET + auto-enrichment (Chorus Pro API + Business Search)  ### ✅ Validation and Compliance - **XML Validation**: Schematron (45 to 210+ rules depending on profile) - **PDF Validation**: PDF/A-3, Factur-X XMP metadata, electronic signatures - **VeraPDF**: Strict PDF/A validation (146+ ISO 19005-3 rules) - **Asynchronous Processing**: Celery support for heavy validations (VeraPDF)  ### 📡 AFNOR PDP/PA Integration (XP Z12-013) - **Flow Submission**: Send invoices to Partner Dematerialization Platforms - **Flow Search**: View submitted invoices - **Download**: Retrieve PDF/A-3 with XML - **Directory Service**: Company search (SIREN/SIRET) - **Multi-client**: Support for multiple PDP configs per user (stored credentials or zero-storage)  ### ✍️ PDF Electronic Signature - **Standards**: PAdES-B-B, PAdES-B-T (RFC 3161 timestamping), PAdES-B-LT (long-term archival) - **eIDAS Levels**: SES (self-signed), AdES (commercial CA), QES (QTSP) - **Validation**: Cryptographic integrity and certificate verification - **Certificate Generation**: Self-signed X.509 certificates for testing  ### 🔄 Asynchronous Processing - **Celery**: Asynchronous generation, validation and signing - **Polling**: Status tracking via `/tasks/{task_id}/status` - **No timeout**: Ideal for large files or heavy validations  ## 🔒 Authentication  All requests require a **JWT token** in the Authorization header: ``` Authorization: Bearer YOUR_JWT_TOKEN ```  ### How to obtain a JWT token?  #### 🔑 Method 1: `/api/token/` API (Recommended)  **URL:** `https://factpulse.fr/api/token/`  This method is **recommended** for integration in your applications and CI/CD workflows.  **Prerequisites:** Having set a password on your account  **For users registered via email/password:** - You already have a password, use it directly  **For users registered via OAuth (Google/GitHub):** - You must first set a password at: https://factpulse.fr/accounts/password/set/ - Once the password is created, you can use the API  **Request example:** ```bash curl -X POST https://factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"your_email@example.com\",     \"password\": \"your_password\"   }' ```  **Optional `client_uid` parameter:**  To select credentials for a specific client (PA/PDP, Chorus Pro, signing certificates), add `client_uid`:  ```bash curl -X POST https://factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"your_email@example.com\",     \"password\": \"your_password\",     \"client_uid\": \"550e8400-e29b-41d4-a716-446655440000\"   }' ```  The `client_uid` will be included in the JWT and allow the API to automatically use: - AFNOR/PDP credentials configured for this client - Chorus Pro credentials configured for this client - Electronic signature certificates configured for this client  **Response:** ```json {   \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\",  // Access token (validity: 30 min)   \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\"  // Refresh token (validity: 7 days) } ```  **Advantages:** - ✅ Full automation (CI/CD, scripts) - ✅ Programmatic token management - ✅ Refresh token support for automatic access renewal - ✅ Easy integration in any language/tool  #### 🖥️ Method 2: Dashboard Generation (Alternative)  **URL:** https://factpulse.fr/api/dashboard/  This method is suitable for quick tests or occasional use via the graphical interface.  **How it works:** - Log in to the dashboard - Use the \"Generate Test Token\" or \"Generate Production Token\" buttons - Works for **all** users (OAuth and email/password), without requiring a password  **Token types:** - **Test Token**: 24h validity, 1000 calls/day quota (free) - **Production Token**: 7 days validity, quota based on your plan  **Advantages:** - ✅ Quick for API testing - ✅ No password required - ✅ Simple visual interface  **Disadvantages:** - ❌ Requires manual action - ❌ No refresh token - ❌ Less suited for automation  ### 📚 Full Documentation  For more information on authentication and API usage: https://factpulse.fr/documentation-api/
+ * REST API for electronic invoicing in France: Factur-X, AFNOR PDP/PA, electronic signatures.  ## 🎯 Main Features  ### 📄 Factur-X - Generation - **Formats**: XML only or PDF/A-3 with embedded XML - **Profiles**: MINIMUM, BASIC, EN16931, EXTENDED - **Standards**: EN 16931 (EU directive 2014/55), ISO 19005-3 (PDF/A-3), CII (UN/CEFACT) - **🆕 Simplified Format**: Generation from SIRET + auto-enrichment (Chorus Pro API + Business Search)  ### ✅ Factur-X - Validation - **XML Validation**: Schematron (45 to 210+ rules depending on profile) - **PDF Validation**: PDF/A-3, Factur-X XMP metadata - **VeraPDF**: Strict PDF/A validation (146+ ISO 19005-3 rules)  ### ✍️ Electronic Signature - **Standards**: PAdES-B-B, PAdES-B-T (RFC 3161 timestamping), PAdES-B-LT (long-term archival) - **eIDAS Levels**: SES (self-signed), AdES (commercial CA), QES (QTSP) - **Validation**: Cryptographic integrity and certificate verification  ### 📋 Flux 6 - Invoice Lifecycle (CDAR) - **CDAR Messages**: Acknowledgements, invoice statuses - **PPF Statuses**: REFUSED (210), PAID (212)  ### 📊 Flux 10 - E-Reporting - **Tax Declarations**: International B2B, B2C - **Flow Types**: 10.1 (B2B transactions), 10.2 (B2B payments), 10.3 (B2C transactions), 10.4 (B2C payments)  ### 📡 AFNOR PDP/PA (XP Z12-013) - **Flow Service**: Submit and search flows to PDPs - **Directory Service**: Company search (SIREN/SIRET) - **Multi-client**: Support for multiple PDP configs per user  ### 🏛️ Chorus Pro - **Public Sector Invoicing**: Complete API for Chorus Pro  ### ⏳ Async Tasks - **Celery**: Asynchronous generation, validation and signing - **Polling**: Status tracking via `/tasks/{task_id}/status` - **Webhooks**: Automatic notifications when tasks complete  ## 🔒 Authentication  All requests require a **JWT token** in the Authorization header: ``` Authorization: Bearer YOUR_JWT_TOKEN ```  ### How to obtain a JWT token?  #### 🔑 Method 1: `/api/token/` API (Recommended)  **URL:** `https://factpulse.fr/api/token/`  This method is **recommended** for integration in your applications and CI/CD workflows.  **Prerequisites:** Having set a password on your account  **For users registered via email/password:** - You already have a password, use it directly  **For users registered via OAuth (Google/GitHub):** - You must first set a password at: https://factpulse.fr/accounts/password/set/ - Once the password is created, you can use the API  **Request example:** ```bash curl -X POST https://factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"your_email@example.com\",     \"password\": \"your_password\"   }' ```  **Optional `client_uid` parameter:**  To select credentials for a specific client (PA/PDP, Chorus Pro, signing certificates), add `client_uid`:  ```bash curl -X POST https://factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"your_email@example.com\",     \"password\": \"your_password\",     \"client_uid\": \"550e8400-e29b-41d4-a716-446655440000\"   }' ```  The `client_uid` will be included in the JWT and allow the API to automatically use: - AFNOR/PDP credentials configured for this client - Chorus Pro credentials configured for this client - Electronic signature certificates configured for this client  **Response:** ```json {   \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\",  // Access token (validity: 30 min)   \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\"  // Refresh token (validity: 7 days) } ```  **Advantages:** - ✅ Full automation (CI/CD, scripts) - ✅ Programmatic token management - ✅ Refresh token support for automatic access renewal - ✅ Easy integration in any language/tool  #### 🖥️ Method 2: Dashboard Generation (Alternative)  **URL:** https://factpulse.fr/api/dashboard/  This method is suitable for quick tests or occasional use via the graphical interface.  **How it works:** - Log in to the dashboard - Use the \"Generate Test Token\" or \"Generate Production Token\" buttons - Works for **all** users (OAuth and email/password), without requiring a password  **Token types:** - **Test Token**: 24h validity, 1000 calls/day quota (free) - **Production Token**: 7 days validity, quota based on your plan  **Advantages:** - ✅ Quick for API testing - ✅ No password required - ✅ Simple visual interface  **Disadvantages:** - ❌ Requires manual action - ❌ No refresh token - ❌ Less suited for automation  ### 📚 Full Documentation  For more information on authentication and API usage: https://factpulse.fr/documentation-api/
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: contact@factpulse.fr
@@ -36,7 +36,7 @@ use \FactPulse\SDK\ObjectSerializer;
  * ChorusProCredentials Class Doc Comment
  *
  * @category Class
- * @description Chorus Pro credentials for Zero-Trust mode.  **Zero-Trust Mode**: Credentials are passed in each request and are NEVER stored.  **Security**: - Credentials are never persisted in the database - They are used only for the duration of the request - Secure transmission via HTTPS  **Use cases**: - High-security environments (banks, administrations) - Strict GDPR compliance - Tests with temporary credentials - Users who don&#39;t want to store their credentials
+ * @description Optional Chorus Pro credentials.  **MODE 1 - JWT retrieval (recommended):** Do not provide this &#x60;credentials&#x60; field in the payload. Credentials will be automatically retrieved via client_uid from JWT (0-trust).  **MODE 2 - Credentials in payload:** Provide all required fields below. Useful for tests or third-party integrations.
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -61,9 +61,9 @@ class ChorusProCredentials implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $openAPITypes = [
         'piste_client_id' => 'string',
         'piste_client_secret' => 'string',
-        'chorus_pro_login' => 'string',
-        'chorus_pro_password' => 'string',
-        'sandbox' => 'bool'
+        'chorus_login' => 'string',
+        'chorus_password' => 'string',
+        'sandbox_mode' => 'bool'
     ];
 
     /**
@@ -76,9 +76,9 @@ class ChorusProCredentials implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $openAPIFormats = [
         'piste_client_id' => null,
         'piste_client_secret' => null,
-        'chorus_pro_login' => null,
-        'chorus_pro_password' => null,
-        'sandbox' => null
+        'chorus_login' => null,
+        'chorus_password' => null,
+        'sandbox_mode' => null
     ];
 
     /**
@@ -87,11 +87,11 @@ class ChorusProCredentials implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'piste_client_id' => false,
-        'piste_client_secret' => false,
-        'chorus_pro_login' => false,
-        'chorus_pro_password' => false,
-        'sandbox' => false
+        'piste_client_id' => true,
+        'piste_client_secret' => true,
+        'chorus_login' => true,
+        'chorus_password' => true,
+        'sandbox_mode' => false
     ];
 
     /**
@@ -182,9 +182,9 @@ class ChorusProCredentials implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $attributeMap = [
         'piste_client_id' => 'pisteClientId',
         'piste_client_secret' => 'pisteClientSecret',
-        'chorus_pro_login' => 'chorusProLogin',
-        'chorus_pro_password' => 'chorusProPassword',
-        'sandbox' => 'sandbox'
+        'chorus_login' => 'chorusLogin',
+        'chorus_password' => 'chorusPassword',
+        'sandbox_mode' => 'sandboxMode'
     ];
 
     /**
@@ -195,9 +195,9 @@ class ChorusProCredentials implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $setters = [
         'piste_client_id' => 'setPisteClientId',
         'piste_client_secret' => 'setPisteClientSecret',
-        'chorus_pro_login' => 'setChorusProLogin',
-        'chorus_pro_password' => 'setChorusProPassword',
-        'sandbox' => 'setSandbox'
+        'chorus_login' => 'setChorusLogin',
+        'chorus_password' => 'setChorusPassword',
+        'sandbox_mode' => 'setSandboxMode'
     ];
 
     /**
@@ -208,9 +208,9 @@ class ChorusProCredentials implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $getters = [
         'piste_client_id' => 'getPisteClientId',
         'piste_client_secret' => 'getPisteClientSecret',
-        'chorus_pro_login' => 'getChorusProLogin',
-        'chorus_pro_password' => 'getChorusProPassword',
-        'sandbox' => 'getSandbox'
+        'chorus_login' => 'getChorusLogin',
+        'chorus_password' => 'getChorusPassword',
+        'sandbox_mode' => 'getSandboxMode'
     ];
 
     /**
@@ -272,9 +272,9 @@ class ChorusProCredentials implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $this->setIfExists('piste_client_id', $data ?? [], null);
         $this->setIfExists('piste_client_secret', $data ?? [], null);
-        $this->setIfExists('chorus_pro_login', $data ?? [], null);
-        $this->setIfExists('chorus_pro_password', $data ?? [], null);
-        $this->setIfExists('sandbox', $data ?? [], true);
+        $this->setIfExists('chorus_login', $data ?? [], null);
+        $this->setIfExists('chorus_password', $data ?? [], null);
+        $this->setIfExists('sandbox_mode', $data ?? [], true);
     }
 
     /**
@@ -304,18 +304,6 @@ class ChorusProCredentials implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $invalidProperties = [];
 
-        if ($this->container['piste_client_id'] === null) {
-            $invalidProperties[] = "'piste_client_id' can't be null";
-        }
-        if ($this->container['piste_client_secret'] === null) {
-            $invalidProperties[] = "'piste_client_secret' can't be null";
-        }
-        if ($this->container['chorus_pro_login'] === null) {
-            $invalidProperties[] = "'chorus_pro_login' can't be null";
-        }
-        if ($this->container['chorus_pro_password'] === null) {
-            $invalidProperties[] = "'chorus_pro_password' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -334,7 +322,7 @@ class ChorusProCredentials implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets piste_client_id
      *
-     * @return string
+     * @return string|null
      */
     public function getPisteClientId()
     {
@@ -344,14 +332,21 @@ class ChorusProCredentials implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets piste_client_id
      *
-     * @param string $piste_client_id PISTE Client ID (government API portal)
+     * @param string|null $piste_client_id piste_client_id
      *
      * @return self
      */
     public function setPisteClientId($piste_client_id)
     {
         if (is_null($piste_client_id)) {
-            throw new \InvalidArgumentException('non-nullable piste_client_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'piste_client_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('piste_client_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['piste_client_id'] = $piste_client_id;
 
@@ -361,7 +356,7 @@ class ChorusProCredentials implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets piste_client_secret
      *
-     * @return string
+     * @return string|null
      */
     public function getPisteClientSecret()
     {
@@ -371,14 +366,21 @@ class ChorusProCredentials implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets piste_client_secret
      *
-     * @param string $piste_client_secret PISTE Client Secret
+     * @param string|null $piste_client_secret piste_client_secret
      *
      * @return self
      */
     public function setPisteClientSecret($piste_client_secret)
     {
         if (is_null($piste_client_secret)) {
-            throw new \InvalidArgumentException('non-nullable piste_client_secret cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'piste_client_secret');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('piste_client_secret', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['piste_client_secret'] = $piste_client_secret;
 
@@ -386,82 +388,96 @@ class ChorusProCredentials implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets chorus_pro_login
+     * Gets chorus_login
      *
-     * @return string
+     * @return string|null
      */
-    public function getChorusProLogin()
+    public function getChorusLogin()
     {
-        return $this->container['chorus_pro_login'];
+        return $this->container['chorus_login'];
     }
 
     /**
-     * Sets chorus_pro_login
+     * Sets chorus_login
      *
-     * @param string $chorus_pro_login Chorus Pro login
+     * @param string|null $chorus_login chorus_login
      *
      * @return self
      */
-    public function setChorusProLogin($chorus_pro_login)
+    public function setChorusLogin($chorus_login)
     {
-        if (is_null($chorus_pro_login)) {
-            throw new \InvalidArgumentException('non-nullable chorus_pro_login cannot be null');
+        if (is_null($chorus_login)) {
+            array_push($this->openAPINullablesSetToNull, 'chorus_login');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('chorus_login', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['chorus_pro_login'] = $chorus_pro_login;
+        $this->container['chorus_login'] = $chorus_login;
 
         return $this;
     }
 
     /**
-     * Gets chorus_pro_password
+     * Gets chorus_password
      *
-     * @return string
+     * @return string|null
      */
-    public function getChorusProPassword()
+    public function getChorusPassword()
     {
-        return $this->container['chorus_pro_password'];
+        return $this->container['chorus_password'];
     }
 
     /**
-     * Sets chorus_pro_password
+     * Sets chorus_password
      *
-     * @param string $chorus_pro_password Chorus Pro password
+     * @param string|null $chorus_password chorus_password
      *
      * @return self
      */
-    public function setChorusProPassword($chorus_pro_password)
+    public function setChorusPassword($chorus_password)
     {
-        if (is_null($chorus_pro_password)) {
-            throw new \InvalidArgumentException('non-nullable chorus_pro_password cannot be null');
+        if (is_null($chorus_password)) {
+            array_push($this->openAPINullablesSetToNull, 'chorus_password');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('chorus_password', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['chorus_pro_password'] = $chorus_pro_password;
+        $this->container['chorus_password'] = $chorus_password;
 
         return $this;
     }
 
     /**
-     * Gets sandbox
+     * Gets sandbox_mode
      *
      * @return bool|null
      */
-    public function getSandbox()
+    public function getSandboxMode()
     {
-        return $this->container['sandbox'];
+        return $this->container['sandbox_mode'];
     }
 
     /**
-     * Sets sandbox
+     * Sets sandbox_mode
      *
-     * @param bool|null $sandbox Use sandbox environment (true) or production (false)
+     * @param bool|null $sandbox_mode [MODE 2] Use sandbox mode (default: True)
      *
      * @return self
      */
-    public function setSandbox($sandbox)
+    public function setSandboxMode($sandbox_mode)
     {
-        if (is_null($sandbox)) {
-            throw new \InvalidArgumentException('non-nullable sandbox cannot be null');
+        if (is_null($sandbox_mode)) {
+            throw new \InvalidArgumentException('non-nullable sandbox_mode cannot be null');
         }
-        $this->container['sandbox'] = $sandbox;
+        $this->container['sandbox_mode'] = $sandbox_mode;
 
         return $this;
     }

@@ -13,7 +13,7 @@
 /**
  * FactPulse REST API
  *
- * REST API for electronic invoicing in France: Factur-X, AFNOR PDP/PA, electronic signatures.  ## 🎯 Main Features  ### 📄 Factur-X Invoice Generation - **Formats**: XML only or PDF/A-3 with embedded XML - **Profiles**: MINIMUM, BASIC, EN16931, EXTENDED - **Standards**: EN 16931 (EU directive 2014/55), ISO 19005-3 (PDF/A-3), CII (UN/CEFACT) - **🆕 Simplified Format**: Generation from SIRET + auto-enrichment (Chorus Pro API + Business Search)  ### ✅ Validation and Compliance - **XML Validation**: Schematron (45 to 210+ rules depending on profile) - **PDF Validation**: PDF/A-3, Factur-X XMP metadata, electronic signatures - **VeraPDF**: Strict PDF/A validation (146+ ISO 19005-3 rules) - **Asynchronous Processing**: Celery support for heavy validations (VeraPDF)  ### 📡 AFNOR PDP/PA Integration (XP Z12-013) - **Flow Submission**: Send invoices to Partner Dematerialization Platforms - **Flow Search**: View submitted invoices - **Download**: Retrieve PDF/A-3 with XML - **Directory Service**: Company search (SIREN/SIRET) - **Multi-client**: Support for multiple PDP configs per user (stored credentials or zero-storage)  ### ✍️ PDF Electronic Signature - **Standards**: PAdES-B-B, PAdES-B-T (RFC 3161 timestamping), PAdES-B-LT (long-term archival) - **eIDAS Levels**: SES (self-signed), AdES (commercial CA), QES (QTSP) - **Validation**: Cryptographic integrity and certificate verification - **Certificate Generation**: Self-signed X.509 certificates for testing  ### 🔄 Asynchronous Processing - **Celery**: Asynchronous generation, validation and signing - **Polling**: Status tracking via `/tasks/{task_id}/status` - **No timeout**: Ideal for large files or heavy validations  ## 🔒 Authentication  All requests require a **JWT token** in the Authorization header: ``` Authorization: Bearer YOUR_JWT_TOKEN ```  ### How to obtain a JWT token?  #### 🔑 Method 1: `/api/token/` API (Recommended)  **URL:** `https://factpulse.fr/api/token/`  This method is **recommended** for integration in your applications and CI/CD workflows.  **Prerequisites:** Having set a password on your account  **For users registered via email/password:** - You already have a password, use it directly  **For users registered via OAuth (Google/GitHub):** - You must first set a password at: https://factpulse.fr/accounts/password/set/ - Once the password is created, you can use the API  **Request example:** ```bash curl -X POST https://factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"your_email@example.com\",     \"password\": \"your_password\"   }' ```  **Optional `client_uid` parameter:**  To select credentials for a specific client (PA/PDP, Chorus Pro, signing certificates), add `client_uid`:  ```bash curl -X POST https://factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"your_email@example.com\",     \"password\": \"your_password\",     \"client_uid\": \"550e8400-e29b-41d4-a716-446655440000\"   }' ```  The `client_uid` will be included in the JWT and allow the API to automatically use: - AFNOR/PDP credentials configured for this client - Chorus Pro credentials configured for this client - Electronic signature certificates configured for this client  **Response:** ```json {   \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\",  // Access token (validity: 30 min)   \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\"  // Refresh token (validity: 7 days) } ```  **Advantages:** - ✅ Full automation (CI/CD, scripts) - ✅ Programmatic token management - ✅ Refresh token support for automatic access renewal - ✅ Easy integration in any language/tool  #### 🖥️ Method 2: Dashboard Generation (Alternative)  **URL:** https://factpulse.fr/api/dashboard/  This method is suitable for quick tests or occasional use via the graphical interface.  **How it works:** - Log in to the dashboard - Use the \"Generate Test Token\" or \"Generate Production Token\" buttons - Works for **all** users (OAuth and email/password), without requiring a password  **Token types:** - **Test Token**: 24h validity, 1000 calls/day quota (free) - **Production Token**: 7 days validity, quota based on your plan  **Advantages:** - ✅ Quick for API testing - ✅ No password required - ✅ Simple visual interface  **Disadvantages:** - ❌ Requires manual action - ❌ No refresh token - ❌ Less suited for automation  ### 📚 Full Documentation  For more information on authentication and API usage: https://factpulse.fr/documentation-api/
+ * REST API for electronic invoicing in France: Factur-X, AFNOR PDP/PA, electronic signatures.  ## 🎯 Main Features  ### 📄 Factur-X - Generation - **Formats**: XML only or PDF/A-3 with embedded XML - **Profiles**: MINIMUM, BASIC, EN16931, EXTENDED - **Standards**: EN 16931 (EU directive 2014/55), ISO 19005-3 (PDF/A-3), CII (UN/CEFACT) - **🆕 Simplified Format**: Generation from SIRET + auto-enrichment (Chorus Pro API + Business Search)  ### ✅ Factur-X - Validation - **XML Validation**: Schematron (45 to 210+ rules depending on profile) - **PDF Validation**: PDF/A-3, Factur-X XMP metadata - **VeraPDF**: Strict PDF/A validation (146+ ISO 19005-3 rules)  ### ✍️ Electronic Signature - **Standards**: PAdES-B-B, PAdES-B-T (RFC 3161 timestamping), PAdES-B-LT (long-term archival) - **eIDAS Levels**: SES (self-signed), AdES (commercial CA), QES (QTSP) - **Validation**: Cryptographic integrity and certificate verification  ### 📋 Flux 6 - Invoice Lifecycle (CDAR) - **CDAR Messages**: Acknowledgements, invoice statuses - **PPF Statuses**: REFUSED (210), PAID (212)  ### 📊 Flux 10 - E-Reporting - **Tax Declarations**: International B2B, B2C - **Flow Types**: 10.1 (B2B transactions), 10.2 (B2B payments), 10.3 (B2C transactions), 10.4 (B2C payments)  ### 📡 AFNOR PDP/PA (XP Z12-013) - **Flow Service**: Submit and search flows to PDPs - **Directory Service**: Company search (SIREN/SIRET) - **Multi-client**: Support for multiple PDP configs per user  ### 🏛️ Chorus Pro - **Public Sector Invoicing**: Complete API for Chorus Pro  ### ⏳ Async Tasks - **Celery**: Asynchronous generation, validation and signing - **Polling**: Status tracking via `/tasks/{task_id}/status` - **Webhooks**: Automatic notifications when tasks complete  ## 🔒 Authentication  All requests require a **JWT token** in the Authorization header: ``` Authorization: Bearer YOUR_JWT_TOKEN ```  ### How to obtain a JWT token?  #### 🔑 Method 1: `/api/token/` API (Recommended)  **URL:** `https://factpulse.fr/api/token/`  This method is **recommended** for integration in your applications and CI/CD workflows.  **Prerequisites:** Having set a password on your account  **For users registered via email/password:** - You already have a password, use it directly  **For users registered via OAuth (Google/GitHub):** - You must first set a password at: https://factpulse.fr/accounts/password/set/ - Once the password is created, you can use the API  **Request example:** ```bash curl -X POST https://factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"your_email@example.com\",     \"password\": \"your_password\"   }' ```  **Optional `client_uid` parameter:**  To select credentials for a specific client (PA/PDP, Chorus Pro, signing certificates), add `client_uid`:  ```bash curl -X POST https://factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"your_email@example.com\",     \"password\": \"your_password\",     \"client_uid\": \"550e8400-e29b-41d4-a716-446655440000\"   }' ```  The `client_uid` will be included in the JWT and allow the API to automatically use: - AFNOR/PDP credentials configured for this client - Chorus Pro credentials configured for this client - Electronic signature certificates configured for this client  **Response:** ```json {   \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\",  // Access token (validity: 30 min)   \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\"  // Refresh token (validity: 7 days) } ```  **Advantages:** - ✅ Full automation (CI/CD, scripts) - ✅ Programmatic token management - ✅ Refresh token support for automatic access renewal - ✅ Easy integration in any language/tool  #### 🖥️ Method 2: Dashboard Generation (Alternative)  **URL:** https://factpulse.fr/api/dashboard/  This method is suitable for quick tests or occasional use via the graphical interface.  **How it works:** - Log in to the dashboard - Use the \"Generate Test Token\" or \"Generate Production Token\" buttons - Works for **all** users (OAuth and email/password), without requiring a password  **Token types:** - **Test Token**: 24h validity, 1000 calls/day quota (free) - **Production Token**: 7 days validity, quota based on your plan  **Advantages:** - ✅ Quick for API testing - ✅ No password required - ✅ Simple visual interface  **Disadvantages:** - ❌ Requires manual action - ❌ No refresh token - ❌ Less suited for automation  ### 📚 Full Documentation  For more information on authentication and API usage: https://factpulse.fr/documentation-api/
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: contact@factpulse.fr
@@ -36,7 +36,7 @@ use \FactPulse\SDK\ObjectSerializer;
  * RefuseeRequest Class Doc Comment
  *
  * @category Class
- * @description Requête simplifiée pour soumettre un statut REFUSÉE (210).  Statut obligatoire PPF - Le destinataire refuse la facture. Un code motif est OBLIGATOIRE (BR-FR-CDV-15).  Codes motif autorisés (BR-FR-CDV-CL-09_MDT-113_210): - TX_TVA_ERR: Taux de TVA erroné - MONTANTTOTAL_ERR: Montant total erroné - CALCUL_ERR: Erreur de calcul - NON_CONFORME: Non conforme - DOUBLON: Doublon - DEST_ERR: Destinataire erroné - TRANSAC_INC: Transaction incomplète - EMMET_INC: Émetteur inconnu - CONTRAT_TERM: Contrat terminé - DOUBLE_FACT: Double facturation - CMD_ERR: Commande erronée - ADR_ERR: Adresse erronée - REF_CT_ABSENT: Référence contrat absente
+ * @description Requête simplifiée pour soumettre un statut REFUSÉE (210).  **Usage** : Pour une facture REÇUE (vous êtes acheteur). L&#39;acheteur refuse la facture et envoie le statut au vendeur.  Statut obligatoire PPF - Un code motif est OBLIGATOIRE (BR-FR-CDV-15).  Codes motif autorisés (BR-FR-CDV-CL-09_MDT-113_210): - TX_TVA_ERR, MONTANTTOTAL_ERR, CALCUL_ERR, NON_CONFORME, DOUBLON, - DEST_ERR, TRANSAC_INC, EMMET_INC, CONTRAT_TERM, DOUBLE_FACT, - CMD_ERR, ADR_ERR, REF_CT_ABSENT
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -61,14 +61,16 @@ class RefuseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'invoice_id' => 'string',
         'invoice_issue_date' => '\DateTime',
+        'invoice_seller_siren' => 'string',
+        'invoice_seller_electronic_address' => 'string',
+        'reason_code' => 'string',
+        'reason_text' => 'string',
         'sender_siren' => 'string',
         'flow_type' => 'string',
         'pdp_flow_service_url' => 'string',
         'pdp_token_url' => 'string',
         'pdp_client_id' => 'string',
-        'pdp_client_secret' => 'string',
-        'reason_code' => 'string',
-        'reason_text' => 'string'
+        'pdp_client_secret' => 'string'
     ];
 
     /**
@@ -81,14 +83,16 @@ class RefuseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'invoice_id' => null,
         'invoice_issue_date' => 'date',
+        'invoice_seller_siren' => null,
+        'invoice_seller_electronic_address' => null,
+        'reason_code' => null,
+        'reason_text' => null,
         'sender_siren' => null,
         'flow_type' => null,
         'pdp_flow_service_url' => null,
         'pdp_token_url' => null,
         'pdp_client_id' => null,
-        'pdp_client_secret' => null,
-        'reason_code' => null,
-        'reason_text' => null
+        'pdp_client_secret' => null
     ];
 
     /**
@@ -99,14 +103,16 @@ class RefuseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'invoice_id' => false,
         'invoice_issue_date' => false,
+        'invoice_seller_siren' => false,
+        'invoice_seller_electronic_address' => false,
+        'reason_code' => false,
+        'reason_text' => true,
         'sender_siren' => true,
         'flow_type' => false,
         'pdp_flow_service_url' => true,
         'pdp_token_url' => true,
         'pdp_client_id' => true,
-        'pdp_client_secret' => true,
-        'reason_code' => false,
-        'reason_text' => true
+        'pdp_client_secret' => true
     ];
 
     /**
@@ -197,14 +203,16 @@ class RefuseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'invoice_id' => 'invoiceId',
         'invoice_issue_date' => 'invoiceIssueDate',
+        'invoice_seller_siren' => 'invoiceSellerSiren',
+        'invoice_seller_electronic_address' => 'invoiceSellerElectronicAddress',
+        'reason_code' => 'reasonCode',
+        'reason_text' => 'reasonText',
         'sender_siren' => 'senderSiren',
         'flow_type' => 'flowType',
         'pdp_flow_service_url' => 'pdpFlowServiceUrl',
         'pdp_token_url' => 'pdpTokenUrl',
         'pdp_client_id' => 'pdpClientId',
-        'pdp_client_secret' => 'pdpClientSecret',
-        'reason_code' => 'reasonCode',
-        'reason_text' => 'reasonText'
+        'pdp_client_secret' => 'pdpClientSecret'
     ];
 
     /**
@@ -215,14 +223,16 @@ class RefuseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'invoice_id' => 'setInvoiceId',
         'invoice_issue_date' => 'setInvoiceIssueDate',
+        'invoice_seller_siren' => 'setInvoiceSellerSiren',
+        'invoice_seller_electronic_address' => 'setInvoiceSellerElectronicAddress',
+        'reason_code' => 'setReasonCode',
+        'reason_text' => 'setReasonText',
         'sender_siren' => 'setSenderSiren',
         'flow_type' => 'setFlowType',
         'pdp_flow_service_url' => 'setPdpFlowServiceUrl',
         'pdp_token_url' => 'setPdpTokenUrl',
         'pdp_client_id' => 'setPdpClientId',
-        'pdp_client_secret' => 'setPdpClientSecret',
-        'reason_code' => 'setReasonCode',
-        'reason_text' => 'setReasonText'
+        'pdp_client_secret' => 'setPdpClientSecret'
     ];
 
     /**
@@ -233,14 +243,16 @@ class RefuseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'invoice_id' => 'getInvoiceId',
         'invoice_issue_date' => 'getInvoiceIssueDate',
+        'invoice_seller_siren' => 'getInvoiceSellerSiren',
+        'invoice_seller_electronic_address' => 'getInvoiceSellerElectronicAddress',
+        'reason_code' => 'getReasonCode',
+        'reason_text' => 'getReasonText',
         'sender_siren' => 'getSenderSiren',
         'flow_type' => 'getFlowType',
         'pdp_flow_service_url' => 'getPdpFlowServiceUrl',
         'pdp_token_url' => 'getPdpTokenUrl',
         'pdp_client_id' => 'getPdpClientId',
-        'pdp_client_secret' => 'getPdpClientSecret',
-        'reason_code' => 'getReasonCode',
-        'reason_text' => 'getReasonText'
+        'pdp_client_secret' => 'getPdpClientSecret'
     ];
 
     /**
@@ -302,14 +314,16 @@ class RefuseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('invoice_id', $data ?? [], null);
         $this->setIfExists('invoice_issue_date', $data ?? [], null);
+        $this->setIfExists('invoice_seller_siren', $data ?? [], null);
+        $this->setIfExists('invoice_seller_electronic_address', $data ?? [], null);
+        $this->setIfExists('reason_code', $data ?? [], null);
+        $this->setIfExists('reason_text', $data ?? [], null);
         $this->setIfExists('sender_siren', $data ?? [], null);
         $this->setIfExists('flow_type', $data ?? [], 'SupplierInvoiceLC');
         $this->setIfExists('pdp_flow_service_url', $data ?? [], null);
         $this->setIfExists('pdp_token_url', $data ?? [], null);
         $this->setIfExists('pdp_client_id', $data ?? [], null);
         $this->setIfExists('pdp_client_secret', $data ?? [], null);
-        $this->setIfExists('reason_code', $data ?? [], null);
-        $this->setIfExists('reason_text', $data ?? [], null);
     }
 
     /**
@@ -344,6 +358,12 @@ class RefuseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['invoice_issue_date'] === null) {
             $invalidProperties[] = "'invoice_issue_date' can't be null";
+        }
+        if ($this->container['invoice_seller_siren'] === null) {
+            $invalidProperties[] = "'invoice_seller_siren' can't be null";
+        }
+        if ($this->container['invoice_seller_electronic_address'] === null) {
+            $invalidProperties[] = "'invoice_seller_electronic_address' can't be null";
         }
         if ($this->container['reason_code'] === null) {
             $invalidProperties[] = "'reason_code' can't be null";
@@ -418,6 +438,121 @@ class RefuseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets invoice_seller_siren
+     *
+     * @return string
+     */
+    public function getInvoiceSellerSiren()
+    {
+        return $this->container['invoice_seller_siren'];
+    }
+
+    /**
+     * Sets invoice_seller_siren
+     *
+     * @param string $invoice_seller_siren SIREN du vendeur (destinataire du statut, MDT-129)
+     *
+     * @return self
+     */
+    public function setInvoiceSellerSiren($invoice_seller_siren)
+    {
+        if (is_null($invoice_seller_siren)) {
+            throw new \InvalidArgumentException('non-nullable invoice_seller_siren cannot be null');
+        }
+        $this->container['invoice_seller_siren'] = $invoice_seller_siren;
+
+        return $this;
+    }
+
+    /**
+     * Gets invoice_seller_electronic_address
+     *
+     * @return string
+     */
+    public function getInvoiceSellerElectronicAddress()
+    {
+        return $this->container['invoice_seller_electronic_address'];
+    }
+
+    /**
+     * Sets invoice_seller_electronic_address
+     *
+     * @param string $invoice_seller_electronic_address Adresse électronique du vendeur (MDT-73)
+     *
+     * @return self
+     */
+    public function setInvoiceSellerElectronicAddress($invoice_seller_electronic_address)
+    {
+        if (is_null($invoice_seller_electronic_address)) {
+            throw new \InvalidArgumentException('non-nullable invoice_seller_electronic_address cannot be null');
+        }
+        $this->container['invoice_seller_electronic_address'] = $invoice_seller_electronic_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets reason_code
+     *
+     * @return string
+     */
+    public function getReasonCode()
+    {
+        return $this->container['reason_code'];
+    }
+
+    /**
+     * Sets reason_code
+     *
+     * @param string $reason_code Code motif du refus (obligatoire). Valeurs: TX_TVA_ERR, MONTANTTOTAL_ERR, CALCUL_ERR, NON_CONFORME, DOUBLON, DEST_ERR, TRANSAC_INC, EMMET_INC, CONTRAT_TERM, DOUBLE_FACT, CMD_ERR, ADR_ERR, REF_CT_ABSENT
+     *
+     * @return self
+     */
+    public function setReasonCode($reason_code)
+    {
+        if (is_null($reason_code)) {
+            throw new \InvalidArgumentException('non-nullable reason_code cannot be null');
+        }
+        $this->container['reason_code'] = $reason_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets reason_text
+     *
+     * @return string|null
+     */
+    public function getReasonText()
+    {
+        return $this->container['reason_text'];
+    }
+
+    /**
+     * Sets reason_text
+     *
+     * @param string|null $reason_text reason_text
+     *
+     * @return self
+     */
+    public function setReasonText($reason_text)
+    {
+        if (is_null($reason_text)) {
+            array_push($this->openAPINullablesSetToNull, 'reason_text');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('reason_text', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['reason_text'] = $reason_text;
+
+        return $this;
+    }
+
+    /**
      * Gets sender_siren
      *
      * @return string|null
@@ -464,7 +599,7 @@ class RefuseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets flow_type
      *
-     * @param string|null $flow_type Type de flux: SupplierInvoiceLC (acheteur) ou CustomerInvoiceLC (vendeur)
+     * @param string|null $flow_type Type de flux (SupplierInvoiceLC pour facture reçue)
      *
      * @return self
      */
@@ -610,67 +745,6 @@ class RefuseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['pdp_client_secret'] = $pdp_client_secret;
-
-        return $this;
-    }
-
-    /**
-     * Gets reason_code
-     *
-     * @return string
-     */
-    public function getReasonCode()
-    {
-        return $this->container['reason_code'];
-    }
-
-    /**
-     * Sets reason_code
-     *
-     * @param string $reason_code Code motif du refus (obligatoire). Valeurs autorisées: TX_TVA_ERR, MONTANTTOTAL_ERR, CALCUL_ERR, NON_CONFORME, DOUBLON, DEST_ERR, TRANSAC_INC, EMMET_INC, CONTRAT_TERM, DOUBLE_FACT, CMD_ERR, ADR_ERR, REF_CT_ABSENT
-     *
-     * @return self
-     */
-    public function setReasonCode($reason_code)
-    {
-        if (is_null($reason_code)) {
-            throw new \InvalidArgumentException('non-nullable reason_code cannot be null');
-        }
-        $this->container['reason_code'] = $reason_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets reason_text
-     *
-     * @return string|null
-     */
-    public function getReasonText()
-    {
-        return $this->container['reason_text'];
-    }
-
-    /**
-     * Sets reason_text
-     *
-     * @param string|null $reason_text reason_text
-     *
-     * @return self
-     */
-    public function setReasonText($reason_text)
-    {
-        if (is_null($reason_text)) {
-            array_push($this->openAPINullablesSetToNull, 'reason_text');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('reason_text', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['reason_text'] = $reason_text;
 
         return $this;
     }

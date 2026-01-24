@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**siren** | **string** | SIREN or SIRET number |
+**siren** | **string** | SIREN or SIRET number of the sender (PA or company) |
 **name** | **string** | Company name |
 **vat_id** | **string** |  | [optional]
 

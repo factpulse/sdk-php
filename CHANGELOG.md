@@ -7,11 +7,11 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
-## [4.0.1] - 2026-01-20
+## [4.0.2] - 2026-01-24
 
 ### Fixed
-- Gestion post multipart
+- Meilleures conformité validation/génération erportings
 
 
-[Unreleased]: https://github.com/factpulse/sdk-php/compare/v4.0.1...HEAD
-[4.0.1]: https://github.com/factpulse/sdk-php/releases/tag/v4.0.1
+[Unreleased]: https://github.com/factpulse/sdk-php/compare/v4.0.2...HEAD
+[4.0.2]: https://github.com/factpulse/sdk-php/releases/tag/v4.0.2

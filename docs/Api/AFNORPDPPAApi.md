@@ -6,67 +6,9 @@ All URIs are relative to https://factpulse.fr, except if the operation defines a
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getAfnorCredentialsApiV1AfnorCredentialsGet()**](AFNORPDPPAApi.md#getAfnorCredentialsApiV1AfnorCredentialsGet) | **GET** /api/v1/afnor/credentials | Retrieve stored AFNOR credentials |
 | [**getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet()**](AFNORPDPPAApi.md#getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet) | **GET** /api/v1/afnor/incoming-flows/{flow_id} | Retrieve and extract an incoming invoice |
-| [**oauthTokenProxyApiV1AfnorOauthTokenPost()**](AFNORPDPPAApi.md#oauthTokenProxyApiV1AfnorOauthTokenPost) | **POST** /api/v1/afnor/oauth/token | OAuth2 endpoint for AFNOR authentication |
+| [**oauthTokenProxyApiV1AfnorOauthTokenPost()**](AFNORPDPPAApi.md#oauthTokenProxyApiV1AfnorOauthTokenPost) | **POST** /api/v1/afnor/oauth/token | Test PDP OAuth2 credentials |
 
-
-## `getAfnorCredentialsApiV1AfnorCredentialsGet()`
-
-```php
-getAfnorCredentialsApiV1AfnorCredentialsGet(): mixed
-```
-
-Retrieve stored AFNOR credentials
-
-Retrieves stored AFNOR/PDP credentials for the JWT's client_uid. This endpoint is used by the SDK in 'stored' mode to retrieve credentials before performing AFNOR OAuth itself.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer authorization: HTTPBearer
-$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new FactPulse\SDK\Api\AFNORPDPPAApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-
-try {
-    $result = $apiInstance->getAfnorCredentialsApiV1AfnorCredentialsGet();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling AFNORPDPPAApi->getAfnorCredentialsApiV1AfnorCredentialsGet: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-**mixed**
-
-### Authorization
-
-[HTTPBearer](../../README.md#HTTPBearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
 
 ## `getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet()`
 
@@ -136,9 +78,9 @@ try {
 oauthTokenProxyApiV1AfnorOauthTokenPost(): mixed
 ```
 
-OAuth2 endpoint for AFNOR authentication
+Test PDP OAuth2 credentials
 
-OAuth2 proxy endpoint to obtain an AFNOR access token. Proxies to AFNOR mock (sandbox) or real PDP depending on MOCK_AFNOR_BASE_URL. This endpoint is public (no Django auth required) as it is called by the AFNOR SDK.
+OAuth2 proxy to validate PDP credentials. Use this endpoint to verify that OAuth credentials (client_id, client_secret) are valid before saving a PDP configuration. This endpoint is public (no authentication required).
 
 ### Example
 

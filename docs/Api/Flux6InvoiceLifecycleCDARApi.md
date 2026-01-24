@@ -1,4 +1,4 @@
-# FactPulse\SDK\CDARCycleDeVieApi
+# FactPulse\SDK\Flux6InvoiceLifecycleCDARApi
 
 
 
@@ -6,15 +6,16 @@ All URIs are relative to https://factpulse.fr, except if the operation defines a
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**generateCdarApiV1CdarGeneratePost()**](CDARCycleDeVieApi.md#generateCdarApiV1CdarGeneratePost) | **POST** /api/v1/cdar/generate | Générer un message CDAR |
-| [**getActionCodesApiV1CdarActionCodesGet()**](CDARCycleDeVieApi.md#getActionCodesApiV1CdarActionCodesGet) | **GET** /api/v1/cdar/action-codes | Liste des codes action CDAR |
-| [**getReasonCodesApiV1CdarReasonCodesGet()**](CDARCycleDeVieApi.md#getReasonCodesApiV1CdarReasonCodesGet) | **GET** /api/v1/cdar/reason-codes | Liste des codes motif CDAR |
-| [**getStatusCodesApiV1CdarStatusCodesGet()**](CDARCycleDeVieApi.md#getStatusCodesApiV1CdarStatusCodesGet) | **GET** /api/v1/cdar/status-codes | Liste des codes statut CDAR |
-| [**submitCdarApiV1CdarSubmitPost()**](CDARCycleDeVieApi.md#submitCdarApiV1CdarSubmitPost) | **POST** /api/v1/cdar/submit | Générer et soumettre un message CDAR |
-| [**submitCdarXmlApiV1CdarSubmitXmlPost()**](CDARCycleDeVieApi.md#submitCdarXmlApiV1CdarSubmitXmlPost) | **POST** /api/v1/cdar/submit-xml | Soumettre un XML CDAR pré-généré |
-| [**submitEncaisseeApiV1CdarEncaisseePost()**](CDARCycleDeVieApi.md#submitEncaisseeApiV1CdarEncaisseePost) | **POST** /api/v1/cdar/encaissee | [Simplifié] Soumettre un statut ENCAISSÉE (212) |
-| [**submitRefuseeApiV1CdarRefuseePost()**](CDARCycleDeVieApi.md#submitRefuseeApiV1CdarRefuseePost) | **POST** /api/v1/cdar/refusee | [Simplifié] Soumettre un statut REFUSÉE (210) |
-| [**validateCdarApiV1CdarValidatePost()**](CDARCycleDeVieApi.md#validateCdarApiV1CdarValidatePost) | **POST** /api/v1/cdar/validate | Valider des données CDAR |
+| [**generateCdarApiV1CdarGeneratePost()**](Flux6InvoiceLifecycleCDARApi.md#generateCdarApiV1CdarGeneratePost) | **POST** /api/v1/cdar/generate | Generate a CDAR message |
+| [**getActionCodesApiV1CdarActionCodesGet()**](Flux6InvoiceLifecycleCDARApi.md#getActionCodesApiV1CdarActionCodesGet) | **GET** /api/v1/cdar/action-codes | List of CDAR action codes |
+| [**getReasonCodesApiV1CdarReasonCodesGet()**](Flux6InvoiceLifecycleCDARApi.md#getReasonCodesApiV1CdarReasonCodesGet) | **GET** /api/v1/cdar/reason-codes | List of CDAR reason codes |
+| [**getStatusCodesApiV1CdarStatusCodesGet()**](Flux6InvoiceLifecycleCDARApi.md#getStatusCodesApiV1CdarStatusCodesGet) | **GET** /api/v1/cdar/status-codes | List of CDAR status codes |
+| [**submitCdarApiV1CdarSubmitPost()**](Flux6InvoiceLifecycleCDARApi.md#submitCdarApiV1CdarSubmitPost) | **POST** /api/v1/cdar/submit | Generate and submit a CDAR message |
+| [**submitCdarXmlApiV1CdarSubmitXmlPost()**](Flux6InvoiceLifecycleCDARApi.md#submitCdarXmlApiV1CdarSubmitXmlPost) | **POST** /api/v1/cdar/submit-xml | Submit a pre-generated CDAR XML |
+| [**submitEncaisseeApiV1CdarEncaisseePost()**](Flux6InvoiceLifecycleCDARApi.md#submitEncaisseeApiV1CdarEncaisseePost) | **POST** /api/v1/cdar/encaissee | [Simplified] Submit PAID status (212) - Issued invoice |
+| [**submitRefuseeApiV1CdarRefuseePost()**](Flux6InvoiceLifecycleCDARApi.md#submitRefuseeApiV1CdarRefuseePost) | **POST** /api/v1/cdar/refusee | [Simplified] Submit REFUSED status (210) - Received invoice |
+| [**validateCdarApiV1CdarValidatePost()**](Flux6InvoiceLifecycleCDARApi.md#validateCdarApiV1CdarValidatePost) | **POST** /api/v1/cdar/validate | Validate CDAR structured data |
+| [**validateXmlCdarApiV1CdarValidateXmlPost()**](Flux6InvoiceLifecycleCDARApi.md#validateXmlCdarApiV1CdarValidateXmlPost) | **POST** /api/v1/cdar/validate-xml | Validate CDAR XML against XSD and Schematron BR-FR-CDV |
 
 
 ## `generateCdarApiV1CdarGeneratePost()`
@@ -23,9 +24,9 @@ All URIs are relative to https://factpulse.fr, except if the operation defines a
 generateCdarApiV1CdarGeneratePost($create_cdar_request): \FactPulse\SDK\Model\GenerateCDARResponse
 ```
 
-Générer un message CDAR
+Generate a CDAR message
 
-Génère un message XML CDAR (Cross Domain Acknowledgement and Response) pour communiquer le statut d'une facture.  **Types de messages:** - **23** (Traitement): Message de cycle de vie standard - **305** (Transmission): Message de transmission entre plateformes  **Règles métier:** - BR-FR-CDV-14: Le statut 212 (ENCAISSEE) requiert un montant encaissé - BR-FR-CDV-15: Les statuts 206/207/208/210/213/501 requièrent un code motif
+Generate a CDAR XML message (Cross Domain Acknowledgement and Response) to communicate the status of an invoice.  **Message types:** - **23** (Processing): Standard lifecycle message - **305** (Transmission): Inter-platform transmission message  **Business rules:** - BR-FR-CDV-14: Status 212 (PAID) requires a paid amount - BR-FR-CDV-15: Statuses 206/207/208/210/213/501 require a reason code
 
 ### Example
 
@@ -38,7 +39,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new FactPulse\SDK\Api\CDARCycleDeVieApi(
+$apiInstance = new FactPulse\SDK\Api\Flux6InvoiceLifecycleCDARApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -50,7 +51,7 @@ try {
     $result = $apiInstance->generateCdarApiV1CdarGeneratePost($create_cdar_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CDARCycleDeVieApi->generateCdarApiV1CdarGeneratePost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling Flux6InvoiceLifecycleCDARApi->generateCdarApiV1CdarGeneratePost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -83,9 +84,9 @@ try {
 getActionCodesApiV1CdarActionCodesGet(): \FactPulse\SDK\Model\ActionCodesResponse
 ```
 
-Liste des codes action CDAR
+List of CDAR action codes
 
-Retourne la liste complète des codes action (BR-FR-CDV-CL-10).  Ces codes indiquent l'action demandée sur la facture.
+Returns the complete list of action codes (BR-FR-CDV-CL-10).  These codes indicate the requested action on the invoice.
 
 ### Example
 
@@ -95,7 +96,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new FactPulse\SDK\Api\CDARCycleDeVieApi(
+$apiInstance = new FactPulse\SDK\Api\Flux6InvoiceLifecycleCDARApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -105,7 +106,7 @@ try {
     $result = $apiInstance->getActionCodesApiV1CdarActionCodesGet();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CDARCycleDeVieApi->getActionCodesApiV1CdarActionCodesGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling Flux6InvoiceLifecycleCDARApi->getActionCodesApiV1CdarActionCodesGet: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -136,9 +137,9 @@ No authorization required
 getReasonCodesApiV1CdarReasonCodesGet(): \FactPulse\SDK\Model\ReasonCodesResponse
 ```
 
-Liste des codes motif CDAR
+List of CDAR reason codes
 
-Retourne la liste complète des codes motif de statut (BR-FR-CDV-CL-09).  Ces codes expliquent la raison d'un statut particulier.
+Returns the complete list of status reason codes (BR-FR-CDV-CL-09).  These codes explain the reason for a particular status.
 
 ### Example
 
@@ -148,7 +149,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new FactPulse\SDK\Api\CDARCycleDeVieApi(
+$apiInstance = new FactPulse\SDK\Api\Flux6InvoiceLifecycleCDARApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -158,7 +159,7 @@ try {
     $result = $apiInstance->getReasonCodesApiV1CdarReasonCodesGet();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CDARCycleDeVieApi->getReasonCodesApiV1CdarReasonCodesGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling Flux6InvoiceLifecycleCDARApi->getReasonCodesApiV1CdarReasonCodesGet: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -189,9 +190,9 @@ No authorization required
 getStatusCodesApiV1CdarStatusCodesGet(): \FactPulse\SDK\Model\StatusCodesResponse
 ```
 
-Liste des codes statut CDAR
+List of CDAR status codes
 
-Retourne la liste complète des codes statut de facture (BR-FR-CDV-CL-06).  Ces codes indiquent l'état du cycle de vie d'une facture.
+Returns the complete list of invoice status codes (BR-FR-CDV-CL-06).  These codes indicate the lifecycle state of an invoice.
 
 ### Example
 
@@ -201,7 +202,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new FactPulse\SDK\Api\CDARCycleDeVieApi(
+$apiInstance = new FactPulse\SDK\Api\Flux6InvoiceLifecycleCDARApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -211,7 +212,7 @@ try {
     $result = $apiInstance->getStatusCodesApiV1CdarStatusCodesGet();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CDARCycleDeVieApi->getStatusCodesApiV1CdarStatusCodesGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling Flux6InvoiceLifecycleCDARApi->getStatusCodesApiV1CdarStatusCodesGet: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -242,9 +243,9 @@ No authorization required
 submitCdarApiV1CdarSubmitPost($submit_cdar_request): \FactPulse\SDK\Model\SubmitCDARResponse
 ```
 
-Générer et soumettre un message CDAR
+Generate and submit a CDAR message
 
-Génère un message CDAR et le soumet à la plateforme PA/PDP.  **Stratégies d'authentification:** 1. **JWT avec client_uid** (recommandé): credentials PDP récupérés du backend 2. **Zero-storage**: Fournir pdpFlowServiceUrl, pdpClientId, pdpClientSecret dans la requête  **Types de flux (flowType):** - `CustomerInvoiceLC`: Cycle de vie côté client (acheteur) - `SupplierInvoiceLC`: Cycle de vie côté fournisseur (vendeur)
+Generate a CDAR message and submit it to the PA/PDP platform.  **Authentication strategies:** 1. **JWT with client_uid** (recommended): PDP credentials retrieved from backend 2. **Zero-storage**: Provide pdpFlowServiceUrl, pdpClientId, pdpClientSecret in the request  **Flow types (flowType):** - `CustomerInvoiceLC`: Client-side lifecycle (buyer) - `SupplierInvoiceLC`: Supplier-side lifecycle (seller)
 
 ### Example
 
@@ -257,7 +258,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new FactPulse\SDK\Api\CDARCycleDeVieApi(
+$apiInstance = new FactPulse\SDK\Api\Flux6InvoiceLifecycleCDARApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -269,7 +270,7 @@ try {
     $result = $apiInstance->submitCdarApiV1CdarSubmitPost($submit_cdar_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CDARCycleDeVieApi->submitCdarApiV1CdarSubmitPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling Flux6InvoiceLifecycleCDARApi->submitCdarApiV1CdarSubmitPost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -302,9 +303,9 @@ try {
 submitCdarXmlApiV1CdarSubmitXmlPost($submit_cdarxml_request): \FactPulse\SDK\Model\SubmitCDARResponse
 ```
 
-Soumettre un XML CDAR pré-généré
+Submit a pre-generated CDAR XML
 
-Soumet un message XML CDAR pré-généré à la plateforme PA/PDP.  Utile pour soumettre des XML générés par d'autres systèmes.  **Stratégies d'authentification:** 1. **JWT avec client_uid** (recommandé): credentials PDP récupérés du backend 2. **Zero-storage**: Fournir pdpFlowServiceUrl, pdpClientId, pdpClientSecret dans la requête
+Submit a pre-generated CDAR XML message to the PA/PDP platform.  Useful for submitting XML generated by other systems.  **Validation:** The XML is validated against XSD and Schematron BR-FR-CDV rules BEFORE submission. Invalid XML will be rejected with detailed error messages.  **Authentication strategies:** 1. **JWT with client_uid** (recommended): PDP credentials retrieved from backend 2. **Zero-storage**: Provide pdpFlowServiceUrl, pdpClientId, pdpClientSecret in the request
 
 ### Example
 
@@ -317,7 +318,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new FactPulse\SDK\Api\CDARCycleDeVieApi(
+$apiInstance = new FactPulse\SDK\Api\Flux6InvoiceLifecycleCDARApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -329,7 +330,7 @@ try {
     $result = $apiInstance->submitCdarXmlApiV1CdarSubmitXmlPost($submit_cdarxml_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CDARCycleDeVieApi->submitCdarXmlApiV1CdarSubmitXmlPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling Flux6InvoiceLifecycleCDARApi->submitCdarXmlApiV1CdarSubmitXmlPost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -362,9 +363,9 @@ try {
 submitEncaisseeApiV1CdarEncaisseePost($encaissee_request): \FactPulse\SDK\Model\SimplifiedCDARResponse
 ```
 
-[Simplifié] Soumettre un statut ENCAISSÉE (212)
+[Simplified] Submit PAID status (212) - Issued invoice
 
-**Endpoint simplifié pour OD** - Soumet un statut ENCAISSÉE (212) pour une facture.  Ce statut est **obligatoire pour le PPF** (BR-FR-CDV-14 requiert le montant encaissé).  **Cas d'usage:** L'acheteur confirme le paiement d'une facture.  **Authentification:** JWT Bearer (recommandé) ou credentials PDP dans la requête.
+**Simplified endpoint for OD** - Submit a PAID status (212) for an **ISSUED** invoice.  This status is **mandatory for PPF** (BR-FR-CDV-14 requires the paid amount).  **Use case:** The **seller** confirms payment receipt for an invoice they issued.  **Who issues this status?** - **Issuer (IssuerTradeParty):** The seller (SE = Seller) who received payment - **Recipient (RecipientTradeParty):** The buyer (BY = Buyer) who paid  **Reference:** XP Z12-014 Annex B, example UC1_F202500003_07-CDV-212_Encaissee.xml  **Authentication:** JWT Bearer (recommended) or PDP credentials in request.
 
 ### Example
 
@@ -377,7 +378,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new FactPulse\SDK\Api\CDARCycleDeVieApi(
+$apiInstance = new FactPulse\SDK\Api\Flux6InvoiceLifecycleCDARApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -389,7 +390,7 @@ try {
     $result = $apiInstance->submitEncaisseeApiV1CdarEncaisseePost($encaissee_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CDARCycleDeVieApi->submitEncaisseeApiV1CdarEncaisseePost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling Flux6InvoiceLifecycleCDARApi->submitEncaisseeApiV1CdarEncaisseePost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -422,9 +423,9 @@ try {
 submitRefuseeApiV1CdarRefuseePost($refusee_request): \FactPulse\SDK\Model\SimplifiedCDARResponse
 ```
 
-[Simplifié] Soumettre un statut REFUSÉE (210)
+[Simplified] Submit REFUSED status (210) - Received invoice
 
-**Endpoint simplifié pour OD** - Soumet un statut REFUSÉE (210) pour une facture.  Ce statut est **obligatoire pour le PPF** (BR-FR-CDV-15 requiert un code motif).  **Cas d'usage:** L'acheteur refuse une facture reçue.  **Codes motif autorisés (BR-FR-CDV-CL-09):** - `TX_TVA_ERR`: Taux de TVA erroné - `MONTANTTOTAL_ERR`: Montant total erroné - `CALCUL_ERR`: Erreur de calcul - `NON_CONFORME`: Non conforme - `DOUBLON`: Doublon - `DEST_ERR`: Destinataire erroné - `TRANSAC_INC`: Transaction incomplète - `EMMET_INC`: Émetteur inconnu - `CONTRAT_TERM`: Contrat terminé - `DOUBLE_FACT`: Double facturation - `CMD_ERR`: Commande erronée - `ADR_ERR`: Adresse erronée - `REF_CT_ABSENT`: Référence contrat absente  **Authentification:** JWT Bearer (recommandé) ou credentials PDP dans la requête.
+**Simplified endpoint for OD** - Submit a REFUSED status (210) for a **RECEIVED** invoice.  This status is **mandatory for PPF** (BR-FR-CDV-15 requires a reason code).  **Use case:** The **buyer** refuses an invoice they received.  **Who issues this status?** - **Issuer (IssuerTradeParty):** The buyer (BY = Buyer) refusing the invoice - **Recipient (RecipientTradeParty):** The seller (SE = Seller) who issued the invoice  **Reference:** XP Z12-014 Annex B, example UC3_F202500005_04-CDV-210_Refusee.xml  **Allowed reason codes (BR-FR-CDV-CL-09):** - `TX_TVA_ERR`: Incorrect VAT rate - `MONTANTTOTAL_ERR`: Incorrect total amount - `CALCUL_ERR`: Calculation error - `NON_CONFORME`: Non-compliant - `DOUBLON`: Duplicate - `DEST_ERR`: Wrong recipient - `TRANSAC_INC`: Incomplete transaction - `EMMET_INC`: Unknown issuer - `CONTRAT_TERM`: Contract terminated - `DOUBLE_FACT`: Double billing - `CMD_ERR`: Order error - `ADR_ERR`: Address error - `REF_CT_ABSENT`: Missing contract reference  **Authentication:** JWT Bearer (recommended) or PDP credentials in request.
 
 ### Example
 
@@ -437,7 +438,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new FactPulse\SDK\Api\CDARCycleDeVieApi(
+$apiInstance = new FactPulse\SDK\Api\Flux6InvoiceLifecycleCDARApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -449,7 +450,7 @@ try {
     $result = $apiInstance->submitRefuseeApiV1CdarRefuseePost($refusee_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CDARCycleDeVieApi->submitRefuseeApiV1CdarRefuseePost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling Flux6InvoiceLifecycleCDARApi->submitRefuseeApiV1CdarRefuseePost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -482,9 +483,9 @@ try {
 validateCdarApiV1CdarValidatePost($validate_cdar_request): \FactPulse\SDK\Model\ValidateCDARResponse
 ```
 
-Valider des données CDAR
+Validate CDAR structured data
 
-Valide les données CDAR sans générer le XML.  Vérifie: - Les formats des champs (SIREN, dates, etc.) - Les codes enums (statut, motif, action) - Les règles métier BR-FR-CDV-*
+Validate CDAR structured data without generating XML.  **Note:** This endpoint validates structured data fields only. Use `/validate-xml` to validate a pre-generated CDAR XML file against XSD and Schematron.  Checks: - Field formats (SIREN, dates, etc.) - Enum codes (status, reason, action) - Business rules BR-FR-CDV-*
 
 ### Example
 
@@ -497,7 +498,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new FactPulse\SDK\Api\CDARCycleDeVieApi(
+$apiInstance = new FactPulse\SDK\Api\Flux6InvoiceLifecycleCDARApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -509,7 +510,7 @@ try {
     $result = $apiInstance->validateCdarApiV1CdarValidatePost($validate_cdar_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CDARCycleDeVieApi->validateCdarApiV1CdarValidatePost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling Flux6InvoiceLifecycleCDARApi->validateCdarApiV1CdarValidatePost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -530,6 +531,66 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `validateXmlCdarApiV1CdarValidateXmlPost()`
+
+```php
+validateXmlCdarApiV1CdarValidateXmlPost($xml_file): array<string,mixed>
+```
+
+Validate CDAR XML against XSD and Schematron BR-FR-CDV
+
+Validates a CDAR XML file against:  1. **XSD schema**: UN/CEFACT D22B CrossDomainAcknowledgementAndResponse 2. **Schematron BR-FR-CDV**: French business rules for invoice lifecycle  Returns validation status and detailed error messages if invalid.  **Note:** Use `/validate` to validate structured data fields (JSON).
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: HTTPBearer
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new FactPulse\SDK\Api\Flux6InvoiceLifecycleCDARApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xml_file = '/path/to/file.txt'; // \SplFileObject | CDAR XML file to validate
+
+try {
+    $result = $apiInstance->validateXmlCdarApiV1CdarValidateXmlPost($xml_file);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling Flux6InvoiceLifecycleCDARApi->validateXmlCdarApiV1CdarValidateXmlPost: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xml_file** | **\SplFileObject****\SplFileObject**| CDAR XML file to validate | |
+
+### Return type
+
+**array<string,mixed>**
+
+### Authorization
+
+[HTTPBearer](../../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: `multipart/form-data`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

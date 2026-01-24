@@ -13,7 +13,7 @@
 /**
  * FactPulse REST API
  *
- * REST API for electronic invoicing in France: Factur-X, AFNOR PDP/PA, electronic signatures.  ## 🎯 Main Features  ### 📄 Factur-X Invoice Generation - **Formats**: XML only or PDF/A-3 with embedded XML - **Profiles**: MINIMUM, BASIC, EN16931, EXTENDED - **Standards**: EN 16931 (EU directive 2014/55), ISO 19005-3 (PDF/A-3), CII (UN/CEFACT) - **🆕 Simplified Format**: Generation from SIRET + auto-enrichment (Chorus Pro API + Business Search)  ### ✅ Validation and Compliance - **XML Validation**: Schematron (45 to 210+ rules depending on profile) - **PDF Validation**: PDF/A-3, Factur-X XMP metadata, electronic signatures - **VeraPDF**: Strict PDF/A validation (146+ ISO 19005-3 rules) - **Asynchronous Processing**: Celery support for heavy validations (VeraPDF)  ### 📡 AFNOR PDP/PA Integration (XP Z12-013) - **Flow Submission**: Send invoices to Partner Dematerialization Platforms - **Flow Search**: View submitted invoices - **Download**: Retrieve PDF/A-3 with XML - **Directory Service**: Company search (SIREN/SIRET) - **Multi-client**: Support for multiple PDP configs per user (stored credentials or zero-storage)  ### ✍️ PDF Electronic Signature - **Standards**: PAdES-B-B, PAdES-B-T (RFC 3161 timestamping), PAdES-B-LT (long-term archival) - **eIDAS Levels**: SES (self-signed), AdES (commercial CA), QES (QTSP) - **Validation**: Cryptographic integrity and certificate verification - **Certificate Generation**: Self-signed X.509 certificates for testing  ### 🔄 Asynchronous Processing - **Celery**: Asynchronous generation, validation and signing - **Polling**: Status tracking via `/tasks/{task_id}/status` - **No timeout**: Ideal for large files or heavy validations  ## 🔒 Authentication  All requests require a **JWT token** in the Authorization header: ``` Authorization: Bearer YOUR_JWT_TOKEN ```  ### How to obtain a JWT token?  #### 🔑 Method 1: `/api/token/` API (Recommended)  **URL:** `https://factpulse.fr/api/token/`  This method is **recommended** for integration in your applications and CI/CD workflows.  **Prerequisites:** Having set a password on your account  **For users registered via email/password:** - You already have a password, use it directly  **For users registered via OAuth (Google/GitHub):** - You must first set a password at: https://factpulse.fr/accounts/password/set/ - Once the password is created, you can use the API  **Request example:** ```bash curl -X POST https://factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"your_email@example.com\",     \"password\": \"your_password\"   }' ```  **Optional `client_uid` parameter:**  To select credentials for a specific client (PA/PDP, Chorus Pro, signing certificates), add `client_uid`:  ```bash curl -X POST https://factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"your_email@example.com\",     \"password\": \"your_password\",     \"client_uid\": \"550e8400-e29b-41d4-a716-446655440000\"   }' ```  The `client_uid` will be included in the JWT and allow the API to automatically use: - AFNOR/PDP credentials configured for this client - Chorus Pro credentials configured for this client - Electronic signature certificates configured for this client  **Response:** ```json {   \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\",  // Access token (validity: 30 min)   \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\"  // Refresh token (validity: 7 days) } ```  **Advantages:** - ✅ Full automation (CI/CD, scripts) - ✅ Programmatic token management - ✅ Refresh token support for automatic access renewal - ✅ Easy integration in any language/tool  #### 🖥️ Method 2: Dashboard Generation (Alternative)  **URL:** https://factpulse.fr/api/dashboard/  This method is suitable for quick tests or occasional use via the graphical interface.  **How it works:** - Log in to the dashboard - Use the \"Generate Test Token\" or \"Generate Production Token\" buttons - Works for **all** users (OAuth and email/password), without requiring a password  **Token types:** - **Test Token**: 24h validity, 1000 calls/day quota (free) - **Production Token**: 7 days validity, quota based on your plan  **Advantages:** - ✅ Quick for API testing - ✅ No password required - ✅ Simple visual interface  **Disadvantages:** - ❌ Requires manual action - ❌ No refresh token - ❌ Less suited for automation  ### 📚 Full Documentation  For more information on authentication and API usage: https://factpulse.fr/documentation-api/
+ * REST API for electronic invoicing in France: Factur-X, AFNOR PDP/PA, electronic signatures.  ## 🎯 Main Features  ### 📄 Factur-X - Generation - **Formats**: XML only or PDF/A-3 with embedded XML - **Profiles**: MINIMUM, BASIC, EN16931, EXTENDED - **Standards**: EN 16931 (EU directive 2014/55), ISO 19005-3 (PDF/A-3), CII (UN/CEFACT) - **🆕 Simplified Format**: Generation from SIRET + auto-enrichment (Chorus Pro API + Business Search)  ### ✅ Factur-X - Validation - **XML Validation**: Schematron (45 to 210+ rules depending on profile) - **PDF Validation**: PDF/A-3, Factur-X XMP metadata - **VeraPDF**: Strict PDF/A validation (146+ ISO 19005-3 rules)  ### ✍️ Electronic Signature - **Standards**: PAdES-B-B, PAdES-B-T (RFC 3161 timestamping), PAdES-B-LT (long-term archival) - **eIDAS Levels**: SES (self-signed), AdES (commercial CA), QES (QTSP) - **Validation**: Cryptographic integrity and certificate verification  ### 📋 Flux 6 - Invoice Lifecycle (CDAR) - **CDAR Messages**: Acknowledgements, invoice statuses - **PPF Statuses**: REFUSED (210), PAID (212)  ### 📊 Flux 10 - E-Reporting - **Tax Declarations**: International B2B, B2C - **Flow Types**: 10.1 (B2B transactions), 10.2 (B2B payments), 10.3 (B2C transactions), 10.4 (B2C payments)  ### 📡 AFNOR PDP/PA (XP Z12-013) - **Flow Service**: Submit and search flows to PDPs - **Directory Service**: Company search (SIREN/SIRET) - **Multi-client**: Support for multiple PDP configs per user  ### 🏛️ Chorus Pro - **Public Sector Invoicing**: Complete API for Chorus Pro  ### ⏳ Async Tasks - **Celery**: Asynchronous generation, validation and signing - **Polling**: Status tracking via `/tasks/{task_id}/status` - **Webhooks**: Automatic notifications when tasks complete  ## 🔒 Authentication  All requests require a **JWT token** in the Authorization header: ``` Authorization: Bearer YOUR_JWT_TOKEN ```  ### How to obtain a JWT token?  #### 🔑 Method 1: `/api/token/` API (Recommended)  **URL:** `https://factpulse.fr/api/token/`  This method is **recommended** for integration in your applications and CI/CD workflows.  **Prerequisites:** Having set a password on your account  **For users registered via email/password:** - You already have a password, use it directly  **For users registered via OAuth (Google/GitHub):** - You must first set a password at: https://factpulse.fr/accounts/password/set/ - Once the password is created, you can use the API  **Request example:** ```bash curl -X POST https://factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"your_email@example.com\",     \"password\": \"your_password\"   }' ```  **Optional `client_uid` parameter:**  To select credentials for a specific client (PA/PDP, Chorus Pro, signing certificates), add `client_uid`:  ```bash curl -X POST https://factpulse.fr/api/token/ \\   -H \"Content-Type: application/json\" \\   -d '{     \"username\": \"your_email@example.com\",     \"password\": \"your_password\",     \"client_uid\": \"550e8400-e29b-41d4-a716-446655440000\"   }' ```  The `client_uid` will be included in the JWT and allow the API to automatically use: - AFNOR/PDP credentials configured for this client - Chorus Pro credentials configured for this client - Electronic signature certificates configured for this client  **Response:** ```json {   \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\",  // Access token (validity: 30 min)   \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\"  // Refresh token (validity: 7 days) } ```  **Advantages:** - ✅ Full automation (CI/CD, scripts) - ✅ Programmatic token management - ✅ Refresh token support for automatic access renewal - ✅ Easy integration in any language/tool  #### 🖥️ Method 2: Dashboard Generation (Alternative)  **URL:** https://factpulse.fr/api/dashboard/  This method is suitable for quick tests or occasional use via the graphical interface.  **How it works:** - Log in to the dashboard - Use the \"Generate Test Token\" or \"Generate Production Token\" buttons - Works for **all** users (OAuth and email/password), without requiring a password  **Token types:** - **Test Token**: 24h validity, 1000 calls/day quota (free) - **Production Token**: 7 days validity, quota based on your plan  **Advantages:** - ✅ Quick for API testing - ✅ No password required - ✅ Simple visual interface  **Disadvantages:** - ❌ Requires manual action - ❌ No refresh token - ❌ Less suited for automation  ### 📚 Full Documentation  For more information on authentication and API usage: https://factpulse.fr/documentation-api/
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: contact@factpulse.fr
@@ -36,7 +36,7 @@ use \FactPulse\SDK\ObjectSerializer;
  * InvoiceInput Class Doc Comment
  *
  * @category Class
- * @description Invoice for B2B international reporting (flux 10.1).  Used for unitary declaration of international B2B invoices.
+ * @description Invoice for B2B international reporting (flux 10.1).  Used for unitary declaration of international B2B invoices. Supports three scenarios: - B2Bi: French seller → Foreign buyer (issuer role &#x3D; SE) - Bi2B: Foreign seller → French buyer (issuer role &#x3D; BY) - Bi2Bi: Foreign seller → Foreign buyer (issuer role &#x3D; SE or BY)  Source: Annexe 6 v1.9, bloc TG-8 \&quot;Invoice\&quot;
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -64,6 +64,7 @@ class InvoiceInput implements ModelInterface, ArrayAccess, \JsonSerializable
         'type_code' => '\FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCode',
         'currency' => '\FactPulse\SDK\Model\Currency',
         'due_date' => '\DateTime',
+        'seller_id' => 'string',
         'seller_siren' => 'string',
         'seller_vat_id' => 'string',
         'seller_country' => '\FactPulse\SDK\Model\Sellercountry',
@@ -90,6 +91,7 @@ class InvoiceInput implements ModelInterface, ArrayAccess, \JsonSerializable
         'type_code' => null,
         'currency' => null,
         'due_date' => 'date',
+        'seller_id' => null,
         'seller_siren' => null,
         'seller_vat_id' => null,
         'seller_country' => null,
@@ -114,7 +116,8 @@ class InvoiceInput implements ModelInterface, ArrayAccess, \JsonSerializable
         'type_code' => false,
         'currency' => false,
         'due_date' => true,
-        'seller_siren' => false,
+        'seller_id' => true,
+        'seller_siren' => true,
         'seller_vat_id' => true,
         'seller_country' => false,
         'buyer_id' => true,
@@ -218,6 +221,7 @@ class InvoiceInput implements ModelInterface, ArrayAccess, \JsonSerializable
         'type_code' => 'typeCode',
         'currency' => 'currency',
         'due_date' => 'dueDate',
+        'seller_id' => 'sellerId',
         'seller_siren' => 'sellerSiren',
         'seller_vat_id' => 'sellerVatId',
         'seller_country' => 'sellerCountry',
@@ -242,6 +246,7 @@ class InvoiceInput implements ModelInterface, ArrayAccess, \JsonSerializable
         'type_code' => 'setTypeCode',
         'currency' => 'setCurrency',
         'due_date' => 'setDueDate',
+        'seller_id' => 'setSellerId',
         'seller_siren' => 'setSellerSiren',
         'seller_vat_id' => 'setSellerVatId',
         'seller_country' => 'setSellerCountry',
@@ -266,6 +271,7 @@ class InvoiceInput implements ModelInterface, ArrayAccess, \JsonSerializable
         'type_code' => 'getTypeCode',
         'currency' => 'getCurrency',
         'due_date' => 'getDueDate',
+        'seller_id' => 'getSellerId',
         'seller_siren' => 'getSellerSiren',
         'seller_vat_id' => 'getSellerVatId',
         'seller_country' => 'getSellerCountry',
@@ -341,6 +347,7 @@ class InvoiceInput implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('type_code', $data ?? [], null);
         $this->setIfExists('currency', $data ?? [], null);
         $this->setIfExists('due_date', $data ?? [], null);
+        $this->setIfExists('seller_id', $data ?? [], null);
         $this->setIfExists('seller_siren', $data ?? [], null);
         $this->setIfExists('seller_vat_id', $data ?? [], null);
         $this->setIfExists('seller_country', $data ?? [], null);
@@ -386,9 +393,6 @@ class InvoiceInput implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['issue_date'] === null) {
             $invalidProperties[] = "'issue_date' can't be null";
-        }
-        if ($this->container['seller_siren'] === null) {
-            $invalidProperties[] = "'seller_siren' can't be null";
         }
         if ($this->container['buyer_country'] === null) {
             $invalidProperties[] = "'buyer_country' can't be null";
@@ -564,9 +568,43 @@ class InvoiceInput implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets seller_id
+     *
+     * @return string|null
+     */
+    public function getSellerId()
+    {
+        return $this->container['seller_id'];
+    }
+
+    /**
+     * Sets seller_id
+     *
+     * @param string|null $seller_id seller_id
+     *
+     * @return self
+     */
+    public function setSellerId($seller_id)
+    {
+        if (is_null($seller_id)) {
+            array_push($this->openAPINullablesSetToNull, 'seller_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('seller_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['seller_id'] = $seller_id;
+
+        return $this;
+    }
+
+    /**
      * Gets seller_siren
      *
-     * @return string
+     * @return string|null
      */
     public function getSellerSiren()
     {
@@ -576,14 +614,21 @@ class InvoiceInput implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets seller_siren
      *
-     * @param string $seller_siren Seller SIREN/SIRET
+     * @param string|null $seller_siren seller_siren
      *
      * @return self
      */
     public function setSellerSiren($seller_siren)
     {
         if (is_null($seller_siren)) {
-            throw new \InvalidArgumentException('non-nullable seller_siren cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'seller_siren');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('seller_siren', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['seller_siren'] = $seller_siren;
 

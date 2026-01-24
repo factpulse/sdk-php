@@ -8,7 +8,8 @@ Name | Type | Description | Notes
 **report_name** | **string** |  | [optional]
 **flow_type** | [**\FactPulse\SDK\Model\EReportingFlowType**](EReportingFlowType.md) | E-Reporting flux type (for internal routing) |
 **transmission_type** | [**\FactPulse\SDK\Model\TransmissionTypeCode**](TransmissionTypeCode.md) | Transmission type (TT-4 TypeCode): IN&#x3D;Initial, RE&#x3D;Rectificative | [optional]
-**sender** | [**\FactPulse\SDK\Model\ReportSender**](ReportSender.md) | Report sender (declarant) |
+**sender** | [**\FactPulse\SDK\Model\ReportSender**](ReportSender.md) | Report sender (PA transmitting the report) |
+**issuer** | [**\FactPulse\SDK\Model\ReportIssuer**](ReportIssuer.md) |  | [optional]
 **period** | [**\FactPulse\SDK\Model\ReportPeriod**](ReportPeriod.md) | Reporting period |
 **invoices** | [**\FactPulse\SDK\Model\InvoiceInput[]**](InvoiceInput.md) |  | [optional]
 **transactions** | [**\FactPulse\SDK\Model\AggregatedTransactionInput[]**](AggregatedTransactionInput.md) |  | [optional]
