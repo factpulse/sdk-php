@@ -84,13 +84,25 @@ class ClientManagementApi
         'deactivateClientApiV1ClientsUidDesactiverPost' => [
             'application/json',
         ],
+        'deleteWebhookSecretApiV1ClientsUidWebhookSecretDelete' => [
+            'application/json',
+        ],
+        'generateWebhookSecretApiV1ClientsUidWebhookSecretGeneratePost' => [
+            'application/json',
+        ],
         'getClientApiV1ClientsUidGet' => [
             'application/json',
         ],
         'getPdpConfigApiV1ClientsUidPdpConfigGet' => [
             'application/json',
         ],
+        'getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGet' => [
+            'application/json',
+        ],
         'listClientsApiV1ClientsGet' => [
+            'application/json',
+        ],
+        'rotateEncryptionKeyApiV1ClientsUidRotateEncryptionKeyPost' => [
             'application/json',
         ],
         'updateClientApiV1ClientsUidPatch' => [
@@ -407,6 +419,11 @@ class ClientManagementApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
         // this endpoint requires Bearer authentication (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -692,6 +709,11 @@ class ClientManagementApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
         // this endpoint requires Bearer authentication (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -978,6 +1000,593 @@ class ClientManagementApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteWebhookSecretApiV1ClientsUidWebhookSecretDelete
+     *
+     * Delete webhook secret
+     *
+     * @param  string $uid uid (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhookSecretApiV1ClientsUidWebhookSecretDelete'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \FactPulse\SDK\Model\WebhookSecretDeleteResponse|\FactPulse\SDK\Model\HTTPValidationError
+     */
+    public function deleteWebhookSecretApiV1ClientsUidWebhookSecretDelete($uid, string $contentType = self::contentTypes['deleteWebhookSecretApiV1ClientsUidWebhookSecretDelete'][0])
+    {
+        list($response) = $this->deleteWebhookSecretApiV1ClientsUidWebhookSecretDeleteWithHttpInfo($uid, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation deleteWebhookSecretApiV1ClientsUidWebhookSecretDeleteWithHttpInfo
+     *
+     * Delete webhook secret
+     *
+     * @param  string $uid (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhookSecretApiV1ClientsUidWebhookSecretDelete'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \FactPulse\SDK\Model\WebhookSecretDeleteResponse|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteWebhookSecretApiV1ClientsUidWebhookSecretDeleteWithHttpInfo($uid, string $contentType = self::contentTypes['deleteWebhookSecretApiV1ClientsUidWebhookSecretDelete'][0])
+    {
+        $request = $this->deleteWebhookSecretApiV1ClientsUidWebhookSecretDeleteRequest($uid, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\WebhookSecretDeleteResponse',
+                        $request,
+                        $response,
+                    );
+                case 422:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\FactPulse\SDK\Model\WebhookSecretDeleteResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\WebhookSecretDeleteResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteWebhookSecretApiV1ClientsUidWebhookSecretDeleteAsync
+     *
+     * Delete webhook secret
+     *
+     * @param  string $uid (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhookSecretApiV1ClientsUidWebhookSecretDelete'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteWebhookSecretApiV1ClientsUidWebhookSecretDeleteAsync($uid, string $contentType = self::contentTypes['deleteWebhookSecretApiV1ClientsUidWebhookSecretDelete'][0])
+    {
+        return $this->deleteWebhookSecretApiV1ClientsUidWebhookSecretDeleteAsyncWithHttpInfo($uid, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteWebhookSecretApiV1ClientsUidWebhookSecretDeleteAsyncWithHttpInfo
+     *
+     * Delete webhook secret
+     *
+     * @param  string $uid (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhookSecretApiV1ClientsUidWebhookSecretDelete'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteWebhookSecretApiV1ClientsUidWebhookSecretDeleteAsyncWithHttpInfo($uid, string $contentType = self::contentTypes['deleteWebhookSecretApiV1ClientsUidWebhookSecretDelete'][0])
+    {
+        $returnType = '\FactPulse\SDK\Model\WebhookSecretDeleteResponse';
+        $request = $this->deleteWebhookSecretApiV1ClientsUidWebhookSecretDeleteRequest($uid, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteWebhookSecretApiV1ClientsUidWebhookSecretDelete'
+     *
+     * @param  string $uid (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhookSecretApiV1ClientsUidWebhookSecretDelete'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteWebhookSecretApiV1ClientsUidWebhookSecretDeleteRequest($uid, string $contentType = self::contentTypes['deleteWebhookSecretApiV1ClientsUidWebhookSecretDelete'][0])
+    {
+
+        // verify the required parameter 'uid' is set
+        if ($uid === null || (is_array($uid) && count($uid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $uid when calling deleteWebhookSecretApiV1ClientsUidWebhookSecretDelete'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/clients/{uid}/webhook-secret';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($uid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'uid' . '}',
+                ObjectSerializer::toPathValue($uid),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation generateWebhookSecretApiV1ClientsUidWebhookSecretGeneratePost
+     *
+     * Generate webhook secret
+     *
+     * @param  string $uid uid (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateWebhookSecretApiV1ClientsUidWebhookSecretGeneratePost'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \FactPulse\SDK\Model\WebhookSecretGenerateResponse|\FactPulse\SDK\Model\HTTPValidationError
+     */
+    public function generateWebhookSecretApiV1ClientsUidWebhookSecretGeneratePost($uid, string $contentType = self::contentTypes['generateWebhookSecretApiV1ClientsUidWebhookSecretGeneratePost'][0])
+    {
+        list($response) = $this->generateWebhookSecretApiV1ClientsUidWebhookSecretGeneratePostWithHttpInfo($uid, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation generateWebhookSecretApiV1ClientsUidWebhookSecretGeneratePostWithHttpInfo
+     *
+     * Generate webhook secret
+     *
+     * @param  string $uid (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateWebhookSecretApiV1ClientsUidWebhookSecretGeneratePost'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \FactPulse\SDK\Model\WebhookSecretGenerateResponse|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function generateWebhookSecretApiV1ClientsUidWebhookSecretGeneratePostWithHttpInfo($uid, string $contentType = self::contentTypes['generateWebhookSecretApiV1ClientsUidWebhookSecretGeneratePost'][0])
+    {
+        $request = $this->generateWebhookSecretApiV1ClientsUidWebhookSecretGeneratePostRequest($uid, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\WebhookSecretGenerateResponse',
+                        $request,
+                        $response,
+                    );
+                case 422:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\FactPulse\SDK\Model\WebhookSecretGenerateResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\WebhookSecretGenerateResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation generateWebhookSecretApiV1ClientsUidWebhookSecretGeneratePostAsync
+     *
+     * Generate webhook secret
+     *
+     * @param  string $uid (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateWebhookSecretApiV1ClientsUidWebhookSecretGeneratePost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function generateWebhookSecretApiV1ClientsUidWebhookSecretGeneratePostAsync($uid, string $contentType = self::contentTypes['generateWebhookSecretApiV1ClientsUidWebhookSecretGeneratePost'][0])
+    {
+        return $this->generateWebhookSecretApiV1ClientsUidWebhookSecretGeneratePostAsyncWithHttpInfo($uid, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation generateWebhookSecretApiV1ClientsUidWebhookSecretGeneratePostAsyncWithHttpInfo
+     *
+     * Generate webhook secret
+     *
+     * @param  string $uid (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateWebhookSecretApiV1ClientsUidWebhookSecretGeneratePost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function generateWebhookSecretApiV1ClientsUidWebhookSecretGeneratePostAsyncWithHttpInfo($uid, string $contentType = self::contentTypes['generateWebhookSecretApiV1ClientsUidWebhookSecretGeneratePost'][0])
+    {
+        $returnType = '\FactPulse\SDK\Model\WebhookSecretGenerateResponse';
+        $request = $this->generateWebhookSecretApiV1ClientsUidWebhookSecretGeneratePostRequest($uid, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'generateWebhookSecretApiV1ClientsUidWebhookSecretGeneratePost'
+     *
+     * @param  string $uid (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateWebhookSecretApiV1ClientsUidWebhookSecretGeneratePost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function generateWebhookSecretApiV1ClientsUidWebhookSecretGeneratePostRequest($uid, string $contentType = self::contentTypes['generateWebhookSecretApiV1ClientsUidWebhookSecretGeneratePost'][0])
+    {
+
+        // verify the required parameter 'uid' is set
+        if ($uid === null || (is_array($uid) && count($uid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $uid when calling generateWebhookSecretApiV1ClientsUidWebhookSecretGeneratePost'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/clients/{uid}/webhook-secret/generate';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($uid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'uid' . '}',
+                ObjectSerializer::toPathValue($uid),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
         // this endpoint requires Bearer authentication (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -1264,6 +1873,11 @@ class ClientManagementApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
         // this endpoint requires Bearer authentication (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -1550,6 +2164,302 @@ class ClientManagementApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGet
+     *
+     * Get webhook secret status
+     *
+     * @param  string $uid uid (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGet'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \FactPulse\SDK\Model\WebhookSecretStatusResponse|\FactPulse\SDK\Model\HTTPValidationError
+     */
+    public function getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGet($uid, string $contentType = self::contentTypes['getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGet'][0])
+    {
+        list($response) = $this->getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGetWithHttpInfo($uid, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGetWithHttpInfo
+     *
+     * Get webhook secret status
+     *
+     * @param  string $uid (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGet'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \FactPulse\SDK\Model\WebhookSecretStatusResponse|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGetWithHttpInfo($uid, string $contentType = self::contentTypes['getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGet'][0])
+    {
+        $request = $this->getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGetRequest($uid, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\WebhookSecretStatusResponse',
+                        $request,
+                        $response,
+                    );
+                case 422:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\FactPulse\SDK\Model\WebhookSecretStatusResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\WebhookSecretStatusResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGetAsync
+     *
+     * Get webhook secret status
+     *
+     * @param  string $uid (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGetAsync($uid, string $contentType = self::contentTypes['getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGet'][0])
+    {
+        return $this->getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGetAsyncWithHttpInfo($uid, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGetAsyncWithHttpInfo
+     *
+     * Get webhook secret status
+     *
+     * @param  string $uid (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGetAsyncWithHttpInfo($uid, string $contentType = self::contentTypes['getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGet'][0])
+    {
+        $returnType = '\FactPulse\SDK\Model\WebhookSecretStatusResponse';
+        $request = $this->getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGetRequest($uid, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGet'
+     *
+     * @param  string $uid (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGetRequest($uid, string $contentType = self::contentTypes['getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGet'][0])
+    {
+
+        // verify the required parameter 'uid' is set
+        if ($uid === null || (is_array($uid) && count($uid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $uid when calling getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGet'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/clients/{uid}/webhook-secret/status';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($uid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'uid' . '}',
+                ObjectSerializer::toPathValue($uid),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
         // this endpoint requires Bearer authentication (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -1855,6 +2765,11 @@ class ClientManagementApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
         // this endpoint requires Bearer authentication (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -1875,6 +2790,316 @@ class ClientManagementApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation rotateEncryptionKeyApiV1ClientsUidRotateEncryptionKeyPost
+     *
+     * Rotate client encryption key
+     *
+     * @param  string $uid uid (required)
+     * @param  \FactPulse\SDK\Model\KeyRotationRequest $key_rotation_request key_rotation_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rotateEncryptionKeyApiV1ClientsUidRotateEncryptionKeyPost'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \FactPulse\SDK\Model\KeyRotationResponse|\FactPulse\SDK\Model\HTTPValidationError
+     */
+    public function rotateEncryptionKeyApiV1ClientsUidRotateEncryptionKeyPost($uid, $key_rotation_request, string $contentType = self::contentTypes['rotateEncryptionKeyApiV1ClientsUidRotateEncryptionKeyPost'][0])
+    {
+        list($response) = $this->rotateEncryptionKeyApiV1ClientsUidRotateEncryptionKeyPostWithHttpInfo($uid, $key_rotation_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation rotateEncryptionKeyApiV1ClientsUidRotateEncryptionKeyPostWithHttpInfo
+     *
+     * Rotate client encryption key
+     *
+     * @param  string $uid (required)
+     * @param  \FactPulse\SDK\Model\KeyRotationRequest $key_rotation_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rotateEncryptionKeyApiV1ClientsUidRotateEncryptionKeyPost'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \FactPulse\SDK\Model\KeyRotationResponse|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function rotateEncryptionKeyApiV1ClientsUidRotateEncryptionKeyPostWithHttpInfo($uid, $key_rotation_request, string $contentType = self::contentTypes['rotateEncryptionKeyApiV1ClientsUidRotateEncryptionKeyPost'][0])
+    {
+        $request = $this->rotateEncryptionKeyApiV1ClientsUidRotateEncryptionKeyPostRequest($uid, $key_rotation_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\KeyRotationResponse',
+                        $request,
+                        $response,
+                    );
+                case 422:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\FactPulse\SDK\Model\KeyRotationResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\KeyRotationResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation rotateEncryptionKeyApiV1ClientsUidRotateEncryptionKeyPostAsync
+     *
+     * Rotate client encryption key
+     *
+     * @param  string $uid (required)
+     * @param  \FactPulse\SDK\Model\KeyRotationRequest $key_rotation_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rotateEncryptionKeyApiV1ClientsUidRotateEncryptionKeyPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function rotateEncryptionKeyApiV1ClientsUidRotateEncryptionKeyPostAsync($uid, $key_rotation_request, string $contentType = self::contentTypes['rotateEncryptionKeyApiV1ClientsUidRotateEncryptionKeyPost'][0])
+    {
+        return $this->rotateEncryptionKeyApiV1ClientsUidRotateEncryptionKeyPostAsyncWithHttpInfo($uid, $key_rotation_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation rotateEncryptionKeyApiV1ClientsUidRotateEncryptionKeyPostAsyncWithHttpInfo
+     *
+     * Rotate client encryption key
+     *
+     * @param  string $uid (required)
+     * @param  \FactPulse\SDK\Model\KeyRotationRequest $key_rotation_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rotateEncryptionKeyApiV1ClientsUidRotateEncryptionKeyPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function rotateEncryptionKeyApiV1ClientsUidRotateEncryptionKeyPostAsyncWithHttpInfo($uid, $key_rotation_request, string $contentType = self::contentTypes['rotateEncryptionKeyApiV1ClientsUidRotateEncryptionKeyPost'][0])
+    {
+        $returnType = '\FactPulse\SDK\Model\KeyRotationResponse';
+        $request = $this->rotateEncryptionKeyApiV1ClientsUidRotateEncryptionKeyPostRequest($uid, $key_rotation_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'rotateEncryptionKeyApiV1ClientsUidRotateEncryptionKeyPost'
+     *
+     * @param  string $uid (required)
+     * @param  \FactPulse\SDK\Model\KeyRotationRequest $key_rotation_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rotateEncryptionKeyApiV1ClientsUidRotateEncryptionKeyPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function rotateEncryptionKeyApiV1ClientsUidRotateEncryptionKeyPostRequest($uid, $key_rotation_request, string $contentType = self::contentTypes['rotateEncryptionKeyApiV1ClientsUidRotateEncryptionKeyPost'][0])
+    {
+
+        // verify the required parameter 'uid' is set
+        if ($uid === null || (is_array($uid) && count($uid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $uid when calling rotateEncryptionKeyApiV1ClientsUidRotateEncryptionKeyPost'
+            );
+        }
+
+        // verify the required parameter 'key_rotation_request' is set
+        if ($key_rotation_request === null || (is_array($key_rotation_request) && count($key_rotation_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $key_rotation_request when calling rotateEncryptionKeyApiV1ClientsUidRotateEncryptionKeyPost'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/clients/{uid}/rotate-encryption-key';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($uid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'uid' . '}',
+                ObjectSerializer::toPathValue($uid),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($key_rotation_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($key_rotation_request));
+            } else {
+                $httpBody = $key_rotation_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -2160,6 +3385,11 @@ class ClientManagementApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
         // this endpoint requires Bearer authentication (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -2193,15 +3423,16 @@ class ClientManagementApi
      *
      * @param  string $uid uid (required)
      * @param  \FactPulse\SDK\Model\PDPConfigUpdateRequest $pdp_config_update_request pdp_config_update_request (required)
+     * @param  string|null $x_encryption_key Client encryption key for double encryption mode. Must be a base64-encoded AES-256 key (32 bytes). Required only when accessing resources encrypted with encryption_mode&#x3D;&#39;double&#39;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updatePdpConfigApiV1ClientsUidPdpConfigPut'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \FactPulse\SDK\Model\PDPConfigResponse|\FactPulse\SDK\Model\HTTPValidationError
      */
-    public function updatePdpConfigApiV1ClientsUidPdpConfigPut($uid, $pdp_config_update_request, string $contentType = self::contentTypes['updatePdpConfigApiV1ClientsUidPdpConfigPut'][0])
+    public function updatePdpConfigApiV1ClientsUidPdpConfigPut($uid, $pdp_config_update_request, $x_encryption_key = null, string $contentType = self::contentTypes['updatePdpConfigApiV1ClientsUidPdpConfigPut'][0])
     {
-        list($response) = $this->updatePdpConfigApiV1ClientsUidPdpConfigPutWithHttpInfo($uid, $pdp_config_update_request, $contentType);
+        list($response) = $this->updatePdpConfigApiV1ClientsUidPdpConfigPutWithHttpInfo($uid, $pdp_config_update_request, $x_encryption_key, $contentType);
         return $response;
     }
 
@@ -2212,15 +3443,16 @@ class ClientManagementApi
      *
      * @param  string $uid (required)
      * @param  \FactPulse\SDK\Model\PDPConfigUpdateRequest $pdp_config_update_request (required)
+     * @param  string|null $x_encryption_key Client encryption key for double encryption mode. Must be a base64-encoded AES-256 key (32 bytes). Required only when accessing resources encrypted with encryption_mode&#x3D;&#39;double&#39;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updatePdpConfigApiV1ClientsUidPdpConfigPut'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \FactPulse\SDK\Model\PDPConfigResponse|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updatePdpConfigApiV1ClientsUidPdpConfigPutWithHttpInfo($uid, $pdp_config_update_request, string $contentType = self::contentTypes['updatePdpConfigApiV1ClientsUidPdpConfigPut'][0])
+    public function updatePdpConfigApiV1ClientsUidPdpConfigPutWithHttpInfo($uid, $pdp_config_update_request, $x_encryption_key = null, string $contentType = self::contentTypes['updatePdpConfigApiV1ClientsUidPdpConfigPut'][0])
     {
-        $request = $this->updatePdpConfigApiV1ClientsUidPdpConfigPutRequest($uid, $pdp_config_update_request, $contentType);
+        $request = $this->updatePdpConfigApiV1ClientsUidPdpConfigPutRequest($uid, $pdp_config_update_request, $x_encryption_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2312,14 +3544,15 @@ class ClientManagementApi
      *
      * @param  string $uid (required)
      * @param  \FactPulse\SDK\Model\PDPConfigUpdateRequest $pdp_config_update_request (required)
+     * @param  string|null $x_encryption_key Client encryption key for double encryption mode. Must be a base64-encoded AES-256 key (32 bytes). Required only when accessing resources encrypted with encryption_mode&#x3D;&#39;double&#39;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updatePdpConfigApiV1ClientsUidPdpConfigPut'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePdpConfigApiV1ClientsUidPdpConfigPutAsync($uid, $pdp_config_update_request, string $contentType = self::contentTypes['updatePdpConfigApiV1ClientsUidPdpConfigPut'][0])
+    public function updatePdpConfigApiV1ClientsUidPdpConfigPutAsync($uid, $pdp_config_update_request, $x_encryption_key = null, string $contentType = self::contentTypes['updatePdpConfigApiV1ClientsUidPdpConfigPut'][0])
     {
-        return $this->updatePdpConfigApiV1ClientsUidPdpConfigPutAsyncWithHttpInfo($uid, $pdp_config_update_request, $contentType)
+        return $this->updatePdpConfigApiV1ClientsUidPdpConfigPutAsyncWithHttpInfo($uid, $pdp_config_update_request, $x_encryption_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2334,15 +3567,16 @@ class ClientManagementApi
      *
      * @param  string $uid (required)
      * @param  \FactPulse\SDK\Model\PDPConfigUpdateRequest $pdp_config_update_request (required)
+     * @param  string|null $x_encryption_key Client encryption key for double encryption mode. Must be a base64-encoded AES-256 key (32 bytes). Required only when accessing resources encrypted with encryption_mode&#x3D;&#39;double&#39;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updatePdpConfigApiV1ClientsUidPdpConfigPut'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePdpConfigApiV1ClientsUidPdpConfigPutAsyncWithHttpInfo($uid, $pdp_config_update_request, string $contentType = self::contentTypes['updatePdpConfigApiV1ClientsUidPdpConfigPut'][0])
+    public function updatePdpConfigApiV1ClientsUidPdpConfigPutAsyncWithHttpInfo($uid, $pdp_config_update_request, $x_encryption_key = null, string $contentType = self::contentTypes['updatePdpConfigApiV1ClientsUidPdpConfigPut'][0])
     {
         $returnType = '\FactPulse\SDK\Model\PDPConfigResponse';
-        $request = $this->updatePdpConfigApiV1ClientsUidPdpConfigPutRequest($uid, $pdp_config_update_request, $contentType);
+        $request = $this->updatePdpConfigApiV1ClientsUidPdpConfigPutRequest($uid, $pdp_config_update_request, $x_encryption_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2385,12 +3619,13 @@ class ClientManagementApi
      *
      * @param  string $uid (required)
      * @param  \FactPulse\SDK\Model\PDPConfigUpdateRequest $pdp_config_update_request (required)
+     * @param  string|null $x_encryption_key Client encryption key for double encryption mode. Must be a base64-encoded AES-256 key (32 bytes). Required only when accessing resources encrypted with encryption_mode&#x3D;&#39;double&#39;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updatePdpConfigApiV1ClientsUidPdpConfigPut'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updatePdpConfigApiV1ClientsUidPdpConfigPutRequest($uid, $pdp_config_update_request, string $contentType = self::contentTypes['updatePdpConfigApiV1ClientsUidPdpConfigPut'][0])
+    public function updatePdpConfigApiV1ClientsUidPdpConfigPutRequest($uid, $pdp_config_update_request, $x_encryption_key = null, string $contentType = self::contentTypes['updatePdpConfigApiV1ClientsUidPdpConfigPut'][0])
     {
 
         // verify the required parameter 'uid' is set
@@ -2408,6 +3643,7 @@ class ClientManagementApi
         }
 
 
+
         $resourcePath = '/api/v1/clients/{uid}/pdp-config';
         $formParams = [];
         $queryParams = [];
@@ -2416,6 +3652,10 @@ class ClientManagementApi
         $multipart = false;
 
 
+        // header params
+        if ($x_encryption_key !== null) {
+            $headerParams['X-Encryption-Key'] = ObjectSerializer::toHeaderValue($x_encryption_key);
+        }
 
         // path params
         if ($uid !== null) {
@@ -2465,6 +3705,11 @@ class ClientManagementApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
         // this endpoint requires Bearer authentication (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();

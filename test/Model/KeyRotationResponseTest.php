@@ -1,6 +1,6 @@
 <?php
 /**
- * FactureElectroniqueRestApiSchemasCdarValidationErrorResponseTest
+ * KeyRotationResponseTest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * FactureElectroniqueRestApiSchemasCdarValidationErrorResponseTest Class Doc Comment
+ * KeyRotationResponseTest Class Doc Comment
  *
  * @category    Class
- * @description Erreur de validation.
+ * @description Response from key rotation operation.
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class FactureElectroniqueRestApiSchemasCdarValidationErrorResponseTest extends TestCase
+class KeyRotationResponseTest extends TestCase
 {
 
     /**
@@ -72,18 +72,18 @@ class FactureElectroniqueRestApiSchemasCdarValidationErrorResponseTest extends T
     }
 
     /**
-     * Test "FactureElectroniqueRestApiSchemasCdarValidationErrorResponse"
+     * Test "KeyRotationResponse"
      */
-    public function testFactureElectroniqueRestApiSchemasCdarValidationErrorResponse()
+    public function testKeyRotationResponse()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "field"
+     * Test attribute "success"
      */
-    public function testPropertyField()
+    public function testPropertySuccess()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -99,18 +99,18 @@ class FactureElectroniqueRestApiSchemasCdarValidationErrorResponseTest extends T
     }
 
     /**
-     * Test attribute "rule"
+     * Test attribute "rotated_count"
      */
-    public function testPropertyRule()
+    public function testPropertyRotatedCount()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "severity"
+     * Test attribute "partial_errors"
      */
-    public function testPropertySeverity()
+    public function testPropertyPartialErrors()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

@@ -60,7 +60,9 @@ class SecretStatus implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'status' => 'string',
-        'message' => 'string'
+        'message' => 'string',
+        'encryption_mode' => 'string',
+        'requires_client_key' => 'bool'
     ];
 
     /**
@@ -72,7 +74,9 @@ class SecretStatus implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'status' => null,
-        'message' => null
+        'message' => null,
+        'encryption_mode' => null,
+        'requires_client_key' => null
     ];
 
     /**
@@ -82,7 +86,9 @@ class SecretStatus implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'status' => false,
-        'message' => false
+        'message' => false,
+        'encryption_mode' => true,
+        'requires_client_key' => true
     ];
 
     /**
@@ -172,7 +178,9 @@ class SecretStatus implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'status' => 'status',
-        'message' => 'message'
+        'message' => 'message',
+        'encryption_mode' => 'encryptionMode',
+        'requires_client_key' => 'requiresClientKey'
     ];
 
     /**
@@ -182,7 +190,9 @@ class SecretStatus implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'status' => 'setStatus',
-        'message' => 'setMessage'
+        'message' => 'setMessage',
+        'encryption_mode' => 'setEncryptionMode',
+        'requires_client_key' => 'setRequiresClientKey'
     ];
 
     /**
@@ -192,7 +202,9 @@ class SecretStatus implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'status' => 'getStatus',
-        'message' => 'getMessage'
+        'message' => 'getMessage',
+        'encryption_mode' => 'getEncryptionMode',
+        'requires_client_key' => 'getRequiresClientKey'
     ];
 
     /**
@@ -254,6 +266,8 @@ class SecretStatus implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('message', $data ?? [], null);
+        $this->setIfExists('encryption_mode', $data ?? [], null);
+        $this->setIfExists('requires_client_key', $data ?? [], null);
     }
 
     /**
@@ -354,6 +368,74 @@ class SecretStatus implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable message cannot be null');
         }
         $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets encryption_mode
+     *
+     * @return string|null
+     */
+    public function getEncryptionMode()
+    {
+        return $this->container['encryption_mode'];
+    }
+
+    /**
+     * Sets encryption_mode
+     *
+     * @param string|null $encryption_mode encryption_mode
+     *
+     * @return self
+     */
+    public function setEncryptionMode($encryption_mode)
+    {
+        if (is_null($encryption_mode)) {
+            array_push($this->openAPINullablesSetToNull, 'encryption_mode');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('encryption_mode', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['encryption_mode'] = $encryption_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets requires_client_key
+     *
+     * @return bool|null
+     */
+    public function getRequiresClientKey()
+    {
+        return $this->container['requires_client_key'];
+    }
+
+    /**
+     * Sets requires_client_key
+     *
+     * @param bool|null $requires_client_key requires_client_key
+     *
+     * @return self
+     */
+    public function setRequiresClientKey($requires_client_key)
+    {
+        if (is_null($requires_client_key)) {
+            array_push($this->openAPINullablesSetToNull, 'requires_client_key');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('requires_client_key', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['requires_client_key'] = $requires_client_key;
 
         return $this;
     }

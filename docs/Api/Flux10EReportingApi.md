@@ -36,6 +36,11 @@ Generate a PPF-compliant aggregated e-reporting XML containing multiple flux typ
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
 // Configure Bearer authorization: HTTPBearer
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
@@ -68,7 +73,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -95,6 +100,11 @@ Generate e-reporting XML (FRR format) from structured data.  Supports all four f
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 // Configure Bearer authorization: HTTPBearer
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -128,7 +138,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -155,6 +165,11 @@ Generate e-reporting XML and return as downloadable file.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 // Configure Bearer authorization: HTTPBearer
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -189,7 +204,7 @@ void (empty response body)
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -515,6 +530,11 @@ Validates aggregated e-reporting data without generating XML.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
 // Configure Bearer authorization: HTTPBearer
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
@@ -547,7 +567,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -574,6 +594,11 @@ Validate e-reporting data without generating or submitting.  Performs: - Schema 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 // Configure Bearer authorization: HTTPBearer
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -607,7 +632,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -634,6 +659,11 @@ Validates an e-reporting XML file against PPF specifications (Annexe 6 v1.9):  *
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 // Configure Bearer authorization: HTTPBearer
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -671,7 +701,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 

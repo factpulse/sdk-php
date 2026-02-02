@@ -41,6 +41,11 @@ Add an attachment to the current user account.      **Max size**: 10 MB per file
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
 // Configure Bearer authorization: HTTPBearer
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
@@ -73,7 +78,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -100,6 +105,11 @@ Complete a SUSPENDUE status invoice by adding attachments or a comment.      **R
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 // Configure Bearer authorization: HTTPBearer
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -133,7 +143,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -160,6 +170,11 @@ Retrieves the information and current status of an invoice submitted to Chorus P
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 // Configure Bearer authorization: HTTPBearer
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -193,7 +208,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -220,6 +235,11 @@ Retrieves detailed information about a Chorus Pro structure.       **Returns**: 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 // Configure Bearer authorization: HTTPBearer
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -253,7 +273,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -280,6 +300,11 @@ Retrieves the list of active services for a public structure.      **Use cases**
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 // Configure Bearer authorization: HTTPBearer
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -313,7 +338,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -340,6 +365,11 @@ Utility: Get Chorus Pro ID from SIRET
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 // Configure Bearer authorization: HTTPBearer
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -373,7 +403,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -400,6 +430,11 @@ Search invoices received by the connected recipient.      **Filters**:     - Dow
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 // Configure Bearer authorization: HTTPBearer
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -433,7 +468,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -460,6 +495,11 @@ Search invoices issued by the connected supplier.      **Available filters**:   
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 // Configure Bearer authorization: HTTPBearer
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -493,7 +533,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -520,6 +560,11 @@ Search for structures (companies, administrations) registered on Chorus Pro.    
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 // Configure Bearer authorization: HTTPBearer
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -553,7 +598,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -580,6 +625,11 @@ Recycle an invoice with A_RECYCLER status by modifying routing data.      **Requ
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 // Configure Bearer authorization: HTTPBearer
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -613,7 +663,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -640,6 +690,11 @@ Submits an electronic invoice to a public structure via Chorus Pro.       **Comp
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 // Configure Bearer authorization: HTTPBearer
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -673,7 +728,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -700,6 +755,11 @@ Download one or more invoices (max 10 recommended) with their attachments.      
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 // Configure Bearer authorization: HTTPBearer
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -733,7 +793,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -760,6 +820,11 @@ Change the status of a received invoice.      **Possible statuses**:     - MISE_
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 // Configure Bearer authorization: HTTPBearer
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -793,7 +858,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -820,6 +885,11 @@ Retrieves detailed information about an invoice for validators.  **Use case**: C
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 // Configure Bearer authorization: HTTPBearer
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -853,7 +923,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -880,6 +950,11 @@ Search invoices pending validation by the connected validator.      **Role**: Va
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 // Configure Bearer authorization: HTTPBearer
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -913,7 +988,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -940,6 +1015,11 @@ Validate or reject an invoice pending validation.      **Actions**:     - Valida
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 // Configure Bearer authorization: HTTPBearer
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -973,7 +1053,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 

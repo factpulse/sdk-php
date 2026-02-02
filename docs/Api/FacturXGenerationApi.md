@@ -28,6 +28,11 @@ Generates an electronic invoice in Factur-X format compliant with European stand
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
 // Configure Bearer authorization: HTTPBearer
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
@@ -74,7 +79,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -101,6 +106,11 @@ Unified endpoint to submit a complete invoice to different destinations.     **F
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 // Configure Bearer authorization: HTTPBearer
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -134,7 +144,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -161,6 +171,11 @@ Asynchronous version of the `/invoices/submit-complete` endpoint using Celery fo
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 // Configure Bearer authorization: HTTPBearer
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -198,7 +213,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 

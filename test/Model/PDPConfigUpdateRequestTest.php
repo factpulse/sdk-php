@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * PDPConfigUpdateRequestTest Class Doc Comment
  *
  * @category    Class
- * @description PDP configuration update request.
+ * @description PDP configuration update request.  For encryption_mode&#x3D;&#39;double&#39;, the X-Encryption-Key header must also be provided containing a base64-encoded AES-256 key (32 bytes).
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -129,6 +129,15 @@ class PDPConfigUpdateRequestTest extends TestCase
      * Test attribute "client_secret"
      */
     public function testPropertyClientSecret()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "encryption_mode"
+     */
+    public function testPropertyEncryptionMode()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

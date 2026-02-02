@@ -144,6 +144,15 @@ class PDPConfigResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "encryption_mode"
+     */
+    public function testPropertyEncryptionMode()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "secret_status"
      */
     public function testPropertySecretStatus()

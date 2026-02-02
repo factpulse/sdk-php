@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **token_url** | **string** | PDP OAuth token URL |
 **oauth_client_id** | **string** | OAuth Client ID |
 **client_secret** | **string** | OAuth Client Secret (sent but never returned) |
+**encryption_mode** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

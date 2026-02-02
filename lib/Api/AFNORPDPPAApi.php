@@ -136,15 +136,16 @@ class AFNORPDPPAApi
      *
      * @param  string $flow_id AFNOR flow ID (UUID format) (required)
      * @param  bool|null $include_document Include base64-encoded document in response (optional, default to false)
+     * @param  string|null $x_encryption_key Client encryption key for double encryption mode. Must be a base64-encoded AES-256 key (32 bytes). Required only when accessing resources encrypted with encryption_mode&#x3D;&#39;double&#39;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \FactPulse\SDK\Model\IncomingInvoice|\FactPulse\SDK\Model\HTTPValidationError
      */
-    public function getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet($flow_id, $include_document = false, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet'][0])
+    public function getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet($flow_id, $include_document = false, $x_encryption_key = null, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet'][0])
     {
-        list($response) = $this->getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGetWithHttpInfo($flow_id, $include_document, $contentType);
+        list($response) = $this->getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGetWithHttpInfo($flow_id, $include_document, $x_encryption_key, $contentType);
         return $response;
     }
 
@@ -155,15 +156,16 @@ class AFNORPDPPAApi
      *
      * @param  string $flow_id AFNOR flow ID (UUID format) (required)
      * @param  bool|null $include_document Include base64-encoded document in response (optional, default to false)
+     * @param  string|null $x_encryption_key Client encryption key for double encryption mode. Must be a base64-encoded AES-256 key (32 bytes). Required only when accessing resources encrypted with encryption_mode&#x3D;&#39;double&#39;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \FactPulse\SDK\Model\IncomingInvoice|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGetWithHttpInfo($flow_id, $include_document = false, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet'][0])
+    public function getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGetWithHttpInfo($flow_id, $include_document = false, $x_encryption_key = null, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet'][0])
     {
-        $request = $this->getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGetRequest($flow_id, $include_document, $contentType);
+        $request = $this->getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGetRequest($flow_id, $include_document, $x_encryption_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -255,14 +257,15 @@ class AFNORPDPPAApi
      *
      * @param  string $flow_id AFNOR flow ID (UUID format) (required)
      * @param  bool|null $include_document Include base64-encoded document in response (optional, default to false)
+     * @param  string|null $x_encryption_key Client encryption key for double encryption mode. Must be a base64-encoded AES-256 key (32 bytes). Required only when accessing resources encrypted with encryption_mode&#x3D;&#39;double&#39;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGetAsync($flow_id, $include_document = false, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet'][0])
+    public function getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGetAsync($flow_id, $include_document = false, $x_encryption_key = null, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet'][0])
     {
-        return $this->getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGetAsyncWithHttpInfo($flow_id, $include_document, $contentType)
+        return $this->getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGetAsyncWithHttpInfo($flow_id, $include_document, $x_encryption_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -277,15 +280,16 @@ class AFNORPDPPAApi
      *
      * @param  string $flow_id AFNOR flow ID (UUID format) (required)
      * @param  bool|null $include_document Include base64-encoded document in response (optional, default to false)
+     * @param  string|null $x_encryption_key Client encryption key for double encryption mode. Must be a base64-encoded AES-256 key (32 bytes). Required only when accessing resources encrypted with encryption_mode&#x3D;&#39;double&#39;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGetAsyncWithHttpInfo($flow_id, $include_document = false, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet'][0])
+    public function getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGetAsyncWithHttpInfo($flow_id, $include_document = false, $x_encryption_key = null, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet'][0])
     {
         $returnType = '\FactPulse\SDK\Model\IncomingInvoice';
-        $request = $this->getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGetRequest($flow_id, $include_document, $contentType);
+        $request = $this->getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGetRequest($flow_id, $include_document, $x_encryption_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -328,12 +332,13 @@ class AFNORPDPPAApi
      *
      * @param  string $flow_id AFNOR flow ID (UUID format) (required)
      * @param  bool|null $include_document Include base64-encoded document in response (optional, default to false)
+     * @param  string|null $x_encryption_key Client encryption key for double encryption mode. Must be a base64-encoded AES-256 key (32 bytes). Required only when accessing resources encrypted with encryption_mode&#x3D;&#39;double&#39;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGetRequest($flow_id, $include_document = false, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet'][0])
+    public function getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGetRequest($flow_id, $include_document = false, $x_encryption_key = null, string $contentType = self::contentTypes['getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet'][0])
     {
 
         // verify the required parameter 'flow_id' is set
@@ -342,6 +347,7 @@ class AFNORPDPPAApi
                 'Missing the required parameter $flow_id when calling getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet'
             );
         }
+
 
 
 
@@ -362,6 +368,10 @@ class AFNORPDPPAApi
             false // required
         ) ?? []);
 
+        // header params
+        if ($x_encryption_key !== null) {
+            $headerParams['X-Encryption-Key'] = ObjectSerializer::toHeaderValue($x_encryption_key);
+        }
 
         // path params
         if ($flow_id !== null) {
@@ -404,6 +414,11 @@ class AFNORPDPPAApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
         // this endpoint requires Bearer authentication (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();

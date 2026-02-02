@@ -29,6 +29,11 @@ Generates a self-signed X.509 certificate for PDF electronic signature testing. 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
 // Configure Bearer authorization: HTTPBearer
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
@@ -61,7 +66,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -88,6 +93,11 @@ Signs an uploaded PDF with the electronic certificate configured for the client 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 // Configure Bearer authorization: HTTPBearer
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -133,7 +143,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -160,6 +170,11 @@ Signs an uploaded PDF asynchronously via a Celery task.      **Difference with /
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 // Configure Bearer authorization: HTTPBearer
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -209,7 +224,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -236,6 +251,11 @@ Validates electronic signatures present in an uploaded PDF.      **Verifications
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 // Configure Bearer authorization: HTTPBearer
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -269,7 +289,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 

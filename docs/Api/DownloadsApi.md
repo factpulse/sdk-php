@@ -27,6 +27,11 @@ Check if a temporary file exists and get its metadata without downloading.  Usef
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
 // Configure Bearer authorization: HTTPBearer
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
@@ -59,7 +64,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -86,6 +91,11 @@ Download a file stored temporarily after asynchronous processing.  **Usage**: - 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 // Configure Bearer authorization: HTTPBearer
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -121,7 +131,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 

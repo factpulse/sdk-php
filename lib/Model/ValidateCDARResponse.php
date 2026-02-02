@@ -60,8 +60,8 @@ class ValidateCDARResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPITypes = [
         'valid' => 'bool',
-        'errors' => '\FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasCdarValidationErrorResponse[]',
-        'warnings' => '\FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasCdarValidationErrorResponse[]'
+        'errors' => '\FactPulse\SDK\Model\ValidationErrorResponse[]',
+        'warnings' => '\FactPulse\SDK\Model\ValidationErrorResponse[]'
     ];
 
     /**
@@ -338,7 +338,7 @@ class ValidateCDARResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets errors
      *
-     * @return \FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasCdarValidationErrorResponse[]|null
+     * @return \FactPulse\SDK\Model\ValidationErrorResponse[]|null
      */
     public function getErrors()
     {
@@ -348,7 +348,7 @@ class ValidateCDARResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets errors
      *
-     * @param \FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasCdarValidationErrorResponse[]|null $errors Liste des erreurs
+     * @param \FactPulse\SDK\Model\ValidationErrorResponse[]|null $errors Liste des erreurs
      *
      * @return self
      */
@@ -365,7 +365,7 @@ class ValidateCDARResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets warnings
      *
-     * @return \FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasCdarValidationErrorResponse[]|null
+     * @return \FactPulse\SDK\Model\ValidationErrorResponse[]|null
      */
     public function getWarnings()
     {
@@ -375,7 +375,7 @@ class ValidateCDARResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets warnings
      *
-     * @param \FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasCdarValidationErrorResponse[]|null $warnings Liste des avertissements
+     * @param \FactPulse\SDK\Model\ValidationErrorResponse[]|null $warnings Liste des avertissements
      *
      * @return self
      */

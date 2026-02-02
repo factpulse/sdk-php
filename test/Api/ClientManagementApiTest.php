@@ -109,6 +109,30 @@ class ClientManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for deleteWebhookSecretApiV1ClientsUidWebhookSecretDelete
+     *
+     * Delete webhook secret.
+     *
+     */
+    public function testDeleteWebhookSecretApiV1ClientsUidWebhookSecretDelete()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for generateWebhookSecretApiV1ClientsUidWebhookSecretGeneratePost
+     *
+     * Generate webhook secret.
+     *
+     */
+    public function testGenerateWebhookSecretApiV1ClientsUidWebhookSecretGeneratePost()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getClientApiV1ClientsUidGet
      *
      * Get client details.
@@ -133,12 +157,36 @@ class ClientManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGet
+     *
+     * Get webhook secret status.
+     *
+     */
+    public function testGetWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGet()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for listClientsApiV1ClientsGet
      *
      * List clients.
      *
      */
     public function testListClientsApiV1ClientsGet()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for rotateEncryptionKeyApiV1ClientsUidRotateEncryptionKeyPost
+     *
+     * Rotate client encryption key.
+     *
+     */
+    public function testRotateEncryptionKeyApiV1ClientsUidRotateEncryptionKeyPost()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

@@ -429,6 +429,11 @@ class FacturXValidationApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
         // this endpoint requires Bearer authentication (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -759,6 +764,11 @@ class FacturXValidationApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
         // this endpoint requires Bearer authentication (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -797,7 +807,7 @@ class FacturXValidationApi
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \FactPulse\SDK\Model\ValidationSuccessResponse|\FactPulse\SDK\Model\ValidationErrorResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
+     * @return \FactPulse\SDK\Model\ValidationSuccessResponse|\FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasValidationValidationErrorResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function validateXmlApiV1ProcessingValidateXmlPost($xml_file, $profile = null, $skip_br_fr = null, string $contentType = self::contentTypes['validateXmlApiV1ProcessingValidateXmlPost'][0])
     {
@@ -817,7 +827,7 @@ class FacturXValidationApi
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \FactPulse\SDK\Model\ValidationSuccessResponse|\FactPulse\SDK\Model\ValidationErrorResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\ValidationSuccessResponse|\FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasValidationValidationErrorResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function validateXmlApiV1ProcessingValidateXmlPostWithHttpInfo($xml_file, $profile = null, $skip_br_fr = null, string $contentType = self::contentTypes['validateXmlApiV1ProcessingValidateXmlPost'][0])
     {
@@ -855,7 +865,7 @@ class FacturXValidationApi
                     );
                 case 400:
                     return $this->handleResponseWithDataType(
-                        '\FactPulse\SDK\Model\ValidationErrorResponse',
+                        '\FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasValidationValidationErrorResponse',
                         $request,
                         $response,
                     );
@@ -906,7 +916,7 @@ class FacturXValidationApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\FactPulse\SDK\Model\ValidationErrorResponse',
+                        '\FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasValidationValidationErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1089,6 +1099,11 @@ class FacturXValidationApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
         // this endpoint requires Bearer authentication (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();

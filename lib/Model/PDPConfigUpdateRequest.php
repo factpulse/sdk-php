@@ -36,7 +36,7 @@ use \FactPulse\SDK\ObjectSerializer;
  * PDPConfigUpdateRequest Class Doc Comment
  *
  * @category Class
- * @description PDP configuration update request.
+ * @description PDP configuration update request.  For encryption_mode&#x3D;&#39;double&#39;, the X-Encryption-Key header must also be provided containing a base64-encoded AES-256 key (32 bytes).
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -64,7 +64,8 @@ class PDPConfigUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
         'flow_service_url' => 'string',
         'token_url' => 'string',
         'oauth_client_id' => 'string',
-        'client_secret' => 'string'
+        'client_secret' => 'string',
+        'encryption_mode' => 'string'
     ];
 
     /**
@@ -80,7 +81,8 @@ class PDPConfigUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
         'flow_service_url' => null,
         'token_url' => null,
         'oauth_client_id' => null,
-        'client_secret' => null
+        'client_secret' => null,
+        'encryption_mode' => null
     ];
 
     /**
@@ -94,7 +96,8 @@ class PDPConfigUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
         'flow_service_url' => false,
         'token_url' => false,
         'oauth_client_id' => false,
-        'client_secret' => false
+        'client_secret' => false,
+        'encryption_mode' => true
     ];
 
     /**
@@ -188,7 +191,8 @@ class PDPConfigUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
         'flow_service_url' => 'flowServiceUrl',
         'token_url' => 'tokenUrl',
         'oauth_client_id' => 'oauthClientId',
-        'client_secret' => 'clientSecret'
+        'client_secret' => 'clientSecret',
+        'encryption_mode' => 'encryptionMode'
     ];
 
     /**
@@ -202,7 +206,8 @@ class PDPConfigUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
         'flow_service_url' => 'setFlowServiceUrl',
         'token_url' => 'setTokenUrl',
         'oauth_client_id' => 'setOauthClientId',
-        'client_secret' => 'setClientSecret'
+        'client_secret' => 'setClientSecret',
+        'encryption_mode' => 'setEncryptionMode'
     ];
 
     /**
@@ -216,7 +221,8 @@ class PDPConfigUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
         'flow_service_url' => 'getFlowServiceUrl',
         'token_url' => 'getTokenUrl',
         'oauth_client_id' => 'getOauthClientId',
-        'client_secret' => 'getClientSecret'
+        'client_secret' => 'getClientSecret',
+        'encryption_mode' => 'getEncryptionMode'
     ];
 
     /**
@@ -260,6 +266,21 @@ class PDPConfigUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
         return self::$openAPIModelName;
     }
 
+    public const ENCRYPTION_MODE_FERNET = 'fernet';
+    public const ENCRYPTION_MODE_DOUBLE = 'double';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getEncryptionModeAllowableValues()
+    {
+        return [
+            self::ENCRYPTION_MODE_FERNET,
+            self::ENCRYPTION_MODE_DOUBLE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -282,6 +303,7 @@ class PDPConfigUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
         $this->setIfExists('token_url', $data ?? [], null);
         $this->setIfExists('oauth_client_id', $data ?? [], null);
         $this->setIfExists('client_secret', $data ?? [], null);
+        $this->setIfExists('encryption_mode', $data ?? [], null);
     }
 
     /**
@@ -323,6 +345,15 @@ class PDPConfigUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
         if ($this->container['client_secret'] === null) {
             $invalidProperties[] = "'client_secret' can't be null";
         }
+        $allowedValues = $this->getEncryptionModeAllowableValues();
+        if (!is_null($this->container['encryption_mode']) && !in_array($this->container['encryption_mode'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'encryption_mode', must be one of '%s'",
+                $this->container['encryption_mode'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -496,6 +527,50 @@ class PDPConfigUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerial
             throw new \InvalidArgumentException('non-nullable client_secret cannot be null');
         }
         $this->container['client_secret'] = $client_secret;
+
+        return $this;
+    }
+
+    /**
+     * Gets encryption_mode
+     *
+     * @return string|null
+     */
+    public function getEncryptionMode()
+    {
+        return $this->container['encryption_mode'];
+    }
+
+    /**
+     * Sets encryption_mode
+     *
+     * @param string|null $encryption_mode encryption_mode
+     *
+     * @return self
+     */
+    public function setEncryptionMode($encryption_mode)
+    {
+        if (is_null($encryption_mode)) {
+            array_push($this->openAPINullablesSetToNull, 'encryption_mode');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('encryption_mode', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getEncryptionModeAllowableValues();
+        if (!is_null($encryption_mode) && !in_array($encryption_mode, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'encryption_mode', must be one of '%s'",
+                    $encryption_mode,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['encryption_mode'] = $encryption_mode;
 
         return $this;
     }

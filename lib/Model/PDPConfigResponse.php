@@ -66,6 +66,7 @@ class PDPConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         'flow_service_url' => 'string',
         'token_url' => 'string',
         'oauth_client_id' => 'string',
+        'encryption_mode' => 'string',
         'secret_status' => '\FactPulse\SDK\Model\SecretStatus',
         'last_test_at' => '\DateTime',
         'last_test_success' => 'bool',
@@ -90,6 +91,7 @@ class PDPConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         'flow_service_url' => null,
         'token_url' => null,
         'oauth_client_id' => null,
+        'encryption_mode' => null,
         'secret_status' => null,
         'last_test_at' => 'date-time',
         'last_test_success' => null,
@@ -112,6 +114,7 @@ class PDPConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         'flow_service_url' => true,
         'token_url' => true,
         'oauth_client_id' => true,
+        'encryption_mode' => true,
         'secret_status' => true,
         'last_test_at' => true,
         'last_test_success' => true,
@@ -214,6 +217,7 @@ class PDPConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         'flow_service_url' => 'flowServiceUrl',
         'token_url' => 'tokenUrl',
         'oauth_client_id' => 'oauthClientId',
+        'encryption_mode' => 'encryptionMode',
         'secret_status' => 'secretStatus',
         'last_test_at' => 'lastTestAt',
         'last_test_success' => 'lastTestSuccess',
@@ -236,6 +240,7 @@ class PDPConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         'flow_service_url' => 'setFlowServiceUrl',
         'token_url' => 'setTokenUrl',
         'oauth_client_id' => 'setOauthClientId',
+        'encryption_mode' => 'setEncryptionMode',
         'secret_status' => 'setSecretStatus',
         'last_test_at' => 'setLastTestAt',
         'last_test_success' => 'setLastTestSuccess',
@@ -258,6 +263,7 @@ class PDPConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         'flow_service_url' => 'getFlowServiceUrl',
         'token_url' => 'getTokenUrl',
         'oauth_client_id' => 'getOauthClientId',
+        'encryption_mode' => 'getEncryptionMode',
         'secret_status' => 'getSecretStatus',
         'last_test_at' => 'getLastTestAt',
         'last_test_success' => 'getLastTestSuccess',
@@ -331,6 +337,7 @@ class PDPConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->setIfExists('flow_service_url', $data ?? [], null);
         $this->setIfExists('token_url', $data ?? [], null);
         $this->setIfExists('oauth_client_id', $data ?? [], null);
+        $this->setIfExists('encryption_mode', $data ?? [], null);
         $this->setIfExists('secret_status', $data ?? [], null);
         $this->setIfExists('last_test_at', $data ?? [], null);
         $this->setIfExists('last_test_success', $data ?? [], null);
@@ -612,6 +619,40 @@ class PDPConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
             }
         }
         $this->container['oauth_client_id'] = $oauth_client_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets encryption_mode
+     *
+     * @return string|null
+     */
+    public function getEncryptionMode()
+    {
+        return $this->container['encryption_mode'];
+    }
+
+    /**
+     * Sets encryption_mode
+     *
+     * @param string|null $encryption_mode encryption_mode
+     *
+     * @return self
+     */
+    public function setEncryptionMode($encryption_mode)
+    {
+        if (is_null($encryption_mode)) {
+            array_push($this->openAPINullablesSetToNull, 'encryption_mode');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('encryption_mode', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['encryption_mode'] = $encryption_mode;
 
         return $this;
     }

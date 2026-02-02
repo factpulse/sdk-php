@@ -13,7 +13,7 @@ All URIs are relative to https://factpulse.fr, except if the operation defines a
 ## `getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet()`
 
 ```php
-getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet($flow_id, $include_document): \FactPulse\SDK\Model\IncomingInvoice
+getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet($flow_id, $include_document, $x_encryption_key): \FactPulse\SDK\Model\IncomingInvoice
 ```
 
 Retrieve and extract an incoming invoice
@@ -27,6 +27,11 @@ Downloads an incoming flow from the AFNOR PDP and extracts invoice metadata into
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
 // Configure Bearer authorization: HTTPBearer
 $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
@@ -39,9 +44,10 @@ $apiInstance = new FactPulse\SDK\Api\AFNORPDPPAApi(
 );
 $flow_id = 'flow_id_example'; // string | AFNOR flow ID (UUID format)
 $include_document = false; // bool | Include base64-encoded document in response
+$x_encryption_key = 'x_encryption_key_example'; // string | Client encryption key for double encryption mode. Must be a base64-encoded AES-256 key (32 bytes). Required only when accessing resources encrypted with encryption_mode='double'.
 
 try {
-    $result = $apiInstance->getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet($flow_id, $include_document);
+    $result = $apiInstance->getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet($flow_id, $include_document, $x_encryption_key);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AFNORPDPPAApi->getFluxEntrantApiV1AfnorIncomingFlowsFlowIdGet: ', $e->getMessage(), PHP_EOL;
@@ -54,6 +60,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **flow_id** | **string**| AFNOR flow ID (UUID format) | |
 | **include_document** | **bool**| Include base64-encoded document in response | [optional] [default to false] |
+| **x_encryption_key** | **string**| Client encryption key for double encryption mode. Must be a base64-encoded AES-256 key (32 bytes). Required only when accessing resources encrypted with encryption_mode&#x3D;&#39;double&#39;. | [optional] |
 
 ### Return type
 
@@ -61,7 +68,7 @@ try {
 
 ### Authorization
 
-[HTTPBearer](../../README.md#HTTPBearer)
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 

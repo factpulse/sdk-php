@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **flow_service_url** | **string** |  | [optional]
 **token_url** | **string** |  | [optional]
 **oauth_client_id** | **string** |  | [optional]
+**encryption_mode** | **string** |  | [optional]
 **secret_status** | [**\FactPulse\SDK\Model\SecretStatus**](SecretStatus.md) |  | [optional]
 **last_test_at** | **\DateTime** |  | [optional]
 **last_test_success** | **bool** |  | [optional]

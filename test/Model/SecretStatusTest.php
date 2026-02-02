@@ -97,4 +97,22 @@ class SecretStatusTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "encryption_mode"
+     */
+    public function testPropertyEncryptionMode()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "requires_client_key"
+     */
+    public function testPropertyRequiresClientKey()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }
