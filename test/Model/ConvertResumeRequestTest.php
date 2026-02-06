@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * ConvertResumeRequestTest Class Doc Comment
  *
  * @category    Class
- * @description Requete de reprise de conversion avec corrections.  Le champ &#x60;overrides&#x60; accepte n&#39;importe quel sous-ensemble de FacturXInvoice. Seuls les champs fournis seront mis a jour (merge profond).  Exemple:     {         \&quot;overrides\&quot;: {             \&quot;supplier\&quot;: {                 \&quot;name\&quot;: \&quot;Ma Société\&quot;,                 \&quot;siret\&quot;: \&quot;12345678901234\&quot;             },             \&quot;totals\&quot;: {                 \&quot;total_net_amount\&quot;: 1000.00             }         }     }
+ * @description Requete de reprise de conversion avec corrections.  Le champ &#x60;overrides&#x60; accepte n&#39;importe quel sous-ensemble de FacturXInvoice. Seuls les champs fournis seront mis a jour (merge profond).  Exemple:     {         \&quot;overrides\&quot;: {             \&quot;supplier\&quot;: {                 \&quot;name\&quot;: \&quot;Ma Société\&quot;,                 \&quot;siret\&quot;: \&quot;12345678901234\&quot;             },             \&quot;totals\&quot;: {                 \&quot;total_net_amount\&quot;: 1000.00             }         },         \&quot;callback_url\&quot;: \&quot;https://example.com/webhook\&quot;,         \&quot;webhook_mode\&quot;: \&quot;inline\&quot;     }
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -84,6 +84,24 @@ class ConvertResumeRequestTest extends TestCase
      * Test attribute "overrides"
      */
     public function testPropertyOverrides()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "callback_url"
+     */
+    public function testPropertyCallbackUrl()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "webhook_mode"
+     */
+    public function testPropertyWebhookMode()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

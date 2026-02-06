@@ -59,7 +59,7 @@ class SearchStructureRequest implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'credentials' => '\FactPulse\SDK\Model\ChorusProCredentials',
+        'credentials' => '\FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasChorusProChorusProCredentials',
         'structure_identifier' => 'string',
         'structure_identifier_type' => 'string',
         'company_name' => 'string',
@@ -322,7 +322,7 @@ class SearchStructureRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets credentials
      *
-     * @return \FactPulse\SDK\Model\ChorusProCredentials|null
+     * @return \FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasChorusProChorusProCredentials|null
      */
     public function getCredentials()
     {
@@ -332,7 +332,7 @@ class SearchStructureRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets credentials
      *
-     * @param \FactPulse\SDK\Model\ChorusProCredentials|null $credentials credentials
+     * @param \FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasChorusProChorusProCredentials|null $credentials credentials
      *
      * @return self
      */

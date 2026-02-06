@@ -7,11 +7,11 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
-## [0.1.0] - 2026-02-02
+## [4.0.3] - 2026-02-06
 
-### Added
-- Ajoute API gestion de clients
+### Fixed
+- gestion des numéros de versions lors de la publication...
 
 
-[Unreleased]: https://github.com/factpulse/sdk-php/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/factpulse/sdk-php/releases/tag/v0.1.0
+[Unreleased]: https://github.com/factpulse/sdk-php/compare/v4.0.3...HEAD
+[4.0.3]: https://github.com/factpulse/sdk-php/releases/tag/v4.0.3

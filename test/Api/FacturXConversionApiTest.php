@@ -119,4 +119,16 @@ class FacturXConversionApiTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test case for resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPost
+     *
+     * Resume a conversion asynchronously.
+     *
+     */
+    public function testResumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPost()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

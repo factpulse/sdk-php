@@ -36,7 +36,7 @@ use \FactPulse\SDK\ObjectSerializer;
  * ConvertResumeRequest Class Doc Comment
  *
  * @category Class
- * @description Requete de reprise de conversion avec corrections.  Le champ &#x60;overrides&#x60; accepte n&#39;importe quel sous-ensemble de FacturXInvoice. Seuls les champs fournis seront mis a jour (merge profond).  Exemple:     {         \&quot;overrides\&quot;: {             \&quot;supplier\&quot;: {                 \&quot;name\&quot;: \&quot;Ma Société\&quot;,                 \&quot;siret\&quot;: \&quot;12345678901234\&quot;             },             \&quot;totals\&quot;: {                 \&quot;total_net_amount\&quot;: 1000.00             }         }     }
+ * @description Requete de reprise de conversion avec corrections.  Le champ &#x60;overrides&#x60; accepte n&#39;importe quel sous-ensemble de FacturXInvoice. Seuls les champs fournis seront mis a jour (merge profond).  Exemple:     {         \&quot;overrides\&quot;: {             \&quot;supplier\&quot;: {                 \&quot;name\&quot;: \&quot;Ma Société\&quot;,                 \&quot;siret\&quot;: \&quot;12345678901234\&quot;             },             \&quot;totals\&quot;: {                 \&quot;total_net_amount\&quot;: 1000.00             }         },         \&quot;callback_url\&quot;: \&quot;https://example.com/webhook\&quot;,         \&quot;webhook_mode\&quot;: \&quot;inline\&quot;     }
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,7 +59,9 @@ class ConvertResumeRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'overrides' => 'array<string,mixed>'
+        'overrides' => 'array<string,mixed>',
+        'callback_url' => 'string',
+        'webhook_mode' => 'string'
     ];
 
     /**
@@ -70,7 +72,9 @@ class ConvertResumeRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'overrides' => null
+        'overrides' => null,
+        'callback_url' => null,
+        'webhook_mode' => null
     ];
 
     /**
@@ -79,7 +83,9 @@ class ConvertResumeRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'overrides' => false
+        'overrides' => false,
+        'callback_url' => true,
+        'webhook_mode' => false
     ];
 
     /**
@@ -168,7 +174,9 @@ class ConvertResumeRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'overrides' => 'overrides'
+        'overrides' => 'overrides',
+        'callback_url' => 'callback_url',
+        'webhook_mode' => 'webhook_mode'
     ];
 
     /**
@@ -177,7 +185,9 @@ class ConvertResumeRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'overrides' => 'setOverrides'
+        'overrides' => 'setOverrides',
+        'callback_url' => 'setCallbackUrl',
+        'webhook_mode' => 'setWebhookMode'
     ];
 
     /**
@@ -186,7 +196,9 @@ class ConvertResumeRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'overrides' => 'getOverrides'
+        'overrides' => 'getOverrides',
+        'callback_url' => 'getCallbackUrl',
+        'webhook_mode' => 'getWebhookMode'
     ];
 
     /**
@@ -247,6 +259,8 @@ class ConvertResumeRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     public function __construct(?array $data = null)
     {
         $this->setIfExists('overrides', $data ?? [], null);
+        $this->setIfExists('callback_url', $data ?? [], null);
+        $this->setIfExists('webhook_mode', $data ?? [], 'inline');
     }
 
     /**
@@ -314,6 +328,67 @@ class ConvertResumeRequest implements ModelInterface, ArrayAccess, \JsonSerializ
             throw new \InvalidArgumentException('non-nullable overrides cannot be null');
         }
         $this->container['overrides'] = $overrides;
+
+        return $this;
+    }
+
+    /**
+     * Gets callback_url
+     *
+     * @return string|null
+     */
+    public function getCallbackUrl()
+    {
+        return $this->container['callback_url'];
+    }
+
+    /**
+     * Sets callback_url
+     *
+     * @param string|null $callback_url callback_url
+     *
+     * @return self
+     */
+    public function setCallbackUrl($callback_url)
+    {
+        if (is_null($callback_url)) {
+            array_push($this->openAPINullablesSetToNull, 'callback_url');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('callback_url', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['callback_url'] = $callback_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets webhook_mode
+     *
+     * @return string|null
+     */
+    public function getWebhookMode()
+    {
+        return $this->container['webhook_mode'];
+    }
+
+    /**
+     * Sets webhook_mode
+     *
+     * @param string|null $webhook_mode Mode de livraison webhook: 'inline' ou 'download_url'
+     *
+     * @return self
+     */
+    public function setWebhookMode($webhook_mode)
+    {
+        if (is_null($webhook_mode)) {
+            throw new \InvalidArgumentException('non-nullable webhook_mode cannot be null');
+        }
+        $this->container['webhook_mode'] = $webhook_mode;
 
         return $this;
     }

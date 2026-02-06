@@ -87,6 +87,9 @@ class FacturXConversionApi
         'resumeConversionApiV1ConvertConversionIdResumePost' => [
             'application/json',
         ],
+        'resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPost' => [
+            'application/json',
+        ],
     ];
 
     /**
@@ -1330,6 +1333,330 @@ class FacturXConversionApi
 
 
         $resourcePath = '/api/v1/convert/{conversion_id}/resume';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($conversion_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'conversion_id' . '}',
+                ObjectSerializer::toPathValue($conversion_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($convert_resume_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($convert_resume_request));
+            } else {
+                $httpBody = $convert_resume_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPost
+     *
+     * Resume a conversion asynchronously
+     *
+     * @param  string $conversion_id Conversion ID returned by POST /convert (UUID format) (required)
+     * @param  \FactPulse\SDK\Model\ConvertResumeRequest $convert_resume_request convert_resume_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPost'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return mixed|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
+     */
+    public function resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPost($conversion_id, $convert_resume_request, string $contentType = self::contentTypes['resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPost'][0])
+    {
+        list($response) = $this->resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPostWithHttpInfo($conversion_id, $convert_resume_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPostWithHttpInfo
+     *
+     * Resume a conversion asynchronously
+     *
+     * @param  string $conversion_id Conversion ID returned by POST /convert (UUID format) (required)
+     * @param  \FactPulse\SDK\Model\ConvertResumeRequest $convert_resume_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPost'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of mixed|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPostWithHttpInfo($conversion_id, $convert_resume_request, string $contentType = self::contentTypes['resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPost'][0])
+    {
+        $request = $this->resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPostRequest($conversion_id, $convert_resume_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 422:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $request,
+                        $response,
+                    );
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\APIError',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'mixed',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\APIError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPostAsync
+     *
+     * Resume a conversion asynchronously
+     *
+     * @param  string $conversion_id Conversion ID returned by POST /convert (UUID format) (required)
+     * @param  \FactPulse\SDK\Model\ConvertResumeRequest $convert_resume_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPostAsync($conversion_id, $convert_resume_request, string $contentType = self::contentTypes['resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPost'][0])
+    {
+        return $this->resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPostAsyncWithHttpInfo($conversion_id, $convert_resume_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPostAsyncWithHttpInfo
+     *
+     * Resume a conversion asynchronously
+     *
+     * @param  string $conversion_id Conversion ID returned by POST /convert (UUID format) (required)
+     * @param  \FactPulse\SDK\Model\ConvertResumeRequest $convert_resume_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPostAsyncWithHttpInfo($conversion_id, $convert_resume_request, string $contentType = self::contentTypes['resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPost'][0])
+    {
+        $returnType = 'mixed';
+        $request = $this->resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPostRequest($conversion_id, $convert_resume_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPost'
+     *
+     * @param  string $conversion_id Conversion ID returned by POST /convert (UUID format) (required)
+     * @param  \FactPulse\SDK\Model\ConvertResumeRequest $convert_resume_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPostRequest($conversion_id, $convert_resume_request, string $contentType = self::contentTypes['resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPost'][0])
+    {
+
+        // verify the required parameter 'conversion_id' is set
+        if ($conversion_id === null || (is_array($conversion_id) && count($conversion_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $conversion_id when calling resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPost'
+            );
+        }
+
+        // verify the required parameter 'convert_resume_request' is set
+        if ($convert_resume_request === null || (is_array($convert_resume_request) && count($convert_resume_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $convert_resume_request when calling resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPost'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/convert/{conversion_id}/resume/async';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

@@ -36,7 +36,7 @@ use \FactPulse\SDK\ObjectSerializer;
  * ChorusProCredentials Class Doc Comment
  *
  * @category Class
- * @description Chorus Pro credentials for Zero-Trust mode.  **Zero-Trust Mode**: Credentials are passed in each request and are NEVER stored.  **Security**: - Credentials are never persisted in the database - They are used only for the duration of the request - Secure transmission via HTTPS  **Use cases**: - High-security environments (banks, administrations) - Strict GDPR compliance - Tests with temporary credentials - Users who don&#39;t want to store their credentials
+ * @description Optional Chorus Pro credentials.  **MODE 1 - JWT retrieval (recommended):** Do not provide this &#x60;credentials&#x60; field in the payload. Credentials will be automatically retrieved via client_uid from JWT (0-trust).  **MODE 2 - Credentials in payload:** Provide all required fields below. Useful for tests or third-party integrations.
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -61,9 +61,9 @@ class ChorusProCredentials implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $openAPITypes = [
         'piste_client_id' => 'string',
         'piste_client_secret' => 'string',
-        'chorus_pro_login' => 'string',
-        'chorus_pro_password' => 'string',
-        'sandbox' => 'bool'
+        'chorus_login' => 'string',
+        'chorus_password' => 'string',
+        'sandbox_mode' => 'bool'
     ];
 
     /**
@@ -76,9 +76,9 @@ class ChorusProCredentials implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $openAPIFormats = [
         'piste_client_id' => null,
         'piste_client_secret' => null,
-        'chorus_pro_login' => null,
-        'chorus_pro_password' => null,
-        'sandbox' => null
+        'chorus_login' => null,
+        'chorus_password' => null,
+        'sandbox_mode' => null
     ];
 
     /**
@@ -87,11 +87,11 @@ class ChorusProCredentials implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'piste_client_id' => false,
-        'piste_client_secret' => false,
-        'chorus_pro_login' => false,
-        'chorus_pro_password' => false,
-        'sandbox' => false
+        'piste_client_id' => true,
+        'piste_client_secret' => true,
+        'chorus_login' => true,
+        'chorus_password' => true,
+        'sandbox_mode' => false
     ];
 
     /**
@@ -182,9 +182,9 @@ class ChorusProCredentials implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $attributeMap = [
         'piste_client_id' => 'pisteClientId',
         'piste_client_secret' => 'pisteClientSecret',
-        'chorus_pro_login' => 'chorusProLogin',
-        'chorus_pro_password' => 'chorusProPassword',
-        'sandbox' => 'sandbox'
+        'chorus_login' => 'chorusLogin',
+        'chorus_password' => 'chorusPassword',
+        'sandbox_mode' => 'sandboxMode'
     ];
 
     /**
@@ -195,9 +195,9 @@ class ChorusProCredentials implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $setters = [
         'piste_client_id' => 'setPisteClientId',
         'piste_client_secret' => 'setPisteClientSecret',
-        'chorus_pro_login' => 'setChorusProLogin',
-        'chorus_pro_password' => 'setChorusProPassword',
-        'sandbox' => 'setSandbox'
+        'chorus_login' => 'setChorusLogin',
+        'chorus_password' => 'setChorusPassword',
+        'sandbox_mode' => 'setSandboxMode'
     ];
 
     /**
@@ -208,9 +208,9 @@ class ChorusProCredentials implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $getters = [
         'piste_client_id' => 'getPisteClientId',
         'piste_client_secret' => 'getPisteClientSecret',
-        'chorus_pro_login' => 'getChorusProLogin',
-        'chorus_pro_password' => 'getChorusProPassword',
-        'sandbox' => 'getSandbox'
+        'chorus_login' => 'getChorusLogin',
+        'chorus_password' => 'getChorusPassword',
+        'sandbox_mode' => 'getSandboxMode'
     ];
 
     /**
@@ -272,9 +272,9 @@ class ChorusProCredentials implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $this->setIfExists('piste_client_id', $data ?? [], null);
         $this->setIfExists('piste_client_secret', $data ?? [], null);
-        $this->setIfExists('chorus_pro_login', $data ?? [], null);
-        $this->setIfExists('chorus_pro_password', $data ?? [], null);
-        $this->setIfExists('sandbox', $data ?? [], true);
+        $this->setIfExists('chorus_login', $data ?? [], null);
+        $this->setIfExists('chorus_password', $data ?? [], null);
+        $this->setIfExists('sandbox_mode', $data ?? [], true);
     }
 
     /**
@@ -304,18 +304,6 @@ class ChorusProCredentials implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $invalidProperties = [];
 
-        if ($this->container['piste_client_id'] === null) {
-            $invalidProperties[] = "'piste_client_id' can't be null";
-        }
-        if ($this->container['piste_client_secret'] === null) {
-            $invalidProperties[] = "'piste_client_secret' can't be null";
-        }
-        if ($this->container['chorus_pro_login'] === null) {
-            $invalidProperties[] = "'chorus_pro_login' can't be null";
-        }
-        if ($this->container['chorus_pro_password'] === null) {
-            $invalidProperties[] = "'chorus_pro_password' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -334,7 +322,7 @@ class ChorusProCredentials implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets piste_client_id
      *
-     * @return string
+     * @return string|null
      */
     public function getPisteClientId()
     {
@@ -344,14 +332,21 @@ class ChorusProCredentials implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets piste_client_id
      *
-     * @param string $piste_client_id PISTE Client ID (government API portal)
+     * @param string|null $piste_client_id piste_client_id
      *
      * @return self
      */
     public function setPisteClientId($piste_client_id)
     {
         if (is_null($piste_client_id)) {
-            throw new \InvalidArgumentException('non-nullable piste_client_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'piste_client_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('piste_client_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['piste_client_id'] = $piste_client_id;
 
@@ -361,7 +356,7 @@ class ChorusProCredentials implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets piste_client_secret
      *
-     * @return string
+     * @return string|null
      */
     public function getPisteClientSecret()
     {
@@ -371,14 +366,21 @@ class ChorusProCredentials implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets piste_client_secret
      *
-     * @param string $piste_client_secret PISTE Client Secret
+     * @param string|null $piste_client_secret piste_client_secret
      *
      * @return self
      */
     public function setPisteClientSecret($piste_client_secret)
     {
         if (is_null($piste_client_secret)) {
-            throw new \InvalidArgumentException('non-nullable piste_client_secret cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'piste_client_secret');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('piste_client_secret', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['piste_client_secret'] = $piste_client_secret;
 
@@ -386,82 +388,96 @@ class ChorusProCredentials implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets chorus_pro_login
+     * Gets chorus_login
      *
-     * @return string
+     * @return string|null
      */
-    public function getChorusProLogin()
+    public function getChorusLogin()
     {
-        return $this->container['chorus_pro_login'];
+        return $this->container['chorus_login'];
     }
 
     /**
-     * Sets chorus_pro_login
+     * Sets chorus_login
      *
-     * @param string $chorus_pro_login Chorus Pro login
+     * @param string|null $chorus_login chorus_login
      *
      * @return self
      */
-    public function setChorusProLogin($chorus_pro_login)
+    public function setChorusLogin($chorus_login)
     {
-        if (is_null($chorus_pro_login)) {
-            throw new \InvalidArgumentException('non-nullable chorus_pro_login cannot be null');
+        if (is_null($chorus_login)) {
+            array_push($this->openAPINullablesSetToNull, 'chorus_login');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('chorus_login', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['chorus_pro_login'] = $chorus_pro_login;
+        $this->container['chorus_login'] = $chorus_login;
 
         return $this;
     }
 
     /**
-     * Gets chorus_pro_password
+     * Gets chorus_password
      *
-     * @return string
+     * @return string|null
      */
-    public function getChorusProPassword()
+    public function getChorusPassword()
     {
-        return $this->container['chorus_pro_password'];
+        return $this->container['chorus_password'];
     }
 
     /**
-     * Sets chorus_pro_password
+     * Sets chorus_password
      *
-     * @param string $chorus_pro_password Chorus Pro password
+     * @param string|null $chorus_password chorus_password
      *
      * @return self
      */
-    public function setChorusProPassword($chorus_pro_password)
+    public function setChorusPassword($chorus_password)
     {
-        if (is_null($chorus_pro_password)) {
-            throw new \InvalidArgumentException('non-nullable chorus_pro_password cannot be null');
+        if (is_null($chorus_password)) {
+            array_push($this->openAPINullablesSetToNull, 'chorus_password');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('chorus_password', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['chorus_pro_password'] = $chorus_pro_password;
+        $this->container['chorus_password'] = $chorus_password;
 
         return $this;
     }
 
     /**
-     * Gets sandbox
+     * Gets sandbox_mode
      *
      * @return bool|null
      */
-    public function getSandbox()
+    public function getSandboxMode()
     {
-        return $this->container['sandbox'];
+        return $this->container['sandbox_mode'];
     }
 
     /**
-     * Sets sandbox
+     * Sets sandbox_mode
      *
-     * @param bool|null $sandbox Use sandbox environment (true) or production (false)
+     * @param bool|null $sandbox_mode [MODE 2] Use sandbox mode (default: True)
      *
      * @return self
      */
-    public function setSandbox($sandbox)
+    public function setSandboxMode($sandbox_mode)
     {
-        if (is_null($sandbox)) {
-            throw new \InvalidArgumentException('non-nullable sandbox cannot be null');
+        if (is_null($sandbox_mode)) {
+            throw new \InvalidArgumentException('non-nullable sandbox_mode cannot be null');
         }
-        $this->container['sandbox'] = $sandbox;
+        $this->container['sandbox_mode'] = $sandbox_mode;
 
         return $this;
     }

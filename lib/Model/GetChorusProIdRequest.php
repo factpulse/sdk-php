@@ -59,7 +59,7 @@ class GetChorusProIdRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'credentials' => '\FactPulse\SDK\Model\ChorusProCredentials',
+        'credentials' => '\FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasChorusProChorusProCredentials',
         'siret' => 'string',
         'identifier_type' => 'string'
     ];
@@ -311,7 +311,7 @@ class GetChorusProIdRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets credentials
      *
-     * @return \FactPulse\SDK\Model\ChorusProCredentials|null
+     * @return \FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasChorusProChorusProCredentials|null
      */
     public function getCredentials()
     {
@@ -321,7 +321,7 @@ class GetChorusProIdRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets credentials
      *
-     * @param \FactPulse\SDK\Model\ChorusProCredentials|null $credentials credentials
+     * @param \FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasChorusProChorusProCredentials|null $credentials credentials
      *
      * @return self
      */

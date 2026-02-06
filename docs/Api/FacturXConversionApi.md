@@ -10,6 +10,7 @@ All URIs are relative to https://factpulse.fr, except if the operation defines a
 | [**downloadFileApiV1ConvertConversionIdDownloadFilenameGet()**](FacturXConversionApi.md#downloadFileApiV1ConvertConversionIdDownloadFilenameGet) | **GET** /api/v1/convert/{conversion_id}/download/{filename} | Download a generated file |
 | [**getConversionStatusApiV1ConvertConversionIdStatusGet()**](FacturXConversionApi.md#getConversionStatusApiV1ConvertConversionIdStatusGet) | **GET** /api/v1/convert/{conversion_id}/status | Check conversion status |
 | [**resumeConversionApiV1ConvertConversionIdResumePost()**](FacturXConversionApi.md#resumeConversionApiV1ConvertConversionIdResumePost) | **POST** /api/v1/convert/{conversion_id}/resume | Resume a conversion with corrections |
+| [**resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPost()**](FacturXConversionApi.md#resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPost) | **POST** /api/v1/convert/{conversion_id}/resume/async | Resume a conversion asynchronously |
 
 
 ## `convertDocumentAsyncApiV1ConvertAsyncPost()`
@@ -268,6 +269,73 @@ try {
 ### Return type
 
 [**\FactPulse\SDK\Model\ConvertSuccessResponse**](../Model/ConvertSuccessResponse.md)
+
+### Authorization
+
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPost()`
+
+```php
+resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPost($conversion_id, $convert_resume_request): mixed
+```
+
+Resume a conversion asynchronously
+
+Resume a conversion after completing missing data or correcting errors (async mode).  The OCR extraction is preserved, data is updated with corrections, then processing is performed asynchronously via Celery.  ## Workflow  1. **Submit corrections**: Corrections are validated and task is queued 2. **Celery Task**: Task processes corrections and generates Factur-X 3. **Callback**: Webhook notification on completion  ## Possible responses  - **202**: Task accepted, processing - **404**: Conversion not found or expired
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+// Configure Bearer authorization: HTTPBearer
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new FactPulse\SDK\Api\FacturXConversionApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$conversion_id = 'conversion_id_example'; // string | Conversion ID returned by POST /convert (UUID format)
+$convert_resume_request = new \FactPulse\SDK\Model\ConvertResumeRequest(); // \FactPulse\SDK\Model\ConvertResumeRequest
+
+try {
+    $result = $apiInstance->resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPost($conversion_id, $convert_resume_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FacturXConversionApi->resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPost: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **conversion_id** | **string**| Conversion ID returned by POST /convert (UUID format) | |
+| **convert_resume_request** | [**\FactPulse\SDK\Model\ConvertResumeRequest**](../Model/ConvertResumeRequest.md)|  | |
+
+### Return type
+
+**mixed**
 
 ### Authorization
 
