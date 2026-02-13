@@ -9,6 +9,7 @@ All URIs are relative to https://factpulse.fr, except if the operation defines a
 | [**convertDocumentAsyncApiV1ConvertAsyncPost()**](FacturXConversionApi.md#convertDocumentAsyncApiV1ConvertAsyncPost) | **POST** /api/v1/convert/async | Convert a document to Factur-X (async mode) |
 | [**downloadFileApiV1ConvertConversionIdDownloadFilenameGet()**](FacturXConversionApi.md#downloadFileApiV1ConvertConversionIdDownloadFilenameGet) | **GET** /api/v1/convert/{conversion_id}/download/{filename} | Download a generated file |
 | [**getConversionStatusApiV1ConvertConversionIdStatusGet()**](FacturXConversionApi.md#getConversionStatusApiV1ConvertConversionIdStatusGet) | **GET** /api/v1/convert/{conversion_id}/status | Check conversion status |
+| [**getConversionTaskStatusApiV1ConvertTasksTaskIdConversionStatusGet()**](FacturXConversionApi.md#getConversionTaskStatusApiV1ConvertTasksTaskIdConversionStatusGet) | **GET** /api/v1/convert/tasks/{task_id}/conversion-status | Get typed conversion task status |
 | [**resumeConversionApiV1ConvertConversionIdResumePost()**](FacturXConversionApi.md#resumeConversionApiV1ConvertConversionIdResumePost) | **POST** /api/v1/convert/{conversion_id}/resume | Resume a conversion with corrections |
 | [**resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPost()**](FacturXConversionApi.md#resumeConversionAsyncApiV1ConvertConversionIdResumeAsyncPost) | **POST** /api/v1/convert/{conversion_id}/resume/async | Resume a conversion asynchronously |
 
@@ -202,6 +203,71 @@ try {
 ### Return type
 
 **array<string,mixed>**
+
+### Authorization
+
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getConversionTaskStatusApiV1ConvertTasksTaskIdConversionStatusGet()`
+
+```php
+getConversionTaskStatusApiV1ConvertTasksTaskIdConversionStatusGet($task_id): \FactPulse\SDK\Model\ConversionTaskStatus
+```
+
+Get typed conversion task status
+
+Typed status endpoint for document conversion tasks.  Returns a strongly-typed `result` discriminated on `result.status`: - **SUCCESS**: `ConversionSuccessTaskResult` - **PENDING_INPUT**: `ConversionPendingInputResult` (missing fields) - **VALIDATION_FAILED**: `ConversionValidationFailedResult` - **ERROR**: `ConversionErrorResult`
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+// Configure Bearer authorization: HTTPBearer
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new FactPulse\SDK\Api\FacturXConversionApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$task_id = 'task_id_example'; // string | Celery task ID returned by POST /convert
+
+try {
+    $result = $apiInstance->getConversionTaskStatusApiV1ConvertTasksTaskIdConversionStatusGet($task_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FacturXConversionApi->getConversionTaskStatusApiV1ConvertTasksTaskIdConversionStatusGet: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **task_id** | **string**| Celery task ID returned by POST /convert | |
+
+### Return type
+
+[**\FactPulse\SDK\Model\ConversionTaskStatus**](../Model/ConversionTaskStatus.md)
 
 ### Authorization
 

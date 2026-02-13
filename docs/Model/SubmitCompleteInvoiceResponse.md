@@ -8,7 +8,8 @@ Name | Type | Description | Notes
 **destination_type** | **string** | Destination type |
 **chorus_result** | [**\FactPulse\SDK\Model\ChorusProResult**](ChorusProResult.md) |  | [optional]
 **afnor_result** | [**\FactPulse\SDK\Model\AFNORResult**](AFNORResult.md) |  | [optional]
-**enriched_invoice** | [**\FactPulse\SDK\Model\EnrichedInvoiceInfo**](EnrichedInvoiceInfo.md) | Enriched invoice data |
+**enriched_invoice** | [**\FactPulse\SDK\Model\EnrichedInvoiceInfo**](EnrichedInvoiceInfo.md) | Enriched invoice data (summary) |
+**invoice** | **array<string,mixed>** | Complete enriched invoice data (FacturXInvoice format). Use this to regenerate the same invoice. |
 **facturx_pdf** | [**\FactPulse\SDK\Model\FacturXPDFInfo**](FacturXPDFInfo.md) | Generated PDF information |
 **signature** | [**\FactPulse\SDK\Model\SignatureInfo**](SignatureInfo.md) |  | [optional]
 **content_b64** | **string** | Generated Factur-X PDF (and signed if requested) base64-encoded |

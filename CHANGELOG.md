@@ -7,11 +7,14 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
-## [4.0.3] - 2026-02-06
+## [4.1.0] - 2026-02-13
+
+### Added
+- Gestion UBL
 
 ### Fixed
-- gestion des numéros de versions lors de la publication...
+- Divers bugs (envoi d'une image pour conversion, gestion xmerreurs saxonche XML invalide)
 
 
-[Unreleased]: https://github.com/factpulse/sdk-php/compare/v4.0.3...HEAD
-[4.0.3]: https://github.com/factpulse/sdk-php/releases/tag/v4.0.3
+[Unreleased]: https://github.com/factpulse/sdk-php/compare/v4.1.0...HEAD
+[4.1.0]: https://github.com/factpulse/sdk-php/releases/tag/v4.1.0
