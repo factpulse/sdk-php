@@ -20,6 +20,7 @@ docs/Api/Flux6InvoiceLifecycleCDARApi.md
 docs/Api/HealthApi.md
 docs/Api/InvoiceGenerationApi.md
 docs/Api/ParseApi.md
+docs/Api/ReferencesApi.md
 docs/Api/ValidationApi.md
 docs/Model/AFNORAcknowledgement.md
 docs/Model/AFNORAcknowledgementDetail.md
@@ -182,9 +183,9 @@ docs/Model/ErrorSource.md
 docs/Model/ExtractionInfo.md
 docs/Model/FacturXInvoice.md
 docs/Model/FacturXPDFInfo.md
-docs/Model/FactureElectroniqueModelsInvoiceTypeCode.md
-docs/Model/FactureElectroniqueRestApiSchemasChorusProChorusProCredentials.md
-docs/Model/FactureElectroniqueRestApiSchemasValidationValidationErrorResponse.md
+docs/Model/FactureElectroniqueRestApiSchemasCdarValidationErrorResponse.md
+docs/Model/FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCode.md
+docs/Model/FactureElectroniqueRestApiSchemasProcessingChorusProCredentials.md
 docs/Model/FieldStatus.md
 docs/Model/FileInfo.md
 docs/Model/FilesInfo.md
@@ -214,6 +215,7 @@ docs/Model/IncomingInvoice.md
 docs/Model/IncomingSupplier.md
 docs/Model/InvoiceFormat.md
 docs/Model/InvoiceInput.md
+docs/Model/InvoiceLifecycle.md
 docs/Model/InvoiceLine.md
 docs/Model/InvoiceLineAllowanceAmount.md
 docs/Model/InvoiceNote.md
@@ -229,6 +231,8 @@ docs/Model/InvoicingFrameworkCode.md
 docs/Model/IssuerRoleCode.md
 docs/Model/KeyRotationRequest.md
 docs/Model/KeyRotationResponse.md
+docs/Model/LifecycleEvent.md
+docs/Model/LifecycleResponse.md
 docs/Model/LineNetAmount.md
 docs/Model/LineSubType.md
 docs/Model/LineTotalAmount.md
@@ -331,6 +335,8 @@ docs/Model/UnitOfMeasure.md
 docs/Model/VATAccountingCode.md
 docs/Model/VATAmount.md
 docs/Model/VATCategory.md
+docs/Model/VATEXCodeInfo.md
+docs/Model/VATEXCodesResponse.md
 docs/Model/VATLine.md
 docs/Model/VATPointDateCode.md
 docs/Model/ValidateCDARRequest.md
@@ -371,6 +377,7 @@ lib/Api/Flux6InvoiceLifecycleCDARApi.php
 lib/Api/HealthApi.php
 lib/Api/InvoiceGenerationApi.php
 lib/Api/ParseApi.php
+lib/Api/ReferencesApi.php
 lib/Api/ValidationApi.php
 lib/ApiException.php
 lib/Configuration.php
@@ -537,9 +544,9 @@ lib/Model/ErrorSource.php
 lib/Model/ExtractionInfo.php
 lib/Model/FacturXInvoice.php
 lib/Model/FacturXPDFInfo.php
-lib/Model/FactureElectroniqueModelsInvoiceTypeCode.php
-lib/Model/FactureElectroniqueRestApiSchemasChorusProChorusProCredentials.php
-lib/Model/FactureElectroniqueRestApiSchemasValidationValidationErrorResponse.php
+lib/Model/FactureElectroniqueRestApiSchemasCdarValidationErrorResponse.php
+lib/Model/FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCode.php
+lib/Model/FactureElectroniqueRestApiSchemasProcessingChorusProCredentials.php
 lib/Model/FieldStatus.php
 lib/Model/FileInfo.php
 lib/Model/FilesInfo.php
@@ -569,6 +576,7 @@ lib/Model/IncomingInvoice.php
 lib/Model/IncomingSupplier.php
 lib/Model/InvoiceFormat.php
 lib/Model/InvoiceInput.php
+lib/Model/InvoiceLifecycle.php
 lib/Model/InvoiceLine.php
 lib/Model/InvoiceLineAllowanceAmount.php
 lib/Model/InvoiceNote.php
@@ -584,6 +592,8 @@ lib/Model/InvoicingFrameworkCode.php
 lib/Model/IssuerRoleCode.php
 lib/Model/KeyRotationRequest.php
 lib/Model/KeyRotationResponse.php
+lib/Model/LifecycleEvent.php
+lib/Model/LifecycleResponse.php
 lib/Model/LineNetAmount.php
 lib/Model/LineSubType.php
 lib/Model/LineTotalAmount.php
@@ -687,6 +697,8 @@ lib/Model/UnitOfMeasure.php
 lib/Model/VATAccountingCode.php
 lib/Model/VATAmount.php
 lib/Model/VATCategory.php
+lib/Model/VATEXCodeInfo.php
+lib/Model/VATEXCodesResponse.php
 lib/Model/VATLine.php
 lib/Model/VATPointDateCode.php
 lib/Model/ValidateCDARRequest.php
@@ -728,6 +740,7 @@ test/Api/Flux6InvoiceLifecycleCDARApiTest.php
 test/Api/HealthApiTest.php
 test/Api/InvoiceGenerationApiTest.php
 test/Api/ParseApiTest.php
+test/Api/ReferencesApiTest.php
 test/Api/ValidationApiTest.php
 test/Model/AFNORAcknowledgementDetailTest.php
 test/Model/AFNORAcknowledgementTest.php
@@ -890,9 +903,9 @@ test/Model/ErrorSourceTest.php
 test/Model/ExtractionInfoTest.php
 test/Model/FacturXInvoiceTest.php
 test/Model/FacturXPDFInfoTest.php
-test/Model/FactureElectroniqueModelsInvoiceTypeCodeTest.php
-test/Model/FactureElectroniqueRestApiSchemasChorusProChorusProCredentialsTest.php
-test/Model/FactureElectroniqueRestApiSchemasValidationValidationErrorResponseTest.php
+test/Model/FactureElectroniqueRestApiSchemasCdarValidationErrorResponseTest.php
+test/Model/FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCodeTest.php
+test/Model/FactureElectroniqueRestApiSchemasProcessingChorusProCredentialsTest.php
 test/Model/FieldStatusTest.php
 test/Model/FileInfoTest.php
 test/Model/FilesInfoTest.php
@@ -922,6 +935,7 @@ test/Model/IncomingInvoiceTest.php
 test/Model/IncomingSupplierTest.php
 test/Model/InvoiceFormatTest.php
 test/Model/InvoiceInputTest.php
+test/Model/InvoiceLifecycleTest.php
 test/Model/InvoiceLineAllowanceAmountTest.php
 test/Model/InvoiceLineTest.php
 test/Model/InvoiceNoteTest.php
@@ -937,6 +951,8 @@ test/Model/InvoicingFrameworkTest.php
 test/Model/IssuerRoleCodeTest.php
 test/Model/KeyRotationRequestTest.php
 test/Model/KeyRotationResponseTest.php
+test/Model/LifecycleEventTest.php
+test/Model/LifecycleResponseTest.php
 test/Model/LineNetAmountTest.php
 test/Model/LineSubTypeTest.php
 test/Model/LineTotalAmountTest.php
@@ -1039,6 +1055,8 @@ test/Model/UnitOfMeasureTest.php
 test/Model/VATAccountingCodeTest.php
 test/Model/VATAmountTest.php
 test/Model/VATCategoryTest.php
+test/Model/VATEXCodeInfoTest.php
+test/Model/VATEXCodesResponseTest.php
 test/Model/VATLineTest.php
 test/Model/VATPointDateCodeTest.php
 test/Model/ValidateCDARRequestTest.php

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **electronic_address** | [**\FactPulse\SDK\Model\ElectronicAddress**](ElectronicAddress.md) |  | [optional]
-**supplier_id** | **int** |  |
+**supplier_id** | **int** | Chorus Pro supplier structure ID (idFournisseur). Only required for B2G. | [optional] [default to 0]
 **private_id** | **string** |  | [optional]
 **supplier_bank_account_code** | **int** |  | [optional]
 **supplier_service_id** | **int** |  | [optional]

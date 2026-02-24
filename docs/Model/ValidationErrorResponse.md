@@ -4,9 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**field** | **string** | Champ concerné |
-**message** | **string** | Message d&#39;erreur |
-**rule** | **string** |  | [optional]
-**severity** | **string** | Sévérité (error/warning) | [optional] [default to 'error']
+**detail** | **string[]** | List of detected validation errors. |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

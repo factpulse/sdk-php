@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **submission_mode** | [**\FactPulse\SDK\Model\SubmissionMode**](SubmissionMode.md) |  | [optional]
 **recipient** | [**\FactPulse\SDK\Model\Recipient**](Recipient.md) |  |
 **supplier** | [**\FactPulse\SDK\Model\Supplier**](Supplier.md) |  |
-**invoicing_framework** | [**\FactPulse\SDK\Model\InvoicingFramework**](InvoicingFramework.md) |  |
+**invoicing_framework** | [**\FactPulse\SDK\Model\InvoicingFramework**](InvoicingFramework.md) |  | [optional]
 **references** | [**\FactPulse\SDK\Model\InvoiceReferences**](InvoiceReferences.md) |  |
 **totals** | [**\FactPulse\SDK\Model\InvoiceTotals**](InvoiceTotals.md) |  |
 **invoice_lines** | [**\FactPulse\SDK\Model\InvoiceLine[]**](InvoiceLine.md) |  | [optional]

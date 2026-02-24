@@ -42,7 +42,7 @@ $apiInstance = new FactPulse\SDK\Api\DownloadsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$download_id = 'download_id_example'; // string
+$download_id = 'download_id_example'; // string | Unique identifier of the temporary file to check
 
 try {
     $result = $apiInstance->checkFileApiV1DownloadDownloadIdHead($download_id);
@@ -56,7 +56,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **download_id** | **string**|  | |
+| **download_id** | **string**| Unique identifier of the temporary file to check | |
 
 ### Return type
 
@@ -107,7 +107,7 @@ $apiInstance = new FactPulse\SDK\Api\DownloadsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$download_id = 'download_id_example'; // string
+$download_id = 'download_id_example'; // string | Unique identifier of the temporary file to download
 $delete_after = false; // bool | If true, delete the file after download (one-time download)
 
 try {
@@ -122,7 +122,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **download_id** | **string**|  | |
+| **download_id** | **string**| Unique identifier of the temporary file to download | |
 | **delete_after** | **bool**| If true, delete the file after download (one-time download) | [optional] [default to false] |
 
 ### Return type

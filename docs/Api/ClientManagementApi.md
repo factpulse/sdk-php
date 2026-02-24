@@ -52,7 +52,7 @@ $apiInstance = new FactPulse\SDK\Api\ClientManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$uid = 'uid_example'; // string
+$uid = 'uid_example'; // string | Client unique identifier (UUID)
 
 try {
     $result = $apiInstance->activateClientApiV1ClientsUidActiverPost($uid);
@@ -66,7 +66,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **uid** | **string**|  | |
+| **uid** | **string**| Client unique identifier (UUID) | |
 
 ### Return type
 
@@ -182,7 +182,7 @@ $apiInstance = new FactPulse\SDK\Api\ClientManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$uid = 'uid_example'; // string
+$uid = 'uid_example'; // string | Client unique identifier (UUID)
 
 try {
     $result = $apiInstance->deactivateClientApiV1ClientsUidDesactiverPost($uid);
@@ -196,7 +196,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **uid** | **string**|  | |
+| **uid** | **string**| Client unique identifier (UUID) | |
 
 ### Return type
 
@@ -247,7 +247,7 @@ $apiInstance = new FactPulse\SDK\Api\ClientManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$uid = 'uid_example'; // string
+$uid = 'uid_example'; // string | Client unique identifier (UUID)
 
 try {
     $result = $apiInstance->deleteWebhookSecretApiV1ClientsUidWebhookSecretDelete($uid);
@@ -261,7 +261,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **uid** | **string**|  | |
+| **uid** | **string**| Client unique identifier (UUID) | |
 
 ### Return type
 
@@ -312,7 +312,7 @@ $apiInstance = new FactPulse\SDK\Api\ClientManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$uid = 'uid_example'; // string
+$uid = 'uid_example'; // string | Client unique identifier (UUID)
 
 try {
     $result = $apiInstance->generateWebhookSecretApiV1ClientsUidWebhookSecretGeneratePost($uid);
@@ -326,7 +326,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **uid** | **string**|  | |
+| **uid** | **string**| Client unique identifier (UUID) | |
 
 ### Return type
 
@@ -377,7 +377,7 @@ $apiInstance = new FactPulse\SDK\Api\ClientManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$uid = 'uid_example'; // string
+$uid = 'uid_example'; // string | Client unique identifier (UUID)
 
 try {
     $result = $apiInstance->getClientApiV1ClientsUidGet($uid);
@@ -391,7 +391,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **uid** | **string**|  | |
+| **uid** | **string**| Client unique identifier (UUID) | |
 
 ### Return type
 
@@ -442,7 +442,7 @@ $apiInstance = new FactPulse\SDK\Api\ClientManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$uid = 'uid_example'; // string
+$uid = 'uid_example'; // string | Client unique identifier (UUID)
 
 try {
     $result = $apiInstance->getPdpConfigApiV1ClientsUidPdpConfigGet($uid);
@@ -456,7 +456,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **uid** | **string**|  | |
+| **uid** | **string**| Client unique identifier (UUID) | |
 
 ### Return type
 
@@ -507,7 +507,7 @@ $apiInstance = new FactPulse\SDK\Api\ClientManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$uid = 'uid_example'; // string
+$uid = 'uid_example'; // string | Client unique identifier (UUID)
 
 try {
     $result = $apiInstance->getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGet($uid);
@@ -521,7 +521,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **uid** | **string**|  | |
+| **uid** | **string**| Client unique identifier (UUID) | |
 
 ### Return type
 
@@ -639,7 +639,7 @@ $apiInstance = new FactPulse\SDK\Api\ClientManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$uid = 'uid_example'; // string
+$uid = 'uid_example'; // string | Client unique identifier (UUID)
 $key_rotation_request = new \FactPulse\SDK\Model\KeyRotationRequest(); // \FactPulse\SDK\Model\KeyRotationRequest
 
 try {
@@ -654,7 +654,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **uid** | **string**|  | |
+| **uid** | **string**| Client unique identifier (UUID) | |
 | **key_rotation_request** | [**\FactPulse\SDK\Model\KeyRotationRequest**](../Model/KeyRotationRequest.md)|  | |
 
 ### Return type
@@ -706,7 +706,7 @@ $apiInstance = new FactPulse\SDK\Api\ClientManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$uid = 'uid_example'; // string
+$uid = 'uid_example'; // string | Client unique identifier (UUID)
 $client_update_request = new \FactPulse\SDK\Model\ClientUpdateRequest(); // \FactPulse\SDK\Model\ClientUpdateRequest
 
 try {
@@ -721,7 +721,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **uid** | **string**|  | |
+| **uid** | **string**| Client unique identifier (UUID) | |
 | **client_update_request** | [**\FactPulse\SDK\Model\ClientUpdateRequest**](../Model/ClientUpdateRequest.md)|  | |
 
 ### Return type
@@ -773,7 +773,7 @@ $apiInstance = new FactPulse\SDK\Api\ClientManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$uid = 'uid_example'; // string
+$uid = 'uid_example'; // string | Client unique identifier (UUID)
 $pdp_config_update_request = new \FactPulse\SDK\Model\PDPConfigUpdateRequest(); // \FactPulse\SDK\Model\PDPConfigUpdateRequest
 $x_encryption_key = 'x_encryption_key_example'; // string | Client encryption key for double encryption mode. Must be a base64-encoded AES-256 key (32 bytes). Required only when accessing resources encrypted with encryption_mode='double'.
 
@@ -789,7 +789,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **uid** | **string**|  | |
+| **uid** | **string**| Client unique identifier (UUID) | |
 | **pdp_config_update_request** | [**\FactPulse\SDK\Model\PDPConfigUpdateRequest**](../Model/PDPConfigUpdateRequest.md)|  | |
 | **x_encryption_key** | **string**| Client encryption key for double encryption mode. Must be a base64-encoded AES-256 key (32 bytes). Required only when accessing resources encrypted with encryption_mode&#x3D;&#39;double&#39;. | [optional] |
 

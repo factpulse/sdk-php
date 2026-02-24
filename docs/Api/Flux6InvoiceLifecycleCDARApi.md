@@ -8,6 +8,7 @@ All URIs are relative to https://factpulse.fr, except if the operation defines a
 | ------------- | ------------- | ------------- |
 | [**generateCdarApiV1CdarGeneratePost()**](Flux6InvoiceLifecycleCDARApi.md#generateCdarApiV1CdarGeneratePost) | **POST** /api/v1/cdar/generate | Generate a CDAR message |
 | [**getActionCodesApiV1CdarActionCodesGet()**](Flux6InvoiceLifecycleCDARApi.md#getActionCodesApiV1CdarActionCodesGet) | **GET** /api/v1/cdar/action-codes | List of CDAR action codes |
+| [**getLifecycleApiV1CdarLifecycleGet()**](Flux6InvoiceLifecycleCDARApi.md#getLifecycleApiV1CdarLifecycleGet) | **GET** /api/v1/cdar/lifecycle | [Simplified] Get lifecycle events for invoices |
 | [**getReasonCodesApiV1CdarReasonCodesGet()**](Flux6InvoiceLifecycleCDARApi.md#getReasonCodesApiV1CdarReasonCodesGet) | **GET** /api/v1/cdar/reason-codes | List of CDAR reason codes |
 | [**getStatusCodesApiV1CdarStatusCodesGet()**](Flux6InvoiceLifecycleCDARApi.md#getStatusCodesApiV1CdarStatusCodesGet) | **GET** /api/v1/cdar/status-codes | List of CDAR status codes |
 | [**submitCdarApiV1CdarSubmitPost()**](Flux6InvoiceLifecycleCDARApi.md#submitCdarApiV1CdarSubmitPost) | **POST** /api/v1/cdar/submit | Generate and submit a CDAR message |
@@ -126,6 +127,76 @@ This endpoint does not need any parameter.
 ### Authorization
 
 No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getLifecycleApiV1CdarLifecycleGet()`
+
+```php
+getLifecycleApiV1CdarLifecycleGet($days, $invoice_id, $pdp_flow_service_url, $pdp_token_url, $pdp_client_id, $pdp_client_secret): \FactPulse\SDK\Model\LifecycleResponse
+```
+
+[Simplified] Get lifecycle events for invoices
+
+Returns lifecycle events (CDAR) grouped by invoice reference.  **How it works (AFNOR XP Z12-013 compliant):** 1. Searches lifecycle flows on the PDP by flowType + flowDirection + date range 2. Downloads and parses each CDAR XML to extract the invoice reference 3. Groups events by invoice, sorted chronologically  **Parameters:** - `days`: Number of days to look back (default: 7) - `invoiceId`: Optional filter on a specific invoice reference  **Authentication:** JWT Bearer (recommended) or PDP credentials as query parameters.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: HTTPBearer
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new FactPulse\SDK\Api\Flux6InvoiceLifecycleCDARApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$days = 7; // int | Number of days to look back
+$invoice_id = 'invoice_id_example'; // string | Filter by invoice reference
+$pdp_flow_service_url = 'pdp_flow_service_url_example'; // string | PDP Flow Service URL
+$pdp_token_url = 'pdp_token_url_example'; // string | PDP OAuth token URL
+$pdp_client_id = 'pdp_client_id_example'; // string | PDP Client ID
+$pdp_client_secret = 'pdp_client_secret_example'; // string | PDP Client Secret
+
+try {
+    $result = $apiInstance->getLifecycleApiV1CdarLifecycleGet($days, $invoice_id, $pdp_flow_service_url, $pdp_token_url, $pdp_client_id, $pdp_client_secret);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling Flux6InvoiceLifecycleCDARApi->getLifecycleApiV1CdarLifecycleGet: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **days** | **int**| Number of days to look back | [optional] [default to 7] |
+| **invoice_id** | **string**| Filter by invoice reference | [optional] |
+| **pdp_flow_service_url** | **string**| PDP Flow Service URL | [optional] |
+| **pdp_token_url** | **string**| PDP OAuth token URL | [optional] |
+| **pdp_client_id** | **string**| PDP Client ID | [optional] |
+| **pdp_client_secret** | **string**| PDP Client Secret | [optional] |
+
+### Return type
+
+[**\FactPulse\SDK\Model\LifecycleResponse**](../Model/LifecycleResponse.md)
+
+### Authorization
+
+[HTTPBearer](../../README.md#HTTPBearer)
 
 ### HTTP request headers
 
