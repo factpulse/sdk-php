@@ -83,28 +83,4 @@ class HealthApiTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
-
-    /**
-     * Test case for healthcheckHealthcheckGet
-     *
-     * Docker healthcheck endpoint.
-     *
-     */
-    public function testHealthcheckHealthcheckGet()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for rootGet
-     *
-     * Check API status.
-     *
-     */
-    public function testRootGet()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
 }

@@ -7,11 +7,11 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
-## [4.1.1] - 2026-02-24
+## [4.1.2] - 2026-02-24
 
 ### Fixed
-- Complètude documentation d'API.
+- api complétude
 
 
-[Unreleased]: https://github.com/factpulse/sdk-php/compare/v4.1.1...HEAD
-[4.1.1]: https://github.com/factpulse/sdk-php/releases/tag/v4.1.1
+[Unreleased]: https://github.com/factpulse/sdk-php/compare/v4.1.2...HEAD
+[4.1.2]: https://github.com/factpulse/sdk-php/releases/tag/v4.1.2

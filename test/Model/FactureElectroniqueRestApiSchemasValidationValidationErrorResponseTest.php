@@ -1,6 +1,6 @@
 <?php
 /**
- * FactureElectroniqueRestApiSchemasProcessingChorusProCredentialsTest
+ * FactureElectroniqueRestApiSchemasValidationValidationErrorResponseTest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * FactureElectroniqueRestApiSchemasProcessingChorusProCredentialsTest Class Doc Comment
+ * FactureElectroniqueRestApiSchemasValidationValidationErrorResponseTest Class Doc Comment
  *
  * @category    Class
- * @description Optional Chorus Pro credentials.  **MODE 1 - JWT retrieval (recommended):** Do not provide this &#x60;credentials&#x60; field in the payload. Credentials will be automatically retrieved via client_uid from JWT (0-trust).  **MODE 2 - Credentials in payload:** Provide all required fields below. Useful for tests or third-party integrations.
+ * @description Response for validation errors.
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class FactureElectroniqueRestApiSchemasProcessingChorusProCredentialsTest extends TestCase
+class FactureElectroniqueRestApiSchemasValidationValidationErrorResponseTest extends TestCase
 {
 
     /**
@@ -72,54 +72,18 @@ class FactureElectroniqueRestApiSchemasProcessingChorusProCredentialsTest extend
     }
 
     /**
-     * Test "FactureElectroniqueRestApiSchemasProcessingChorusProCredentials"
+     * Test "FactureElectroniqueRestApiSchemasValidationValidationErrorResponse"
      */
-    public function testFactureElectroniqueRestApiSchemasProcessingChorusProCredentials()
+    public function testFactureElectroniqueRestApiSchemasValidationValidationErrorResponse()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "piste_client_id"
+     * Test attribute "detail"
      */
-    public function testPropertyPisteClientId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "piste_client_secret"
-     */
-    public function testPropertyPisteClientSecret()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "chorus_login"
-     */
-    public function testPropertyChorusLogin()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "chorus_password"
-     */
-    public function testPropertyChorusPassword()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "sandbox_mode"
-     */
-    public function testPropertySandboxMode()
+    public function testPropertyDetail()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

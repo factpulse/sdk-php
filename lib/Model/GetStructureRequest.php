@@ -59,7 +59,7 @@ class GetStructureRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'credentials' => '\FactPulse\SDK\Model\ChorusProCredentials',
+        'credentials' => '\FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasChorusProChorusProCredentials',
         'structure_id' => 'int',
         'language_code' => 'string'
     ];
@@ -311,7 +311,7 @@ class GetStructureRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets credentials
      *
-     * @return \FactPulse\SDK\Model\ChorusProCredentials|null
+     * @return \FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasChorusProChorusProCredentials|null
      */
     public function getCredentials()
     {
@@ -321,7 +321,7 @@ class GetStructureRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets credentials
      *
-     * @param \FactPulse\SDK\Model\ChorusProCredentials|null $credentials credentials
+     * @param \FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasChorusProChorusProCredentials|null $credentials credentials
      *
      * @return self
      */

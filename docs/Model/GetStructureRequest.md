@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**credentials** | [**\FactPulse\SDK\Model\ChorusProCredentials**](ChorusProCredentials.md) |  | [optional]
+**credentials** | [**\FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasChorusProChorusProCredentials**](FactureElectroniqueRestApiSchemasChorusProChorusProCredentials.md) |  | [optional]
 **structure_id** | **int** | Chorus Pro structure ID |
 **language_code** | **string** | Language code (fr, en) | [optional] [default to 'fr']
 

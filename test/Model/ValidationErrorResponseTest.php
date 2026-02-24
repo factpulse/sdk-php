@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * ValidationErrorResponseTest Class Doc Comment
  *
  * @category    Class
- * @description Response for validation errors.
+ * @description Erreur de validation.
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -81,9 +81,36 @@ class ValidationErrorResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "detail"
+     * Test attribute "field"
      */
-    public function testPropertyDetail()
+    public function testPropertyField()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "message"
+     */
+    public function testPropertyMessage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "rule"
+     */
+    public function testPropertyRule()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "severity"
+     */
+    public function testPropertySeverity()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
