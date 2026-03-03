@@ -62,11 +62,11 @@ class AFNORFacilityPayloadHistory implements ModelInterface, ArrayAccess, \JsonS
         'siren' => 'string',
         'name' => 'string',
         'facility_type' => '\FactPulse\SDK\Model\AFNORFacilityType',
-        'diffusible' => '\FactPulse\SDK\Model\AFNORDiffusionStatus',
         'administrative_status' => '\FactPulse\SDK\Model\AFNORFacilityAdministrativeStatus',
+        'siret_instructions' => '\FactPulse\SDK\Model\AFNORSiretInstructions',
         'address' => '\FactPulse\SDK\Model\AFNORAddressRead',
         'b2g_additional_data' => '\FactPulse\SDK\Model\AFNORFacilityPayloadHistoryUleB2gAdditionalData',
-        'legal_unit' => '\FactPulse\SDK\Model\AFNORLegalUnitPayloadIncludedNoSiren'
+        'legal_unit' => '\FactPulse\SDK\Model\AFNORLegalUnitPayloadIncluded'
     ];
 
     /**
@@ -81,8 +81,8 @@ class AFNORFacilityPayloadHistory implements ModelInterface, ArrayAccess, \JsonS
         'siren' => null,
         'name' => null,
         'facility_type' => null,
-        'diffusible' => null,
         'administrative_status' => null,
+        'siret_instructions' => null,
         'address' => null,
         'b2g_additional_data' => null,
         'legal_unit' => null
@@ -98,8 +98,8 @@ class AFNORFacilityPayloadHistory implements ModelInterface, ArrayAccess, \JsonS
         'siren' => false,
         'name' => false,
         'facility_type' => false,
-        'diffusible' => false,
         'administrative_status' => false,
+        'siret_instructions' => false,
         'address' => false,
         'b2g_additional_data' => false,
         'legal_unit' => false
@@ -195,8 +195,8 @@ class AFNORFacilityPayloadHistory implements ModelInterface, ArrayAccess, \JsonS
         'siren' => 'siren',
         'name' => 'name',
         'facility_type' => 'facilityType',
-        'diffusible' => 'diffusible',
         'administrative_status' => 'administrativeStatus',
+        'siret_instructions' => 'siretInstructions',
         'address' => 'address',
         'b2g_additional_data' => 'b2gAdditionalData',
         'legal_unit' => 'legalUnit'
@@ -212,8 +212,8 @@ class AFNORFacilityPayloadHistory implements ModelInterface, ArrayAccess, \JsonS
         'siren' => 'setSiren',
         'name' => 'setName',
         'facility_type' => 'setFacilityType',
-        'diffusible' => 'setDiffusible',
         'administrative_status' => 'setAdministrativeStatus',
+        'siret_instructions' => 'setSiretInstructions',
         'address' => 'setAddress',
         'b2g_additional_data' => 'setB2gAdditionalData',
         'legal_unit' => 'setLegalUnit'
@@ -229,8 +229,8 @@ class AFNORFacilityPayloadHistory implements ModelInterface, ArrayAccess, \JsonS
         'siren' => 'getSiren',
         'name' => 'getName',
         'facility_type' => 'getFacilityType',
-        'diffusible' => 'getDiffusible',
         'administrative_status' => 'getAdministrativeStatus',
+        'siret_instructions' => 'getSiretInstructions',
         'address' => 'getAddress',
         'b2g_additional_data' => 'getB2gAdditionalData',
         'legal_unit' => 'getLegalUnit'
@@ -297,8 +297,8 @@ class AFNORFacilityPayloadHistory implements ModelInterface, ArrayAccess, \JsonS
         $this->setIfExists('siren', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('facility_type', $data ?? [], null);
-        $this->setIfExists('diffusible', $data ?? [], null);
         $this->setIfExists('administrative_status', $data ?? [], null);
+        $this->setIfExists('siret_instructions', $data ?? [], null);
         $this->setIfExists('address', $data ?? [], null);
         $this->setIfExists('b2g_additional_data', $data ?? [], null);
         $this->setIfExists('legal_unit', $data ?? [], null);
@@ -493,33 +493,6 @@ class AFNORFacilityPayloadHistory implements ModelInterface, ArrayAccess, \JsonS
     }
 
     /**
-     * Gets diffusible
-     *
-     * @return \FactPulse\SDK\Model\AFNORDiffusionStatus|null
-     */
-    public function getDiffusible()
-    {
-        return $this->container['diffusible'];
-    }
-
-    /**
-     * Sets diffusible
-     *
-     * @param \FactPulse\SDK\Model\AFNORDiffusionStatus|null $diffusible diffusible
-     *
-     * @return self
-     */
-    public function setDiffusible($diffusible)
-    {
-        if (is_null($diffusible)) {
-            throw new \InvalidArgumentException('non-nullable diffusible cannot be null');
-        }
-        $this->container['diffusible'] = $diffusible;
-
-        return $this;
-    }
-
-    /**
      * Gets administrative_status
      *
      * @return \FactPulse\SDK\Model\AFNORFacilityAdministrativeStatus|null
@@ -542,6 +515,33 @@ class AFNORFacilityPayloadHistory implements ModelInterface, ArrayAccess, \JsonS
             throw new \InvalidArgumentException('non-nullable administrative_status cannot be null');
         }
         $this->container['administrative_status'] = $administrative_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets siret_instructions
+     *
+     * @return \FactPulse\SDK\Model\AFNORSiretInstructions|null
+     */
+    public function getSiretInstructions()
+    {
+        return $this->container['siret_instructions'];
+    }
+
+    /**
+     * Sets siret_instructions
+     *
+     * @param \FactPulse\SDK\Model\AFNORSiretInstructions|null $siret_instructions siret_instructions
+     *
+     * @return self
+     */
+    public function setSiretInstructions($siret_instructions)
+    {
+        if (is_null($siret_instructions)) {
+            throw new \InvalidArgumentException('non-nullable siret_instructions cannot be null');
+        }
+        $this->container['siret_instructions'] = $siret_instructions;
 
         return $this;
     }
@@ -603,7 +603,7 @@ class AFNORFacilityPayloadHistory implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets legal_unit
      *
-     * @return \FactPulse\SDK\Model\AFNORLegalUnitPayloadIncludedNoSiren|null
+     * @return \FactPulse\SDK\Model\AFNORLegalUnitPayloadIncluded|null
      */
     public function getLegalUnit()
     {
@@ -613,7 +613,7 @@ class AFNORFacilityPayloadHistory implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets legal_unit
      *
-     * @param \FactPulse\SDK\Model\AFNORLegalUnitPayloadIncludedNoSiren|null $legal_unit legal_unit
+     * @param \FactPulse\SDK\Model\AFNORLegalUnitPayloadIncluded|null $legal_unit legal_unit
      *
      * @return self
      */

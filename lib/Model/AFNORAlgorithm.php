@@ -43,13 +43,15 @@ class AFNORAlgorithm
     /**
      * Possible values of this enum
      */
-    public const RSA = 'RSA';
+    public const RS256 = 'RS256';
+
+    public const HS256 = 'HS256';
 
     public const ECDSA = 'ECDSA';
 
-    public const RSA_PSS = 'RSA_PSS';
-
     public const EDDSA_25519 = 'EDDSA_25519';
+
+    public const RSA_PSS = 'RSA_PSS';
 
     public const EDDSA_448 = 'EDDSA_448';
 
@@ -60,10 +62,11 @@ class AFNORAlgorithm
     public static function getAllowableEnumValues()
     {
         return [
-            self::RSA,
+            self::RS256,
+            self::HS256,
             self::ECDSA,
-            self::RSA_PSS,
             self::EDDSA_25519,
+            self::RSA_PSS,
             self::EDDSA_448
         ];
     }

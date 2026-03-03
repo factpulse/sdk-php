@@ -58,7 +58,7 @@ class AFNORRoutingCodeSearchFiltersRoutingCodeName implements ModelInterface, Ar
       * @var string[]
       */
     protected static $openAPITypes = [
-        'op' => '\FactPulse\SDK\Model\AFNORContainsOperator',
+        'op' => '\FactPulse\SDK\Model\AFNORContainsOrStrictOperator',
         'value' => 'string'
     ];
 
@@ -308,7 +308,7 @@ class AFNORRoutingCodeSearchFiltersRoutingCodeName implements ModelInterface, Ar
     /**
      * Gets op
      *
-     * @return \FactPulse\SDK\Model\AFNORContainsOperator|null
+     * @return \FactPulse\SDK\Model\AFNORContainsOrStrictOperator|null
      */
     public function getOp()
     {
@@ -318,7 +318,7 @@ class AFNORRoutingCodeSearchFiltersRoutingCodeName implements ModelInterface, Ar
     /**
      * Sets op
      *
-     * @param \FactPulse\SDK\Model\AFNORContainsOperator|null $op op
+     * @param \FactPulse\SDK\Model\AFNORContainsOrStrictOperator|null $op op
      *
      * @return self
      */

@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * ProcessingRuleTest Class Doc Comment
  *
  * @category    Class
- * @description AFNOR XP Z12-013 ProcessingRule (Annexe A, lignes 212-216).  Valeurs EXACTES de la spec (case-sensitive).
+ * @description AFNOR XP Z12-013 ProcessingRule (Annexe A v1.2.0).  Valeurs EXACTES de la spec (case-sensitive).
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

@@ -81,6 +81,24 @@ class AFNORFullFlowInfoTest extends TestCase
     }
 
     /**
+     * Test attribute "flow_id"
+     */
+    public function testPropertyFlowId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "submitted_at"
+     */
+    public function testPropertySubmittedAt()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "tracking_id"
      */
     public function testPropertyTrackingId()
@@ -129,24 +147,6 @@ class AFNORFullFlowInfoTest extends TestCase
      * Test attribute "sha256"
      */
     public function testPropertySha256()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "flow_id"
-     */
-    public function testPropertyFlowId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "submitted_at"
-     */
-    public function testPropertySubmittedAt()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

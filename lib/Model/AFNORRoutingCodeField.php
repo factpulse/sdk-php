@@ -58,8 +58,6 @@ class AFNORRoutingCodeField
 
     public const ADDRESS = 'address';
 
-    public const ID_INSTANCE = 'idInstance';
-
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -73,8 +71,7 @@ class AFNORRoutingCodeField
             self::ROUTING_IDENTIFIER,
             self::MANAGES_LEGAL_COMMITMENT_CODE,
             self::ADMINISTRATIVE_STATUS,
-            self::ADDRESS,
-            self::ID_INSTANCE
+            self::ADDRESS
         ];
     }
 }

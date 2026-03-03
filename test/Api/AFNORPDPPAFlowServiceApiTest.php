@@ -73,6 +73,30 @@ class AFNORPDPPAFlowServiceApiTest extends TestCase
     }
 
     /**
+     * Test case for createWebhookProxyApiV1AfnorFlowV1WebhooksPost
+     *
+     * Create a webhook.
+     *
+     */
+    public function testCreateWebhookProxyApiV1AfnorFlowV1WebhooksPost()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for deleteWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidDelete
+     *
+     * Delete a webhook.
+     *
+     */
+    public function testDeleteWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidDelete()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for downloadFlowProxyApiV1AfnorFlowV1FlowsFlowIdGet
      *
      * Download a flow.
@@ -97,6 +121,30 @@ class AFNORPDPPAFlowServiceApiTest extends TestCase
     }
 
     /**
+     * Test case for getWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGet
+     *
+     * Get a webhook.
+     *
+     */
+    public function testGetWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGet()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for listWebhooksProxyApiV1AfnorFlowV1WebhooksGet
+     *
+     * List webhooks.
+     *
+     */
+    public function testListWebhooksProxyApiV1AfnorFlowV1WebhooksGet()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for searchFlowsProxyApiV1AfnorFlowV1FlowsSearchPost
      *
      * Search flows.
@@ -115,6 +163,18 @@ class AFNORPDPPAFlowServiceApiTest extends TestCase
      *
      */
     public function testSubmitFlowProxyApiV1AfnorFlowV1FlowsPost()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for updateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatch
+     *
+     * Update a webhook.
+     *
+     */
+    public function testUpdateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatch()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

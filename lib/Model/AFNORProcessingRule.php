@@ -34,7 +34,7 @@ use \FactPulse\SDK\ObjectSerializer;
  * AFNORProcessingRule Class Doc Comment
  *
  * @category Class
- * @description - B2B                 : e-invoicing - B2BInt              : International B2B e-reporting - B2C                 : B2C e-reporting - OutOfScope          : Out of scope (not regulated flow) - ArchiveOnly         : Archive only, no transmission - NotApplicable       : Not Applicable
+ * @description - B2B                 : e-invoicing - B2BInt              : International B2B e-reporting - B2C                 : B2C e-reporting - B2G                 : e-invoicing for B2G sales - B2GInt - OutOfScope          : Out of scope (not regulated flow) - B2GOutOfScope - ArchiveOnly         : Archive only, no transmission - NotApplicable       : Not Applicable
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -50,7 +50,13 @@ class AFNORProcessingRule
 
     public const B2_C = 'B2C';
 
+    public const B2_G = 'B2G';
+
+    public const B2_G_INT = 'B2GInt';
+
     public const OUT_OF_SCOPE = 'OutOfScope';
+
+    public const B2_G_OUT_OF_SCOPE = 'B2GOutOfScope';
 
     public const ARCHIVE_ONLY = 'ArchiveOnly';
 
@@ -66,7 +72,10 @@ class AFNORProcessingRule
             self::B2_B,
             self::B2_B_INT,
             self::B2_C,
+            self::B2_G,
+            self::B2_G_INT,
             self::OUT_OF_SCOPE,
+            self::B2_G_OUT_OF_SCOPE,
             self::ARCHIVE_ONLY,
             self::NOT_APPLICABLE
         ];

@@ -60,7 +60,7 @@ class AFNORDirectoryLineSearchPost200Response implements ModelInterface, ArrayAc
     protected static $openAPITypes = [
         'search' => '\FactPulse\SDK\Model\AFNORSearchDirectoryLine',
         'total_number_of_results' => 'int',
-        'results' => '\FactPulse\SDK\Model\AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCode[]'
+        'results' => '\FactPulse\SDK\Model\AFNORDirectoryLinePayloadStatusLegalUnitFacilityRoutingCode[]'
     ];
 
     /**
@@ -361,7 +361,7 @@ class AFNORDirectoryLineSearchPost200Response implements ModelInterface, ArrayAc
     /**
      * Gets results
      *
-     * @return \FactPulse\SDK\Model\AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCode[]|null
+     * @return \FactPulse\SDK\Model\AFNORDirectoryLinePayloadStatusLegalUnitFacilityRoutingCode[]|null
      */
     public function getResults()
     {
@@ -371,7 +371,7 @@ class AFNORDirectoryLineSearchPost200Response implements ModelInterface, ArrayAc
     /**
      * Sets results
      *
-     * @param \FactPulse\SDK\Model\AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCode[]|null $results results
+     * @param \FactPulse\SDK\Model\AFNORDirectoryLinePayloadStatusLegalUnitFacilityRoutingCode[]|null $results results
      *
      * @return self
      */

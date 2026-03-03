@@ -61,7 +61,8 @@ class AFNORLegalUnitPayloadHistory implements ModelInterface, ArrayAccess, \Json
         'siren' => 'string',
         'business_name' => 'string',
         'entity_type' => '\FactPulse\SDK\Model\AFNOREntityType',
-        'administrative_status' => '\FactPulse\SDK\Model\AFNORLegalUnitAdministrativeStatus'
+        'administrative_status' => '\FactPulse\SDK\Model\AFNORLegalUnitAdministrativeStatus',
+        'instructions' => '\FactPulse\SDK\Model\AFNORSirenInstructions'
     ];
 
     /**
@@ -75,7 +76,8 @@ class AFNORLegalUnitPayloadHistory implements ModelInterface, ArrayAccess, \Json
         'siren' => null,
         'business_name' => null,
         'entity_type' => null,
-        'administrative_status' => null
+        'administrative_status' => null,
+        'instructions' => null
     ];
 
     /**
@@ -87,7 +89,8 @@ class AFNORLegalUnitPayloadHistory implements ModelInterface, ArrayAccess, \Json
         'siren' => false,
         'business_name' => false,
         'entity_type' => false,
-        'administrative_status' => false
+        'administrative_status' => false,
+        'instructions' => false
     ];
 
     /**
@@ -179,7 +182,8 @@ class AFNORLegalUnitPayloadHistory implements ModelInterface, ArrayAccess, \Json
         'siren' => 'siren',
         'business_name' => 'businessName',
         'entity_type' => 'entityType',
-        'administrative_status' => 'administrativeStatus'
+        'administrative_status' => 'administrativeStatus',
+        'instructions' => 'instructions'
     ];
 
     /**
@@ -191,7 +195,8 @@ class AFNORLegalUnitPayloadHistory implements ModelInterface, ArrayAccess, \Json
         'siren' => 'setSiren',
         'business_name' => 'setBusinessName',
         'entity_type' => 'setEntityType',
-        'administrative_status' => 'setAdministrativeStatus'
+        'administrative_status' => 'setAdministrativeStatus',
+        'instructions' => 'setInstructions'
     ];
 
     /**
@@ -203,7 +208,8 @@ class AFNORLegalUnitPayloadHistory implements ModelInterface, ArrayAccess, \Json
         'siren' => 'getSiren',
         'business_name' => 'getBusinessName',
         'entity_type' => 'getEntityType',
-        'administrative_status' => 'getAdministrativeStatus'
+        'administrative_status' => 'getAdministrativeStatus',
+        'instructions' => 'getInstructions'
     ];
 
     /**
@@ -267,6 +273,7 @@ class AFNORLegalUnitPayloadHistory implements ModelInterface, ArrayAccess, \Json
         $this->setIfExists('business_name', $data ?? [], null);
         $this->setIfExists('entity_type', $data ?? [], null);
         $this->setIfExists('administrative_status', $data ?? [], null);
+        $this->setIfExists('instructions', $data ?? [], null);
     }
 
     /**
@@ -438,6 +445,33 @@ class AFNORLegalUnitPayloadHistory implements ModelInterface, ArrayAccess, \Json
             throw new \InvalidArgumentException('non-nullable administrative_status cannot be null');
         }
         $this->container['administrative_status'] = $administrative_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets instructions
+     *
+     * @return \FactPulse\SDK\Model\AFNORSirenInstructions|null
+     */
+    public function getInstructions()
+    {
+        return $this->container['instructions'];
+    }
+
+    /**
+     * Sets instructions
+     *
+     * @param \FactPulse\SDK\Model\AFNORSirenInstructions|null $instructions instructions
+     *
+     * @return self
+     */
+    public function setInstructions($instructions)
+    {
+        if (is_null($instructions)) {
+            throw new \InvalidArgumentException('non-nullable instructions cannot be null');
+        }
+        $this->container['instructions'] = $instructions;
 
         return $this;
     }

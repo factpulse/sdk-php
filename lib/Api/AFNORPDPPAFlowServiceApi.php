@@ -75,10 +75,22 @@ class AFNORPDPPAFlowServiceApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
+        'createWebhookProxyApiV1AfnorFlowV1WebhooksPost' => [
+            'application/json',
+        ],
+        'deleteWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidDelete' => [
+            'application/json',
+        ],
         'downloadFlowProxyApiV1AfnorFlowV1FlowsFlowIdGet' => [
             'application/json',
         ],
         'flowHealthcheckProxyApiV1AfnorFlowV1HealthcheckGet' => [
+            'application/json',
+        ],
+        'getWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGet' => [
+            'application/json',
+        ],
+        'listWebhooksProxyApiV1AfnorFlowV1WebhooksGet' => [
             'application/json',
         ],
         'searchFlowsProxyApiV1AfnorFlowV1FlowsSearchPost' => [
@@ -86,6 +98,9 @@ class AFNORPDPPAFlowServiceApi
         ],
         'submitFlowProxyApiV1AfnorFlowV1FlowsPost' => [
             'multipart/form-data',
+        ],
+        'updateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatch' => [
+            'application/json',
         ],
     ];
 
@@ -133,6 +148,732 @@ class AFNORPDPPAFlowServiceApi
     public function getConfig()
     {
         return $this->config;
+    }
+
+    /**
+     * Operation createWebhookProxyApiV1AfnorFlowV1WebhooksPost
+     *
+     * Create a webhook
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhookProxyApiV1AfnorFlowV1WebhooksPost'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return mixed|\FactPulse\SDK\Model\AFNORWebhook|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError
+     */
+    public function createWebhookProxyApiV1AfnorFlowV1WebhooksPost(string $contentType = self::contentTypes['createWebhookProxyApiV1AfnorFlowV1WebhooksPost'][0])
+    {
+        list($response) = $this->createWebhookProxyApiV1AfnorFlowV1WebhooksPostWithHttpInfo($contentType);
+        return $response;
+    }
+
+    /**
+     * Operation createWebhookProxyApiV1AfnorFlowV1WebhooksPostWithHttpInfo
+     *
+     * Create a webhook
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhookProxyApiV1AfnorFlowV1WebhooksPost'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of mixed|\FactPulse\SDK\Model\AFNORWebhook|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createWebhookProxyApiV1AfnorFlowV1WebhooksPostWithHttpInfo(string $contentType = self::contentTypes['createWebhookProxyApiV1AfnorFlowV1WebhooksPost'][0])
+    {
+        $request = $this->createWebhookProxyApiV1AfnorFlowV1WebhooksPostRequest($contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 201:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORWebhook',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $request,
+                        $response,
+                    );
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $request,
+                        $response,
+                    );
+                case 422:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $request,
+                        $response,
+                    );
+                case 429:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $request,
+                        $response,
+                    );
+                case 503:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'mixed',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORWebhook',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 503:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createWebhookProxyApiV1AfnorFlowV1WebhooksPostAsync
+     *
+     * Create a webhook
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhookProxyApiV1AfnorFlowV1WebhooksPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createWebhookProxyApiV1AfnorFlowV1WebhooksPostAsync(string $contentType = self::contentTypes['createWebhookProxyApiV1AfnorFlowV1WebhooksPost'][0])
+    {
+        return $this->createWebhookProxyApiV1AfnorFlowV1WebhooksPostAsyncWithHttpInfo($contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createWebhookProxyApiV1AfnorFlowV1WebhooksPostAsyncWithHttpInfo
+     *
+     * Create a webhook
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhookProxyApiV1AfnorFlowV1WebhooksPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createWebhookProxyApiV1AfnorFlowV1WebhooksPostAsyncWithHttpInfo(string $contentType = self::contentTypes['createWebhookProxyApiV1AfnorFlowV1WebhooksPost'][0])
+    {
+        $returnType = 'mixed';
+        $request = $this->createWebhookProxyApiV1AfnorFlowV1WebhooksPostRequest($contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createWebhookProxyApiV1AfnorFlowV1WebhooksPost'
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhookProxyApiV1AfnorFlowV1WebhooksPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createWebhookProxyApiV1AfnorFlowV1WebhooksPostRequest(string $contentType = self::contentTypes['createWebhookProxyApiV1AfnorFlowV1WebhooksPost'][0])
+    {
+
+
+        $resourcePath = '/api/v1/afnor/flow/v1/webhooks';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidDelete
+     *
+     * Delete a webhook
+     *
+     * @param  string $webhook_uid Webhook unique identifier (UUID) (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidDelete'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return mixed|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\HTTPValidationError
+     */
+    public function deleteWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidDelete($webhook_uid, string $contentType = self::contentTypes['deleteWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidDelete'][0])
+    {
+        list($response) = $this->deleteWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidDeleteWithHttpInfo($webhook_uid, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation deleteWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidDeleteWithHttpInfo
+     *
+     * Delete a webhook
+     *
+     * @param  string $webhook_uid Webhook unique identifier (UUID) (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidDelete'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of mixed|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidDeleteWithHttpInfo($webhook_uid, string $contentType = self::contentTypes['deleteWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidDelete'][0])
+    {
+        $request = $this->deleteWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidDeleteRequest($webhook_uid, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $request,
+                        $response,
+                    );
+                case 404:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $request,
+                        $response,
+                    );
+                case 429:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $request,
+                        $response,
+                    );
+                case 503:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $request,
+                        $response,
+                    );
+                case 422:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'mixed',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 503:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidDeleteAsync
+     *
+     * Delete a webhook
+     *
+     * @param  string $webhook_uid Webhook unique identifier (UUID) (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidDelete'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidDeleteAsync($webhook_uid, string $contentType = self::contentTypes['deleteWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidDelete'][0])
+    {
+        return $this->deleteWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidDeleteAsyncWithHttpInfo($webhook_uid, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidDeleteAsyncWithHttpInfo
+     *
+     * Delete a webhook
+     *
+     * @param  string $webhook_uid Webhook unique identifier (UUID) (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidDelete'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidDeleteAsyncWithHttpInfo($webhook_uid, string $contentType = self::contentTypes['deleteWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidDelete'][0])
+    {
+        $returnType = 'mixed';
+        $request = $this->deleteWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidDeleteRequest($webhook_uid, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidDelete'
+     *
+     * @param  string $webhook_uid Webhook unique identifier (UUID) (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidDelete'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidDeleteRequest($webhook_uid, string $contentType = self::contentTypes['deleteWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidDelete'][0])
+    {
+
+        // verify the required parameter 'webhook_uid' is set
+        if ($webhook_uid === null || (is_array($webhook_uid) && count($webhook_uid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $webhook_uid when calling deleteWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidDelete'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/afnor/flow/v1/webhooks/{webhookUid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($webhook_uid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'webhookUid' . '}',
+                ObjectSerializer::toPathValue($webhook_uid),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
     }
 
     /**
@@ -743,6 +1484,690 @@ class AFNORPDPPAFlowServiceApi
 
 
         $resourcePath = '/api/v1/afnor/flow/v1/healthcheck';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGet
+     *
+     * Get a webhook
+     *
+     * @param  string $webhook_uid Webhook unique identifier (UUID) (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGet'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \FactPulse\SDK\Model\AFNORWebhook|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\HTTPValidationError
+     */
+    public function getWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGet($webhook_uid, string $contentType = self::contentTypes['getWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGet'][0])
+    {
+        list($response) = $this->getWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGetWithHttpInfo($webhook_uid, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGetWithHttpInfo
+     *
+     * Get a webhook
+     *
+     * @param  string $webhook_uid Webhook unique identifier (UUID) (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGet'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \FactPulse\SDK\Model\AFNORWebhook|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGetWithHttpInfo($webhook_uid, string $contentType = self::contentTypes['getWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGet'][0])
+    {
+        $request = $this->getWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGetRequest($webhook_uid, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORWebhook',
+                        $request,
+                        $response,
+                    );
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $request,
+                        $response,
+                    );
+                case 404:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $request,
+                        $response,
+                    );
+                case 429:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $request,
+                        $response,
+                    );
+                case 503:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $request,
+                        $response,
+                    );
+                case 422:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\FactPulse\SDK\Model\AFNORWebhook',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORWebhook',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 503:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGetAsync
+     *
+     * Get a webhook
+     *
+     * @param  string $webhook_uid Webhook unique identifier (UUID) (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGetAsync($webhook_uid, string $contentType = self::contentTypes['getWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGet'][0])
+    {
+        return $this->getWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGetAsyncWithHttpInfo($webhook_uid, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGetAsyncWithHttpInfo
+     *
+     * Get a webhook
+     *
+     * @param  string $webhook_uid Webhook unique identifier (UUID) (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGetAsyncWithHttpInfo($webhook_uid, string $contentType = self::contentTypes['getWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGet'][0])
+    {
+        $returnType = '\FactPulse\SDK\Model\AFNORWebhook';
+        $request = $this->getWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGetRequest($webhook_uid, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGet'
+     *
+     * @param  string $webhook_uid Webhook unique identifier (UUID) (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGetRequest($webhook_uid, string $contentType = self::contentTypes['getWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGet'][0])
+    {
+
+        // verify the required parameter 'webhook_uid' is set
+        if ($webhook_uid === null || (is_array($webhook_uid) && count($webhook_uid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $webhook_uid when calling getWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGet'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/afnor/flow/v1/webhooks/{webhookUid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($webhook_uid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'webhookUid' . '}',
+                ObjectSerializer::toPathValue($webhook_uid),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation listWebhooksProxyApiV1AfnorFlowV1WebhooksGet
+     *
+     * List webhooks
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWebhooksProxyApiV1AfnorFlowV1WebhooksGet'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \FactPulse\SDK\Model\AFNORWebhook[]|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError
+     */
+    public function listWebhooksProxyApiV1AfnorFlowV1WebhooksGet(string $contentType = self::contentTypes['listWebhooksProxyApiV1AfnorFlowV1WebhooksGet'][0])
+    {
+        list($response) = $this->listWebhooksProxyApiV1AfnorFlowV1WebhooksGetWithHttpInfo($contentType);
+        return $response;
+    }
+
+    /**
+     * Operation listWebhooksProxyApiV1AfnorFlowV1WebhooksGetWithHttpInfo
+     *
+     * List webhooks
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWebhooksProxyApiV1AfnorFlowV1WebhooksGet'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \FactPulse\SDK\Model\AFNORWebhook[]|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listWebhooksProxyApiV1AfnorFlowV1WebhooksGetWithHttpInfo(string $contentType = self::contentTypes['listWebhooksProxyApiV1AfnorFlowV1WebhooksGet'][0])
+    {
+        $request = $this->listWebhooksProxyApiV1AfnorFlowV1WebhooksGetRequest($contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORWebhook[]',
+                        $request,
+                        $response,
+                    );
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $request,
+                        $response,
+                    );
+                case 429:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $request,
+                        $response,
+                    );
+                case 503:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\FactPulse\SDK\Model\AFNORWebhook[]',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORWebhook[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 503:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation listWebhooksProxyApiV1AfnorFlowV1WebhooksGetAsync
+     *
+     * List webhooks
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWebhooksProxyApiV1AfnorFlowV1WebhooksGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listWebhooksProxyApiV1AfnorFlowV1WebhooksGetAsync(string $contentType = self::contentTypes['listWebhooksProxyApiV1AfnorFlowV1WebhooksGet'][0])
+    {
+        return $this->listWebhooksProxyApiV1AfnorFlowV1WebhooksGetAsyncWithHttpInfo($contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listWebhooksProxyApiV1AfnorFlowV1WebhooksGetAsyncWithHttpInfo
+     *
+     * List webhooks
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWebhooksProxyApiV1AfnorFlowV1WebhooksGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listWebhooksProxyApiV1AfnorFlowV1WebhooksGetAsyncWithHttpInfo(string $contentType = self::contentTypes['listWebhooksProxyApiV1AfnorFlowV1WebhooksGet'][0])
+    {
+        $returnType = '\FactPulse\SDK\Model\AFNORWebhook[]';
+        $request = $this->listWebhooksProxyApiV1AfnorFlowV1WebhooksGetRequest($contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listWebhooksProxyApiV1AfnorFlowV1WebhooksGet'
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWebhooksProxyApiV1AfnorFlowV1WebhooksGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function listWebhooksProxyApiV1AfnorFlowV1WebhooksGetRequest(string $contentType = self::contentTypes['listWebhooksProxyApiV1AfnorFlowV1WebhooksGet'][0])
+    {
+
+
+        $resourcePath = '/api/v1/afnor/flow/v1/webhooks';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1574,6 +2999,386 @@ class AFNORPDPPAFlowServiceApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatch
+     *
+     * Update a webhook
+     *
+     * @param  string $webhook_uid Webhook unique identifier (UUID) (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatch'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \FactPulse\SDK\Model\AFNORWebhook|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError
+     */
+    public function updateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatch($webhook_uid, string $contentType = self::contentTypes['updateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatch'][0])
+    {
+        list($response) = $this->updateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatchWithHttpInfo($webhook_uid, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation updateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatchWithHttpInfo
+     *
+     * Update a webhook
+     *
+     * @param  string $webhook_uid Webhook unique identifier (UUID) (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatch'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \FactPulse\SDK\Model\AFNORWebhook|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError|\FactPulse\SDK\Model\AFNORError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatchWithHttpInfo($webhook_uid, string $contentType = self::contentTypes['updateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatch'][0])
+    {
+        $request = $this->updateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatchRequest($webhook_uid, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORWebhook',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $request,
+                        $response,
+                    );
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $request,
+                        $response,
+                    );
+                case 404:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $request,
+                        $response,
+                    );
+                case 422:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $request,
+                        $response,
+                    );
+                case 429:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $request,
+                        $response,
+                    );
+                case 503:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\FactPulse\SDK\Model\AFNORWebhook',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORWebhook',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 503:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\AFNORError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatchAsync
+     *
+     * Update a webhook
+     *
+     * @param  string $webhook_uid Webhook unique identifier (UUID) (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatch'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatchAsync($webhook_uid, string $contentType = self::contentTypes['updateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatch'][0])
+    {
+        return $this->updateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatchAsyncWithHttpInfo($webhook_uid, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatchAsyncWithHttpInfo
+     *
+     * Update a webhook
+     *
+     * @param  string $webhook_uid Webhook unique identifier (UUID) (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatch'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatchAsyncWithHttpInfo($webhook_uid, string $contentType = self::contentTypes['updateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatch'][0])
+    {
+        $returnType = '\FactPulse\SDK\Model\AFNORWebhook';
+        $request = $this->updateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatchRequest($webhook_uid, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatch'
+     *
+     * @param  string $webhook_uid Webhook unique identifier (UUID) (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatch'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatchRequest($webhook_uid, string $contentType = self::contentTypes['updateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatch'][0])
+    {
+
+        // verify the required parameter 'webhook_uid' is set
+        if ($webhook_uid === null || (is_array($webhook_uid) && count($webhook_uid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $webhook_uid when calling updateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatch'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/afnor/flow/v1/webhooks/{webhookUid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($webhook_uid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'webhookUid' . '}',
+                ObjectSerializer::toPathValue($webhook_uid),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

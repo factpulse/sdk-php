@@ -73,42 +73,6 @@ class AFNORPDPPADirectoryServiceApiTest extends TestCase
     }
 
     /**
-     * Test case for createDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost
-     *
-     * Creating a directory line.
-     *
-     */
-    public function testCreateDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLinePost()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for createRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost
-     *
-     * Create a routing code.
-     *
-     */
-    public function testCreateRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodePost()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for deleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete
-     *
-     * Delete a directory line.
-     *
-     */
-    public function testDeleteDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceDelete()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for directoryHealthcheckProxyApiV1AfnorDirectoryV1HealthcheckGet
      *
      * Healthcheck Directory Service.
@@ -127,30 +91,6 @@ class AFNORPDPPADirectoryServiceApiTest extends TestCase
      *
      */
     public function testGetDirectoryLineByCodeProxyApiV1AfnorDirectoryV1DirectoryLineCodeAddressingIdentifierGet()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for getDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet
-     *
-     * Get a directory line..
-     *
-     */
-    public function testGetDirectoryLineByIdInstanceProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstanceGet()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for getRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet
-     *
-     * Get a routing code by instance-id..
-     *
-     */
-    public function testGetRoutingCodeByIdInstanceProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstanceGet()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -181,72 +121,12 @@ class AFNORPDPPADirectoryServiceApiTest extends TestCase
     }
 
     /**
-     * Test case for getSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet
-     *
-     * Gets a siren (legal unit) by instance ID.
-     *
-     */
-    public function testGetSirenByIdInstanceProxyApiV1AfnorDirectoryV1SirenIdInstanceIdInstanceGet()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for getSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet
      *
      * Gets a siret (facility) by SIRET number.
      *
      */
     public function testGetSiretByCodeInseeProxyApiV1AfnorDirectoryV1SiretCodeInseeSiretGet()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for getSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet
-     *
-     * Gets a siret (facility) by id-instance.
-     *
-     */
-    public function testGetSiretByIdInstanceProxyApiV1AfnorDirectoryV1SiretIdInstanceIdInstanceGet()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for patchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch
-     *
-     * Partially updates a directory line...
-     *
-     */
-    public function testPatchDirectoryLineProxyApiV1AfnorDirectoryV1DirectoryLineIdInstanceIdInstancePatch()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for patchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch
-     *
-     * Partially update a private routing code..
-     *
-     */
-    public function testPatchRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePatch()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for putRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut
-     *
-     * Completely update a private routing code..
-     *
-     */
-    public function testPutRoutingCodeProxyApiV1AfnorDirectoryV1RoutingCodeIdInstanceIdInstancePut()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

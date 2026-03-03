@@ -52,7 +52,7 @@ class AFNORSirenField
 
     public const ADMINISTRATIVE_STATUS = 'administrativeStatus';
 
-    public const ID_INSTANCE = 'idInstance';
+    public const INSTRUCTIONS = 'instructions';
 
     /**
      * Gets allowable values of the enum
@@ -65,7 +65,7 @@ class AFNORSirenField
             self::BUSINESS_NAME,
             self::ENTITY_TYPE,
             self::ADMINISTRATIVE_STATUS,
-            self::ID_INSTANCE
+            self::INSTRUCTIONS
         ];
     }
 }

@@ -59,7 +59,7 @@ class GetInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'credentials' => '\FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasChorusProChorusProCredentials',
+        'credentials' => '\FactPulse\SDK\Model\ChorusProCredentials',
         'chorus_invoice_id' => 'int'
     ];
 
@@ -304,7 +304,7 @@ class GetInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets credentials
      *
-     * @return \FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasChorusProChorusProCredentials|null
+     * @return \FactPulse\SDK\Model\ChorusProCredentials|null
      */
     public function getCredentials()
     {
@@ -314,7 +314,7 @@ class GetInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets credentials
      *
-     * @param \FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasChorusProChorusProCredentials|null $credentials credentials
+     * @param \FactPulse\SDK\Model\ChorusProCredentials|null $credentials credentials
      *
      * @return self
      */

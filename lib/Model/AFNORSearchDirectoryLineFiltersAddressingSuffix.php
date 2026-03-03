@@ -58,7 +58,7 @@ class AFNORSearchDirectoryLineFiltersAddressingSuffix implements ModelInterface,
       * @var string[]
       */
     protected static $openAPITypes = [
-        'op' => '\FactPulse\SDK\Model\AFNORStrictOperator',
+        'op' => '\FactPulse\SDK\Model\AFNORContainsOrStrictOperator',
         'value' => 'string'
     ];
 
@@ -304,7 +304,7 @@ class AFNORSearchDirectoryLineFiltersAddressingSuffix implements ModelInterface,
     /**
      * Gets op
      *
-     * @return \FactPulse\SDK\Model\AFNORStrictOperator|null
+     * @return \FactPulse\SDK\Model\AFNORContainsOrStrictOperator|null
      */
     public function getOp()
     {
@@ -314,7 +314,7 @@ class AFNORSearchDirectoryLineFiltersAddressingSuffix implements ModelInterface,
     /**
      * Sets op
      *
-     * @param \FactPulse\SDK\Model\AFNORStrictOperator|null $op op
+     * @param \FactPulse\SDK\Model\AFNORContainsOrStrictOperator|null $op op
      *
      * @return self
      */

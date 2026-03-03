@@ -58,7 +58,7 @@ class AFNORSearchSirenFiltersBusinessName implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'op' => '\FactPulse\SDK\Model\AFNORContainsOperator',
+        'op' => '\FactPulse\SDK\Model\AFNORContainsOrStrictOperator',
         'value' => 'string'
     ];
 
@@ -304,7 +304,7 @@ class AFNORSearchSirenFiltersBusinessName implements ModelInterface, ArrayAccess
     /**
      * Gets op
      *
-     * @return \FactPulse\SDK\Model\AFNORContainsOperator|null
+     * @return \FactPulse\SDK\Model\AFNORContainsOrStrictOperator|null
      */
     public function getOp()
     {
@@ -314,7 +314,7 @@ class AFNORSearchSirenFiltersBusinessName implements ModelInterface, ArrayAccess
     /**
      * Sets op
      *
-     * @param \FactPulse\SDK\Model\AFNORContainsOperator|null $op op
+     * @param \FactPulse\SDK\Model\AFNORContainsOrStrictOperator|null $op op
      *
      * @return self
      */

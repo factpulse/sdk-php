@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * AFNORFlowInfoTest Class Doc Comment
  *
  * @category    Class
- * @description Signaling of the flow: - The tracking id is an external identifier and is used to track the flow by the sender - The sha256 is the fingerprint of the attached file:   - if provided in the request: it should be checked once received   - if not provided in the request: it should be computed and returned in the response
+ * @description Signaling of the flow
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

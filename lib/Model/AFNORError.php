@@ -36,6 +36,7 @@ use \FactPulse\SDK\ObjectSerializer;
  * AFNORError Class Doc Comment
  *
  * @category Class
+ * @description Error code
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -50,7 +51,7 @@ class AFNORError implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'AFNOR_error';
+    protected static $openAPIModelName = 'AFNOR_Error';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +59,9 @@ class AFNORError implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'error_code' => 'string',
+        'error_message' => 'string',
         'type' => 'string',
-        'message' => 'string',
-        'status' => 'int',
         'details' => 'string',
         'instance' => 'string'
     ];
@@ -73,9 +74,9 @@ class AFNORError implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'error_code' => null,
+        'error_message' => null,
         'type' => 'uri-reference',
-        'message' => null,
-        'status' => 'int32',
         'details' => null,
         'instance' => 'uri-reference'
     ];
@@ -86,9 +87,9 @@ class AFNORError implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'error_code' => false,
+        'error_message' => false,
         'type' => false,
-        'message' => false,
-        'status' => false,
         'details' => false,
         'instance' => false
     ];
@@ -179,9 +180,9 @@ class AFNORError implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'error_code' => 'errorCode',
+        'error_message' => 'errorMessage',
         'type' => 'type',
-        'message' => 'message',
-        'status' => 'status',
         'details' => 'details',
         'instance' => 'instance'
     ];
@@ -192,9 +193,9 @@ class AFNORError implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'error_code' => 'setErrorCode',
+        'error_message' => 'setErrorMessage',
         'type' => 'setType',
-        'message' => 'setMessage',
-        'status' => 'setStatus',
         'details' => 'setDetails',
         'instance' => 'setInstance'
     ];
@@ -205,9 +206,9 @@ class AFNORError implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'error_code' => 'getErrorCode',
+        'error_message' => 'getErrorMessage',
         'type' => 'getType',
-        'message' => 'getMessage',
-        'status' => 'getStatus',
         'details' => 'getDetails',
         'instance' => 'getInstance'
     ];
@@ -269,9 +270,9 @@ class AFNORError implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('error_code', $data ?? [], null);
+        $this->setIfExists('error_message', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], 'about:blank');
-        $this->setIfExists('message', $data ?? [], null);
-        $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('details', $data ?? [], null);
         $this->setIfExists('instance', $data ?? [], null);
     }
@@ -303,14 +304,9 @@ class AFNORError implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['status']) && ($this->container['status'] > 600)) {
-            $invalidProperties[] = "invalid value for 'status', must be smaller than or equal to 600.";
+        if ($this->container['error_code'] === null) {
+            $invalidProperties[] = "'error_code' can't be null";
         }
-
-        if (!is_null($this->container['status']) && ($this->container['status'] < 100)) {
-            $invalidProperties[] = "invalid value for 'status', must be bigger than or equal to 100.";
-        }
-
         return $invalidProperties;
     }
 
@@ -325,6 +321,60 @@ class AFNORError implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets error_code
+     *
+     * @return string
+     */
+    public function getErrorCode()
+    {
+        return $this->container['error_code'];
+    }
+
+    /**
+     * Sets error_code
+     *
+     * @param string $error_code Short numerical or alphanumerical code that identifies precisely a unique error.
+     *
+     * @return self
+     */
+    public function setErrorCode($error_code)
+    {
+        if (is_null($error_code)) {
+            throw new \InvalidArgumentException('non-nullable error_code cannot be null');
+        }
+        $this->container['error_code'] = $error_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets error_message
+     *
+     * @return string|null
+     */
+    public function getErrorMessage()
+    {
+        return $this->container['error_message'];
+    }
+
+    /**
+     * Sets error_message
+     *
+     * @param string|null $error_message Contains information on the error. Not intended to be displayed to an end user. For security reasons, a tradeoff between clarity & security shall be found.
+     *
+     * @return self
+     */
+    public function setErrorMessage($error_message)
+    {
+        if (is_null($error_message)) {
+            throw new \InvalidArgumentException('non-nullable error_message cannot be null');
+        }
+        $this->container['error_message'] = $error_message;
+
+        return $this;
+    }
 
     /**
      * Gets type
@@ -349,68 +399,6 @@ class AFNORError implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable type cannot be null');
         }
         $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
-     *
-     * @return string|null
-     */
-    public function getMessage()
-    {
-        return $this->container['message'];
-    }
-
-    /**
-     * Sets message
-     *
-     * @param string|null $message message
-     *
-     * @return self
-     */
-    public function setMessage($message)
-    {
-        if (is_null($message)) {
-            throw new \InvalidArgumentException('non-nullable message cannot be null');
-        }
-        $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return int|null
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param int|null $status The HTTP status code generated by the origin server for this occurrence of the problem.
-     *
-     * @return self
-     */
-    public function setStatus($status)
-    {
-        if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
-        }
-
-        if (($status > 600)) {
-            throw new \InvalidArgumentException('invalid value for $status when calling AFNORError., must be smaller than or equal to 600.');
-        }
-        if (($status < 100)) {
-            throw new \InvalidArgumentException('invalid value for $status when calling AFNORError., must be bigger than or equal to 100.');
-        }
-
-        $this->container['status'] = $status;
 
         return $this;
     }

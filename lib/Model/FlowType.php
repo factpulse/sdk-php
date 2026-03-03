@@ -34,7 +34,7 @@ use \FactPulse\SDK\ObjectSerializer;
  * FlowType Class Doc Comment
  *
  * @category Class
- * @description AFNOR XP Z12-013 FlowType enum.  Values from swagger specification v1.1.0: - Invoice flows (factures) - Lifecycle flows (cycle de vie) - E-reporting flows (transactions/paiements)
+ * @description AFNOR XP Z12-013 FlowType enum.  Values from swagger specification v1.2.0: - Invoice flows (factures) - Lifecycle flows (cycle de vie) - E-reporting flows (transactions/paiements)
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

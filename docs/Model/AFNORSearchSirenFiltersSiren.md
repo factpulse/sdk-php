@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**op** | [**\FactPulse\SDK\Model\AFNORContainsOperator**](AFNORContainsOperator.md) |  | [optional]
+**op** | [**\FactPulse\SDK\Model\AFNORStrictOperator**](AFNORStrictOperator.md) |  | [optional]
 **value** | **string** | SIREN number to search for. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

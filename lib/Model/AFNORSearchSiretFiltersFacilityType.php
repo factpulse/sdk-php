@@ -58,7 +58,7 @@ class AFNORSearchSiretFiltersFacilityType implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'op' => '\FactPulse\SDK\Model\AFNORContainsOperator',
+        'op' => '\FactPulse\SDK\Model\AFNORStrictOperator',
         'value' => '\FactPulse\SDK\Model\AFNORFacilityType'
     ];
 
@@ -300,7 +300,7 @@ class AFNORSearchSiretFiltersFacilityType implements ModelInterface, ArrayAccess
     /**
      * Gets op
      *
-     * @return \FactPulse\SDK\Model\AFNORContainsOperator|null
+     * @return \FactPulse\SDK\Model\AFNORStrictOperator|null
      */
     public function getOp()
     {
@@ -310,7 +310,7 @@ class AFNORSearchSiretFiltersFacilityType implements ModelInterface, ArrayAccess
     /**
      * Sets op
      *
-     * @param \FactPulse\SDK\Model\AFNORContainsOperator|null $op op
+     * @param \FactPulse\SDK\Model\AFNORStrictOperator|null $op op
      *
      * @return self
      */

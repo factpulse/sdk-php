@@ -81,33 +81,6 @@ class AFNORFlowTest extends TestCase
     }
 
     /**
-     * Test attribute "submitted_at"
-     */
-    public function testPropertySubmittedAt()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "updated_at"
-     */
-    public function testPropertyUpdatedAt()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "flow_id"
-     */
-    public function testPropertyFlowId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "tracking_id"
      */
     public function testPropertyTrackingId()
@@ -117,9 +90,9 @@ class AFNORFlowTest extends TestCase
     }
 
     /**
-     * Test attribute "flow_type"
+     * Test attribute "name"
      */
-    public function testPropertyFlowType()
+    public function testPropertyName()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -129,24 +102,6 @@ class AFNORFlowTest extends TestCase
      * Test attribute "processing_rule"
      */
     public function testPropertyProcessingRule()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "processing_rule_source"
-     */
-    public function testPropertyProcessingRuleSource()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "flow_direction"
-     */
-    public function testPropertyFlowDirection()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -165,6 +120,60 @@ class AFNORFlowTest extends TestCase
      * Test attribute "flow_profile"
      */
     public function testPropertyFlowProfile()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "flow_id"
+     */
+    public function testPropertyFlowId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "submitted_at"
+     */
+    public function testPropertySubmittedAt()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "updated_at"
+     */
+    public function testPropertyUpdatedAt()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "flow_type"
+     */
+    public function testPropertyFlowType()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "processing_rule_source"
+     */
+    public function testPropertyProcessingRuleSource()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "flow_direction"
+     */
+    public function testPropertyFlowDirection()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

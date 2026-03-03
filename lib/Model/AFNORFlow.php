@@ -59,16 +59,17 @@ class AFNORFlow implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'submitted_at' => '\DateTime',
-        'updated_at' => '\DateTime',
-        'flow_id' => 'string',
         'tracking_id' => 'string',
-        'flow_type' => '\FactPulse\SDK\Model\AFNORFlowType',
+        'name' => 'string',
         'processing_rule' => '\FactPulse\SDK\Model\AFNORProcessingRule',
-        'processing_rule_source' => 'string',
-        'flow_direction' => '\FactPulse\SDK\Model\AFNORFlowDirection',
         'flow_syntax' => '\FactPulse\SDK\Model\AFNORFlowSyntax',
         'flow_profile' => '\FactPulse\SDK\Model\AFNORFlowProfile',
+        'flow_id' => 'string',
+        'submitted_at' => '\DateTime',
+        'updated_at' => '\DateTime',
+        'flow_type' => '\FactPulse\SDK\Model\AFNORFlowType',
+        'processing_rule_source' => 'string',
+        'flow_direction' => '\FactPulse\SDK\Model\AFNORFlowDirection',
         'acknowledgement' => '\FactPulse\SDK\Model\AFNORAcknowledgement'
     ];
 
@@ -80,16 +81,17 @@ class AFNORFlow implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'submitted_at' => 'date-time',
-        'updated_at' => 'date-time',
-        'flow_id' => null,
         'tracking_id' => null,
-        'flow_type' => null,
+        'name' => null,
         'processing_rule' => null,
-        'processing_rule_source' => null,
-        'flow_direction' => null,
         'flow_syntax' => null,
         'flow_profile' => null,
+        'flow_id' => null,
+        'submitted_at' => 'date-time',
+        'updated_at' => 'date-time',
+        'flow_type' => null,
+        'processing_rule_source' => null,
+        'flow_direction' => null,
         'acknowledgement' => null
     ];
 
@@ -99,16 +101,17 @@ class AFNORFlow implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'submitted_at' => false,
-        'updated_at' => false,
-        'flow_id' => false,
         'tracking_id' => false,
-        'flow_type' => false,
+        'name' => false,
         'processing_rule' => false,
-        'processing_rule_source' => false,
-        'flow_direction' => false,
         'flow_syntax' => false,
         'flow_profile' => false,
+        'flow_id' => false,
+        'submitted_at' => false,
+        'updated_at' => false,
+        'flow_type' => false,
+        'processing_rule_source' => false,
+        'flow_direction' => false,
         'acknowledgement' => false
     ];
 
@@ -198,16 +201,17 @@ class AFNORFlow implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'submitted_at' => 'submittedAt',
-        'updated_at' => 'updatedAt',
-        'flow_id' => 'flowId',
         'tracking_id' => 'trackingId',
-        'flow_type' => 'flowType',
+        'name' => 'name',
         'processing_rule' => 'processingRule',
-        'processing_rule_source' => 'processingRuleSource',
-        'flow_direction' => 'flowDirection',
         'flow_syntax' => 'flowSyntax',
         'flow_profile' => 'flowProfile',
+        'flow_id' => 'flowId',
+        'submitted_at' => 'submittedAt',
+        'updated_at' => 'updatedAt',
+        'flow_type' => 'flowType',
+        'processing_rule_source' => 'processingRuleSource',
+        'flow_direction' => 'flowDirection',
         'acknowledgement' => 'acknowledgement'
     ];
 
@@ -217,16 +221,17 @@ class AFNORFlow implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'submitted_at' => 'setSubmittedAt',
-        'updated_at' => 'setUpdatedAt',
-        'flow_id' => 'setFlowId',
         'tracking_id' => 'setTrackingId',
-        'flow_type' => 'setFlowType',
+        'name' => 'setName',
         'processing_rule' => 'setProcessingRule',
-        'processing_rule_source' => 'setProcessingRuleSource',
-        'flow_direction' => 'setFlowDirection',
         'flow_syntax' => 'setFlowSyntax',
         'flow_profile' => 'setFlowProfile',
+        'flow_id' => 'setFlowId',
+        'submitted_at' => 'setSubmittedAt',
+        'updated_at' => 'setUpdatedAt',
+        'flow_type' => 'setFlowType',
+        'processing_rule_source' => 'setProcessingRuleSource',
+        'flow_direction' => 'setFlowDirection',
         'acknowledgement' => 'setAcknowledgement'
     ];
 
@@ -236,16 +241,17 @@ class AFNORFlow implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'submitted_at' => 'getSubmittedAt',
-        'updated_at' => 'getUpdatedAt',
-        'flow_id' => 'getFlowId',
         'tracking_id' => 'getTrackingId',
-        'flow_type' => 'getFlowType',
+        'name' => 'getName',
         'processing_rule' => 'getProcessingRule',
-        'processing_rule_source' => 'getProcessingRuleSource',
-        'flow_direction' => 'getFlowDirection',
         'flow_syntax' => 'getFlowSyntax',
         'flow_profile' => 'getFlowProfile',
+        'flow_id' => 'getFlowId',
+        'submitted_at' => 'getSubmittedAt',
+        'updated_at' => 'getUpdatedAt',
+        'flow_type' => 'getFlowType',
+        'processing_rule_source' => 'getProcessingRuleSource',
+        'flow_direction' => 'getFlowDirection',
         'acknowledgement' => 'getAcknowledgement'
     ];
 
@@ -321,16 +327,17 @@ class AFNORFlow implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('submitted_at', $data ?? [], null);
-        $this->setIfExists('updated_at', $data ?? [], null);
-        $this->setIfExists('flow_id', $data ?? [], null);
         $this->setIfExists('tracking_id', $data ?? [], null);
-        $this->setIfExists('flow_type', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('processing_rule', $data ?? [], null);
-        $this->setIfExists('processing_rule_source', $data ?? [], null);
-        $this->setIfExists('flow_direction', $data ?? [], null);
         $this->setIfExists('flow_syntax', $data ?? [], null);
         $this->setIfExists('flow_profile', $data ?? [], null);
+        $this->setIfExists('flow_id', $data ?? [], null);
+        $this->setIfExists('submitted_at', $data ?? [], null);
+        $this->setIfExists('updated_at', $data ?? [], null);
+        $this->setIfExists('flow_type', $data ?? [], null);
+        $this->setIfExists('processing_rule_source', $data ?? [], null);
+        $this->setIfExists('flow_direction', $data ?? [], null);
         $this->setIfExists('acknowledgement', $data ?? [], null);
     }
 
@@ -361,14 +368,39 @@ class AFNORFlow implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['flow_id']) && (mb_strlen($this->container['flow_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'flow_id', the character length must be smaller than or equal to 36.";
-        }
-
         if (!is_null($this->container['tracking_id']) && (mb_strlen($this->container['tracking_id']) > 36)) {
             $invalidProperties[] = "invalid value for 'tracking_id', the character length must be smaller than or equal to 36.";
         }
 
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ((mb_strlen($this->container['name']) > 255)) {
+            $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 255.";
+        }
+
+        if ($this->container['flow_syntax'] === null) {
+            $invalidProperties[] = "'flow_syntax' can't be null";
+        }
+        if ($this->container['flow_id'] === null) {
+            $invalidProperties[] = "'flow_id' can't be null";
+        }
+        if ((mb_strlen($this->container['flow_id']) > 36)) {
+            $invalidProperties[] = "invalid value for 'flow_id', the character length must be smaller than or equal to 36.";
+        }
+
+        if ($this->container['submitted_at'] === null) {
+            $invalidProperties[] = "'submitted_at' can't be null";
+        }
+        if ($this->container['updated_at'] === null) {
+            $invalidProperties[] = "'updated_at' can't be null";
+        }
+        if ($this->container['flow_type'] === null) {
+            $invalidProperties[] = "'flow_type' can't be null";
+        }
+        if ($this->container['processing_rule_source'] === null) {
+            $invalidProperties[] = "'processing_rule_source' can't be null";
+        }
         $allowedValues = $this->getProcessingRuleSourceAllowableValues();
         if (!is_null($this->container['processing_rule_source']) && !in_array($this->container['processing_rule_source'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -378,6 +410,12 @@ class AFNORFlow implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
+        if ($this->container['flow_direction'] === null) {
+            $invalidProperties[] = "'flow_direction' can't be null";
+        }
+        if ($this->container['acknowledgement'] === null) {
+            $invalidProperties[] = "'acknowledgement' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -394,91 +432,6 @@ class AFNORFlow implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets submitted_at
-     *
-     * @return \DateTime|null
-     */
-    public function getSubmittedAt()
-    {
-        return $this->container['submitted_at'];
-    }
-
-    /**
-     * Sets submitted_at
-     *
-     * @param \DateTime|null $submitted_at The flow submission date and time (the date and time when the flow was created on the system)
-     *
-     * @return self
-     */
-    public function setSubmittedAt($submitted_at)
-    {
-        if (is_null($submitted_at)) {
-            throw new \InvalidArgumentException('non-nullable submitted_at cannot be null');
-        }
-        $this->container['submitted_at'] = $submitted_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return \DateTime|null
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param \DateTime|null $updated_at The last update date and time of the flow. When the flow is submitted updatedAt is equal to submittedAt. When the flow acknowledgment status is changed updatedAt date and time is updated.
-     *
-     * @return self
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        if (is_null($updated_at)) {
-            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
-        }
-        $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets flow_id
-     *
-     * @return string|null
-     */
-    public function getFlowId()
-    {
-        return $this->container['flow_id'];
-    }
-
-    /**
-     * Sets flow_id
-     *
-     * @param string|null $flow_id Unique identifier supporting UUID but not only, for flexibility purpose
-     *
-     * @return self
-     */
-    public function setFlowId($flow_id)
-    {
-        if (is_null($flow_id)) {
-            throw new \InvalidArgumentException('non-nullable flow_id cannot be null');
-        }
-        if ((mb_strlen($flow_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $flow_id when calling AFNORFlow., must be smaller than or equal to 36.');
-        }
-
-        $this->container['flow_id'] = $flow_id;
-
-        return $this;
-    }
-
-    /**
      * Gets tracking_id
      *
      * @return string|null
@@ -491,7 +444,7 @@ class AFNORFlow implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tracking_id
      *
-     * @param string|null $tracking_id Unique identifier supporting UUID but not only, for flexibility purpose
+     * @param string|null $tracking_id The tracking id is an external identifier and is used to track the flow by the sender
      *
      * @return self
      */
@@ -510,28 +463,32 @@ class AFNORFlow implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets flow_type
+     * Gets name
      *
-     * @return \FactPulse\SDK\Model\AFNORFlowType|null
+     * @return string
      */
-    public function getFlowType()
+    public function getName()
     {
-        return $this->container['flow_type'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets flow_type
+     * Sets name
      *
-     * @param \FactPulse\SDK\Model\AFNORFlowType|null $flow_type flow_type
+     * @param string $name Name of the file
      *
      * @return self
      */
-    public function setFlowType($flow_type)
+    public function setName($name)
     {
-        if (is_null($flow_type)) {
-            throw new \InvalidArgumentException('non-nullable flow_type cannot be null');
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-        $this->container['flow_type'] = $flow_type;
+        if ((mb_strlen($name) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $name when calling AFNORFlow., must be smaller than or equal to 255.');
+        }
+
+        $this->container['name'] = $name;
 
         return $this;
     }
@@ -564,73 +521,9 @@ class AFNORFlow implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets processing_rule_source
-     *
-     * @return string|null
-     */
-    public function getProcessingRuleSource()
-    {
-        return $this->container['processing_rule_source'];
-    }
-
-    /**
-     * Sets processing_rule_source
-     *
-     * @param string|null $processing_rule_source Says whether the processing rule has been computed or the processing rule was an input parameter
-     *
-     * @return self
-     */
-    public function setProcessingRuleSource($processing_rule_source)
-    {
-        if (is_null($processing_rule_source)) {
-            throw new \InvalidArgumentException('non-nullable processing_rule_source cannot be null');
-        }
-        $allowedValues = $this->getProcessingRuleSourceAllowableValues();
-        if (!in_array($processing_rule_source, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'processing_rule_source', must be one of '%s'",
-                    $processing_rule_source,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['processing_rule_source'] = $processing_rule_source;
-
-        return $this;
-    }
-
-    /**
-     * Gets flow_direction
-     *
-     * @return \FactPulse\SDK\Model\AFNORFlowDirection|null
-     */
-    public function getFlowDirection()
-    {
-        return $this->container['flow_direction'];
-    }
-
-    /**
-     * Sets flow_direction
-     *
-     * @param \FactPulse\SDK\Model\AFNORFlowDirection|null $flow_direction flow_direction
-     *
-     * @return self
-     */
-    public function setFlowDirection($flow_direction)
-    {
-        if (is_null($flow_direction)) {
-            throw new \InvalidArgumentException('non-nullable flow_direction cannot be null');
-        }
-        $this->container['flow_direction'] = $flow_direction;
-
-        return $this;
-    }
-
-    /**
      * Gets flow_syntax
      *
-     * @return \FactPulse\SDK\Model\AFNORFlowSyntax|null
+     * @return \FactPulse\SDK\Model\AFNORFlowSyntax
      */
     public function getFlowSyntax()
     {
@@ -640,7 +533,7 @@ class AFNORFlow implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets flow_syntax
      *
-     * @param \FactPulse\SDK\Model\AFNORFlowSyntax|null $flow_syntax flow_syntax
+     * @param \FactPulse\SDK\Model\AFNORFlowSyntax $flow_syntax flow_syntax
      *
      * @return self
      */
@@ -682,9 +575,185 @@ class AFNORFlow implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets flow_id
+     *
+     * @return string
+     */
+    public function getFlowId()
+    {
+        return $this->container['flow_id'];
+    }
+
+    /**
+     * Sets flow_id
+     *
+     * @param string $flow_id Unique identifier supporting UUID but not only, for flexibility purpose
+     *
+     * @return self
+     */
+    public function setFlowId($flow_id)
+    {
+        if (is_null($flow_id)) {
+            throw new \InvalidArgumentException('non-nullable flow_id cannot be null');
+        }
+        if ((mb_strlen($flow_id) > 36)) {
+            throw new \InvalidArgumentException('invalid length for $flow_id when calling AFNORFlow., must be smaller than or equal to 36.');
+        }
+
+        $this->container['flow_id'] = $flow_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets submitted_at
+     *
+     * @return \DateTime
+     */
+    public function getSubmittedAt()
+    {
+        return $this->container['submitted_at'];
+    }
+
+    /**
+     * Sets submitted_at
+     *
+     * @param \DateTime $submitted_at The flow submission date and time (the date and time when the flow was created on the system) This property should be used by the API consumer as a time reference to avoid clock synchronization issues
+     *
+     * @return self
+     */
+    public function setSubmittedAt($submitted_at)
+    {
+        if (is_null($submitted_at)) {
+            throw new \InvalidArgumentException('non-nullable submitted_at cannot be null');
+        }
+        $this->container['submitted_at'] = $submitted_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param \DateTime $updated_at The last update date and time of the flow. When the flow is submitted updatedAt is equal to submittedAt. When the flow acknowledgment status is changed updatedAt date and time is updated.
+     *
+     * @return self
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        if (is_null($updated_at)) {
+            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
+        }
+        $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets flow_type
+     *
+     * @return \FactPulse\SDK\Model\AFNORFlowType
+     */
+    public function getFlowType()
+    {
+        return $this->container['flow_type'];
+    }
+
+    /**
+     * Sets flow_type
+     *
+     * @param \FactPulse\SDK\Model\AFNORFlowType $flow_type flow_type
+     *
+     * @return self
+     */
+    public function setFlowType($flow_type)
+    {
+        if (is_null($flow_type)) {
+            throw new \InvalidArgumentException('non-nullable flow_type cannot be null');
+        }
+        $this->container['flow_type'] = $flow_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets processing_rule_source
+     *
+     * @return string
+     */
+    public function getProcessingRuleSource()
+    {
+        return $this->container['processing_rule_source'];
+    }
+
+    /**
+     * Sets processing_rule_source
+     *
+     * @param string $processing_rule_source Says whether the processing rule has been computed or the processing rule was an input parameter
+     *
+     * @return self
+     */
+    public function setProcessingRuleSource($processing_rule_source)
+    {
+        if (is_null($processing_rule_source)) {
+            throw new \InvalidArgumentException('non-nullable processing_rule_source cannot be null');
+        }
+        $allowedValues = $this->getProcessingRuleSourceAllowableValues();
+        if (!in_array($processing_rule_source, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'processing_rule_source', must be one of '%s'",
+                    $processing_rule_source,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['processing_rule_source'] = $processing_rule_source;
+
+        return $this;
+    }
+
+    /**
+     * Gets flow_direction
+     *
+     * @return \FactPulse\SDK\Model\AFNORFlowDirection
+     */
+    public function getFlowDirection()
+    {
+        return $this->container['flow_direction'];
+    }
+
+    /**
+     * Sets flow_direction
+     *
+     * @param \FactPulse\SDK\Model\AFNORFlowDirection $flow_direction flow_direction
+     *
+     * @return self
+     */
+    public function setFlowDirection($flow_direction)
+    {
+        if (is_null($flow_direction)) {
+            throw new \InvalidArgumentException('non-nullable flow_direction cannot be null');
+        }
+        $this->container['flow_direction'] = $flow_direction;
+
+        return $this;
+    }
+
+    /**
      * Gets acknowledgement
      *
-     * @return \FactPulse\SDK\Model\AFNORAcknowledgement|null
+     * @return \FactPulse\SDK\Model\AFNORAcknowledgement
      */
     public function getAcknowledgement()
     {
@@ -694,7 +763,7 @@ class AFNORFlow implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets acknowledgement
      *
-     * @param \FactPulse\SDK\Model\AFNORAcknowledgement|null $acknowledgement acknowledgement
+     * @param \FactPulse\SDK\Model\AFNORAcknowledgement $acknowledgement acknowledgement
      *
      * @return self
      */

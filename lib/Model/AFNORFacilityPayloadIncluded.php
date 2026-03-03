@@ -62,7 +62,6 @@ class AFNORFacilityPayloadIncluded implements ModelInterface, ArrayAccess, \Json
         'siren' => 'string',
         'name' => 'string',
         'facility_type' => '\FactPulse\SDK\Model\AFNORFacilityType',
-        'diffusible' => '\FactPulse\SDK\Model\AFNORDiffusionStatus',
         'administrative_status' => '\FactPulse\SDK\Model\AFNORFacilityAdministrativeStatus',
         'address' => '\FactPulse\SDK\Model\AFNORAddressRead',
         'b2g_additional_data' => '\FactPulse\SDK\Model\AFNORFacilityPayloadHistoryUleB2gAdditionalData'
@@ -80,7 +79,6 @@ class AFNORFacilityPayloadIncluded implements ModelInterface, ArrayAccess, \Json
         'siren' => null,
         'name' => null,
         'facility_type' => null,
-        'diffusible' => null,
         'administrative_status' => null,
         'address' => null,
         'b2g_additional_data' => null
@@ -96,7 +94,6 @@ class AFNORFacilityPayloadIncluded implements ModelInterface, ArrayAccess, \Json
         'siren' => false,
         'name' => false,
         'facility_type' => false,
-        'diffusible' => false,
         'administrative_status' => false,
         'address' => false,
         'b2g_additional_data' => false
@@ -192,7 +189,6 @@ class AFNORFacilityPayloadIncluded implements ModelInterface, ArrayAccess, \Json
         'siren' => 'siren',
         'name' => 'name',
         'facility_type' => 'facilityType',
-        'diffusible' => 'diffusible',
         'administrative_status' => 'administrativeStatus',
         'address' => 'address',
         'b2g_additional_data' => 'b2gAdditionalData'
@@ -208,7 +204,6 @@ class AFNORFacilityPayloadIncluded implements ModelInterface, ArrayAccess, \Json
         'siren' => 'setSiren',
         'name' => 'setName',
         'facility_type' => 'setFacilityType',
-        'diffusible' => 'setDiffusible',
         'administrative_status' => 'setAdministrativeStatus',
         'address' => 'setAddress',
         'b2g_additional_data' => 'setB2gAdditionalData'
@@ -224,7 +219,6 @@ class AFNORFacilityPayloadIncluded implements ModelInterface, ArrayAccess, \Json
         'siren' => 'getSiren',
         'name' => 'getName',
         'facility_type' => 'getFacilityType',
-        'diffusible' => 'getDiffusible',
         'administrative_status' => 'getAdministrativeStatus',
         'address' => 'getAddress',
         'b2g_additional_data' => 'getB2gAdditionalData'
@@ -291,7 +285,6 @@ class AFNORFacilityPayloadIncluded implements ModelInterface, ArrayAccess, \Json
         $this->setIfExists('siren', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('facility_type', $data ?? [], null);
-        $this->setIfExists('diffusible', $data ?? [], null);
         $this->setIfExists('administrative_status', $data ?? [], null);
         $this->setIfExists('address', $data ?? [], null);
         $this->setIfExists('b2g_additional_data', $data ?? [], null);
@@ -481,33 +474,6 @@ class AFNORFacilityPayloadIncluded implements ModelInterface, ArrayAccess, \Json
             throw new \InvalidArgumentException('non-nullable facility_type cannot be null');
         }
         $this->container['facility_type'] = $facility_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets diffusible
-     *
-     * @return \FactPulse\SDK\Model\AFNORDiffusionStatus|null
-     */
-    public function getDiffusible()
-    {
-        return $this->container['diffusible'];
-    }
-
-    /**
-     * Sets diffusible
-     *
-     * @param \FactPulse\SDK\Model\AFNORDiffusionStatus|null $diffusible diffusible
-     *
-     * @return self
-     */
-    public function setDiffusible($diffusible)
-    {
-        if (is_null($diffusible)) {
-            throw new \InvalidArgumentException('non-nullable diffusible cannot be null');
-        }
-        $this->container['diffusible'] = $diffusible;
 
         return $this;
     }

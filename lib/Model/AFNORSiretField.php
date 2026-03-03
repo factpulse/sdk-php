@@ -52,11 +52,11 @@ class AFNORSiretField
 
     public const FACILITY_TYPE = 'facilityType';
 
-    public const ADDRESS = 'address';
-
-    public const DIFFUSIBLE = 'diffusible';
-
     public const ADMINISTRATIVE_STATUS = 'administrativeStatus';
+
+    public const SIRET_INSTRUCTIONS = 'siretInstructions';
+
+    public const ADDRESS = 'address';
 
     public const PM_STATUS = 'pmStatus';
 
@@ -70,8 +70,6 @@ class AFNORSiretField
 
     public const SERVICE_CODE_STATUS = 'serviceCodeStatus';
 
-    public const ID_INSTANCE = 'idInstance';
-
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -83,16 +81,15 @@ class AFNORSiretField
             self::SIREN,
             self::NAME,
             self::FACILITY_TYPE,
-            self::ADDRESS,
-            self::DIFFUSIBLE,
             self::ADMINISTRATIVE_STATUS,
+            self::SIRET_INSTRUCTIONS,
+            self::ADDRESS,
             self::PM_STATUS,
             self::PM_ONLY,
             self::MANAGES_PAYMENT_STATUS,
             self::MANAGES_LEGAL_COMMITMENT,
             self::MANAGES_LEGAL_COMMITMENT_OR_SERVICE,
-            self::SERVICE_CODE_STATUS,
-            self::ID_INSTANCE
+            self::SERVICE_CODE_STATUS
         ];
     }
 }

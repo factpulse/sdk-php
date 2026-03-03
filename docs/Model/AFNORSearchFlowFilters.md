@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**updated_after** | **\DateTime** |  | [optional]
+**updated_after** | **\DateTime** | The comparison with current date is strict : updatedAt &gt; updatedAfter | [optional]
 **updated_before** | **\DateTime** |  | [optional]
 **processing_rule** | [**\FactPulse\SDK\Model\AFNORProcessingRule[]**](AFNORProcessingRule.md) |  | [optional]
 **flow_type** | [**\FactPulse\SDK\Model\AFNORFlowType[]**](AFNORFlowType.md) |  | [optional]

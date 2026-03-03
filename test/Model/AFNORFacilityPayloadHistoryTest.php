@@ -117,18 +117,18 @@ class AFNORFacilityPayloadHistoryTest extends TestCase
     }
 
     /**
-     * Test attribute "diffusible"
+     * Test attribute "administrative_status"
      */
-    public function testPropertyDiffusible()
+    public function testPropertyAdministrativeStatus()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "administrative_status"
+     * Test attribute "siret_instructions"
      */
-    public function testPropertyAdministrativeStatus()
+    public function testPropertySiretInstructions()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

@@ -61,7 +61,7 @@ class InvoiceInput implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'invoice_id' => 'string',
         'issue_date' => '\DateTime',
-        'type_code' => '\FactPulse\SDK\Model\InvoiceTypeCode',
+        'type_code' => '\FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCode',
         'currency' => '\FactPulse\SDK\Model\Currency',
         'due_date' => '\DateTime',
         'seller_id' => 'string',
@@ -482,7 +482,7 @@ class InvoiceInput implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets type_code
      *
-     * @return \FactPulse\SDK\Model\InvoiceTypeCode|null
+     * @return \FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCode|null
      */
     public function getTypeCode()
     {
@@ -492,7 +492,7 @@ class InvoiceInput implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type_code
      *
-     * @param \FactPulse\SDK\Model\InvoiceTypeCode|null $type_code Invoice type code
+     * @param \FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCode|null $type_code Invoice type code
      *
      * @return self
      */

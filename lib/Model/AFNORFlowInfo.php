@@ -36,7 +36,7 @@ use \FactPulse\SDK\ObjectSerializer;
  * AFNORFlowInfo Class Doc Comment
  *
  * @category Class
- * @description Signaling of the flow: - The tracking id is an external identifier and is used to track the flow by the sender - The sha256 is the fingerprint of the attached file:   - if provided in the request: it should be checked once received   - if not provided in the request: it should be computed and returned in the response
+ * @description Signaling of the flow
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -80,7 +80,7 @@ class AFNORFlowInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'processing_rule' => null,
         'flow_syntax' => null,
         'flow_profile' => null,
-        'sha256' => null
+        'sha256' => 'byte'
     ];
 
     /**
@@ -315,7 +315,10 @@ class AFNORFlowInfo implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'tracking_id', the character length must be smaller than or equal to 36.";
         }
 
-        if (!is_null($this->container['name']) && (mb_strlen($this->container['name']) > 255)) {
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ((mb_strlen($this->container['name']) > 255)) {
             $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 255.";
         }
 
@@ -354,7 +357,7 @@ class AFNORFlowInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tracking_id
      *
-     * @param string|null $tracking_id Unique identifier supporting UUID but not only, for flexibility purpose
+     * @param string|null $tracking_id The tracking id is an external identifier and is used to track the flow by the sender
      *
      * @return self
      */
@@ -375,7 +378,7 @@ class AFNORFlowInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets name
      *
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -385,7 +388,7 @@ class AFNORFlowInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string|null $name Name of the file
+     * @param string $name Name of the file
      *
      * @return self
      */
@@ -497,7 +500,7 @@ class AFNORFlowInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets sha256
      *
-     * @param string|null $sha256 sha256
+     * @param string|null $sha256 The sha256 is the fingerprint of the attached file: - if provided in the request: it should be checked once received - if not provided in the request: it may be computed and returned in the response
      *
      * @return self
      */

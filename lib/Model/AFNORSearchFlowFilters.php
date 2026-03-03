@@ -350,7 +350,7 @@ class AFNORSearchFlowFilters implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets updated_after
      *
-     * @param \DateTime|null $updated_after updated_after
+     * @param \DateTime|null $updated_after The comparison with current date is strict : updatedAt > updatedAfter
      *
      * @return self
      */

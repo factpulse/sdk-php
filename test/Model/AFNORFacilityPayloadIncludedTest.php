@@ -117,15 +117,6 @@ class AFNORFacilityPayloadIncludedTest extends TestCase
     }
 
     /**
-     * Test attribute "diffusible"
-     */
-    public function testPropertyDiffusible()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "administrative_status"
      */
     public function testPropertyAdministrativeStatus()

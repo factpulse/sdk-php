@@ -34,7 +34,7 @@ use \FactPulse\SDK\ObjectSerializer;
  * AFNORRecipientPlatformType Class Doc Comment
  *
  * @category Class
- * @description The type of platform for document reception
+ * @description The type of platform for document reception (from UNCL 3035 list) :   - WK : Value added network provider (PA)   - DFH : Government service requestor (PPF)
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

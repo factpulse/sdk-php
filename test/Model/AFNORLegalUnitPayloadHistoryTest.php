@@ -115,4 +115,13 @@ class AFNORLegalUnitPayloadHistoryTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "instructions"
+     */
+    public function testPropertyInstructions()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

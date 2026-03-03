@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * AFNORErrorTest Class Doc Comment
  *
  * @category    Class
- * @description AFNORError
+ * @description Error code
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -81,27 +81,27 @@ class AFNORErrorTest extends TestCase
     }
 
     /**
+     * Test attribute "error_code"
+     */
+    public function testPropertyErrorCode()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "error_message"
+     */
+    public function testPropertyErrorMessage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "type"
      */
     public function testPropertyType()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "message"
-     */
-    public function testPropertyMessage()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "status"
-     */
-    public function testPropertyStatus()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

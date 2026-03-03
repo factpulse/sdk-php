@@ -54,8 +54,6 @@ class AFNORDirectoryLineField
 
     public const ADDRESSING_SUFFIX = 'addressingSuffix';
 
-    public const ID_INSTANCE = 'idInstance';
-
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -67,8 +65,7 @@ class AFNORDirectoryLineField
             self::SIREN,
             self::SIRET,
             self::ROUTING_IDENTIFIER,
-            self::ADDRESSING_SUFFIX,
-            self::ID_INSTANCE
+            self::ADDRESSING_SUFFIX
         ];
     }
 }

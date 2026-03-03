@@ -58,7 +58,7 @@ class AFNORSearchSiretFiltersPostalCode implements ModelInterface, ArrayAccess, 
       * @var string[]
       */
     protected static $openAPITypes = [
-        'op' => '\FactPulse\SDK\Model\AFNORContainsOperator',
+        'op' => '\FactPulse\SDK\Model\AFNORStrictOrStartWithOperator',
         'value' => 'string'
     ];
 
@@ -308,7 +308,7 @@ class AFNORSearchSiretFiltersPostalCode implements ModelInterface, ArrayAccess, 
     /**
      * Gets op
      *
-     * @return \FactPulse\SDK\Model\AFNORContainsOperator|null
+     * @return \FactPulse\SDK\Model\AFNORStrictOrStartWithOperator|null
      */
     public function getOp()
     {
@@ -318,7 +318,7 @@ class AFNORSearchSiretFiltersPostalCode implements ModelInterface, ArrayAccess, 
     /**
      * Sets op
      *
-     * @param \FactPulse\SDK\Model\AFNORContainsOperator|null $op op
+     * @param \FactPulse\SDK\Model\AFNORStrictOrStartWithOperator|null $op op
      *
      * @return self
      */

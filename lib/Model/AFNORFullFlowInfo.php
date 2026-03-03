@@ -59,14 +59,14 @@ class AFNORFullFlowInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
+        'flow_id' => 'string',
+        'submitted_at' => '\DateTime',
         'tracking_id' => 'string',
         'name' => 'string',
         'processing_rule' => '\FactPulse\SDK\Model\AFNORProcessingRule',
         'flow_syntax' => '\FactPulse\SDK\Model\AFNORFlowSyntax',
         'flow_profile' => '\FactPulse\SDK\Model\AFNORFlowProfile',
-        'sha256' => 'string',
-        'flow_id' => 'string',
-        'submitted_at' => '\DateTime'
+        'sha256' => 'string'
     ];
 
     /**
@@ -77,14 +77,14 @@ class AFNORFullFlowInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'flow_id' => null,
+        'submitted_at' => 'date-time',
         'tracking_id' => null,
         'name' => null,
         'processing_rule' => null,
         'flow_syntax' => null,
         'flow_profile' => null,
-        'sha256' => null,
-        'flow_id' => null,
-        'submitted_at' => 'date-time'
+        'sha256' => 'byte'
     ];
 
     /**
@@ -93,14 +93,14 @@ class AFNORFullFlowInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'flow_id' => false,
+        'submitted_at' => false,
         'tracking_id' => false,
         'name' => false,
         'processing_rule' => false,
         'flow_syntax' => false,
         'flow_profile' => false,
-        'sha256' => false,
-        'flow_id' => false,
-        'submitted_at' => false
+        'sha256' => false
     ];
 
     /**
@@ -189,14 +189,14 @@ class AFNORFullFlowInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
+        'flow_id' => 'flowId',
+        'submitted_at' => 'submittedAt',
         'tracking_id' => 'trackingId',
         'name' => 'name',
         'processing_rule' => 'processingRule',
         'flow_syntax' => 'flowSyntax',
         'flow_profile' => 'flowProfile',
-        'sha256' => 'sha256',
-        'flow_id' => 'flowId',
-        'submitted_at' => 'submittedAt'
+        'sha256' => 'sha256'
     ];
 
     /**
@@ -205,14 +205,14 @@ class AFNORFullFlowInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
+        'flow_id' => 'setFlowId',
+        'submitted_at' => 'setSubmittedAt',
         'tracking_id' => 'setTrackingId',
         'name' => 'setName',
         'processing_rule' => 'setProcessingRule',
         'flow_syntax' => 'setFlowSyntax',
         'flow_profile' => 'setFlowProfile',
-        'sha256' => 'setSha256',
-        'flow_id' => 'setFlowId',
-        'submitted_at' => 'setSubmittedAt'
+        'sha256' => 'setSha256'
     ];
 
     /**
@@ -221,14 +221,14 @@ class AFNORFullFlowInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
+        'flow_id' => 'getFlowId',
+        'submitted_at' => 'getSubmittedAt',
         'tracking_id' => 'getTrackingId',
         'name' => 'getName',
         'processing_rule' => 'getProcessingRule',
         'flow_syntax' => 'getFlowSyntax',
         'flow_profile' => 'getFlowProfile',
-        'sha256' => 'getSha256',
-        'flow_id' => 'getFlowId',
-        'submitted_at' => 'getSubmittedAt'
+        'sha256' => 'getSha256'
     ];
 
     /**
@@ -288,14 +288,14 @@ class AFNORFullFlowInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('flow_id', $data ?? [], null);
+        $this->setIfExists('submitted_at', $data ?? [], null);
         $this->setIfExists('tracking_id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('processing_rule', $data ?? [], null);
         $this->setIfExists('flow_syntax', $data ?? [], null);
         $this->setIfExists('flow_profile', $data ?? [], null);
         $this->setIfExists('sha256', $data ?? [], null);
-        $this->setIfExists('flow_id', $data ?? [], null);
-        $this->setIfExists('submitted_at', $data ?? [], null);
     }
 
     /**
@@ -325,11 +325,24 @@ class AFNORFullFlowInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
+        if ($this->container['flow_id'] === null) {
+            $invalidProperties[] = "'flow_id' can't be null";
+        }
+        if ((mb_strlen($this->container['flow_id']) > 36)) {
+            $invalidProperties[] = "invalid value for 'flow_id', the character length must be smaller than or equal to 36.";
+        }
+
+        if ($this->container['submitted_at'] === null) {
+            $invalidProperties[] = "'submitted_at' can't be null";
+        }
         if (!is_null($this->container['tracking_id']) && (mb_strlen($this->container['tracking_id']) > 36)) {
             $invalidProperties[] = "invalid value for 'tracking_id', the character length must be smaller than or equal to 36.";
         }
 
-        if (!is_null($this->container['name']) && (mb_strlen($this->container['name']) > 255)) {
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ((mb_strlen($this->container['name']) > 255)) {
             $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 255.";
         }
 
@@ -338,10 +351,6 @@ class AFNORFullFlowInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
         }
         if (!is_null($this->container['sha256']) && !preg_match("/^[a-f0-9]{64}$/", $this->container['sha256'])) {
             $invalidProperties[] = "invalid value for 'sha256', must be conform to the pattern /^[a-f0-9]{64}$/.";
-        }
-
-        if (!is_null($this->container['flow_id']) && (mb_strlen($this->container['flow_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'flow_id', the character length must be smaller than or equal to 36.";
         }
 
         return $invalidProperties;
@@ -360,6 +369,64 @@ class AFNORFullFlowInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
+     * Gets flow_id
+     *
+     * @return string
+     */
+    public function getFlowId()
+    {
+        return $this->container['flow_id'];
+    }
+
+    /**
+     * Sets flow_id
+     *
+     * @param string $flow_id Unique identifier supporting UUID but not only, for flexibility purpose
+     *
+     * @return self
+     */
+    public function setFlowId($flow_id)
+    {
+        if (is_null($flow_id)) {
+            throw new \InvalidArgumentException('non-nullable flow_id cannot be null');
+        }
+        if ((mb_strlen($flow_id) > 36)) {
+            throw new \InvalidArgumentException('invalid length for $flow_id when calling AFNORFullFlowInfo., must be smaller than or equal to 36.');
+        }
+
+        $this->container['flow_id'] = $flow_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets submitted_at
+     *
+     * @return \DateTime
+     */
+    public function getSubmittedAt()
+    {
+        return $this->container['submitted_at'];
+    }
+
+    /**
+     * Sets submitted_at
+     *
+     * @param \DateTime $submitted_at The flow submission date and time (the date and time when the flow was created on the system) This property should be used by the API consumer as a time reference to avoid clock synchronization issues
+     *
+     * @return self
+     */
+    public function setSubmittedAt($submitted_at)
+    {
+        if (is_null($submitted_at)) {
+            throw new \InvalidArgumentException('non-nullable submitted_at cannot be null');
+        }
+        $this->container['submitted_at'] = $submitted_at;
+
+        return $this;
+    }
+
+    /**
      * Gets tracking_id
      *
      * @return string|null
@@ -372,7 +439,7 @@ class AFNORFullFlowInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets tracking_id
      *
-     * @param string|null $tracking_id Unique identifier supporting UUID but not only, for flexibility purpose
+     * @param string|null $tracking_id The tracking id is an external identifier and is used to track the flow by the sender
      *
      * @return self
      */
@@ -393,7 +460,7 @@ class AFNORFullFlowInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets name
      *
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -403,7 +470,7 @@ class AFNORFullFlowInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets name
      *
-     * @param string|null $name Name of the file
+     * @param string $name Name of the file
      *
      * @return self
      */
@@ -515,7 +582,7 @@ class AFNORFullFlowInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets sha256
      *
-     * @param string|null $sha256 sha256
+     * @param string|null $sha256 The sha256 is the fingerprint of the attached file: - if provided in the request: it should be checked once received - if not provided in the request: it may be computed and returned in the response
      *
      * @return self
      */
@@ -530,64 +597,6 @@ class AFNORFullFlowInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
         }
 
         $this->container['sha256'] = $sha256;
-
-        return $this;
-    }
-
-    /**
-     * Gets flow_id
-     *
-     * @return string|null
-     */
-    public function getFlowId()
-    {
-        return $this->container['flow_id'];
-    }
-
-    /**
-     * Sets flow_id
-     *
-     * @param string|null $flow_id Unique identifier supporting UUID but not only, for flexibility purpose
-     *
-     * @return self
-     */
-    public function setFlowId($flow_id)
-    {
-        if (is_null($flow_id)) {
-            throw new \InvalidArgumentException('non-nullable flow_id cannot be null');
-        }
-        if ((mb_strlen($flow_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $flow_id when calling AFNORFullFlowInfo., must be smaller than or equal to 36.');
-        }
-
-        $this->container['flow_id'] = $flow_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets submitted_at
-     *
-     * @return \DateTime|null
-     */
-    public function getSubmittedAt()
-    {
-        return $this->container['submitted_at'];
-    }
-
-    /**
-     * Sets submitted_at
-     *
-     * @param \DateTime|null $submitted_at The flow submission date and time (the date and time when the flow was created on the system) This property should be used by the API consumer as a time reference to avoid clock synchronization issues
-     *
-     * @return self
-     */
-    public function setSubmittedAt($submitted_at)
-    {
-        if (is_null($submitted_at)) {
-            throw new \InvalidArgumentException('non-nullable submitted_at cannot be null');
-        }
-        $this->container['submitted_at'] = $submitted_at;
 
         return $this;
     }

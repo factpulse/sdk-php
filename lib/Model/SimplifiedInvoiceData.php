@@ -68,7 +68,7 @@ class SimplifiedInvoiceData implements ModelInterface, ArrayAccess, \JsonSeriali
         'comment' => 'string',
         'purchase_order_reference' => 'string',
         'contract_reference' => 'string',
-        'invoice_type' => '\FactPulse\SDK\Model\FactureElectroniqueModelsInvoiceTypeCode',
+        'invoice_type' => '\FactPulse\SDK\Model\InvoiceTypeCode',
         'preceding_invoice_reference' => 'string',
         'operation_nature' => '\FactPulse\SDK\Model\OperationNature',
         'invoicing_framework' => '\FactPulse\SDK\Model\InvoicingFrameworkCode'
@@ -686,7 +686,7 @@ class SimplifiedInvoiceData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets invoice_type
      *
-     * @return \FactPulse\SDK\Model\FactureElectroniqueModelsInvoiceTypeCode|null
+     * @return \FactPulse\SDK\Model\InvoiceTypeCode|null
      */
     public function getInvoiceType()
     {
@@ -696,7 +696,7 @@ class SimplifiedInvoiceData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets invoice_type
      *
-     * @param \FactPulse\SDK\Model\FactureElectroniqueModelsInvoiceTypeCode|null $invoice_type Document type (UNTDID 1001). Default: 380 (Invoice).
+     * @param \FactPulse\SDK\Model\InvoiceTypeCode|null $invoice_type Document type (UNTDID 1001). Default: 380 (Invoice).
      *
      * @return self
      */

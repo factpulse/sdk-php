@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * ChorusProCredentialsTest Class Doc Comment
  *
  * @category    Class
- * @description Optional Chorus Pro credentials.  **MODE 1 - JWT retrieval (recommended):** Do not provide this &#x60;credentials&#x60; field in the payload. Credentials will be automatically retrieved via client_uid from JWT (0-trust).  **MODE 2 - Credentials in payload:** Provide all required fields below. Useful for tests or third-party integrations.
+ * @description Chorus Pro credentials for Zero-Trust mode.  **Zero-Trust Mode**: Credentials are passed in each request and are NEVER stored.  **Security**: - Credentials are never persisted in the database - They are used only for the duration of the request - Secure transmission via HTTPS  **Use cases**: - High-security environments (banks, administrations) - Strict GDPR compliance - Tests with temporary credentials - Users who don&#39;t want to store their credentials
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -99,27 +99,27 @@ class ChorusProCredentialsTest extends TestCase
     }
 
     /**
-     * Test attribute "chorus_login"
+     * Test attribute "chorus_pro_login"
      */
-    public function testPropertyChorusLogin()
+    public function testPropertyChorusProLogin()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "chorus_password"
+     * Test attribute "chorus_pro_password"
      */
-    public function testPropertyChorusPassword()
+    public function testPropertyChorusProPassword()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "sandbox_mode"
+     * Test attribute "sandbox"
      */
-    public function testPropertySandboxMode()
+    public function testPropertySandbox()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
