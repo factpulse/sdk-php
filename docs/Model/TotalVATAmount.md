@@ -1,4 +1,4 @@
-# # TotalVATAmount
+# TotalVATAmount
 
 ## Properties
 

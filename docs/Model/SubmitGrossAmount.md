@@ -1,4 +1,4 @@
-# # SubmitGrossAmount
+# SubmitGrossAmount
 
 ## Properties
 

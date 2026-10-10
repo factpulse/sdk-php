@@ -1,4 +1,4 @@
-# # GenerateAggregatedReportResponse
+# GenerateAggregatedReportResponse
 
 ## Properties
 

@@ -10,11 +10,9 @@ All URIs are relative to https://factpulse.fr, except if the operation defines a
 | [**deleteWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidDelete()**](AFNORPDPPAFlowServiceApi.md#deleteWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidDelete) | **DELETE** /api/v1/afnor/flow/v1/webhooks/{webhookUid} | Delete a webhook |
 | [**downloadFlowProxyApiV1AfnorFlowV1FlowsFlowIdGet()**](AFNORPDPPAFlowServiceApi.md#downloadFlowProxyApiV1AfnorFlowV1FlowsFlowIdGet) | **GET** /api/v1/afnor/flow/v1/flows/{flowId} | Download a flow |
 | [**flowHealthcheckProxyApiV1AfnorFlowV1HealthcheckGet()**](AFNORPDPPAFlowServiceApi.md#flowHealthcheckProxyApiV1AfnorFlowV1HealthcheckGet) | **GET** /api/v1/afnor/flow/v1/healthcheck | Healthcheck Flow Service |
-| [**getWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGet()**](AFNORPDPPAFlowServiceApi.md#getWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGet) | **GET** /api/v1/afnor/flow/v1/webhooks/{webhookUid} | Get a webhook |
 | [**listWebhooksProxyApiV1AfnorFlowV1WebhooksGet()**](AFNORPDPPAFlowServiceApi.md#listWebhooksProxyApiV1AfnorFlowV1WebhooksGet) | **GET** /api/v1/afnor/flow/v1/webhooks | List webhooks |
 | [**searchFlowsProxyApiV1AfnorFlowV1FlowsSearchPost()**](AFNORPDPPAFlowServiceApi.md#searchFlowsProxyApiV1AfnorFlowV1FlowsSearchPost) | **POST** /api/v1/afnor/flow/v1/flows/search | Search flows |
 | [**submitFlowProxyApiV1AfnorFlowV1FlowsPost()**](AFNORPDPPAFlowServiceApi.md#submitFlowProxyApiV1AfnorFlowV1FlowsPost) | **POST** /api/v1/afnor/flow/v1/flows | Submit an invoicing flow |
-| [**updateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatch()**](AFNORPDPPAFlowServiceApi.md#updateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatch) | **PATCH** /api/v1/afnor/flow/v1/webhooks/{webhookUid} | Update a webhook |
 
 
 ## `createWebhookProxyApiV1AfnorFlowV1WebhooksPost()`
@@ -25,7 +23,7 @@ createWebhookProxyApiV1AfnorFlowV1WebhooksPost(): mixed
 
 Create a webhook
 
-Register a new webhook subscription (AFNOR XP Z12-013 v1.2.0)
+Register a new webhook subscription (AFNOR XP Z12-013 v1.3.0)
 
 ### Example
 
@@ -78,7 +76,7 @@ deleteWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidDelete($webhook_uid): mixed
 
 Delete a webhook
 
-Delete a webhook subscription (AFNOR XP Z12-013 v1.2.0)
+Delete a webhook subscription (AFNOR XP Z12-013 v1.3.0)
 
 ### Example
 
@@ -237,62 +235,6 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGet()`
-
-```php
-getWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGet($webhook_uid): \FactPulse\SDK\Model\AFNORWebhook
-```
-
-Get a webhook
-
-Get details of a specific webhook (AFNOR XP Z12-013 v1.2.0)
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new FactPulse\SDK\Api\AFNORPDPPAFlowServiceApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$webhook_uid = 'webhook_uid_example'; // string | Webhook unique identifier (UUID)
-
-try {
-    $result = $apiInstance->getWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGet($webhook_uid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling AFNORPDPPAFlowServiceApi->getWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidGet: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **webhook_uid** | **string**| Webhook unique identifier (UUID) | |
-
-### Return type
-
-[**\FactPulse\SDK\Model\AFNORWebhook**](../Model/AFNORWebhook.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
 ## `listWebhooksProxyApiV1AfnorFlowV1WebhooksGet()`
 
 ```php
@@ -301,7 +243,7 @@ listWebhooksProxyApiV1AfnorFlowV1WebhooksGet(): \FactPulse\SDK\Model\AFNORWebhoo
 
 List webhooks
 
-List all registered webhooks (AFNOR XP Z12-013 v1.2.0)
+List all registered webhooks (AFNOR XP Z12-013 v1.3.0)
 
 ### Example
 
@@ -454,62 +396,6 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `multipart/form-data`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `updateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatch()`
-
-```php
-updateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatch($webhook_uid): \FactPulse\SDK\Model\AFNORWebhook
-```
-
-Update a webhook
-
-Partially update a webhook subscription (AFNOR XP Z12-013 v1.2.0)
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new FactPulse\SDK\Api\AFNORPDPPAFlowServiceApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$webhook_uid = 'webhook_uid_example'; // string | Webhook unique identifier (UUID)
-
-try {
-    $result = $apiInstance->updateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatch($webhook_uid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling AFNORPDPPAFlowServiceApi->updateWebhookProxyApiV1AfnorFlowV1WebhooksWebhookUidPatch: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **webhook_uid** | **string**| Webhook unique identifier (UUID) | |
-
-### Return type
-
-[**\FactPulse\SDK\Model\AFNORWebhook**](../Model/AFNORWebhook.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

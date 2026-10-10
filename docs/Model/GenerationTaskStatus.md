@@ -1,4 +1,4 @@
-# # GenerationTaskStatus
+# GenerationTaskStatus
 
 ## Properties
 

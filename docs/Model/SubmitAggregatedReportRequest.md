@@ -1,4 +1,4 @@
-# # SubmitAggregatedReportRequest
+# SubmitAggregatedReportRequest
 
 ## Properties
 

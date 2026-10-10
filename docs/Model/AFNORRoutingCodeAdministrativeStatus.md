@@ -1,4 +1,4 @@
-# # AFNORRoutingCodeAdministrativeStatus
+# AFNORRoutingCodeAdministrativeStatus
 
 ## Properties
 

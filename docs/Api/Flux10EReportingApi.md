@@ -324,7 +324,7 @@ No authorization required
 ## `submitAggregatedEreportingApiV1EreportingSubmitAggregatedPost()`
 
 ```php
-submitAggregatedEreportingApiV1EreportingSubmitAggregatedPost($submit_aggregated_report_request): \FactPulse\SDK\Model\SubmitEReportingResponse
+submitAggregatedEreportingApiV1EreportingSubmitAggregatedPost($submit_aggregated_report_request, $organization_id): \FactPulse\SDK\Model\SubmitEReportingResponse
 ```
 
 Submit aggregated e-reporting to PA/PDP
@@ -349,9 +349,10 @@ $apiInstance = new FactPulse\SDK\Api\Flux10EReportingApi(
     $config
 );
 $submit_aggregated_report_request = new \FactPulse\SDK\Model\SubmitAggregatedReportRequest(); // \FactPulse\SDK\Model\SubmitAggregatedReportRequest
+$organization_id = 'organization_id_example'; // string | Organization ID relayed to the PDP (AFNOR XP Z12-013 delegation / multi-tenancy). Required by some PDPs to select the client space.
 
 try {
-    $result = $apiInstance->submitAggregatedEreportingApiV1EreportingSubmitAggregatedPost($submit_aggregated_report_request);
+    $result = $apiInstance->submitAggregatedEreportingApiV1EreportingSubmitAggregatedPost($submit_aggregated_report_request, $organization_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Flux10EReportingApi->submitAggregatedEreportingApiV1EreportingSubmitAggregatedPost: ', $e->getMessage(), PHP_EOL;
@@ -363,6 +364,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **submit_aggregated_report_request** | [**\FactPulse\SDK\Model\SubmitAggregatedReportRequest**](../Model/SubmitAggregatedReportRequest.md)|  | |
+| **organization_id** | **string**| Organization ID relayed to the PDP (AFNOR XP Z12-013 delegation / multi-tenancy). Required by some PDPs to select the client space. | [optional] |
 
 ### Return type
 
@@ -384,7 +386,7 @@ try {
 ## `submitEreportingApiV1EreportingSubmitPost()`
 
 ```php
-submitEreportingApiV1EreportingSubmitPost($submit_e_reporting_request): \FactPulse\SDK\Model\SubmitEReportingResponse
+submitEreportingApiV1EreportingSubmitPost($submit_e_reporting_request, $organization_id): \FactPulse\SDK\Model\SubmitEReportingResponse
 ```
 
 Submit e-reporting to PA/PDP
@@ -409,9 +411,10 @@ $apiInstance = new FactPulse\SDK\Api\Flux10EReportingApi(
     $config
 );
 $submit_e_reporting_request = new \FactPulse\SDK\Model\SubmitEReportingRequest(); // \FactPulse\SDK\Model\SubmitEReportingRequest
+$organization_id = 'organization_id_example'; // string | Organization ID relayed to the PDP (AFNOR XP Z12-013 delegation / multi-tenancy). Required by some PDPs to select the client space.
 
 try {
-    $result = $apiInstance->submitEreportingApiV1EreportingSubmitPost($submit_e_reporting_request);
+    $result = $apiInstance->submitEreportingApiV1EreportingSubmitPost($submit_e_reporting_request, $organization_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Flux10EReportingApi->submitEreportingApiV1EreportingSubmitPost: ', $e->getMessage(), PHP_EOL;
@@ -423,6 +426,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **submit_e_reporting_request** | [**\FactPulse\SDK\Model\SubmitEReportingRequest**](../Model/SubmitEReportingRequest.md)|  | |
+| **organization_id** | **string**| Organization ID relayed to the PDP (AFNOR XP Z12-013 delegation / multi-tenancy). Required by some PDPs to select the client space. | [optional] |
 
 ### Return type
 
@@ -444,7 +448,7 @@ try {
 ## `submitXmlEreportingApiV1EreportingSubmitXmlPost()`
 
 ```php
-submitXmlEreportingApiV1EreportingSubmitXmlPost($xml_file, $tracking_id, $skip_validation, $pdp_flow_service_url, $pdp_token_url, $pdp_client_id, $pdp_client_secret): \FactPulse\SDK\Model\SubmitEReportingResponse
+submitXmlEreportingApiV1EreportingSubmitXmlPost($xml_file, $organization_id, $tracking_id, $skip_validation, $pdp_flow_service_url, $pdp_token_url, $pdp_client_id, $pdp_client_secret): \FactPulse\SDK\Model\SubmitEReportingResponse
 ```
 
 Submit pre-generated e-reporting XML
@@ -469,6 +473,7 @@ $apiInstance = new FactPulse\SDK\Api\Flux10EReportingApi(
     $config
 );
 $xml_file = '/path/to/file.txt'; // \SplFileObject | E-reporting XML file
+$organization_id = 'organization_id_example'; // string | Organization ID relayed to the PDP (AFNOR XP Z12-013 delegation / multi-tenancy). Required by some PDPs to select the client space.
 $tracking_id = 'tracking_id_example'; // string
 $skip_validation = false; // bool | Skip XSD validation
 $pdp_flow_service_url = 'pdp_flow_service_url_example'; // string
@@ -477,7 +482,7 @@ $pdp_client_id = 'pdp_client_id_example'; // string
 $pdp_client_secret = 'pdp_client_secret_example'; // string
 
 try {
-    $result = $apiInstance->submitXmlEreportingApiV1EreportingSubmitXmlPost($xml_file, $tracking_id, $skip_validation, $pdp_flow_service_url, $pdp_token_url, $pdp_client_id, $pdp_client_secret);
+    $result = $apiInstance->submitXmlEreportingApiV1EreportingSubmitXmlPost($xml_file, $organization_id, $tracking_id, $skip_validation, $pdp_flow_service_url, $pdp_token_url, $pdp_client_id, $pdp_client_secret);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Flux10EReportingApi->submitXmlEreportingApiV1EreportingSubmitXmlPost: ', $e->getMessage(), PHP_EOL;
@@ -489,6 +494,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **xml_file** | **\SplFileObject****\SplFileObject**| E-reporting XML file | |
+| **organization_id** | **string**| Organization ID relayed to the PDP (AFNOR XP Z12-013 delegation / multi-tenancy). Required by some PDPs to select the client space. | [optional] |
 | **tracking_id** | **string**|  | [optional] |
 | **skip_validation** | **bool**| Skip XSD validation | [optional] [default to false] |
 | **pdp_flow_service_url** | **string**|  | [optional] |

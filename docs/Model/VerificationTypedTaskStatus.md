@@ -1,4 +1,4 @@
-# # VerificationTypedTaskStatus
+# VerificationTypedTaskStatus
 
 ## Properties
 

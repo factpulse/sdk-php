@@ -1,4 +1,4 @@
-# # LineSubType
+# LineSubType
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # WebhookSecretGenerateResponse
+# WebhookSecretGenerateResponse
 
 ## Properties
 

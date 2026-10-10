@@ -1,4 +1,4 @@
-# # CreateAggregatedReportRequest
+# CreateAggregatedReportRequest
 
 ## Properties
 

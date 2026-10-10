@@ -1,4 +1,4 @@
-# # AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCodeRoutingCode
+# AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCodeRoutingCode
 
 ## Properties
 

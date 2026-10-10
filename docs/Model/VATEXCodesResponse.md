@@ -1,4 +1,4 @@
-# # VATEXCodesResponse
+# VATEXCodesResponse
 
 ## Properties
 

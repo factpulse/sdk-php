@@ -1,4 +1,4 @@
-# # FacturXInvoice
+# FacturXInvoice
 
 ## Properties
 

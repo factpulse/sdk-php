@@ -1,4 +1,4 @@
-# # Amount1
+# Amount1
 
 ## Properties
 

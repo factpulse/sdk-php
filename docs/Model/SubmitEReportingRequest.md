@@ -1,4 +1,4 @@
-# # SubmitEReportingRequest
+# SubmitEReportingRequest
 
 ## Properties
 

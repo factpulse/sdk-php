@@ -1,4 +1,4 @@
-# # AFNORSearchSiren
+# AFNORSearchSiren
 
 ## Properties
 

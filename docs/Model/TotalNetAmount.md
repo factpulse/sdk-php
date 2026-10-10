@@ -1,4 +1,4 @@
-# # TotalNetAmount
+# TotalNetAmount
 
 ## Properties
 

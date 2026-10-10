@@ -1,4 +1,4 @@
-# # SubmitVatAmount
+# SubmitVatAmount
 
 ## Properties
 

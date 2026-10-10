@@ -1,4 +1,4 @@
-# # InvoiceReferences
+# InvoiceReferences
 
 ## Properties
 

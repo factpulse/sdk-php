@@ -1,4 +1,4 @@
-# # SearchStructureResponse
+# SearchStructureResponse
 
 ## Properties
 

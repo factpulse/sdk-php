@@ -1,4 +1,4 @@
-# # ConvertValidationFailedResponse
+# ConvertValidationFailedResponse
 
 ## Properties
 

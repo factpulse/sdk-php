@@ -1,4 +1,4 @@
-# # IncomingInvoice
+# IncomingInvoice
 
 ## Properties
 

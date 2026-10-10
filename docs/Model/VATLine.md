@@ -1,4 +1,4 @@
-# # VATLine
+# VATLine
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # MandatoryNoteSchema
+# MandatoryNoteSchema
 
 ## Properties
 

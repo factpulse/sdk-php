@@ -1,4 +1,4 @@
-# # PaymentMeans
+# PaymentMeans
 
 ## Properties
 

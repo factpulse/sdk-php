@@ -1,4 +1,4 @@
-# # DocType
+# DocType
 
 ## Properties
 

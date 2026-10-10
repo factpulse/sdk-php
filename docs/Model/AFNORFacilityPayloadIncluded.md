@@ -1,4 +1,4 @@
-# # AFNORFacilityPayloadIncluded
+# AFNORFacilityPayloadIncluded
 
 ## Properties
 
@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **name** | **string** | business name | [optional]
 **facility_type** | [**\FactPulse\SDK\Model\AFNORFacilityType**](AFNORFacilityType.md) |  | [optional]
 **administrative_status** | [**\FactPulse\SDK\Model\AFNORFacilityAdministrativeStatus**](AFNORFacilityAdministrativeStatus.md) |  | [optional]
+**instructions** | [**\FactPulse\SDK\Model\AFNORSiretInstructions**](AFNORSiretInstructions.md) |  | [optional]
 **address** | [**\FactPulse\SDK\Model\AFNORAddressRead**](AFNORAddressRead.md) |  | [optional]
 **b2g_additional_data** | [**\FactPulse\SDK\Model\AFNORFacilityPayloadHistoryUleB2gAdditionalData**](AFNORFacilityPayloadHistoryUleB2gAdditionalData.md) |  | [optional]
 

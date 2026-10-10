@@ -1,4 +1,4 @@
-# # AFNORSiretInstructions
+# AFNORSiretInstructions
 
 ## Properties
 

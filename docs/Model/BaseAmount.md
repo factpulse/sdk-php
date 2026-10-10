@@ -1,4 +1,4 @@
-# # BaseAmount
+# BaseAmount
 
 ## Properties
 

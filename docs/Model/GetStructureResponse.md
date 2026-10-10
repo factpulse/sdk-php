@@ -1,4 +1,4 @@
-# # GetStructureResponse
+# GetStructureResponse
 
 ## Properties
 

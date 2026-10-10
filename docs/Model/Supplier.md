@@ -1,10 +1,10 @@
-# # Supplier
+# Supplier
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**electronic_address** | [**\FactPulse\SDK\Model\ElectronicAddress**](ElectronicAddress.md) |  | [optional]
+**electronic_address** | [**\FactPulse\SDK\Model\ElectronicAddressInput**](ElectronicAddressInput.md) |  | [optional]
 **supplier_id** | **int** | Chorus Pro supplier structure ID (idFournisseur). Only required for B2G. | [optional] [default to 0]
 **private_id** | **string** |  | [optional]
 **supplier_bank_account_code** | **int** |  | [optional]
@@ -15,12 +15,13 @@ Name | Type | Description | Notes
 **siren** | **string** |  | [optional]
 **siret** | **string** |  | [optional]
 **vat_number** | **string** |  | [optional]
+**tax_registration_id** | **string** |  | [optional]
 **iban** | **string** |  | [optional]
 **bic** | **string** |  | [optional]
 **bank_account_name** | **string** |  | [optional]
 **proprietary_id** | **string** |  | [optional]
-**postal_address** | [**\FactPulse\SDK\Model\PostalAddress**](PostalAddress.md) |  | [optional]
+**postal_address** | [**\FactPulse\SDK\Model\PostalAddressInput**](PostalAddressInput.md) |  | [optional]
 **contact** | [**\FactPulse\SDK\Model\Contact**](Contact.md) |  | [optional]
-**global_ids** | [**\FactPulse\SDK\Model\ElectronicAddress[]**](ElectronicAddress.md) |  | [optional]
+**global_ids** | [**\FactPulse\SDK\Model\ElectronicAddressInput[]**](ElectronicAddressInput.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

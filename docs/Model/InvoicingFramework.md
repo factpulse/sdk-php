@@ -1,4 +1,4 @@
-# # InvoicingFramework
+# InvoicingFramework
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # Payee
+# Payee
 
 ## Properties
 
@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **payee_id** | **string** |  | [optional]
 **siret** | **string** |  | [optional]
 **siren** | **string** |  | [optional]
-**electronic_address** | [**\FactPulse\SDK\Model\ElectronicAddress**](ElectronicAddress.md) |  | [optional]
+**electronic_address** | [**\FactPulse\SDK\Model\ElectronicAddressInput**](ElectronicAddressInput.md) |  | [optional]
 **iban** | **string** |  | [optional]
 **bic** | **string** |  | [optional]
-**global_ids** | [**\FactPulse\SDK\Model\ElectronicAddress[]**](ElectronicAddress.md) |  | [optional]
+**global_ids** | [**\FactPulse\SDK\Model\ElectronicAddressInput[]**](ElectronicAddressInput.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

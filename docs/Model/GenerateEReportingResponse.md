@@ -1,4 +1,4 @@
-# # GenerateEReportingResponse
+# GenerateEReportingResponse
 
 ## Properties
 

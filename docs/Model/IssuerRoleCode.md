@@ -1,4 +1,4 @@
-# # IssuerRoleCode
+# IssuerRoleCode
 
 ## Properties
 

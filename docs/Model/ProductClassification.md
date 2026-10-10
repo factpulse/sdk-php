@@ -1,4 +1,4 @@
-# # ProductClassification
+# ProductClassification
 
 ## Properties
 

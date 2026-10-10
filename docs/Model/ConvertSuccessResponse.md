@@ -1,4 +1,4 @@
-# # ConvertSuccessResponse
+# ConvertSuccessResponse
 
 ## Properties
 

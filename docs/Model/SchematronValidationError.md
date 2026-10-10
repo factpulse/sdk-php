@@ -1,4 +1,4 @@
-# # SchematronValidationError
+# SchematronValidationError
 
 ## Properties
 

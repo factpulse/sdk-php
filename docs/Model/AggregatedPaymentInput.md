@@ -1,4 +1,4 @@
-# # AggregatedPaymentInput
+# AggregatedPaymentInput
 
 ## Properties
 

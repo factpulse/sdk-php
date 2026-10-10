@@ -1,4 +1,4 @@
-# # PageDimensionsSchema
+# PageDimensionsSchema
 
 ## Properties
 

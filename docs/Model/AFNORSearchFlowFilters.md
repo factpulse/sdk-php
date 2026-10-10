@@ -1,4 +1,4 @@
-# # AFNORSearchFlowFilters
+# AFNORSearchFlowFilters
 
 ## Properties
 

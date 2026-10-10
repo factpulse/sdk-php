@@ -1,4 +1,4 @@
-# # SubmitNetAmount
+# SubmitNetAmount
 
 ## Properties
 

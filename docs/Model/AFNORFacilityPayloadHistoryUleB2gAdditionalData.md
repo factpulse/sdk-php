@@ -1,4 +1,4 @@
-# # AFNORFacilityPayloadHistoryUleB2gAdditionalData
+# AFNORFacilityPayloadHistoryUleB2gAdditionalData
 
 ## Properties
 

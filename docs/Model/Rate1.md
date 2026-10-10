@@ -1,4 +1,4 @@
-# # Rate1
+# Rate1
 
 ## Properties
 

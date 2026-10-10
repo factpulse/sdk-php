@@ -1,4 +1,4 @@
-# # ProcessingRule
+# ProcessingRule
 
 ## Properties
 

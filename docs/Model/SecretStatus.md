@@ -1,4 +1,4 @@
-# # SecretStatus
+# SecretStatus
 
 ## Properties
 

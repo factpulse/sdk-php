@@ -1,11 +1,11 @@
-# # AFNORSiretSearchPost200Response
+# AFNORSiretSearchPost200Response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **search** | [**\FactPulse\SDK\Model\AFNORSearchSiret**](AFNORSearchSiret.md) |  | [optional]
-**total_number_of_results** | **int** | The total number of results | [optional]
+**total_number_of_results** | **int** | The total number of results, if -1 is returned then this value is not managed due to performance issue | [optional] [default to -1]
 **results** | [**\FactPulse\SDK\Model\AFNORFacilityPayloadHistory[]**](AFNORFacilityPayloadHistory.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

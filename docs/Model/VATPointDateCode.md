@@ -1,4 +1,4 @@
-# # VATPointDateCode
+# VATPointDateCode
 
 ## Properties
 

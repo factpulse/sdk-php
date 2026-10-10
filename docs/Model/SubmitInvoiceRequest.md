@@ -1,10 +1,10 @@
-# # SubmitInvoiceRequest
+# SubmitInvoiceRequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**credentials** | [**\FactPulse\SDK\Model\ChorusProCredentials**](ChorusProCredentials.md) |  | [optional]
+**credentials** | [**\FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasChorusProChorusProCredentials**](FactureElectroniqueRestApiSchemasChorusProChorusProCredentials.md) |  | [optional]
 **invoice_number** | **string** | Invoice number |
 **invoice_date** | **string** | Invoice date (ISO format: YYYY-MM-DD) |
 **payment_due_date** | **string** |  | [optional]

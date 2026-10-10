@@ -1,4 +1,4 @@
-# # ClientDetail
+# ClientDetail
 
 ## Properties
 

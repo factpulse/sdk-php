@@ -1,4 +1,4 @@
-# # FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCode
+# AFNORContainsOrStrictOrStartWithOperator
 
 ## Properties
 

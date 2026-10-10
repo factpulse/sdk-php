@@ -1,4 +1,4 @@
-# # AFNORAcknowledgementDetail
+# AFNORAcknowledgementDetail
 
 ## Properties
 

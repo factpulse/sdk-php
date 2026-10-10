@@ -1,4 +1,4 @@
-# # AFNORFlowType
+# AFNORFlowType
 
 ## Properties
 

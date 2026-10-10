@@ -1,4 +1,4 @@
-# # AggregatedTransactionInput
+# AggregatedTransactionInput
 
 ## Properties
 

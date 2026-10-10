@@ -1,4 +1,4 @@
-# # InvoiceTotalsPrepayment
+# InvoiceTotalsPrepayment
 
 ## Properties
 

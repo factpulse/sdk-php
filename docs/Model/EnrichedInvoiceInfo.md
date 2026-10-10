@@ -1,4 +1,4 @@
-# # EnrichedInvoiceInfo
+# EnrichedInvoiceInfo
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # AsyncTaskStatus
+# AsyncTaskStatus
 
 ## Properties
 

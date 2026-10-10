@@ -1,4 +1,4 @@
-# # AFNORProcessingRule
+# AFNORProcessingRule
 
 ## Properties
 

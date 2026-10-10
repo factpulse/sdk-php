@@ -1,4 +1,4 @@
-# # OperationNature
+# OperationNature
 
 ## Properties
 

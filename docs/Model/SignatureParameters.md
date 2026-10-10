@@ -1,4 +1,4 @@
-# # SignatureParameters
+# SignatureParameters
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # SubmissionMode
+# SubmissionMode
 
 ## Properties
 

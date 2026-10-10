@@ -1,4 +1,4 @@
-# # CurrencyCode
+# CurrencyCode
 
 ## Properties
 

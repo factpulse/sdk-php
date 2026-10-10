@@ -1,4 +1,4 @@
-# # AFNORFlowAckStatus
+# AFNORFlowAckStatus
 
 ## Properties
 

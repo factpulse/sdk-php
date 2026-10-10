@@ -1,4 +1,4 @@
-# # SubmitCDARXMLRequest
+# SubmitCDARXMLRequest
 
 ## Properties
 

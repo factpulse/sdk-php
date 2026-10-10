@@ -1,4 +1,4 @@
-# # VATAmount
+# VATAmount
 
 ## Properties
 

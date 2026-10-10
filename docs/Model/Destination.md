@@ -1,4 +1,4 @@
-# # Destination
+# Destination
 
 ## Properties
 

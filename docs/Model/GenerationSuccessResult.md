@@ -1,4 +1,4 @@
-# # GenerationSuccessResult
+# GenerationSuccessResult
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # AFNORSortingOrder
+# AFNORSortingOrder
 
 ## Properties
 

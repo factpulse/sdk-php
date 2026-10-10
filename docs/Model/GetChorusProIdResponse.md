@@ -1,4 +1,4 @@
-# # GetChorusProIdResponse
+# GetChorusProIdResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # AFNORDirectoryLineField
+# AFNORDirectoryLineField
 
 ## Properties
 

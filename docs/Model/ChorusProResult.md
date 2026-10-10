@@ -1,4 +1,4 @@
-# # ChorusProResult
+# ChorusProResult
 
 ## Properties
 

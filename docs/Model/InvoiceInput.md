@@ -1,4 +1,4 @@
-# # InvoiceInput
+# InvoiceInput
 
 ## Properties
 
@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **invoice_id** | **string** | Invoice identifier |
 **issue_date** | **\DateTime** | Invoice issue date |
-**type_code** | [**\FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCode**](FactureElectroniqueRestApiSchemasEreportingInvoiceTypeCode.md) | Invoice type code | [optional]
+**type_code** | [**\FactPulse\SDK\Model\InvoiceTypeCode**](InvoiceTypeCode.md) | Invoice type code | [optional]
 **currency** | [**\FactPulse\SDK\Model\Currency**](Currency.md) |  | [optional]
 **due_date** | **\DateTime** |  | [optional]
 **seller_id** | **string** |  | [optional]
@@ -19,6 +19,8 @@ Name | Type | Description | Notes
 **tax_exclusive_amount** | [**\FactPulse\SDK\Model\Taxexclusiveamount1**](Taxexclusiveamount1.md) |  |
 **tax_amount** | [**\FactPulse\SDK\Model\Taxamount1**](Taxamount1.md) |  |
 **tax_breakdown** | [**\FactPulse\SDK\Model\TaxBreakdownInput[]**](TaxBreakdownInput.md) | VAT breakdown |
+**tax_amount_eur** | [**\FactPulse\SDK\Model\Taxamounteur**](Taxamounteur.md) |  | [optional]
+**business_process_id** | **string** |  | [optional]
 **referenced_invoice_id** | **string** |  | [optional]
 **referenced_invoice_date** | **\DateTime** |  | [optional]
 

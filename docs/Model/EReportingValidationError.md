@@ -1,4 +1,4 @@
-# # EReportingValidationError
+# EReportingValidationError
 
 ## Properties
 

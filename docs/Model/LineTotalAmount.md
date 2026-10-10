@@ -1,4 +1,4 @@
-# # LineTotalAmount
+# LineTotalAmount
 
 ## Properties
 

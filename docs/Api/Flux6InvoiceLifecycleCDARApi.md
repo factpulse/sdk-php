@@ -140,12 +140,12 @@ No authorization required
 ## `getLifecycleApiV1CdarLifecycleGet()`
 
 ```php
-getLifecycleApiV1CdarLifecycleGet($days, $invoice_id, $pdp_flow_service_url, $pdp_token_url, $pdp_client_id, $pdp_client_secret): \FactPulse\SDK\Model\LifecycleResponse
+getLifecycleApiV1CdarLifecycleGet($days, $invoice_id, $flow_direction, $pdp_flow_service_url, $pdp_token_url, $pdp_client_id, $pdp_client_secret, $organization_id): \FactPulse\SDK\Model\LifecycleResponse
 ```
 
 [Simplified] Get lifecycle events for invoices
 
-Returns lifecycle events (CDAR) grouped by invoice reference.  **How it works (AFNOR XP Z12-013 compliant):** 1. Searches lifecycle flows on the PDP by flowType + flowDirection + date range 2. Downloads and parses each CDAR XML to extract the invoice reference 3. Groups events by invoice, sorted chronologically  **Parameters:** - `days`: Number of days to look back (default: 7) - `invoiceId`: Optional filter on a specific invoice reference  **Authentication:** JWT Bearer (recommended) or PDP credentials as query parameters.
+Returns lifecycle events (CDAR) grouped by invoice reference.  **How it works (AFNOR XP Z12-013 compliant):** 1. Searches lifecycle flows on the PDP by flowType + flowDirection + date range 2. Downloads and parses each CDAR XML to extract the invoice reference 3. Groups events by invoice, sorted chronologically  **Parameters:** - `days`: Number of days to look back (default: 7) - `invoiceId`: Optional filter on a specific invoice reference - `flowDirection`: `All` (default), `In` (statuses received from the counterparty)   or `Out` (statuses issued by you or your PA, e.g. 202/203)  **Authentication:** JWT Bearer (recommended) or PDP credentials as query parameters.
 
 ### Example
 
@@ -166,13 +166,15 @@ $apiInstance = new FactPulse\SDK\Api\Flux6InvoiceLifecycleCDARApi(
 );
 $days = 7; // int | Number of days to look back
 $invoice_id = 'invoice_id_example'; // string | Filter by invoice reference
+$flow_direction = 'All'; // string | All (default), In (received statuses) or Out (issued statuses)
 $pdp_flow_service_url = 'pdp_flow_service_url_example'; // string | PDP Flow Service URL
 $pdp_token_url = 'pdp_token_url_example'; // string | PDP OAuth token URL
 $pdp_client_id = 'pdp_client_id_example'; // string | PDP Client ID
 $pdp_client_secret = 'pdp_client_secret_example'; // string | PDP Client Secret
+$organization_id = 'organization_id_example'; // string | Organization ID relayed to the PDP (AFNOR XP Z12-013 delegation / multi-tenancy). Required by some PDPs to select the client space.
 
 try {
-    $result = $apiInstance->getLifecycleApiV1CdarLifecycleGet($days, $invoice_id, $pdp_flow_service_url, $pdp_token_url, $pdp_client_id, $pdp_client_secret);
+    $result = $apiInstance->getLifecycleApiV1CdarLifecycleGet($days, $invoice_id, $flow_direction, $pdp_flow_service_url, $pdp_token_url, $pdp_client_id, $pdp_client_secret, $organization_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Flux6InvoiceLifecycleCDARApi->getLifecycleApiV1CdarLifecycleGet: ', $e->getMessage(), PHP_EOL;
@@ -185,10 +187,12 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **days** | **int**| Number of days to look back | [optional] [default to 7] |
 | **invoice_id** | **string**| Filter by invoice reference | [optional] |
+| **flow_direction** | **string**| All (default), In (received statuses) or Out (issued statuses) | [optional] [default to &#39;All&#39;] |
 | **pdp_flow_service_url** | **string**| PDP Flow Service URL | [optional] |
 | **pdp_token_url** | **string**| PDP OAuth token URL | [optional] |
 | **pdp_client_id** | **string**| PDP Client ID | [optional] |
 | **pdp_client_secret** | **string**| PDP Client Secret | [optional] |
+| **organization_id** | **string**| Organization ID relayed to the PDP (AFNOR XP Z12-013 delegation / multi-tenancy). Required by some PDPs to select the client space. | [optional] |
 
 ### Return type
 
@@ -316,7 +320,7 @@ No authorization required
 ## `submitCdarApiV1CdarSubmitPost()`
 
 ```php
-submitCdarApiV1CdarSubmitPost($submit_cdar_request): \FactPulse\SDK\Model\SubmitCDARResponse
+submitCdarApiV1CdarSubmitPost($submit_cdar_request, $organization_id): \FactPulse\SDK\Model\SubmitCDARResponse
 ```
 
 Generate and submit a CDAR message
@@ -341,9 +345,10 @@ $apiInstance = new FactPulse\SDK\Api\Flux6InvoiceLifecycleCDARApi(
     $config
 );
 $submit_cdar_request = new \FactPulse\SDK\Model\SubmitCDARRequest(); // \FactPulse\SDK\Model\SubmitCDARRequest
+$organization_id = 'organization_id_example'; // string | Organization ID relayed to the PDP (AFNOR XP Z12-013 delegation / multi-tenancy). Required by some PDPs to select the client space.
 
 try {
-    $result = $apiInstance->submitCdarApiV1CdarSubmitPost($submit_cdar_request);
+    $result = $apiInstance->submitCdarApiV1CdarSubmitPost($submit_cdar_request, $organization_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Flux6InvoiceLifecycleCDARApi->submitCdarApiV1CdarSubmitPost: ', $e->getMessage(), PHP_EOL;
@@ -355,6 +360,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **submit_cdar_request** | [**\FactPulse\SDK\Model\SubmitCDARRequest**](../Model/SubmitCDARRequest.md)|  | |
+| **organization_id** | **string**| Organization ID relayed to the PDP (AFNOR XP Z12-013 delegation / multi-tenancy). Required by some PDPs to select the client space. | [optional] |
 
 ### Return type
 
@@ -376,7 +382,7 @@ try {
 ## `submitCdarXmlApiV1CdarSubmitXmlPost()`
 
 ```php
-submitCdarXmlApiV1CdarSubmitXmlPost($submit_cdarxml_request): \FactPulse\SDK\Model\SubmitCDARResponse
+submitCdarXmlApiV1CdarSubmitXmlPost($submit_cdarxml_request, $organization_id): \FactPulse\SDK\Model\SubmitCDARResponse
 ```
 
 Submit a pre-generated CDAR XML
@@ -401,9 +407,10 @@ $apiInstance = new FactPulse\SDK\Api\Flux6InvoiceLifecycleCDARApi(
     $config
 );
 $submit_cdarxml_request = new \FactPulse\SDK\Model\SubmitCDARXMLRequest(); // \FactPulse\SDK\Model\SubmitCDARXMLRequest
+$organization_id = 'organization_id_example'; // string | Organization ID relayed to the PDP (AFNOR XP Z12-013 delegation / multi-tenancy). Required by some PDPs to select the client space.
 
 try {
-    $result = $apiInstance->submitCdarXmlApiV1CdarSubmitXmlPost($submit_cdarxml_request);
+    $result = $apiInstance->submitCdarXmlApiV1CdarSubmitXmlPost($submit_cdarxml_request, $organization_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Flux6InvoiceLifecycleCDARApi->submitCdarXmlApiV1CdarSubmitXmlPost: ', $e->getMessage(), PHP_EOL;
@@ -415,6 +422,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **submit_cdarxml_request** | [**\FactPulse\SDK\Model\SubmitCDARXMLRequest**](../Model/SubmitCDARXMLRequest.md)|  | |
+| **organization_id** | **string**| Organization ID relayed to the PDP (AFNOR XP Z12-013 delegation / multi-tenancy). Required by some PDPs to select the client space. | [optional] |
 
 ### Return type
 
@@ -436,7 +444,7 @@ try {
 ## `submitEncaisseeApiV1CdarEncaisseePost()`
 
 ```php
-submitEncaisseeApiV1CdarEncaisseePost($encaissee_request): \FactPulse\SDK\Model\SimplifiedCDARResponse
+submitEncaisseeApiV1CdarEncaisseePost($encaissee_request, $organization_id): \FactPulse\SDK\Model\SimplifiedCDARResponse
 ```
 
 [Simplified] Submit PAID status (212) - Issued invoice
@@ -461,9 +469,10 @@ $apiInstance = new FactPulse\SDK\Api\Flux6InvoiceLifecycleCDARApi(
     $config
 );
 $encaissee_request = new \FactPulse\SDK\Model\EncaisseeRequest(); // \FactPulse\SDK\Model\EncaisseeRequest
+$organization_id = 'organization_id_example'; // string | Organization ID relayed to the PDP (AFNOR XP Z12-013 delegation / multi-tenancy). Required by some PDPs to select the client space.
 
 try {
-    $result = $apiInstance->submitEncaisseeApiV1CdarEncaisseePost($encaissee_request);
+    $result = $apiInstance->submitEncaisseeApiV1CdarEncaisseePost($encaissee_request, $organization_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Flux6InvoiceLifecycleCDARApi->submitEncaisseeApiV1CdarEncaisseePost: ', $e->getMessage(), PHP_EOL;
@@ -475,6 +484,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **encaissee_request** | [**\FactPulse\SDK\Model\EncaisseeRequest**](../Model/EncaisseeRequest.md)|  | |
+| **organization_id** | **string**| Organization ID relayed to the PDP (AFNOR XP Z12-013 delegation / multi-tenancy). Required by some PDPs to select the client space. | [optional] |
 
 ### Return type
 
@@ -496,7 +506,7 @@ try {
 ## `submitRefuseeApiV1CdarRefuseePost()`
 
 ```php
-submitRefuseeApiV1CdarRefuseePost($refusee_request): \FactPulse\SDK\Model\SimplifiedCDARResponse
+submitRefuseeApiV1CdarRefuseePost($refusee_request, $organization_id): \FactPulse\SDK\Model\SimplifiedCDARResponse
 ```
 
 [Simplified] Submit REFUSED status (210) - Received invoice
@@ -521,9 +531,10 @@ $apiInstance = new FactPulse\SDK\Api\Flux6InvoiceLifecycleCDARApi(
     $config
 );
 $refusee_request = new \FactPulse\SDK\Model\RefuseeRequest(); // \FactPulse\SDK\Model\RefuseeRequest
+$organization_id = 'organization_id_example'; // string | Organization ID relayed to the PDP (AFNOR XP Z12-013 delegation / multi-tenancy). Required by some PDPs to select the client space.
 
 try {
-    $result = $apiInstance->submitRefuseeApiV1CdarRefuseePost($refusee_request);
+    $result = $apiInstance->submitRefuseeApiV1CdarRefuseePost($refusee_request, $organization_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Flux6InvoiceLifecycleCDARApi->submitRefuseeApiV1CdarRefuseePost: ', $e->getMessage(), PHP_EOL;
@@ -535,6 +546,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **refusee_request** | [**\FactPulse\SDK\Model\RefuseeRequest**](../Model/RefuseeRequest.md)|  | |
+| **organization_id** | **string**| Organization ID relayed to the PDP (AFNOR XP Z12-013 delegation / multi-tenancy). Required by some PDPs to select the client space. | [optional] |
 
 ### Return type
 

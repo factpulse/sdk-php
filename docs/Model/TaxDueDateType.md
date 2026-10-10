@@ -1,4 +1,4 @@
-# # TaxDueDateType
+# TaxDueDateType
 
 ## Properties
 

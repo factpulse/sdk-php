@@ -1,4 +1,4 @@
-# # FlowSyntax
+# FlowSyntax
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # AmountDue
+# AmountDue
 
 ## Properties
 

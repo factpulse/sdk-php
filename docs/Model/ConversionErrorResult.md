@@ -1,4 +1,4 @@
-# # ConversionErrorResult
+# ConversionErrorResult
 
 ## Properties
 

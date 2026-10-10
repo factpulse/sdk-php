@@ -1,4 +1,4 @@
-# # Encaisseamount
+# Encaisseamount
 
 ## Properties
 

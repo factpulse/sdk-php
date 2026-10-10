@@ -1,4 +1,4 @@
-# # VatRate
+# VatRate
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # SubmitCDARRequest
+# SubmitCDARRequest
 
 ## Properties
 
@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **reason_text** | **string** |  | [optional]
 **action_code** | **string** |  | [optional]
 **encaisse_amount** | [**\FactPulse\SDK\Model\Encaisseamount**](Encaisseamount.md) |  | [optional]
+**encaisse_vat_rate** | **float** | Taux de TVA du montant encaissé en % (MDT-224, requis par BR-FR-CDV-14 pour le statut 212 ; défaut 20) | [optional] [default to 20]
 **flow_type** | **string** | Type de flux AFNOR (CustomerInvoiceLC, SupplierInvoiceLC, etc.) | [optional] [default to 'CustomerInvoiceLC']
 **pdp_flow_service_url** | **string** |  | [optional]
 **pdp_token_url** | **string** |  | [optional]

@@ -1,4 +1,4 @@
-# # AFNORDirectoryLinePayloadLegalUnitFacilityRoutingCode
+# AFNORDirectoryLinePayloadLegalUnitFacilityRoutingCode
 
 ## Properties
 
@@ -6,8 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **addressing_identifier** | **string** | Addressing identifier of the directory line. | [optional]
 **platform_type** | [**\FactPulse\SDK\Model\AFNORRecipientPlatformType**](AFNORRecipientPlatformType.md) |  | [optional]
+**directory_line_status** | [**\FactPulse\SDK\Model\AFNORUniqueDirectoryLineStatus**](AFNORUniqueDirectoryLineStatus.md) |  | [optional]
 **siren** | **string** | SIREN number | [optional]
 **siret** | **string** | SIRET Number | [optional]
+**routing_identifier** | **string** | Routing identifier od a routing code. | [optional]
 **addressing_suffix** | **string** | suffix of the directory line which defines an address mesh not attached to a facility | [optional]
 **routing_code** | [**\FactPulse\SDK\Model\AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCodeRoutingCode**](AFNORDirectoryLinePayloadHistoryLegalUnitFacilityRoutingCodeRoutingCode.md) |  | [optional]
 **legal_unit** | [**\FactPulse\SDK\Model\AFNORLegalUnitPayloadIncluded**](AFNORLegalUnitPayloadIncluded.md) |  | [optional]

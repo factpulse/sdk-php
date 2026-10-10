@@ -1,4 +1,4 @@
-# # ConversionSuccessTaskResult
+# ConversionSuccessTaskResult
 
 ## Properties
 

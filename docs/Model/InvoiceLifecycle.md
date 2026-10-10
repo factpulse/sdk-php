@@ -1,4 +1,4 @@
-# # InvoiceLifecycle
+# InvoiceLifecycle
 
 ## Properties
 

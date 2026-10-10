@@ -1,4 +1,4 @@
-# # SubmitCompleteInvoiceResponse
+# SubmitCompleteInvoiceResponse
 
 ## Properties
 

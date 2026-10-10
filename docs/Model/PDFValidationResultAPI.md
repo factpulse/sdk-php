@@ -1,4 +1,4 @@
-# # PDFValidationResultAPI
+# PDFValidationResultAPI
 
 ## Properties
 

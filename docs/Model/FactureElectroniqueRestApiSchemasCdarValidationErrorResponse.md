@@ -1,4 +1,4 @@
-# # FactureElectroniqueRestApiSchemasCdarValidationErrorResponse
+# FactureElectroniqueRestApiSchemasCdarValidationErrorResponse
 
 ## Properties
 

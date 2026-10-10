@@ -1,4 +1,4 @@
-# # StructureInfo
+# StructureInfo
 
 ## Properties
 

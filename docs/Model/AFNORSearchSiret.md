@@ -1,4 +1,4 @@
-# # AFNORSearchSiret
+# AFNORSearchSiret
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # RecipientInput
+# RecipientInput
 
 ## Properties
 

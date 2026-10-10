@@ -1,4 +1,4 @@
-# # VATCategory
+# VATCategory
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ReasonCodeInfo
+# ReasonCodeInfo
 
 ## Properties
 

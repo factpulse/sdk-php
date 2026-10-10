@@ -1,4 +1,4 @@
-# # AFNORContainsOrStrictOperator
+# AFNORContainsOrStrictOperator
 
 ## Properties
 

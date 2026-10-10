@@ -1,4 +1,4 @@
-# # ClientListResponse
+# ClientListResponse
 
 ## Properties
 

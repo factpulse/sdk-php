@@ -1,4 +1,4 @@
-# # VerificationSuccessResponse
+# VerificationSuccessResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # AFNORSearchDirectoryLineFilters
+# AFNORSearchDirectoryLineFilters
 
 ## Properties
 

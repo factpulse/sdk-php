@@ -1,4 +1,4 @@
-# # StatusCodesResponse
+# StatusCodesResponse
 
 ## Properties
 

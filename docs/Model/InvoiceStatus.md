@@ -1,4 +1,4 @@
-# # InvoiceStatus
+# InvoiceStatus
 
 ## Properties
 

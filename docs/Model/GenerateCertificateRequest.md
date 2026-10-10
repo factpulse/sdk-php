@@ -1,4 +1,4 @@
-# # GenerateCertificateRequest
+# GenerateCertificateRequest
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # VerifiedFieldSchema
+# VerifiedFieldSchema
 
 ## Properties
 

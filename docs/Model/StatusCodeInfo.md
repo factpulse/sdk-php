@@ -1,4 +1,4 @@
-# # StatusCodeInfo
+# StatusCodeInfo
 
 ## Properties
 

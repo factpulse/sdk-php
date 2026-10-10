@@ -1,4 +1,4 @@
-# # AFNORSearchSirenFilters
+# AFNORSearchSirenFilters
 
 ## Properties
 

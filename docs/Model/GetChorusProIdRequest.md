@@ -1,10 +1,10 @@
-# # GetChorusProIdRequest
+# GetChorusProIdRequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**credentials** | [**\FactPulse\SDK\Model\ChorusProCredentials**](ChorusProCredentials.md) |  | [optional]
+**credentials** | [**\FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasChorusProChorusProCredentials**](FactureElectroniqueRestApiSchemasChorusProChorusProCredentials.md) |  | [optional]
 **siret** | **string** | Structure SIRET (14 digits) |
 **identifier_type** | **string** | Identifier type (SIRET, SIREN, UE_HORS_FRANCE, etc.) | [optional] [default to 'SIRET']
 

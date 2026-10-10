@@ -1,4 +1,4 @@
-# # AFNOREntityType
+# AFNOREntityType
 
 ## Properties
 

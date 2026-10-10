@@ -1,4 +1,4 @@
-# # AFNORFlowDirection
+# AFNORFlowDirection
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # InvoiceFormat
+# InvoiceFormat
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # PDPCredentials
+# PDPCredentials
 
 ## Properties
 

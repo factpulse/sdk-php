@@ -1,4 +1,4 @@
-# # Quantity
+# Quantity
 
 ## Properties
 

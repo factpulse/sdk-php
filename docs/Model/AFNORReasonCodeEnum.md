@@ -1,4 +1,4 @@
-# # AFNORReasonCodeEnum
+# AFNORReasonCodeEnum
 
 ## Properties
 

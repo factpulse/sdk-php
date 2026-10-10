@@ -1,4 +1,4 @@
-# # TotalGrossAmount
+# TotalGrossAmount
 
 ## Properties
 

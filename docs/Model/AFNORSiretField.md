@@ -1,4 +1,4 @@
-# # AFNORSiretField
+# AFNORSiretField
 
 ## Properties
 

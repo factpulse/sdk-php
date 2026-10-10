@@ -1,4 +1,4 @@
-# # ClientActivateResponse
+# ClientActivateResponse
 
 ## Properties
 

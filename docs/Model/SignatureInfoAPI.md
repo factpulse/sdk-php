@@ -1,4 +1,4 @@
-# # SignatureInfoAPI
+# SignatureInfoAPI
 
 ## Properties
 

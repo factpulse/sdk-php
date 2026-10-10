@@ -1,4 +1,4 @@
-# # OutputFormat
+# OutputFormat
 
 ## Properties
 

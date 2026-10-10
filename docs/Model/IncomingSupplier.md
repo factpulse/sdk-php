@@ -1,4 +1,4 @@
-# # IncomingSupplier
+# IncomingSupplier
 
 ## Properties
 
@@ -8,8 +8,9 @@ Name | Type | Description | Notes
 **siren** | **string** |  | [optional]
 **siret** | **string** |  | [optional]
 **vat_number** | **string** |  | [optional]
-**postal_address** | [**\FactPulse\SDK\Model\PostalAddress**](PostalAddress.md) |  | [optional]
-**electronic_address** | [**\FactPulse\SDK\Model\ElectronicAddress**](ElectronicAddress.md) |  | [optional]
+**tax_registration_id** | **string** |  | [optional]
+**postal_address** | [**\FactPulse\SDK\Model\PostalAddressOutput**](PostalAddressOutput.md) |  | [optional]
+**electronic_address** | [**\FactPulse\SDK\Model\ElectronicAddressOutput**](ElectronicAddressOutput.md) |  | [optional]
 **email** | **string** |  | [optional]
 **phone** | **string** |  | [optional]
 

@@ -1,4 +1,4 @@
-# # LifecycleEvent
+# LifecycleEvent
 
 ## Properties
 
@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **status_code** | **string** | Code statut (200-601) |
 **status_description** | **string** |  | [optional]
 **ack_status** | **string** |  | [optional]
+**flow_direction** | **string** |  | [optional]
 **at** | **string** |  | [optional]
 **document_id** | **string** |  | [optional]
 **amount** | **string** |  | [optional]

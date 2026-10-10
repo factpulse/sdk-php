@@ -1,4 +1,4 @@
-# # FlowDirection
+# FlowDirection
 
 ## Properties
 

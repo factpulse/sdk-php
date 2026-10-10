@@ -1,4 +1,4 @@
-# # AFNORSearchSiretFilters
+# AFNORSearchSiretFilters
 
 ## Properties
 

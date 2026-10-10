@@ -1,4 +1,4 @@
-# # ActionCodeInfo
+# ActionCodeInfo
 
 ## Properties
 

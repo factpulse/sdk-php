@@ -1,4 +1,4 @@
-# # InvoiceTypeCodeOutput
+# InvoiceTypeCodeOutput
 
 ## Properties
 

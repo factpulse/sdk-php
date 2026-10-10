@@ -1,4 +1,4 @@
-# # InvoiceLine
+# InvoiceLine
 
 ## Properties
 

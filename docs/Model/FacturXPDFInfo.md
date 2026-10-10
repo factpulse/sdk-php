@@ -1,4 +1,4 @@
-# # FacturXPDFInfo
+# FacturXPDFInfo
 
 ## Properties
 

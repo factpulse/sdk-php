@@ -1,4 +1,4 @@
-# # TransmissionTypeCode
+# TransmissionTypeCode
 
 ## Properties
 

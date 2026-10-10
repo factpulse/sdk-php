@@ -1,4 +1,4 @@
-# # KeyRotationRequest
+# KeyRotationRequest
 
 ## Properties
 

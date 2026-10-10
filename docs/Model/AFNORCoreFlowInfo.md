@@ -1,4 +1,4 @@
-# # AFNORCoreFlowInfo
+# AFNORCoreFlowInfo
 
 ## Properties
 

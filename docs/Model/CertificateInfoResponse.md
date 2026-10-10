@@ -1,4 +1,4 @@
-# # CertificateInfoResponse
+# CertificateInfoResponse
 
 ## Properties
 

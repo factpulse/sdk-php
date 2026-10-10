@@ -1,4 +1,4 @@
-# # SignatureInfo
+# SignatureInfo
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # AdditionalDocument
+# AdditionalDocument
 
 ## Properties
 

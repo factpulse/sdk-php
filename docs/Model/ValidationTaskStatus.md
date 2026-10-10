@@ -1,4 +1,4 @@
-# # ValidationTaskStatus
+# ValidationTaskStatus
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # InvoiceTotals
+# InvoiceTotals
 
 ## Properties
 

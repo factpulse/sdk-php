@@ -1,4 +1,4 @@
-# # KeyRotationResponse
+# KeyRotationResponse
 
 ## Properties
 

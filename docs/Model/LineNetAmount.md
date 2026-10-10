@@ -1,4 +1,4 @@
-# # LineNetAmount
+# LineNetAmount
 
 ## Properties
 

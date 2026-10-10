@@ -1,4 +1,4 @@
-# # AFNORLegalUnitAdministrativeStatus
+# AFNORLegalUnitAdministrativeStatus
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # SignatureTaskStatusResult
+# SignatureTaskStatusResult
 
 ## Properties
 

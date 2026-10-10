@@ -1,4 +1,4 @@
-# # AFNORSearchSiretFiltersPostalCode
+# AFNORSearchSiretFiltersPostalCode
 
 ## Properties
 

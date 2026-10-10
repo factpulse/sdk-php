@@ -1,4 +1,4 @@
-# # SimplifiedCDARResponse
+# SimplifiedCDARResponse
 
 ## Properties
 

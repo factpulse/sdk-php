@@ -1,4 +1,4 @@
-# # AFNORResult
+# AFNORResult
 
 ## Properties
 

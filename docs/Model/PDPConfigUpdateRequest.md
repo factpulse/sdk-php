@@ -1,4 +1,4 @@
-# # PDPConfigUpdateRequest
+# PDPConfigUpdateRequest
 
 ## Properties
 

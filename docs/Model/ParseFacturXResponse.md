@@ -1,4 +1,4 @@
-# # ParseFacturXResponse
+# ParseFacturXResponse
 
 ## Properties
 

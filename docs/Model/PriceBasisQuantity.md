@@ -1,4 +1,4 @@
-# # PriceBasisQuantity
+# PriceBasisQuantity
 
 ## Properties
 

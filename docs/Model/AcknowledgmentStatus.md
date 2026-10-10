@@ -1,4 +1,4 @@
-# # AcknowledgmentStatus
+# AcknowledgmentStatus
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # AFNORFlowInfoExtension
+# AFNORFlowInfoExtension
 
 ## Properties
 

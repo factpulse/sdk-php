@@ -1,4 +1,4 @@
-# # AFNORFlowSyntax
+# AFNORFlowSyntax
 
 ## Properties
 

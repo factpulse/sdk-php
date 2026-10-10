@@ -1,4 +1,4 @@
-# # ValidateEReportingRequest
+# ValidateEReportingRequest
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ManualVatRate
+# ManualVatRate
 
 ## Properties
 

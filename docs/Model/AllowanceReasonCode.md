@@ -1,4 +1,4 @@
-# # AllowanceReasonCode
+# AllowanceReasonCode
 
 ## Properties
 

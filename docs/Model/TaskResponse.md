@@ -1,4 +1,4 @@
-# # TaskResponse
+# TaskResponse
 
 ## Properties
 

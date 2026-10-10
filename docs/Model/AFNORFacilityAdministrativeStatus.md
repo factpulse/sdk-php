@@ -1,4 +1,4 @@
-# # AFNORFacilityAdministrativeStatus
+# AFNORFacilityAdministrativeStatus
 
 ## Properties
 

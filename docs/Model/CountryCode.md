@@ -1,4 +1,4 @@
-# # CountryCode
+# CountryCode
 
 ## Properties
 

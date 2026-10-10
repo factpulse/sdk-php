@@ -1,4 +1,4 @@
-# # TransactionCategory
+# TransactionCategory
 
 ## Properties
 

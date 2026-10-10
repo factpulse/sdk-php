@@ -1,4 +1,4 @@
-# # EncaisseeRequest
+# EncaisseeRequest
 
 ## Properties
 
@@ -8,7 +8,8 @@ Name | Type | Description | Notes
 **invoice_issue_date** | **\DateTime** | Date d&#39;émission de la facture (YYYY-MM-DD) |
 **invoice_buyer_siren** | **string** | SIREN de l&#39;acheteur (destinataire du statut) |
 **invoice_buyer_electronic_address** | **string** | Adresse électronique de l&#39;acheteur (MDT-73) |
-**amount** | [**\FactPulse\SDK\Model\Amount**](Amount.md) |  |
+**amount** | [**\FactPulse\SDK\Model\Amount1**](Amount1.md) |  |
+**vat_rate** | **float** | Taux de TVA du montant encaissé en % (MDT-224, requis par BR-FR-CDV-14 ; défaut 20) | [optional] [default to 20]
 **currency** | **string** | Code devise ISO 4217 | [optional] [default to 'EUR']
 **sender_siren** | **string** |  | [optional]
 **flow_type** | **string** | Type de flux (CustomerInvoiceLC pour facture émise) | [optional] [default to 'CustomerInvoiceLC']

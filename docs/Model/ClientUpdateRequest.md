@@ -1,4 +1,4 @@
-# # ClientUpdateRequest
+# ClientUpdateRequest
 
 ## Properties
 

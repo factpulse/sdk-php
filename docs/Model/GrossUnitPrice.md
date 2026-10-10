@@ -1,4 +1,4 @@
-# # GrossUnitPrice
+# GrossUnitPrice
 
 ## Properties
 

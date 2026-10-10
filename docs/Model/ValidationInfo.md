@@ -1,4 +1,4 @@
-# # ValidationInfo
+# ValidationInfo
 
 ## Properties
 

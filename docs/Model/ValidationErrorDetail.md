@@ -1,4 +1,4 @@
-# # ValidationErrorDetail
+# ValidationErrorDetail
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # AFNORDestination
+# AFNORDestination
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # EReportingFlowType
+# EReportingFlowType
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # InvoicePaymentInput
+# InvoicePaymentInput
 
 ## Properties
 

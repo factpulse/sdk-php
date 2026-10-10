@@ -1,4 +1,4 @@
-# # ReportPeriod
+# ReportPeriod
 
 ## Properties
 

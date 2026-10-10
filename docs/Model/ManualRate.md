@@ -1,4 +1,4 @@
-# # ManualRate
+# ManualRate
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ValidationSuccessResponse
+# ValidationSuccessResponse
 
 ## Properties
 

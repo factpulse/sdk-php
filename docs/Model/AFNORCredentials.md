@@ -1,4 +1,4 @@
-# # AFNORCredentials
+# AFNORCredentials
 
 ## Properties
 

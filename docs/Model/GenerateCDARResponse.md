@@ -1,4 +1,4 @@
-# # GenerateCDARResponse
+# GenerateCDARResponse
 
 ## Properties
 

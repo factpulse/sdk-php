@@ -1,4 +1,4 @@
-# # StructureService
+# StructureService
 
 ## Properties
 

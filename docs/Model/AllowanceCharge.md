@@ -1,11 +1,11 @@
-# # AllowanceCharge
+# AllowanceCharge
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **is_charge** | **bool** | True for charge, False for allowance (ChargeIndicator). |
-**amount** | [**\FactPulse\SDK\Model\Amount2**](Amount2.md) |  |
+**amount** | [**\FactPulse\SDK\Model\Amount**](Amount.md) |  |
 **base_amount** | [**\FactPulse\SDK\Model\BaseAmount**](BaseAmount.md) |  | [optional]
 **percentage** | [**\FactPulse\SDK\Model\Percentage**](Percentage.md) |  | [optional]
 **reason** | **string** |  | [optional]

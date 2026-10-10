@@ -1,4 +1,4 @@
-# # VATEXCodeInfo
+# VATEXCodeInfo
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # WebhookSecretDeleteResponse
+# WebhookSecretDeleteResponse
 
 ## Properties
 

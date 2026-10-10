@@ -1,4 +1,4 @@
-# # ClientSummary
+# ClientSummary
 
 ## Properties
 

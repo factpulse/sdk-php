@@ -1,4 +1,4 @@
-# # VerificationSuccessTaskResult
+# VerificationSuccessTaskResult
 
 ## Properties
 

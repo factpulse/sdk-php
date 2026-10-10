@@ -10,9 +10,12 @@ All URIs are relative to https://factpulse.fr, except if the operation defines a
 | [**createClientApiV1ClientsPost()**](ClientManagementApi.md#createClientApiV1ClientsPost) | **POST** /api/v1/clients | Create a client |
 | [**deactivateClientApiV1ClientsUidDesactiverPost()**](ClientManagementApi.md#deactivateClientApiV1ClientsUidDesactiverPost) | **POST** /api/v1/clients/{uid}/desactiver | Deactivate a client |
 | [**deleteWebhookSecretApiV1ClientsUidWebhookSecretDelete()**](ClientManagementApi.md#deleteWebhookSecretApiV1ClientsUidWebhookSecretDelete) | **DELETE** /api/v1/clients/{uid}/webhook-secret | Delete webhook secret |
+| [**disconnectSuperpdpApiV1ClientsUidSuperpdpDelete()**](ClientManagementApi.md#disconnectSuperpdpApiV1ClientsUidSuperpdpDelete) | **DELETE** /api/v1/clients/{uid}/superpdp | Disconnect SuperPDP |
 | [**generateWebhookSecretApiV1ClientsUidWebhookSecretGeneratePost()**](ClientManagementApi.md#generateWebhookSecretApiV1ClientsUidWebhookSecretGeneratePost) | **POST** /api/v1/clients/{uid}/webhook-secret/generate | Generate webhook secret |
 | [**getClientApiV1ClientsUidGet()**](ClientManagementApi.md#getClientApiV1ClientsUidGet) | **GET** /api/v1/clients/{uid} | Get client details |
 | [**getPdpConfigApiV1ClientsUidPdpConfigGet()**](ClientManagementApi.md#getPdpConfigApiV1ClientsUidPdpConfigGet) | **GET** /api/v1/clients/{uid}/pdp-config | Get client PDP configuration |
+| [**getSuperpdpConnectUrlApiV1ClientsUidSuperpdpConnectUrlPost()**](ClientManagementApi.md#getSuperpdpConnectUrlApiV1ClientsUidSuperpdpConnectUrlPost) | **POST** /api/v1/clients/{uid}/superpdp/connect-url | Get SuperPDP connection URL |
+| [**getSuperpdpStatusApiV1ClientsUidSuperpdpStatusGet()**](ClientManagementApi.md#getSuperpdpStatusApiV1ClientsUidSuperpdpStatusGet) | **GET** /api/v1/clients/{uid}/superpdp/status | Get SuperPDP connection status |
 | [**getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGet()**](ClientManagementApi.md#getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGet) | **GET** /api/v1/clients/{uid}/webhook-secret/status | Get webhook secret status |
 | [**listClientsApiV1ClientsGet()**](ClientManagementApi.md#listClientsApiV1ClientsGet) | **GET** /api/v1/clients | List clients |
 | [**rotateEncryptionKeyApiV1ClientsUidRotateEncryptionKeyPost()**](ClientManagementApi.md#rotateEncryptionKeyApiV1ClientsUidRotateEncryptionKeyPost) | **POST** /api/v1/clients/{uid}/rotate-encryption-key | Rotate client encryption key |
@@ -280,6 +283,71 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `disconnectSuperpdpApiV1ClientsUidSuperpdpDelete()`
+
+```php
+disconnectSuperpdpApiV1ClientsUidSuperpdpDelete($uid): \FactPulse\SDK\Model\SuperPDPDisconnectResponse
+```
+
+Disconnect SuperPDP
+
+Disconnect SuperPDP for a client.  **Scope**: Client level (JWT with client_uid that must match {uid})  Revokes the stored refresh token with SuperPDP (RFC 7009) and deletes the stored tokens. The client can reconnect later via the connect-url endpoint.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+// Configure Bearer authorization: HTTPBearer
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new FactPulse\SDK\Api\ClientManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$uid = 'uid_example'; // string | Client unique identifier (UUID)
+
+try {
+    $result = $apiInstance->disconnectSuperpdpApiV1ClientsUidSuperpdpDelete($uid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ClientManagementApi->disconnectSuperpdpApiV1ClientsUidSuperpdpDelete: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **uid** | **string**| Client unique identifier (UUID) | |
+
+### Return type
+
+[**\FactPulse\SDK\Model\SuperPDPDisconnectResponse**](../Model/SuperPDPDisconnectResponse.md)
+
+### Authorization
+
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `generateWebhookSecretApiV1ClientsUidWebhookSecretGeneratePost()`
 
 ```php
@@ -461,6 +529,140 @@ try {
 ### Return type
 
 [**\FactPulse\SDK\Model\PDPConfigResponse**](../Model/PDPConfigResponse.md)
+
+### Authorization
+
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getSuperpdpConnectUrlApiV1ClientsUidSuperpdpConnectUrlPost()`
+
+```php
+getSuperpdpConnectUrlApiV1ClientsUidSuperpdpConnectUrlPost($uid, $mode_sandbox, $return_url): \FactPulse\SDK\Model\SuperPDPConnectURLResponse
+```
+
+Get SuperPDP connection URL
+
+Generate the SuperPDP OAuth2 authorization URL for a client.  **Scope**: Client level (JWT with client_uid that must match {uid})  Redirect the end user to the returned `authorizeUrl` so they can connect their own SuperPDP account to FactPulse (OAuth2 Authorization Code).  **Query parameters**: - `modeSandbox` (default `true`): connect via the SuperPDP sandbox app   (fictitious data) or the production app. - `returnUrl` (optional): absolute http(s) URL of your own portal. Once the   SuperPDP authorization flow is over, the end user is redirected there with   `superpdp_connected=true|false` (and `superpdp_error=<code>` on failure)   appended to the query string. Without it, FactPulse displays its own   confirmation page. Returns `400 invalid_return_url` if the URL is not an   absolute http(s) URL.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+// Configure Bearer authorization: HTTPBearer
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new FactPulse\SDK\Api\ClientManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$uid = 'uid_example'; // string | Client unique identifier (UUID)
+$mode_sandbox = true; // bool | True for the SuperPDP sandbox app (default), False for production
+$return_url = 'return_url_example'; // string | Absolute http(s) URL to redirect the end user to once the SuperPDP connection is done. Defaults to the FactPulse confirmation page.
+
+try {
+    $result = $apiInstance->getSuperpdpConnectUrlApiV1ClientsUidSuperpdpConnectUrlPost($uid, $mode_sandbox, $return_url);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ClientManagementApi->getSuperpdpConnectUrlApiV1ClientsUidSuperpdpConnectUrlPost: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **uid** | **string**| Client unique identifier (UUID) | |
+| **mode_sandbox** | **bool**| True for the SuperPDP sandbox app (default), False for production | [optional] [default to true] |
+| **return_url** | **string**| Absolute http(s) URL to redirect the end user to once the SuperPDP connection is done. Defaults to the FactPulse confirmation page. | [optional] |
+
+### Return type
+
+[**\FactPulse\SDK\Model\SuperPDPConnectURLResponse**](../Model/SuperPDPConnectURLResponse.md)
+
+### Authorization
+
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getSuperpdpStatusApiV1ClientsUidSuperpdpStatusGet()`
+
+```php
+getSuperpdpStatusApiV1ClientsUidSuperpdpStatusGet($uid): \FactPulse\SDK\Model\SuperPDPStatusResponse
+```
+
+Get SuperPDP connection status
+
+Check whether a client has connected its SuperPDP account.  **Scope**: Client level (JWT with client_uid that must match {uid})  **Response**: - `connected`: Whether the client has an active SuperPDP connection - `connectedAt`: When the connection was established (if any) - `expiresAt`: When the current access token expires (if any) - `modeSandbox`: True if connected via the sandbox app, False for production, null if not connected - `lastError`: Last token refresh error, if any
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+// Configure Bearer authorization: HTTPBearer
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new FactPulse\SDK\Api\ClientManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$uid = 'uid_example'; // string | Client unique identifier (UUID)
+
+try {
+    $result = $apiInstance->getSuperpdpStatusApiV1ClientsUidSuperpdpStatusGet($uid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ClientManagementApi->getSuperpdpStatusApiV1ClientsUidSuperpdpStatusGet: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **uid** | **string**| Client unique identifier (UUID) | |
+
+### Return type
+
+[**\FactPulse\SDK\Model\SuperPDPStatusResponse**](../Model/SuperPDPStatusResponse.md)
 
 ### Authorization
 

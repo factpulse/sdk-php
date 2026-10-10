@@ -1,4 +1,4 @@
-# # SearchFlowResponse
+# SearchFlowResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # AFNORHealthCheckResponse
+# AFNORHealthCheckResponse
 
 ## Properties
 

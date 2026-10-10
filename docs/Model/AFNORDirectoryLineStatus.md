@@ -1,4 +1,4 @@
-# # AFNORDirectoryLineStatus
+# AFNORDirectoryLineStatus
 
 ## Properties
 

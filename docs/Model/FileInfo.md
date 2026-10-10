@@ -1,4 +1,4 @@
-# # FileInfo
+# FileInfo
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # GlobalAllowanceAmount
+# GlobalAllowanceAmount
 
 ## Properties
 

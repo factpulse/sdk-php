@@ -1,4 +1,4 @@
-# # AFNORStrictOrStartWithOperator
+# AFNORStrictOrStartWithOperator
 
 ## Properties
 

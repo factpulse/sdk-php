@@ -1,4 +1,4 @@
-# # InvoiceNote
+# InvoiceNote
 
 ## Properties
 

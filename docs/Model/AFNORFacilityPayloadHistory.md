@@ -1,4 +1,4 @@
-# # AFNORFacilityPayloadHistory
+# AFNORFacilityPayloadHistory
 
 ## Properties
 

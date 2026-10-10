@@ -1,4 +1,4 @@
-# # ExtractionInfo
+# ExtractionInfo
 
 ## Properties
 

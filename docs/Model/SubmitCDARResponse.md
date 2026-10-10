@@ -1,4 +1,4 @@
-# # SubmitCDARResponse
+# SubmitCDARResponse
 
 ## Properties
 

@@ -1,10 +1,10 @@
-# # AFNORSearchSirenFiltersBusinessName
+# AFNORSearchSirenFiltersBusinessName
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**op** | [**\FactPulse\SDK\Model\AFNORContainsOrStrictOperator**](AFNORContainsOrStrictOperator.md) |  | [optional]
+**op** | [**\FactPulse\SDK\Model\AFNORContainsOrStrictOrStartWithOperator**](AFNORContainsOrStrictOrStartWithOperator.md) |  | [optional]
 **value** | **string** | Business name | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -1,4 +1,4 @@
-# # Percentage
+# Percentage
 
 ## Properties
 

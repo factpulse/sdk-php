@@ -1,4 +1,4 @@
-# # FlowType
+# FlowType
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # AllowanceTotalAmount
+# AllowanceTotalAmount
 
 ## Properties
 

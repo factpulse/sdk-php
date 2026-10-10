@@ -1,4 +1,4 @@
-# # AFNORSirenInstructions
+# AFNORSirenInstructions
 
 ## Properties
 

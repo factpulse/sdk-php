@@ -1,4 +1,4 @@
-# # Taxamount2
+# Taxamount2
 
 ## Properties
 

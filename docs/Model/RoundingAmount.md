@@ -1,4 +1,4 @@
-# # RoundingAmount
+# RoundingAmount
 
 ## Properties
 
