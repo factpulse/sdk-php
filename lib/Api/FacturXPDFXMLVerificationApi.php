@@ -750,7 +750,7 @@ class FacturXPDFXMLVerificationApi
      *
      * Verify PDF/XML Factur-X compliance (asynchronous)
      *
-     * @param  \SplFileObject $pdf_file Factur-X PDF file to verify (required)
+     * @param  string $pdf_file Factur-X PDF file to verify (required)
      * @param  bool|null $force_ocr Force OCR usage even if PDF contains native text (optional, default to false)
      * @param  string|null $callback_url callback_url (optional)
      * @param  string|null $webhook_mode Webhook content delivery: &#39;inline&#39; (base64 in payload) or &#39;download_url&#39; (temporary URL, 1h TTL) (optional, default to 'inline')
@@ -771,7 +771,7 @@ class FacturXPDFXMLVerificationApi
      *
      * Verify PDF/XML Factur-X compliance (asynchronous)
      *
-     * @param  \SplFileObject $pdf_file Factur-X PDF file to verify (required)
+     * @param  string $pdf_file Factur-X PDF file to verify (required)
      * @param  bool|null $force_ocr Force OCR usage even if PDF contains native text (optional, default to false)
      * @param  string|null $callback_url (optional)
      * @param  string|null $webhook_mode Webhook content delivery: &#39;inline&#39; (base64 in payload) or &#39;download_url&#39; (temporary URL, 1h TTL) (optional, default to 'inline')
@@ -887,7 +887,7 @@ class FacturXPDFXMLVerificationApi
      *
      * Verify PDF/XML Factur-X compliance (asynchronous)
      *
-     * @param  \SplFileObject $pdf_file Factur-X PDF file to verify (required)
+     * @param  string $pdf_file Factur-X PDF file to verify (required)
      * @param  bool|null $force_ocr Force OCR usage even if PDF contains native text (optional, default to false)
      * @param  string|null $callback_url (optional)
      * @param  string|null $webhook_mode Webhook content delivery: &#39;inline&#39; (base64 in payload) or &#39;download_url&#39; (temporary URL, 1h TTL) (optional, default to 'inline')
@@ -911,7 +911,7 @@ class FacturXPDFXMLVerificationApi
      *
      * Verify PDF/XML Factur-X compliance (asynchronous)
      *
-     * @param  \SplFileObject $pdf_file Factur-X PDF file to verify (required)
+     * @param  string $pdf_file Factur-X PDF file to verify (required)
      * @param  bool|null $force_ocr Force OCR usage even if PDF contains native text (optional, default to false)
      * @param  string|null $callback_url (optional)
      * @param  string|null $webhook_mode Webhook content delivery: &#39;inline&#39; (base64 in payload) or &#39;download_url&#39; (temporary URL, 1h TTL) (optional, default to 'inline')
@@ -964,7 +964,7 @@ class FacturXPDFXMLVerificationApi
     /**
      * Create request for operation 'verifyPdfAsyncApiV1VerificationVerifyAsyncPost'
      *
-     * @param  \SplFileObject $pdf_file Factur-X PDF file to verify (required)
+     * @param  string $pdf_file Factur-X PDF file to verify (required)
      * @param  bool|null $force_ocr Force OCR usage even if PDF contains native text (optional, default to false)
      * @param  string|null $callback_url (optional)
      * @param  string|null $webhook_mode Webhook content delivery: &#39;inline&#39; (base64 in payload) or &#39;download_url&#39; (temporary URL, 1h TTL) (optional, default to 'inline')
@@ -1078,7 +1078,7 @@ class FacturXPDFXMLVerificationApi
      *
      * Verify PDF/XML Factur-X compliance (synchronous)
      *
-     * @param  \SplFileObject $pdf_file Factur-X PDF file to verify (required)
+     * @param  string $pdf_file Factur-X PDF file to verify (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyPdfSyncApiV1VerificationVerifyPost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1096,7 +1096,7 @@ class FacturXPDFXMLVerificationApi
      *
      * Verify PDF/XML Factur-X compliance (synchronous)
      *
-     * @param  \SplFileObject $pdf_file Factur-X PDF file to verify (required)
+     * @param  string $pdf_file Factur-X PDF file to verify (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyPdfSyncApiV1VerificationVerifyPost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1237,7 +1237,7 @@ class FacturXPDFXMLVerificationApi
      *
      * Verify PDF/XML Factur-X compliance (synchronous)
      *
-     * @param  \SplFileObject $pdf_file Factur-X PDF file to verify (required)
+     * @param  string $pdf_file Factur-X PDF file to verify (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyPdfSyncApiV1VerificationVerifyPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1258,7 +1258,7 @@ class FacturXPDFXMLVerificationApi
      *
      * Verify PDF/XML Factur-X compliance (synchronous)
      *
-     * @param  \SplFileObject $pdf_file Factur-X PDF file to verify (required)
+     * @param  string $pdf_file Factur-X PDF file to verify (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyPdfSyncApiV1VerificationVerifyPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1308,7 +1308,7 @@ class FacturXPDFXMLVerificationApi
     /**
      * Create request for operation 'verifyPdfSyncApiV1VerificationVerifyPost'
      *
-     * @param  \SplFileObject $pdf_file Factur-X PDF file to verify (required)
+     * @param  string $pdf_file Factur-X PDF file to verify (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyPdfSyncApiV1VerificationVerifyPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

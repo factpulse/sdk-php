@@ -174,7 +174,7 @@ $apiInstance = new FactPulse\SDK\Api\FacturXPDFXMLVerificationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$pdf_file = '/path/to/file.txt'; // \SplFileObject | Factur-X PDF file to verify
+$pdf_file = 'pdf_file_example'; // string | Factur-X PDF file to verify
 $force_ocr = false; // bool | Force OCR usage even if PDF contains native text
 $callback_url = 'callback_url_example'; // string
 $webhook_mode = 'inline'; // string | Webhook content delivery: 'inline' (base64 in payload) or 'download_url' (temporary URL, 1h TTL)
@@ -191,7 +191,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **pdf_file** | **\SplFileObject****\SplFileObject**| Factur-X PDF file to verify | |
+| **pdf_file** | **string**| Factur-X PDF file to verify | |
 | **force_ocr** | **bool**| Force OCR usage even if PDF contains native text | [optional] [default to false] |
 | **callback_url** | **string**|  | [optional] |
 | **webhook_mode** | **string**| Webhook content delivery: &#39;inline&#39; (base64 in payload) or &#39;download_url&#39; (temporary URL, 1h TTL) | [optional] [default to &#39;inline&#39;] |
@@ -245,7 +245,7 @@ $apiInstance = new FactPulse\SDK\Api\FacturXPDFXMLVerificationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$pdf_file = '/path/to/file.txt'; // \SplFileObject | Factur-X PDF file to verify
+$pdf_file = 'pdf_file_example'; // string | Factur-X PDF file to verify
 
 try {
     $result = $apiInstance->verifyPdfSyncApiV1VerificationVerifyPost($pdf_file);
@@ -259,7 +259,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **pdf_file** | **\SplFileObject****\SplFileObject**| Factur-X PDF file to verify | |
+| **pdf_file** | **string**| Factur-X PDF file to verify | |
 
 ### Return type
 

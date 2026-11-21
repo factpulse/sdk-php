@@ -106,4 +106,40 @@ class LifecycleResponseTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "total_flows"
+     */
+    public function testPropertyTotalFlows()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "truncated"
+     */
+    public function testPropertyTruncated()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "date_from"
+     */
+    public function testPropertyDateFrom()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "date_to"
+     */
+    public function testPropertyDateTo()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

@@ -109,7 +109,7 @@ $apiInstance = new FactPulse\SDK\Api\ElectronicSignatureApi(
     new GuzzleHttp\Client(),
     $config
 );
-$pdf_file = '/path/to/file.txt'; // \SplFileObject | PDF file to sign (will be processed and returned signed in base64)
+$pdf_file = 'pdf_file_example'; // string | PDF file to sign (will be processed and returned signed in base64)
 $reason = 'reason_example'; // string
 $location = 'location_example'; // string
 $contact = 'contact_example'; // string
@@ -129,7 +129,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **pdf_file** | **\SplFileObject****\SplFileObject**| PDF file to sign (will be processed and returned signed in base64) | |
+| **pdf_file** | **string**| PDF file to sign (will be processed and returned signed in base64) | |
 | **reason** | **string**|  | [optional] |
 | **location** | **string**|  | [optional] |
 | **contact** | **string**|  | [optional] |
@@ -186,7 +186,7 @@ $apiInstance = new FactPulse\SDK\Api\ElectronicSignatureApi(
     new GuzzleHttp\Client(),
     $config
 );
-$pdf_file = '/path/to/file.txt'; // \SplFileObject | PDF file to sign (processed asynchronously)
+$pdf_file = 'pdf_file_example'; // string | PDF file to sign (processed asynchronously)
 $callback_url = 'callback_url_example'; // string
 $webhook_mode = 'inline'; // string | Webhook content delivery: 'inline' (base64 in payload) or 'download_url' (temporary URL, 1h TTL)
 $reason = 'reason_example'; // string
@@ -208,7 +208,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **pdf_file** | **\SplFileObject****\SplFileObject**| PDF file to sign (processed asynchronously) | |
+| **pdf_file** | **string**| PDF file to sign (processed asynchronously) | |
 | **callback_url** | **string**|  | [optional] |
 | **webhook_mode** | **string**| Webhook content delivery: &#39;inline&#39; (base64 in payload) or &#39;download_url&#39; (temporary URL, 1h TTL) | [optional] [default to &#39;inline&#39;] |
 | **reason** | **string**|  | [optional] |
@@ -267,7 +267,7 @@ $apiInstance = new FactPulse\SDK\Api\ElectronicSignatureApi(
     new GuzzleHttp\Client(),
     $config
 );
-$pdf_file = '/path/to/file.txt'; // \SplFileObject | PDF file to validate (will be analyzed to detect and validate signatures)
+$pdf_file = 'pdf_file_example'; // string | PDF file to validate (will be analyzed to detect and validate signatures)
 
 try {
     $result = $apiInstance->validatePdfSignatureEndpointApiV1ProcessingValidatePdfSignaturePost($pdf_file);
@@ -281,7 +281,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **pdf_file** | **\SplFileObject****\SplFileObject**| PDF file to validate (will be analyzed to detect and validate signatures) | |
+| **pdf_file** | **string**| PDF file to validate (will be analyzed to detect and validate signatures) | |
 
 ### Return type
 

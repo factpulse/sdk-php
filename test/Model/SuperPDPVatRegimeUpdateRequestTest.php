@@ -1,6 +1,6 @@
 <?php
 /**
- * ChorusProCredentialsTest
+ * SuperPDPVatRegimeUpdateRequestTest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ChorusProCredentialsTest Class Doc Comment
+ * SuperPDPVatRegimeUpdateRequestTest Class Doc Comment
  *
  * @category    Class
- * @description Optional Chorus Pro credentials.  **MODE 1 - JWT retrieval (recommended):** Do not provide this &#x60;credentials&#x60; field in the payload. Credentials will be automatically retrieved via client_uid from JWT (0-trust).  **MODE 2 - Credentials in payload:** Provide all required fields below. Useful for tests or third-party integrations.
+ * @description VAT regime to set on the client&#39;s company at SuperPDP.
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ChorusProCredentialsTest extends TestCase
+class SuperPDPVatRegimeUpdateRequestTest extends TestCase
 {
 
     /**
@@ -72,54 +72,27 @@ class ChorusProCredentialsTest extends TestCase
     }
 
     /**
-     * Test "ChorusProCredentials"
+     * Test "SuperPDPVatRegimeUpdateRequest"
      */
-    public function testChorusProCredentials()
+    public function testSuperPDPVatRegimeUpdateRequest()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "piste_client_id"
+     * Test attribute "vat_regime"
      */
-    public function testPropertyPisteClientId()
+    public function testPropertyVatRegime()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "piste_client_secret"
+     * Test attribute "has_vat_on_debits"
      */
-    public function testPropertyPisteClientSecret()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "chorus_login"
-     */
-    public function testPropertyChorusLogin()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "chorus_password"
-     */
-    public function testPropertyChorusPassword()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "sandbox_mode"
-     */
-    public function testPropertySandboxMode()
+    public function testPropertyHasVatOnDebits()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

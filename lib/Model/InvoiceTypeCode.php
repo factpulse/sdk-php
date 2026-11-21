@@ -34,7 +34,7 @@ use \FactPulse\SDK\ObjectSerializer;
  * InvoiceTypeCode Class Doc Comment
  *
  * @category Class
- * @description Invoice type codes (UNTDID 1001).
+ * @description Invoice type code (BT-3). UNTDID 1001.
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -44,15 +44,85 @@ class InvoiceTypeCode
     /**
      * Possible values of this enum
      */
-    public const _380 = '380';
+    /**
+     * Commercial Invoice
+     */
+    public const INVOICE = '380';
 
-    public const _381 = '381';
+    /**
+     * Self-billed Invoice
+     */
+    public const SELF_BILLED_INVOICE = '389';
 
-    public const _384 = '384';
+    /**
+     * Factored Invoice
+     */
+    public const FACTORED_INVOICE = '393';
 
-    public const _389 = '389';
+    /**
+     * Self-billed Factored Invoice
+     */
+    public const SELF_BILLED_FACTORED_INVOICE = '501';
 
-    public const _386 = '386';
+    /**
+     * Prepayment Invoice
+     */
+    public const PREPAYMENT_INVOICE = '386';
+
+    /**
+     * Self-billed Prepayment Invoice
+     */
+    public const SELF_BILLED_PREPAYMENT_INVOICE = '500';
+
+    /**
+     * Corrective Invoice
+     */
+    public const CORRECTIVE_INVOICE = '384';
+
+    /**
+     * Self-billed Corrective Invoice
+     */
+    public const SELF_BILLED_CORRECTIVE_INVOICE = '471';
+
+    /**
+     * Factored Corrective Invoice
+     */
+    public const FACTORED_CORRECTIVE_INVOICE = '472';
+
+    /**
+     * Self-billed Factored Corrective Invoice
+     */
+    public const SELF_BILLED_FACTORED_CORRECTIVE_INVOICE = '473';
+
+    /**
+     * Credit Note
+     */
+    public const CREDIT_NOTE = '381';
+
+    /**
+     * Self-billed Credit Note
+     */
+    public const SELF_BILLED_CREDIT_NOTE = '261';
+
+    /**
+     * Global Allowance Credit Note
+     */
+    public const GLOBAL_ALLOWANCE_CREDIT_NOTE = '262';
+
+    /**
+     * Factored Credit Note
+     */
+    public const FACTORED_CREDIT_NOTE = '396';
+
+    /**
+     * Self-billed Factored Credit Note
+     */
+    public const SELF_BILLED_FACTORED_CREDIT_NOTE = '502';
+
+    /**
+     * Prepayment Credit Note
+     */
+    public const PREPAYMENT_CREDIT_NOTE = '503';
 
     /**
      * Gets allowable values of the enum
@@ -61,11 +131,22 @@ class InvoiceTypeCode
     public static function getAllowableEnumValues()
     {
         return [
-            self::_380,
-            self::_381,
-            self::_384,
-            self::_389,
-            self::_386
+            self::INVOICE,
+            self::SELF_BILLED_INVOICE,
+            self::FACTORED_INVOICE,
+            self::SELF_BILLED_FACTORED_INVOICE,
+            self::PREPAYMENT_INVOICE,
+            self::SELF_BILLED_PREPAYMENT_INVOICE,
+            self::CORRECTIVE_INVOICE,
+            self::SELF_BILLED_CORRECTIVE_INVOICE,
+            self::FACTORED_CORRECTIVE_INVOICE,
+            self::SELF_BILLED_FACTORED_CORRECTIVE_INVOICE,
+            self::CREDIT_NOTE,
+            self::SELF_BILLED_CREDIT_NOTE,
+            self::GLOBAL_ALLOWANCE_CREDIT_NOTE,
+            self::FACTORED_CREDIT_NOTE,
+            self::SELF_BILLED_FACTORED_CREDIT_NOTE,
+            self::PREPAYMENT_CREDIT_NOTE
         ];
     }
 }

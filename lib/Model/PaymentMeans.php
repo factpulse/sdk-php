@@ -34,7 +34,7 @@ use \FactPulse\SDK\ObjectSerializer;
  * PaymentMeans Class Doc Comment
  *
  * @category Class
- * @description Payment methods - Chorus Pro API codes (modePaiement).  Values are official Chorus Pro enum values, automatically mapped to UNTDID 4461 codes for Factur-X/UBL XML generation.  | Chorus Pro code | Name | UNTDID 4461 | |-----------------|------|-------------| | CHEQUE | CHECK | 20 | | PRELEVEMENT | DIRECT_DEBIT | 49 | | VIREMENT | CREDIT_TRANSFER | 30 | | ESPECE | CASH | 10 | | AUTRE | OTHER | 57 | | REPORT | CLEARING | 97 |
+ * @description Payment methods - Chorus Pro API codes (modePaiement).  Values are official Chorus Pro enum values, automatically mapped to UNTDID 4461 codes for Factur-X/UBL XML generation.  | Chorus Pro code | Name | UNTDID 4461 | |-----------------|------|-------------| | CHEQUE | CHECK | 20 | | PRELEVEMENT | DIRECT_DEBIT | 49 | | VIREMENT | CREDIT_TRANSFER | 30 | | ESPECE | CASH | 10 | | AUTRE | OTHER | 57 | | REPORT | CLEARING | 97 | | CARTE | CARD | 48 |  CARTE is not a Chorus Pro value: it is sent to Chorus Pro as AUTRE.
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -56,6 +56,8 @@ class PaymentMeans
 
     public const REPORT = 'REPORT';
 
+    public const CARTE = 'CARTE';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -68,7 +70,8 @@ class PaymentMeans
             self::VIREMENT,
             self::ESPECE,
             self::AUTRE,
-            self::REPORT
+            self::REPORT,
+            self::CARTE
         ];
     }
 }

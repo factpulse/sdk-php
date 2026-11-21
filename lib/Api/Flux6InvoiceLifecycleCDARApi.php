@@ -700,6 +700,8 @@ class Flux6InvoiceLifecycleCDARApi
      * [Simplified] Get lifecycle events for invoices
      *
      * @param  int|null $days Number of days to look back (optional, default to 7)
+     * @param  \DateTime|null $date_from Window start (ISO 8601, UTC if no offset). Overrides days. (optional)
+     * @param  \DateTime|null $date_to Window end (ISO 8601, UTC if no offset). Default: now (optional)
      * @param  string|null $invoice_id Filter by invoice reference (optional)
      * @param  string|null $flow_direction All (default), In (received statuses) or Out (issued statuses) (optional, default to 'All')
      * @param  string|null $pdp_flow_service_url PDP Flow Service URL (optional)
@@ -713,9 +715,9 @@ class Flux6InvoiceLifecycleCDARApi
      * @throws \InvalidArgumentException
      * @return \FactPulse\SDK\Model\LifecycleResponse|\FactPulse\SDK\Model\APIError
      */
-    public function getLifecycleApiV1CdarLifecycleGet($days = 7, $invoice_id = null, $flow_direction = 'All', $pdp_flow_service_url = null, $pdp_token_url = null, $pdp_client_id = null, $pdp_client_secret = null, $organization_id = null, string $contentType = self::contentTypes['getLifecycleApiV1CdarLifecycleGet'][0])
+    public function getLifecycleApiV1CdarLifecycleGet($days = 7, $date_from = null, $date_to = null, $invoice_id = null, $flow_direction = 'All', $pdp_flow_service_url = null, $pdp_token_url = null, $pdp_client_id = null, $pdp_client_secret = null, $organization_id = null, string $contentType = self::contentTypes['getLifecycleApiV1CdarLifecycleGet'][0])
     {
-        list($response) = $this->getLifecycleApiV1CdarLifecycleGetWithHttpInfo($days, $invoice_id, $flow_direction, $pdp_flow_service_url, $pdp_token_url, $pdp_client_id, $pdp_client_secret, $organization_id, $contentType);
+        list($response) = $this->getLifecycleApiV1CdarLifecycleGetWithHttpInfo($days, $date_from, $date_to, $invoice_id, $flow_direction, $pdp_flow_service_url, $pdp_token_url, $pdp_client_id, $pdp_client_secret, $organization_id, $contentType);
         return $response;
     }
 
@@ -725,6 +727,8 @@ class Flux6InvoiceLifecycleCDARApi
      * [Simplified] Get lifecycle events for invoices
      *
      * @param  int|null $days Number of days to look back (optional, default to 7)
+     * @param  \DateTime|null $date_from Window start (ISO 8601, UTC if no offset). Overrides days. (optional)
+     * @param  \DateTime|null $date_to Window end (ISO 8601, UTC if no offset). Default: now (optional)
      * @param  string|null $invoice_id Filter by invoice reference (optional)
      * @param  string|null $flow_direction All (default), In (received statuses) or Out (issued statuses) (optional, default to 'All')
      * @param  string|null $pdp_flow_service_url PDP Flow Service URL (optional)
@@ -738,9 +742,9 @@ class Flux6InvoiceLifecycleCDARApi
      * @throws \InvalidArgumentException
      * @return array of \FactPulse\SDK\Model\LifecycleResponse|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLifecycleApiV1CdarLifecycleGetWithHttpInfo($days = 7, $invoice_id = null, $flow_direction = 'All', $pdp_flow_service_url = null, $pdp_token_url = null, $pdp_client_id = null, $pdp_client_secret = null, $organization_id = null, string $contentType = self::contentTypes['getLifecycleApiV1CdarLifecycleGet'][0])
+    public function getLifecycleApiV1CdarLifecycleGetWithHttpInfo($days = 7, $date_from = null, $date_to = null, $invoice_id = null, $flow_direction = 'All', $pdp_flow_service_url = null, $pdp_token_url = null, $pdp_client_id = null, $pdp_client_secret = null, $organization_id = null, string $contentType = self::contentTypes['getLifecycleApiV1CdarLifecycleGet'][0])
     {
-        $request = $this->getLifecycleApiV1CdarLifecycleGetRequest($days, $invoice_id, $flow_direction, $pdp_flow_service_url, $pdp_token_url, $pdp_client_id, $pdp_client_secret, $organization_id, $contentType);
+        $request = $this->getLifecycleApiV1CdarLifecycleGetRequest($days, $date_from, $date_to, $invoice_id, $flow_direction, $pdp_flow_service_url, $pdp_token_url, $pdp_client_id, $pdp_client_secret, $organization_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -831,6 +835,8 @@ class Flux6InvoiceLifecycleCDARApi
      * [Simplified] Get lifecycle events for invoices
      *
      * @param  int|null $days Number of days to look back (optional, default to 7)
+     * @param  \DateTime|null $date_from Window start (ISO 8601, UTC if no offset). Overrides days. (optional)
+     * @param  \DateTime|null $date_to Window end (ISO 8601, UTC if no offset). Default: now (optional)
      * @param  string|null $invoice_id Filter by invoice reference (optional)
      * @param  string|null $flow_direction All (default), In (received statuses) or Out (issued statuses) (optional, default to 'All')
      * @param  string|null $pdp_flow_service_url PDP Flow Service URL (optional)
@@ -843,9 +849,9 @@ class Flux6InvoiceLifecycleCDARApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLifecycleApiV1CdarLifecycleGetAsync($days = 7, $invoice_id = null, $flow_direction = 'All', $pdp_flow_service_url = null, $pdp_token_url = null, $pdp_client_id = null, $pdp_client_secret = null, $organization_id = null, string $contentType = self::contentTypes['getLifecycleApiV1CdarLifecycleGet'][0])
+    public function getLifecycleApiV1CdarLifecycleGetAsync($days = 7, $date_from = null, $date_to = null, $invoice_id = null, $flow_direction = 'All', $pdp_flow_service_url = null, $pdp_token_url = null, $pdp_client_id = null, $pdp_client_secret = null, $organization_id = null, string $contentType = self::contentTypes['getLifecycleApiV1CdarLifecycleGet'][0])
     {
-        return $this->getLifecycleApiV1CdarLifecycleGetAsyncWithHttpInfo($days, $invoice_id, $flow_direction, $pdp_flow_service_url, $pdp_token_url, $pdp_client_id, $pdp_client_secret, $organization_id, $contentType)
+        return $this->getLifecycleApiV1CdarLifecycleGetAsyncWithHttpInfo($days, $date_from, $date_to, $invoice_id, $flow_direction, $pdp_flow_service_url, $pdp_token_url, $pdp_client_id, $pdp_client_secret, $organization_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -859,6 +865,8 @@ class Flux6InvoiceLifecycleCDARApi
      * [Simplified] Get lifecycle events for invoices
      *
      * @param  int|null $days Number of days to look back (optional, default to 7)
+     * @param  \DateTime|null $date_from Window start (ISO 8601, UTC if no offset). Overrides days. (optional)
+     * @param  \DateTime|null $date_to Window end (ISO 8601, UTC if no offset). Default: now (optional)
      * @param  string|null $invoice_id Filter by invoice reference (optional)
      * @param  string|null $flow_direction All (default), In (received statuses) or Out (issued statuses) (optional, default to 'All')
      * @param  string|null $pdp_flow_service_url PDP Flow Service URL (optional)
@@ -871,10 +879,10 @@ class Flux6InvoiceLifecycleCDARApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLifecycleApiV1CdarLifecycleGetAsyncWithHttpInfo($days = 7, $invoice_id = null, $flow_direction = 'All', $pdp_flow_service_url = null, $pdp_token_url = null, $pdp_client_id = null, $pdp_client_secret = null, $organization_id = null, string $contentType = self::contentTypes['getLifecycleApiV1CdarLifecycleGet'][0])
+    public function getLifecycleApiV1CdarLifecycleGetAsyncWithHttpInfo($days = 7, $date_from = null, $date_to = null, $invoice_id = null, $flow_direction = 'All', $pdp_flow_service_url = null, $pdp_token_url = null, $pdp_client_id = null, $pdp_client_secret = null, $organization_id = null, string $contentType = self::contentTypes['getLifecycleApiV1CdarLifecycleGet'][0])
     {
         $returnType = '\FactPulse\SDK\Model\LifecycleResponse';
-        $request = $this->getLifecycleApiV1CdarLifecycleGetRequest($days, $invoice_id, $flow_direction, $pdp_flow_service_url, $pdp_token_url, $pdp_client_id, $pdp_client_secret, $organization_id, $contentType);
+        $request = $this->getLifecycleApiV1CdarLifecycleGetRequest($days, $date_from, $date_to, $invoice_id, $flow_direction, $pdp_flow_service_url, $pdp_token_url, $pdp_client_id, $pdp_client_secret, $organization_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -916,6 +924,8 @@ class Flux6InvoiceLifecycleCDARApi
      * Create request for operation 'getLifecycleApiV1CdarLifecycleGet'
      *
      * @param  int|null $days Number of days to look back (optional, default to 7)
+     * @param  \DateTime|null $date_from Window start (ISO 8601, UTC if no offset). Overrides days. (optional)
+     * @param  \DateTime|null $date_to Window end (ISO 8601, UTC if no offset). Default: now (optional)
      * @param  string|null $invoice_id Filter by invoice reference (optional)
      * @param  string|null $flow_direction All (default), In (received statuses) or Out (issued statuses) (optional, default to 'All')
      * @param  string|null $pdp_flow_service_url PDP Flow Service URL (optional)
@@ -928,7 +938,7 @@ class Flux6InvoiceLifecycleCDARApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getLifecycleApiV1CdarLifecycleGetRequest($days = 7, $invoice_id = null, $flow_direction = 'All', $pdp_flow_service_url = null, $pdp_token_url = null, $pdp_client_id = null, $pdp_client_secret = null, $organization_id = null, string $contentType = self::contentTypes['getLifecycleApiV1CdarLifecycleGet'][0])
+    public function getLifecycleApiV1CdarLifecycleGetRequest($days = 7, $date_from = null, $date_to = null, $invoice_id = null, $flow_direction = 'All', $pdp_flow_service_url = null, $pdp_token_url = null, $pdp_client_id = null, $pdp_client_secret = null, $organization_id = null, string $contentType = self::contentTypes['getLifecycleApiV1CdarLifecycleGet'][0])
     {
 
         if ($days !== null && $days > 365) {
@@ -938,6 +948,8 @@ class Flux6InvoiceLifecycleCDARApi
             throw new \InvalidArgumentException('invalid value for "$days" when calling Flux6InvoiceLifecycleCDARApi.getLifecycleApiV1CdarLifecycleGet, must be bigger than or equal to 1.');
         }
         
+
+
 
 
 
@@ -958,6 +970,24 @@ class Flux6InvoiceLifecycleCDARApi
             $days,
             'days', // param base name
             'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $date_from,
+            'dateFrom', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $date_to,
+            'dateTo', // param base name
+            'string', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -3052,7 +3082,7 @@ class Flux6InvoiceLifecycleCDARApi
      *
      * Validate CDAR XML against XSD and Schematron BR-FR-CDV
      *
-     * @param  \SplFileObject $xml_file CDAR XML file to validate (required)
+     * @param  string $xml_file CDAR XML file to validate (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateXmlCdarApiV1CdarValidateXmlPost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3070,7 +3100,7 @@ class Flux6InvoiceLifecycleCDARApi
      *
      * Validate CDAR XML against XSD and Schematron BR-FR-CDV
      *
-     * @param  \SplFileObject $xml_file CDAR XML file to validate (required)
+     * @param  string $xml_file CDAR XML file to validate (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateXmlCdarApiV1CdarValidateXmlPost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3169,7 +3199,7 @@ class Flux6InvoiceLifecycleCDARApi
      *
      * Validate CDAR XML against XSD and Schematron BR-FR-CDV
      *
-     * @param  \SplFileObject $xml_file CDAR XML file to validate (required)
+     * @param  string $xml_file CDAR XML file to validate (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateXmlCdarApiV1CdarValidateXmlPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3190,7 +3220,7 @@ class Flux6InvoiceLifecycleCDARApi
      *
      * Validate CDAR XML against XSD and Schematron BR-FR-CDV
      *
-     * @param  \SplFileObject $xml_file CDAR XML file to validate (required)
+     * @param  string $xml_file CDAR XML file to validate (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateXmlCdarApiV1CdarValidateXmlPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3240,7 +3270,7 @@ class Flux6InvoiceLifecycleCDARApi
     /**
      * Create request for operation 'validateXmlCdarApiV1CdarValidateXmlPost'
      *
-     * @param  \SplFileObject $xml_file CDAR XML file to validate (required)
+     * @param  string $xml_file CDAR XML file to validate (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateXmlCdarApiV1CdarValidateXmlPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

@@ -36,7 +36,7 @@ use \FactPulse\SDK\ObjectSerializer;
  * Amount2 Class Doc Comment
  *
  * @category Class
- * @description Payment amount
+ * @description Montant TTC encaissé en EUR, à un seul taux (vatRate). Négatif pour un décaissement (remboursement). Pour plusieurs taux, utiliser amountsByRate. Requis si amountsByRate est absent (BR-FR-CDV-14)
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

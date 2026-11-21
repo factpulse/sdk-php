@@ -36,7 +36,7 @@ use \FactPulse\SDK\ObjectSerializer;
  * Amount1 Class Doc Comment
  *
  * @category Class
- * @description Montant encaissé en EUR (obligatoire, BR-FR-CDV-14)
+ * @description Montant TTC encaissé pour ce taux, en EUR (MDT-215). Négatif pour un décaissement (remboursement, P1.15)
  * @package  FactPulse\SDK
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

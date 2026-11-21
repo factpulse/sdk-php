@@ -134,7 +134,7 @@ class ParseApi
      *
      * Parse Factur-X XML or PDF (async)
      *
-     * @param  \SplFileObject $file Factur-X PDF or XML file to parse (required)
+     * @param  string $file Factur-X PDF or XML file to parse (required)
      * @param  string|null $callback_url callback_url (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['parseFacturxAsyncApiV1ProcessingParseFacturxAsyncPost'] to see the possible values for this operation
      *
@@ -153,7 +153,7 @@ class ParseApi
      *
      * Parse Factur-X XML or PDF (async)
      *
-     * @param  \SplFileObject $file Factur-X PDF or XML file to parse (required)
+     * @param  string $file Factur-X PDF or XML file to parse (required)
      * @param  string|null $callback_url (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['parseFacturxAsyncApiV1ProcessingParseFacturxAsyncPost'] to see the possible values for this operation
      *
@@ -267,7 +267,7 @@ class ParseApi
      *
      * Parse Factur-X XML or PDF (async)
      *
-     * @param  \SplFileObject $file Factur-X PDF or XML file to parse (required)
+     * @param  string $file Factur-X PDF or XML file to parse (required)
      * @param  string|null $callback_url (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['parseFacturxAsyncApiV1ProcessingParseFacturxAsyncPost'] to see the possible values for this operation
      *
@@ -289,7 +289,7 @@ class ParseApi
      *
      * Parse Factur-X XML or PDF (async)
      *
-     * @param  \SplFileObject $file Factur-X PDF or XML file to parse (required)
+     * @param  string $file Factur-X PDF or XML file to parse (required)
      * @param  string|null $callback_url (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['parseFacturxAsyncApiV1ProcessingParseFacturxAsyncPost'] to see the possible values for this operation
      *
@@ -340,7 +340,7 @@ class ParseApi
     /**
      * Create request for operation 'parseFacturxAsyncApiV1ProcessingParseFacturxAsyncPost'
      *
-     * @param  \SplFileObject $file Factur-X PDF or XML file to parse (required)
+     * @param  string $file Factur-X PDF or XML file to parse (required)
      * @param  string|null $callback_url (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['parseFacturxAsyncApiV1ProcessingParseFacturxAsyncPost'] to see the possible values for this operation
      *
@@ -448,7 +448,7 @@ class ParseApi
      *
      * Parse CII, UBL or Factur-X PDF (sync)
      *
-     * @param  \SplFileObject $file Factur-X PDF or XML file to parse (required)
+     * @param  string $file Factur-X PDF or XML file to parse (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['parseFacturxSyncApiV1ProcessingParseFacturxPost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
@@ -466,7 +466,7 @@ class ParseApi
      *
      * Parse CII, UBL or Factur-X PDF (sync)
      *
-     * @param  \SplFileObject $file Factur-X PDF or XML file to parse (required)
+     * @param  string $file Factur-X PDF or XML file to parse (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['parseFacturxSyncApiV1ProcessingParseFacturxPost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
@@ -579,7 +579,7 @@ class ParseApi
      *
      * Parse CII, UBL or Factur-X PDF (sync)
      *
-     * @param  \SplFileObject $file Factur-X PDF or XML file to parse (required)
+     * @param  string $file Factur-X PDF or XML file to parse (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['parseFacturxSyncApiV1ProcessingParseFacturxPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -600,7 +600,7 @@ class ParseApi
      *
      * Parse CII, UBL or Factur-X PDF (sync)
      *
-     * @param  \SplFileObject $file Factur-X PDF or XML file to parse (required)
+     * @param  string $file Factur-X PDF or XML file to parse (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['parseFacturxSyncApiV1ProcessingParseFacturxPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -650,7 +650,7 @@ class ParseApi
     /**
      * Create request for operation 'parseFacturxSyncApiV1ProcessingParseFacturxPost'
      *
-     * @param  \SplFileObject $file Factur-X PDF or XML file to parse (required)
+     * @param  string $file Factur-X PDF or XML file to parse (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['parseFacturxSyncApiV1ProcessingParseFacturxPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

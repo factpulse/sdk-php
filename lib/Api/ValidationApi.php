@@ -131,14 +131,14 @@ class ValidationApi
      *
      * Validate a CII or UBL XML against Schematron rules
      *
-     * @param  \SplFileObject $xml_file CII (Factur-X) or UBL XML file to validate (.xml format). Format is auto-detected. (required)
+     * @param  string $xml_file CII (Factur-X) or UBL XML file to validate (.xml format). Format is auto-detected. (required)
      * @param  \FactPulse\SDK\Model\APIProfile|null $profile Validation profile (MINIMUM, BASIC, EN16931, EXTENDED). Used for CII only; ignored for UBL (always EN16931). (optional)
      * @param  bool|null $skip_br_fr skip_br_fr (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateXmlApiV1ProcessingValidateXmlPost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \FactPulse\SDK\Model\ValidationSuccessResponse|\FactPulse\SDK\Model\ValidationErrorResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
+     * @return \FactPulse\SDK\Model\ValidationSuccessResponse|\FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasValidationValidationErrorResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError
      */
     public function validateXmlApiV1ProcessingValidateXmlPost($xml_file, $profile = null, $skip_br_fr = null, string $contentType = self::contentTypes['validateXmlApiV1ProcessingValidateXmlPost'][0])
     {
@@ -151,14 +151,14 @@ class ValidationApi
      *
      * Validate a CII or UBL XML against Schematron rules
      *
-     * @param  \SplFileObject $xml_file CII (Factur-X) or UBL XML file to validate (.xml format). Format is auto-detected. (required)
+     * @param  string $xml_file CII (Factur-X) or UBL XML file to validate (.xml format). Format is auto-detected. (required)
      * @param  \FactPulse\SDK\Model\APIProfile|null $profile Validation profile (MINIMUM, BASIC, EN16931, EXTENDED). Used for CII only; ignored for UBL (always EN16931). (optional)
      * @param  bool|null $skip_br_fr (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateXmlApiV1ProcessingValidateXmlPost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \FactPulse\SDK\Model\ValidationSuccessResponse|\FactPulse\SDK\Model\ValidationErrorResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FactPulse\SDK\Model\ValidationSuccessResponse|\FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasValidationValidationErrorResponse|\FactPulse\SDK\Model\HTTPValidationError|\FactPulse\SDK\Model\APIError, HTTP status code, HTTP response headers (array of strings)
      */
     public function validateXmlApiV1ProcessingValidateXmlPostWithHttpInfo($xml_file, $profile = null, $skip_br_fr = null, string $contentType = self::contentTypes['validateXmlApiV1ProcessingValidateXmlPost'][0])
     {
@@ -196,7 +196,7 @@ class ValidationApi
                     );
                 case 400:
                     return $this->handleResponseWithDataType(
-                        '\FactPulse\SDK\Model\ValidationErrorResponse',
+                        '\FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasValidationValidationErrorResponse',
                         $request,
                         $response,
                     );
@@ -247,7 +247,7 @@ class ValidationApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\FactPulse\SDK\Model\ValidationErrorResponse',
+                        '\FactPulse\SDK\Model\FactureElectroniqueRestApiSchemasValidationValidationErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -280,7 +280,7 @@ class ValidationApi
      *
      * Validate a CII or UBL XML against Schematron rules
      *
-     * @param  \SplFileObject $xml_file CII (Factur-X) or UBL XML file to validate (.xml format). Format is auto-detected. (required)
+     * @param  string $xml_file CII (Factur-X) or UBL XML file to validate (.xml format). Format is auto-detected. (required)
      * @param  \FactPulse\SDK\Model\APIProfile|null $profile Validation profile (MINIMUM, BASIC, EN16931, EXTENDED). Used for CII only; ignored for UBL (always EN16931). (optional)
      * @param  bool|null $skip_br_fr (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateXmlApiV1ProcessingValidateXmlPost'] to see the possible values for this operation
@@ -303,7 +303,7 @@ class ValidationApi
      *
      * Validate a CII or UBL XML against Schematron rules
      *
-     * @param  \SplFileObject $xml_file CII (Factur-X) or UBL XML file to validate (.xml format). Format is auto-detected. (required)
+     * @param  string $xml_file CII (Factur-X) or UBL XML file to validate (.xml format). Format is auto-detected. (required)
      * @param  \FactPulse\SDK\Model\APIProfile|null $profile Validation profile (MINIMUM, BASIC, EN16931, EXTENDED). Used for CII only; ignored for UBL (always EN16931). (optional)
      * @param  bool|null $skip_br_fr (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateXmlApiV1ProcessingValidateXmlPost'] to see the possible values for this operation
@@ -355,7 +355,7 @@ class ValidationApi
     /**
      * Create request for operation 'validateXmlApiV1ProcessingValidateXmlPost'
      *
-     * @param  \SplFileObject $xml_file CII (Factur-X) or UBL XML file to validate (.xml format). Format is auto-detected. (required)
+     * @param  string $xml_file CII (Factur-X) or UBL XML file to validate (.xml format). Format is auto-detected. (required)
      * @param  \FactPulse\SDK\Model\APIProfile|null $profile Validation profile (MINIMUM, BASIC, EN16931, EXTENDED). Used for CII only; ignored for UBL (always EN16931). (optional)
      * @param  bool|null $skip_br_fr (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateXmlApiV1ProcessingValidateXmlPost'] to see the possible values for this operation

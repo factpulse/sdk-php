@@ -46,7 +46,7 @@ $apiInstance = new FactPulse\SDK\Api\FacturXConversionApi(
     new GuzzleHttp\Client(),
     $config
 );
-$file = '/path/to/file.txt'; // \SplFileObject | Document to convert (PDF, DOCX, XLSX, JPG, PNG)
+$file = 'file_example'; // string | Document to convert (PDF, DOCX, XLSX, JPG, PNG)
 $output = 'pdf'; // string | Output format: pdf, xml, both
 $callback_url = 'callback_url_example'; // string
 $webhook_mode = 'inline'; // string | Content delivery mode: 'inline' (base64 in webhook) or 'download_url' (temporary URL, 1h TTL)
@@ -63,7 +63,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **file** | **\SplFileObject****\SplFileObject**| Document to convert (PDF, DOCX, XLSX, JPG, PNG) | |
+| **file** | **string**| Document to convert (PDF, DOCX, XLSX, JPG, PNG) | |
 | **output** | **string**| Output format: pdf, xml, both | [optional] [default to &#39;pdf&#39;] |
 | **callback_url** | **string**|  | [optional] |
 | **webhook_mode** | **string**| Content delivery mode: &#39;inline&#39; (base64 in webhook) or &#39;download_url&#39; (temporary URL, 1h TTL) | [optional] [default to &#39;inline&#39;] |

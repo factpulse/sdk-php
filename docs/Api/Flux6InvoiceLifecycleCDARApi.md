@@ -140,12 +140,12 @@ No authorization required
 ## `getLifecycleApiV1CdarLifecycleGet()`
 
 ```php
-getLifecycleApiV1CdarLifecycleGet($days, $invoice_id, $flow_direction, $pdp_flow_service_url, $pdp_token_url, $pdp_client_id, $pdp_client_secret, $organization_id): \FactPulse\SDK\Model\LifecycleResponse
+getLifecycleApiV1CdarLifecycleGet($days, $date_from, $date_to, $invoice_id, $flow_direction, $pdp_flow_service_url, $pdp_token_url, $pdp_client_id, $pdp_client_secret, $organization_id): \FactPulse\SDK\Model\LifecycleResponse
 ```
 
 [Simplified] Get lifecycle events for invoices
 
-Returns lifecycle events (CDAR) grouped by invoice reference.  **How it works (AFNOR XP Z12-013 compliant):** 1. Searches lifecycle flows on the PDP by flowType + flowDirection + date range 2. Downloads and parses each CDAR XML to extract the invoice reference 3. Groups events by invoice, sorted chronologically  **Parameters:** - `days`: Number of days to look back (default: 7) - `invoiceId`: Optional filter on a specific invoice reference - `flowDirection`: `All` (default), `In` (statuses received from the counterparty)   or `Out` (statuses issued by you or your PA, e.g. 202/203)  **Authentication:** JWT Bearer (recommended) or PDP credentials as query parameters.
+Returns lifecycle events (CDAR) grouped by invoice reference.  **How it works (AFNOR XP Z12-013 compliant):** 1. Searches lifecycle flows on the PDP by flowType + flowDirection + date range,    following the cursor pagination (all pages are read) 2. Downloads and parses each CDAR XML to extract the invoice reference 3. Groups events by invoice, sorted chronologically  **Parameters:** - `days`: Number of days to look back (default: 7). Ignored when `dateFrom` is set. - `dateFrom` / `dateTo`: Explicit time window (ISO 8601, UTC if no offset).   `dateTo` defaults to now. - `invoiceId`: Optional filter on a specific invoice reference. The filter is applied   after reading the window: prefer one call per synchronisation over one call per invoice.  **Limits:** at most 1000 status flows are read per call. When the limit is reached, `truncated` is `true` and the response is incomplete: split the window with `dateFrom` / `dateTo`. For incremental synchronisation, request the period since your last successful sync (plus a small margin). - `flowDirection`: `All` (default), `In` (statuses received from the counterparty)   or `Out` (statuses issued by you or your PA, e.g. 202/203)  **Authentication:** JWT Bearer (recommended) or PDP credentials as query parameters.
 
 ### Example
 
@@ -165,6 +165,8 @@ $apiInstance = new FactPulse\SDK\Api\Flux6InvoiceLifecycleCDARApi(
     $config
 );
 $days = 7; // int | Number of days to look back
+$date_from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Window start (ISO 8601, UTC if no offset). Overrides days.
+$date_to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Window end (ISO 8601, UTC if no offset). Default: now
 $invoice_id = 'invoice_id_example'; // string | Filter by invoice reference
 $flow_direction = 'All'; // string | All (default), In (received statuses) or Out (issued statuses)
 $pdp_flow_service_url = 'pdp_flow_service_url_example'; // string | PDP Flow Service URL
@@ -174,7 +176,7 @@ $pdp_client_secret = 'pdp_client_secret_example'; // string | PDP Client Secret
 $organization_id = 'organization_id_example'; // string | Organization ID relayed to the PDP (AFNOR XP Z12-013 delegation / multi-tenancy). Required by some PDPs to select the client space.
 
 try {
-    $result = $apiInstance->getLifecycleApiV1CdarLifecycleGet($days, $invoice_id, $flow_direction, $pdp_flow_service_url, $pdp_token_url, $pdp_client_id, $pdp_client_secret, $organization_id);
+    $result = $apiInstance->getLifecycleApiV1CdarLifecycleGet($days, $date_from, $date_to, $invoice_id, $flow_direction, $pdp_flow_service_url, $pdp_token_url, $pdp_client_id, $pdp_client_secret, $organization_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Flux6InvoiceLifecycleCDARApi->getLifecycleApiV1CdarLifecycleGet: ', $e->getMessage(), PHP_EOL;
@@ -186,6 +188,8 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **days** | **int**| Number of days to look back | [optional] [default to 7] |
+| **date_from** | **\DateTime**| Window start (ISO 8601, UTC if no offset). Overrides days. | [optional] |
+| **date_to** | **\DateTime**| Window end (ISO 8601, UTC if no offset). Default: now | [optional] |
 | **invoice_id** | **string**| Filter by invoice reference | [optional] |
 | **flow_direction** | **string**| All (default), In (received statuses) or Out (issued statuses) | [optional] [default to &#39;All&#39;] |
 | **pdp_flow_service_url** | **string**| PDP Flow Service URL | [optional] |
@@ -662,7 +666,7 @@ $apiInstance = new FactPulse\SDK\Api\Flux6InvoiceLifecycleCDARApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xml_file = '/path/to/file.txt'; // \SplFileObject | CDAR XML file to validate
+$xml_file = 'xml_file_example'; // string | CDAR XML file to validate
 
 try {
     $result = $apiInstance->validateXmlCdarApiV1CdarValidateXmlPost($xml_file);
@@ -676,7 +680,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xml_file** | **\SplFileObject****\SplFileObject**| CDAR XML file to validate | |
+| **xml_file** | **string**| CDAR XML file to validate | |
 
 ### Return type
 

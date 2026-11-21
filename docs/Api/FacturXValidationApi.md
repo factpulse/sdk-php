@@ -42,7 +42,7 @@ $apiInstance = new FactPulse\SDK\Api\FacturXValidationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$pdf_file = '/path/to/file.txt'; // \SplFileObject | Factur-X PDF file to validate (.pdf format).
+$pdf_file = 'pdf_file_example'; // string | Factur-X PDF file to validate (.pdf format).
 $profile = new \FactPulse\SDK\Model\APIProfile(); // \FactPulse\SDK\Model\APIProfile
 $use_verapdf = false; // bool | Enable strict PDF/A validation with VeraPDF (recommended for production). If False, uses basic metadata validation.
 $skip_br_fr = True; // bool
@@ -59,7 +59,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **pdf_file** | **\SplFileObject****\SplFileObject**| Factur-X PDF file to validate (.pdf format). | |
+| **pdf_file** | **string**| Factur-X PDF file to validate (.pdf format). | |
 | **profile** | [**\FactPulse\SDK\Model\APIProfile**](../Model/APIProfile.md)|  | [optional] |
 | **use_verapdf** | **bool**| Enable strict PDF/A validation with VeraPDF (recommended for production). If False, uses basic metadata validation. | [optional] [default to false] |
 | **skip_br_fr** | **bool**|  | [optional] |
@@ -113,7 +113,7 @@ $apiInstance = new FactPulse\SDK\Api\FacturXValidationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$pdf_file = '/path/to/file.txt'; // \SplFileObject | Factur-X PDF file to validate (.pdf format).
+$pdf_file = 'pdf_file_example'; // string | Factur-X PDF file to validate (.pdf format).
 $profile = new \FactPulse\SDK\Model\APIProfile(); // \FactPulse\SDK\Model\APIProfile
 $use_verapdf = false; // bool | Enable strict PDF/A validation with VeraPDF (recommended for production). May take several seconds.
 $callback_url = 'callback_url_example'; // string
@@ -131,7 +131,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **pdf_file** | **\SplFileObject****\SplFileObject**| Factur-X PDF file to validate (.pdf format). | |
+| **pdf_file** | **string**| Factur-X PDF file to validate (.pdf format). | |
 | **profile** | [**\FactPulse\SDK\Model\APIProfile**](../Model/APIProfile.md)|  | [optional] |
 | **use_verapdf** | **bool**| Enable strict PDF/A validation with VeraPDF (recommended for production). May take several seconds. | [optional] [default to false] |
 | **callback_url** | **string**|  | [optional] |

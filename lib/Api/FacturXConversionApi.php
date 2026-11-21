@@ -146,7 +146,7 @@ class FacturXConversionApi
      *
      * Convert a document to Factur-X (async mode)
      *
-     * @param  \SplFileObject $file Document to convert (PDF, DOCX, XLSX, JPG, PNG) (required)
+     * @param  string $file Document to convert (PDF, DOCX, XLSX, JPG, PNG) (required)
      * @param  string|null $output Output format: pdf, xml, both (optional, default to 'pdf')
      * @param  string|null $callback_url callback_url (optional)
      * @param  string|null $webhook_mode Content delivery mode: &#39;inline&#39; (base64 in webhook) or &#39;download_url&#39; (temporary URL, 1h TTL) (optional, default to 'inline')
@@ -167,7 +167,7 @@ class FacturXConversionApi
      *
      * Convert a document to Factur-X (async mode)
      *
-     * @param  \SplFileObject $file Document to convert (PDF, DOCX, XLSX, JPG, PNG) (required)
+     * @param  string $file Document to convert (PDF, DOCX, XLSX, JPG, PNG) (required)
      * @param  string|null $output Output format: pdf, xml, both (optional, default to 'pdf')
      * @param  string|null $callback_url (optional)
      * @param  string|null $webhook_mode Content delivery mode: &#39;inline&#39; (base64 in webhook) or &#39;download_url&#39; (temporary URL, 1h TTL) (optional, default to 'inline')
@@ -283,7 +283,7 @@ class FacturXConversionApi
      *
      * Convert a document to Factur-X (async mode)
      *
-     * @param  \SplFileObject $file Document to convert (PDF, DOCX, XLSX, JPG, PNG) (required)
+     * @param  string $file Document to convert (PDF, DOCX, XLSX, JPG, PNG) (required)
      * @param  string|null $output Output format: pdf, xml, both (optional, default to 'pdf')
      * @param  string|null $callback_url (optional)
      * @param  string|null $webhook_mode Content delivery mode: &#39;inline&#39; (base64 in webhook) or &#39;download_url&#39; (temporary URL, 1h TTL) (optional, default to 'inline')
@@ -307,7 +307,7 @@ class FacturXConversionApi
      *
      * Convert a document to Factur-X (async mode)
      *
-     * @param  \SplFileObject $file Document to convert (PDF, DOCX, XLSX, JPG, PNG) (required)
+     * @param  string $file Document to convert (PDF, DOCX, XLSX, JPG, PNG) (required)
      * @param  string|null $output Output format: pdf, xml, both (optional, default to 'pdf')
      * @param  string|null $callback_url (optional)
      * @param  string|null $webhook_mode Content delivery mode: &#39;inline&#39; (base64 in webhook) or &#39;download_url&#39; (temporary URL, 1h TTL) (optional, default to 'inline')
@@ -360,7 +360,7 @@ class FacturXConversionApi
     /**
      * Create request for operation 'convertDocumentAsyncApiV1ConvertAsyncPost'
      *
-     * @param  \SplFileObject $file Document to convert (PDF, DOCX, XLSX, JPG, PNG) (required)
+     * @param  string $file Document to convert (PDF, DOCX, XLSX, JPG, PNG) (required)
      * @param  string|null $output Output format: pdf, xml, both (optional, default to 'pdf')
      * @param  string|null $callback_url (optional)
      * @param  string|null $webhook_mode Content delivery mode: &#39;inline&#39; (base64 in webhook) or &#39;download_url&#39; (temporary URL, 1h TTL) (optional, default to 'inline')

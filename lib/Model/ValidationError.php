@@ -60,7 +60,9 @@ class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'loc' => '\FactPulse\SDK\Model\LocationInner[]',
         'msg' => 'string',
-        'type' => 'string'
+        'type' => 'string',
+        'input' => 'mixed',
+        'ctx' => 'object'
     ];
 
     /**
@@ -73,7 +75,9 @@ class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'loc' => null,
         'msg' => null,
-        'type' => null
+        'type' => null,
+        'input' => null,
+        'ctx' => null
     ];
 
     /**
@@ -84,7 +88,9 @@ class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'loc' => false,
         'msg' => false,
-        'type' => false
+        'type' => false,
+        'input' => true,
+        'ctx' => false
     ];
 
     /**
@@ -175,7 +181,9 @@ class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'loc' => 'loc',
         'msg' => 'msg',
-        'type' => 'type'
+        'type' => 'type',
+        'input' => 'input',
+        'ctx' => 'ctx'
     ];
 
     /**
@@ -186,7 +194,9 @@ class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'loc' => 'setLoc',
         'msg' => 'setMsg',
-        'type' => 'setType'
+        'type' => 'setType',
+        'input' => 'setInput',
+        'ctx' => 'setCtx'
     ];
 
     /**
@@ -197,7 +207,9 @@ class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'loc' => 'getLoc',
         'msg' => 'getMsg',
-        'type' => 'getType'
+        'type' => 'getType',
+        'input' => 'getInput',
+        'ctx' => 'getCtx'
     ];
 
     /**
@@ -260,6 +272,8 @@ class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('loc', $data ?? [], null);
         $this->setIfExists('msg', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('input', $data ?? [], null);
+        $this->setIfExists('ctx', $data ?? [], null);
     }
 
     /**
@@ -390,6 +404,67 @@ class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable type cannot be null');
         }
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets input
+     *
+     * @return mixed|null
+     */
+    public function getInput()
+    {
+        return $this->container['input'];
+    }
+
+    /**
+     * Sets input
+     *
+     * @param mixed|null $input input
+     *
+     * @return self
+     */
+    public function setInput($input)
+    {
+        if (is_null($input)) {
+            array_push($this->openAPINullablesSetToNull, 'input');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('input', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['input'] = $input;
+
+        return $this;
+    }
+
+    /**
+     * Gets ctx
+     *
+     * @return object|null
+     */
+    public function getCtx()
+    {
+        return $this->container['ctx'];
+    }
+
+    /**
+     * Sets ctx
+     *
+     * @param object|null $ctx ctx
+     *
+     * @return self
+     */
+    public function setCtx($ctx)
+    {
+        if (is_null($ctx)) {
+            throw new \InvalidArgumentException('non-nullable ctx cannot be null');
+        }
+        $this->container['ctx'] = $ctx;
 
         return $this;
     }

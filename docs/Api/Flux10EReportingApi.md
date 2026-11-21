@@ -472,7 +472,7 @@ $apiInstance = new FactPulse\SDK\Api\Flux10EReportingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xml_file = '/path/to/file.txt'; // \SplFileObject | E-reporting XML file
+$xml_file = 'xml_file_example'; // string | E-reporting XML file
 $organization_id = 'organization_id_example'; // string | Organization ID relayed to the PDP (AFNOR XP Z12-013 delegation / multi-tenancy). Required by some PDPs to select the client space.
 $tracking_id = 'tracking_id_example'; // string
 $skip_validation = false; // bool | Skip XSD validation
@@ -493,7 +493,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xml_file** | **\SplFileObject****\SplFileObject**| E-reporting XML file | |
+| **xml_file** | **string**| E-reporting XML file | |
 | **organization_id** | **string**| Organization ID relayed to the PDP (AFNOR XP Z12-013 delegation / multi-tenancy). Required by some PDPs to select the client space. | [optional] |
 | **tracking_id** | **string**|  | [optional] |
 | **skip_validation** | **bool**| Skip XSD validation | [optional] [default to false] |
@@ -681,7 +681,7 @@ $apiInstance = new FactPulse\SDK\Api\Flux10EReportingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xml_file = '/path/to/file.txt'; // \SplFileObject | E-reporting XML file to validate
+$xml_file = 'xml_file_example'; // string | E-reporting XML file to validate
 $validate_coherence = true; // bool | Validate data coherence (REJ_COH)
 $validate_period = true; // bool | Validate period coherence (REJ_PER)
 
@@ -697,7 +697,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xml_file** | **\SplFileObject****\SplFileObject**| E-reporting XML file to validate | |
+| **xml_file** | **string**| E-reporting XML file to validate | |
 | **validate_coherence** | **bool**| Validate data coherence (REJ_COH) | [optional] [default to true] |
 | **validate_period** | **bool**| Validate period coherence (REJ_PER) | [optional] [default to true] |
 

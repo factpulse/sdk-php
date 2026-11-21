@@ -61,7 +61,11 @@ class LifecycleResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $openAPITypes = [
         'invoices' => '\FactPulse\SDK\Model\InvoiceLifecycle[]',
         'total_invoices' => 'int',
-        'cutoff_days' => 'int'
+        'cutoff_days' => 'int',
+        'total_flows' => 'int',
+        'truncated' => 'bool',
+        'date_from' => 'string',
+        'date_to' => 'string'
     ];
 
     /**
@@ -74,7 +78,11 @@ class LifecycleResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $openAPIFormats = [
         'invoices' => null,
         'total_invoices' => null,
-        'cutoff_days' => null
+        'cutoff_days' => null,
+        'total_flows' => null,
+        'truncated' => null,
+        'date_from' => null,
+        'date_to' => null
     ];
 
     /**
@@ -85,7 +93,11 @@ class LifecycleResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static array $openAPINullables = [
         'invoices' => false,
         'total_invoices' => false,
-        'cutoff_days' => false
+        'cutoff_days' => false,
+        'total_flows' => false,
+        'truncated' => false,
+        'date_from' => true,
+        'date_to' => true
     ];
 
     /**
@@ -176,7 +188,11 @@ class LifecycleResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $attributeMap = [
         'invoices' => 'invoices',
         'total_invoices' => 'totalInvoices',
-        'cutoff_days' => 'cutoffDays'
+        'cutoff_days' => 'cutoffDays',
+        'total_flows' => 'totalFlows',
+        'truncated' => 'truncated',
+        'date_from' => 'dateFrom',
+        'date_to' => 'dateTo'
     ];
 
     /**
@@ -187,7 +203,11 @@ class LifecycleResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $setters = [
         'invoices' => 'setInvoices',
         'total_invoices' => 'setTotalInvoices',
-        'cutoff_days' => 'setCutoffDays'
+        'cutoff_days' => 'setCutoffDays',
+        'total_flows' => 'setTotalFlows',
+        'truncated' => 'setTruncated',
+        'date_from' => 'setDateFrom',
+        'date_to' => 'setDateTo'
     ];
 
     /**
@@ -198,7 +218,11 @@ class LifecycleResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $getters = [
         'invoices' => 'getInvoices',
         'total_invoices' => 'getTotalInvoices',
-        'cutoff_days' => 'getCutoffDays'
+        'cutoff_days' => 'getCutoffDays',
+        'total_flows' => 'getTotalFlows',
+        'truncated' => 'getTruncated',
+        'date_from' => 'getDateFrom',
+        'date_to' => 'getDateTo'
     ];
 
     /**
@@ -261,6 +285,10 @@ class LifecycleResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->setIfExists('invoices', $data ?? [], null);
         $this->setIfExists('total_invoices', $data ?? [], null);
         $this->setIfExists('cutoff_days', $data ?? [], null);
+        $this->setIfExists('total_flows', $data ?? [], 0);
+        $this->setIfExists('truncated', $data ?? [], false);
+        $this->setIfExists('date_from', $data ?? [], null);
+        $this->setIfExists('date_to', $data ?? [], null);
     }
 
     /**
@@ -388,6 +416,128 @@ class LifecycleResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
             throw new \InvalidArgumentException('non-nullable cutoff_days cannot be null');
         }
         $this->container['cutoff_days'] = $cutoff_days;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_flows
+     *
+     * @return int|null
+     */
+    public function getTotalFlows()
+    {
+        return $this->container['total_flows'];
+    }
+
+    /**
+     * Sets total_flows
+     *
+     * @param int|null $total_flows Nombre de flux de statut (CDAR) lus sur la PA
+     *
+     * @return self
+     */
+    public function setTotalFlows($total_flows)
+    {
+        if (is_null($total_flows)) {
+            throw new \InvalidArgumentException('non-nullable total_flows cannot be null');
+        }
+        $this->container['total_flows'] = $total_flows;
+
+        return $this;
+    }
+
+    /**
+     * Gets truncated
+     *
+     * @return bool|null
+     */
+    public function getTruncated()
+    {
+        return $this->container['truncated'];
+    }
+
+    /**
+     * Sets truncated
+     *
+     * @param bool|null $truncated True si la limite de flux lus par appel a ete atteinte : la reponse est incomplete, reduire la fenetre (dateFrom/dateTo ou days)
+     *
+     * @return self
+     */
+    public function setTruncated($truncated)
+    {
+        if (is_null($truncated)) {
+            throw new \InvalidArgumentException('non-nullable truncated cannot be null');
+        }
+        $this->container['truncated'] = $truncated;
+
+        return $this;
+    }
+
+    /**
+     * Gets date_from
+     *
+     * @return string|null
+     */
+    public function getDateFrom()
+    {
+        return $this->container['date_from'];
+    }
+
+    /**
+     * Sets date_from
+     *
+     * @param string|null $date_from date_from
+     *
+     * @return self
+     */
+    public function setDateFrom($date_from)
+    {
+        if (is_null($date_from)) {
+            array_push($this->openAPINullablesSetToNull, 'date_from');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('date_from', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['date_from'] = $date_from;
+
+        return $this;
+    }
+
+    /**
+     * Gets date_to
+     *
+     * @return string|null
+     */
+    public function getDateTo()
+    {
+        return $this->container['date_to'];
+    }
+
+    /**
+     * Sets date_to
+     *
+     * @param string|null $date_to date_to
+     *
+     * @return self
+     */
+    public function setDateTo($date_to)
+    {
+        if (is_null($date_to)) {
+            array_push($this->openAPINullablesSetToNull, 'date_to');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('date_to', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['date_to'] = $date_to;
 
         return $this;
     }

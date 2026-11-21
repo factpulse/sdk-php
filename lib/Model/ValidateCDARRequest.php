@@ -66,7 +66,8 @@ class ValidateCDARRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'invoice_issue_date' => '\DateTime',
         'status' => 'string',
         'reason_code' => 'string',
-        'encaisse_amount' => '\FactPulse\SDK\Model\Encaisseamount1'
+        'encaisse_amount' => '\FactPulse\SDK\Model\Encaisseamount1',
+        'encaisse_amounts_by_rate' => '\FactPulse\SDK\Model\EncaisseAmountByRate[]'
     ];
 
     /**
@@ -84,7 +85,8 @@ class ValidateCDARRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'invoice_issue_date' => 'date',
         'status' => null,
         'reason_code' => null,
-        'encaisse_amount' => null
+        'encaisse_amount' => null,
+        'encaisse_amounts_by_rate' => null
     ];
 
     /**
@@ -100,7 +102,8 @@ class ValidateCDARRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'invoice_issue_date' => true,
         'status' => true,
         'reason_code' => true,
-        'encaisse_amount' => true
+        'encaisse_amount' => true,
+        'encaisse_amounts_by_rate' => true
     ];
 
     /**
@@ -196,7 +199,8 @@ class ValidateCDARRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'invoice_issue_date' => 'invoiceIssueDate',
         'status' => 'status',
         'reason_code' => 'reasonCode',
-        'encaisse_amount' => 'encaisseAmount'
+        'encaisse_amount' => 'encaisseAmount',
+        'encaisse_amounts_by_rate' => 'encaisseAmountsByRate'
     ];
 
     /**
@@ -212,7 +216,8 @@ class ValidateCDARRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'invoice_issue_date' => 'setInvoiceIssueDate',
         'status' => 'setStatus',
         'reason_code' => 'setReasonCode',
-        'encaisse_amount' => 'setEncaisseAmount'
+        'encaisse_amount' => 'setEncaisseAmount',
+        'encaisse_amounts_by_rate' => 'setEncaisseAmountsByRate'
     ];
 
     /**
@@ -228,7 +233,8 @@ class ValidateCDARRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'invoice_issue_date' => 'getInvoiceIssueDate',
         'status' => 'getStatus',
         'reason_code' => 'getReasonCode',
-        'encaisse_amount' => 'getEncaisseAmount'
+        'encaisse_amount' => 'getEncaisseAmount',
+        'encaisse_amounts_by_rate' => 'getEncaisseAmountsByRate'
     ];
 
     /**
@@ -296,6 +302,7 @@ class ValidateCDARRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('reason_code', $data ?? [], null);
         $this->setIfExists('encaisse_amount', $data ?? [], null);
+        $this->setIfExists('encaisse_amounts_by_rate', $data ?? [], null);
     }
 
     /**
@@ -608,6 +615,40 @@ class ValidateCDARRequest implements ModelInterface, ArrayAccess, \JsonSerializa
             }
         }
         $this->container['encaisse_amount'] = $encaisse_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets encaisse_amounts_by_rate
+     *
+     * @return \FactPulse\SDK\Model\EncaisseAmountByRate[]|null
+     */
+    public function getEncaisseAmountsByRate()
+    {
+        return $this->container['encaisse_amounts_by_rate'];
+    }
+
+    /**
+     * Sets encaisse_amounts_by_rate
+     *
+     * @param \FactPulse\SDK\Model\EncaisseAmountByRate[]|null $encaisse_amounts_by_rate encaisse_amounts_by_rate
+     *
+     * @return self
+     */
+    public function setEncaisseAmountsByRate($encaisse_amounts_by_rate)
+    {
+        if (is_null($encaisse_amounts_by_rate)) {
+            array_push($this->openAPINullablesSetToNull, 'encaisse_amounts_by_rate');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('encaisse_amounts_by_rate', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['encaisse_amounts_by_rate'] = $encaisse_amounts_by_rate;
 
         return $this;
     }

@@ -7,16 +7,17 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
-## [4.4.0] - 2026-10-10
+## [4.5.0] - 2026-11-21
 
 ### Added
-- Endpoint /cdar/lifecycle : paramètre flowDirection (In, Out, All ; défaut All) et champ flowDirection sur chaque événement
+- /cdar/lifecycle : lecture de toutes les pages de statuts (réponse complète sur longue période), paramètres dateFrom / dateTo, champs totalFlows, truncated, dateFrom et dateTo dans la réponse
+- Routes GET / PATCH /clients/{uid}/superpdp/vat-regime : consultation et mise à jour du régime de TVA SuperPDP
+- CDAR encaissée multi-taux : amountsByRate sur /cdar/encaissee, encaisseAmountsByRate sur /cdar/generate, /cdar/submit et /cdar/validate, champ comment ; amount et invoiceBuyerElectronicAddress deviennent optionnels sur /cdar/encaissee
+- PaymentMeans : valeur CARTE
 
 ### Fixed
-- Go : le chemin du module suit désormais la version majeure (github.com/factpulse/sdk-go/v4). Les versions v4.x n'étaient pas installables via /v3 : mettre à jour les imports de sdk-go/v3 vers sdk-go/v4
-- Ruby : FactPulse::Client.new accepte les arguments nommés (email:, password:, client_uid:) comme indiqué dans le README
-- CDAR : vatRate / encaisseVatRate typés en nombre (défaut 20)
+- /cdar/lifecycle : erreurs 502 intermittentes sur les longues périodes (corrigé côté API)
 
 
-[Unreleased]: https://github.com/factpulse/sdk-php/compare/v4.4.0...HEAD
-[4.4.0]: https://github.com/factpulse/sdk-php/releases/tag/v4.4.0
+[Unreleased]: https://github.com/factpulse/sdk-php/compare/v4.5.0...HEAD
+[4.5.0]: https://github.com/factpulse/sdk-php/releases/tag/v4.5.0

@@ -47,7 +47,7 @@ $invoice_data = 'invoice_data_example'; // string | Invoice data in JSON format.
 $profile = new \FactPulse\SDK\Model\APIProfile(); // \FactPulse\SDK\Model\APIProfile | Factur-X/CII profile: MINIMUM, BASIC, EN16931 or EXTENDED. Ignored when output_format='ubl' (always EN16931).
 $output_format = new \FactPulse\SDK\Model\OutputFormat(); // \FactPulse\SDK\Model\OutputFormat | Output format: 'xml' or 'cii' (CII/Factur-X XML), 'ubl' (UBL 2.1 XML), 'pdf' (Factur-X PDF/A-3).
 $auto_enrich = true; // bool | 🆕 Enable auto-enrichment from SIRET/SIREN (simplified format only)
-$source_pdf = '/path/to/file.txt'; // \SplFileObject
+$source_pdf = 'source_pdf_example'; // string
 $callback_url = 'callback_url_example'; // string
 $webhook_mode = 'inline'; // string | Webhook content delivery: 'inline' (base64 in payload) or 'download_url' (temporary URL, 1h TTL)
 $skip_br_fr = True; // bool
@@ -68,7 +68,7 @@ try {
 | **profile** | [**\FactPulse\SDK\Model\APIProfile**](../Model/APIProfile.md)| Factur-X/CII profile: MINIMUM, BASIC, EN16931 or EXTENDED. Ignored when output_format&#x3D;&#39;ubl&#39; (always EN16931). | [optional] |
 | **output_format** | [**\FactPulse\SDK\Model\OutputFormat**](../Model/OutputFormat.md)| Output format: &#39;xml&#39; or &#39;cii&#39; (CII/Factur-X XML), &#39;ubl&#39; (UBL 2.1 XML), &#39;pdf&#39; (Factur-X PDF/A-3). | [optional] |
 | **auto_enrich** | **bool**| 🆕 Enable auto-enrichment from SIRET/SIREN (simplified format only) | [optional] [default to true] |
-| **source_pdf** | **\SplFileObject****\SplFileObject**|  | [optional] |
+| **source_pdf** | **string**|  | [optional] |
 | **callback_url** | **string**|  | [optional] |
 | **webhook_mode** | **string**| Webhook content delivery: &#39;inline&#39; (base64 in payload) or &#39;download_url&#39; (temporary URL, 1h TTL) | [optional] [default to &#39;inline&#39;] |
 | **skip_br_fr** | **bool**|  | [optional] |

@@ -250,4 +250,22 @@ class CreateCDARRequestTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "encaisse_amounts_by_rate"
+     */
+    public function testPropertyEncaisseAmountsByRate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "comment"
+     */
+    public function testPropertyComment()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

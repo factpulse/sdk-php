@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * InvoiceTypeCodeTest Class Doc Comment
  *
  * @category    Class
- * @description Invoice type codes (UNTDID 1001).
+ * @description Invoice type code (BT-3). UNTDID 1001.
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

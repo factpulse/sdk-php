@@ -2076,7 +2076,7 @@ class Flux10EReportingApi
      *
      * Submit pre-generated e-reporting XML
      *
-     * @param  \SplFileObject $xml_file E-reporting XML file (required)
+     * @param  string $xml_file E-reporting XML file (required)
      * @param  string|null $organization_id Organization ID relayed to the PDP (AFNOR XP Z12-013 delegation / multi-tenancy). Required by some PDPs to select the client space. (optional)
      * @param  string|null $tracking_id tracking_id (optional)
      * @param  bool|null $skip_validation Skip XSD validation (optional, default to false)
@@ -2101,7 +2101,7 @@ class Flux10EReportingApi
      *
      * Submit pre-generated e-reporting XML
      *
-     * @param  \SplFileObject $xml_file E-reporting XML file (required)
+     * @param  string $xml_file E-reporting XML file (required)
      * @param  string|null $organization_id Organization ID relayed to the PDP (AFNOR XP Z12-013 delegation / multi-tenancy). Required by some PDPs to select the client space. (optional)
      * @param  string|null $tracking_id (optional)
      * @param  bool|null $skip_validation Skip XSD validation (optional, default to false)
@@ -2207,7 +2207,7 @@ class Flux10EReportingApi
      *
      * Submit pre-generated e-reporting XML
      *
-     * @param  \SplFileObject $xml_file E-reporting XML file (required)
+     * @param  string $xml_file E-reporting XML file (required)
      * @param  string|null $organization_id Organization ID relayed to the PDP (AFNOR XP Z12-013 delegation / multi-tenancy). Required by some PDPs to select the client space. (optional)
      * @param  string|null $tracking_id (optional)
      * @param  bool|null $skip_validation Skip XSD validation (optional, default to false)
@@ -2235,7 +2235,7 @@ class Flux10EReportingApi
      *
      * Submit pre-generated e-reporting XML
      *
-     * @param  \SplFileObject $xml_file E-reporting XML file (required)
+     * @param  string $xml_file E-reporting XML file (required)
      * @param  string|null $organization_id Organization ID relayed to the PDP (AFNOR XP Z12-013 delegation / multi-tenancy). Required by some PDPs to select the client space. (optional)
      * @param  string|null $tracking_id (optional)
      * @param  bool|null $skip_validation Skip XSD validation (optional, default to false)
@@ -2292,7 +2292,7 @@ class Flux10EReportingApi
     /**
      * Create request for operation 'submitXmlEreportingApiV1EreportingSubmitXmlPost'
      *
-     * @param  \SplFileObject $xml_file E-reporting XML file (required)
+     * @param  string $xml_file E-reporting XML file (required)
      * @param  string|null $organization_id Organization ID relayed to the PDP (AFNOR XP Z12-013 delegation / multi-tenancy). Required by some PDPs to select the client space. (optional)
      * @param  string|null $tracking_id (optional)
      * @param  bool|null $skip_validation Skip XSD validation (optional, default to false)
@@ -2996,7 +2996,7 @@ class Flux10EReportingApi
      *
      * Validate e-reporting XML (PPF Annexe 6 v1.9 compliant)
      *
-     * @param  \SplFileObject $xml_file E-reporting XML file to validate (required)
+     * @param  string $xml_file E-reporting XML file to validate (required)
      * @param  bool|null $validate_coherence Validate data coherence (REJ_COH) (optional, default to true)
      * @param  bool|null $validate_period Validate period coherence (REJ_PER) (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateXmlEreportingApiV1EreportingValidateXmlPost'] to see the possible values for this operation
@@ -3016,7 +3016,7 @@ class Flux10EReportingApi
      *
      * Validate e-reporting XML (PPF Annexe 6 v1.9 compliant)
      *
-     * @param  \SplFileObject $xml_file E-reporting XML file to validate (required)
+     * @param  string $xml_file E-reporting XML file to validate (required)
      * @param  bool|null $validate_coherence Validate data coherence (REJ_COH) (optional, default to true)
      * @param  bool|null $validate_period Validate period coherence (REJ_PER) (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateXmlEreportingApiV1EreportingValidateXmlPost'] to see the possible values for this operation
@@ -3117,7 +3117,7 @@ class Flux10EReportingApi
      *
      * Validate e-reporting XML (PPF Annexe 6 v1.9 compliant)
      *
-     * @param  \SplFileObject $xml_file E-reporting XML file to validate (required)
+     * @param  string $xml_file E-reporting XML file to validate (required)
      * @param  bool|null $validate_coherence Validate data coherence (REJ_COH) (optional, default to true)
      * @param  bool|null $validate_period Validate period coherence (REJ_PER) (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateXmlEreportingApiV1EreportingValidateXmlPost'] to see the possible values for this operation
@@ -3140,7 +3140,7 @@ class Flux10EReportingApi
      *
      * Validate e-reporting XML (PPF Annexe 6 v1.9 compliant)
      *
-     * @param  \SplFileObject $xml_file E-reporting XML file to validate (required)
+     * @param  string $xml_file E-reporting XML file to validate (required)
      * @param  bool|null $validate_coherence Validate data coherence (REJ_COH) (optional, default to true)
      * @param  bool|null $validate_period Validate period coherence (REJ_PER) (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateXmlEreportingApiV1EreportingValidateXmlPost'] to see the possible values for this operation
@@ -3192,7 +3192,7 @@ class Flux10EReportingApi
     /**
      * Create request for operation 'validateXmlEreportingApiV1EreportingValidateXmlPost'
      *
-     * @param  \SplFileObject $xml_file E-reporting XML file to validate (required)
+     * @param  string $xml_file E-reporting XML file to validate (required)
      * @param  bool|null $validate_coherence Validate data coherence (REJ_COH) (optional, default to true)
      * @param  bool|null $validate_period Validate period coherence (REJ_PER) (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateXmlEreportingApiV1EreportingValidateXmlPost'] to see the possible values for this operation

@@ -12,5 +12,6 @@ Name | Type | Description | Notes
 **status** | **string** |  | [optional]
 **reason_code** | **string** |  | [optional]
 **encaisse_amount** | [**\FactPulse\SDK\Model\Encaisseamount1**](Encaisseamount1.md) |  | [optional]
+**encaisse_amounts_by_rate** | [**\FactPulse\SDK\Model\EncaisseAmountByRate[]**](EncaisseAmountByRate.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

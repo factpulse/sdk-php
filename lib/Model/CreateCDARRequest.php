@@ -77,7 +77,9 @@ class CreateCDARRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'reason_text' => 'string',
         'action_code' => 'string',
         'encaisse_amount' => '\FactPulse\SDK\Model\Encaisseamount',
-        'encaisse_vat_rate' => 'float'
+        'encaisse_vat_rate' => 'float',
+        'encaisse_amounts_by_rate' => '\FactPulse\SDK\Model\EncaisseAmountByRate[]',
+        'comment' => 'string'
     ];
 
     /**
@@ -106,7 +108,9 @@ class CreateCDARRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'reason_text' => null,
         'action_code' => null,
         'encaisse_amount' => null,
-        'encaisse_vat_rate' => null
+        'encaisse_vat_rate' => null,
+        'encaisse_amounts_by_rate' => null,
+        'comment' => null
     ];
 
     /**
@@ -133,7 +137,9 @@ class CreateCDARRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'reason_text' => true,
         'action_code' => true,
         'encaisse_amount' => true,
-        'encaisse_vat_rate' => false
+        'encaisse_vat_rate' => false,
+        'encaisse_amounts_by_rate' => true,
+        'comment' => true
     ];
 
     /**
@@ -240,7 +246,9 @@ class CreateCDARRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'reason_text' => 'reasonText',
         'action_code' => 'actionCode',
         'encaisse_amount' => 'encaisseAmount',
-        'encaisse_vat_rate' => 'encaisseVatRate'
+        'encaisse_vat_rate' => 'encaisseVatRate',
+        'encaisse_amounts_by_rate' => 'encaisseAmountsByRate',
+        'comment' => 'comment'
     ];
 
     /**
@@ -267,7 +275,9 @@ class CreateCDARRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'reason_text' => 'setReasonText',
         'action_code' => 'setActionCode',
         'encaisse_amount' => 'setEncaisseAmount',
-        'encaisse_vat_rate' => 'setEncaisseVatRate'
+        'encaisse_vat_rate' => 'setEncaisseVatRate',
+        'encaisse_amounts_by_rate' => 'setEncaisseAmountsByRate',
+        'comment' => 'setComment'
     ];
 
     /**
@@ -294,7 +304,9 @@ class CreateCDARRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'reason_text' => 'getReasonText',
         'action_code' => 'getActionCode',
         'encaisse_amount' => 'getEncaisseAmount',
-        'encaisse_vat_rate' => 'getEncaisseVatRate'
+        'encaisse_vat_rate' => 'getEncaisseVatRate',
+        'encaisse_amounts_by_rate' => 'getEncaisseAmountsByRate',
+        'comment' => 'getComment'
     ];
 
     /**
@@ -373,6 +385,8 @@ class CreateCDARRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->setIfExists('action_code', $data ?? [], null);
         $this->setIfExists('encaisse_amount', $data ?? [], null);
         $this->setIfExists('encaisse_vat_rate', $data ?? [], 20);
+        $this->setIfExists('encaisse_amounts_by_rate', $data ?? [], null);
+        $this->setIfExists('comment', $data ?? [], null);
     }
 
     /**
@@ -417,6 +431,14 @@ class CreateCDARRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
         }
+        if (!is_null($this->container['encaisse_amounts_by_rate']) && (count($this->container['encaisse_amounts_by_rate']) < 1)) {
+            $invalidProperties[] = "invalid value for 'encaisse_amounts_by_rate', number of items must be greater than or equal to 1.";
+        }
+
+        if (!is_null($this->container['comment']) && (mb_strlen($this->container['comment']) > 2000)) {
+            $invalidProperties[] = "invalid value for 'comment', the character length must be smaller than or equal to 2000.";
+        }
+
         return $invalidProperties;
     }
 
@@ -997,6 +1019,83 @@ class CreateCDARRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
             throw new \InvalidArgumentException('non-nullable encaisse_vat_rate cannot be null');
         }
         $this->container['encaisse_vat_rate'] = $encaisse_vat_rate;
+
+        return $this;
+    }
+
+    /**
+     * Gets encaisse_amounts_by_rate
+     *
+     * @return \FactPulse\SDK\Model\EncaisseAmountByRate[]|null
+     */
+    public function getEncaisseAmountsByRate()
+    {
+        return $this->container['encaisse_amounts_by_rate'];
+    }
+
+    /**
+     * Sets encaisse_amounts_by_rate
+     *
+     * @param \FactPulse\SDK\Model\EncaisseAmountByRate[]|null $encaisse_amounts_by_rate encaisse_amounts_by_rate
+     *
+     * @return self
+     */
+    public function setEncaisseAmountsByRate($encaisse_amounts_by_rate)
+    {
+        if (is_null($encaisse_amounts_by_rate)) {
+            array_push($this->openAPINullablesSetToNull, 'encaisse_amounts_by_rate');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('encaisse_amounts_by_rate', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+
+        if (!is_null($encaisse_amounts_by_rate) && (count($encaisse_amounts_by_rate) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $encaisse_amounts_by_rate when calling CreateCDARRequest., number of items must be greater than or equal to 1.');
+        }
+        $this->container['encaisse_amounts_by_rate'] = $encaisse_amounts_by_rate;
+
+        return $this;
+    }
+
+    /**
+     * Gets comment
+     *
+     * @return string|null
+     */
+    public function getComment()
+    {
+        return $this->container['comment'];
+    }
+
+    /**
+     * Sets comment
+     *
+     * @param string|null $comment comment
+     *
+     * @return self
+     */
+    public function setComment($comment)
+    {
+        if (is_null($comment)) {
+            array_push($this->openAPINullablesSetToNull, 'comment');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('comment', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($comment) && (mb_strlen($comment) > 2000)) {
+            throw new \InvalidArgumentException('invalid length for $comment when calling CreateCDARRequest., must be smaller than or equal to 2000.');
+        }
+
+        $this->container['comment'] = $comment;
 
         return $this;
     }

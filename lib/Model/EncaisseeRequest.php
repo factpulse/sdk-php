@@ -63,8 +63,10 @@ class EncaisseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'invoice_issue_date' => '\DateTime',
         'invoice_buyer_siren' => 'string',
         'invoice_buyer_electronic_address' => 'string',
-        'amount' => '\FactPulse\SDK\Model\Amount1',
+        'amount' => '\FactPulse\SDK\Model\Amount2',
         'vat_rate' => 'float',
+        'amounts_by_rate' => '\FactPulse\SDK\Model\EncaisseAmountByRate[]',
+        'comment' => 'string',
         'currency' => 'string',
         'sender_siren' => 'string',
         'flow_type' => 'string',
@@ -88,6 +90,8 @@ class EncaisseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'invoice_buyer_electronic_address' => null,
         'amount' => null,
         'vat_rate' => null,
+        'amounts_by_rate' => null,
+        'comment' => null,
         'currency' => null,
         'sender_siren' => null,
         'flow_type' => null,
@@ -106,9 +110,11 @@ class EncaisseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'invoice_id' => false,
         'invoice_issue_date' => false,
         'invoice_buyer_siren' => false,
-        'invoice_buyer_electronic_address' => false,
-        'amount' => false,
+        'invoice_buyer_electronic_address' => true,
+        'amount' => true,
         'vat_rate' => false,
+        'amounts_by_rate' => true,
+        'comment' => true,
         'currency' => false,
         'sender_siren' => true,
         'flow_type' => false,
@@ -210,6 +216,8 @@ class EncaisseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'invoice_buyer_electronic_address' => 'invoiceBuyerElectronicAddress',
         'amount' => 'amount',
         'vat_rate' => 'vatRate',
+        'amounts_by_rate' => 'amountsByRate',
+        'comment' => 'comment',
         'currency' => 'currency',
         'sender_siren' => 'senderSiren',
         'flow_type' => 'flowType',
@@ -231,6 +239,8 @@ class EncaisseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'invoice_buyer_electronic_address' => 'setInvoiceBuyerElectronicAddress',
         'amount' => 'setAmount',
         'vat_rate' => 'setVatRate',
+        'amounts_by_rate' => 'setAmountsByRate',
+        'comment' => 'setComment',
         'currency' => 'setCurrency',
         'sender_siren' => 'setSenderSiren',
         'flow_type' => 'setFlowType',
@@ -252,6 +262,8 @@ class EncaisseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'invoice_buyer_electronic_address' => 'getInvoiceBuyerElectronicAddress',
         'amount' => 'getAmount',
         'vat_rate' => 'getVatRate',
+        'amounts_by_rate' => 'getAmountsByRate',
+        'comment' => 'getComment',
         'currency' => 'getCurrency',
         'sender_siren' => 'getSenderSiren',
         'flow_type' => 'getFlowType',
@@ -324,6 +336,8 @@ class EncaisseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('invoice_buyer_electronic_address', $data ?? [], null);
         $this->setIfExists('amount', $data ?? [], null);
         $this->setIfExists('vat_rate', $data ?? [], 20);
+        $this->setIfExists('amounts_by_rate', $data ?? [], null);
+        $this->setIfExists('comment', $data ?? [], null);
         $this->setIfExists('currency', $data ?? [], 'EUR');
         $this->setIfExists('sender_siren', $data ?? [], null);
         $this->setIfExists('flow_type', $data ?? [], 'CustomerInvoiceLC');
@@ -369,12 +383,14 @@ class EncaisseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['invoice_buyer_siren'] === null) {
             $invalidProperties[] = "'invoice_buyer_siren' can't be null";
         }
-        if ($this->container['invoice_buyer_electronic_address'] === null) {
-            $invalidProperties[] = "'invoice_buyer_electronic_address' can't be null";
+        if (!is_null($this->container['amounts_by_rate']) && (count($this->container['amounts_by_rate']) < 1)) {
+            $invalidProperties[] = "invalid value for 'amounts_by_rate', number of items must be greater than or equal to 1.";
         }
-        if ($this->container['amount'] === null) {
-            $invalidProperties[] = "'amount' can't be null";
+
+        if (!is_null($this->container['comment']) && (mb_strlen($this->container['comment']) > 2000)) {
+            $invalidProperties[] = "invalid value for 'comment', the character length must be smaller than or equal to 2000.";
         }
+
         return $invalidProperties;
     }
 
@@ -474,7 +490,7 @@ class EncaisseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets invoice_buyer_electronic_address
      *
-     * @return string
+     * @return string|null
      */
     public function getInvoiceBuyerElectronicAddress()
     {
@@ -484,14 +500,21 @@ class EncaisseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets invoice_buyer_electronic_address
      *
-     * @param string $invoice_buyer_electronic_address Adresse électronique de l'acheteur (MDT-73)
+     * @param string|null $invoice_buyer_electronic_address invoice_buyer_electronic_address
      *
      * @return self
      */
     public function setInvoiceBuyerElectronicAddress($invoice_buyer_electronic_address)
     {
         if (is_null($invoice_buyer_electronic_address)) {
-            throw new \InvalidArgumentException('non-nullable invoice_buyer_electronic_address cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'invoice_buyer_electronic_address');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('invoice_buyer_electronic_address', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['invoice_buyer_electronic_address'] = $invoice_buyer_electronic_address;
 
@@ -501,7 +524,7 @@ class EncaisseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets amount
      *
-     * @return \FactPulse\SDK\Model\Amount1
+     * @return \FactPulse\SDK\Model\Amount2|null
      */
     public function getAmount()
     {
@@ -511,14 +534,21 @@ class EncaisseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets amount
      *
-     * @param \FactPulse\SDK\Model\Amount1 $amount amount
+     * @param \FactPulse\SDK\Model\Amount2|null $amount amount
      *
      * @return self
      */
     public function setAmount($amount)
     {
         if (is_null($amount)) {
-            throw new \InvalidArgumentException('non-nullable amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['amount'] = $amount;
 
@@ -538,7 +568,7 @@ class EncaisseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets vat_rate
      *
-     * @param float|null $vat_rate Taux de TVA du montant encaissé en % (MDT-224, requis par BR-FR-CDV-14 ; défaut 20)
+     * @param float|null $vat_rate Taux de TVA du montant encaissé en % (MDT-224, requis par BR-FR-CDV-14 ; défaut 20). Ignoré avec amountsByRate
      *
      * @return self
      */
@@ -548,6 +578,83 @@ class EncaisseeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable vat_rate cannot be null');
         }
         $this->container['vat_rate'] = $vat_rate;
+
+        return $this;
+    }
+
+    /**
+     * Gets amounts_by_rate
+     *
+     * @return \FactPulse\SDK\Model\EncaisseAmountByRate[]|null
+     */
+    public function getAmountsByRate()
+    {
+        return $this->container['amounts_by_rate'];
+    }
+
+    /**
+     * Sets amounts_by_rate
+     *
+     * @param \FactPulse\SDK\Model\EncaisseAmountByRate[]|null $amounts_by_rate amounts_by_rate
+     *
+     * @return self
+     */
+    public function setAmountsByRate($amounts_by_rate)
+    {
+        if (is_null($amounts_by_rate)) {
+            array_push($this->openAPINullablesSetToNull, 'amounts_by_rate');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('amounts_by_rate', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+
+        if (!is_null($amounts_by_rate) && (count($amounts_by_rate) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $amounts_by_rate when calling EncaisseeRequest., number of items must be greater than or equal to 1.');
+        }
+        $this->container['amounts_by_rate'] = $amounts_by_rate;
+
+        return $this;
+    }
+
+    /**
+     * Gets comment
+     *
+     * @return string|null
+     */
+    public function getComment()
+    {
+        return $this->container['comment'];
+    }
+
+    /**
+     * Sets comment
+     *
+     * @param string|null $comment comment
+     *
+     * @return self
+     */
+    public function setComment($comment)
+    {
+        if (is_null($comment)) {
+            array_push($this->openAPINullablesSetToNull, 'comment');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('comment', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($comment) && (mb_strlen($comment) > 2000)) {
+            throw new \InvalidArgumentException('invalid length for $comment when calling EncaisseeRequest., must be smaller than or equal to 2000.');
+        }
+
+        $this->container['comment'] = $comment;
 
         return $this;
     }

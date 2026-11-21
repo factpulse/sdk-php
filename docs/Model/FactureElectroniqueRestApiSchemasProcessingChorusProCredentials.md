@@ -1,4 +1,4 @@
-# ChorusProCredentials
+# FactureElectroniqueRestApiSchemasProcessingChorusProCredentials
 
 ## Properties
 

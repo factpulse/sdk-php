@@ -60,7 +60,7 @@ class PaymentAmountByRate implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static $openAPITypes = [
         'rate' => '\FactPulse\SDK\Model\Rate',
-        'amount' => '\FactPulse\SDK\Model\Amount2',
+        'amount' => '\FactPulse\SDK\Model\Amount3',
         'amount_eur' => '\FactPulse\SDK\Model\Amounteur'
     ];
 
@@ -341,7 +341,7 @@ class PaymentAmountByRate implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets amount
      *
-     * @return \FactPulse\SDK\Model\Amount2
+     * @return \FactPulse\SDK\Model\Amount3
      */
     public function getAmount()
     {
@@ -351,7 +351,7 @@ class PaymentAmountByRate implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets amount
      *
-     * @param \FactPulse\SDK\Model\Amount2 $amount amount
+     * @param \FactPulse\SDK\Model\Amount3 $amount amount
      *
      * @return self
      */

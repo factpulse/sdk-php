@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * EncaisseamountTest Class Doc Comment
  *
  * @category    Class
- * @description Montant encaissé (requis pour statut 212)
+ * @description Montant TTC encaissé à un seul taux (statut 212). Négatif pour un décaissement. Pour plusieurs taux, utiliser encaisseAmountsByRate
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

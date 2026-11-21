@@ -134,7 +134,7 @@ class FacturXValidationApi
      *
      * Validate a complete Factur-X PDF
      *
-     * @param  \SplFileObject $pdf_file Factur-X PDF file to validate (.pdf format). (required)
+     * @param  string $pdf_file Factur-X PDF file to validate (.pdf format). (required)
      * @param  \FactPulse\SDK\Model\APIProfile|null $profile profile (optional)
      * @param  bool|null $use_verapdf Enable strict PDF/A validation with VeraPDF (recommended for production). If False, uses basic metadata validation. (optional, default to false)
      * @param  bool|null $skip_br_fr skip_br_fr (optional)
@@ -155,7 +155,7 @@ class FacturXValidationApi
      *
      * Validate a complete Factur-X PDF
      *
-     * @param  \SplFileObject $pdf_file Factur-X PDF file to validate (.pdf format). (required)
+     * @param  string $pdf_file Factur-X PDF file to validate (.pdf format). (required)
      * @param  \FactPulse\SDK\Model\APIProfile|null $profile (optional)
      * @param  bool|null $use_verapdf Enable strict PDF/A validation with VeraPDF (recommended for production). If False, uses basic metadata validation. (optional, default to false)
      * @param  bool|null $skip_br_fr (optional)
@@ -271,7 +271,7 @@ class FacturXValidationApi
      *
      * Validate a complete Factur-X PDF
      *
-     * @param  \SplFileObject $pdf_file Factur-X PDF file to validate (.pdf format). (required)
+     * @param  string $pdf_file Factur-X PDF file to validate (.pdf format). (required)
      * @param  \FactPulse\SDK\Model\APIProfile|null $profile (optional)
      * @param  bool|null $use_verapdf Enable strict PDF/A validation with VeraPDF (recommended for production). If False, uses basic metadata validation. (optional, default to false)
      * @param  bool|null $skip_br_fr (optional)
@@ -295,7 +295,7 @@ class FacturXValidationApi
      *
      * Validate a complete Factur-X PDF
      *
-     * @param  \SplFileObject $pdf_file Factur-X PDF file to validate (.pdf format). (required)
+     * @param  string $pdf_file Factur-X PDF file to validate (.pdf format). (required)
      * @param  \FactPulse\SDK\Model\APIProfile|null $profile (optional)
      * @param  bool|null $use_verapdf Enable strict PDF/A validation with VeraPDF (recommended for production). If False, uses basic metadata validation. (optional, default to false)
      * @param  bool|null $skip_br_fr (optional)
@@ -348,7 +348,7 @@ class FacturXValidationApi
     /**
      * Create request for operation 'validateFacturxPdfApiV1ProcessingValidateFacturxPdfPost'
      *
-     * @param  \SplFileObject $pdf_file Factur-X PDF file to validate (.pdf format). (required)
+     * @param  string $pdf_file Factur-X PDF file to validate (.pdf format). (required)
      * @param  \FactPulse\SDK\Model\APIProfile|null $profile (optional)
      * @param  bool|null $use_verapdf Enable strict PDF/A validation with VeraPDF (recommended for production). If False, uses basic metadata validation. (optional, default to false)
      * @param  bool|null $skip_br_fr (optional)
@@ -462,7 +462,7 @@ class FacturXValidationApi
      *
      * Validate a Factur-X PDF (asynchronous with polling)
      *
-     * @param  \SplFileObject $pdf_file Factur-X PDF file to validate (.pdf format). (required)
+     * @param  string $pdf_file Factur-X PDF file to validate (.pdf format). (required)
      * @param  \FactPulse\SDK\Model\APIProfile|null $profile profile (optional)
      * @param  bool|null $use_verapdf Enable strict PDF/A validation with VeraPDF (recommended for production). May take several seconds. (optional, default to false)
      * @param  string|null $callback_url callback_url (optional)
@@ -484,7 +484,7 @@ class FacturXValidationApi
      *
      * Validate a Factur-X PDF (asynchronous with polling)
      *
-     * @param  \SplFileObject $pdf_file Factur-X PDF file to validate (.pdf format). (required)
+     * @param  string $pdf_file Factur-X PDF file to validate (.pdf format). (required)
      * @param  \FactPulse\SDK\Model\APIProfile|null $profile (optional)
      * @param  bool|null $use_verapdf Enable strict PDF/A validation with VeraPDF (recommended for production). May take several seconds. (optional, default to false)
      * @param  string|null $callback_url (optional)
@@ -601,7 +601,7 @@ class FacturXValidationApi
      *
      * Validate a Factur-X PDF (asynchronous with polling)
      *
-     * @param  \SplFileObject $pdf_file Factur-X PDF file to validate (.pdf format). (required)
+     * @param  string $pdf_file Factur-X PDF file to validate (.pdf format). (required)
      * @param  \FactPulse\SDK\Model\APIProfile|null $profile (optional)
      * @param  bool|null $use_verapdf Enable strict PDF/A validation with VeraPDF (recommended for production). May take several seconds. (optional, default to false)
      * @param  string|null $callback_url (optional)
@@ -626,7 +626,7 @@ class FacturXValidationApi
      *
      * Validate a Factur-X PDF (asynchronous with polling)
      *
-     * @param  \SplFileObject $pdf_file Factur-X PDF file to validate (.pdf format). (required)
+     * @param  string $pdf_file Factur-X PDF file to validate (.pdf format). (required)
      * @param  \FactPulse\SDK\Model\APIProfile|null $profile (optional)
      * @param  bool|null $use_verapdf Enable strict PDF/A validation with VeraPDF (recommended for production). May take several seconds. (optional, default to false)
      * @param  string|null $callback_url (optional)
@@ -680,7 +680,7 @@ class FacturXValidationApi
     /**
      * Create request for operation 'validateFacturxPdfAsyncApiV1ProcessingValidateFacturxAsyncPost'
      *
-     * @param  \SplFileObject $pdf_file Factur-X PDF file to validate (.pdf format). (required)
+     * @param  string $pdf_file Factur-X PDF file to validate (.pdf format). (required)
      * @param  \FactPulse\SDK\Model\APIProfile|null $profile (optional)
      * @param  bool|null $use_verapdf Enable strict PDF/A validation with VeraPDF (recommended for production). May take several seconds. (optional, default to false)
      * @param  string|null $callback_url (optional)

@@ -444,7 +444,7 @@ class ElectronicSignatureApi
      *
      * Sign a PDF with client&#39;s certificate (PAdES-B-LT)
      *
-     * @param  \SplFileObject $pdf_file PDF file to sign (will be processed and returned signed in base64) (required)
+     * @param  string $pdf_file PDF file to sign (will be processed and returned signed in base64) (required)
      * @param  string|null $reason reason (optional)
      * @param  string|null $location location (optional)
      * @param  string|null $contact contact (optional)
@@ -468,7 +468,7 @@ class ElectronicSignatureApi
      *
      * Sign a PDF with client&#39;s certificate (PAdES-B-LT)
      *
-     * @param  \SplFileObject $pdf_file PDF file to sign (will be processed and returned signed in base64) (required)
+     * @param  string $pdf_file PDF file to sign (will be processed and returned signed in base64) (required)
      * @param  string|null $reason (optional)
      * @param  string|null $location (optional)
      * @param  string|null $contact (optional)
@@ -573,7 +573,7 @@ class ElectronicSignatureApi
      *
      * Sign a PDF with client&#39;s certificate (PAdES-B-LT)
      *
-     * @param  \SplFileObject $pdf_file PDF file to sign (will be processed and returned signed in base64) (required)
+     * @param  string $pdf_file PDF file to sign (will be processed and returned signed in base64) (required)
      * @param  string|null $reason (optional)
      * @param  string|null $location (optional)
      * @param  string|null $contact (optional)
@@ -600,7 +600,7 @@ class ElectronicSignatureApi
      *
      * Sign a PDF with client&#39;s certificate (PAdES-B-LT)
      *
-     * @param  \SplFileObject $pdf_file PDF file to sign (will be processed and returned signed in base64) (required)
+     * @param  string $pdf_file PDF file to sign (will be processed and returned signed in base64) (required)
      * @param  string|null $reason (optional)
      * @param  string|null $location (optional)
      * @param  string|null $contact (optional)
@@ -656,7 +656,7 @@ class ElectronicSignatureApi
     /**
      * Create request for operation 'signPdfApiV1ProcessingSignPdfPost'
      *
-     * @param  \SplFileObject $pdf_file PDF file to sign (will be processed and returned signed in base64) (required)
+     * @param  string $pdf_file PDF file to sign (will be processed and returned signed in base64) (required)
      * @param  string|null $reason (optional)
      * @param  string|null $location (optional)
      * @param  string|null $contact (optional)
@@ -779,7 +779,7 @@ class ElectronicSignatureApi
      *
      * Sign a PDF asynchronously (Celery)
      *
-     * @param  \SplFileObject $pdf_file PDF file to sign (processed asynchronously) (required)
+     * @param  string $pdf_file PDF file to sign (processed asynchronously) (required)
      * @param  string|null $callback_url callback_url (optional)
      * @param  string|null $webhook_mode Webhook content delivery: &#39;inline&#39; (base64 in payload) or &#39;download_url&#39; (temporary URL, 1h TTL) (optional, default to 'inline')
      * @param  string|null $reason reason (optional)
@@ -805,7 +805,7 @@ class ElectronicSignatureApi
      *
      * Sign a PDF asynchronously (Celery)
      *
-     * @param  \SplFileObject $pdf_file PDF file to sign (processed asynchronously) (required)
+     * @param  string $pdf_file PDF file to sign (processed asynchronously) (required)
      * @param  string|null $callback_url (optional)
      * @param  string|null $webhook_mode Webhook content delivery: &#39;inline&#39; (base64 in payload) or &#39;download_url&#39; (temporary URL, 1h TTL) (optional, default to 'inline')
      * @param  string|null $reason (optional)
@@ -912,7 +912,7 @@ class ElectronicSignatureApi
      *
      * Sign a PDF asynchronously (Celery)
      *
-     * @param  \SplFileObject $pdf_file PDF file to sign (processed asynchronously) (required)
+     * @param  string $pdf_file PDF file to sign (processed asynchronously) (required)
      * @param  string|null $callback_url (optional)
      * @param  string|null $webhook_mode Webhook content delivery: &#39;inline&#39; (base64 in payload) or &#39;download_url&#39; (temporary URL, 1h TTL) (optional, default to 'inline')
      * @param  string|null $reason (optional)
@@ -941,7 +941,7 @@ class ElectronicSignatureApi
      *
      * Sign a PDF asynchronously (Celery)
      *
-     * @param  \SplFileObject $pdf_file PDF file to sign (processed asynchronously) (required)
+     * @param  string $pdf_file PDF file to sign (processed asynchronously) (required)
      * @param  string|null $callback_url (optional)
      * @param  string|null $webhook_mode Webhook content delivery: &#39;inline&#39; (base64 in payload) or &#39;download_url&#39; (temporary URL, 1h TTL) (optional, default to 'inline')
      * @param  string|null $reason (optional)
@@ -999,7 +999,7 @@ class ElectronicSignatureApi
     /**
      * Create request for operation 'signPdfAsyncApiV1ProcessingSignPdfAsyncPost'
      *
-     * @param  \SplFileObject $pdf_file PDF file to sign (processed asynchronously) (required)
+     * @param  string $pdf_file PDF file to sign (processed asynchronously) (required)
      * @param  string|null $callback_url (optional)
      * @param  string|null $webhook_mode Webhook content delivery: &#39;inline&#39; (base64 in payload) or &#39;download_url&#39; (temporary URL, 1h TTL) (optional, default to 'inline')
      * @param  string|null $reason (optional)
@@ -1128,7 +1128,7 @@ class ElectronicSignatureApi
      *
      * Validate electronic signatures of a PDF
      *
-     * @param  \SplFileObject $pdf_file PDF file to validate (will be analyzed to detect and validate signatures) (required)
+     * @param  string $pdf_file PDF file to validate (will be analyzed to detect and validate signatures) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validatePdfSignatureEndpointApiV1ProcessingValidatePdfSignaturePost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1146,7 +1146,7 @@ class ElectronicSignatureApi
      *
      * Validate electronic signatures of a PDF
      *
-     * @param  \SplFileObject $pdf_file PDF file to validate (will be analyzed to detect and validate signatures) (required)
+     * @param  string $pdf_file PDF file to validate (will be analyzed to detect and validate signatures) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validatePdfSignatureEndpointApiV1ProcessingValidatePdfSignaturePost'] to see the possible values for this operation
      *
      * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1259,7 +1259,7 @@ class ElectronicSignatureApi
      *
      * Validate electronic signatures of a PDF
      *
-     * @param  \SplFileObject $pdf_file PDF file to validate (will be analyzed to detect and validate signatures) (required)
+     * @param  string $pdf_file PDF file to validate (will be analyzed to detect and validate signatures) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validatePdfSignatureEndpointApiV1ProcessingValidatePdfSignaturePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1280,7 +1280,7 @@ class ElectronicSignatureApi
      *
      * Validate electronic signatures of a PDF
      *
-     * @param  \SplFileObject $pdf_file PDF file to validate (will be analyzed to detect and validate signatures) (required)
+     * @param  string $pdf_file PDF file to validate (will be analyzed to detect and validate signatures) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validatePdfSignatureEndpointApiV1ProcessingValidatePdfSignaturePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1330,7 +1330,7 @@ class ElectronicSignatureApi
     /**
      * Create request for operation 'validatePdfSignatureEndpointApiV1ProcessingValidatePdfSignaturePost'
      *
-     * @param  \SplFileObject $pdf_file PDF file to validate (will be analyzed to detect and validate signatures) (required)
+     * @param  string $pdf_file PDF file to validate (will be analyzed to detect and validate signatures) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validatePdfSignatureEndpointApiV1ProcessingValidatePdfSignaturePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

@@ -135,6 +135,24 @@ class EncaisseeRequestTest extends TestCase
     }
 
     /**
+     * Test attribute "amounts_by_rate"
+     */
+    public function testPropertyAmountsByRate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "comment"
+     */
+    public function testPropertyComment()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "currency"
      */
     public function testPropertyCurrency()

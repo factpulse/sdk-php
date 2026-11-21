@@ -1,6 +1,6 @@
 <?php
 /**
- * ValidationErrorResponseTest
+ * SuperPDPVatRegimeResponseTest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace FactPulse\SDK\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ValidationErrorResponseTest Class Doc Comment
+ * SuperPDPVatRegimeResponseTest Class Doc Comment
  *
  * @category    Class
- * @description Response for validation errors.
+ * @description VAT regime of the client&#39;s company at SuperPDP.
  * @package     FactPulse\SDK
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ValidationErrorResponseTest extends TestCase
+class SuperPDPVatRegimeResponseTest extends TestCase
 {
 
     /**
@@ -72,18 +72,27 @@ class ValidationErrorResponseTest extends TestCase
     }
 
     /**
-     * Test "ValidationErrorResponse"
+     * Test "SuperPDPVatRegimeResponse"
      */
-    public function testValidationErrorResponse()
+    public function testSuperPDPVatRegimeResponse()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "detail"
+     * Test attribute "vat_regime"
      */
-    public function testPropertyDetail()
+    public function testPropertyVatRegime()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "has_vat_on_debits"
+     */
+    public function testPropertyHasVatOnDebits()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

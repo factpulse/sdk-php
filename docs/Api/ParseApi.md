@@ -42,7 +42,7 @@ $apiInstance = new FactPulse\SDK\Api\ParseApi(
     new GuzzleHttp\Client(),
     $config
 );
-$file = '/path/to/file.txt'; // \SplFileObject | Factur-X PDF or XML file to parse
+$file = 'file_example'; // string | Factur-X PDF or XML file to parse
 $callback_url = 'callback_url_example'; // string
 
 try {
@@ -57,7 +57,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **file** | **\SplFileObject****\SplFileObject**| Factur-X PDF or XML file to parse | |
+| **file** | **string**| Factur-X PDF or XML file to parse | |
 | **callback_url** | **string**|  | [optional] |
 
 ### Return type
@@ -109,7 +109,7 @@ $apiInstance = new FactPulse\SDK\Api\ParseApi(
     new GuzzleHttp\Client(),
     $config
 );
-$file = '/path/to/file.txt'; // \SplFileObject | Factur-X PDF or XML file to parse
+$file = 'file_example'; // string | Factur-X PDF or XML file to parse
 
 try {
     $result = $apiInstance->parseFacturxSyncApiV1ProcessingParseFacturxPost($file);
@@ -123,7 +123,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **file** | **\SplFileObject****\SplFileObject**| Factur-X PDF or XML file to parse | |
+| **file** | **string**| Factur-X PDF or XML file to parse | |
 
 ### Return type
 

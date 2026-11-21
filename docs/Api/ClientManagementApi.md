@@ -16,11 +16,13 @@ All URIs are relative to https://factpulse.fr, except if the operation defines a
 | [**getPdpConfigApiV1ClientsUidPdpConfigGet()**](ClientManagementApi.md#getPdpConfigApiV1ClientsUidPdpConfigGet) | **GET** /api/v1/clients/{uid}/pdp-config | Get client PDP configuration |
 | [**getSuperpdpConnectUrlApiV1ClientsUidSuperpdpConnectUrlPost()**](ClientManagementApi.md#getSuperpdpConnectUrlApiV1ClientsUidSuperpdpConnectUrlPost) | **POST** /api/v1/clients/{uid}/superpdp/connect-url | Get SuperPDP connection URL |
 | [**getSuperpdpStatusApiV1ClientsUidSuperpdpStatusGet()**](ClientManagementApi.md#getSuperpdpStatusApiV1ClientsUidSuperpdpStatusGet) | **GET** /api/v1/clients/{uid}/superpdp/status | Get SuperPDP connection status |
+| [**getSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGet()**](ClientManagementApi.md#getSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGet) | **GET** /api/v1/clients/{uid}/superpdp/vat-regime | Get the SuperPDP VAT regime |
 | [**getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGet()**](ClientManagementApi.md#getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGet) | **GET** /api/v1/clients/{uid}/webhook-secret/status | Get webhook secret status |
 | [**listClientsApiV1ClientsGet()**](ClientManagementApi.md#listClientsApiV1ClientsGet) | **GET** /api/v1/clients | List clients |
 | [**rotateEncryptionKeyApiV1ClientsUidRotateEncryptionKeyPost()**](ClientManagementApi.md#rotateEncryptionKeyApiV1ClientsUidRotateEncryptionKeyPost) | **POST** /api/v1/clients/{uid}/rotate-encryption-key | Rotate client encryption key |
 | [**updateClientApiV1ClientsUidPatch()**](ClientManagementApi.md#updateClientApiV1ClientsUidPatch) | **PATCH** /api/v1/clients/{uid} | Update a client |
 | [**updatePdpConfigApiV1ClientsUidPdpConfigPut()**](ClientManagementApi.md#updatePdpConfigApiV1ClientsUidPdpConfigPut) | **PUT** /api/v1/clients/{uid}/pdp-config | Configure client PDP |
+| [**updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatch()**](ClientManagementApi.md#updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatch) | **PATCH** /api/v1/clients/{uid}/superpdp/vat-regime | Set the SuperPDP VAT regime |
 
 
 ## `activateClientApiV1ClientsUidActiverPost()`
@@ -677,6 +679,71 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGet()`
+
+```php
+getSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGet($uid): \FactPulse\SDK\Model\SuperPDPVatRegimeResponse
+```
+
+Get the SuperPDP VAT regime
+
+Read the VAT regime of the client's company at SuperPDP (`vatRegime` is null when not set).  SuperPDP refuses e-reporting (\"The VAT regime needs to be setup at the company level\") until the VAT regime of the company is set: it defines the e-reporting transmission periods, and the Flux 10 file does not carry it. This setting is not part of the AFNOR API; FactPulse sets it with the client's SuperPDP connection.  **Scope**: Client level (JWT with client_uid that must match {uid})  **Errors**: - `404 not_connected`: the client has not connected its SuperPDP account - `400 superpdp_error`: SuperPDP refused the request (`superpdp_status`, `message`) - `502`: SuperPDP unreachable, or the SuperPDP connection must be redone
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+// Configure Bearer authorization: HTTPBearer
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new FactPulse\SDK\Api\ClientManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$uid = 'uid_example'; // string | Client unique identifier (UUID)
+
+try {
+    $result = $apiInstance->getSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGet($uid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ClientManagementApi->getSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGet: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **uid** | **string**| Client unique identifier (UUID) | |
+
+### Return type
+
+[**\FactPulse\SDK\Model\SuperPDPVatRegimeResponse**](../Model/SuperPDPVatRegimeResponse.md)
+
+### Authorization
+
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGet()`
 
 ```php
@@ -998,6 +1065,73 @@ try {
 ### Return type
 
 [**\FactPulse\SDK\Model\PDPConfigResponse**](../Model/PDPConfigResponse.md)
+
+### Authorization
+
+[APIKeyHeader](../../README.md#APIKeyHeader), [HTTPBearer](../../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatch()`
+
+```php
+updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatch($uid, $super_pdp_vat_regime_update_request): \FactPulse\SDK\Model\SuperPDPVatRegimeResponse
+```
+
+Set the SuperPDP VAT regime
+
+Set the VAT regime of the client's company at SuperPDP. When `hasVatOnDebits` is omitted, its current value is kept.  SuperPDP refuses e-reporting (\"The VAT regime needs to be setup at the company level\") until the VAT regime of the company is set: it defines the e-reporting transmission periods, and the Flux 10 file does not carry it. This setting is not part of the AFNOR API; FactPulse sets it with the client's SuperPDP connection.  **Scope**: Client level (JWT with client_uid that must match {uid})  **Errors**: - `404 not_connected`: the client has not connected its SuperPDP account - `400 superpdp_error`: SuperPDP refused the request (`superpdp_status`, `message`) - `502`: SuperPDP unreachable, or the SuperPDP connection must be redone
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: APIKeyHeader
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+// Configure Bearer authorization: HTTPBearer
+$config = FactPulse\SDK\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new FactPulse\SDK\Api\ClientManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$uid = 'uid_example'; // string | Client unique identifier (UUID)
+$super_pdp_vat_regime_update_request = new \FactPulse\SDK\Model\SuperPDPVatRegimeUpdateRequest(); // \FactPulse\SDK\Model\SuperPDPVatRegimeUpdateRequest
+
+try {
+    $result = $apiInstance->updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatch($uid, $super_pdp_vat_regime_update_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ClientManagementApi->updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatch: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **uid** | **string**| Client unique identifier (UUID) | |
+| **super_pdp_vat_regime_update_request** | [**\FactPulse\SDK\Model\SuperPDPVatRegimeUpdateRequest**](../Model/SuperPDPVatRegimeUpdateRequest.md)|  | |
+
+### Return type
+
+[**\FactPulse\SDK\Model\SuperPDPVatRegimeResponse**](../Model/SuperPDPVatRegimeResponse.md)
 
 ### Authorization
 

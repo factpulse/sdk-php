@@ -193,6 +193,18 @@ class ClientManagementApiTest extends TestCase
     }
 
     /**
+     * Test case for getSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGet
+     *
+     * Get the SuperPDP VAT regime.
+     *
+     */
+    public function testGetSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGet()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGet
      *
      * Get webhook secret status.
@@ -247,6 +259,18 @@ class ClientManagementApiTest extends TestCase
      *
      */
     public function testUpdatePdpConfigApiV1ClientsUidPdpConfigPut()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatch
+     *
+     * Set the SuperPDP VAT regime.
+     *
+     */
+    public function testUpdateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatch()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

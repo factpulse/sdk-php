@@ -105,6 +105,9 @@ class ClientManagementApi
         'getSuperpdpStatusApiV1ClientsUidSuperpdpStatusGet' => [
             'application/json',
         ],
+        'getSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGet' => [
+            'application/json',
+        ],
         'getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGet' => [
             'application/json',
         ],
@@ -118,6 +121,9 @@ class ClientManagementApi
             'application/json',
         ],
         'updatePdpConfigApiV1ClientsUidPdpConfigPut' => [
+            'application/json',
+        ],
+        'updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatch' => [
             'application/json',
         ],
     ];
@@ -3108,6 +3114,297 @@ class ClientManagementApi
     }
 
     /**
+     * Operation getSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGet
+     *
+     * Get the SuperPDP VAT regime
+     *
+     * @param  string $uid Client unique identifier (UUID) (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGet'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \FactPulse\SDK\Model\SuperPDPVatRegimeResponse|\FactPulse\SDK\Model\HTTPValidationError
+     */
+    public function getSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGet($uid, string $contentType = self::contentTypes['getSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGet'][0])
+    {
+        list($response) = $this->getSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGetWithHttpInfo($uid, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGetWithHttpInfo
+     *
+     * Get the SuperPDP VAT regime
+     *
+     * @param  string $uid Client unique identifier (UUID) (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGet'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \FactPulse\SDK\Model\SuperPDPVatRegimeResponse|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGetWithHttpInfo($uid, string $contentType = self::contentTypes['getSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGet'][0])
+    {
+        $request = $this->getSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGetRequest($uid, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\SuperPDPVatRegimeResponse',
+                        $request,
+                        $response,
+                    );
+                case 422:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\FactPulse\SDK\Model\SuperPDPVatRegimeResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\SuperPDPVatRegimeResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGetAsync
+     *
+     * Get the SuperPDP VAT regime
+     *
+     * @param  string $uid Client unique identifier (UUID) (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGetAsync($uid, string $contentType = self::contentTypes['getSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGet'][0])
+    {
+        return $this->getSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGetAsyncWithHttpInfo($uid, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGetAsyncWithHttpInfo
+     *
+     * Get the SuperPDP VAT regime
+     *
+     * @param  string $uid Client unique identifier (UUID) (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGetAsyncWithHttpInfo($uid, string $contentType = self::contentTypes['getSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGet'][0])
+    {
+        $returnType = '\FactPulse\SDK\Model\SuperPDPVatRegimeResponse';
+        $request = $this->getSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGetRequest($uid, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGet'
+     *
+     * @param  string $uid Client unique identifier (UUID) (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGetRequest($uid, string $contentType = self::contentTypes['getSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGet'][0])
+    {
+
+        // verify the required parameter 'uid' is set
+        if ($uid === null || (is_array($uid) && count($uid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $uid when calling getSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimeGet'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/clients/{uid}/superpdp/vat-regime';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($uid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'uid' . '}',
+                ObjectSerializer::toPathValue($uid),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getWebhookSecretStatusApiV1ClientsUidWebhookSecretStatusGet
      *
      * Get webhook secret status
@@ -4642,6 +4939,316 @@ class ClientManagementApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'PUT',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatch
+     *
+     * Set the SuperPDP VAT regime
+     *
+     * @param  string $uid Client unique identifier (UUID) (required)
+     * @param  \FactPulse\SDK\Model\SuperPDPVatRegimeUpdateRequest $super_pdp_vat_regime_update_request super_pdp_vat_regime_update_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatch'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \FactPulse\SDK\Model\SuperPDPVatRegimeResponse|\FactPulse\SDK\Model\HTTPValidationError
+     */
+    public function updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatch($uid, $super_pdp_vat_regime_update_request, string $contentType = self::contentTypes['updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatch'][0])
+    {
+        list($response) = $this->updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatchWithHttpInfo($uid, $super_pdp_vat_regime_update_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatchWithHttpInfo
+     *
+     * Set the SuperPDP VAT regime
+     *
+     * @param  string $uid Client unique identifier (UUID) (required)
+     * @param  \FactPulse\SDK\Model\SuperPDPVatRegimeUpdateRequest $super_pdp_vat_regime_update_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatch'] to see the possible values for this operation
+     *
+     * @throws \FactPulse\SDK\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \FactPulse\SDK\Model\SuperPDPVatRegimeResponse|\FactPulse\SDK\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatchWithHttpInfo($uid, $super_pdp_vat_regime_update_request, string $contentType = self::contentTypes['updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatch'][0])
+    {
+        $request = $this->updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatchRequest($uid, $super_pdp_vat_regime_update_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\SuperPDPVatRegimeResponse',
+                        $request,
+                        $response,
+                    );
+                case 422:
+                    return $this->handleResponseWithDataType(
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\FactPulse\SDK\Model\SuperPDPVatRegimeResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\SuperPDPVatRegimeResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FactPulse\SDK\Model\HTTPValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatchAsync
+     *
+     * Set the SuperPDP VAT regime
+     *
+     * @param  string $uid Client unique identifier (UUID) (required)
+     * @param  \FactPulse\SDK\Model\SuperPDPVatRegimeUpdateRequest $super_pdp_vat_regime_update_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatch'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatchAsync($uid, $super_pdp_vat_regime_update_request, string $contentType = self::contentTypes['updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatch'][0])
+    {
+        return $this->updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatchAsyncWithHttpInfo($uid, $super_pdp_vat_regime_update_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatchAsyncWithHttpInfo
+     *
+     * Set the SuperPDP VAT regime
+     *
+     * @param  string $uid Client unique identifier (UUID) (required)
+     * @param  \FactPulse\SDK\Model\SuperPDPVatRegimeUpdateRequest $super_pdp_vat_regime_update_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatch'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatchAsyncWithHttpInfo($uid, $super_pdp_vat_regime_update_request, string $contentType = self::contentTypes['updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatch'][0])
+    {
+        $returnType = '\FactPulse\SDK\Model\SuperPDPVatRegimeResponse';
+        $request = $this->updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatchRequest($uid, $super_pdp_vat_regime_update_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatch'
+     *
+     * @param  string $uid Client unique identifier (UUID) (required)
+     * @param  \FactPulse\SDK\Model\SuperPDPVatRegimeUpdateRequest $super_pdp_vat_regime_update_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatch'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatchRequest($uid, $super_pdp_vat_regime_update_request, string $contentType = self::contentTypes['updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatch'][0])
+    {
+
+        // verify the required parameter 'uid' is set
+        if ($uid === null || (is_array($uid) && count($uid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $uid when calling updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatch'
+            );
+        }
+
+        // verify the required parameter 'super_pdp_vat_regime_update_request' is set
+        if ($super_pdp_vat_regime_update_request === null || (is_array($super_pdp_vat_regime_update_request) && count($super_pdp_vat_regime_update_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $super_pdp_vat_regime_update_request when calling updateSuperpdpVatRegimeApiV1ClientsUidSuperpdpVatRegimePatch'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/clients/{uid}/superpdp/vat-regime';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($uid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'uid' . '}',
+                ObjectSerializer::toPathValue($uid),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($super_pdp_vat_regime_update_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($super_pdp_vat_regime_update_request));
+            } else {
+                $httpBody = $super_pdp_vat_regime_update_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
